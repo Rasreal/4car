@@ -1055,7 +1055,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                           valueOrDefault<
                                                                               String>(
                                                                             functions.oborotName(containerBookingsRecordList.toList()),
-                                                                            '₸',
+                                                                            ' ₸',
                                                                           ),
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyText1
@@ -1311,11 +1311,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                             0),
                                                                         child:
                                                                             Text(
-                                                                          valueOrDefault<
-                                                                              String>(
-                                                                            functions.averageCheque(containerBookingsRecordList.toList()),
-                                                                            '0',
-                                                                          ),
+                                                                          '0 ',
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyText1
                                                                               .override(
@@ -1334,11 +1330,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                             2),
                                                                         child:
                                                                             Text(
-                                                                          valueOrDefault<
-                                                                              String>(
-                                                                            functions.averageChequeName(containerBookingsRecordList.toList()),
-                                                                            ' ₸',
-                                                                          ),
+                                                                          '₸',
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyText1
                                                                               .override(
@@ -1454,11 +1446,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                             0),
                                                                         child:
                                                                             Text(
-                                                                          valueOrDefault<
-                                                                              String>(
-                                                                            functions.oborotForCarPrecent(containerBookingsRecordList.toList()),
-                                                                            '0',
-                                                                          ),
+                                                                          '0 ',
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyText1
                                                                               .override(
@@ -1477,11 +1465,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                             2),
                                                                         child:
                                                                             Text(
-                                                                          valueOrDefault<
-                                                                              String>(
-                                                                            functions.oborotForCarPrecentName(containerBookingsRecordList.toList()),
-                                                                            ' ₸',
-                                                                          ),
+                                                                          '₸',
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyText1
                                                                               .override(

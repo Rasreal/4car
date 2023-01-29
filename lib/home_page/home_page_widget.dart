@@ -582,12 +582,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   alignment: AlignmentDirectional(0, 0),
                   child: FFButtonWidget(
                     onPressed: () async {
-                      logFirebaseEvent('HOME_PAGE_PAGE_BUTTON_BTN_ON_TAP');
+                      logFirebaseEvent('HOME_PAGE_PAGE_BUTTON44_BTN_ON_TAP');
                       logFirebaseEvent('Button_navigate_to');
 
                       context.goNamed('admin_main');
                     },
-                    text: 'Button',
+                    text: 'Button44',
                     options: FFButtonOptions(
                       width: 130,
                       height: 40,

@@ -279,6 +279,9 @@ String averageCheque(List<BookingsRecord> bookingRecord) {
   for (int i = 0; i < bookingRecord.length; i++) {
     sum = sum + bookingRecord[i]!.totalPrice!;
   }
+  if (bookingRecord.length == 0) {
+    return "0";
+  }
   sum = sum ~/ bookingRecord.length;
   if (sum.toString().length > 6 && sum.toString().length < 10) {
     return sum.toString().substring(0, sum.toString().length - 6);

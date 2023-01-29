@@ -2010,15 +2010,19 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget> {
                                                                               0),
                                                                       child:
                                                                           LinearPercentIndicator(
-                                                                        percent: functions.adminReviewPercentCount(
-                                                                            valueOrDefault<int>(
-                                                                              containerCommentsRecordList.where((e) => e.rating == 5.0).toList().length,
-                                                                              0,
-                                                                            ),
-                                                                            valueOrDefault<int>(
-                                                                              containerCommentsRecordList.length,
-                                                                              0,
-                                                                            )),
+                                                                        percent:
+                                                                            valueOrDefault<double>(
+                                                                          functions.adminReviewPercentCount(
+                                                                              valueOrDefault<int>(
+                                                                                containerCommentsRecordList.where((e) => e.rating == 5.0).toList().length,
+                                                                                0,
+                                                                              ),
+                                                                              valueOrDefault<int>(
+                                                                                containerCommentsRecordList.length,
+                                                                                0,
+                                                                              )),
+                                                                          0.0,
+                                                                        ),
                                                                         width:
                                                                             541,
                                                                         lineHeight:
@@ -2055,13 +2059,24 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget> {
                                                                       ),
                                                                     ),
                                                                     Text(
-                                                                      '${functions.adminReviewPercent(valueOrDefault<int>(
-                                                                            containerCommentsRecordList.where((e) => e.rating == 5.0).toList().length,
-                                                                            0,
-                                                                          ), valueOrDefault<int>(
-                                                                            containerCommentsRecordList.length,
-                                                                            0,
-                                                                          )).toString()}%',
+                                                                      valueOrDefault<
+                                                                          String>(
+                                                                        '${valueOrDefault<String>(
+                                                                          functions
+                                                                              .adminReviewPercent(
+                                                                                  valueOrDefault<int>(
+                                                                                    containerCommentsRecordList.where((e) => e.rating == 5.0).toList().length,
+                                                                                    0,
+                                                                                  ),
+                                                                                  valueOrDefault<int>(
+                                                                                    containerCommentsRecordList.length,
+                                                                                    0,
+                                                                                  ))
+                                                                              .toString(),
+                                                                          '0',
+                                                                        )}%',
+                                                                        '0%',
+                                                                      ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .bodyText1
@@ -2123,15 +2138,19 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget> {
                                                                               0),
                                                                       child:
                                                                           LinearPercentIndicator(
-                                                                        percent: functions.adminReviewPercentCount(
-                                                                            valueOrDefault<int>(
-                                                                              containerCommentsRecordList.where((e) => e.rating == 4.0).toList().length,
-                                                                              0,
-                                                                            ),
-                                                                            valueOrDefault<int>(
-                                                                              containerCommentsRecordList.length,
-                                                                              0,
-                                                                            )),
+                                                                        percent:
+                                                                            valueOrDefault<double>(
+                                                                          functions.adminReviewPercentCount(
+                                                                              valueOrDefault<int>(
+                                                                                containerCommentsRecordList.where((e) => e.rating == 4.0).toList().length,
+                                                                                0,
+                                                                              ),
+                                                                              valueOrDefault<int>(
+                                                                                containerCommentsRecordList.length,
+                                                                                0,
+                                                                              )),
+                                                                          0.0,
+                                                                        ),
                                                                         width:
                                                                             541,
                                                                         lineHeight:
@@ -2168,13 +2187,17 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget> {
                                                                       ),
                                                                     ),
                                                                     Text(
-                                                                      '${functions.adminReviewPercent(valueOrDefault<int>(
-                                                                            containerCommentsRecordList.where((e) => e.rating == 4.0).toList().length,
-                                                                            0,
-                                                                          ), valueOrDefault<int>(
-                                                                            containerCommentsRecordList.length,
-                                                                            0,
-                                                                          )).toString()}%',
+                                                                      valueOrDefault<
+                                                                          String>(
+                                                                        '${functions.adminReviewPercent(valueOrDefault<int>(
+                                                                              containerCommentsRecordList.where((e) => e.rating == 4.0).toList().length,
+                                                                              0,
+                                                                            ), valueOrDefault<int>(
+                                                                              containerCommentsRecordList.length,
+                                                                              0,
+                                                                            )).toString()}%',
+                                                                        '0%',
+                                                                      ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .bodyText1
@@ -2236,15 +2259,19 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget> {
                                                                               0),
                                                                       child:
                                                                           LinearPercentIndicator(
-                                                                        percent: functions.adminReviewPercentCount(
-                                                                            valueOrDefault<int>(
-                                                                              containerCommentsRecordList.where((e) => e.rating == 3.0).toList().length,
-                                                                              0,
-                                                                            ),
-                                                                            valueOrDefault<int>(
-                                                                              containerCommentsRecordList.length,
-                                                                              0,
-                                                                            )),
+                                                                        percent:
+                                                                            valueOrDefault<double>(
+                                                                          functions.adminReviewPercentCount(
+                                                                              valueOrDefault<int>(
+                                                                                containerCommentsRecordList.where((e) => e.rating == 3.0).toList().length,
+                                                                                0,
+                                                                              ),
+                                                                              valueOrDefault<int>(
+                                                                                containerCommentsRecordList.length,
+                                                                                0,
+                                                                              )),
+                                                                          0.0,
+                                                                        ),
                                                                         width:
                                                                             541,
                                                                         lineHeight:
@@ -2281,13 +2308,17 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget> {
                                                                       ),
                                                                     ),
                                                                     Text(
-                                                                      '${functions.adminReviewPercent(valueOrDefault<int>(
-                                                                            containerCommentsRecordList.where((e) => e.rating == 3.0).toList().length,
-                                                                            0,
-                                                                          ), valueOrDefault<int>(
-                                                                            containerCommentsRecordList.length,
-                                                                            0,
-                                                                          )).toString()}%',
+                                                                      valueOrDefault<
+                                                                          String>(
+                                                                        '${functions.adminReviewPercent(valueOrDefault<int>(
+                                                                              containerCommentsRecordList.where((e) => e.rating == 3.0).toList().length,
+                                                                              0,
+                                                                            ), valueOrDefault<int>(
+                                                                              containerCommentsRecordList.length,
+                                                                              0,
+                                                                            )).toString()}%',
+                                                                        '0%',
+                                                                      ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .bodyText1
@@ -2349,15 +2380,19 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget> {
                                                                               0),
                                                                       child:
                                                                           LinearPercentIndicator(
-                                                                        percent: functions.adminReviewPercentCount(
-                                                                            valueOrDefault<int>(
-                                                                              containerCommentsRecordList.where((e) => e.rating == 2.0).toList().length,
-                                                                              0,
-                                                                            ),
-                                                                            valueOrDefault<int>(
-                                                                              containerCommentsRecordList.length,
-                                                                              0,
-                                                                            )),
+                                                                        percent:
+                                                                            valueOrDefault<double>(
+                                                                          functions.adminReviewPercentCount(
+                                                                              valueOrDefault<int>(
+                                                                                containerCommentsRecordList.where((e) => e.rating == 2.0).toList().length,
+                                                                                0,
+                                                                              ),
+                                                                              valueOrDefault<int>(
+                                                                                containerCommentsRecordList.length,
+                                                                                0,
+                                                                              )),
+                                                                          0.0,
+                                                                        ),
                                                                         width:
                                                                             541,
                                                                         lineHeight:
@@ -2394,13 +2429,17 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget> {
                                                                       ),
                                                                     ),
                                                                     Text(
-                                                                      '${functions.adminReviewPercent(valueOrDefault<int>(
-                                                                            containerCommentsRecordList.where((e) => e.rating == 2.0).toList().length,
-                                                                            0,
-                                                                          ), valueOrDefault<int>(
-                                                                            containerCommentsRecordList.length,
-                                                                            0,
-                                                                          )).toString()}%',
+                                                                      valueOrDefault<
+                                                                          String>(
+                                                                        '${functions.adminReviewPercent(valueOrDefault<int>(
+                                                                              containerCommentsRecordList.where((e) => e.rating == 2.0).toList().length,
+                                                                              0,
+                                                                            ), valueOrDefault<int>(
+                                                                              containerCommentsRecordList.length,
+                                                                              0,
+                                                                            )).toString()}%',
+                                                                        '0%',
+                                                                      ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .bodyText1
@@ -2454,15 +2493,20 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget> {
                                                                             0),
                                                                     child:
                                                                         LinearPercentIndicator(
-                                                                      percent: functions.adminReviewPercentCount(
-                                                                          valueOrDefault<int>(
-                                                                            containerCommentsRecordList.where((e) => e.rating == 1.0).toList().length,
-                                                                            0,
-                                                                          ),
-                                                                          valueOrDefault<int>(
-                                                                            containerCommentsRecordList.length,
-                                                                            0,
-                                                                          )),
+                                                                      percent:
+                                                                          valueOrDefault<
+                                                                              double>(
+                                                                        functions.adminReviewPercentCount(
+                                                                            valueOrDefault<int>(
+                                                                              containerCommentsRecordList.where((e) => e.rating == 1.0).toList().length,
+                                                                              0,
+                                                                            ),
+                                                                            valueOrDefault<int>(
+                                                                              containerCommentsRecordList.length,
+                                                                              0,
+                                                                            )),
+                                                                        0.0,
+                                                                      ),
                                                                       width:
                                                                           541,
                                                                       lineHeight:
@@ -2506,17 +2550,17 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget> {
                                                                     ),
                                                                   ),
                                                                   Text(
-                                                                    '${functions.adminReviewPercent(valueOrDefault<int>(
-                                                                          containerCommentsRecordList
-                                                                              .where((e) => e.rating == 1.0)
-                                                                              .toList()
-                                                                              .length,
-                                                                          0,
-                                                                        ), valueOrDefault<int>(
-                                                                          containerCommentsRecordList
-                                                                              .length,
-                                                                          0,
-                                                                        )).toString()}%',
+                                                                    valueOrDefault<
+                                                                        String>(
+                                                                      '${functions.adminReviewPercent(valueOrDefault<int>(
+                                                                            containerCommentsRecordList.where((e) => e.rating == 1.0).toList().length,
+                                                                            0,
+                                                                          ), valueOrDefault<int>(
+                                                                            containerCommentsRecordList.length,
+                                                                            0,
+                                                                          )).toString()}%',
+                                                                      '0%',
+                                                                    ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodyText1
