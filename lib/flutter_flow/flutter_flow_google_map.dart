@@ -40,6 +40,7 @@ class FlutterFlowMarker {
 class FlutterFlowGoogleMap extends StatefulWidget {
   const FlutterFlowGoogleMap({
     required this.controller,
+    required this.iconn,
     this.onCameraIdle,
     this.initialLocation,
     this.markers = const [],
@@ -61,6 +62,7 @@ class FlutterFlowGoogleMap extends StatefulWidget {
   final Completer<GoogleMapController> controller;
   final Function(latlng.LatLng)? onCameraIdle;
   final latlng.LatLng? initialLocation;
+  final BitmapDescriptor iconn;
   final Iterable<FlutterFlowMarker> markers;
   final GoogleMarkerColor markerColor;
   final MapType mapType;
@@ -122,8 +124,7 @@ class _FlutterFlowGoogleMapState extends State<FlutterFlowGoogleMap> {
                 (m) => Marker(
                   markerId: MarkerId(m.markerId),
                   position: m.location.toGoogleMaps(),
-                  icon: BitmapDescriptor.defaultMarkerWithHue(
-                      googleMarkerColorMap[widget.markerColor]!),
+                  icon: widget.iconn,
                   onTap: () async {
                     await m.onTap?.call();
                     if (widget.centerMapOnMarkerTap) {

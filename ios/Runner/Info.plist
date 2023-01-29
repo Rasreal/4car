@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>ForCar Main</string>
+	<string>e4car</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -13,7 +13,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>ForCar Main</string>
+	<string>e4car</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 
@@ -21,6 +21,22 @@
 	<string>$(FLUTTER_BUILD_NAME)</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>comgooglemaps</string>
+        <string>baidumap</string>
+        <string>iosamap</string>
+        <string>waze</string>
+        <string>yandexmaps</string>
+        <string>yandexnavi</string>
+        <string>citymapper</string>
+        <string>mapswithme</string>
+        <string>osmandmaps</string>
+        <string>dgis</string>
+        <string>qqmap</string>
+        <string>here-location</string>
+        <string>tomtomgo</string>
+    </array>
 	<key>CFBundleURLTypes</key>
 	<array>
         <dict>
@@ -28,7 +44,7 @@
             <string>Editor</string>
             <key>CFBundleURLSchemes</key>
             <array>
-                <string>com.googleusercontent.apps.91139422644-kraansr0e9i9es79a2mkp1hgdbobj5tu</string>
+                <string>com.googleusercontent.apps.241479726545-giqd6ricnf6h19rq7fmfdps9ljplgv3c</string>
                 
             </array>
         </dict>
@@ -37,10 +53,10 @@
         <key>CFBundleTypeRole</key>
         <string>Editor</string>
         <key>CFBundleURLName</key>
-        <string>forcarmain.com</string>
+        <string>e4car.com</string>
         <key>CFBundleURLSchemes</key>
         <array>
-        <string>forcarmain</string>
+        <string>e4car</string>
         </array>
         </dict>
     </array>
@@ -56,13 +72,13 @@
 	<false/>
 
 	<key>NSLocationWhenInUseUsageDescription</key>
-    <string>In order to search nearby, this app requires access to your current location.</string>
+      <string>In order to search nearby, this app requires access to your current location.</string>
 	<key>NSCameraUsageDescription</key>
-    <string>In order to take a picture or video, this app requires permission to access the camera.</string>
+      <string>In order to take a picture or video, this app requires permission to access the camera.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-    <string>In order to upload media, this app requires permission to access the photo library.</string>
+      <string>In order to upload media, this app requires permission to access the photo library.</string>
 	<key>PermissionGroupNotification</key>
-    <string>give access to notifications</string>
+      <string>give access to notifications</string>
     <key>UIBackgroundModes</key>
     <array>
         <string>fetch</string>
@@ -90,5 +106,7 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 
+	<key>CADisableMinimumFrameDurationOnPhone</key>
+	<true/>
 </dict>
 </plist>

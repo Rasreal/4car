@@ -1,3 +1,5 @@
+import 'package:flutter/services.dart';
+
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../components/add_city_widget.dart';
@@ -10,6 +12,7 @@ import '../flutter_flow/flutter_flow_google_map.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import 'dart:ui' as ui;
 import '../flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -36,9 +39,29 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
   bool? switchListTileValue;
 
+  List<String> images = ['assets/images/marker.png'];
+  Future<Uint8List> getImages(String path, int width) async {
+    ByteData data = await rootBundle.load(path);
+    ui.Codec codec = await ui.instantiateImageCodec(data.buffer.asUint8List(),
+        targetHeight: width);
+    ui.FrameInfo fi = await codec.getNextFrame();
+    return (await fi.image.toByteData(format: ui.ImageByteFormat.png))!
+        .buffer
+        .asUint8List();
+  }
+
+  Uint8List? markIcons;
+  BitmapDescriptor? iconn;
+
+  loadData() async {
+    markIcons = await getImages(images[0], 40);
+    iconn = BitmapDescriptor.fromBytes(markIcons!);
+  }
+
   @override
   void initState() {
     super.initState();
+    loadData();
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('HOME_COPY_HomePageCopy_ON_LOAD');
@@ -646,6 +669,7 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                                   showMapToolbar: false,
                                   showTraffic: false,
                                   centerMapOnMarkerTap: true,
+                                  iconn: iconn!,
                                 );
                               },
                             ),
