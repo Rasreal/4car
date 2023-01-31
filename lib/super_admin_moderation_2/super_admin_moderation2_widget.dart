@@ -31,8 +31,7 @@ class _SuperAdminModeration2WidgetState
   @override
   void initState() {
     super.initState();
-    logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'super_admin_moderation_2'});
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -140,10 +139,6 @@ class _SuperAdminModeration2WidgetState
                                                       ),
                                                       InkWell(
                                                         onTap: () async {
-                                                          logFirebaseEvent(
-                                                              'SUPER_ADMIN_MODERATION_2_Row_s1tmj52f_ON');
-                                                          logFirebaseEvent(
-                                                              'Row_update_local_state');
                                                           FFAppState()
                                                               .update(() {
                                                             FFAppState()
@@ -403,14 +398,11 @@ class _SuperAdminModeration2WidgetState
                                                                               FFButtonWidget(
                                                                             onPressed:
                                                                                 () async {
-                                                                              logFirebaseEvent('SUPER_ADMIN_MODERATION_2_1,5%_BTN_ON_TAP');
                                                                               if (FFAppState().superAdminSelectPercent != 1.5) {
-                                                                                logFirebaseEvent('Button_update_local_state');
                                                                                 FFAppState().update(() {
                                                                                   FFAppState().superAdminSelectPercent = 1.5;
                                                                                 });
                                                                               } else {
-                                                                                logFirebaseEvent('Button_update_local_state');
                                                                                 FFAppState().update(() {
                                                                                   FFAppState().superAdminSelectPercent = 0.0;
                                                                                 });
@@ -449,14 +441,11 @@ class _SuperAdminModeration2WidgetState
                                                                               FFButtonWidget(
                                                                             onPressed:
                                                                                 () async {
-                                                                              logFirebaseEvent('SUPER_ADMIN_MODERATION_2_1,4_%_BTN_ON_TA');
                                                                               if (FFAppState().superAdminSelectPercent != 1.4) {
-                                                                                logFirebaseEvent('Button_update_local_state');
                                                                                 FFAppState().update(() {
                                                                                   FFAppState().superAdminSelectPercent = 1.4;
                                                                                 });
                                                                               } else {
-                                                                                logFirebaseEvent('Button_update_local_state');
                                                                                 FFAppState().update(() {
                                                                                   FFAppState().superAdminSelectPercent = 0.0;
                                                                                 });
@@ -495,14 +484,11 @@ class _SuperAdminModeration2WidgetState
                                                                               FFButtonWidget(
                                                                             onPressed:
                                                                                 () async {
-                                                                              logFirebaseEvent('SUPER_ADMIN_MODERATION_2_1,3_%_BTN_ON_TA');
                                                                               if (FFAppState().superAdminSelectPercent != 1.5) {
-                                                                                logFirebaseEvent('Button_update_local_state');
                                                                                 FFAppState().update(() {
                                                                                   FFAppState().superAdminSelectPercent = 1.3;
                                                                                 });
                                                                               } else {
-                                                                                logFirebaseEvent('Button_update_local_state');
                                                                                 FFAppState().update(() {
                                                                                   FFAppState().superAdminSelectPercent = 0.0;
                                                                                 });
@@ -541,14 +527,11 @@ class _SuperAdminModeration2WidgetState
                                                                               FFButtonWidget(
                                                                             onPressed:
                                                                                 () async {
-                                                                              logFirebaseEvent('SUPER_ADMIN_MODERATION_2_1,2_%_BTN_ON_TA');
                                                                               if (FFAppState().superAdminSelectPercent != 1.5) {
-                                                                                logFirebaseEvent('Button_update_local_state');
                                                                                 FFAppState().update(() {
                                                                                   FFAppState().superAdminSelectPercent = 1.2;
                                                                                 });
                                                                               } else {
-                                                                                logFirebaseEvent('Button_update_local_state');
                                                                                 FFAppState().update(() {
                                                                                   FFAppState().superAdminSelectPercent = 0.0;
                                                                                 });
@@ -587,14 +570,11 @@ class _SuperAdminModeration2WidgetState
                                                                               FFButtonWidget(
                                                                             onPressed:
                                                                                 () async {
-                                                                              logFirebaseEvent('SUPER_ADMIN_MODERATION_2_1,1_%_BTN_ON_TA');
                                                                               if (FFAppState().superAdminSelectPercent != 1.5) {
-                                                                                logFirebaseEvent('Button_update_local_state');
                                                                                 FFAppState().update(() {
                                                                                   FFAppState().superAdminSelectPercent = 1.1;
                                                                                 });
                                                                               } else {
-                                                                                logFirebaseEvent('Button_update_local_state');
                                                                                 FFAppState().update(() {
                                                                                   FFAppState().superAdminSelectPercent = 0.0;
                                                                                 });
@@ -633,14 +613,11 @@ class _SuperAdminModeration2WidgetState
                                                                               FFButtonWidget(
                                                                             onPressed:
                                                                                 () async {
-                                                                              logFirebaseEvent('SUPER_ADMIN_MODERATION_2_1,0_%_BTN_ON_TA');
                                                                               if (FFAppState().superAdminSelectPercent != 1.5) {
-                                                                                logFirebaseEvent('Button_update_local_state');
                                                                                 FFAppState().update(() {
                                                                                   FFAppState().superAdminSelectPercent = 1.0;
                                                                                 });
                                                                               } else {
-                                                                                logFirebaseEvent('Button_update_local_state');
                                                                                 FFAppState().update(() {
                                                                                   FFAppState().superAdminSelectPercent = 0.0;
                                                                                 });
@@ -1043,14 +1020,9 @@ class _SuperAdminModeration2WidgetState
                                     ),
                                     FFButtonWidget(
                                       onPressed: () async {
-                                        logFirebaseEvent(
-                                            'SUPER_ADMIN_MODERATION_2_ПРОДОЛЖИТЬ_BTN_');
                                         if (FFAppState()
                                                 .superAdminSelectPercent !=
                                             null) {
-                                          logFirebaseEvent(
-                                              'Button_backend_call');
-
                                           final companiesUpdateData =
                                               createCompaniesRecordData(
                                             forCarPercent: FFAppState()
@@ -1058,8 +1030,6 @@ class _SuperAdminModeration2WidgetState
                                           );
                                           await widget.company!
                                               .update(companiesUpdateData);
-                                          logFirebaseEvent(
-                                              'Button_navigate_to');
 
                                           context.pushNamed(
                                             'super_admin_moderation_3',
@@ -1132,9 +1102,6 @@ class _SuperAdminModeration2WidgetState
                   alignment: AlignmentDirectional(0, 0),
                   child: InkWell(
                     onTap: () async {
-                      logFirebaseEvent(
-                          'SUPER_ADMIN_MODERATION_2_Container_p936o');
-                      logFirebaseEvent('Container_update_local_state');
                       FFAppState().update(() {
                         FFAppState().superAdminCencelledModeration = false;
                       });
@@ -1189,17 +1156,11 @@ class _SuperAdminModeration2WidgetState
                                                   0, 0, 24, 0),
                                           child: FFButtonWidget(
                                             onPressed: () async {
-                                              logFirebaseEvent(
-                                                  'SUPER_ADMIN_MODERATION_2_ДА_BTN_ON_TAP');
-                                              logFirebaseEvent(
-                                                  'Button_update_local_state');
                                               FFAppState().update(() {
                                                 FFAppState()
                                                         .superAdminCencelledModeration =
                                                     false;
                                               });
-                                              logFirebaseEvent(
-                                                  'Button_navigate_to');
 
                                               context.pushNamed(
                                                   'super_admin_main');
@@ -1245,10 +1206,6 @@ class _SuperAdminModeration2WidgetState
                                         alignment: AlignmentDirectional(1, 0),
                                         child: FFButtonWidget(
                                           onPressed: () async {
-                                            logFirebaseEvent(
-                                                'SUPER_ADMIN_MODERATION_2_НЕТ_BTN_ON_TAP');
-                                            logFirebaseEvent(
-                                                'Button_update_local_state');
                                             FFAppState().update(() {
                                               FFAppState()
                                                       .superAdminCencelledModeration =

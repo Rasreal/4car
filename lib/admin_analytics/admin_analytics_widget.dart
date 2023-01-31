@@ -28,18 +28,14 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget> {
     super.initState();
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      logFirebaseEvent('ADMIN_ANALYTICS_admin_analytics_ON_LOAD');
       if (FFAppState().adminAnalyticsType == null ||
           FFAppState().adminAnalyticsType == '') {
-        logFirebaseEvent('admin_analytics_update_local_state');
         FFAppState().update(() {
           FFAppState().adminAnalyticsType = 'Финансовые показатели';
         });
       }
     });
 
-    logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'admin_analytics'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -136,10 +132,6 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget> {
                                             0, 0, 24, 0),
                                         child: InkWell(
                                           onTap: () async {
-                                            logFirebaseEvent(
-                                                'ADMIN_ANALYTICS_Column_790q1c80_ON_TAP');
-                                            logFirebaseEvent(
-                                                'Column_update_local_state');
                                             FFAppState().update(() {
                                               FFAppState().adminAnalyticsType =
                                                   'Финансовые показатели';
@@ -210,10 +202,6 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget> {
                                             0, 0, 24, 0),
                                         child: InkWell(
                                           onTap: () async {
-                                            logFirebaseEvent(
-                                                'ADMIN_ANALYTICS_Column_6ke8kv26_ON_TAP');
-                                            logFirebaseEvent(
-                                                'Column_update_local_state');
                                             FFAppState().update(() {
                                               FFAppState().adminAnalyticsType =
                                                   'Отзывы';

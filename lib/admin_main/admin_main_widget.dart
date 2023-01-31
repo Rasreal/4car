@@ -29,15 +29,11 @@ class _AdminMainWidgetState extends State<AdminMainWidget> {
     super.initState();
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      logFirebaseEvent('ADMIN_MAIN_PAGE_admin_main_ON_PAGE_LOAD');
       if (valueOrDefault(currentUserDocument?.role, '') == 'Супер Админ') {
-        logFirebaseEvent('admin_main_navigate_to');
-
         context.goNamed('super_admin_main');
       }
     });
 
-    logFirebaseEvent('screen_view', parameters: {'screen_name': 'admin_main'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -439,20 +435,14 @@ class _AdminMainWidgetState extends State<AdminMainWidget> {
                                                   ),
                                                   InkWell(
                                                     onTap: () async {
-                                                      logFirebaseEvent(
-                                                          'ADMIN_MAIN_PAGE_Row_x9a7bmxf_ON_TAP');
                                                       if (FFAppState()
                                                               .adminAppBar ==
                                                           'true') {
-                                                        logFirebaseEvent(
-                                                            'Row_update_local_state');
                                                         FFAppState().update(() {
                                                           FFAppState()
                                                               .adminAppBar = '';
                                                         });
                                                       } else {
-                                                        logFirebaseEvent(
-                                                            'Row_update_local_state');
                                                         FFAppState().update(() {
                                                           FFAppState()
                                                                   .adminAppBar =
@@ -685,11 +675,6 @@ class _AdminMainWidgetState extends State<AdminMainWidget> {
                                                                   InkWell(
                                                                     onTap:
                                                                         () async {
-                                                                      logFirebaseEvent(
-                                                                          'ADMIN_MAIN_PAGE_docExists_ON_TAP');
-                                                                      logFirebaseEvent(
-                                                                          'docExists_navigate_to');
-
                                                                       context
                                                                           .pushNamed(
                                                                         'admin_add_company_1',
@@ -756,11 +741,6 @@ class _AdminMainWidgetState extends State<AdminMainWidget> {
                                                                   InkWell(
                                                                     onTap:
                                                                         () async {
-                                                                      logFirebaseEvent(
-                                                                          'ADMIN_MAIN_PAGE_docNotExists_ON_TAP');
-                                                                      logFirebaseEvent(
-                                                                          'docNotExists_backend_call');
-
                                                                       final companiesCreateData =
                                                                           {
                                                                         ...createCompaniesRecordData(
@@ -781,8 +761,6 @@ class _AdminMainWidgetState extends State<AdminMainWidget> {
                                                                       addCompany = CompaniesRecord.getDocumentFromData(
                                                                           companiesCreateData,
                                                                           companiesRecordReference);
-                                                                      logFirebaseEvent(
-                                                                          'docNotExists_navigate_to');
 
                                                                       context
                                                                           .pushNamed(

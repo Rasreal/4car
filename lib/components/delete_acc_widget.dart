@@ -82,11 +82,7 @@ class _DeleteAccWidgetState extends State<DeleteAccWidget> {
                     Expanded(
                       child: InkWell(
                         onTap: () async {
-                          logFirebaseEvent(
-                              'DELETE_ACC_COMP_Row_hen3adom_ON_TAP');
-                          logFirebaseEvent('Row_auth');
                           await deleteUser(context);
-                          logFirebaseEvent('Row_navigate_to');
 
                           context.goNamed('Sign_in');
                         },
@@ -128,9 +124,6 @@ class _DeleteAccWidgetState extends State<DeleteAccWidget> {
                     Expanded(
                       child: InkWell(
                         onTap: () async {
-                          logFirebaseEvent(
-                              'DELETE_ACC_COMP_Row_s67kwspz_ON_TAP');
-                          logFirebaseEvent('Row_bottom_sheet');
                           Navigator.pop(context);
                         },
                         child: Row(

@@ -71,8 +71,6 @@ class _SelectNotificationWidgetState extends State<SelectNotificationWidget> {
             ),
             InkWell(
               onTap: () async {
-                logFirebaseEvent('SELECT_NOTIFICATION_Column_vi3sdrad_ON_T');
-                logFirebaseEvent('Column_update_local_state');
                 FFAppState().update(() {
                   FFAppState().selectPush = 30;
                 });
@@ -138,8 +136,6 @@ class _SelectNotificationWidgetState extends State<SelectNotificationWidget> {
             ),
             InkWell(
               onTap: () async {
-                logFirebaseEvent('SELECT_NOTIFICATION_Column_di15kon3_ON_T');
-                logFirebaseEvent('Column_update_local_state');
                 FFAppState().update(() {
                   FFAppState().selectPush = 60;
                 });
@@ -205,8 +201,6 @@ class _SelectNotificationWidgetState extends State<SelectNotificationWidget> {
             ),
             InkWell(
               onTap: () async {
-                logFirebaseEvent('SELECT_NOTIFICATION_Column_vrg66je5_ON_T');
-                logFirebaseEvent('Column_update_local_state');
                 FFAppState().update(() {
                   FFAppState().selectPush = 120;
                 });
@@ -272,8 +266,6 @@ class _SelectNotificationWidgetState extends State<SelectNotificationWidget> {
             ),
             InkWell(
               onTap: () async {
-                logFirebaseEvent('SELECT_NOTIFICATION_Column_8i7tu553_ON_T');
-                logFirebaseEvent('Column_update_local_state');
                 FFAppState().update(() {
                   FFAppState().selectPush = 1000;
                 });
@@ -351,8 +343,6 @@ class _SelectNotificationWidgetState extends State<SelectNotificationWidget> {
               padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 60),
               child: FFButtonWidget(
                 onPressed: () async {
-                  logFirebaseEvent('SELECT_NOTIFICATION_СОХРАНИТЬ_BTN_ON_TAP');
-                  logFirebaseEvent('Button_bottom_sheet');
                   Navigator.pop(context);
                 },
                 text: 'Сохранить',

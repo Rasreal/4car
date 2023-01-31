@@ -622,14 +622,9 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                         'Завершено'))
                                                   FFButtonWidget(
                                                     onPressed: () async {
-                                                      logFirebaseEvent(
-                                                          'ADMIN_TIMES_COMP_НАЧАТЬ_BTN_ON_TAP');
                                                       if (listViewBookingsRecord
                                                               .status ==
                                                           'Забронировано') {
-                                                        logFirebaseEvent(
-                                                            'Button_backend_call');
-
                                                         final bookingsUpdateData =
                                                             createBookingsRecordData(
                                                           status: 'Начат',
@@ -644,9 +639,6 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                         if (listViewBookingsRecord
                                                                 .status ==
                                                             'Начат') {
-                                                          logFirebaseEvent(
-                                                              'Button_backend_call');
-
                                                           final bookingsUpdateData =
                                                               createBookingsRecordData(
                                                             status: 'Закончено',
@@ -666,9 +658,6 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                               .contains(widget
                                                                   .companyDoc!
                                                                   .reference)) {
-                                                            logFirebaseEvent(
-                                                                'Button_backend_call');
-
                                                             final userUpdateData =
                                                                 createUserRecordData(
                                                               lastBookingBoolean:
@@ -682,9 +671,6 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                                 .update(
                                                                     userUpdateData);
                                                           } else {
-                                                            logFirebaseEvent(
-                                                                'Button_backend_call');
-
                                                             final userUpdateData =
                                                                 {
                                                               ...createUserRecordData(

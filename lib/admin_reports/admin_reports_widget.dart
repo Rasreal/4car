@@ -25,8 +25,6 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
   @override
   void initState() {
     super.initState();
-    logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'admin_reports'});
     textController = TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }

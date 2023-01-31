@@ -33,16 +33,11 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
     super.initState();
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      logFirebaseEvent('SUPER_ADMIN_MAIN_super_admin_main_ON_LOA');
       if (valueOrDefault(currentUserDocument?.role, '') == 'Руководитель') {
-        logFirebaseEvent('super_admin_main_navigate_to');
-
         context.pushNamed('admin_main');
       }
     });
 
-    logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'super_admin_main'});
     textController = TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -283,11 +278,6 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                               0)
                                                             InkWell(
                                                               onTap: () async {
-                                                                logFirebaseEvent(
-                                                                    'SUPER_ADMIN_MAIN_Text_6bywft68_ON_TAP');
-                                                                logFirebaseEvent(
-                                                                    'Text_navigate_to');
-
                                                                 context.pushNamed(
                                                                     'super_admin_moderation');
                                                               },

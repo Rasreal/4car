@@ -62,9 +62,6 @@ class _EmptyFavWidgetState extends State<EmptyFavWidget> {
             padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
             child: FFButtonWidget(
               onPressed: () async {
-                logFirebaseEvent('EMPTY_FAV_НАЙТИ_АВТОМОЙКУ_BTN_ON_TAP');
-                logFirebaseEvent('Button_navigate_to');
-
                 context.goNamed('HomePage');
               },
               text: 'Найти автомойку',

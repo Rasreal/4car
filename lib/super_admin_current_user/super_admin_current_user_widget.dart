@@ -35,15 +35,11 @@ class _SuperAdminCurrentUserWidgetState
     super.initState();
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      logFirebaseEvent('SUPER_ADMIN_CURRENT_USER_super_admin_cur');
-      logFirebaseEvent('super_admin_current_user_update_local_st');
       FFAppState().update(() {
         FFAppState().adminClentsType = 'Записи клиента';
       });
     });
 
-    logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'super_admin_current_user'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -178,10 +174,6 @@ class _SuperAdminCurrentUserWidgetState
                                                   ),
                                                   InkWell(
                                                     onTap: () async {
-                                                      logFirebaseEvent(
-                                                          'SUPER_ADMIN_CURRENT_USER_Row_kxvx9xf0_ON');
-                                                      logFirebaseEvent(
-                                                          'Row_update_local_state');
                                                       FFAppState().update(() {
                                                         FFAppState()
                                                                 .adminOfficeType =
@@ -925,10 +917,6 @@ class _SuperAdminCurrentUserWidgetState
                                           0, 0, 24, 0),
                                       child: InkWell(
                                         onTap: () async {
-                                          logFirebaseEvent(
-                                              'SUPER_ADMIN_CURRENT_USER_Column_0yom9moa');
-                                          logFirebaseEvent(
-                                              'Column_update_local_state');
                                           FFAppState().update(() {
                                             FFAppState().adminClentsType =
                                                 'Записи клиента';
@@ -994,10 +982,6 @@ class _SuperAdminCurrentUserWidgetState
                                           0, 0, 24, 0),
                                       child: InkWell(
                                         onTap: () async {
-                                          logFirebaseEvent(
-                                              'SUPER_ADMIN_CURRENT_USER_Column_s54nun3d');
-                                          logFirebaseEvent(
-                                              'Column_update_local_state');
                                           FFAppState().update(() {
                                             FFAppState().adminClentsType =
                                                 'Отзывы клиента';
@@ -2135,12 +2119,9 @@ class _SuperAdminCurrentUserWidgetState
                                                                             InkWell(
                                                                           onTap:
                                                                               () async {
-                                                                            logFirebaseEvent('SUPER_ADMIN_CURRENT_USER_Icon_8q7lw74i_O');
-                                                                            logFirebaseEvent('Icon_update_local_state');
                                                                             FFAppState().update(() {
                                                                               FFAppState().adminClientsTypeReview = 'Детали операции';
                                                                             });
-                                                                            logFirebaseEvent('Icon_bottom_sheet');
                                                                             await showModalBottomSheet(
                                                                               isScrollControlled: true,
                                                                               backgroundColor: Colors.transparent,

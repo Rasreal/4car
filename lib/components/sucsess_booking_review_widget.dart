@@ -145,9 +145,6 @@ class _SucsessBookingReviewWidgetState
                             children: [
                               InkWell(
                                 onTap: () async {
-                                  logFirebaseEvent(
-                                      'SUCSESS_BOOKING_REVIEW_Row_gb7i1unx_ON_T');
-                                  logFirebaseEvent('Row_bottom_sheet');
                                   await showModalBottomSheet(
                                     isScrollControlled: true,
                                     backgroundColor: Colors.transparent,
@@ -536,16 +533,11 @@ class _SucsessBookingReviewWidgetState
                           padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                           child: FFButtonWidget(
                             onPressed: () async {
-                              logFirebaseEvent(
-                                  'SUCSESS_BOOKING_REVIEW_ГОТОВО_BTN_ON_TAP');
                               if (ratingBarValue2! >= 1.0) {
-                                logFirebaseEvent('Button_validate_form');
                                 if (formKey.currentState == null ||
                                     !formKey.currentState!.validate()) {
                                   return;
                                 }
-
-                                logFirebaseEvent('Button_backend_call');
 
                                 final commentsCreateData =
                                     createCommentsRecordData(
@@ -560,14 +552,12 @@ class _SucsessBookingReviewWidgetState
                                 await CommentsRecord.createDoc(
                                         columnCompaniesRecord.reference)
                                     .set(commentsCreateData);
-                                logFirebaseEvent('Button_backend_call');
 
                                 final userUpdateData = createUserRecordData(
                                   lastBookingBoolean: false,
                                 );
                                 await currentUserReference!
                                     .update(userUpdateData);
-                                logFirebaseEvent('Button_backend_call');
 
                                 final companiesUpdateData = {
                                   'rating':
@@ -575,10 +565,8 @@ class _SucsessBookingReviewWidgetState
                                 };
                                 await columnCompaniesRecord.reference
                                     .update(companiesUpdateData);
-                                logFirebaseEvent('Button_bottom_sheet');
                                 Navigator.pop(context);
                               } else {
-                                logFirebaseEvent('Button_show_snack_bar');
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
                                     content: Text(

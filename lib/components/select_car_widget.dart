@@ -100,9 +100,6 @@ class _SelectCarWidgetState extends State<SelectCarWidget> {
                 List<MyCarsRecord> listViewMyCarsRecordList = snapshot.data!;
                 return RefreshIndicator(
                   onRefresh: () async {
-                    logFirebaseEvent(
-                        'SELECT_CAR_ListView_pgvj5kn9_ON_PULL_TO_');
-                    logFirebaseEvent('ListView_refresh_database_request');
                     setState(() => _firestoreRequestCompleter = null);
                     await waitForFirestoreRequestCompleter();
                   },
@@ -118,14 +115,10 @@ class _SelectCarWidgetState extends State<SelectCarWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
                         child: InkWell(
                           onTap: () async {
-                            logFirebaseEvent(
-                                'SELECT_CAR_COMP_Row_x8yfmg1u_ON_TAP');
-                            logFirebaseEvent('Row_update_local_state');
                             FFAppState().update(() {
                               FFAppState().selectedCar =
                                   listViewMyCarsRecord.reference;
                             });
-                            logFirebaseEvent('Row_refresh_database_request');
                             setState(() => _firestoreRequestCompleter = null);
                           },
                           child: Row(
@@ -213,16 +206,11 @@ class _SelectCarWidgetState extends State<SelectCarWidget> {
                               ),
                               InkWell(
                                 onTap: () async {
-                                  logFirebaseEvent(
-                                      'SELECT_CAR_COMP_Icon_lv6a3faa_ON_TAP');
-                                  logFirebaseEvent('Icon_update_local_state');
                                   FFAppState().update(() {
                                     FFAppState().addCarBody =
                                         listViewMyCarsRecord.carBody!;
                                   });
-                                  logFirebaseEvent('Icon_bottom_sheet');
                                   Navigator.pop(context);
-                                  logFirebaseEvent('Icon_bottom_sheet');
                                   await showModalBottomSheet(
                                     isScrollControlled: true,
                                     backgroundColor: Colors.transparent,
@@ -258,8 +246,6 @@ class _SelectCarWidgetState extends State<SelectCarWidget> {
               padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 60),
               child: FFButtonWidget(
                 onPressed: () async {
-                  logFirebaseEvent('SELECT_CAR_COMP_СОХРАНИТЬ_BTN_ON_TAP');
-                  logFirebaseEvent('Button_bottom_sheet');
                   Navigator.pop(context);
                 },
                 text: 'Сохранить',

@@ -61,9 +61,7 @@ class _CurrentBookingRecordWidgetState extends State<CurrentBookingRecordWidget>
     super.initState();
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      logFirebaseEvent('CURRENT_BOOKING_RECORD_current_booking_r');
       if (canceled!) {
-        logFirebaseEvent('current_booking_record_widget_animation');
         if (animationsMap['containerOnActionTriggerAnimation'] != null) {
           await animationsMap['containerOnActionTriggerAnimation']!
               .controller
@@ -72,8 +70,6 @@ class _CurrentBookingRecordWidgetState extends State<CurrentBookingRecordWidget>
       }
     });
 
-    logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'current_booking_record'});
     setupAnimations(
       animationsMap.values.where((anim) =>
           anim.trigger == AnimationTrigger.onActionTrigger ||
@@ -139,9 +135,6 @@ class _CurrentBookingRecordWidgetState extends State<CurrentBookingRecordWidget>
                                 size: 30,
                               ),
                               onPressed: () async {
-                                logFirebaseEvent(
-                                    'CURRENT_BOOKING_RECORD_icBack_ICN_ON_TAP');
-                                logFirebaseEvent('IconButton_navigate_back');
                                 context.pop();
                               },
                             ),
@@ -554,10 +547,6 @@ class _CurrentBookingRecordWidgetState extends State<CurrentBookingRecordWidget>
                                             0, 12, 0, 10),
                                         child: FFButtonWidget(
                                           onPressed: () async {
-                                            logFirebaseEvent(
-                                                'CURRENT_BOOKING_RECORD_ПОЖАЛОВАТЬСЯ_BTN_');
-                                            logFirebaseEvent(
-                                                'Button_bottom_sheet');
                                             await showModalBottomSheet(
                                               isScrollControlled: true,
                                               backgroundColor:
@@ -626,10 +615,6 @@ class _CurrentBookingRecordWidgetState extends State<CurrentBookingRecordWidget>
                                             0, 12, 0, 10),
                                         child: FFButtonWidget(
                                           onPressed: () async {
-                                            logFirebaseEvent(
-                                                'CURRENT_BOOKING_RECORD_ОТМЕНИТЬ_ЗАПИСЬ_B');
-                                            logFirebaseEvent(
-                                                'Button_bottom_sheet');
                                             await showModalBottomSheet(
                                               isScrollControlled: true,
                                               backgroundColor:

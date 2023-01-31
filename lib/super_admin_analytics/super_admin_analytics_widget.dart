@@ -24,8 +24,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
   @override
   void initState() {
     super.initState();
-    logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'super_admin_analytics'});
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 

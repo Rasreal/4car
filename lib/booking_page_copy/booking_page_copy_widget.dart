@@ -80,8 +80,6 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
     );
     getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
         .then((loc) => setState(() => currentUserLocationValue = loc));
-    logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'booking_pageCopy'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -139,10 +137,6 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                               size: 24,
                             ),
                             onPressed: () async {
-                              logFirebaseEvent(
-                                  'BOOKING_PAGE_COPY_PAGE_icBack_ICN_ON_TAP');
-                              logFirebaseEvent('IconButton_navigate_to');
-
                               context.goNamed(
                                 'HomePage',
                                 extra: <String, dynamic>{
@@ -694,14 +688,10 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                                       null))
                                                     InkWell(
                                                       onTap: () async {
-                                                        logFirebaseEvent(
-                                                            'BOOKING_COPY_Container_xaklkhs5_ON_TAP');
                                                         if (FFAppState()
                                                                 .selectedTimeSlot ==
                                                             wrapForcarTimesRecord
                                                                 .reference) {
-                                                          logFirebaseEvent(
-                                                              'Container_update_local_state');
                                                           FFAppState()
                                                               .update(() {
                                                             FFAppState()
@@ -709,8 +699,6 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                                                 null;
                                                           });
                                                         } else {
-                                                          logFirebaseEvent(
-                                                              'Container_update_local_state');
                                                           FFAppState()
                                                               .update(() {
                                                             FFAppState()
@@ -836,10 +824,6 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                     EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                                 child: InkWell(
                                   onTap: () async {
-                                    logFirebaseEvent(
-                                        'BOOKING_COPY_car_not_seleceted_ON_TAP');
-                                    logFirebaseEvent(
-                                        'car_not_seleceted_bottom_sheet');
                                     await showModalBottomSheet(
                                       isScrollControlled: true,
                                       backgroundColor: Colors.transparent,
@@ -956,9 +940,6 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                     EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                                 child: InkWell(
                                   onTap: () async {
-                                    logFirebaseEvent(
-                                        'BOOKING_COPY_Container_zout4kwf_ON_TAP');
-                                    logFirebaseEvent('Container_bottom_sheet');
                                     await showModalBottomSheet(
                                       isScrollControlled: true,
                                       backgroundColor: Colors.transparent,
@@ -1114,9 +1095,6 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                     EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                                 child: InkWell(
                                   onTap: () async {
-                                    logFirebaseEvent(
-                                        'BOOKING_COPY_Container_w9z7zddz_ON_TAP');
-                                    logFirebaseEvent('Container_bottom_sheet');
                                     await showModalBottomSheet(
                                       isScrollControlled: true,
                                       backgroundColor: Colors.transparent,
@@ -1412,11 +1390,6 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                                 snapshot.data!;
                                             return FFButtonWidget(
                                               onPressed: () async {
-                                                logFirebaseEvent(
-                                                    'BOOKING_COPY_ЗАПИСАТЬСЯ_BTN_ON_TAP');
-                                                logFirebaseEvent(
-                                                    'Button_backend_call');
-
                                                 final bookingsCreateData = {
                                                   ...createBookingsRecordData(
                                                     bookedUser:
@@ -1468,8 +1441,6 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                                     .getDocumentFromData(
                                                         bookingsCreateData,
                                                         bookingsRecordReference);
-                                                logFirebaseEvent(
-                                                    'Button_widget_animation');
                                                 if (animationsMap[
                                                         'containerOnActionTriggerAnimation'] !=
                                                     null) {
@@ -1478,19 +1449,13 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                                       .controller
                                                       .forward(from: 0.0);
                                                 }
-                                                logFirebaseEvent(
-                                                    'Button_wait__delay');
                                                 await Future.delayed(
                                                     const Duration(
                                                         milliseconds: 1000));
-                                                logFirebaseEvent(
-                                                    'Button_update_local_state');
                                                 FFAppState().update(() {
                                                   FFAppState().selectPush =
                                                       1000;
                                                 });
-                                                logFirebaseEvent(
-                                                    'Button_navigate_to');
 
                                                 context.goNamed('My_notes');
 

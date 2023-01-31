@@ -142,9 +142,6 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                         ),
                         InkWell(
                           onTap: () async {
-                            logFirebaseEvent(
-                                'ADMIN_FEEDBACK_REVIEW_Icon_ugfhqwiv_ON_T');
-                            logFirebaseEvent('Icon_bottom_sheet');
                             Navigator.pop(context);
                           },
                           child: Icon(
@@ -185,9 +182,6 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                   EdgeInsetsDirectional.fromSTEB(0, 0, 24, 0),
                               child: InkWell(
                                 onTap: () async {
-                                  logFirebaseEvent(
-                                      'ADMIN_FEEDBACK_REVIEW_Column_07ojosu9_ON');
-                                  logFirebaseEvent('Column_update_local_state');
                                   FFAppState().update(() {
                                     FFAppState().adminClientsTypeReview =
                                         'Детали операции';
@@ -246,9 +240,6 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                   EdgeInsetsDirectional.fromSTEB(0, 0, 24, 0),
                               child: InkWell(
                                 onTap: () async {
-                                  logFirebaseEvent(
-                                      'ADMIN_FEEDBACK_REVIEW_Column_yrydnvhf_ON');
-                                  logFirebaseEvent('Column_update_local_state');
                                   FFAppState().update(() {
                                     FFAppState().adminClientsTypeReview =
                                         'Отзыв клиента';
@@ -310,10 +301,6 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                 child: AuthUserStreamWidget(
                                   builder: (context) => InkWell(
                                     onTap: () async {
-                                      logFirebaseEvent(
-                                          'ADMIN_FEEDBACK_REVIEW_Column_e11srigs_ON');
-                                      logFirebaseEvent(
-                                          'Column_update_local_state');
                                       FFAppState().update(() {
                                         FFAppState().adminClientsTypeReview =
                                             'Детали компании';
@@ -1198,12 +1185,8 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            logFirebaseEvent(
-                                'ADMIN_FEEDBACK_REVIEW_ОПУБЛИКОВАТЬ_BTN_O');
                             if (textController!.text != null &&
                                 textController!.text != '') {
-                              logFirebaseEvent('Button_backend_call');
-
                               final commentsUpdateData =
                                   createCommentsRecordData(
                                 responseComment: textController!.text,
@@ -1213,8 +1196,6 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                               await widget.comment!.reference
                                   .update(commentsUpdateData);
                             } else {
-                              logFirebaseEvent('Button_backend_call');
-
                               final commentsUpdateData =
                                   createCommentsRecordData(
                                 responseComment: textController!.text,

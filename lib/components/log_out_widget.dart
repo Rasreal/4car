@@ -81,8 +81,6 @@ class _LogOutWidgetState extends State<LogOutWidget> {
                     Expanded(
                       child: InkWell(
                         onTap: () async {
-                          logFirebaseEvent('LOG_OUT_COMP_Row_qj1tv3d8_ON_TAP');
-                          logFirebaseEvent('Row_auth');
                           GoRouter.of(context).prepareAuthEvent();
                           await signOut();
 
@@ -122,8 +120,6 @@ class _LogOutWidgetState extends State<LogOutWidget> {
                     Expanded(
                       child: InkWell(
                         onTap: () async {
-                          logFirebaseEvent('LOG_OUT_COMP_Row_kmxlb3s1_ON_TAP');
-                          logFirebaseEvent('Row_bottom_sheet');
                           Navigator.pop(context);
                         },
                         child: Row(

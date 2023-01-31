@@ -24,8 +24,7 @@ class _SuperAdminModerationWidgetState
   @override
   void initState() {
     super.initState();
-    logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'super_admin_moderation'});
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -77,9 +76,6 @@ class _SuperAdminModerationWidgetState
                                         0, 24, 0, 0),
                                     child: InkWell(
                                       onTap: () async {
-                                        logFirebaseEvent(
-                                            'SUPER_ADMIN_MODERATION_Row_ihxifpa6_ON_T');
-                                        logFirebaseEvent('Row_navigate_back');
                                         context.pop();
                                       },
                                       child: Row(
@@ -595,10 +591,6 @@ class _SuperAdminModerationWidgetState
                                                                         FFButtonWidget(
                                                                       onPressed:
                                                                           () async {
-                                                                        logFirebaseEvent(
-                                                                            'SUPER_ADMIN_MODERATION_ОТКЛОНИТЬ_BTN_ON_');
-                                                                        logFirebaseEvent(
-                                                                            'Button_bottom_sheet');
                                                                         await showModalBottomSheet(
                                                                           isScrollControlled:
                                                                               true,
@@ -656,11 +648,6 @@ class _SuperAdminModerationWidgetState
                                                                   FFButtonWidget(
                                                                     onPressed:
                                                                         () async {
-                                                                      logFirebaseEvent(
-                                                                          'SUPER_ADMIN_MODERATION_ПОДРОБНЕЕ_BTN_ON_');
-                                                                      logFirebaseEvent(
-                                                                          'Button_navigate_to');
-
                                                                       context
                                                                           .pushNamed(
                                                                         'super_admin_moderation_1',
@@ -764,8 +751,6 @@ class _SuperAdminModerationWidgetState
                   alignment: AlignmentDirectional(0, 0),
                   child: InkWell(
                     onTap: () async {
-                      logFirebaseEvent('SUPER_ADMIN_MODERATION_reject_ON_TAP');
-                      logFirebaseEvent('reject_update_local_state');
                       FFAppState().update(() {
                         FFAppState().superAdminRejectModeration = false;
                       });

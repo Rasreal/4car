@@ -40,9 +40,6 @@ class _AdminAppBarInfoWidgetState extends State<AdminAppBarInfoWidget> {
               children: [
                 InkWell(
                   onTap: () async {
-                    logFirebaseEvent(
-                        'ADMIN_APP_BAR_INFO_Container_q68n2znh_ON');
-                    logFirebaseEvent('Container_update_local_state');
                     FFAppState().update(() {
                       FFAppState().adminAppBar = '';
                     });
@@ -106,9 +103,6 @@ class _AdminAppBarInfoWidgetState extends State<AdminAppBarInfoWidget> {
                             ),
                             InkWell(
                               onTap: () async {
-                                logFirebaseEvent(
-                                    'ADMIN_APP_BAR_INFO_Container_kznt2ojt_ON');
-                                logFirebaseEvent('Container_auth');
                                 GoRouter.of(context).prepareAuthEvent();
                                 await signOut();
 

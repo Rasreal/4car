@@ -71,9 +71,6 @@ class _OldNavBarWidgetState extends State<OldNavBarWidget> {
               ),
               InkWell(
                 onTap: () async {
-                  logFirebaseEvent('OLD_NAV_BAR_COMP_Column_o98uztcy_ON_TAP');
-                  logFirebaseEvent('Column_navigate_to');
-
                   context.pushNamed(
                     'My_notes',
                     extra: <String, dynamic>{
@@ -113,8 +110,6 @@ class _OldNavBarWidgetState extends State<OldNavBarWidget> {
               ),
               InkWell(
                 onTap: () async {
-                  logFirebaseEvent('OLD_NAV_BAR_COMP_Column_cgn2vsb4_ON_TAP');
-                  logFirebaseEvent('Column_drawer');
                   Scaffold.of(context).openEndDrawer();
                 },
                 child: Column(

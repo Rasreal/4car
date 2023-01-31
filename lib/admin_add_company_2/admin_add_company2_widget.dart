@@ -28,8 +28,7 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
   @override
   void initState() {
     super.initState();
-    logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'admin_add_company_2'});
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -105,11 +104,6 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                               ),
                                               InkWell(
                                                 onTap: () async {
-                                                  logFirebaseEvent(
-                                                      'ADMIN_ADD_COMPANY_2_Row_ju15etoc_ON_TAP');
-                                                  logFirebaseEvent(
-                                                      'Row_navigate_to');
-
                                                   context.goNamed('admin_main');
                                                 },
                                                 child: Row(
@@ -1170,10 +1164,6 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                     ),
                                     FFButtonWidget(
                                       onPressed: () async {
-                                        logFirebaseEvent(
-                                            'ADMIN_ADD_COMPANY_2_ПРОДОЛЖИТЬ_BTN_ON_TA');
-                                        logFirebaseEvent('Button_navigate_to');
-
                                         context.pushNamed(
                                           'admin_add_company_3',
                                           queryParams: {

@@ -24,7 +24,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
   @override
   void initState() {
     super.initState();
-    logFirebaseEvent('screen_view', parameters: {'screen_name': 'profile'});
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -58,9 +58,6 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
                   child: InkWell(
                     onTap: () async {
-                      logFirebaseEvent('PROFILE_PAGE_Row_28mokwn9_ON_TAP');
-                      logFirebaseEvent('Row_navigate_to');
-
                       context.pushNamed('edit_profile');
                     },
                     child: Row(
@@ -161,8 +158,6 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                   child: InkWell(
                     onTap: () async {
-                      logFirebaseEvent('PROFILE_PAGE_city_ON_TAP');
-                      logFirebaseEvent('city_bottom_sheet');
                       await showModalBottomSheet(
                         isScrollControlled: true,
                         backgroundColor: Colors.transparent,
@@ -234,9 +229,6 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                   child: InkWell(
                     onTap: () async {
-                      logFirebaseEvent('PROFILE_PAGE_city_ON_TAP');
-                      logFirebaseEvent('city_navigate_to');
-
                       context.pushNamed('Favorites_Car_Washes');
                     },
                     child: Row(
@@ -339,9 +331,6 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                   child: InkWell(
                     onTap: () async {
-                      logFirebaseEvent('PROFILE_PAGE_city_ON_TAP');
-                      logFirebaseEvent('city_navigate_to');
-
                       context.pushNamed('About_company');
                     },
                     child: Row(
@@ -376,9 +365,6 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                   child: InkWell(
                     onTap: () async {
-                      logFirebaseEvent('PROFILE_PAGE_city_ON_TAP');
-                      logFirebaseEvent('city_navigate_to');
-
                       context.pushNamed('Terms_of_Use');
                     },
                     child: Row(
@@ -421,8 +407,6 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(0, 25, 0, 30),
                         child: InkWell(
                           onTap: () async {
-                            logFirebaseEvent('PROFILE_PAGE_city_ON_TAP');
-                            logFirebaseEvent('city_bottom_sheet');
                             await showModalBottomSheet(
                               isScrollControlled: true,
                               backgroundColor: Colors.transparent,
@@ -595,9 +579,6 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(0, 22, 0, 14),
                     child: InkWell(
                       onTap: () async {
-                        logFirebaseEvent('PROFILE_PAGE_city_ON_TAP');
-                        logFirebaseEvent('city_navigate_to');
-
                         context.pushNamed(
                           'edit_profile',
                           queryParams: {
@@ -654,8 +635,6 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(0, 14, 0, 14),
                     child: InkWell(
                       onTap: () async {
-                        logFirebaseEvent('PROFILE_PAGE_city_ON_TAP');
-                        logFirebaseEvent('city_bottom_sheet');
                         await showModalBottomSheet(
                           isScrollControlled: true,
                           backgroundColor: Colors.transparent,
@@ -755,9 +734,6 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(0, 22, 0, 14),
                     child: InkWell(
                       onTap: () async {
-                        logFirebaseEvent('PROFILE_PAGE_city_ON_TAP');
-                        logFirebaseEvent('city_navigate_to');
-
                         context.pushNamed('Favorites_Car_Washes');
                       },
                       child: Row(
@@ -806,9 +782,6 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(0, 14, 0, 14),
                     child: InkWell(
                       onTap: () async {
-                        logFirebaseEvent('PROFILE_PAGE_city_ON_TAP');
-                        logFirebaseEvent('city_navigate_to');
-
                         context.pushNamed('About_company');
                       },
                       child: Row(
@@ -916,9 +889,6 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(0, 14, 0, 14),
                     child: InkWell(
                       onTap: () async {
-                        logFirebaseEvent('PROFILE_PAGE_city_ON_TAP');
-                        logFirebaseEvent('city_navigate_to');
-
                         context.pushNamed('Terms_of_Use');
                       },
                       child: Row(
@@ -967,9 +937,6 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(0, 14, 0, 14),
                     child: InkWell(
                       onTap: () async {
-                        logFirebaseEvent('PROFILE_PAGE_city_ON_TAP');
-                        logFirebaseEvent('city_navigate_to');
-
                         context.pushNamed('Terms_of_Use');
                       },
                       child: Row(
@@ -1018,8 +985,6 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(0, 14, 0, 45),
                     child: InkWell(
                       onTap: () async {
-                        logFirebaseEvent('PROFILE_PAGE_city_ON_TAP');
-                        logFirebaseEvent('city_bottom_sheet');
                         await showModalBottomSheet(
                           isScrollControlled: true,
                           backgroundColor: Colors.transparent,

@@ -1330,10 +1330,6 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                     .fromSTEB(0, 16, 0, 0),
                                                 child: InkWell(
                                                   onTap: () async {
-                                                    logFirebaseEvent(
-                                                        'CAR_WASH_COMPANY_Stack_ih3t1boq_ON_TAP');
-                                                    logFirebaseEvent(
-                                                        'Stack_bottom_sheet');
                                                     await showModalBottomSheet(
                                                       isScrollControlled: true,
                                                       backgroundColor:
@@ -1475,13 +1471,9 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                   EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                               child: FFButtonWidget(
                                 onPressed: () async {
-                                  logFirebaseEvent(
-                                      'CAR_WASH_COMPANY_ЗАПИСАТЬСЯ_BTN_ON_TAP');
                                   if (valueOrDefault(
                                           currentUserDocument?.carscount, 0) <
                                       1) {
-                                    logFirebaseEvent('Button_navigate_to');
-
                                     context.pushNamed(
                                       'edit_profile',
                                       queryParams: {
@@ -1492,8 +1484,6 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                       }.withoutNulls,
                                     );
                                   } else {
-                                    logFirebaseEvent(
-                                        'Button_update_local_state');
                                     FFAppState().update(() {
                                       FFAppState().selectedCar =
                                           currentUserDocument!.firstCar;
@@ -1501,18 +1491,13 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                       FFAppState().bookingSelectedServicesName =
                                           [];
                                     });
-                                    logFirebaseEvent(
-                                        'Button_update_local_state');
                                     FFAppState().update(() {
                                       FFAppState().selectedTimeSlot = null;
                                       FFAppState().price = 0;
                                     });
-                                    logFirebaseEvent(
-                                        'Button_update_local_state');
                                     FFAppState().update(() {
                                       FFAppState().selectPush = 1000;
                                     });
-                                    logFirebaseEvent('Button_navigate_to');
 
                                     context.pushNamed(
                                       'booking_page',

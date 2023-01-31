@@ -82,15 +82,11 @@ class _SuperAdminAppBarWidgetState extends State<SuperAdminAppBarWidget> {
                                   EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
                               child: InkWell(
                                 onTap: () async {
-                                  logFirebaseEvent(
-                                      'SUPER_ADMIN_APP_BAR_Icon_qb2195qe_ON_TAP');
                                   if (FFAppState().adminAppBar == 'notify') {
-                                    logFirebaseEvent('Icon_update_local_state');
                                     FFAppState().update(() {
                                       FFAppState().adminAppBar = '';
                                     });
                                   } else {
-                                    logFirebaseEvent('Icon_update_local_state');
                                     FFAppState().update(() {
                                       FFAppState().adminAppBar = 'notify';
                                     });
@@ -105,15 +101,11 @@ class _SuperAdminAppBarWidgetState extends State<SuperAdminAppBarWidget> {
                             ),
                             InkWell(
                               onTap: () async {
-                                logFirebaseEvent(
-                                    'SUPER_ADMIN_APP_BAR_Row_6799vjsw_ON_TAP');
                                 if (FFAppState().adminAppBar == 'profile') {
-                                  logFirebaseEvent('Row_update_local_state');
                                   FFAppState().update(() {
                                     FFAppState().adminAppBar = '';
                                   });
                                 } else {
-                                  logFirebaseEvent('Row_update_local_state');
                                   FFAppState().update(() {
                                     FFAppState().adminAppBar = 'profile';
                                   });
@@ -193,10 +185,6 @@ class _SuperAdminAppBarWidgetState extends State<SuperAdminAppBarWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 48, 0),
                           child: InkWell(
                             onTap: () async {
-                              logFirebaseEvent(
-                                  'SUPER_ADMIN_APP_BAR_Text_u4gycf2j_ON_TAP');
-                              logFirebaseEvent('Text_navigate_to');
-
                               context.pushNamed(
                                 'admin_main',
                                 extra: <String, dynamic>{

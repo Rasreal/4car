@@ -50,15 +50,11 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
     super.initState();
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      logFirebaseEvent('ADMIN_ADD_COMPANY_5_admin_add_company_5_');
-      logFirebaseEvent('admin_add_company_5_update_local_state');
       FFAppState().update(() {
         FFAppState().adminSelectServicesBody = 'Седан';
       });
     });
 
-    logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'admin_add_company_5'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -175,11 +171,6 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                       ),
                                                       InkWell(
                                                         onTap: () async {
-                                                          logFirebaseEvent(
-                                                              'ADMIN_ADD_COMPANY_5_Row_j25fmt21_ON_TAP');
-                                                          logFirebaseEvent(
-                                                              'Row_navigate_to');
-
                                                           context.goNamed(
                                                               'admin_main');
                                                         },
@@ -1475,12 +1466,9 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                             children: [
                                                                               InkWell(
                                                                                 onTap: () async {
-                                                                                  logFirebaseEvent('ADMIN_ADD_COMPANY_5_Container_i130499k_O');
-                                                                                  logFirebaseEvent('Container_update_local_state');
                                                                                   FFAppState().update(() {
                                                                                     FFAppState().adminSelectServicesBody = 'Седан';
                                                                                   });
-                                                                                  logFirebaseEvent('Container_refresh_database_request');
                                                                                   setState(() => _firestoreRequestCompleter = null);
                                                                                 },
                                                                                 child: Container(
@@ -1520,14 +1508,10 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                               ),
                                                                               InkWell(
                                                                                 onTap: () async {
-                                                                                  logFirebaseEvent('ADMIN_ADD_COMPANY_5_Container_ad5xtkip_O');
-                                                                                  logFirebaseEvent('Container_update_local_state');
                                                                                   FFAppState().update(() {
                                                                                     FFAppState().adminSelectServicesBody = 'Хетчбэк';
                                                                                   });
-                                                                                  logFirebaseEvent('Container_refresh_database_request');
                                                                                   setState(() => _firestoreRequestCompleter = null);
-                                                                                  logFirebaseEvent('Container_refresh_database_request');
                                                                                   setState(() => _documentRequestCompleter = null);
                                                                                 },
                                                                                 child: Container(
@@ -1567,12 +1551,9 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                               ),
                                                                               InkWell(
                                                                                 onTap: () async {
-                                                                                  logFirebaseEvent('ADMIN_ADD_COMPANY_5_Container_0tx6qb9f_O');
-                                                                                  logFirebaseEvent('Container_update_local_state');
                                                                                   FFAppState().update(() {
                                                                                     FFAppState().adminSelectServicesBody = 'Кроссовер';
                                                                                   });
-                                                                                  logFirebaseEvent('Container_refresh_database_request');
                                                                                   setState(() => _firestoreRequestCompleter = null);
                                                                                 },
                                                                                 child: Container(
@@ -1612,12 +1593,9 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                               ),
                                                                               InkWell(
                                                                                 onTap: () async {
-                                                                                  logFirebaseEvent('ADMIN_ADD_COMPANY_5_Container_ywswij8n_O');
-                                                                                  logFirebaseEvent('Container_update_local_state');
                                                                                   FFAppState().update(() {
                                                                                     FFAppState().adminSelectServicesBody = 'Внедорожник';
                                                                                   });
-                                                                                  logFirebaseEvent('Container_refresh_database_request');
                                                                                   setState(() => _firestoreRequestCompleter = null);
                                                                                 },
                                                                                 child: Container(
@@ -1657,12 +1635,9 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                               ),
                                                                               InkWell(
                                                                                 onTap: () async {
-                                                                                  logFirebaseEvent('ADMIN_ADD_COMPANY_5_Container_ykve3bhj_O');
-                                                                                  logFirebaseEvent('Container_update_local_state');
                                                                                   FFAppState().update(() {
                                                                                     FFAppState().adminSelectServicesBody = 'Пикап';
                                                                                   });
-                                                                                  logFirebaseEvent('Container_refresh_database_request');
                                                                                   setState(() => _firestoreRequestCompleter = null);
                                                                                 },
                                                                                 child: Container(
@@ -1702,12 +1677,9 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                               ),
                                                                               InkWell(
                                                                                 onTap: () async {
-                                                                                  logFirebaseEvent('ADMIN_ADD_COMPANY_5_Container_qcge0b6t_O');
-                                                                                  logFirebaseEvent('Container_update_local_state');
                                                                                   FFAppState().update(() {
                                                                                     FFAppState().adminSelectServicesBody = 'Минивен';
                                                                                   });
-                                                                                  logFirebaseEvent('Container_refresh_database_request');
                                                                                   setState(() => _firestoreRequestCompleter = null);
                                                                                 },
                                                                                 child: Container(
@@ -1747,12 +1719,9 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                               ),
                                                                               InkWell(
                                                                                 onTap: () async {
-                                                                                  logFirebaseEvent('ADMIN_ADD_COMPANY_5_Container_iemmnvql_O');
-                                                                                  logFirebaseEvent('Container_update_local_state');
                                                                                   FFAppState().update(() {
                                                                                     FFAppState().adminSelectServicesBody = 'Купе';
                                                                                   });
-                                                                                  logFirebaseEvent('Container_refresh_database_request');
                                                                                   setState(() => _firestoreRequestCompleter = null);
                                                                                 },
                                                                                 child: Container(
@@ -1836,8 +1805,6 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                   List<CompanyServicesRecord> listViewCompanyServicesRecordList = snapshot.data!;
                                                                                   return RefreshIndicator(
                                                                                     onRefresh: () async {
-                                                                                      logFirebaseEvent('ADMIN_ADD_COMPANY_5_ListView_opgdbm12_ON');
-                                                                                      logFirebaseEvent('ListView_refresh_database_request');
                                                                                       setState(() => _firestoreRequestCompleter = null);
                                                                                       await waitForFirestoreRequestCompleter();
                                                                                     },
@@ -2408,11 +2375,6 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                         ),
                                         FFButtonWidget(
                                           onPressed: () async {
-                                            logFirebaseEvent(
-                                                'ADMIN_ADD_COMPANY_5_ПРОДОЛЖИТЬ_BTN_ON_TA');
-                                            logFirebaseEvent(
-                                                'Button_backend_call');
-
                                             final companyDocumentCreateData = {
                                               ...createCompanyDocumentRecordData(
                                                 companyName:
@@ -2458,8 +2420,6 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                 .getDocumentFromData(
                                                     companyDocumentCreateData,
                                                     companyDocumentRecordReference);
-                                            logFirebaseEvent(
-                                                'Button_backend_call');
 
                                             final companiesUpdateData = {
                                               ...createCompaniesRecordData(
@@ -2473,8 +2433,6 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                             };
                                             await widget.company!
                                                 .update(companiesUpdateData);
-                                            logFirebaseEvent(
-                                                'Button_backend_call');
 
                                             final userUpdateData =
                                                 createUserRecordData(
@@ -2483,8 +2441,6 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                             );
                                             await currentUserReference!
                                                 .update(userUpdateData);
-                                            logFirebaseEvent(
-                                                'Button_navigate_to');
 
                                             context.goNamed(
                                               'admin_office',

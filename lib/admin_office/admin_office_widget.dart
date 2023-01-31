@@ -55,25 +55,20 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
     super.initState();
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      logFirebaseEvent('ADMIN_OFFICE_admin_office_ON_LOAD');
       if (FFAppState().adminOfficeType == null ||
           FFAppState().adminOfficeType == '') {
-        logFirebaseEvent('admin_office_update_local_state');
         FFAppState().update(() {
           FFAppState().adminOfficeType = 'Личные данные';
         });
       }
       if (FFAppState().adminSelectServicesBody == null ||
           FFAppState().adminSelectServicesBody == '') {
-        logFirebaseEvent('admin_office_update_local_state');
         FFAppState().update(() {
           FFAppState().adminSelectServicesBody = 'Седан';
         });
       }
     });
 
-    logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'admin_office'});
     editFIOController = TextEditingController();
     editPhoneController = TextEditingController();
     textController3 = TextEditingController();
@@ -242,11 +237,6 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                     0, 0),
                                                         child: FFButtonWidget(
                                                           onPressed: () async {
-                                                            logFirebaseEvent(
-                                                                'ADMIN_OFFICE_ПЕРЕЙТИ_В_РАЗДЕЛ_“ГЛАВНАЯ”_');
-                                                            logFirebaseEvent(
-                                                                'Button_navigate_to');
-
                                                             context.pushNamed(
                                                                 'admin_main');
                                                           },
@@ -339,10 +329,6 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                     24, 0),
                                                         child: InkWell(
                                                           onTap: () async {
-                                                            logFirebaseEvent(
-                                                                'ADMIN_OFFICE_PAGE_Column_jba1ajak_ON_TAP');
-                                                            logFirebaseEvent(
-                                                                'Column_update_local_state');
                                                             FFAppState()
                                                                 .update(() {
                                                               FFAppState()
@@ -414,10 +400,6 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                     24, 0),
                                                         child: InkWell(
                                                           onTap: () async {
-                                                            logFirebaseEvent(
-                                                                'ADMIN_OFFICE_PAGE_Column_oa7x0khr_ON_TAP');
-                                                            logFirebaseEvent(
-                                                                'Column_update_local_state');
                                                             FFAppState()
                                                                 .update(() {
                                                               FFAppState()
@@ -489,10 +471,6 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                     24, 0),
                                                         child: InkWell(
                                                           onTap: () async {
-                                                            logFirebaseEvent(
-                                                                'ADMIN_OFFICE_PAGE_Column_1v3o4ij3_ON_TAP');
-                                                            logFirebaseEvent(
-                                                                'Column_update_local_state');
                                                             FFAppState()
                                                                 .update(() {
                                                               FFAppState()
@@ -564,10 +542,6 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                     24, 0),
                                                         child: InkWell(
                                                           onTap: () async {
-                                                            logFirebaseEvent(
-                                                                'ADMIN_OFFICE_PAGE_Column_0xse3vau_ON_TAP');
-                                                            logFirebaseEvent(
-                                                                'Column_update_local_state');
                                                             FFAppState()
                                                                 .update(() {
                                                               FFAppState()
@@ -714,8 +688,6 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                           InkWell(
                                                                             onTap:
                                                                                 () async {
-                                                                              logFirebaseEvent('ADMIN_OFFICE_PAGE_Row_hdzio73s_ON_TAP');
-                                                                              logFirebaseEvent('Row_update_local_state');
                                                                               FFAppState().update(() {
                                                                                 FFAppState().adminOfficeType = 'Редактировать данные';
                                                                               });
@@ -1049,8 +1021,6 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                           InkWell(
                                                                             onTap:
                                                                                 () async {
-                                                                              logFirebaseEvent('ADMIN_OFFICE_PAGE_Row_orndzt5s_ON_TAP');
-                                                                              logFirebaseEvent('Row_update_local_state');
                                                                               FFAppState().update(() {
                                                                                 FFAppState().adminOfficeType = 'Личные данные';
                                                                               });
@@ -1099,8 +1069,6 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                           InkWell(
                                                                             onTap:
                                                                                 () async {
-                                                                              logFirebaseEvent('ADMIN_OFFICE_PAGE_Row_37rqv8ym_ON_TAP');
-                                                                              logFirebaseEvent('Row_upload_media_to_firebase');
                                                                               final selectedMedia = await selectMediaWithSourceBottomSheet(
                                                                                 context: context,
                                                                                 allowPhoto: true,
@@ -1419,9 +1387,6 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                         FFButtonWidget(
                                                                           onPressed:
                                                                               () async {
-                                                                            logFirebaseEvent('ADMIN_OFFICE_PAGE_ДОБАВИТЬ_BTN_ON_TAP');
-                                                                            logFirebaseEvent('Button_navigate_to');
-
                                                                             context.pushNamed('admin_add_staff_1');
                                                                           },
                                                                           text:
@@ -1695,9 +1660,6 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                       ],
                                                                                                       onChanged: (val) async {
                                                                                                         setState(() => dropDown667ValueMap[usersItem] = val!);
-                                                                                                        logFirebaseEvent('ADMIN_OFFICE_DropDown667_ON_FORM_WIDGET_');
-                                                                                                        logFirebaseEvent('DropDown667_backend_call');
-
                                                                                                         final userUpdateData = createUserRecordData(
                                                                                                           adminStatus: dropDown667ValueMap[usersItem],
                                                                                                         );
@@ -1833,8 +1795,6 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                               final wrapCompaniesRecord = wrapCompaniesRecordList[wrapIndex];
                                                                               return InkWell(
                                                                                 onTap: () async {
-                                                                                  logFirebaseEvent('ADMIN_OFFICE_Container_kua68y5o_ON_TAP');
-                                                                                  logFirebaseEvent('Container_update_local_state');
                                                                                   FFAppState().update(() {
                                                                                     FFAppState().adminOfficeType = 'current автомойка';
                                                                                     FFAppState().adminOfficeCurrentCompany = wrapCompaniesRecord.reference;
@@ -3580,12 +3540,9 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                         children: [
                                                                                           InkWell(
                                                                                             onTap: () async {
-                                                                                              logFirebaseEvent('ADMIN_OFFICE_Container_bldf4n7a_ON_TAP');
-                                                                                              logFirebaseEvent('Container_update_local_state');
                                                                                               FFAppState().update(() {
                                                                                                 FFAppState().adminSelectServicesBody = 'Седан';
                                                                                               });
-                                                                                              logFirebaseEvent('Container_refresh_database_request');
                                                                                               setState(() => _firestoreRequestCompleter = null);
                                                                                             },
                                                                                             child: Container(
@@ -3625,12 +3582,9 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                           ),
                                                                                           InkWell(
                                                                                             onTap: () async {
-                                                                                              logFirebaseEvent('ADMIN_OFFICE_Container_18t127x8_ON_TAP');
-                                                                                              logFirebaseEvent('Container_update_local_state');
                                                                                               FFAppState().update(() {
                                                                                                 FFAppState().adminSelectServicesBody = 'Хетчбэк';
                                                                                               });
-                                                                                              logFirebaseEvent('Container_refresh_database_request');
                                                                                               setState(() => _firestoreRequestCompleter = null);
                                                                                             },
                                                                                             child: Container(
@@ -3670,12 +3624,9 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                           ),
                                                                                           InkWell(
                                                                                             onTap: () async {
-                                                                                              logFirebaseEvent('ADMIN_OFFICE_Container_7gen624l_ON_TAP');
-                                                                                              logFirebaseEvent('Container_update_local_state');
                                                                                               FFAppState().update(() {
                                                                                                 FFAppState().adminSelectServicesBody = 'Кроссовер';
                                                                                               });
-                                                                                              logFirebaseEvent('Container_refresh_database_request');
                                                                                               setState(() => _firestoreRequestCompleter = null);
                                                                                             },
                                                                                             child: Container(
@@ -3715,12 +3666,9 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                           ),
                                                                                           InkWell(
                                                                                             onTap: () async {
-                                                                                              logFirebaseEvent('ADMIN_OFFICE_Container_z3fxsff8_ON_TAP');
-                                                                                              logFirebaseEvent('Container_update_local_state');
                                                                                               FFAppState().update(() {
                                                                                                 FFAppState().adminSelectServicesBody = 'Внедорожник';
                                                                                               });
-                                                                                              logFirebaseEvent('Container_refresh_database_request');
                                                                                               setState(() => _firestoreRequestCompleter = null);
                                                                                             },
                                                                                             child: Container(
@@ -3760,12 +3708,9 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                           ),
                                                                                           InkWell(
                                                                                             onTap: () async {
-                                                                                              logFirebaseEvent('ADMIN_OFFICE_Container_zxp67o14_ON_TAP');
-                                                                                              logFirebaseEvent('Container_update_local_state');
                                                                                               FFAppState().update(() {
                                                                                                 FFAppState().adminSelectServicesBody = 'Пикап';
                                                                                               });
-                                                                                              logFirebaseEvent('Container_refresh_database_request');
                                                                                               setState(() => _firestoreRequestCompleter = null);
                                                                                             },
                                                                                             child: Container(
@@ -3805,12 +3750,9 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                           ),
                                                                                           InkWell(
                                                                                             onTap: () async {
-                                                                                              logFirebaseEvent('ADMIN_OFFICE_Container_dozdyjwg_ON_TAP');
-                                                                                              logFirebaseEvent('Container_update_local_state');
                                                                                               FFAppState().update(() {
                                                                                                 FFAppState().adminSelectServicesBody = 'Минивен';
                                                                                               });
-                                                                                              logFirebaseEvent('Container_refresh_database_request');
                                                                                               setState(() => _firestoreRequestCompleter = null);
                                                                                             },
                                                                                             child: Container(
@@ -3850,12 +3792,9 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                           ),
                                                                                           InkWell(
                                                                                             onTap: () async {
-                                                                                              logFirebaseEvent('ADMIN_OFFICE_Container_vquwbcw8_ON_TAP');
-                                                                                              logFirebaseEvent('Container_update_local_state');
                                                                                               FFAppState().update(() {
                                                                                                 FFAppState().adminSelectServicesBody = 'Купе';
                                                                                               });
-                                                                                              logFirebaseEvent('Container_refresh_database_request');
                                                                                               setState(() => _firestoreRequestCompleter = null);
                                                                                             },
                                                                                             child: Container(
@@ -3935,8 +3874,6 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                               List<CompanyServicesRecord> listViewCompanyServicesRecordList = snapshot.data!;
                                                                                               return RefreshIndicator(
                                                                                                 onRefresh: () async {
-                                                                                                  logFirebaseEvent('ADMIN_OFFICE_ListView_4iou0i81_ON_PULL_T');
-                                                                                                  logFirebaseEvent('ListView_refresh_database_request');
                                                                                                   setState(() => _firestoreRequestCompleter = null);
                                                                                                   await waitForFirestoreRequestCompleter();
                                                                                                 },
@@ -4291,11 +4228,6 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                   InkWell(
                                                                     onTap:
                                                                         () async {
-                                                                      logFirebaseEvent(
-                                                                          'ADMIN_OFFICE_PAGE_docExists_ON_TAP');
-                                                                      logFirebaseEvent(
-                                                                          'docExists_navigate_to');
-
                                                                       context
                                                                           .pushNamed(
                                                                         'admin_add_company_1',
@@ -4347,11 +4279,6 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                   InkWell(
                                                                     onTap:
                                                                         () async {
-                                                                      logFirebaseEvent(
-                                                                          'ADMIN_OFFICE_PAGE_docNotExists_ON_TAP');
-                                                                      logFirebaseEvent(
-                                                                          'docNotExists_backend_call');
-
                                                                       final companiesCreateData =
                                                                           {
                                                                         ...createCompaniesRecordData(
@@ -4372,8 +4299,6 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                       addCompany = CompaniesRecord.getDocumentFromData(
                                                                           companiesCreateData,
                                                                           companiesRecordReference);
-                                                                      logFirebaseEvent(
-                                                                          'docNotExists_navigate_to');
 
                                                                       context
                                                                           .pushNamed(
@@ -4463,12 +4388,8 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                               alignment: AlignmentDirectional(1, 0),
                               child: FFButtonWidget(
                                 onPressed: () async {
-                                  logFirebaseEvent(
-                                      'ADMIN_OFFICE_PAGE_СОХРАНИТЬ_BTN_ON_TAP');
                                   if (uploadedFileUrl != null &&
                                       uploadedFileUrl != '') {
-                                    logFirebaseEvent('Button_backend_call');
-
                                     final userUpdateData = createUserRecordData(
                                       displayName: editFIOController!.text,
                                       phoneNumber: editPhoneController!.text,
@@ -4477,8 +4398,6 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                     await currentUserReference!
                                         .update(userUpdateData);
                                   } else {
-                                    logFirebaseEvent('Button_backend_call');
-
                                     final userUpdateData = createUserRecordData(
                                       displayName: editFIOController!.text,
                                       phoneNumber: editPhoneController!.text,
@@ -4487,12 +4406,10 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                         .update(userUpdateData);
                                   }
 
-                                  logFirebaseEvent('Button_update_local_state');
                                   FFAppState().update(() {
                                     FFAppState().adminOfficeType =
                                         'Личные данные';
                                   });
-                                  logFirebaseEvent('Button_show_snack_bar');
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
                                       content: Text(

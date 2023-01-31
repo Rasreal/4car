@@ -156,10 +156,6 @@ class _EditCarWidgetState extends State<EditCarWidget> {
                                   children: [
                                     InkWell(
                                       onTap: () async {
-                                        logFirebaseEvent(
-                                            'EDIT_CAR_COMP_Container_egw2wn2g_ON_TAP');
-                                        logFirebaseEvent(
-                                            'Container_update_local_state');
                                         FFAppState().update(() {
                                           FFAppState().addCarBody =
                                               listViewCarBodyRecord.bodyName!;
@@ -324,15 +320,10 @@ class _EditCarWidgetState extends State<EditCarWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            logFirebaseEvent(
-                                'EDIT_CAR_COMP_СОХРАНИТЬ_BTN_ON_TAP');
-                            logFirebaseEvent('Button_validate_form');
                             if (formKey.currentState == null ||
                                 !formKey.currentState!.validate()) {
                               return;
                             }
-
-                            logFirebaseEvent('Button_backend_call');
 
                             final myCarsUpdateData = createMyCarsRecordData(
                               carNum: textController!.text,
@@ -340,7 +331,6 @@ class _EditCarWidgetState extends State<EditCarWidget> {
                             );
                             await widget.myCar!.reference
                                 .update(myCarsUpdateData);
-                            logFirebaseEvent('Button_bottom_sheet');
                             Navigator.pop(context);
                           },
                           text: 'Сохранить',
@@ -371,9 +361,6 @@ class _EditCarWidgetState extends State<EditCarWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
                           child: FFButtonWidget(
                             onPressed: () async {
-                              logFirebaseEvent(
-                                  'EDIT_CAR_COMP_СОХРАНИТЬ_BTN_ON_TAP');
-                              logFirebaseEvent('Button_validate_form');
                               if (formKey.currentState == null ||
                                   !formKey.currentState!.validate()) {
                                 return;
@@ -381,8 +368,6 @@ class _EditCarWidgetState extends State<EditCarWidget> {
 
                               if (FFAppState().addCarBody != null &&
                                   FFAppState().addCarBody != '') {
-                                logFirebaseEvent('Button_backend_call');
-
                                 final myCarsUpdateData = createMyCarsRecordData(
                                   carNum: textController!.text,
                                   carBody: FFAppState().addCarBody,
@@ -390,8 +375,6 @@ class _EditCarWidgetState extends State<EditCarWidget> {
                                 await widget.myCar!.reference
                                     .update(myCarsUpdateData);
                               } else {
-                                logFirebaseEvent('Button_backend_call');
-
                                 final myCarsUpdateData = createMyCarsRecordData(
                                   carNum: textController!.text,
                                 );
@@ -399,7 +382,6 @@ class _EditCarWidgetState extends State<EditCarWidget> {
                                     .update(myCarsUpdateData);
                               }
 
-                              logFirebaseEvent('Button_bottom_sheet');
                               Navigator.pop(context);
                             },
                             text: 'Сохранить',

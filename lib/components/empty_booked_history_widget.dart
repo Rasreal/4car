@@ -65,9 +65,6 @@ class _EmptyBookedHistoryWidgetState extends State<EmptyBookedHistoryWidget> {
             padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 16),
             child: FFButtonWidget(
               onPressed: () async {
-                logFirebaseEvent('EMPTY_BOOKED_HISTORY_НАЙТИ_АВТОМОЙКУ_BTN');
-                logFirebaseEvent('Button_navigate_to');
-
                 context.goNamed('HomePage');
               },
               text: 'Найти автомойку',

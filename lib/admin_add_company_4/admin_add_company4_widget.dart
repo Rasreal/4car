@@ -54,8 +54,6 @@ class _AdminAddCompany4WidgetState extends State<AdminAddCompany4Widget> {
     fIOAdminController = TextEditingController();
     numDogovorController = TextEditingController(text: '№');
     phoneNumController = TextEditingController();
-    logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'admin_add_company_4'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -145,11 +143,6 @@ class _AdminAddCompany4WidgetState extends State<AdminAddCompany4Widget> {
                                                   ),
                                                   InkWell(
                                                     onTap: () async {
-                                                      logFirebaseEvent(
-                                                          'ADMIN_ADD_COMPANY_4_Row_8sztf7gb_ON_TAP');
-                                                      logFirebaseEvent(
-                                                          'Row_navigate_to');
-
                                                       context.goNamed(
                                                           'admin_main');
                                                     },
@@ -1238,10 +1231,6 @@ class _AdminAddCompany4WidgetState extends State<AdminAddCompany4Widget> {
                                                         ),
                                                         child: InkWell(
                                                           onTap: () async {
-                                                            logFirebaseEvent(
-                                                                'ADMIN_ADD_COMPANY_4_Row_6cop29om_ON_TAP');
-                                                            logFirebaseEvent(
-                                                                'Row_date_time_picker');
                                                             if (kIsWeb) {
                                                               final _datePickedDate =
                                                                   await showDatePicker(
@@ -1428,10 +1417,6 @@ class _AdminAddCompany4WidgetState extends State<AdminAddCompany4Widget> {
                                                                     0, 24),
                                                         child: InkWell(
                                                           onTap: () async {
-                                                            logFirebaseEvent(
-                                                                'ADMIN_ADD_COMPANY_4_Row_ve2buizz_ON_TAP');
-                                                            logFirebaseEvent(
-                                                                'Row_upload_file_to_firebase');
                                                             final selectedFile =
                                                                 await selectFile(
                                                                     allowedExtensions: [
@@ -1982,16 +1967,10 @@ class _AdminAddCompany4WidgetState extends State<AdminAddCompany4Widget> {
                                     ),
                                     FFButtonWidget(
                                       onPressed: () async {
-                                        logFirebaseEvent(
-                                            'ADMIN_ADD_COMPANY_4_ПРОДОЛЖИТЬ_BTN_ON_TA');
-                                        logFirebaseEvent(
-                                            'Button_validate_form');
                                         if (formKey.currentState == null ||
                                             !formKey.currentState!.validate()) {
                                           return;
                                         }
-
-                                        logFirebaseEvent('Button_backend_call');
 
                                         final companiesUpdateData =
                                             createCompaniesRecordData(
@@ -2008,7 +1987,6 @@ class _AdminAddCompany4WidgetState extends State<AdminAddCompany4Widget> {
                                         );
                                         await widget.company!
                                             .update(companiesUpdateData);
-                                        logFirebaseEvent('Button_navigate_to');
 
                                         context.pushNamed(
                                           'admin_add_company_5',

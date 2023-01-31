@@ -25,20 +25,14 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
     super.initState();
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      logFirebaseEvent('ONBOARDING_PAGE_Onboarding_ON_PAGE_LOAD');
       if (FFAppState().signINcode) {
-        logFirebaseEvent('Onboarding_navigate_to');
-
         context.pushNamed('code');
       }
       if (FFAppState().singUPcode) {
-        logFirebaseEvent('Onboarding_navigate_to');
-
         context.pushNamed('sign_up_code');
       }
     });
 
-    logFirebaseEvent('screen_view', parameters: {'screen_name': 'Onboarding'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -337,9 +331,6 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                       ),
                       FFButtonWidget(
                         onPressed: () async {
-                          logFirebaseEvent('ONBOARDING_PAGE_ВОЙТИ_BTN_ON_TAP');
-                          logFirebaseEvent('Button_navigate_to');
-
                           context.pushNamed('Sign_in');
                         },
                         text: 'Войти',
@@ -368,10 +359,6 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 10),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            logFirebaseEvent(
-                                'ONBOARDING_ЗАРЕГИСТРИРОВАТЬСЯ_BTN_ON_TAP');
-                            logFirebaseEvent('Button_navigate_to');
-
                             context.pushNamed('Sign_Up');
                           },
                           text: 'Зарегистрироваться',
@@ -411,9 +398,6 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                   alignment: AlignmentDirectional(0, 0),
                   child: FFButtonWidget(
                     onPressed: () async {
-                      logFirebaseEvent('ONBOARDING_PAGE_BUTTON_BTN_ON_TAP');
-                      logFirebaseEvent('Button_navigate_to');
-
                       context.pushNamed('admin_sign_in_email');
                     },
                     text: 'Button',

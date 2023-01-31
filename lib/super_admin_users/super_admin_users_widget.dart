@@ -28,15 +28,11 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
     super.initState();
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      logFirebaseEvent('SUPER_ADMIN_USERS_super_admin_users_ON_L');
-      logFirebaseEvent('super_admin_users_update_local_state');
       FFAppState().update(() {
         FFAppState().adminClentsType = 'Клиенты';
       });
     });
 
-    logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'super_admin_users'});
     textController = TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -110,10 +106,6 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                           0, 0, 24, 0),
                                       child: InkWell(
                                         onTap: () async {
-                                          logFirebaseEvent(
-                                              'SUPER_ADMIN_USERS_Column_8idofm2d_ON_TAP');
-                                          logFirebaseEvent(
-                                              'Column_update_local_state');
                                           FFAppState().update(() {
                                             FFAppState().adminClentsType =
                                                 'Клиенты';
@@ -179,10 +171,6 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                           0, 0, 24, 0),
                                       child: InkWell(
                                         onTap: () async {
-                                          logFirebaseEvent(
-                                              'SUPER_ADMIN_USERS_Column_3sr9btlg_ON_TAP');
-                                          logFirebaseEvent(
-                                              'Column_update_local_state');
                                           FFAppState().update(() {
                                             FFAppState().adminClentsType =
                                                 'Отзывы';
@@ -1182,12 +1170,9 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                                               InkWell(
                                                                             onTap:
                                                                                 () async {
-                                                                              logFirebaseEvent('SUPER_ADMIN_USERS_Icon_vcyqmkom_ON_TAP');
-                                                                              logFirebaseEvent('Icon_update_local_state');
                                                                               FFAppState().update(() {
                                                                                 FFAppState().adminClientsTypeReview = 'Детали операции';
                                                                               });
-                                                                              logFirebaseEvent('Icon_bottom_sheet');
                                                                               await showModalBottomSheet(
                                                                                 isScrollControlled: true,
                                                                                 backgroundColor: Colors.transparent,
@@ -1889,11 +1874,6 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                                       InkWell(
                                                                     onTap:
                                                                         () async {
-                                                                      logFirebaseEvent(
-                                                                          'SUPER_ADMIN_USERS_Row_9y0ghpor_ON_TAP');
-                                                                      logFirebaseEvent(
-                                                                          'Row_navigate_to');
-
                                                                       context
                                                                           .pushNamed(
                                                                         'super_admin_current_user',

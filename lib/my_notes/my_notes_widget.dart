@@ -35,14 +35,10 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
     super.initState();
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      logFirebaseEvent('MY_NOTES_PAGE_My_notes_ON_PAGE_LOAD');
-      logFirebaseEvent('My_notes_refresh_database_request');
       setState(() => _firestoreRequestCompleter = null);
-      logFirebaseEvent('My_notes_refresh_database_request');
       setState(() => _documentRequestCompleter = null);
     });
 
-    logFirebaseEvent('screen_view', parameters: {'screen_name': 'My_notes'});
     getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
         .then((loc) => setState(() => currentUserLocationValue = loc));
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -219,11 +215,6 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                             snapshot.data!;
                                         return InkWell(
                                           onTap: () async {
-                                            logFirebaseEvent(
-                                                'MY_NOTES_PAGE_Container_oftm1eyq_ON_TAP');
-                                            logFirebaseEvent(
-                                                'Container_navigate_to');
-
                                             context.goNamed(
                                               'current_booking_record',
                                               queryParams: {
@@ -812,10 +803,6 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                     16, 12, 16, 0),
                                 child: InkWell(
                                   onTap: () async {
-                                    logFirebaseEvent(
-                                        'MY_NOTES_PAGE_Container_bk1aukw0_ON_TAP');
-                                    logFirebaseEvent('Container_navigate_to');
-
                                     context.goNamed(
                                       'current_booking_record',
                                       queryParams: {
@@ -1394,16 +1381,11 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                   snapshot.data!;
                                               return FFButtonWidget(
                                                 onPressed: () async {
-                                                  logFirebaseEvent(
-                                                      'MY_NOTES_ЗАПИСАТЬСЯ_СНОВА_BTN_ON_TAP');
                                                   if (valueOrDefault(
                                                           currentUserDocument
                                                               ?.carscount,
                                                           0) <
                                                       1) {
-                                                    logFirebaseEvent(
-                                                        'Button_navigate_to');
-
                                                     context.pushNamed(
                                                       'edit_profile',
                                                       queryParams: {
@@ -1414,8 +1396,6 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                       }.withoutNulls,
                                                     );
                                                   } else {
-                                                    logFirebaseEvent(
-                                                        'Button_update_local_state');
                                                     FFAppState().update(() {
                                                       FFAppState().selectedCar =
                                                           currentUserDocument!
@@ -1425,22 +1405,16 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                       FFAppState()
                                                           .bookingSelectedServicesName = [];
                                                     });
-                                                    logFirebaseEvent(
-                                                        'Button_update_local_state');
                                                     FFAppState().update(() {
                                                       FFAppState()
                                                               .selectedTimeSlot =
                                                           null;
                                                       FFAppState().price = 0;
                                                     });
-                                                    logFirebaseEvent(
-                                                        'Button_update_local_state');
                                                     FFAppState().update(() {
                                                       FFAppState().selectPush =
                                                           1000;
                                                     });
-                                                    logFirebaseEvent(
-                                                        'Button_navigate_to');
 
                                                     context.pushNamed(
                                                       'booking_page',

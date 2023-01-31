@@ -69,16 +69,11 @@ class _SuperAdminRejectModerationWidgetState
                         padding: EdgeInsetsDirectional.fromSTEB(0, 0, 24, 0),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            logFirebaseEvent(
-                                'SUPER_ADMIN_REJECT_MODERATION_ДА_BTN_ON_');
-                            logFirebaseEvent('Button_backend_call');
-
                             final companiesUpdateData =
                                 createCompaniesRecordData(
                               status: 'Отклонено',
                             );
                             await widget.company!.update(companiesUpdateData);
-                            logFirebaseEvent('Button_navigate_to');
 
                             context.pushNamed('super_admin_main');
                           },
@@ -114,9 +109,6 @@ class _SuperAdminRejectModerationWidgetState
                       alignment: AlignmentDirectional(1, 0),
                       child: FFButtonWidget(
                         onPressed: () async {
-                          logFirebaseEvent(
-                              'SUPER_ADMIN_REJECT_MODERATION_НЕТ_BTN_ON');
-                          logFirebaseEvent('Button_bottom_sheet');
                           Navigator.pop(context);
                         },
                         text: 'Нет',

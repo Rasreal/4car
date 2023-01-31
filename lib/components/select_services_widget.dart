@@ -119,12 +119,9 @@ class _SelectServicesWidgetState extends State<SelectServicesWidget> {
                                   EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
                               child: InkWell(
                                 onTap: () async {
-                                  logFirebaseEvent(
-                                      'SELECT_SERVICES_COMP_Row_p9mk0lh5_ON_TAP');
                                   if (FFAppState().selectedServices.contains(
                                       listViewCompanyServicesRecord
                                           .reference)) {
-                                    logFirebaseEvent('Row_update_local_state');
                                     FFAppState().update(() {
                                       FFAppState().removeFromSelectedServices(
                                           listViewCompanyServicesRecord
@@ -138,7 +135,6 @@ class _SelectServicesWidgetState extends State<SelectServicesWidget> {
                                                   .name!);
                                     });
                                   } else {
-                                    logFirebaseEvent('Row_update_local_state');
                                     FFAppState().update(() {
                                       FFAppState().addToSelectedServices(
                                           listViewCompanyServicesRecord
@@ -245,8 +241,6 @@ class _SelectServicesWidgetState extends State<SelectServicesWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 60),
                 child: FFButtonWidget(
                   onPressed: () async {
-                    logFirebaseEvent('SELECT_SERVICES_СОХРАНИТЬ_BTN_ON_TAP');
-                    logFirebaseEvent('Button_bottom_sheet');
                     Navigator.pop(context);
                   },
                   text: 'Сохранить',

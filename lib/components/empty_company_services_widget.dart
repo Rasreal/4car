@@ -45,9 +45,6 @@ class _EmptyCompanyServicesWidgetState
           Expanded(
             child: InkWell(
               onTap: () async {
-                logFirebaseEvent('EMPTY_COMPANY_SERVICES_Row_xgzkbxwq_ON_T');
-                logFirebaseEvent('Row_backend_call');
-
                 final companyServicesCreateData =
                     createCompanyServicesRecordData(
                   name: widget.name,

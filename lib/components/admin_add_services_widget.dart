@@ -138,11 +138,6 @@ class _AdminAddServicesWidgetState extends State<AdminAddServicesWidget> {
                                           children: [
                                             InkWell(
                                               onTap: () async {
-                                                logFirebaseEvent(
-                                                    'ADMIN_ADD_SERVICES_Row_kkjmxjlf_ON_TAP');
-                                                logFirebaseEvent(
-                                                    'Row_backend_call');
-
                                                 final companyServicesCreateData =
                                                     createCompanyServicesRecordData(
                                                   name: servicesItem,
@@ -219,10 +214,6 @@ class _AdminAddServicesWidgetState extends State<AdminAddServicesWidget> {
                                               flex: 4,
                                               child: InkWell(
                                                 onTap: () async {
-                                                  logFirebaseEvent(
-                                                      'ADMIN_ADD_SERVICES_Row_ou9wrezz_ON_TAP');
-                                                  logFirebaseEvent(
-                                                      'Row_backend_call');
                                                   await container1CompanyServicesRecord!
                                                       .reference
                                                       .delete();
@@ -303,11 +294,6 @@ class _AdminAddServicesWidgetState extends State<AdminAddServicesWidget> {
                                                   setState(() =>
                                                       dropDownValueMap[
                                                           servicesItem] = val!);
-                                                  logFirebaseEvent(
-                                                      'ADMIN_ADD_SERVICES_DropDown_7b69771z_ON_');
-                                                  logFirebaseEvent(
-                                                      'DropDown_backend_call');
-
                                                   final companyServicesUpdateData =
                                                       createCompanyServicesRecordData(
                                                     duration:
@@ -452,21 +438,15 @@ class _AdminAddServicesWidgetState extends State<AdminAddServicesWidget> {
                       ),
                       InkWell(
                         onTap: () async {
-                          logFirebaseEvent(
-                              'ADMIN_ADD_SERVICES_Row_0nr7jdo8_ON_TAP');
-                          logFirebaseEvent('Row_backend_call');
-
                           final companiesUpdateData = {
                             'listServices':
                                 FieldValue.arrayUnion([new1Controller!.text]),
                           };
                           await widget.companyDoc!.update(companiesUpdateData);
-                          logFirebaseEvent('Row_update_local_state');
                           FFAppState().update(() {
                             FFAppState()
                                 .addToAdminForCarServices(new1Controller!.text);
                           });
-                          logFirebaseEvent('Row_clear_text_fields');
                           setState(() {
                             new1Controller?.clear();
                           });

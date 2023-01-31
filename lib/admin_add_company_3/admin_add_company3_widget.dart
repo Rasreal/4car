@@ -33,8 +33,6 @@ class _AdminAddCompany3WidgetState extends State<AdminAddCompany3Widget> {
   @override
   void initState() {
     super.initState();
-    logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'admin_add_company_3'});
     textController = TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -112,11 +110,6 @@ class _AdminAddCompany3WidgetState extends State<AdminAddCompany3Widget> {
                                               ),
                                               InkWell(
                                                 onTap: () async {
-                                                  logFirebaseEvent(
-                                                      'ADMIN_ADD_COMPANY_3_Row_b1y67sfz_ON_TAP');
-                                                  logFirebaseEvent(
-                                                      'Row_navigate_to');
-
                                                   context.goNamed('admin_main');
                                                 },
                                                 child: Row(
@@ -869,16 +862,10 @@ class _AdminAddCompany3WidgetState extends State<AdminAddCompany3Widget> {
                                     ),
                                     FFButtonWidget(
                                       onPressed: () async {
-                                        logFirebaseEvent(
-                                            'ADMIN_ADD_COMPANY_3_ПРОДОЛЖИТЬ_BTN_ON_TA');
-                                        logFirebaseEvent(
-                                            'Button_validate_form');
                                         if (formKey.currentState == null ||
                                             !formKey.currentState!.validate()) {
                                           return;
                                         }
-
-                                        logFirebaseEvent('Button_backend_call');
 
                                         final companiesUpdateData =
                                             createCompaniesRecordData(
@@ -886,7 +873,6 @@ class _AdminAddCompany3WidgetState extends State<AdminAddCompany3Widget> {
                                         );
                                         await widget.company!
                                             .update(companiesUpdateData);
-                                        logFirebaseEvent('Button_navigate_to');
 
                                         context.pushNamed(
                                           'admin_add_company_4',

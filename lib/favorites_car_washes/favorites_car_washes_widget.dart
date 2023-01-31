@@ -24,8 +24,7 @@ class _FavoritesCarWashesWidgetState extends State<FavoritesCarWashesWidget> {
   @override
   void initState() {
     super.initState();
-    logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'Favorites_Car_Washes'});
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -65,9 +64,6 @@ class _FavoritesCarWashesWidgetState extends State<FavoritesCarWashesWidget> {
                         size: 24,
                       ),
                       onPressed: () async {
-                        logFirebaseEvent(
-                            'FAVORITES_CAR_WASHES_icBack_ICN_ON_TAP');
-                        logFirebaseEvent('IconButton_navigate_back');
                         context.pop();
                       },
                     ),
@@ -137,10 +133,6 @@ class _FavoritesCarWashesWidgetState extends State<FavoritesCarWashesWidget> {
                                       snapshot.data!;
                                   return InkWell(
                                     onTap: () async {
-                                      logFirebaseEvent(
-                                          'FAVORITES_CAR_WASHES_Container_3uayqfts_');
-                                      logFirebaseEvent(
-                                          'company_card_bottom_sheet');
                                       await showModalBottomSheet(
                                         isScrollControlled: true,
                                         backgroundColor: Colors.transparent,

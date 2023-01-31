@@ -29,18 +29,14 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
     super.initState();
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      logFirebaseEvent('ADMIN_CLIENTS_admin_clients_ON_LOAD');
       if (FFAppState().adminClentsType == null ||
           FFAppState().adminClentsType == '') {
-        logFirebaseEvent('admin_clients_update_local_state');
         FFAppState().update(() {
           FFAppState().adminClentsType = 'Клиенты';
         });
       }
     });
 
-    logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'admin_clients'});
     textController = TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -113,10 +109,6 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                           0, 0, 24, 0),
                                       child: InkWell(
                                         onTap: () async {
-                                          logFirebaseEvent(
-                                              'ADMIN_CLIENTS_Column_8gtd337v_ON_TAP');
-                                          logFirebaseEvent(
-                                              'Column_update_local_state');
                                           FFAppState().update(() {
                                             FFAppState().adminClentsType =
                                                 'Клиенты';
@@ -182,10 +174,6 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                           0, 0, 24, 0),
                                       child: InkWell(
                                         onTap: () async {
-                                          logFirebaseEvent(
-                                              'ADMIN_CLIENTS_Column_9r5batec_ON_TAP');
-                                          logFirebaseEvent(
-                                              'Column_update_local_state');
                                           FFAppState().update(() {
                                             FFAppState().adminClentsType =
                                                 'Отзывы';
@@ -1198,12 +1186,9 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                               InkWell(
                                                                             onTap:
                                                                                 () async {
-                                                                              logFirebaseEvent('ADMIN_CLIENTS_PAGE_Icon_0xihsn7s_ON_TAP');
-                                                                              logFirebaseEvent('Icon_update_local_state');
                                                                               FFAppState().update(() {
                                                                                 FFAppState().adminClientsTypeReview = 'Детали операции';
                                                                               });
-                                                                              logFirebaseEvent('Icon_bottom_sheet');
                                                                               await showModalBottomSheet(
                                                                                 isScrollControlled: true,
                                                                                 backgroundColor: Colors.transparent,

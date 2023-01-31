@@ -23,8 +23,6 @@ class _AdminForgetPasswordWidgetState extends State<AdminForgetPasswordWidget> {
   void initState() {
     super.initState();
     emailTextController = TextEditingController();
-    logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'admin_forget_password'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -173,9 +171,6 @@ class _AdminForgetPasswordWidgetState extends State<AdminForgetPasswordWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 24),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            logFirebaseEvent(
-                                'ADMIN_FORGET_PASSWORD_ОТПРАВИТЬ_ССЫЛКУ_B');
-                            logFirebaseEvent('Button_auth');
                             if (emailTextController!.text.isEmpty) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
@@ -190,7 +185,6 @@ class _AdminForgetPasswordWidgetState extends State<AdminForgetPasswordWidget> {
                               email: emailTextController!.text,
                               context: context,
                             );
-                            logFirebaseEvent('Button_navigate_to');
 
                             context.pushNamed(
                               'admin_forget_password_2',

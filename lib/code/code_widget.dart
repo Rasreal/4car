@@ -51,14 +51,11 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
     super.initState();
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      logFirebaseEvent('CODE_PAGE_code_ON_PAGE_LOAD');
-      logFirebaseEvent('code_update_local_state');
       FFAppState().update(() {
         FFAppState().signINcode = false;
       });
     });
 
-    logFirebaseEvent('screen_view', parameters: {'screen_name': 'code'});
     pinCodeController = TextEditingController();
     setupAnimations(
       animationsMap.values.where((anim) =>
@@ -111,10 +108,6 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
                             size: 24,
                           ),
                           onPressed: () async {
-                            logFirebaseEvent(
-                                'CODE_chevron_left_outlined_ICN_ON_TAP');
-                            logFirebaseEvent('IconButton_navigate_to');
-
                             context.goNamed('Sign_in');
                           },
                         ),
@@ -229,8 +222,6 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
                   ),
                   FFButtonWidget(
                     onPressed: () async {
-                      logFirebaseEvent('CODE_PAGE_ВВЕСТИ_КОД_BTN_ON_TAP');
-                      logFirebaseEvent('Button_auth');
                       GoRouter.of(context).prepareAuthEvent();
                       final smsCodeVal = pinCodeController!.text;
                       if (smsCodeVal == null || smsCodeVal.isEmpty) {
@@ -249,16 +240,13 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
                         return;
                       }
 
-                      logFirebaseEvent('Button_widget_animation');
                       if (animationsMap['columnOnActionTriggerAnimation'] !=
                           null) {
                         await animationsMap['columnOnActionTriggerAnimation']!
                             .controller
                             .forward(from: 0.0);
                       }
-                      logFirebaseEvent('Button_wait__delay');
                       await Future.delayed(const Duration(milliseconds: 2000));
-                      logFirebaseEvent('Button_navigate_to');
 
                       context.goNamedAuth('HomePage', mounted);
                     },

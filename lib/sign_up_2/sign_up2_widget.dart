@@ -63,7 +63,6 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
       this,
     );
 
-    logFirebaseEvent('screen_view', parameters: {'screen_name': 'Sign_Up_2'});
     textController = TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -186,9 +185,6 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                       padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                       child: InkWell(
                         onTap: () async {
-                          logFirebaseEvent(
-                              'SIGN_UP_2_PAGE_Container_kjvsxxo1_ON_TAP');
-                          logFirebaseEvent('Container_bottom_sheet');
                           await showModalBottomSheet(
                             isScrollControlled: true,
                             context: context,
@@ -304,23 +300,16 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                                       ),
                                       InkWell(
                                         onTap: () async {
-                                          logFirebaseEvent(
-                                              'SIGN_UP_2_PAGE_Text_2mw2vo39_ON_TAP');
                                           if (currentUserDocument!.firstCar ==
                                               columnMyCarsRecord.reference) {
-                                            logFirebaseEvent(
-                                                'Text_backend_call');
-
                                             final userUpdateData = {
                                               'firstCar': FieldValue.delete(),
                                             };
                                             await currentUserReference!
                                                 .update(userUpdateData);
                                           }
-                                          logFirebaseEvent('Text_backend_call');
                                           await columnMyCarsRecord.reference
                                               .delete();
-                                          logFirebaseEvent('Text_backend_call');
 
                                           final userUpdateData = {
                                             'carscount':
@@ -357,16 +346,10 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                                         0, 8, 0, 0),
                                     child: InkWell(
                                       onTap: () async {
-                                        logFirebaseEvent(
-                                            'SIGN_UP_2_PAGE_Container_6zrwqpln_ON_TAP');
-                                        logFirebaseEvent(
-                                            'Container_update_local_state');
                                         FFAppState().update(() {
                                           FFAppState().addCarBody =
                                               columnMyCarsRecord.carBody!;
                                         });
-                                        logFirebaseEvent(
-                                            'Container_bottom_sheet');
                                         await showModalBottomSheet(
                                           isScrollControlled: true,
                                           context: context,
@@ -411,10 +394,6 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                                               ),
                                               InkWell(
                                                 onTap: () async {
-                                                  logFirebaseEvent(
-                                                      'SIGN_UP_2_PAGE_Icon_t09o4o7m_ON_TAP');
-                                                  logFirebaseEvent(
-                                                      'Icon_bottom_sheet');
                                                   await showModalBottomSheet(
                                                     isScrollControlled: true,
                                                     backgroundColor:
@@ -526,13 +505,9 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                         child: AuthUserStreamWidget(
                           builder: (context) => InkWell(
                             onTap: () async {
-                              logFirebaseEvent(
-                                  'SIGN_UP_2_PAGE_Container_uh1gp26l_ON_TAP');
-                              logFirebaseEvent('Container_update_local_state');
                               FFAppState().update(() {
                                 FFAppState().addCarBody = '';
                               });
-                              logFirebaseEvent('Container_bottom_sheet');
                               await showModalBottomSheet(
                                 isScrollControlled: true,
                                 context: context,
@@ -702,18 +677,12 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                                 AuthUserStreamWidget(
                                   builder: (context) => FFButtonWidget(
                                     onPressed: () async {
-                                      logFirebaseEvent(
-                                          'SIGN_UP_2_ЗАРЕГИСТРИРОВАТЬСЯ_BTN_ON_TAP');
-                                      logFirebaseEvent('Button_backend_call');
-
                                       final userUpdateData =
                                           createUserRecordData(
                                         displayName: textController!.text,
                                       );
                                       await currentUserReference!
                                           .update(userUpdateData);
-                                      logFirebaseEvent(
-                                          'Button_widget_animation');
                                       if (animationsMap[
                                               'containerOnActionTriggerAnimation'] !=
                                           null) {
@@ -722,10 +691,8 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                                             .controller
                                             .forward(from: 0.0);
                                       }
-                                      logFirebaseEvent('Button_wait__delay');
                                       await Future.delayed(
                                           const Duration(milliseconds: 2000));
-                                      logFirebaseEvent('Button_navigate_to');
 
                                       context.pushNamed('HomePage');
                                     },

@@ -222,11 +222,7 @@ class _SuccsesBookingWidgetState extends State<SuccsesBookingWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 16),
                 child: FFButtonWidget(
                   onPressed: () async {
-                    logFirebaseEvent(
-                        'SUCCSES_BOOKING_ЗАПИСАТЬСЯ_СНОВА_BTN_ON_');
                     if (valueOrDefault(currentUserDocument?.carscount, 0) < 1) {
-                      logFirebaseEvent('Button_navigate_to');
-
                       context.pushNamed(
                         'edit_profile',
                         queryParams: {
@@ -237,22 +233,18 @@ class _SuccsesBookingWidgetState extends State<SuccsesBookingWidget> {
                         }.withoutNulls,
                       );
                     } else {
-                      logFirebaseEvent('Button_update_local_state');
                       FFAppState().update(() {
                         FFAppState().selectedCar =
                             currentUserDocument!.firstCar;
                         FFAppState().selectedServices = [];
                       });
-                      logFirebaseEvent('Button_update_local_state');
                       FFAppState().update(() {
                         FFAppState().selectedTimeSlot = null;
                         FFAppState().price = 0;
                       });
-                      logFirebaseEvent('Button_update_local_state');
                       FFAppState().update(() {
                         FFAppState().selectPush = 1000;
                       });
-                      logFirebaseEvent('Button_navigate_to');
 
                       context.pushNamed(
                         'booking_page',
@@ -291,9 +283,6 @@ class _SuccsesBookingWidgetState extends State<SuccsesBookingWidget> {
               ),
               InkWell(
                 onTap: () async {
-                  logFirebaseEvent('SUCCSES_BOOKING_Text_pa0c6cu7_ON_TAP');
-                  logFirebaseEvent('Text_navigate_to');
-
                   context.goNamed('HomePage');
                 },
                 child: Text(

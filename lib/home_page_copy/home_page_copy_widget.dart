@@ -41,10 +41,8 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
     super.initState();
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      logFirebaseEvent('HOME_COPY_HomePageCopy_ON_LOAD');
       if (valueOrDefault<bool>(
           currentUserDocument?.lastBookingBoolean, false)) {
-        logFirebaseEvent('HomePageCopy_bottom_sheet');
         await showModalBottomSheet(
           isScrollControlled: true,
           backgroundColor: Colors.transparent,
@@ -64,8 +62,6 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
       }
     });
 
-    logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'HomePageCopy'});
     getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
         .then((loc) => setState(() => currentUserLocationValue = loc));
     textController = TextEditingController();
@@ -118,10 +114,6 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
                   child: InkWell(
                     onTap: () async {
-                      logFirebaseEvent(
-                          'HOME_PAGE_COPY_PAGE_Row_4roykkvd_ON_TAP');
-                      logFirebaseEvent('Row_navigate_to');
-
                       context.pushNamed('edit_profile');
                     },
                     child: Row(
@@ -226,8 +218,6 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                   child: InkWell(
                     onTap: () async {
-                      logFirebaseEvent('HOME_PAGE_COPY_PAGE_city_ON_TAP');
-                      logFirebaseEvent('city_bottom_sheet');
                       await showModalBottomSheet(
                         isScrollControlled: true,
                         backgroundColor: Colors.transparent,
@@ -299,9 +289,6 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                   child: InkWell(
                     onTap: () async {
-                      logFirebaseEvent('HOME_PAGE_COPY_PAGE_city_ON_TAP');
-                      logFirebaseEvent('city_navigate_to');
-
                       context.pushNamed('Favorites_Car_Washes');
                     },
                     child: Row(
@@ -404,9 +391,6 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                   child: InkWell(
                     onTap: () async {
-                      logFirebaseEvent('HOME_PAGE_COPY_PAGE_city_ON_TAP');
-                      logFirebaseEvent('city_navigate_to');
-
                       context.pushNamed('About_company');
                     },
                     child: Row(
@@ -441,9 +425,6 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                   child: InkWell(
                     onTap: () async {
-                      logFirebaseEvent('HOME_PAGE_COPY_PAGE_city_ON_TAP');
-                      logFirebaseEvent('city_navigate_to');
-
                       context.pushNamed('Terms_of_Use');
                     },
                     child: Row(
@@ -486,8 +467,6 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(0, 25, 0, 30),
                         child: InkWell(
                           onTap: () async {
-                            logFirebaseEvent('HOME_PAGE_COPY_PAGE_city_ON_TAP');
-                            logFirebaseEvent('city_bottom_sheet');
                             await showModalBottomSheet(
                               isScrollControlled: true,
                               backgroundColor: Colors.transparent,
@@ -601,10 +580,6 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                                               .reference.path,
                                           googleMapCompaniesRecord.location!,
                                           () async {
-                                            logFirebaseEvent(
-                                                'HOME_COPY_GoogleMap_0gm7ss9f_ON_MARKER_T');
-                                            logFirebaseEvent(
-                                                'GoogleMap_bottom_sheet');
                                             await showModalBottomSheet(
                                               isScrollControlled: true,
                                               backgroundColor:
@@ -970,10 +945,6 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                                                                       InkWell(
                                                                     onTap:
                                                                         () async {
-                                                                      logFirebaseEvent(
-                                                                          'HOME_COPY_Stack_grroilmu_ON_TAP');
-                                                                      logFirebaseEvent(
-                                                                          'Stack_bottom_sheet');
                                                                       await showModalBottomSheet(
                                                                         isScrollControlled:
                                                                             true,
@@ -1155,10 +1126,6 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                                                                 child: InkWell(
                                                                   onTap:
                                                                       () async {
-                                                                    logFirebaseEvent(
-                                                                        'HOME_COPY_Container_6mg0u8tr_ON_TAP');
-                                                                    logFirebaseEvent(
-                                                                        'company_card_bottom_sheet');
                                                                     await showModalBottomSheet(
                                                                       isScrollControlled:
                                                                           true,
@@ -1267,10 +1234,6 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                                                                   return InkWell(
                                                                     onTap:
                                                                         () async {
-                                                                      logFirebaseEvent(
-                                                                          'HOME_COPY_Column_zm18xa5k_ON_TAP');
-                                                                      logFirebaseEvent(
-                                                                          'Column_bottom_sheet');
                                                                       await showModalBottomSheet(
                                                                         isScrollControlled:
                                                                             true,
@@ -1400,11 +1363,6 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                                                         builder: (context) =>
                                                             InkWell(
                                                           onTap: () async {
-                                                            logFirebaseEvent(
-                                                                'HOME_COPY_Container_nd5yzxxj_ON_TAP');
-                                                            logFirebaseEvent(
-                                                                'Container_backend_call');
-
                                                             final userUpdateData =
                                                                 {
                                                               'search_history':
@@ -1505,10 +1463,6 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                                                           return RefreshIndicator(
                                                             onRefresh:
                                                                 () async {
-                                                              logFirebaseEvent(
-                                                                  'HOME_COPY_ListView_p6nb25qc_ON_PULL_TO_R');
-                                                              logFirebaseEvent(
-                                                                  'ListView_refresh_database_request');
                                                               setState(() =>
                                                                   _firestoreRequestCompleter =
                                                                       null);
@@ -1547,13 +1501,9 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                                                                         InkWell(
                                                                       onTap:
                                                                           () async {
-                                                                        logFirebaseEvent(
-                                                                            'HOME_COPY_Column_ytw4wh8r_ON_TAP');
                                                                         if ((currentUserDocument?.searchHistory?.toList() ??
                                                                                 [])
                                                                             .contains(listViewCompaniesRecord.reference)) {
-                                                                          logFirebaseEvent(
-                                                                              'Column_bottom_sheet');
                                                                           await showModalBottomSheet(
                                                                             isScrollControlled:
                                                                                 true,
@@ -1576,9 +1526,6 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                                                                           ).then((value) =>
                                                                               setState(() {}));
                                                                         } else {
-                                                                          logFirebaseEvent(
-                                                                              'Column_backend_call');
-
                                                                           final userUpdateData =
                                                                               {
                                                                             'search_history':
@@ -1588,8 +1535,6 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                                                                           };
                                                                           await currentUserReference!
                                                                               .update(userUpdateData);
-                                                                          logFirebaseEvent(
-                                                                              'Column_bottom_sheet');
                                                                           await showModalBottomSheet(
                                                                             isScrollControlled:
                                                                                 true,
@@ -1735,9 +1680,6 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                 alignment: AlignmentDirectional(0, 0),
                 child: FFButtonWidget(
                   onPressed: () async {
-                    logFirebaseEvent('HOME_PAGE_COPY_PAGE_BUTTON_BTN_ON_TAP');
-                    logFirebaseEvent('Button_navigate_to');
-
                     context.goNamed('admin_main');
                   },
                   text: 'Button',

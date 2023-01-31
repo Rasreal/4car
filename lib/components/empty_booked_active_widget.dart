@@ -68,9 +68,6 @@ class _EmptyBookedActiveWidgetState extends State<EmptyBookedActiveWidget> {
               padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 16),
               child: FFButtonWidget(
                 onPressed: () async {
-                  logFirebaseEvent('EMPTY_BOOKED_ACTIVE_НАЙТИ_АВТОМОЙКУ_BTN_');
-                  logFirebaseEvent('Button_navigate_to');
-
                   context.goNamed('HomePage');
                 },
                 text: 'Найти автомойку',

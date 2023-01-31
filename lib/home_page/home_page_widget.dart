@@ -32,10 +32,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     super.initState();
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      logFirebaseEvent('HOME_PAGE_PAGE_HomePage_ON_PAGE_LOAD');
       if (valueOrDefault<bool>(
           currentUserDocument?.lastBookingBoolean, false)) {
-        logFirebaseEvent('HomePage_bottom_sheet');
         await showModalBottomSheet(
           isScrollControlled: true,
           backgroundColor: Colors.transparent,
@@ -55,7 +53,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
       }
     });
 
-    logFirebaseEvent('screen_view', parameters: {'screen_name': 'HomePage'});
     getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
         .then((loc) => setState(() => currentUserLocationValue = loc));
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -153,10 +150,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 .reference.path,
                                             googleMapCompaniesRecord.location!,
                                             () async {
-                                              logFirebaseEvent(
-                                                  'HOME_GoogleMap_y28g80ug_ON_MARKER_TAP');
-                                              logFirebaseEvent(
-                                                  'GoogleMap_bottom_sheet');
                                               await showModalBottomSheet(
                                                 isScrollControlled: true,
                                                 backgroundColor:
@@ -233,7 +226,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Text(
-                                                  'м9999999',
+                                                  'м8888',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyText1
@@ -324,10 +317,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                 child: InkWell(
                                                                   onTap:
                                                                       () async {
-                                                                    logFirebaseEvent(
-                                                                        'HOME_PAGE_PAGE_Stack_cke8mezy_ON_TAP');
-                                                                    logFirebaseEvent(
-                                                                        'Stack_bottom_sheet');
                                                                     await showModalBottomSheet(
                                                                       isScrollControlled:
                                                                           true,
@@ -510,10 +499,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                               child: InkWell(
                                                                 onTap:
                                                                     () async {
-                                                                  logFirebaseEvent(
-                                                                      'HOME_PAGE_PAGE_Container_3fbnzdlg_ON_TAP');
-                                                                  logFirebaseEvent(
-                                                                      'company_card_bottom_sheet');
                                                                   await showModalBottomSheet(
                                                                     isScrollControlled:
                                                                         true,
@@ -582,9 +567,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   alignment: AlignmentDirectional(0, 0),
                   child: FFButtonWidget(
                     onPressed: () async {
-                      logFirebaseEvent('HOME_PAGE_PAGE_BUTTON44_BTN_ON_TAP');
-                      logFirebaseEvent('Button_navigate_to');
-
                       context.goNamed('admin_main');
                     },
                     text: 'Button44',

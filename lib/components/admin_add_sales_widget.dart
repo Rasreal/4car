@@ -129,9 +129,6 @@ class _AdminAddSalesWidgetState extends State<AdminAddSalesWidget>
                           ),
                           InkWell(
                             onTap: () async {
-                              logFirebaseEvent(
-                                  'ADMIN_ADD_SALES_Icon_p427o8wz_ON_TAP');
-                              logFirebaseEvent('Icon_bottom_sheet');
                               Navigator.pop(context);
                             },
                             child: Icon(
@@ -145,9 +142,6 @@ class _AdminAddSalesWidgetState extends State<AdminAddSalesWidget>
                     ),
                     InkWell(
                       onTap: () async {
-                        logFirebaseEvent(
-                            'ADMIN_ADD_SALES_Image_wcl0aagk_ON_TAP');
-                        logFirebaseEvent('Image_upload_media_to_firebase');
                         final selectedMedia =
                             await selectMediaWithSourceBottomSheet(
                           context: context,
@@ -332,9 +326,6 @@ class _AdminAddSalesWidgetState extends State<AdminAddSalesWidget>
                         padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            logFirebaseEvent(
-                                'ADMIN_ADD_SALES_СОХРАНИТЬ_BTN_ON_TAP');
-                            logFirebaseEvent('Button_validate_form');
                             if (formKey.currentState == null ||
                                 !formKey.currentState!.validate()) {
                               return;
@@ -344,8 +335,6 @@ class _AdminAddSalesWidgetState extends State<AdminAddSalesWidget>
                                 uploadedFileUrl.isEmpty) {
                               return;
                             }
-
-                            logFirebaseEvent('Button_backend_call');
 
                             final promotionCreateData =
                                 createPromotionRecordData(
@@ -437,9 +426,6 @@ class _AdminAddSalesWidgetState extends State<AdminAddSalesWidget>
                     padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
                     child: FFButtonWidget(
                       onPressed: () async {
-                        logFirebaseEvent(
-                            'ADMIN_ADD_SALES_COMP_ЗАКРЫТЬ_BTN_ON_TAP');
-                        logFirebaseEvent('Button_bottom_sheet');
                         Navigator.pop(context);
                       },
                       text: 'Закрыть',

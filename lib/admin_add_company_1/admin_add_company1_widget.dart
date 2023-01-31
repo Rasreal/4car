@@ -55,8 +55,6 @@ class _AdminAddCompany1WidgetState extends State<AdminAddCompany1Widget> {
     cityController = TextEditingController();
     companyNameController = TextEditingController();
     countBoxController = TextEditingController();
-    logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'admin_add_company_1'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -149,11 +147,6 @@ class _AdminAddCompany1WidgetState extends State<AdminAddCompany1Widget> {
                                                     ),
                                                     InkWell(
                                                       onTap: () async {
-                                                        logFirebaseEvent(
-                                                            'ADMIN_ADD_COMPANY_1_Row_e0vnaewb_ON_TAP');
-                                                        logFirebaseEvent(
-                                                            'Row_navigate_to');
-
                                                         context.goNamed(
                                                             'admin_main');
                                                       },
@@ -433,10 +426,6 @@ class _AdminAddCompany1WidgetState extends State<AdminAddCompany1Widget> {
                                                         ),
                                                         InkWell(
                                                           onTap: () async {
-                                                            logFirebaseEvent(
-                                                                'ADMIN_ADD_COMPANY_1_Row_eqbtypae_ON_TAP');
-                                                            logFirebaseEvent(
-                                                                'Row_upload_media_to_firebase');
                                                             final selectedMedia =
                                                                 await selectMediaWithSourceBottomSheet(
                                                               context: context,
@@ -2022,19 +2011,12 @@ class _AdminAddCompany1WidgetState extends State<AdminAddCompany1Widget> {
                                                     snapshot.data!;
                                                 return FFButtonWidget(
                                                   onPressed: () async {
-                                                    logFirebaseEvent(
-                                                        'ADMIN_ADD_COMPANY_1_ПРОДОЛЖИТЬ_BTN_ON_TA');
-                                                    logFirebaseEvent(
-                                                        'Button_validate_form');
                                                     if (formKey.currentState ==
                                                             null ||
                                                         !formKey.currentState!
                                                             .validate()) {
                                                       return;
                                                     }
-
-                                                    logFirebaseEvent(
-                                                        'Button_backend_call');
 
                                                     final companiesUpdateData =
                                                         createCompaniesRecordData(
@@ -2088,8 +2070,6 @@ class _AdminAddCompany1WidgetState extends State<AdminAddCompany1Widget> {
                                                     );
                                                     await widget.company!.update(
                                                         companiesUpdateData);
-                                                    logFirebaseEvent(
-                                                        'Button_navigate_to');
 
                                                     context.pushNamed(
                                                       'admin_add_company_2',

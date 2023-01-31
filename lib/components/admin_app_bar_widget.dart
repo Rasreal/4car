@@ -82,15 +82,11 @@ class _AdminAppBarWidgetState extends State<AdminAppBarWidget> {
                                   EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
                               child: InkWell(
                                 onTap: () async {
-                                  logFirebaseEvent(
-                                      'ADMIN_APP_BAR_COMP_Icon_m0cs4xw3_ON_TAP');
                                   if (FFAppState().adminAppBar == 'notify') {
-                                    logFirebaseEvent('Icon_update_local_state');
                                     FFAppState().update(() {
                                       FFAppState().adminAppBar = '';
                                     });
                                   } else {
-                                    logFirebaseEvent('Icon_update_local_state');
                                     FFAppState().update(() {
                                       FFAppState().adminAppBar = 'notify';
                                     });
@@ -105,15 +101,11 @@ class _AdminAppBarWidgetState extends State<AdminAppBarWidget> {
                             ),
                             InkWell(
                               onTap: () async {
-                                logFirebaseEvent(
-                                    'ADMIN_APP_BAR_COMP_Row_95xknc7v_ON_TAP');
                                 if (FFAppState().adminAppBar == 'profile') {
-                                  logFirebaseEvent('Row_update_local_state');
                                   FFAppState().update(() {
                                     FFAppState().adminAppBar = '';
                                   });
                                 } else {
-                                  logFirebaseEvent('Row_update_local_state');
                                   FFAppState().update(() {
                                     FFAppState().adminAppBar = 'profile';
                                   });
@@ -193,10 +185,6 @@ class _AdminAppBarWidgetState extends State<AdminAppBarWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 48, 0),
                           child: InkWell(
                             onTap: () async {
-                              logFirebaseEvent(
-                                  'ADMIN_APP_BAR_COMP_Text_ht8b6ew9_ON_TAP');
-                              logFirebaseEvent('Text_navigate_to');
-
                               context.pushNamed(
                                 'admin_main',
                                 extra: <String, dynamic>{
@@ -232,10 +220,6 @@ class _AdminAppBarWidgetState extends State<AdminAppBarWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 48, 0),
                           child: InkWell(
                             onTap: () async {
-                              logFirebaseEvent(
-                                  'ADMIN_APP_BAR_COMP_Text_kobz919w_ON_TAP');
-                              logFirebaseEvent('Text_navigate_to');
-
                               context.pushNamed(
                                 'admin_reports',
                                 extra: <String, dynamic>{
@@ -271,10 +255,6 @@ class _AdminAppBarWidgetState extends State<AdminAppBarWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 48, 0),
                           child: InkWell(
                             onTap: () async {
-                              logFirebaseEvent(
-                                  'ADMIN_APP_BAR_COMP_Text_q7mm8igr_ON_TAP');
-                              logFirebaseEvent('Text_navigate_to');
-
                               context.pushNamed(
                                 'admin_clients',
                                 extra: <String, dynamic>{
@@ -310,10 +290,6 @@ class _AdminAppBarWidgetState extends State<AdminAppBarWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 48, 0),
                           child: InkWell(
                             onTap: () async {
-                              logFirebaseEvent(
-                                  'ADMIN_APP_BAR_COMP_Text_5vh9vr6e_ON_TAP');
-                              logFirebaseEvent('Text_navigate_to');
-
                               context.pushNamed(
                                 'admin_analytics',
                                 extra: <String, dynamic>{
@@ -349,10 +325,6 @@ class _AdminAppBarWidgetState extends State<AdminAppBarWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 48, 0),
                           child: InkWell(
                             onTap: () async {
-                              logFirebaseEvent(
-                                  'ADMIN_APP_BAR_COMP_Text_wvy5lwlf_ON_TAP');
-                              logFirebaseEvent('Text_navigate_to');
-
                               context.pushNamed(
                                 'admin_office',
                                 extra: <String, dynamic>{

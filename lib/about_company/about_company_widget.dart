@@ -19,8 +19,7 @@ class _AboutCompanyWidgetState extends State<AboutCompanyWidget> {
   @override
   void initState() {
     super.initState();
-    logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'About_company'});
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -61,9 +60,6 @@ class _AboutCompanyWidgetState extends State<AboutCompanyWidget> {
                           size: 24,
                         ),
                         onPressed: () async {
-                          logFirebaseEvent(
-                              'ABOUT_COMPANY_PAGE_icBack_ICN_ON_TAP');
-                          logFirebaseEvent('IconButton_navigate_back');
                           context.pop();
                         },
                       ),

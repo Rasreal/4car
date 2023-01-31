@@ -180,16 +180,11 @@ class _AddCityWidgetState extends State<AddCityWidget> {
                             textController!.text, listViewCityesRecord.name!),
                         child: InkWell(
                           onTap: () async {
-                            logFirebaseEvent(
-                                'ADD_CITY_COMP_Column_vk0fts4h_ON_TAP');
-                            logFirebaseEvent('Column_backend_call');
-
                             final userUpdateData = createUserRecordData(
                               country: listViewCityesRecord.reference,
                               countryText: listViewCityesRecord.name,
                             );
                             await currentUserReference!.update(userUpdateData);
-                            logFirebaseEvent('Column_bottom_sheet');
                             Navigator.pop(context);
                           },
                           child: Column(

@@ -27,8 +27,6 @@ class _AdminSignInEmailWidgetState extends State<AdminSignInEmailWidget> {
     emailTextController = TextEditingController();
     passwordTextController = TextEditingController();
     passwordVisibility = false;
-    logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'admin_sign_in_email'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -256,10 +254,6 @@ class _AdminSignInEmailWidgetState extends State<AdminSignInEmailWidget> {
                               alignment: AlignmentDirectional(1, 0),
                               child: InkWell(
                                 onTap: () async {
-                                  logFirebaseEvent(
-                                      'ADMIN_SIGN_IN_EMAIL_Text_xgiwcxnc_ON_TAP');
-                                  logFirebaseEvent('Text_navigate_to');
-
                                   context.pushNamed(
                                     'admin_forget_password',
                                     extra: <String, dynamic>{
@@ -296,9 +290,6 @@ class _AdminSignInEmailWidgetState extends State<AdminSignInEmailWidget> {
                       padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 24),
                       child: FFButtonWidget(
                         onPressed: () async {
-                          logFirebaseEvent(
-                              'ADMIN_SIGN_IN_EMAIL_ВОЙТИ_BTN_ON_TAP');
-                          logFirebaseEvent('Button_auth');
                           GoRouter.of(context).prepareAuthEvent();
 
                           final user = await signInWithEmail(
@@ -353,10 +344,6 @@ class _AdminSignInEmailWidgetState extends State<AdminSignInEmailWidget> {
                         ),
                         InkWell(
                           onTap: () async {
-                            logFirebaseEvent(
-                                'ADMIN_SIGN_IN_EMAIL_Text_a2hii24r_ON_TAP');
-                            logFirebaseEvent('Text_navigate_to');
-
                             context.pushNamed('admin_sign_up_email');
                           },
                           child: Text(

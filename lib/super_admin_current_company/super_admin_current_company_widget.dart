@@ -30,8 +30,6 @@ class _SuperAdminCurrentCompanyWidgetState
   @override
   void initState() {
     super.initState();
-    logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'super_admin_current_company'});
     textController1 = TextEditingController();
     textController2 = TextEditingController();
     textController3 = TextEditingController();

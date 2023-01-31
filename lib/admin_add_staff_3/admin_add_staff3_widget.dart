@@ -49,8 +49,6 @@ class _AdminAddStaff3WidgetState extends State<AdminAddStaff3Widget> {
     password1Visibility = false;
     passwordController = TextEditingController(text: widget.password);
     passwordVisibility = false;
-    logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'admin_add_staff_3'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -134,18 +132,12 @@ class _AdminAddStaff3WidgetState extends State<AdminAddStaff3Widget> {
                                             0, 0, 16, 0),
                                         child: InkWell(
                                           onTap: () async {
-                                            logFirebaseEvent(
-                                                'ADMIN_ADD_STAFF_3_Icon_ayhyusz7_ON_TAP');
                                             if (FFAppState().adminAppBar ==
                                                 'notify') {
-                                              logFirebaseEvent(
-                                                  'Icon_update_local_state');
                                               FFAppState().update(() {
                                                 FFAppState().adminAppBar = '';
                                               });
                                             } else {
-                                              logFirebaseEvent(
-                                                  'Icon_update_local_state');
                                               FFAppState().update(() {
                                                 FFAppState().adminAppBar =
                                                     'notify';
@@ -161,18 +153,12 @@ class _AdminAddStaff3WidgetState extends State<AdminAddStaff3Widget> {
                                       ),
                                       InkWell(
                                         onTap: () async {
-                                          logFirebaseEvent(
-                                              'ADMIN_ADD_STAFF_3_Row_1gm20kp4_ON_TAP');
                                           if (FFAppState().adminAppBar ==
                                               'profile') {
-                                            logFirebaseEvent(
-                                                'Row_update_local_state');
                                             FFAppState().update(() {
                                               FFAppState().adminAppBar = '';
                                             });
                                           } else {
-                                            logFirebaseEvent(
-                                                'Row_update_local_state');
                                             FFAppState().update(() {
                                               FFAppState().adminAppBar =
                                                   'profile';
@@ -247,10 +233,6 @@ class _AdminAddStaff3WidgetState extends State<AdminAddStaff3Widget> {
                                         0, 0, 48, 0),
                                     child: InkWell(
                                       onTap: () async {
-                                        logFirebaseEvent(
-                                            'ADMIN_ADD_STAFF_3_Text_kqc6vike_ON_TAP');
-                                        logFirebaseEvent('Text_navigate_to');
-
                                         context.pushNamed(
                                           'admin_main',
                                           extra: <String, dynamic>{
@@ -289,10 +271,6 @@ class _AdminAddStaff3WidgetState extends State<AdminAddStaff3Widget> {
                                         0, 0, 48, 0),
                                     child: InkWell(
                                       onTap: () async {
-                                        logFirebaseEvent(
-                                            'ADMIN_ADD_STAFF_3_Text_zwqdegn5_ON_TAP');
-                                        logFirebaseEvent('Text_navigate_to');
-
                                         context.pushNamed(
                                           'admin_reports',
                                           extra: <String, dynamic>{
@@ -331,10 +309,6 @@ class _AdminAddStaff3WidgetState extends State<AdminAddStaff3Widget> {
                                         0, 0, 48, 0),
                                     child: InkWell(
                                       onTap: () async {
-                                        logFirebaseEvent(
-                                            'ADMIN_ADD_STAFF_3_Text_hxy8pz8e_ON_TAP');
-                                        logFirebaseEvent('Text_navigate_to');
-
                                         context.pushNamed(
                                           'admin_clients',
                                           extra: <String, dynamic>{
@@ -373,10 +347,6 @@ class _AdminAddStaff3WidgetState extends State<AdminAddStaff3Widget> {
                                         0, 0, 48, 0),
                                     child: InkWell(
                                       onTap: () async {
-                                        logFirebaseEvent(
-                                            'ADMIN_ADD_STAFF_3_Text_74ei8e9f_ON_TAP');
-                                        logFirebaseEvent('Text_navigate_to');
-
                                         context.pushNamed(
                                           'admin_analytics',
                                           extra: <String, dynamic>{
@@ -415,10 +385,6 @@ class _AdminAddStaff3WidgetState extends State<AdminAddStaff3Widget> {
                                         0, 0, 48, 0),
                                     child: InkWell(
                                       onTap: () async {
-                                        logFirebaseEvent(
-                                            'ADMIN_ADD_STAFF_3_Text_hi4n7lah_ON_TAP');
-                                        logFirebaseEvent('Text_navigate_to');
-
                                         context.pushNamed(
                                           'admin_office',
                                           extra: <String, dynamic>{
@@ -613,10 +579,6 @@ class _AdminAddStaff3WidgetState extends State<AdminAddStaff3Widget> {
                                                         Duration(
                                                             milliseconds: 2000),
                                                         () async {
-                                                          logFirebaseEvent(
-                                                              'ADMIN_ADD_STAFF_3_FIO_ON_TEXTFIELD_CHANG');
-                                                          logFirebaseEvent(
-                                                              'FIO_update_local_state');
                                                           FFAppState()
                                                               .update(() {
                                                             FFAppState()
@@ -628,10 +590,6 @@ class _AdminAddStaff3WidgetState extends State<AdminAddStaff3Widget> {
                                                       ),
                                                       onFieldSubmitted:
                                                           (_) async {
-                                                        logFirebaseEvent(
-                                                            'ADMIN_ADD_STAFF_3_FIO_ON_TEXTFIELD_SUBMI');
-                                                        logFirebaseEvent(
-                                                            'FIO_update_local_state');
                                                         FFAppState().update(() {
                                                           FFAppState()
                                                                   .adminAddStaffFIO =
@@ -924,10 +882,6 @@ class _AdminAddStaff3WidgetState extends State<AdminAddStaff3Widget> {
                                                       Duration(
                                                           milliseconds: 2000),
                                                       () async {
-                                                        logFirebaseEvent(
-                                                            'ADMIN_ADD_STAFF_3_phone_ON_TEXTFIELD_CHA');
-                                                        logFirebaseEvent(
-                                                            'phone_update_local_state');
                                                         FFAppState().update(() {
                                                           FFAppState()
                                                                   .adminAddStaffPhone =
@@ -938,10 +892,6 @@ class _AdminAddStaff3WidgetState extends State<AdminAddStaff3Widget> {
                                                     ),
                                                     onFieldSubmitted:
                                                         (_) async {
-                                                      logFirebaseEvent(
-                                                          'ADMIN_ADD_STAFF_3_phone_ON_TEXTFIELD_SUB');
-                                                      logFirebaseEvent(
-                                                          'phone_update_local_state');
                                                       FFAppState().update(() {
                                                         FFAppState()
                                                                 .adminAddStaffPhone =
@@ -2234,15 +2184,11 @@ class _AdminAddStaff3WidgetState extends State<AdminAddStaff3Widget> {
                           ),
                           FFButtonWidget(
                             onPressed: () async {
-                              logFirebaseEvent(
-                                  'ADMIN_ADD_STAFF_3_ПРОДОЛЖИТЬ_BTN_ON_TAP');
-                              logFirebaseEvent('Button_validate_form');
                               if (formKey.currentState == null ||
                                   !formKey.currentState!.validate()) {
                                 return;
                               }
 
-                              logFirebaseEvent('Button_auth');
                               GoRouter.of(context).prepareAuthEvent();
                               if (passwordController?.text !=
                                   password1Controller?.text) {

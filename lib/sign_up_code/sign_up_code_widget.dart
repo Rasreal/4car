@@ -26,15 +26,11 @@ class _SignUpCodeWidgetState extends State<SignUpCodeWidget> {
     super.initState();
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      logFirebaseEvent('SIGN_UP_CODE_sign_up_code_ON_LOAD');
-      logFirebaseEvent('sign_up_code_update_local_state');
       FFAppState().update(() {
         FFAppState().singUPcode = false;
       });
     });
 
-    logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'sign_up_code'});
     pinCodeController = TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -79,10 +75,6 @@ class _SignUpCodeWidgetState extends State<SignUpCodeWidget> {
                           size: 24,
                         ),
                         onPressed: () async {
-                          logFirebaseEvent(
-                              'SIGN_UP_CODE_chevron_left_outlined_ICN_O');
-                          logFirebaseEvent('IconButton_navigate_to');
-
                           context.goNamed('Sign_Up');
                         },
                       ),
@@ -192,8 +184,6 @@ class _SignUpCodeWidgetState extends State<SignUpCodeWidget> {
                 ),
                 FFButtonWidget(
                   onPressed: () async {
-                    logFirebaseEvent('SIGN_UP_CODE_PAGE_ВВЕСТИ_КОД_BTN_ON_TAP');
-                    logFirebaseEvent('Button_auth');
                     GoRouter.of(context).prepareAuthEvent();
                     final smsCodeVal = pinCodeController!.text;
                     if (smsCodeVal == null || smsCodeVal.isEmpty) {
@@ -211,8 +201,6 @@ class _SignUpCodeWidgetState extends State<SignUpCodeWidget> {
                     if (phoneVerifiedUser == null) {
                       return;
                     }
-
-                    logFirebaseEvent('Button_navigate_to');
 
                     context.pushNamedAuth('Sign_Up_2', mounted);
                   },

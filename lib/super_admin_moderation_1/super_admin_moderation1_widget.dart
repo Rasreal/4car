@@ -46,15 +46,11 @@ class _SuperAdminModeration1WidgetState
     super.initState();
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      logFirebaseEvent('SUPER_ADMIN_MODERATION_1_super_admin_mod');
-      logFirebaseEvent('super_admin_moderation_1_update_local_st');
       FFAppState().update(() {
         FFAppState().adminSelectServicesBody = 'Седан';
       });
     });
 
-    logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'super_admin_moderation_1'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -170,10 +166,6 @@ class _SuperAdminModeration1WidgetState
                                                       ),
                                                       InkWell(
                                                         onTap: () async {
-                                                          logFirebaseEvent(
-                                                              'SUPER_ADMIN_MODERATION_1_Row_oqrq8una_ON');
-                                                          logFirebaseEvent(
-                                                              'Row_update_local_state');
                                                           FFAppState()
                                                               .update(() {
                                                             FFAppState()
@@ -1467,12 +1459,9 @@ class _SuperAdminModeration1WidgetState
                                                                             children: [
                                                                               InkWell(
                                                                                 onTap: () async {
-                                                                                  logFirebaseEvent('SUPER_ADMIN_MODERATION_1_Container_xee9e');
-                                                                                  logFirebaseEvent('Container_update_local_state');
                                                                                   FFAppState().update(() {
                                                                                     FFAppState().adminSelectServicesBody = 'Седан';
                                                                                   });
-                                                                                  logFirebaseEvent('Container_refresh_database_request');
                                                                                   setState(() => _firestoreRequestCompleter = null);
                                                                                 },
                                                                                 child: Container(
@@ -1512,12 +1501,9 @@ class _SuperAdminModeration1WidgetState
                                                                               ),
                                                                               InkWell(
                                                                                 onTap: () async {
-                                                                                  logFirebaseEvent('SUPER_ADMIN_MODERATION_1_Container_hd4gd');
-                                                                                  logFirebaseEvent('Container_update_local_state');
                                                                                   FFAppState().update(() {
                                                                                     FFAppState().adminSelectServicesBody = 'Хетчбэк';
                                                                                   });
-                                                                                  logFirebaseEvent('Container_refresh_database_request');
                                                                                   setState(() => _firestoreRequestCompleter = null);
                                                                                 },
                                                                                 child: Container(
@@ -1557,12 +1543,9 @@ class _SuperAdminModeration1WidgetState
                                                                               ),
                                                                               InkWell(
                                                                                 onTap: () async {
-                                                                                  logFirebaseEvent('SUPER_ADMIN_MODERATION_1_Container_hdp2r');
-                                                                                  logFirebaseEvent('Container_update_local_state');
                                                                                   FFAppState().update(() {
                                                                                     FFAppState().adminSelectServicesBody = 'Кроссовер';
                                                                                   });
-                                                                                  logFirebaseEvent('Container_refresh_database_request');
                                                                                   setState(() => _firestoreRequestCompleter = null);
                                                                                 },
                                                                                 child: Container(
@@ -1602,12 +1585,9 @@ class _SuperAdminModeration1WidgetState
                                                                               ),
                                                                               InkWell(
                                                                                 onTap: () async {
-                                                                                  logFirebaseEvent('SUPER_ADMIN_MODERATION_1_Container_51ypo');
-                                                                                  logFirebaseEvent('Container_update_local_state');
                                                                                   FFAppState().update(() {
                                                                                     FFAppState().adminSelectServicesBody = 'Внедорожник';
                                                                                   });
-                                                                                  logFirebaseEvent('Container_refresh_database_request');
                                                                                   setState(() => _firestoreRequestCompleter = null);
                                                                                 },
                                                                                 child: Container(
@@ -1647,12 +1627,9 @@ class _SuperAdminModeration1WidgetState
                                                                               ),
                                                                               InkWell(
                                                                                 onTap: () async {
-                                                                                  logFirebaseEvent('SUPER_ADMIN_MODERATION_1_Container_70b5l');
-                                                                                  logFirebaseEvent('Container_update_local_state');
                                                                                   FFAppState().update(() {
                                                                                     FFAppState().adminSelectServicesBody = 'Пикап';
                                                                                   });
-                                                                                  logFirebaseEvent('Container_refresh_database_request');
                                                                                   setState(() => _firestoreRequestCompleter = null);
                                                                                 },
                                                                                 child: Container(
@@ -1692,12 +1669,9 @@ class _SuperAdminModeration1WidgetState
                                                                               ),
                                                                               InkWell(
                                                                                 onTap: () async {
-                                                                                  logFirebaseEvent('SUPER_ADMIN_MODERATION_1_Container_j57gb');
-                                                                                  logFirebaseEvent('Container_update_local_state');
                                                                                   FFAppState().update(() {
                                                                                     FFAppState().adminSelectServicesBody = 'Минивен';
                                                                                   });
-                                                                                  logFirebaseEvent('Container_refresh_database_request');
                                                                                   setState(() => _firestoreRequestCompleter = null);
                                                                                 },
                                                                                 child: Container(
@@ -1737,12 +1711,9 @@ class _SuperAdminModeration1WidgetState
                                                                               ),
                                                                               InkWell(
                                                                                 onTap: () async {
-                                                                                  logFirebaseEvent('SUPER_ADMIN_MODERATION_1_Container_vk4q4');
-                                                                                  logFirebaseEvent('Container_update_local_state');
                                                                                   FFAppState().update(() {
                                                                                     FFAppState().adminSelectServicesBody = 'Купе';
                                                                                   });
-                                                                                  logFirebaseEvent('Container_refresh_database_request');
                                                                                   setState(() => _firestoreRequestCompleter = null);
                                                                                 },
                                                                                 child: Container(
@@ -1826,8 +1797,6 @@ class _SuperAdminModeration1WidgetState
                                                                                   List<CompanyServicesRecord> listViewCompanyServicesRecordList = snapshot.data!;
                                                                                   return RefreshIndicator(
                                                                                     onRefresh: () async {
-                                                                                      logFirebaseEvent('SUPER_ADMIN_MODERATION_1_ListView_00bvtl');
-                                                                                      logFirebaseEvent('ListView_refresh_database_request');
                                                                                       setState(() => _firestoreRequestCompleter = null);
                                                                                       await waitForFirestoreRequestCompleter();
                                                                                     },
@@ -2292,10 +2261,6 @@ class _SuperAdminModeration1WidgetState
                                             0, 0, 24, 0),
                                         child: FFButtonWidget(
                                           onPressed: () async {
-                                            logFirebaseEvent(
-                                                'SUPER_ADMIN_MODERATION_1_ОТКЛОНИТЬ_BTN_O');
-                                            logFirebaseEvent(
-                                                'Button_update_local_state');
                                             FFAppState().update(() {
                                               FFAppState()
                                                       .superAdminRejectModeration =
@@ -2342,16 +2307,10 @@ class _SuperAdminModeration1WidgetState
                                       alignment: AlignmentDirectional(1, 0),
                                       child: FFButtonWidget(
                                         onPressed: () async {
-                                          logFirebaseEvent(
-                                              'SUPER_ADMIN_MODERATION_1_ПРОДОЛЖИТЬ_BTN_');
-                                          logFirebaseEvent(
-                                              'Button_update_local_state');
                                           FFAppState().update(() {
                                             FFAppState()
                                                 .superAdminSelectPercent = 0.0;
                                           });
-                                          logFirebaseEvent(
-                                              'Button_navigate_to');
 
                                           context.pushNamed(
                                             'super_admin_moderation_2',
@@ -2422,9 +2381,6 @@ class _SuperAdminModeration1WidgetState
                   alignment: AlignmentDirectional(0, 0),
                   child: InkWell(
                     onTap: () async {
-                      logFirebaseEvent(
-                          'SUPER_ADMIN_MODERATION_1_cancelled_ON_TA');
-                      logFirebaseEvent('cancelled_update_local_state');
                       FFAppState().update(() {
                         FFAppState().superAdminCencelledModeration = false;
                       });
@@ -2479,17 +2435,11 @@ class _SuperAdminModeration1WidgetState
                                                   0, 0, 24, 0),
                                           child: FFButtonWidget(
                                             onPressed: () async {
-                                              logFirebaseEvent(
-                                                  'SUPER_ADMIN_MODERATION_1_ДА_BTN_ON_TAP');
-                                              logFirebaseEvent(
-                                                  'Button_update_local_state');
                                               FFAppState().update(() {
                                                 FFAppState()
                                                         .superAdminCencelledModeration =
                                                     false;
                                               });
-                                              logFirebaseEvent(
-                                                  'Button_navigate_to');
 
                                               context.pushNamed(
                                                   'super_admin_main');
@@ -2535,10 +2485,6 @@ class _SuperAdminModeration1WidgetState
                                         alignment: AlignmentDirectional(1, 0),
                                         child: FFButtonWidget(
                                           onPressed: () async {
-                                            logFirebaseEvent(
-                                                'SUPER_ADMIN_MODERATION_1_НЕТ_BTN_ON_TAP');
-                                            logFirebaseEvent(
-                                                'Button_update_local_state');
                                             FFAppState().update(() {
                                               FFAppState()
                                                       .superAdminCencelledModeration =
@@ -2592,9 +2538,6 @@ class _SuperAdminModeration1WidgetState
                   alignment: AlignmentDirectional(0, 0),
                   child: InkWell(
                     onTap: () async {
-                      logFirebaseEvent(
-                          'SUPER_ADMIN_MODERATION_1_reject_ON_TAP');
-                      logFirebaseEvent('reject_update_local_state');
                       FFAppState().update(() {
                         FFAppState().superAdminRejectModeration = false;
                       });
@@ -2649,17 +2592,11 @@ class _SuperAdminModeration1WidgetState
                                                   0, 0, 24, 0),
                                           child: FFButtonWidget(
                                             onPressed: () async {
-                                              logFirebaseEvent(
-                                                  'SUPER_ADMIN_MODERATION_1_ДА_BTN_ON_TAP');
-                                              logFirebaseEvent(
-                                                  'Button_update_local_state');
                                               FFAppState().update(() {
                                                 FFAppState()
                                                         .superAdminRejectModeration =
                                                     false;
                                               });
-                                              logFirebaseEvent(
-                                                  'Button_backend_call');
 
                                               final companiesUpdateData =
                                                   createCompaniesRecordData(
@@ -2667,8 +2604,6 @@ class _SuperAdminModeration1WidgetState
                                               );
                                               await widget.company!
                                                   .update(companiesUpdateData);
-                                              logFirebaseEvent(
-                                                  'Button_navigate_to');
 
                                               context.pushNamed(
                                                   'super_admin_main');
@@ -2714,10 +2649,6 @@ class _SuperAdminModeration1WidgetState
                                         alignment: AlignmentDirectional(1, 0),
                                         child: FFButtonWidget(
                                           onPressed: () async {
-                                            logFirebaseEvent(
-                                                'SUPER_ADMIN_MODERATION_1_НЕТ_BTN_ON_TAP');
-                                            logFirebaseEvent(
-                                                'Button_update_local_state');
                                             FFAppState().update(() {
                                               FFAppState()
                                                       .superAdminRejectModeration =

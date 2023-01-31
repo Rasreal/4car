@@ -89,9 +89,6 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
                     child: InkWell(
                       onTap: () async {
-                        logFirebaseEvent(
-                            'BOOKING_CANCELLATION_Row_id7al545_ON_TAP');
-                        logFirebaseEvent('Row_update_local_state');
                         FFAppState().update(() {
                           FFAppState().cancelBooking = 'Появились другие дела';
                         });
@@ -162,9 +159,6 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
                     child: InkWell(
                       onTap: () async {
-                        logFirebaseEvent(
-                            'BOOKING_CANCELLATION_Row_3i5zwkyt_ON_TAP');
-                        logFirebaseEvent('Row_update_local_state');
                         FFAppState().update(() {
                           FFAppState().cancelBooking =
                               'Погодные условия не подходящие';
@@ -236,9 +230,6 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
                     child: InkWell(
                       onTap: () async {
-                        logFirebaseEvent(
-                            'BOOKING_CANCELLATION_Row_l86ybz51_ON_TAP');
-                        logFirebaseEvent('Row_update_local_state');
                         FFAppState().update(() {
                           FFAppState().cancelBooking = 'Не успеваю';
                         });
@@ -307,9 +298,6 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
                     child: InkWell(
                       onTap: () async {
-                        logFirebaseEvent(
-                            'BOOKING_CANCELLATION_Row_vgtl7029_ON_TAP');
-                        logFirebaseEvent('Row_update_local_state');
                         FFAppState().update(() {
                           FFAppState().cancelBooking = 'Другая причина';
                         });
@@ -439,17 +427,13 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
               padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 60),
               child: FFButtonWidget(
                 onPressed: () async {
-                  logFirebaseEvent('BOOKING_CANCELLATION_СОХРАНИТЬ_BTN_ON_TA');
                   if (FFAppState().cancelBooking != null &&
                       FFAppState().cancelBooking != '') {
                     if (FFAppState().cancelBooking == 'Другая причина') {
-                      logFirebaseEvent('Button_validate_form');
                       if (formKey.currentState == null ||
                           !formKey.currentState!.validate()) {
                         return;
                       }
-
-                      logFirebaseEvent('Button_backend_call');
 
                       final bookingsUpdateData = createBookingsRecordData(
                         status: 'Архив',
@@ -460,8 +444,6 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
                       );
                       await widget.booking!.update(bookingsUpdateData);
                     } else {
-                      logFirebaseEvent('Button_backend_call');
-
                       final bookingsUpdateData = createBookingsRecordData(
                         status: 'Архив',
                         cancelWhy: FFAppState().cancelBooking,
@@ -471,7 +453,6 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
                       await widget.booking!.update(bookingsUpdateData);
                     }
 
-                    logFirebaseEvent('Button_bottom_sheet');
                     Navigator.pop(context, true);
                   }
                 },

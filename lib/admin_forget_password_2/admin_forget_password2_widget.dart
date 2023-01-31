@@ -21,8 +21,7 @@ class _AdminForgetPassword2WidgetState
   @override
   void initState() {
     super.initState();
-    logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'admin_forget_password_2'});
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -117,10 +116,6 @@ class _AdminForgetPassword2WidgetState
                         padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 24),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            logFirebaseEvent(
-                                'ADMIN_FORGET_PASSWORD_2_ВОЙТИ_BTN_ON_TAP');
-                            logFirebaseEvent('Button_navigate_to');
-
                             context.goNamed(
                               'admin_sign_in_email',
                               extra: <String, dynamic>{

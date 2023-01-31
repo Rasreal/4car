@@ -28,7 +28,6 @@ class _SelectCityWidgetState extends State<SelectCityWidget> {
     super.initState();
     getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
         .then((loc) => setState(() => currentUserLocationValue = loc));
-    logFirebaseEvent('screen_view', parameters: {'screen_name': 'select_city'});
     textController = TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -99,8 +98,6 @@ class _SelectCityWidgetState extends State<SelectCityWidget> {
                         size: 24,
                       ),
                       onPressed: () async {
-                        logFirebaseEvent('SELECT_CITY_PAGE_icBack_ICN_ON_TAP');
-                        logFirebaseEvent('IconButton_navigate_back');
                         context.pop();
                       },
                     ),
@@ -226,17 +223,12 @@ class _SelectCityWidgetState extends State<SelectCityWidget> {
                                 listViewCityesRecord.name!),
                             child: InkWell(
                               onTap: () async {
-                                logFirebaseEvent(
-                                    'SELECT_CITY_PAGE_Column_kv15akao_ON_TAP');
-                                logFirebaseEvent('Column_backend_call');
-
                                 final userUpdateData = createUserRecordData(
                                   country: listViewCityesRecord.reference,
                                   countryText: listViewCityesRecord.name,
                                 );
                                 await currentUserReference!
                                     .update(userUpdateData);
-                                logFirebaseEvent('Column_navigate_to');
 
                                 context.goNamed('profile');
                               },

@@ -1,4 +1,4 @@
-package com.wlff.forcar
+package com.wlff.forcarmain
 
 import io.flutter.embedding.android.FlutterActivity
 

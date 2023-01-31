@@ -19,8 +19,7 @@ class _TermsOfUseWidgetState extends State<TermsOfUseWidget> {
   @override
   void initState() {
     super.initState();
-    logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'Terms_of_Use'});
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -61,9 +60,6 @@ class _TermsOfUseWidgetState extends State<TermsOfUseWidget> {
                           size: 24,
                         ),
                         onPressed: () async {
-                          logFirebaseEvent(
-                              'TERMS_OF_USE_PAGE_icBack_ICN_ON_TAP');
-                          logFirebaseEvent('IconButton_navigate_back');
                           context.pop();
                         },
                       ),

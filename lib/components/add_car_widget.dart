@@ -144,10 +144,6 @@ class _AddCarWidgetState extends State<AddCarWidget> {
                             children: [
                               InkWell(
                                 onTap: () async {
-                                  logFirebaseEvent(
-                                      'ADD_CAR_COMP_Container_eccw7zka_ON_TAP');
-                                  logFirebaseEvent(
-                                      'Container_update_local_state');
                                   FFAppState().update(() {
                                     FFAppState().addCarBody =
                                         listViewCarBodyRecord.bodyName!;
@@ -303,9 +299,6 @@ class _AddCarWidgetState extends State<AddCarWidget> {
                       children: [
                         FFButtonWidget(
                           onPressed: () async {
-                            logFirebaseEvent(
-                                'ADD_CAR_COMP_СОХРАНИТЬ_BTN_ON_TAP');
-                            logFirebaseEvent('Button_validate_form');
                             if (formKey.currentState == null ||
                                 !formKey.currentState!.validate()) {
                               return;
@@ -315,8 +308,6 @@ class _AddCarWidgetState extends State<AddCarWidget> {
                                         currentUserDocument?.carscount, 0)
                                     .toString() ==
                                 '0') {
-                              logFirebaseEvent('Button_backend_call');
-
                               final myCarsCreateData = createMyCarsRecordData(
                                 carNum: textController!.text,
                                 carBody: FFAppState().addCarBody,
@@ -327,7 +318,6 @@ class _AddCarWidgetState extends State<AddCarWidget> {
                               await myCarsRecordReference.set(myCarsCreateData);
                               firstCar = MyCarsRecord.getDocumentFromData(
                                   myCarsCreateData, myCarsRecordReference);
-                              logFirebaseEvent('Button_backend_call');
 
                               final userUpdateData = createUserRecordData(
                                 carscount: 1,
@@ -340,8 +330,6 @@ class _AddCarWidgetState extends State<AddCarWidget> {
                                           currentUserDocument?.carscount, 0)
                                       .toString() ==
                                   '1') {
-                                logFirebaseEvent('Button_backend_call');
-
                                 final myCarsCreateData = createMyCarsRecordData(
                                   carNum: textController!.text,
                                   carBody: FFAppState().addCarBody,
@@ -350,7 +338,6 @@ class _AddCarWidgetState extends State<AddCarWidget> {
                                 await MyCarsRecord.createDoc(
                                         currentUserReference!)
                                     .set(myCarsCreateData);
-                                logFirebaseEvent('Button_backend_call');
 
                                 final userUpdateData = createUserRecordData(
                                   carscount: 2,
@@ -362,8 +349,6 @@ class _AddCarWidgetState extends State<AddCarWidget> {
                                             currentUserDocument?.carscount, 0)
                                         .toString() ==
                                     '2') {
-                                  logFirebaseEvent('Button_backend_call');
-
                                   final myCarsCreateData =
                                       createMyCarsRecordData(
                                     carNum: textController!.text,
@@ -373,7 +358,6 @@ class _AddCarWidgetState extends State<AddCarWidget> {
                                   await MyCarsRecord.createDoc(
                                           currentUserReference!)
                                       .set(myCarsCreateData);
-                                  logFirebaseEvent('Button_backend_call');
 
                                   final userUpdateData = createUserRecordData(
                                     carscount: 3,
@@ -384,9 +368,7 @@ class _AddCarWidgetState extends State<AddCarWidget> {
                               }
                             }
 
-                            logFirebaseEvent('Button_bottom_sheet');
                             Navigator.pop(context);
-                            logFirebaseEvent('Button_navigate_to');
 
                             context.goNamed(
                               'edit_profile',

@@ -55,9 +55,6 @@ class _AdminAddServicesPriceWidgetState
             'textController',
             Duration(milliseconds: 1000),
             () async {
-              logFirebaseEvent('ADMIN_ADD_SERVICES_PRICE_TextField_zilfb');
-              logFirebaseEvent('TextField_backend_call');
-
               final companyServicesUpdateData = createCompanyServicesRecordData(
                 price: double.tryParse(textController!.text),
               );

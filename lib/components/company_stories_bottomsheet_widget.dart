@@ -294,10 +294,6 @@ class _CompanyStoriesBottomsheetWidgetState
                                                     .fromSTEB(0, 0, 0, 40),
                                                 child: FFButtonWidget(
                                                   onPressed: () async {
-                                                    logFirebaseEvent(
-                                                        'COMPANY_STORIES_BOTTOMSHEET_ПЕРЕЙТИ_BTN_');
-                                                    logFirebaseEvent(
-                                                        'Button_bottom_sheet');
                                                     await showModalBottomSheet(
                                                       isScrollControlled: true,
                                                       backgroundColor:
@@ -432,9 +428,6 @@ class _CompanyStoriesBottomsheetWidgetState
                 ),
                 child: InkWell(
                   onTap: () async {
-                    logFirebaseEvent(
-                        'COMPANY_STORIES_BOTTOMSHEET_Icon_jo7ce7k');
-                    logFirebaseEvent('Icon_bottom_sheet');
                     Navigator.pop(context);
                   },
                   child: Icon(

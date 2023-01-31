@@ -52,9 +52,6 @@ class _AdminAddServicesDurationWidgetState
         options: FFAppState().adminForCarServicesDuration.toList(),
         onChanged: (val) async {
           setState(() => dropDownValue = val);
-          logFirebaseEvent('ADMIN_ADD_SERVICES_DURATION_DropDown_10t');
-          logFirebaseEvent('DropDown_backend_call');
-
           final companyServicesUpdateData = createCompanyServicesRecordData(
             duration: functions.durationToInt(dropDownValue!),
           );

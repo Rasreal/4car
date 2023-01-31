@@ -42,9 +42,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
     super.initState();
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      logFirebaseEvent('EDIT_PROFILE_edit_profile_ON_LOAD');
       if (widget.page == 'carNull') {
-        logFirebaseEvent('edit_profile_alert_dialog');
         await showDialog(
           context: context,
           builder: (alertDialogContext) {
@@ -63,8 +61,6 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
       }
     });
 
-    logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'edit_profile'});
     textController1 = TextEditingController(text: currentUserDisplayName);
     textController2 = TextEditingController(text: currentPhoneNumber);
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -108,8 +104,6 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                         size: 24,
                       ),
                       onPressed: () async {
-                        logFirebaseEvent('EDIT_PROFILE_PAGE_icBack_ICN_ON_TAP');
-                        logFirebaseEvent('IconButton_navigate_back');
                         context.pop();
                       },
                     ),
@@ -135,9 +129,6 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                         size: 24,
                       ),
                       onPressed: () async {
-                        logFirebaseEvent(
-                            'EDIT_PROFILE_PAGE_icDelete_ICN_ON_TAP');
-                        logFirebaseEvent('IconButton_bottom_sheet');
                         await showModalBottomSheet(
                           isScrollControlled: true,
                           backgroundColor: Colors.transparent,
@@ -212,10 +203,6 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                         size: 16,
                                       ),
                                       onPressed: () async {
-                                        logFirebaseEvent(
-                                            'EDIT_PROFILE_PAGE_icEdit_ICN_ON_TAP');
-                                        logFirebaseEvent(
-                                            'IconButton_upload_media_to_firebase');
                                         final selectedMedia =
                                             await selectMediaWithSourceBottomSheet(
                                           context: context,
@@ -449,15 +436,10 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                           ),
                                           InkWell(
                                             onTap: () async {
-                                              logFirebaseEvent(
-                                                  'EDIT_PROFILE_PAGE_Text_e0qg6l9t_ON_TAP');
                                               if (columnMyCarsRecord
                                                       .reference ==
                                                   currentUserDocument!
                                                       .firstCar) {
-                                                logFirebaseEvent(
-                                                    'Text_backend_call');
-
                                                 final userUpdateData = {
                                                   'firstCar':
                                                       FieldValue.delete(),
@@ -465,12 +447,8 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                                 await currentUserReference!
                                                     .update(userUpdateData);
                                               }
-                                              logFirebaseEvent(
-                                                  'Text_backend_call');
                                               await columnMyCarsRecord.reference
                                                   .delete();
-                                              logFirebaseEvent(
-                                                  'Text_backend_call');
 
                                               final userUpdateData = {
                                                 'carscount':
@@ -509,16 +487,10 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                             0, 8, 0, 0),
                                         child: InkWell(
                                           onTap: () async {
-                                            logFirebaseEvent(
-                                                'EDIT_PROFILE_Container_oeg9l22x_ON_TAP');
-                                            logFirebaseEvent(
-                                                'Container_update_local_state');
                                             FFAppState().update(() {
                                               FFAppState().addCarBody =
                                                   columnMyCarsRecord.carBody!;
                                             });
-                                            logFirebaseEvent(
-                                                'Container_bottom_sheet');
                                             await showModalBottomSheet(
                                               isScrollControlled: true,
                                               context: context,
@@ -566,18 +538,12 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                                   ),
                                                   InkWell(
                                                     onTap: () async {
-                                                      logFirebaseEvent(
-                                                          'EDIT_PROFILE_PAGE_Icon_wubfkpuf_ON_TAP');
-                                                      logFirebaseEvent(
-                                                          'Icon_update_local_state');
                                                       FFAppState().update(() {
                                                         FFAppState()
                                                                 .addCarBody =
                                                             columnMyCarsRecord
                                                                 .carBody!;
                                                       });
-                                                      logFirebaseEvent(
-                                                          'Icon_bottom_sheet');
                                                       await showModalBottomSheet(
                                                         isScrollControlled:
                                                             true,
@@ -698,14 +664,9 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                             child: AuthUserStreamWidget(
                               builder: (context) => InkWell(
                                 onTap: () async {
-                                  logFirebaseEvent(
-                                      'EDIT_PROFILE_Container_xmyfa9kl_ON_TAP');
-                                  logFirebaseEvent(
-                                      'Container_update_local_state');
                                   FFAppState().update(() {
                                     FFAppState().addCarBody = '';
                                   });
-                                  logFirebaseEvent('Container_bottom_sheet');
                                   await showModalBottomSheet(
                                     isScrollControlled: true,
                                     context: context,
@@ -811,11 +772,6 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                       children: [
                                         InkWell(
                                           onTap: () async {
-                                            logFirebaseEvent(
-                                                'EDIT_PROFILE_PAGE_Text_jcw7jfol_ON_TAP');
-                                            logFirebaseEvent(
-                                                'Text_navigate_to');
-
                                             context.pushNamed('Terms_of_Use');
                                           },
                                           child: Text(
@@ -874,11 +830,6 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                                   4, 0, 0, 0),
                                           child: InkWell(
                                             onTap: () async {
-                                              logFirebaseEvent(
-                                                  'EDIT_PROFILE_PAGE_Text_fu6y4fax_ON_TAP');
-                                              logFirebaseEvent(
-                                                  'Text_navigate_to');
-
                                               context.pushNamed('Terms_of_Use');
                                             },
                                             child: Text(
@@ -918,12 +869,8 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                     EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
                                 child: FFButtonWidget(
                                   onPressed: () async {
-                                    logFirebaseEvent(
-                                        'EDIT_PROFILE_PAGE_СОХРАНИТЬ_BTN_ON_TAP');
                                     if (uploadedFileUrl != null &&
                                         uploadedFileUrl != '') {
-                                      logFirebaseEvent('Button_backend_call');
-
                                       final userUpdateData =
                                           createUserRecordData(
                                         displayName: textController1!.text,
@@ -935,8 +882,6 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                       await currentUserReference!
                                           .update(userUpdateData);
                                     } else {
-                                      logFirebaseEvent('Button_backend_call');
-
                                       final userUpdateData =
                                           createUserRecordData(
                                         displayName: textController1!.text,
@@ -947,8 +892,6 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                       await currentUserReference!
                                           .update(userUpdateData);
                                     }
-
-                                    logFirebaseEvent('Button_navigate_to');
 
                                     context.pushNamed('HomePage');
                                   },

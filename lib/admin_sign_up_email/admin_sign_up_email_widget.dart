@@ -35,15 +35,11 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
     super.initState();
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      logFirebaseEvent('ADMIN_SIGN_UP_EMAIL_admin_sign_up_email_');
-      logFirebaseEvent('admin_sign_up_email_update_local_state');
       FFAppState().update(() {
         FFAppState().adminAddStaff = 'Руководитель';
       });
     });
 
-    logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'admin_sign_up_email'});
     emailController = TextEditingController();
     fioController = TextEditingController();
     phoneController = TextEditingController();
@@ -145,9 +141,6 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                                 'fioController',
                                 Duration(milliseconds: 2000),
                                 () async {
-                                  logFirebaseEvent(
-                                      'ADMIN_SIGN_UP_EMAIL_FIO_ON_TEXTFIELD_CHA');
-                                  logFirebaseEvent('FIO_update_local_state');
                                   FFAppState().update(() {
                                     FFAppState().adminAddStaffFIO =
                                         fioController!.text;
@@ -155,9 +148,6 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                                 },
                               ),
                               onFieldSubmitted: (_) async {
-                                logFirebaseEvent(
-                                    'ADMIN_SIGN_UP_EMAIL_FIO_ON_TEXTFIELD_SUB');
-                                logFirebaseEvent('FIO_update_local_state');
                                 FFAppState().update(() {
                                   FFAppState().adminAddStaffFIO =
                                       fioController!.text;
@@ -227,9 +217,6 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                                 'phoneController',
                                 Duration(milliseconds: 2000),
                                 () async {
-                                  logFirebaseEvent(
-                                      'ADMIN_SIGN_UP_EMAIL_Phone_ON_TEXTFIELD_C');
-                                  logFirebaseEvent('Phone_update_local_state');
                                   FFAppState().update(() {
                                     FFAppState().adminAddStaffPhone =
                                         phoneController!.text;
@@ -237,9 +224,6 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                                 },
                               ),
                               onFieldSubmitted: (_) async {
-                                logFirebaseEvent(
-                                    'ADMIN_SIGN_UP_EMAIL_Phone_ON_TEXTFIELD_S');
-                                logFirebaseEvent('Phone_update_local_state');
                                 FFAppState().update(() {
                                   FFAppState().adminAddStaffPhone =
                                       phoneController!.text;
@@ -513,15 +497,11 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 24),
                           child: FFButtonWidget(
                             onPressed: () async {
-                              logFirebaseEvent(
-                                  'ADMIN_SIGN_UP_EMAIL_ЗАРЕГИСТРИРОВАТЬСЯ_B');
-                              logFirebaseEvent('Button_validate_form');
                               if (formKey.currentState == null ||
                                   !formKey.currentState!.validate()) {
                                 return;
                               }
 
-                              logFirebaseEvent('Button_auth');
                               GoRouter.of(context).prepareAuthEvent();
                               if (textField111Controller?.text !=
                                   textField222Controller?.text) {
@@ -602,10 +582,6 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                               ),
                               InkWell(
                                 onTap: () async {
-                                  logFirebaseEvent(
-                                      'ADMIN_SIGN_UP_EMAIL_Text_yhj2novr_ON_TAP');
-                                  logFirebaseEvent('Text_navigate_to');
-
                                   context.pushNamed('admin_sign_in_email');
                                 },
                                 child: Text(

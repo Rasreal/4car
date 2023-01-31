@@ -26,7 +26,6 @@ class _SignUpWidgetState extends State<SignUpWidget> {
   @override
   void initState() {
     super.initState();
-    logFirebaseEvent('screen_view', parameters: {'screen_name': 'Sign_Up'});
     textController = TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -76,10 +75,6 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                 size: 24,
                               ),
                               onPressed: () async {
-                                logFirebaseEvent(
-                                    'SIGN_UP_chevron_left_outlined_ICN_ON_TAP');
-                                logFirebaseEvent('IconButton_navigate_to');
-
                                 context.goNamed(
                                   'Onboarding',
                                   extra: <String, dynamic>{
@@ -259,10 +254,6 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                   EdgeInsetsDirectional.fromSTEB(4, 0, 0, 0),
                               child: InkWell(
                                 onTap: () async {
-                                  logFirebaseEvent(
-                                      'SIGN_UP_PAGE_Text_rs58csc2_ON_TAP');
-                                  logFirebaseEvent('Text_navigate_to');
-
                                   context.pushNamed('Sign_in');
                                 },
                                 child: Text(
@@ -289,15 +280,11 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                       ),
                       FFButtonWidget(
                         onPressed: () async {
-                          logFirebaseEvent(
-                              'SIGN_UP_PAGE_ОТПРАВИТЬ_КОД_BTN_ON_TAP');
-                          logFirebaseEvent('Button_validate_form');
                           if (formKey.currentState == null ||
                               !formKey.currentState!.validate()) {
                             return;
                           }
 
-                          logFirebaseEvent('Button_auth');
                           final phoneNumberVal = textController!.text;
                           if (phoneNumberVal == null ||
                               phoneNumberVal.isEmpty ||
@@ -322,7 +309,6 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                             },
                           );
 
-                          logFirebaseEvent('Button_update_local_state');
                           FFAppState().update(() {
                             FFAppState().singUPcode = true;
                           });

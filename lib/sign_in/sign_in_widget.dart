@@ -22,7 +22,6 @@ class _SignInWidgetState extends State<SignInWidget> {
   @override
   void initState() {
     super.initState();
-    logFirebaseEvent('screen_view', parameters: {'screen_name': 'Sign_in'});
     textController = TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -240,12 +239,9 @@ class _SignInWidgetState extends State<SignInWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
                           child: FFButtonWidget(
                             onPressed: () async {
-                              logFirebaseEvent('SIGN_IN_PAGE_ВОЙТИ_BTN_ON_TAP');
-                              logFirebaseEvent('Button_update_local_state');
                               FFAppState().update(() {
                                 FFAppState().signINcode = true;
                               });
-                              logFirebaseEvent('Button_auth');
                               final phoneNumberVal =
                                   '+7${textController!.text}';
                               if (phoneNumberVal == null ||
@@ -327,10 +323,6 @@ class _SignInWidgetState extends State<SignInWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(4, 0, 0, 0),
                         child: InkWell(
                           onTap: () async {
-                            logFirebaseEvent(
-                                'SIGN_IN_PAGE_Text_mhicdgjr_ON_TAP');
-                            logFirebaseEvent('Text_navigate_to');
-
                             context.pushNamed('Sign_Up');
                           },
                           child: Text(

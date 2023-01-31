@@ -80,8 +80,6 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
     );
     getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
         .then((loc) => setState(() => currentUserLocationValue = loc));
-    logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'booking_page'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -139,10 +137,6 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                               size: 24,
                             ),
                             onPressed: () async {
-                              logFirebaseEvent(
-                                  'BOOKING_PAGE_PAGE_icBack_ICN_ON_TAP');
-                              logFirebaseEvent('IconButton_navigate_to');
-
                               context.goNamed(
                                 'HomePage',
                                 extra: <String, dynamic>{
@@ -675,8 +669,6 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                                     snapshot.data!;
                                                 return InkWell(
                                                   onTap: () async {
-                                                    logFirebaseEvent(
-                                                        'BOOKING_Container_1xm75yfj_ON_TAP');
                                                     if (containerBookingsRecordList
                                                             .length <
                                                         widget.company!
@@ -685,8 +677,6 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                                               .selectedTimeSlot ==
                                                           wrapForcarTimesRecord
                                                               .reference) {
-                                                        logFirebaseEvent(
-                                                            'Container_update_local_state');
                                                         FFAppState().update(() {
                                                           FFAppState()
                                                                   .selectedTimeSlot =
@@ -697,8 +687,6 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                                               .selectedServices = [];
                                                         });
                                                       } else {
-                                                        logFirebaseEvent(
-                                                            'Container_update_local_state');
                                                         FFAppState().update(() {
                                                           FFAppState()
                                                                   .selectedTimeSlot =
@@ -713,8 +701,6 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                                           FFAppState()
                                                               .bookedTimes = [];
                                                         });
-                                                        logFirebaseEvent(
-                                                            'Container_update_local_state');
                                                         FFAppState().update(() {
                                                           FFAppState()
                                                               .addToBookedTimes(
@@ -869,10 +855,6 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                         0, 8, 0, 0),
                                     child: InkWell(
                                       onTap: () async {
-                                        logFirebaseEvent(
-                                            'BOOKING_car_not_seleceted_ON_TAP');
-                                        logFirebaseEvent(
-                                            'car_not_seleceted_bottom_sheet');
                                         await showModalBottomSheet(
                                           isScrollControlled: true,
                                           backgroundColor: Colors.transparent,
@@ -969,12 +951,8 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                         0, 8, 0, 0),
                                     child: InkWell(
                                       onTap: () async {
-                                        logFirebaseEvent(
-                                            'BOOKING_Container_g0rkz58r_ON_TAP');
                                         if (FFAppState().selectedTimeSlot !=
                                             null) {
-                                          logFirebaseEvent(
-                                              'Container_bottom_sheet');
                                           await showModalBottomSheet(
                                             isScrollControlled: true,
                                             backgroundColor: Colors.transparent,
@@ -993,8 +971,6 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                             },
                                           ).then((value) => setState(() {}));
                                         } else {
-                                          logFirebaseEvent(
-                                              'Container_show_snack_bar');
                                           ScaffoldMessenger.of(context)
                                               .showSnackBar(
                                             SnackBar(
@@ -1117,10 +1093,6 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                         0, 8, 0, 0),
                                     child: InkWell(
                                       onTap: () async {
-                                        logFirebaseEvent(
-                                            'BOOKING_Container_j1ev9szy_ON_TAP');
-                                        logFirebaseEvent(
-                                            'Container_bottom_sheet');
                                         await showModalBottomSheet(
                                           isScrollControlled: true,
                                           backgroundColor: Colors.transparent,
@@ -1575,10 +1547,6 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                                         0))
                                                   FFButtonWidget(
                                                     onPressed: () async {
-                                                      logFirebaseEvent(
-                                                          'BOOKING_PAGE_PAGE_ЗАПИСАТЬСЯ_BTN_ON_TAP');
-                                                      logFirebaseEvent(
-                                                          'Button_update_local_state');
                                                       FFAppState().update(() {
                                                         FFAppState().bookedTimes = functions
                                                             .listSelectedTimesOrder(
@@ -1588,8 +1556,6 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                                                     .timeOrder!)
                                                             .toList();
                                                       });
-                                                      logFirebaseEvent(
-                                                          'Button_backend_call');
 
                                                       final bookingsCreateData =
                                                           {
@@ -1670,8 +1636,6 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                                           .getDocumentFromData(
                                                               bookingsCreateData,
                                                               bookingsRecordReference);
-                                                      logFirebaseEvent(
-                                                          'Button_widget_animation');
                                                       if (animationsMap[
                                                               'containerOnActionTriggerAnimation'] !=
                                                           null) {
@@ -1680,20 +1644,14 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                                             .controller
                                                             .forward(from: 0.0);
                                                       }
-                                                      logFirebaseEvent(
-                                                          'Button_wait__delay');
                                                       await Future.delayed(
                                                           const Duration(
                                                               milliseconds:
                                                                   1000));
-                                                      logFirebaseEvent(
-                                                          'Button_update_local_state');
                                                       FFAppState().update(() {
                                                         FFAppState()
                                                             .selectPush = 1000;
                                                       });
-                                                      logFirebaseEvent(
-                                                          'Button_navigate_to');
 
                                                       context
                                                           .goNamed('My_notes');
