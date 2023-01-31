@@ -233,7 +233,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Text(
-                                                  'м9\n',
+                                                  'м9999999',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyText1
