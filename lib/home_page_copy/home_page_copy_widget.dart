@@ -18,6 +18,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter/services.dart'
+    show ByteData, SystemUiOverlayStyle, rootBundle;
+import 'dart:ui' as ui;
 
 class HomePageCopyWidget extends StatefulWidget {
   const HomePageCopyWidget({Key? key}) : super(key: key);
@@ -36,9 +39,29 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
   bool? switchListTileValue;
 
+  List<String> images = ['assets/images/marker.png'];
+  Future<Uint8List> getImages(String path, int width) async {
+    ByteData data = await rootBundle.load(path);
+    ui.Codec codec = await ui.instantiateImageCodec(data.buffer.asUint8List(),
+        targetHeight: width);
+    ui.FrameInfo fi = await codec.getNextFrame();
+    return (await fi.image.toByteData(format: ui.ImageByteFormat.png))!
+        .buffer
+        .asUint8List();
+  }
+
+  Uint8List? markIcons;
+  BitmapDescriptor? iconn;
+
+  loadData() async {
+    markIcons = await getImages(images[0], 40);
+    iconn = BitmapDescriptor.fromBytes(markIcons!);
+  }
+
   @override
   void initState() {
     super.initState();
+    loadData();
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       if (valueOrDefault<bool>(
@@ -567,6 +590,7 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                                     googleMapCompaniesRecordList =
                                     snapshot.data!;
                                 return FlutterFlowGoogleMap(
+                                  iconn: iconn!,
                                   controller: googleMapsController,
                                   onCameraIdle: (latLng) =>
                                       googleMapsCenter = latLng,

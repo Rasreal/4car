@@ -66,6 +66,7 @@ class FFAppState extends ChangeNotifier {
     _selectedServices.remove(_value);
   }
 
+  LatLng currLoc = LatLng(53.211122, 79.7756565);
   String _cancelBooking = '';
   String get cancelBooking => _cancelBooking;
   set cancelBooking(String _value) {
