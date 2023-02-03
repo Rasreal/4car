@@ -917,6 +917,7 @@ class _AdminAddCompany3WidgetState extends State<AdminAddCompany3Widget> {
                                                                   context)
                                                               .subtitle2Family),
                                             ),
+                                        elevation: 0,
                                         borderSide: BorderSide(
                                           color: Colors.transparent,
                                           width: 1,

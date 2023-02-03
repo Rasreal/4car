@@ -5,6 +5,7 @@ import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
 
 class SignInWidget extends StatefulWidget {
@@ -16,6 +17,7 @@ class SignInWidget extends StatefulWidget {
 
 class _SignInWidgetState extends State<SignInWidget> {
   TextEditingController? textController;
+  final textFieldMask = MaskTextInputFormatter(mask: '+# (###) ###-##-##');
   final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -39,7 +41,7 @@ class _SignInWidgetState extends State<SignInWidget> {
 
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xF2DDDDDD),
+      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
@@ -135,32 +137,6 @@ class _SignInWidgetState extends State<SignInWidget> {
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      16, 1.4, 4, 0),
-                                  child: Text(
-                                    '+7',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyText1Family,
-                                          color: valueOrDefault<Color>(
-                                            textController!.text != null &&
-                                                    textController!.text != ''
-                                                ? FlutterFlowTheme.of(context)
-                                                    .primaryText
-                                                : Color(0xFFD0D0D0),
-                                            Color(0xFFD0D0D0),
-                                          ),
-                                          useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey(
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyText1Family),
-                                        ),
-                                  ),
-                                ),
                                 Expanded(
                                   child: TextFormField(
                                     controller: textController,
@@ -172,7 +148,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                                     autofocus: true,
                                     obscureText: false,
                                     decoration: InputDecoration(
-                                      hintText: '(000) 00 00 00',
+                                      hintText: '+7 (000) 00 00 00',
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .bodyText2
                                           .override(
@@ -225,10 +201,14 @@ class _SignInWidgetState extends State<SignInWidget> {
                                           topRight: Radius.circular(4.0),
                                         ),
                                       ),
+                                      contentPadding:
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              10, 0, 0, 0),
                                     ),
                                     style:
                                         FlutterFlowTheme.of(context).bodyText1,
                                     keyboardType: TextInputType.phone,
+                                    inputFormatters: [textFieldMask],
                                   ),
                                 ),
                               ],
@@ -242,8 +222,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                               FFAppState().update(() {
                                 FFAppState().signINcode = true;
                               });
-                              final phoneNumberVal =
-                                  '+7${textController!.text}';
+                              final phoneNumberVal = textController!.text;
                               if (phoneNumberVal == null ||
                                   phoneNumberVal.isEmpty ||
                                   !phoneNumberVal.startsWith('+')) {

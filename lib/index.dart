@@ -52,10 +52,10 @@ export 'super_admin_moderation/super_admin_moderation_widget.dart'
     show SuperAdminModerationWidget;
 export 'super_admin_moderation_1/super_admin_moderation1_widget.dart'
     show SuperAdminModeration1Widget;
-export 'super_admin_moderation_3/super_admin_moderation3_widget.dart'
-    show SuperAdminModeration3Widget;
 export 'super_admin_moderation_2/super_admin_moderation2_widget.dart'
     show SuperAdminModeration2Widget;
+export 'super_admin_moderation_3/super_admin_moderation3_widget.dart'
+    show SuperAdminModeration3Widget;
 export 'super_admin_current_company/super_admin_current_company_widget.dart'
     show SuperAdminCurrentCompanyWidget;
 export 'super_admin_analytics/super_admin_analytics_widget.dart'
@@ -64,6 +64,8 @@ export 'super_admin_users/super_admin_users_widget.dart'
     show SuperAdminUsersWidget;
 export 'super_admin_current_user/super_admin_current_user_widget.dart'
     show SuperAdminCurrentUserWidget;
+export 'super_admin_sales_moderation/super_admin_sales_moderation_widget.dart'
+    show SuperAdminSalesModerationWidget;
 export 'booking_page_copy/booking_page_copy_widget.dart'
     show BookingPageCopyWidget;
 export 'home_page_copy/home_page_copy_widget.dart' show HomePageCopyWidget;

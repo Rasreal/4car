@@ -9,6 +9,10 @@
           "order": "ASCENDING"
         },
         {
+          "fieldPath": "cancelled",
+          "order": "ASCENDING"
+        },
+        {
           "fieldPath": "selected_times_order",
           "arrayConfig": "CONTAINS"
         }
@@ -69,6 +73,24 @@
           "order": "ASCENDING"
         }
       ]
+    },
+    {
+      "collectionGroup": "bookings",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "booked_company_document",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "status",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "selected_times_order",
+          "arrayConfig": "CONTAINS"
+        }
+      ]
     }
   ],
   "fieldOverrides": [
@@ -114,7 +136,7 @@
     },
     {
       "collectionGroup": "promotion",
-      "fieldPath": "status",
+      "fieldPath": "moderation",
       "indexes": [
         {
           "order": "ASCENDING",
@@ -145,6 +167,36 @@
     {
       "collectionGroup": "comments",
       "fieldPath": "booked_comment",
+      "indexes": [
+        {
+          "order": "ASCENDING",
+          "queryScope": "COLLECTION_GROUP"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "promotion",
+      "fieldPath": "top",
+      "indexes": [
+        {
+          "order": "ASCENDING",
+          "queryScope": "COLLECTION_GROUP"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "promotion",
+      "fieldPath": "top",
+      "indexes": [
+        {
+          "order": "ASCENDING",
+          "queryScope": "COLLECTION_GROUP"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "promotion",
+      "fieldPath": "moderation",
       "indexes": [
         {
           "order": "ASCENDING",

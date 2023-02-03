@@ -47,9 +47,6 @@ abstract class CompaniesRecord
   @BuiltValueField(wireName: 'fio_admin')
   String? get fioAdmin;
 
-  @BuiltValueField(wireName: 'num_dogovor')
-  int? get numDogovor;
-
   @BuiltValueField(wireName: 'date_dogovor')
   DateTime? get dateDogovor;
 
@@ -87,6 +84,9 @@ abstract class CompaniesRecord
   @BuiltValueField(wireName: 'company_users')
   BuiltList<DocumentReference>? get companyUsers;
 
+  @BuiltValueField(wireName: 'num_dogovor')
+  String? get numDogovor;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -105,7 +105,6 @@ abstract class CompaniesRecord
     ..binIin = 0
     ..iban = ''
     ..fioAdmin = ''
-    ..numDogovor = 0
     ..dogovorPdf = ''
     ..phoneNum = ''
     ..openTime = ''
@@ -115,7 +114,8 @@ abstract class CompaniesRecord
     ..listServices = ListBuilder()
     ..forCarPercent = 0.0
     ..countBoxString = ListBuilder()
-    ..companyUsers = ListBuilder();
+    ..companyUsers = ListBuilder()
+    ..numDogovor = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('companies');
@@ -153,7 +153,6 @@ Map<String, dynamic> createCompaniesRecordData({
   int? binIin,
   String? iban,
   String? fioAdmin,
-  int? numDogovor,
   DateTime? dateDogovor,
   String? dogovorPdf,
   DocumentReference? linkCity,
@@ -164,6 +163,7 @@ Map<String, dynamic> createCompaniesRecordData({
   int? closedTimeOrder,
   DocumentReference? companyDocument,
   double? forCarPercent,
+  String? numDogovor,
 }) {
   final firestoreData = serializers.toFirestore(
     CompaniesRecord.serializer,
@@ -184,7 +184,6 @@ Map<String, dynamic> createCompaniesRecordData({
         ..binIin = binIin
         ..iban = iban
         ..fioAdmin = fioAdmin
-        ..numDogovor = numDogovor
         ..dateDogovor = dateDogovor
         ..dogovorPdf = dogovorPdf
         ..linkCity = linkCity
@@ -197,7 +196,8 @@ Map<String, dynamic> createCompaniesRecordData({
         ..companyDocument = companyDocument
         ..forCarPercent = forCarPercent
         ..countBoxString = null
-        ..companyUsers = null,
+        ..companyUsers = null
+        ..numDogovor = numDogovor,
     ),
   );
 

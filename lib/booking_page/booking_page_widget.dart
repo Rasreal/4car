@@ -1152,7 +1152,30 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                                                     .bodyText1Family),
                                                       ),
                                                 ),
-                                              if (FFAppState().selectPush == 1)
+                                              if (FFAppState().selectPush == 30)
+                                                Text(
+                                                  'За пол часа до записи',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyText1
+                                                      .override(
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyText1Family,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyText1Family),
+                                                      ),
+                                                ),
+                                              if (FFAppState().selectPush == 60)
                                                 Text(
                                                   'За 1 час до записи',
                                                   style: FlutterFlowTheme.of(
@@ -1175,55 +1198,10 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                                                     .bodyText1Family),
                                                       ),
                                                 ),
-                                              if (FFAppState().selectPush == 2)
+                                              if (FFAppState().selectPush ==
+                                                  120)
                                                 Text(
-                                                  'За 2 час до записи',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyText1
-                                                      .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyText1Family,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyText1Family),
-                                                      ),
-                                                ),
-                                              if (FFAppState().selectPush == 3)
-                                                Text(
-                                                  'За 3 час до записи',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyText1
-                                                      .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyText1Family,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyText1Family),
-                                                      ),
-                                                ),
-                                              if (FFAppState().selectPush == 4)
-                                                Text(
-                                                  'За 4 час до записи',
+                                                  'За 2 часа до записи ',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyText1
@@ -1747,63 +1725,69 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                   ],
                 ),
               ),
-              Container(
-                width: double.infinity,
-                height: double.infinity,
-                decoration: BoxDecoration(
-                  color: Color(0x64000000),
-                ),
-                child: Align(
-                  alignment: AlignmentDirectional(0, 0),
-                  child: Container(
-                    width: 192,
-                    height: 176,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
-                          child: Container(
-                            width: 48,
-                            height: 48,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context).primaryColor,
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Icon(
-                              FFIcons.kcheeek,
-                              color: Colors.white,
-                              size: 44,
+              if (responsiveVisibility(
+                context: context,
+                phone: false,
+              ))
+                Container(
+                  width: double.infinity,
+                  height: double.infinity,
+                  decoration: BoxDecoration(
+                    color: Color(0x64000000),
+                  ),
+                  child: Align(
+                    alignment: AlignmentDirectional(0, 0),
+                    child: Container(
+                      width: 192,
+                      height: 176,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
+                            child: Container(
+                              width: 48,
+                              height: 48,
+                              decoration: BoxDecoration(
+                                color:
+                                    FlutterFlowTheme.of(context).primaryColor,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Icon(
+                                FFIcons.kcheeek,
+                                color: Colors.white,
+                                size: 44,
+                              ),
                             ),
                           ),
-                        ),
-                        Text(
-                          'Вы успешно\nзаписались!',
-                          textAlign: TextAlign.center,
-                          style: FlutterFlowTheme.of(context)
-                              .bodyText1
-                              .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .bodyText1Family,
-                                fontSize: 15,
-                                fontWeight: FontWeight.w500,
-                                useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                    FlutterFlowTheme.of(context)
-                                        .bodyText1Family),
-                              ),
-                        ),
-                      ],
+                          Text(
+                            'Вы успешно\nзаписались!',
+                            textAlign: TextAlign.center,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyText1
+                                .override(
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .bodyText1Family,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w500,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .bodyText1Family),
+                                ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
+                ).animateOnActionTrigger(
+                  animationsMap['containerOnActionTriggerAnimation']!,
                 ),
-              ).animateOnActionTrigger(
-                animationsMap['containerOnActionTriggerAnimation']!,
-              ),
             ],
           ),
         ),

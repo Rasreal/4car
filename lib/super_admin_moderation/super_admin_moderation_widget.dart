@@ -411,8 +411,7 @@ class _SuperAdminModerationWidgetState
                                                                 valueOrDefault<
                                                                     String>(
                                                                   listViewCompaniesRecord
-                                                                      .numDogovor
-                                                                      ?.toString(),
+                                                                      .numDogovor,
                                                                   'null',
                                                                 ),
                                                                 style: FlutterFlowTheme.of(

@@ -1413,6 +1413,7 @@ class _AdminAddStaff1WidgetState extends State<AdminAddStaff1Widget> {
                                               FlutterFlowTheme.of(context)
                                                   .subtitle2Family),
                                     ),
+                                elevation: 0,
                                 borderSide: BorderSide(
                                   color: Colors.transparent,
                                   width: 1,

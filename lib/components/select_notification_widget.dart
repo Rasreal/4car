@@ -118,7 +118,7 @@ class _SelectNotificationWidgetState extends State<SelectNotificationWidget> {
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
                             child: Text(
-                              'За пол час до записи',
+                              'За пол часа до записи',
                               style: FlutterFlowTheme.of(context).bodyText1,
                             ),
                           ),
@@ -248,7 +248,7 @@ class _SelectNotificationWidgetState extends State<SelectNotificationWidget> {
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
                             child: Text(
-                              'За 2 час до записи',
+                              'За 2 часа до записи',
                               style: FlutterFlowTheme.of(context).bodyText1,
                             ),
                           ),

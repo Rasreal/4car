@@ -322,6 +322,8 @@ class _AddCarWidgetState extends State<AddCarWidget> {
                               final userUpdateData = createUserRecordData(
                                 carscount: 1,
                                 firstCar: firstCar!.reference,
+                                firstCarBody: FFAppState().addCarBody,
+                                firstCarName: textController!.text,
                               );
                               await currentUserReference!
                                   .update(userUpdateData);

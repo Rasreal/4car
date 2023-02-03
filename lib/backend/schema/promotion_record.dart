@@ -22,6 +22,10 @@ abstract class PromotionRecord
 
   String? get status;
 
+  bool? get moderation;
+
+  bool? get top;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -32,7 +36,9 @@ abstract class PromotionRecord
     ..title = ''
     ..subtitle = ''
     ..img = ''
-    ..status = '';
+    ..status = ''
+    ..moderation = false
+    ..top = false;
 
   static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
       parent != null
@@ -66,6 +72,8 @@ Map<String, dynamic> createPromotionRecordData({
   String? img,
   DocumentReference? cityLink,
   String? status,
+  bool? moderation,
+  bool? top,
 }) {
   final firestoreData = serializers.toFirestore(
     PromotionRecord.serializer,
@@ -75,7 +83,9 @@ Map<String, dynamic> createPromotionRecordData({
         ..subtitle = subtitle
         ..img = img
         ..cityLink = cityLink
-        ..status = status,
+        ..status = status
+        ..moderation = moderation
+        ..top = top,
     ),
   );
 

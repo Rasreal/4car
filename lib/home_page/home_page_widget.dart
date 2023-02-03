@@ -226,7 +226,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Text(
-                                                  'м8888',
+                                                  '99595959',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyText1
@@ -263,11 +263,15 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                         future:
                                                             queryPromotionRecordOnce(
                                                           queryBuilder: (promotionRecord) =>
-                                                              promotionRecord.where(
-                                                                  'city_link',
-                                                                  isEqualTo:
-                                                                      currentUserDocument!
-                                                                          .country),
+                                                              promotionRecord
+                                                                  .where(
+                                                                      'city_link',
+                                                                      isEqualTo:
+                                                                          currentUserDocument!
+                                                                              .country)
+                                                                  .where('top',
+                                                                      isEqualTo:
+                                                                          true),
                                                           limit: 3,
                                                         ),
                                                         builder: (context,
@@ -569,7 +573,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     onPressed: () async {
                       context.goNamed('admin_main');
                     },
-                    text: 'Button44',
+                    text: 'Button55',
                     options: FFButtonOptions(
                       width: 130,
                       height: 40,

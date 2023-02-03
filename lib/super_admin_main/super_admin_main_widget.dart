@@ -525,8 +525,8 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                             future: queryPromotionRecordCount(
                                               queryBuilder: (promotionRecord) =>
                                                   promotionRecord.where(
-                                                      'status',
-                                                      isEqualTo: 'Модерация'),
+                                                      'moderation',
+                                                      isEqualTo: true),
                                             ),
                                             builder: (context, snapshot) {
                                               // Customize what your widget looks like when it's loading.
@@ -664,7 +664,11 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                 .spaceBetween,
                                                         children: [
                                                           Text(
-                                                            '6 Акции',
+                                                            '${valueOrDefault<String>(
+                                                              containerCancelBookingCount
+                                                                  .toString(),
+                                                              '0',
+                                                            )} Акции',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyText1
@@ -1588,7 +1592,10 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                             Query<Object?>)
                                                         queryBuilder =
                                                         (companiesRecord) =>
-                                                            companiesRecord;
+                                                            companiesRecord.where(
+                                                                'status',
+                                                                isNotEqualTo:
+                                                                    'Модерация');
                                                     if (_pagingController !=
                                                         null) {
                                                       final query =
@@ -1622,7 +1629,10 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                       queryCompaniesRecordPage(
                                                         queryBuilder:
                                                             (companiesRecord) =>
-                                                                companiesRecord,
+                                                                companiesRecord.where(
+                                                                    'status',
+                                                                    isNotEqualTo:
+                                                                        'Модерация'),
                                                         nextPageMarker:
                                                             nextPageMarker,
                                                         pageSize: 25,

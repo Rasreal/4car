@@ -57,6 +57,20 @@ class _$PromotionRecordSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
+    value = object.moderation;
+    if (value != null) {
+      result
+        ..add('moderation')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.top;
+    if (value != null) {
+      result
+        ..add('top')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -102,6 +116,14 @@ class _$PromotionRecordSerializer
           result.status = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
+        case 'moderation':
+          result.moderation = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'top':
+          result.top = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -127,6 +149,10 @@ class _$PromotionRecord extends PromotionRecord {
   @override
   final String? status;
   @override
+  final bool? moderation;
+  @override
+  final bool? top;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$PromotionRecord([void Function(PromotionRecordBuilder)? updates]) =>
@@ -138,6 +164,8 @@ class _$PromotionRecord extends PromotionRecord {
       this.img,
       this.cityLink,
       this.status,
+      this.moderation,
+      this.top,
       this.ffRef})
       : super._();
 
@@ -158,6 +186,8 @@ class _$PromotionRecord extends PromotionRecord {
         img == other.img &&
         cityLink == other.cityLink &&
         status == other.status &&
+        moderation == other.moderation &&
+        top == other.top &&
         ffRef == other.ffRef;
   }
 
@@ -166,10 +196,14 @@ class _$PromotionRecord extends PromotionRecord {
     return $jf($jc(
         $jc(
             $jc(
-                $jc($jc($jc(0, title.hashCode), subtitle.hashCode),
-                    img.hashCode),
-                cityLink.hashCode),
-            status.hashCode),
+                $jc(
+                    $jc(
+                        $jc($jc($jc(0, title.hashCode), subtitle.hashCode),
+                            img.hashCode),
+                        cityLink.hashCode),
+                    status.hashCode),
+                moderation.hashCode),
+            top.hashCode),
         ffRef.hashCode));
   }
 
@@ -181,6 +215,8 @@ class _$PromotionRecord extends PromotionRecord {
           ..add('img', img)
           ..add('cityLink', cityLink)
           ..add('status', status)
+          ..add('moderation', moderation)
+          ..add('top', top)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -211,6 +247,14 @@ class PromotionRecordBuilder
   String? get status => _$this._status;
   set status(String? status) => _$this._status = status;
 
+  bool? _moderation;
+  bool? get moderation => _$this._moderation;
+  set moderation(bool? moderation) => _$this._moderation = moderation;
+
+  bool? _top;
+  bool? get top => _$this._top;
+  set top(bool? top) => _$this._top = top;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -227,6 +271,8 @@ class PromotionRecordBuilder
       _img = $v.img;
       _cityLink = $v.cityLink;
       _status = $v.status;
+      _moderation = $v.moderation;
+      _top = $v.top;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -255,6 +301,8 @@ class PromotionRecordBuilder
             img: img,
             cityLink: cityLink,
             status: status,
+            moderation: moderation,
+            top: top,
             ffRef: ffRef);
     replace(_$result);
     return _$result;

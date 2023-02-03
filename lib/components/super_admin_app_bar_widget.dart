@@ -221,48 +221,60 @@ class _SuperAdminAppBarWidgetState extends State<SuperAdminAppBarWidget> {
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 48, 0),
-                          child: Text(
-                            'Аналитика',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyText1
-                                .override(
-                                  fontFamily: 'Inter',
-                                  color: valueOrDefault<Color>(
-                                    widget.page == 'Аналитика'
-                                        ? FlutterFlowTheme.of(context)
-                                            .primaryColor
-                                        : FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                    FlutterFlowTheme.of(context).primaryText,
+                          child: InkWell(
+                            onTap: () async {
+                              context.pushNamed('super_admin_analytics');
+                            },
+                            child: Text(
+                              'Аналитика',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyText1
+                                  .override(
+                                    fontFamily: 'Inter',
+                                    color: valueOrDefault<Color>(
+                                      widget.page == 'Аналитика'
+                                          ? FlutterFlowTheme.of(context)
+                                              .primaryColor
+                                          : FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                      FlutterFlowTheme.of(context).primaryText,
+                                    ),
+                                    fontWeight: FontWeight.normal,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey(
+                                            FlutterFlowTheme.of(context)
+                                                .bodyText1Family),
                                   ),
-                                  fontWeight: FontWeight.normal,
-                                  useGoogleFonts: GoogleFonts.asMap()
-                                      .containsKey(FlutterFlowTheme.of(context)
-                                          .bodyText1Family),
-                                ),
+                            ),
                           ),
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 48, 0),
-                          child: Text(
-                            'Пользователи',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyText1
-                                .override(
-                                  fontFamily: 'Inter',
-                                  color: valueOrDefault<Color>(
-                                    widget.page == 'Пользователи'
-                                        ? FlutterFlowTheme.of(context)
-                                            .primaryColor
-                                        : FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                    FlutterFlowTheme.of(context).primaryText,
+                          child: InkWell(
+                            onTap: () async {
+                              context.pushNamed('super_admin_users');
+                            },
+                            child: Text(
+                              'Пользователи',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyText1
+                                  .override(
+                                    fontFamily: 'Inter',
+                                    color: valueOrDefault<Color>(
+                                      widget.page == 'Пользователи'
+                                          ? FlutterFlowTheme.of(context)
+                                              .primaryColor
+                                          : FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                      FlutterFlowTheme.of(context).primaryText,
+                                    ),
+                                    fontWeight: FontWeight.normal,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey(
+                                            FlutterFlowTheme.of(context)
+                                                .bodyText1Family),
                                   ),
-                                  fontWeight: FontWeight.normal,
-                                  useGoogleFonts: GoogleFonts.asMap()
-                                      .containsKey(FlutterFlowTheme.of(context)
-                                          .bodyText1Family),
-                                ),
+                            ),
                           ),
                         ),
                       ],

@@ -395,7 +395,7 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                             Expanded(
                               child: Text(
                                 '№${valueOrDefault<String>(
-                                  widget.company!.numDogovor?.toString(),
+                                  widget.company!.numDogovor,
                                   'null',
                                 )}',
                                 style: FlutterFlowTheme.of(context)

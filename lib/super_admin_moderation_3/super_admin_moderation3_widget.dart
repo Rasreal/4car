@@ -456,7 +456,7 @@ class _SuperAdminModeration3WidgetState
                                                                             ),
                                                                           ),
                                                                           Text(
-                                                                            '№${columnCompaniesRecord.numDogovor?.toString()}',
+                                                                            '№${columnCompaniesRecord.numDogovor}',
                                                                             style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                   fontFamily: 'Inter',
                                                                                   fontSize: 16,

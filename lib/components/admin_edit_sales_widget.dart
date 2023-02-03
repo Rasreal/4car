@@ -11,19 +11,19 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class AdminAddSalesWidget extends StatefulWidget {
-  const AdminAddSalesWidget({
+class AdminEditSalesWidget extends StatefulWidget {
+  const AdminEditSalesWidget({
     Key? key,
-    this.company,
+    this.promotion,
   }) : super(key: key);
 
-  final CompaniesRecord? company;
+  final PromotionRecord? promotion;
 
   @override
-  _AdminAddSalesWidgetState createState() => _AdminAddSalesWidgetState();
+  _AdminEditSalesWidgetState createState() => _AdminEditSalesWidgetState();
 }
 
-class _AdminAddSalesWidgetState extends State<AdminAddSalesWidget> {
+class _AdminEditSalesWidgetState extends State<AdminEditSalesWidget> {
   bool isMediaUploading = false;
   String uploadedFileUrl = '';
 
@@ -34,8 +34,12 @@ class _AdminAddSalesWidgetState extends State<AdminAddSalesWidget> {
   @override
   void initState() {
     super.initState();
-    textController1 = TextEditingController();
-    textController2 = TextEditingController();
+    textController1 = TextEditingController(
+        text: valueOrDefault<String>(
+      widget.promotion!.title,
+      'null',
+    ));
+    textController2 = TextEditingController(text: widget.promotion!.subtitle);
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -140,9 +144,12 @@ class _AdminAddSalesWidgetState extends State<AdminAddSalesWidget> {
                         child: Image.network(
                           uploadedFileUrl != null && uploadedFileUrl != ''
                               ? uploadedFileUrl
-                              : 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/for-car-main-fh9k7j/assets/kpbtqngy3jdc/nullImage.png',
-                          width: 80,
-                          height: 80,
+                              : valueOrDefault<String>(
+                                  widget.promotion!.img,
+                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/for-car-main-fh9k7j/assets/kpbtqngy3jdc/nullImage.png',
+                                ),
+                          width: 176,
+                          height: 96,
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -205,13 +212,6 @@ class _AdminAddSalesWidgetState extends State<AdminAddSalesWidget> {
                               useGoogleFonts: GoogleFonts.asMap().containsKey(
                                   FlutterFlowTheme.of(context).bodyText1Family),
                             ),
-                        validator: (val) {
-                          if (val == null || val.isEmpty) {
-                            return 'Заполните поле';
-                          }
-
-                          return null;
-                        },
                       ),
                     ),
                     Padding(
@@ -272,82 +272,105 @@ class _AdminAddSalesWidgetState extends State<AdminAddSalesWidget> {
                               useGoogleFonts: GoogleFonts.asMap().containsKey(
                                   FlutterFlowTheme.of(context).bodyText1Family),
                             ),
-                        validator: (val) {
-                          if (val == null || val.isEmpty) {
-                            return 'Заполните поле';
-                          }
-
-                          return null;
-                        },
                       ),
                     ),
-                    Align(
-                      alignment: AlignmentDirectional(1, 0),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
-                        child: FFButtonWidget(
-                          onPressed: () async {
-                            if (formKey.currentState == null ||
-                                !formKey.currentState!.validate()) {
-                              return;
-                            }
-
-                            if (uploadedFileUrl == null ||
-                                uploadedFileUrl.isEmpty) {
-                              return;
-                            }
-
-                            final promotionCreateData =
-                                createPromotionRecordData(
-                              title: textController1!.text,
-                              subtitle: textController2!.text,
-                              img: uploadedFileUrl,
-                              cityLink: widget.company!.linkCity,
-                              status: 'Активно',
-                            );
-                            await PromotionRecord.createDoc(
-                                    widget.company!.reference)
-                                .set(promotionCreateData);
-                            await showModalBottomSheet(
-                              isScrollControlled: true,
-                              backgroundColor: Colors.transparent,
-                              enableDrag: false,
-                              context: context,
-                              builder: (context) {
-                                return Padding(
-                                  padding: MediaQuery.of(context).viewInsets,
-                                  child: SuccessWidget(
-                                    message: 'Акция создана',
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          FFButtonWidget(
+                            onPressed: () async {
+                              await widget.promotion!.reference.delete();
+                            },
+                            text: 'Удалить ',
+                            options: FFButtonOptions(
+                              width: 118,
+                              height: 40,
+                              color: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .subtitle2
+                                  .override(
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .subtitle2Family,
+                                    color: FlutterFlowTheme.of(context).red1,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.normal,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey(
+                                            FlutterFlowTheme.of(context)
+                                                .subtitle2Family),
                                   ),
-                                );
-                              },
-                            ).then((value) => setState(() {}));
-                          },
-                          text: 'Сохранить',
-                          options: FFButtonOptions(
-                            width: 118,
-                            height: 40,
-                            color: FlutterFlowTheme.of(context).primaryColor,
-                            textStyle: FlutterFlowTheme.of(context)
-                                .subtitle2
-                                .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .subtitle2Family,
-                                  color: Colors.white,
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.normal,
-                                  useGoogleFonts: GoogleFonts.asMap()
-                                      .containsKey(FlutterFlowTheme.of(context)
-                                          .subtitle2Family),
-                                ),
-                            elevation: 0,
-                            borderSide: BorderSide(
-                              color: Colors.transparent,
-                              width: 1,
+                              elevation: 0,
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).red1,
+                                width: 1,
+                              ),
+                              borderRadius: BorderRadius.circular(8),
                             ),
-                            borderRadius: BorderRadius.circular(8),
                           ),
-                        ),
+                          FFButtonWidget(
+                            onPressed: () async {
+                              if (formKey.currentState == null ||
+                                  !formKey.currentState!.validate()) {
+                                return;
+                              }
+
+                              final promotionUpdateData =
+                                  createPromotionRecordData(
+                                title: textController1!.text,
+                                subtitle: textController2!.text,
+                                img: uploadedFileUrl != null &&
+                                        uploadedFileUrl != ''
+                                    ? uploadedFileUrl
+                                    : widget.promotion!.img,
+                              );
+                              await widget.promotion!.reference
+                                  .update(promotionUpdateData);
+                              await showModalBottomSheet(
+                                isScrollControlled: true,
+                                backgroundColor: Colors.transparent,
+                                enableDrag: false,
+                                context: context,
+                                builder: (context) {
+                                  return Padding(
+                                    padding: MediaQuery.of(context).viewInsets,
+                                    child: SuccessWidget(
+                                      message: 'Акция изменена',
+                                    ),
+                                  );
+                                },
+                              ).then((value) => setState(() {}));
+                            },
+                            text: 'Сохранить',
+                            options: FFButtonOptions(
+                              width: 118,
+                              height: 40,
+                              color: FlutterFlowTheme.of(context).primaryColor,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .subtitle2
+                                  .override(
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .subtitle2Family,
+                                    color: Colors.white,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.normal,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey(
+                                            FlutterFlowTheme.of(context)
+                                                .subtitle2Family),
+                                  ),
+                              elevation: 0,
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                                width: 1,
+                              ),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ],

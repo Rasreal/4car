@@ -316,14 +316,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'super_admin_moderation_3',
-              path: 'superAdminModeration3',
-              builder: (context, params) => SuperAdminModeration3Widget(
-                company: params.getParam('company', ParamType.DocumentReference,
-                    false, ['companies']),
-              ),
-            ),
-            FFRoute(
               name: 'super_admin_moderation_2',
               path: 'superAdminModeration2',
               builder: (context, params) => SuperAdminModeration2Widget(
@@ -332,9 +324,20 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
+              name: 'super_admin_moderation_3',
+              path: 'superAdminModeration3',
+              builder: (context, params) => SuperAdminModeration3Widget(
+                company: params.getParam('company', ParamType.DocumentReference,
+                    false, ['companies']),
+              ),
+            ),
+            FFRoute(
               name: 'super_admin_current_company',
               path: 'superAdminCurrentCompany',
-              builder: (context, params) => SuperAdminCurrentCompanyWidget(),
+              builder: (context, params) => SuperAdminCurrentCompanyWidget(
+                currentCompany: params.getParam('currentCompany',
+                    ParamType.DocumentReference, false, ['companies']),
+              ),
             ),
             FFRoute(
               name: 'super_admin_analytics',
@@ -355,6 +358,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => SuperAdminCurrentUserWidget(
                 currentUser: params.getParam('currentUser', ParamType.Document),
               ),
+            ),
+            FFRoute(
+              name: 'super_admin_sales_moderation',
+              path: 'superAdminSalesModeration',
+              builder: (context, params) => SuperAdminSalesModerationWidget(),
             ),
             FFRoute(
               name: 'booking_pageCopy',

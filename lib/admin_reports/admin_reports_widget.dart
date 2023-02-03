@@ -299,6 +299,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                         context)
                                                                     .subtitle2Family),
                                                       ),
+                                              elevation: 0,
                                               borderSide: BorderSide(
                                                 color: Colors.transparent,
                                                 width: 1,
@@ -821,7 +822,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                               BoxDecoration(
                                                                             color:
                                                                                 () {
-                                                                              if (!listViewBookingsRecord.cancelled! && (listViewBookingsRecord.status == 'Завершено')) {
+                                                                              if (!listViewBookingsRecord.cancelled! && (listViewBookingsRecord.status == 'Закончено')) {
                                                                                 return FlutterFlowTheme.of(context).green;
                                                                               } else if (listViewBookingsRecord.cancelled! && (listViewBookingsRecord.status == 'Отменено')) {
                                                                                 return FlutterFlowTheme.of(context).red1;
@@ -842,7 +843,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                           child:
                                                                               Text(
                                                                             () {
-                                                                              if (!listViewBookingsRecord.cancelled! && (listViewBookingsRecord.status == 'Завершено')) {
+                                                                              if (!listViewBookingsRecord.cancelled! && (listViewBookingsRecord.status == 'Закончено')) {
                                                                                 return 'Оплачен';
                                                                               } else if (listViewBookingsRecord.cancelled! && (listViewBookingsRecord.status == 'Отменено')) {
                                                                                 return 'Отменено';
@@ -853,7 +854,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                             style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                   fontFamily: 'Inter',
                                                                                   color: () {
-                                                                                    if (!listViewBookingsRecord.cancelled! && (listViewBookingsRecord.status == 'Завершено')) {
+                                                                                    if (!listViewBookingsRecord.cancelled! && (listViewBookingsRecord.status == 'Закончено')) {
                                                                                       return FlutterFlowTheme.of(context).green;
                                                                                     } else if (listViewBookingsRecord.cancelled! && (listViewBookingsRecord.status == 'Отменено')) {
                                                                                       return FlutterFlowTheme.of(context).red1;
@@ -1193,7 +1194,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                             2),
                                                                         child:
                                                                             Text(
-                                                                          'машин',
+                                                                          ' машин',
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyText1
                                                                               .override(
@@ -1309,7 +1310,8 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                             0),
                                                                         child:
                                                                             Text(
-                                                                          '0 ',
+                                                                          functions
+                                                                              .averageCheque(containerBookingsRecordList.toList()),
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyText1
                                                                               .override(
@@ -1328,7 +1330,8 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                             2),
                                                                         child:
                                                                             Text(
-                                                                          '₸',
+                                                                          functions
+                                                                              .averageChequeName(containerBookingsRecordList.toList()),
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyText1
                                                                               .override(
@@ -1444,7 +1447,8 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                             0),
                                                                         child:
                                                                             Text(
-                                                                          '0 ',
+                                                                          functions
+                                                                              .oborotForCarPrecent(containerBookingsRecordList.toList()),
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyText1
                                                                               .override(
@@ -1463,7 +1467,8 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                             2),
                                                                         child:
                                                                             Text(
-                                                                          '₸',
+                                                                          functions
+                                                                              .oborotForCarPrecentName(containerBookingsRecordList.toList()),
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyText1
                                                                               .override(

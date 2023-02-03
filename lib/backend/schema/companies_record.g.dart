@@ -126,12 +126,6 @@ class _$CompaniesRecordSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    value = object.numDogovor;
-    if (value != null) {
-      result
-        ..add('num_dogovor')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
     value = object.dateDogovor;
     if (value != null) {
       result
@@ -228,6 +222,13 @@ class _$CompaniesRecordSerializer
                   DocumentReference, const [const FullType.nullable(Object)])
             ])));
     }
+    value = object.numDogovor;
+    if (value != null) {
+      result
+        ..add('num_dogovor')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -315,10 +316,6 @@ class _$CompaniesRecordSerializer
           result.fioAdmin = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
-        case 'num_dogovor':
-          result.numDogovor = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
-          break;
         case 'date_dogovor':
           result.dateDogovor = serializers.deserialize(value,
               specifiedType: const FullType(DateTime)) as DateTime?;
@@ -382,6 +379,10 @@ class _$CompaniesRecordSerializer
                     DocumentReference, const [const FullType.nullable(Object)])
               ]))! as BuiltList<Object?>);
           break;
+        case 'num_dogovor':
+          result.numDogovor = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -427,8 +428,6 @@ class _$CompaniesRecord extends CompaniesRecord {
   @override
   final String? fioAdmin;
   @override
-  final int? numDogovor;
-  @override
   final DateTime? dateDogovor;
   @override
   final String? dogovorPdf;
@@ -455,6 +454,8 @@ class _$CompaniesRecord extends CompaniesRecord {
   @override
   final BuiltList<DocumentReference<Object?>>? companyUsers;
   @override
+  final String? numDogovor;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$CompaniesRecord([void Function(CompaniesRecordBuilder)? updates]) =>
@@ -476,7 +477,6 @@ class _$CompaniesRecord extends CompaniesRecord {
       this.binIin,
       this.iban,
       this.fioAdmin,
-      this.numDogovor,
       this.dateDogovor,
       this.dogovorPdf,
       this.linkCity,
@@ -490,6 +490,7 @@ class _$CompaniesRecord extends CompaniesRecord {
       this.forCarPercent,
       this.countBoxString,
       this.companyUsers,
+      this.numDogovor,
       this.ffRef})
       : super._();
 
@@ -520,7 +521,6 @@ class _$CompaniesRecord extends CompaniesRecord {
         binIin == other.binIin &&
         iban == other.iban &&
         fioAdmin == other.fioAdmin &&
-        numDogovor == other.numDogovor &&
         dateDogovor == other.dateDogovor &&
         dogovorPdf == other.dogovorPdf &&
         linkCity == other.linkCity &&
@@ -534,6 +534,7 @@ class _$CompaniesRecord extends CompaniesRecord {
         forCarPercent == other.forCarPercent &&
         countBoxString == other.countBoxString &&
         companyUsers == other.companyUsers &&
+        numDogovor == other.numDogovor &&
         ffRef == other.ffRef;
   }
 
@@ -562,20 +563,20 @@ class _$CompaniesRecord extends CompaniesRecord {
                                                                             binIin.hashCode),
                                                                         iban.hashCode),
                                                                     fioAdmin.hashCode),
-                                                                numDogovor.hashCode),
-                                                            dateDogovor.hashCode),
-                                                        dogovorPdf.hashCode),
-                                                    linkCity.hashCode),
-                                                phoneNum.hashCode),
-                                            openTime.hashCode),
-                                        closeTime.hashCode),
-                                    openTimeOrder.hashCode),
-                                closedTimeOrder.hashCode),
-                            listServices.hashCode),
-                        companyDocument.hashCode),
-                    forCarPercent.hashCode),
-                countBoxString.hashCode),
-            companyUsers.hashCode),
+                                                                dateDogovor.hashCode),
+                                                            dogovorPdf.hashCode),
+                                                        linkCity.hashCode),
+                                                    phoneNum.hashCode),
+                                                openTime.hashCode),
+                                            closeTime.hashCode),
+                                        openTimeOrder.hashCode),
+                                    closedTimeOrder.hashCode),
+                                listServices.hashCode),
+                            companyDocument.hashCode),
+                        forCarPercent.hashCode),
+                    countBoxString.hashCode),
+                companyUsers.hashCode),
+            numDogovor.hashCode),
         ffRef.hashCode));
   }
 
@@ -597,7 +598,6 @@ class _$CompaniesRecord extends CompaniesRecord {
           ..add('binIin', binIin)
           ..add('iban', iban)
           ..add('fioAdmin', fioAdmin)
-          ..add('numDogovor', numDogovor)
           ..add('dateDogovor', dateDogovor)
           ..add('dogovorPdf', dogovorPdf)
           ..add('linkCity', linkCity)
@@ -611,6 +611,7 @@ class _$CompaniesRecord extends CompaniesRecord {
           ..add('forCarPercent', forCarPercent)
           ..add('countBoxString', countBoxString)
           ..add('companyUsers', companyUsers)
+          ..add('numDogovor', numDogovor)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -682,10 +683,6 @@ class CompaniesRecordBuilder
   String? get fioAdmin => _$this._fioAdmin;
   set fioAdmin(String? fioAdmin) => _$this._fioAdmin = fioAdmin;
 
-  int? _numDogovor;
-  int? get numDogovor => _$this._numDogovor;
-  set numDogovor(int? numDogovor) => _$this._numDogovor = numDogovor;
-
   DateTime? _dateDogovor;
   DateTime? get dateDogovor => _$this._dateDogovor;
   set dateDogovor(DateTime? dateDogovor) => _$this._dateDogovor = dateDogovor;
@@ -749,6 +746,10 @@ class CompaniesRecordBuilder
   set companyUsers(ListBuilder<DocumentReference<Object?>>? companyUsers) =>
       _$this._companyUsers = companyUsers;
 
+  String? _numDogovor;
+  String? get numDogovor => _$this._numDogovor;
+  set numDogovor(String? numDogovor) => _$this._numDogovor = numDogovor;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -775,7 +776,6 @@ class CompaniesRecordBuilder
       _binIin = $v.binIin;
       _iban = $v.iban;
       _fioAdmin = $v.fioAdmin;
-      _numDogovor = $v.numDogovor;
       _dateDogovor = $v.dateDogovor;
       _dogovorPdf = $v.dogovorPdf;
       _linkCity = $v.linkCity;
@@ -789,6 +789,7 @@ class CompaniesRecordBuilder
       _forCarPercent = $v.forCarPercent;
       _countBoxString = $v.countBoxString?.toBuilder();
       _companyUsers = $v.companyUsers?.toBuilder();
+      _numDogovor = $v.numDogovor;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -829,7 +830,6 @@ class CompaniesRecordBuilder
               binIin: binIin,
               iban: iban,
               fioAdmin: fioAdmin,
-              numDogovor: numDogovor,
               dateDogovor: dateDogovor,
               dogovorPdf: dogovorPdf,
               linkCity: linkCity,
@@ -843,6 +843,7 @@ class CompaniesRecordBuilder
               forCarPercent: forCarPercent,
               countBoxString: _countBoxString?.build(),
               companyUsers: _companyUsers?.build(),
+              numDogovor: numDogovor,
               ffRef: ffRef);
     } catch (_) {
       late String _$failedField;

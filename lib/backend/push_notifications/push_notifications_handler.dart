@@ -200,17 +200,22 @@ final parametersBuilderMap =
           'company': getParameter<DocumentReference>(data, 'company'),
         },
       ),
-  'super_admin_moderation_3': (data) async => ParameterData(
-        allParams: {
-          'company': getParameter<DocumentReference>(data, 'company'),
-        },
-      ),
   'super_admin_moderation_2': (data) async => ParameterData(
         allParams: {
           'company': getParameter<DocumentReference>(data, 'company'),
         },
       ),
-  'super_admin_current_company': ParameterData.none(),
+  'super_admin_moderation_3': (data) async => ParameterData(
+        allParams: {
+          'company': getParameter<DocumentReference>(data, 'company'),
+        },
+      ),
+  'super_admin_current_company': (data) async => ParameterData(
+        allParams: {
+          'currentCompany':
+              getParameter<DocumentReference>(data, 'currentCompany'),
+        },
+      ),
   'super_admin_analytics': ParameterData.none(),
   'super_admin_users': ParameterData.none(),
   'super_admin_current_user': (data) async => ParameterData(
@@ -219,6 +224,7 @@ final parametersBuilderMap =
               data, 'currentUser', UserRecord.serializer),
         },
       ),
+  'super_admin_sales_moderation': ParameterData.none(),
   'booking_pageCopy': (data) async => ParameterData(
         allParams: {
           'company': await getDocumentParameter<CompaniesRecord>(

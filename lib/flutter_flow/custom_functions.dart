@@ -440,10 +440,24 @@ int oborot(List<BookingsRecord> bookingRecord) {
   for (int i = 0; i < bookingRecord.length; i++) {
     sum = sum + bookingRecord[i]!.totalPrice!;
   }
-
+  int three = 0;
   int a = sum.toString().length - 1;
-
   int div = 1;
+  if (a >= 3) {
+    three = a ~/ 3;
+  }
+  if (three != 0) {
+    for (int i = 0; i < three * 3; i++) {
+      div *= 10;
+    }
+
+    return sum ~/ div;
+  }
+
+  if (a >= 1 && a <= 2) {
+    return sum;
+  }
+
   for (int i = 0; i < a; i++) {
     div *= 10;
   }

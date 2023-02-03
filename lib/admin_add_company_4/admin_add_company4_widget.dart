@@ -35,10 +35,13 @@ class _AdminAddCompany4WidgetState extends State<AdminAddCompany4Widget> {
 
   DateTime? datePicked;
   TextEditingController? binController;
+  final binMask = MaskTextInputFormatter(mask: '##########');
   TextEditingController? tooController;
   TextEditingController? ibanController;
+  final ibanMask = MaskTextInputFormatter(mask: 'AA## AAAA #### #### ####');
   TextEditingController? fIOAdminController;
   TextEditingController? numDogovorController;
+  final numDogovorMask = MaskTextInputFormatter(mask: '№########');
   TextEditingController? phoneNumController;
   final phoneNumMask = MaskTextInputFormatter(mask: '+# (###) ###-##-##');
   final _unfocusNode = FocusNode();
@@ -52,7 +55,7 @@ class _AdminAddCompany4WidgetState extends State<AdminAddCompany4Widget> {
     tooController = TextEditingController();
     ibanController = TextEditingController();
     fIOAdminController = TextEditingController();
-    numDogovorController = TextEditingController(text: '№');
+    numDogovorController = TextEditingController();
     phoneNumController = TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -91,7 +94,7 @@ class _AdminAddCompany4WidgetState extends State<AdminAddCompany4Widget> {
                     child: Stack(
                       children: [
                         Align(
-                          alignment: AlignmentDirectional(0, 0),
+                          alignment: AlignmentDirectional(0, -1),
                           child: SingleChildScrollView(
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
@@ -548,6 +551,12 @@ class _AdminAddCompany4WidgetState extends State<AdminAddCompany4Widget> {
                                                                         FlutterFlowTheme.of(context)
                                                                             .bodyText1Family),
                                                               ),
+                                                          keyboardType:
+                                                              TextInputType
+                                                                  .number,
+                                                          inputFormatters: [
+                                                            binMask
+                                                          ],
                                                         ),
                                                       ),
                                                       Padding(
@@ -706,6 +715,9 @@ class _AdminAddCompany4WidgetState extends State<AdminAddCompany4Widget> {
                                                                         FlutterFlowTheme.of(context)
                                                                             .bodyText1Family),
                                                               ),
+                                                          inputFormatters: [
+                                                            ibanMask
+                                                          ],
                                                         ),
                                                       ),
                                                       Padding(
@@ -1021,6 +1033,12 @@ class _AdminAddCompany4WidgetState extends State<AdminAddCompany4Widget> {
                                                                         FlutterFlowTheme.of(context)
                                                                             .bodyText1Family),
                                                               ),
+                                                          keyboardType:
+                                                              TextInputType
+                                                                  .number,
+                                                          inputFormatters: [
+                                                            numDogovorMask
+                                                          ],
                                                         ),
                                                       ),
                                                       Padding(
@@ -1979,8 +1997,8 @@ class _AdminAddCompany4WidgetState extends State<AdminAddCompany4Widget> {
                                               int.tryParse(binController!.text),
                                           iban: ibanController!.text,
                                           fioAdmin: fIOAdminController!.text,
-                                          numDogovor: int.tryParse(
-                                              numDogovorController!.text),
+                                          numDogovor:
+                                              numDogovorController!.text,
                                           dateDogovor: datePicked,
                                           dogovorPdf: uploadedFileUrl,
                                           phoneNum: phoneNumController!.text,
@@ -2031,6 +2049,7 @@ class _AdminAddCompany4WidgetState extends State<AdminAddCompany4Widget> {
                                                                   context)
                                                               .subtitle2Family),
                                             ),
+                                        elevation: 0,
                                         borderSide: BorderSide(
                                           color: Colors.transparent,
                                           width: 1,

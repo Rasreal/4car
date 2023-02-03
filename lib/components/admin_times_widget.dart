@@ -4,6 +4,7 @@ import '../flutter_flow/flutter_flow_drop_down.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -100,7 +101,9 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                 .where('booked_company_document',
                                     isEqualTo: widget.companyDoc!.reference)
                                 .where('selected_times_order',
-                                    arrayContains: widget.timeOrder);
+                                    arrayContains: widget.timeOrder)
+                                .where('status', isEqualTo: 'Забронировано')
+                                .where('status', isEqualTo: 'Начат');
                         if (_pagingController != null) {
                           final query = queryBuilder(BookingsRecord.collection);
                           if (query != _pagingQuery) {
@@ -123,7 +126,9 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                 .where('booked_company_document',
                                     isEqualTo: widget.companyDoc!.reference)
                                 .where('selected_times_order',
-                                    arrayContains: widget.timeOrder),
+                                    arrayContains: widget.timeOrder)
+                                .where('status', isEqualTo: 'Забронировано')
+                                .where('status', isEqualTo: 'Начат'),
                             nextPageMarker: nextPageMarker,
                             pageSize: 25,
                             isStream: true,
@@ -391,11 +396,17 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                                   .fromSTEB(0,
                                                                       0, 0, 16),
                                                           child: Text(
-                                                            '${listViewBookingsRecord.selectedCompanyServicesName!.toList().first}, ${listViewBookingsRecord.selectedCompanyServicesName!.toList().last}'
+                                                            functions
+                                                                .listStringToString(
+                                                                    listViewBookingsRecord
+                                                                        .selectedCompanyServicesName!
+                                                                        .toList(),
+                                                                    20)
                                                                 .maybeHandleOverflow(
-                                                              maxChars: 25,
-                                                              replacement: '…',
-                                                            ),
+                                                                  maxChars: 25,
+                                                                  replacement:
+                                                                      '…',
+                                                                ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyText1
@@ -652,45 +663,48 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                               .reference
                                                               .update(
                                                                   bookingsUpdateData);
-                                                          if (containerUserRecord
-                                                              .bookingCompanies!
-                                                              .toList()
-                                                              .contains(widget
-                                                                  .companyDoc!
-                                                                  .reference)) {
-                                                            final userUpdateData =
-                                                                createUserRecordData(
-                                                              lastBookingBoolean:
-                                                                  true,
-                                                              linkLastBooking:
-                                                                  listViewBookingsRecord
-                                                                      .reference,
-                                                            );
-                                                            await listViewBookingsRecord
-                                                                .bookedUser!
-                                                                .update(
-                                                                    userUpdateData);
-                                                          } else {
-                                                            final userUpdateData =
-                                                                {
-                                                              ...createUserRecordData(
+                                                          if (listViewBookingsRecord
+                                                              .createdByUser!) {
+                                                            if (containerUserRecord
+                                                                .bookingCompanies!
+                                                                .toList()
+                                                                .contains(widget
+                                                                    .companyDoc!
+                                                                    .reference)) {
+                                                              final userUpdateData =
+                                                                  createUserRecordData(
                                                                 lastBookingBoolean:
                                                                     true,
                                                                 linkLastBooking:
                                                                     listViewBookingsRecord
                                                                         .reference,
-                                                              ),
-                                                              'bookingCompanies':
-                                                                  FieldValue
-                                                                      .arrayUnion([
-                                                                listViewBookingsRecord
-                                                                    .bookedCompany
-                                                              ]),
-                                                            };
-                                                            await listViewBookingsRecord
-                                                                .bookedUser!
-                                                                .update(
-                                                                    userUpdateData);
+                                                              );
+                                                              await listViewBookingsRecord
+                                                                  .bookedUser!
+                                                                  .update(
+                                                                      userUpdateData);
+                                                            } else {
+                                                              final userUpdateData =
+                                                                  {
+                                                                ...createUserRecordData(
+                                                                  lastBookingBoolean:
+                                                                      true,
+                                                                  linkLastBooking:
+                                                                      listViewBookingsRecord
+                                                                          .reference,
+                                                                ),
+                                                                'bookingCompanies':
+                                                                    FieldValue
+                                                                        .arrayUnion([
+                                                                  listViewBookingsRecord
+                                                                      .bookedCompany
+                                                                ]),
+                                                              };
+                                                              await listViewBookingsRecord
+                                                                  .bookedUser!
+                                                                  .update(
+                                                                      userUpdateData);
+                                                            }
                                                           }
                                                         }
                                                       }
@@ -699,7 +713,7 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                                 .status ==
                                                             'Начат'
                                                         ? 'Начать'
-                                                        : 'Завершить',
+                                                        : 'Закончить',
                                                     options: FFButtonOptions(
                                                       width: 106,
                                                       height: 40,
@@ -734,12 +748,17 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                                     'Inter',
                                                                 color: Colors
                                                                     .white,
+                                                                fontSize: 14,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
                                                                 useGoogleFonts: GoogleFonts
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
                                                                             .subtitle2Family),
                                                               ),
+                                                      elevation: 0,
                                                       borderSide: BorderSide(
                                                         color:
                                                             Colors.transparent,

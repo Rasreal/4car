@@ -325,6 +325,30 @@ class FFAppState extends ChangeNotifier {
   set adminAddStaffPhone(String _value) {
     _adminAddStaffPhone = _value;
   }
+
+  DateTime? _adminSelectBookingDate;
+  DateTime? get adminSelectBookingDate => _adminSelectBookingDate;
+  set adminSelectBookingDate(DateTime? _value) {
+    _adminSelectBookingDate = _value;
+  }
+
+  String _superAdminSelectedCityName = '';
+  String get superAdminSelectedCityName => _superAdminSelectedCityName;
+  set superAdminSelectedCityName(String _value) {
+    _superAdminSelectedCityName = _value;
+  }
+
+  DocumentReference? _superAdminSelectedCity;
+  DocumentReference? get superAdminSelectedCity => _superAdminSelectedCity;
+  set superAdminSelectedCity(DocumentReference? _value) {
+    _superAdminSelectedCity = _value;
+  }
+
+  String _superAdminCurrentCompany = '';
+  String get superAdminCurrentCompany => _superAdminCurrentCompany;
+  set superAdminCurrentCompany(String _value) {
+    _superAdminCurrentCompany = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {

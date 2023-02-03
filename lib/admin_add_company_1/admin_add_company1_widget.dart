@@ -92,12 +92,11 @@ class _AdminAddCompany1WidgetState extends State<AdminAddCompany1Widget> {
                       child: Stack(
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(0, 0),
+                            alignment: AlignmentDirectional(0, -1),
                             child: SingleChildScrollView(
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   Container(
                                     width: double.infinity,
@@ -106,7 +105,7 @@ class _AdminAddCompany1WidgetState extends State<AdminAddCompany1Widget> {
                                           .secondaryBackground,
                                     ),
                                     child: Align(
-                                      alignment: AlignmentDirectional(0, 0),
+                                      alignment: AlignmentDirectional(0, -1),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0, 0, 0, 120),

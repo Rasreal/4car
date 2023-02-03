@@ -1227,7 +1227,9 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                     Query<Object?>)
                                                 queryBuilder =
                                                 (promotionRecord) =>
-                                                    promotionRecord;
+                                                    promotionRecord.where(
+                                                        'status',
+                                                        isEqualTo: 'Активно');
                                             if (_pagingController != null) {
                                               final query = queryBuilder(
                                                   PromotionRecord.collection());
@@ -1255,7 +1257,10 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                     widget.currentCompanyLink,
                                                 queryBuilder:
                                                     (promotionRecord) =>
-                                                        promotionRecord,
+                                                        promotionRecord.where(
+                                                            'status',
+                                                            isEqualTo:
+                                                                'Активно'),
                                                 nextPageMarker: nextPageMarker,
                                                 pageSize: 25,
                                                 isStream: true,

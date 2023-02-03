@@ -1207,6 +1207,7 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                                   context)
                                                               .subtitle2Family),
                                             ),
+                                        elevation: 0,
                                         borderSide: BorderSide(
                                           color: Colors.transparent,
                                           width: 1,

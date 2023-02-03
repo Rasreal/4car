@@ -31,7 +31,6 @@ class AdminAddCompany5Widget extends StatefulWidget {
 
 class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
   CompanyDocumentRecord? newCompanyDoc;
-  Completer<CompaniesRecord>? _documentRequestCompleter;
   Completer<List<CompanyServicesRecord>>? _firestoreRequestCompleter;
   TextEditingController? textController1;
   TextEditingController? textController2;
@@ -92,11 +91,7 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                   ),
                   Expanded(
                     child: FutureBuilder<CompaniesRecord>(
-                      future: (_documentRequestCompleter ??=
-                              Completer<CompaniesRecord>()
-                                ..complete(CompaniesRecord.getDocumentOnce(
-                                    widget.company!)))
-                          .future,
+                      future: CompaniesRecord.getDocumentOnce(widget.company!),
                       builder: (context, snapshot) {
                         // Customize what your widget looks like when it's loading.
                         if (!snapshot.hasData) {
@@ -456,10 +451,10 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                               ),
                                                                             ),
                                                                             Text(
-                                                                              '№${valueOrDefault<String>(
-                                                                                stackCompaniesRecord.numDogovor?.toString(),
+                                                                              valueOrDefault<String>(
+                                                                                stackCompaniesRecord.numDogovor,
                                                                                 'null',
-                                                                              )}',
+                                                                              ),
                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                     fontFamily: 'Inter',
                                                                                     fontSize: 16,
@@ -1512,7 +1507,6 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                     FFAppState().adminSelectServicesBody = 'Хетчбэк';
                                                                                   });
                                                                                   setState(() => _firestoreRequestCompleter = null);
-                                                                                  setState(() => _documentRequestCompleter = null);
                                                                                 },
                                                                                 child: Container(
                                                                                   width: 171,
@@ -1802,7 +1796,7 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                       ),
                                                                                     );
                                                                                   }
-                                                                                  List<CompanyServicesRecord> listViewCompanyServicesRecordList = snapshot.data!;
+                                                                                  List<CompanyServicesRecord> listView1CompanyServicesRecordList = snapshot.data!;
                                                                                   return RefreshIndicator(
                                                                                     onRefresh: () async {
                                                                                       setState(() => _firestoreRequestCompleter = null);
@@ -1811,9 +1805,9 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                     child: ListView.builder(
                                                                                       padding: EdgeInsets.zero,
                                                                                       scrollDirection: Axis.vertical,
-                                                                                      itemCount: listViewCompanyServicesRecordList.length,
-                                                                                      itemBuilder: (context, listViewIndex) {
-                                                                                        final listViewCompanyServicesRecord = listViewCompanyServicesRecordList[listViewIndex];
+                                                                                      itemCount: listView1CompanyServicesRecordList.length,
+                                                                                      itemBuilder: (context, listView1Index) {
+                                                                                        final listView1CompanyServicesRecord = listView1CompanyServicesRecordList[listView1Index];
                                                                                         return Padding(
                                                                                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 24),
                                                                                           child: Row(
@@ -1823,7 +1817,7 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                               Expanded(
                                                                                                 flex: 4,
                                                                                                 child: Text(
-                                                                                                  listViewCompanyServicesRecord.name!,
+                                                                                                  listView1CompanyServicesRecord.name!,
                                                                                                   style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                         fontFamily: 'Inter',
                                                                                                         fontWeight: FontWeight.w500,
@@ -1833,7 +1827,7 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                               ),
                                                                                               Expanded(
                                                                                                 child: Text(
-                                                                                                  '${listViewCompanyServicesRecord.price?.toString()}₸',
+                                                                                                  '${listView1CompanyServicesRecord.price?.toString()}₸',
                                                                                                   style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                         fontFamily: 'Inter',
                                                                                                         fontWeight: FontWeight.w500,
@@ -2386,8 +2380,7 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                     stackCompaniesRecord
                                                         .fioAdmin,
                                                 numDogovor: stackCompaniesRecord
-                                                    .numDogovor
-                                                    ?.toString(),
+                                                    .numDogovor,
                                                 dateDogovor:
                                                     stackCompaniesRecord
                                                         .dateDogovor,
@@ -2479,6 +2472,7 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                       context)
                                                                   .subtitle2Family),
                                                     ),
+                                            elevation: 0,
                                             borderSide: BorderSide(
                                               color: Colors.transparent,
                                               width: 1,
@@ -2506,21 +2500,6 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
         ),
       ),
     );
-  }
-
-  Future waitForDocumentRequestCompleter({
-    double minWait = 0,
-    double maxWait = double.infinity,
-  }) async {
-    final stopwatch = Stopwatch()..start();
-    while (true) {
-      await Future.delayed(Duration(milliseconds: 50));
-      final timeElapsed = stopwatch.elapsedMilliseconds;
-      final requestComplete = _documentRequestCompleter?.isCompleted ?? false;
-      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
-        break;
-      }
-    }
   }
 
   Future waitForFirestoreRequestCompleter({
