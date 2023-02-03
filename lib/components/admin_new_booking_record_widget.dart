@@ -545,7 +545,7 @@ class _AdminNewBookingRecordWidgetState
                               onSelected: onSelected,
                               textStyle: FlutterFlowTheme.of(context).bodyText1,
                               textHighlightStyle: TextStyle(),
-                              elevation: 4,
+                              elevation: 0,
                               optionBackgroundColor:
                                   FlutterFlowTheme.of(context)
                                       .primaryBackground,

@@ -1654,7 +1654,7 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                             size: 15,
                                                                                                           ),
                                                                                                           fillColor: Colors.white,
-                                                                                                          elevation: 2,
+                                                                                                          elevation: 0,
                                                                                                           borderColor: Colors.transparent,
                                                                                                           borderWidth: 0,
                                                                                                           borderRadius: 0,
