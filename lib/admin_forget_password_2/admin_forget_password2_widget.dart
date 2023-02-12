@@ -4,6 +4,8 @@ import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'admin_forget_password2_model.dart';
+export 'admin_forget_password2_model.dart';
 
 class AdminForgetPassword2Widget extends StatefulWidget {
   const AdminForgetPassword2Widget({Key? key}) : super(key: key);
@@ -15,18 +17,23 @@ class AdminForgetPassword2Widget extends StatefulWidget {
 
 class _AdminForgetPassword2WidgetState
     extends State<AdminForgetPassword2Widget> {
-  final _unfocusNode = FocusNode();
+  late AdminForgetPassword2Model _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => AdminForgetPassword2Model());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
     super.dispose();
   }

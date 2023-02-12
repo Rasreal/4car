@@ -8,6 +8,8 @@ import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'super_admin_analytics_model.dart';
+export 'super_admin_analytics_model.dart';
 
 class SuperAdminAnalyticsWidget extends StatefulWidget {
   const SuperAdminAnalyticsWidget({Key? key}) : super(key: key);
@@ -18,18 +20,23 @@ class SuperAdminAnalyticsWidget extends StatefulWidget {
 }
 
 class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
-  final _unfocusNode = FocusNode();
+  late SuperAdminAnalyticsModel _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => SuperAdminAnalyticsModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
     super.dispose();
   }
@@ -47,8 +54,12 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              SuperAdminAppBarWidget(
-                page: 'Аналитика',
+              wrapWithModel(
+                model: _model.superAdminAppBarModel,
+                updateCallback: () => setState(() {}),
+                child: SuperAdminAppBarWidget(
+                  page: 'Аналитика',
+                ),
               ),
               Expanded(
                 child: SingleChildScrollView(
@@ -753,142 +764,158 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                   ],
                                                 ),
                                               ),
-                                              Container(
-                                                width: 1224,
-                                                decoration: BoxDecoration(
-                                                  color: Colors.white,
-                                                  borderRadius:
-                                                      BorderRadius.circular(8),
-                                                ),
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(24, 0, 24, 0),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                    children: [
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(0, 14,
-                                                                    0, 24),
-                                                        child: Text(
-                                                          'Оборот',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyText1
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Inter',
-                                                                fontSize: 18,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
-                                                              ),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(0, 0,
-                                                                    0, 20),
-                                                        child: Text(
-                                                          'Заработанная сумма',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyText1
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Inter',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .gray2,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .normal,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
-                                                              ),
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        width: 1130,
-                                                        height: 423,
-                                                        child:
-                                                            FlutterFlowLineChart(
-                                                          data: [
-                                                            FFLineChartData(
-                                                              xData: containerBookingsRecordList
-                                                                  .map((d) => d
-                                                                      .bookedDate)
-                                                                  .toList(),
-                                                              yData: containerBookingsRecordList
-                                                                  .map((d) => d
-                                                                      .totalPrice)
-                                                                  .toList(),
-                                                              settings:
-                                                                  LineChartBarData(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryColor,
-                                                                barWidth: 1,
-                                                                isCurved: true,
-                                                                preventCurveOverShooting:
-                                                                    true,
-                                                                dotData: FlDotData(
-                                                                    show:
-                                                                        false),
-                                                                belowBarData:
-                                                                    BarAreaData(
-                                                                  show: true,
-                                                                  color: Color(
-                                                                      0x262B3FF2),
+                                              if (responsiveVisibility(
+                                                context: context,
+                                                phone: false,
+                                                tablet: false,
+                                                tabletLandscape: false,
+                                                desktop: false,
+                                              ))
+                                                Container(
+                                                  width: 1224,
+                                                  decoration: BoxDecoration(
+                                                    color: Colors.white,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8),
+                                                  ),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(
+                                                                24, 0, 24, 0),
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0,
+                                                                      14,
+                                                                      0,
+                                                                      24),
+                                                          child: Text(
+                                                            'Оборот',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyText1
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  fontSize: 18,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyText1Family),
                                                                 ),
-                                                              ),
-                                                            )
-                                                          ],
-                                                          chartStylingInfo:
-                                                              ChartStylingInfo(
-                                                            enableTooltip: true,
-                                                            tooltipBackgroundColor:
-                                                                Color(
-                                                                    0xFFFF0202),
-                                                            backgroundColor:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryBackground,
-                                                            showGrid: true,
-                                                            showBorder: false,
-                                                          ),
-                                                          axisBounds:
-                                                              AxisBounds(),
-                                                          xAxisLabelInfo:
-                                                              AxisLabelInfo(
-                                                            showLabels: true,
-                                                            labelInterval: 10,
-                                                          ),
-                                                          yAxisLabelInfo:
-                                                              AxisLabelInfo(
-                                                            showLabels: true,
-                                                            labelInterval: 10,
                                                           ),
                                                         ),
-                                                      ),
-                                                    ],
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(0,
+                                                                      0, 0, 20),
+                                                          child: Text(
+                                                            'Заработанная сумма',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyText1
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .gray2,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .normal,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyText1Family),
+                                                                ),
+                                                          ),
+                                                        ),
+                                                        Container(
+                                                          width: 1130,
+                                                          height: 423,
+                                                          child:
+                                                              FlutterFlowLineChart(
+                                                            data: [
+                                                              FFLineChartData(
+                                                                xData: containerBookingsRecordList
+                                                                    .map((d) =>
+                                                                        d.bookedDate)
+                                                                    .toList(),
+                                                                yData: containerBookingsRecordList
+                                                                    .map((d) =>
+                                                                        d.totalPrice)
+                                                                    .toList(),
+                                                                settings:
+                                                                    LineChartBarData(
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryColor,
+                                                                  barWidth: 1,
+                                                                  isCurved:
+                                                                      true,
+                                                                  preventCurveOverShooting:
+                                                                      true,
+                                                                  dotData:
+                                                                      FlDotData(
+                                                                          show:
+                                                                              false),
+                                                                  belowBarData:
+                                                                      BarAreaData(
+                                                                    show: true,
+                                                                    color: Color(
+                                                                        0x262B3FF2),
+                                                                  ),
+                                                                ),
+                                                              )
+                                                            ],
+                                                            chartStylingInfo:
+                                                                ChartStylingInfo(
+                                                              enableTooltip:
+                                                                  true,
+                                                              tooltipBackgroundColor:
+                                                                  Color(
+                                                                      0xFFFF0202),
+                                                              backgroundColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryBackground,
+                                                              showGrid: true,
+                                                              showBorder: false,
+                                                            ),
+                                                            axisBounds:
+                                                                AxisBounds(),
+                                                            xAxisLabelInfo:
+                                                                AxisLabelInfo(
+                                                              showLabels: true,
+                                                              labelInterval: 10,
+                                                            ),
+                                                            yAxisLabelInfo:
+                                                                AxisLabelInfo(
+                                                              showLabels: true,
+                                                              labelInterval: 10,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(0, 24, 0, 24),
@@ -1180,89 +1207,140 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                   ],
                                                 ),
                                               ),
-                                              StreamBuilder<List<UserRecord>>(
-                                                stream: queryUserRecord(),
-                                                builder: (context, snapshot) {
-                                                  // Customize what your widget looks like when it's loading.
-                                                  if (!snapshot.hasData) {
-                                                    return Center(
-                                                      child: SizedBox(
-                                                        width: 50,
-                                                        height: 50,
-                                                        child:
-                                                            CircularProgressIndicator(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryColor,
-                                                        ),
-                                                      ),
-                                                    );
-                                                  }
-                                                  List<UserRecord>
-                                                      containerUserRecordList =
-                                                      snapshot.data!;
-                                                  return Container(
-                                                    width: 1224,
-                                                    decoration: BoxDecoration(
-                                                      color: Colors.white,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8),
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  24, 0, 24, 0),
-                                                      child: Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0,
-                                                                        14,
-                                                                        0,
-                                                                        24),
-                                                            child: Text(
-                                                              'Пользователи',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyText1
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Inter',
-                                                                    fontSize:
-                                                                        18,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w500,
-                                                                    useGoogleFonts: GoogleFonts
-                                                                            .asMap()
-                                                                        .containsKey(
-                                                                            FlutterFlowTheme.of(context).bodyText1Family),
-                                                                  ),
-                                                            ),
+                                              if (responsiveVisibility(
+                                                context: context,
+                                                phone: false,
+                                                tablet: false,
+                                                tabletLandscape: false,
+                                                desktop: false,
+                                              ))
+                                                StreamBuilder<List<UserRecord>>(
+                                                  stream: queryUserRecord(),
+                                                  builder: (context, snapshot) {
+                                                    // Customize what your widget looks like when it's loading.
+                                                    if (!snapshot.hasData) {
+                                                      return Center(
+                                                        child: SizedBox(
+                                                          width: 50,
+                                                          height: 50,
+                                                          child:
+                                                              CircularProgressIndicator(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryColor,
                                                           ),
-                                                          Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            children: [
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
+                                                        ),
+                                                      );
+                                                    }
+                                                    List<UserRecord>
+                                                        containerUserRecordList =
+                                                        snapshot.data!;
+                                                    return Container(
+                                                      width: 1224,
+                                                      decoration: BoxDecoration(
+                                                        color: Colors.white,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8),
+                                                      ),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(24, 0,
+                                                                    24, 0),
+                                                        child: Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0,
+                                                                          14,
+                                                                          0,
+                                                                          24),
+                                                              child: Text(
+                                                                'Пользователи',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyText1
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Inter',
+                                                                      fontSize:
+                                                                          18,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w500,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              FlutterFlowTheme.of(context).bodyText1Family),
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                            Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              children: [
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0,
+                                                                          0,
+                                                                          48,
+                                                                          0),
+                                                                  child: Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    children: [
+                                                                      Text(
+                                                                        'Общее кол. пользователей',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyText1
+                                                                            .override(
+                                                                              fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                              color: Color(0xFF1A1A1A),
+                                                                              fontWeight: FontWeight.normal,
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                            ),
+                                                                      ),
+                                                                      Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
                                                                             0,
+                                                                            8,
                                                                             0,
-                                                                            48,
                                                                             0),
-                                                                child: Column(
+                                                                        child:
+                                                                            Text(
+                                                                          valueOrDefault<
+                                                                              String>(
+                                                                            containerUserRecordList.length.toString(),
+                                                                            '0',
+                                                                          ),
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodyText1
+                                                                              .override(
+                                                                                fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                fontSize: 24,
+                                                                                fontWeight: FontWeight.w500,
+                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              ),
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                                Column(
                                                                   mainAxisSize:
                                                                       MainAxisSize
                                                                           .max,
@@ -1271,7 +1349,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                           .start,
                                                                   children: [
                                                                     Text(
-                                                                      'Общее кол. пользователей',
+                                                                      'Новые пользователи',
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .bodyText1
@@ -1295,17 +1373,12 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                               0),
                                                                       child:
                                                                           Text(
-                                                                        valueOrDefault<
-                                                                            String>(
-                                                                          containerUserRecordList
-                                                                              .length
-                                                                              .toString(),
-                                                                          '0',
-                                                                        ),
+                                                                        '100%',
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyText1
                                                                             .override(
                                                                               fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                              color: FlutterFlowTheme.of(context).green,
                                                                               fontSize: 24,
                                                                               fontWeight: FontWeight.w500,
                                                                               useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
@@ -1314,175 +1387,119 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                     ),
                                                                   ],
                                                                 ),
-                                                              ),
-                                                              Column(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .start,
-                                                                children: [
-                                                                  Text(
-                                                                    'Новые пользователи',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyText1
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).bodyText1Family,
-                                                                          color:
-                                                                              Color(0xFF1A1A1A),
-                                                                          fontWeight:
-                                                                              FontWeight.normal,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
-                                                                        ),
-                                                                  ),
-                                                                  Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0,
-                                                                            8,
-                                                                            0,
-                                                                            0),
-                                                                    child: Text(
-                                                                      '100%',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyText1
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                FlutterFlowTheme.of(context).bodyText1Family,
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).green,
-                                                                            fontSize:
-                                                                                24,
-                                                                            fontWeight:
-                                                                                FontWeight.w500,
-                                                                            useGoogleFonts:
-                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
-                                                                          ),
-                                                                    ),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            ],
-                                                          ),
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0,
-                                                                        28,
-                                                                        0,
-                                                                        20),
-                                                            child: Text(
-                                                              'Колличество моек',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyText1
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Inter',
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .gray2,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .normal,
-                                                                    useGoogleFonts: GoogleFonts
-                                                                            .asMap()
-                                                                        .containsKey(
-                                                                            FlutterFlowTheme.of(context).bodyText1Family),
-                                                                  ),
+                                                              ],
                                                             ),
-                                                          ),
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0,
-                                                                        0,
-                                                                        0,
-                                                                        24),
-                                                            child: Container(
-                                                              width: 1130,
-                                                              height: 423,
-                                                              child:
-                                                                  FlutterFlowLineChart(
-                                                                data: [
-                                                                  FFLineChartData(
-                                                                    xData:
-                                                                        containerUserRecordList,
-                                                                    yData: containerUserRecordList
-                                                                        .map((e) =>
-                                                                            e.signUpDate)
-                                                                        .withoutNulls
-                                                                        .toList(),
-                                                                    settings:
-                                                                        LineChartBarData(
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0,
+                                                                          28,
+                                                                          0,
+                                                                          20),
+                                                              child: Text(
+                                                                'Колличество моек',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyText1
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Inter',
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .primaryColor,
-                                                                      barWidth:
-                                                                          1,
-                                                                      isCurved:
-                                                                          true,
-                                                                      dotData: FlDotData(
-                                                                          show:
-                                                                              false),
-                                                                      belowBarData:
-                                                                          BarAreaData(
-                                                                        show:
-                                                                            true,
-                                                                        color: Color(
-                                                                            0x262B3FF2),
-                                                                      ),
+                                                                          .gray2,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .normal,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              FlutterFlowTheme.of(context).bodyText1Family),
                                                                     ),
-                                                                  )
-                                                                ],
-                                                                chartStylingInfo:
-                                                                    ChartStylingInfo(
-                                                                  enableTooltip:
-                                                                      true,
-                                                                  tooltipBackgroundColor:
-                                                                      Color(
-                                                                          0xFFFF0202),
-                                                                  backgroundColor:
-                                                                      FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primaryBackground,
-                                                                  showGrid:
-                                                                      true,
-                                                                  showBorder:
-                                                                      false,
-                                                                ),
-                                                                axisBounds:
-                                                                    AxisBounds(),
-                                                                xAxisLabelInfo:
-                                                                    AxisLabelInfo(
-                                                                  showLabels:
-                                                                      true,
-                                                                  labelInterval:
-                                                                      10,
-                                                                ),
-                                                                yAxisLabelInfo:
-                                                                    AxisLabelInfo(
-                                                                  showLabels:
-                                                                      true,
-                                                                  labelInterval:
-                                                                      10,
+                                                              ),
+                                                            ),
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0,
+                                                                          0,
+                                                                          0,
+                                                                          24),
+                                                              child: Container(
+                                                                width: 1130,
+                                                                height: 423,
+                                                                child:
+                                                                    FlutterFlowLineChart(
+                                                                  data: [
+                                                                    FFLineChartData(
+                                                                      xData:
+                                                                          containerUserRecordList,
+                                                                      yData: containerUserRecordList
+                                                                          .map((e) =>
+                                                                              e.signUpDate)
+                                                                          .withoutNulls
+                                                                          .toList(),
+                                                                      settings:
+                                                                          LineChartBarData(
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primaryColor,
+                                                                        barWidth:
+                                                                            1,
+                                                                        isCurved:
+                                                                            true,
+                                                                        dotData:
+                                                                            FlDotData(show: false),
+                                                                        belowBarData:
+                                                                            BarAreaData(
+                                                                          show:
+                                                                              true,
+                                                                          color:
+                                                                              Color(0x262B3FF2),
+                                                                        ),
+                                                                      ),
+                                                                    )
+                                                                  ],
+                                                                  chartStylingInfo:
+                                                                      ChartStylingInfo(
+                                                                    enableTooltip:
+                                                                        true,
+                                                                    tooltipBackgroundColor:
+                                                                        Color(
+                                                                            0xFFFF0202),
+                                                                    backgroundColor:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .primaryBackground,
+                                                                    showGrid:
+                                                                        true,
+                                                                    showBorder:
+                                                                        false,
+                                                                  ),
+                                                                  axisBounds:
+                                                                      AxisBounds(),
+                                                                  xAxisLabelInfo:
+                                                                      AxisLabelInfo(
+                                                                    showLabels:
+                                                                        true,
+                                                                    labelInterval:
+                                                                        10,
+                                                                  ),
+                                                                  yAxisLabelInfo:
+                                                                      AxisLabelInfo(
+                                                                    showLabels:
+                                                                        true,
+                                                                    labelInterval:
+                                                                        10,
+                                                                  ),
                                                                 ),
                                                               ),
                                                             ),
-                                                          ),
-                                                        ],
+                                                          ],
+                                                        ),
                                                       ),
-                                                    ),
-                                                  );
-                                                },
-                                              ),
+                                                    );
+                                                  },
+                                                ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(0, 24, 0, 80),

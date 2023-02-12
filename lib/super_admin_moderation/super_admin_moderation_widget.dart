@@ -7,6 +7,8 @@ import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'super_admin_moderation_model.dart';
+export 'super_admin_moderation_model.dart';
 
 class SuperAdminModerationWidget extends StatefulWidget {
   const SuperAdminModerationWidget({Key? key}) : super(key: key);
@@ -18,18 +20,23 @@ class SuperAdminModerationWidget extends StatefulWidget {
 
 class _SuperAdminModerationWidgetState
     extends State<SuperAdminModerationWidget> {
-  final _unfocusNode = FocusNode();
+  late SuperAdminModerationModel _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => SuperAdminModerationModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
     super.dispose();
   }
@@ -49,8 +56,12 @@ class _SuperAdminModerationWidgetState
               Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  SuperAdminAppBarWidget(
-                    page: 'Главная',
+                  wrapWithModel(
+                    model: _model.superAdminAppBarModel,
+                    updateCallback: () => setState(() {}),
+                    child: SuperAdminAppBarWidget(
+                      page: 'Главная',
+                    ),
                   ),
                   Expanded(
                     child: Container(

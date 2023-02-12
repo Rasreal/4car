@@ -5,13 +5,13 @@ Future initFirebase() async {
   if (kIsWeb) {
     await Firebase.initializeApp(
         options: FirebaseOptions(
-            apiKey: "AIzaSyAOoGU_UPECFi98sxuR83rQYtzzYImXv5s",
-            authDomain: "carmain-7a68b.firebaseapp.com",
-            projectId: "carmain-7a68b",
-            storageBucket: "carmain-7a68b.appspot.com",
-            messagingSenderId: "91139422644",
-            appId: "1:91139422644:web:81d8a83682c049b0f4dae1",
-            measurementId: "G-HYZNDNM84Y"));
+            apiKey: "AIzaSyAec2zvbFkPz90kZbXAvNXzjY46ZIJv97Q",
+            authDomain: "forcar-last.firebaseapp.com",
+            projectId: "forcar-last",
+            storageBucket: "forcar-last.appspot.com",
+            messagingSenderId: "539047140274",
+            appId: "1:539047140274:web:277c5f6dca726d65eee2ab",
+            measurementId: "G-2ZSK3DBP6W"));
   } else {
     await Firebase.initializeApp();
   }

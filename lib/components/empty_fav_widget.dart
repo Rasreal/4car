@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'empty_fav_model.dart';
+export 'empty_fav_model.dart';
 
 class EmptyFavWidget extends StatefulWidget {
   const EmptyFavWidget({Key? key}) : super(key: key);
@@ -14,11 +16,27 @@ class EmptyFavWidget extends StatefulWidget {
 }
 
 class _EmptyFavWidgetState extends State<EmptyFavWidget> {
+  late EmptyFavModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => EmptyFavModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
   }
 
   @override

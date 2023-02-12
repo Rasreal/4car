@@ -5,8 +5,9 @@ import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
+import 'sign_in_model.dart';
+export 'sign_in_model.dart';
 
 class SignInWidget extends StatefulWidget {
   const SignInWidget({Key? key}) : super(key: key);
@@ -16,22 +17,25 @@ class SignInWidget extends StatefulWidget {
 }
 
 class _SignInWidgetState extends State<SignInWidget> {
-  TextEditingController? textController;
-  final textFieldMask = MaskTextInputFormatter(mask: '+# (###) ###-##-##');
-  final _unfocusNode = FocusNode();
+  late SignInModel _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
-    textController = TextEditingController();
+    _model = createModel(context, () => SignInModel());
+
+    _model.textController = TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
-    textController?.dispose();
     super.dispose();
   }
 
@@ -124,8 +128,8 @@ class _SignInWidgetState extends State<SignInWidget> {
                               borderRadius: BorderRadius.circular(8),
                               border: Border.all(
                                 color: valueOrDefault<Color>(
-                                  textController!.text != null &&
-                                          textController!.text != ''
+                                  _model.textController.text != null &&
+                                          _model.textController.text != ''
                                       ? FlutterFlowTheme.of(context)
                                           .primaryColor
                                       : FlutterFlowTheme.of(context)
@@ -139,9 +143,9 @@ class _SignInWidgetState extends State<SignInWidget> {
                               children: [
                                 Expanded(
                                   child: TextFormField(
-                                    controller: textController,
+                                    controller: _model.textController,
                                     onChanged: (_) => EasyDebounce.debounce(
-                                      'textController',
+                                      '_model.textController',
                                       Duration(milliseconds: 100),
                                       () => setState(() {}),
                                     ),
@@ -208,7 +212,8 @@ class _SignInWidgetState extends State<SignInWidget> {
                                     style:
                                         FlutterFlowTheme.of(context).bodyText1,
                                     keyboardType: TextInputType.phone,
-                                    inputFormatters: [textFieldMask],
+                                    validator: _model.textControllerValidator
+                                        .asValidator(context),
                                   ),
                                 ),
                               ],
@@ -219,10 +224,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
                           child: FFButtonWidget(
                             onPressed: () async {
-                              FFAppState().update(() {
-                                FFAppState().signINcode = true;
-                              });
-                              final phoneNumberVal = textController!.text;
+                              final phoneNumberVal = _model.textController.text;
                               if (phoneNumberVal == null ||
                                   phoneNumberVal.isEmpty ||
                                   !phoneNumberVal.startsWith('+')) {
@@ -245,14 +247,18 @@ class _SignInWidgetState extends State<SignInWidget> {
                                   );
                                 },
                               );
+
+                              FFAppState().update(() {
+                                FFAppState().signINcode = true;
+                              });
                             },
                             text: 'Войти ',
                             options: FFButtonOptions(
                               width: 130,
                               height: 48,
                               color: valueOrDefault<Color>(
-                                textController!.text != null &&
-                                        textController!.text != ''
+                                _model.textController.text != null &&
+                                        _model.textController.text != ''
                                     ? FlutterFlowTheme.of(context).primaryColor
                                     : FlutterFlowTheme.of(context).starblue,
                                 FlutterFlowTheme.of(context).starblue,

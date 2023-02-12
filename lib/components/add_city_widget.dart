@@ -8,6 +8,8 @@ import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'add_city_model.dart';
+export 'add_city_model.dart';
 
 class AddCityWidget extends StatefulWidget {
   const AddCityWidget({Key? key}) : super(key: key);
@@ -17,21 +19,31 @@ class AddCityWidget extends StatefulWidget {
 }
 
 class _AddCityWidgetState extends State<AddCityWidget> {
+  late AddCityModel _model;
+
   LatLng? currentUserLocationValue;
-  TextEditingController? textController;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => AddCityModel());
+
     getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
         .then((loc) => setState(() => currentUserLocationValue = loc));
-    textController = TextEditingController();
+    _model.textController = TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
-    textController?.dispose();
+    _model.dispose();
+
     super.dispose();
   }
 
@@ -99,9 +111,9 @@ class _AddCityWidgetState extends State<AddCityWidget> {
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
               child: TextFormField(
-                controller: textController,
+                controller: _model.textController,
                 onChanged: (_) => EasyDebounce.debounce(
-                  'textController',
+                  '_model.textController',
                   Duration(milliseconds: 200),
                   () => setState(() {}),
                 ),
@@ -144,6 +156,7 @@ class _AddCityWidgetState extends State<AddCityWidget> {
                 ),
                 style: FlutterFlowTheme.of(context).bodyText1,
                 maxLines: null,
+                validator: _model.textControllerValidator.asValidator(context),
               ),
             ),
             Padding(
@@ -177,7 +190,8 @@ class _AddCityWidgetState extends State<AddCityWidget> {
                           listViewCityesRecordList[listViewIndex];
                       return Visibility(
                         visible: functions.showSearchResult2(
-                            textController!.text, listViewCityesRecord.name!),
+                            _model.textController.text,
+                            listViewCityesRecord.name!),
                         child: InkWell(
                           onTap: () async {
                             final userUpdateData = createUserRecordData(

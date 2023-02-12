@@ -3,6 +3,8 @@ import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'admin_client_empty_client_model.dart';
+export 'admin_client_empty_client_model.dart';
 
 class AdminClientEmptyClientWidget extends StatefulWidget {
   const AdminClientEmptyClientWidget({Key? key}) : super(key: key);
@@ -14,11 +16,27 @@ class AdminClientEmptyClientWidget extends StatefulWidget {
 
 class _AdminClientEmptyClientWidgetState
     extends State<AdminClientEmptyClientWidget> {
+  late AdminClientEmptyClientModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => AdminClientEmptyClientModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
   }
 
   @override

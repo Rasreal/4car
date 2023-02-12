@@ -4,6 +4,8 @@ import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'canceled_booking_model.dart';
+export 'canceled_booking_model.dart';
 
 class CanceledBookingWidget extends StatefulWidget {
   const CanceledBookingWidget({Key? key}) : super(key: key);
@@ -13,11 +15,27 @@ class CanceledBookingWidget extends StatefulWidget {
 }
 
 class _CanceledBookingWidgetState extends State<CanceledBookingWidget> {
+  late CanceledBookingModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => CanceledBookingModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
   }
 
   @override

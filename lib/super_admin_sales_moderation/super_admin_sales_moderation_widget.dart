@@ -8,6 +8,8 @@ import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'super_admin_sales_moderation_model.dart';
+export 'super_admin_sales_moderation_model.dart';
 
 class SuperAdminSalesModerationWidget extends StatefulWidget {
   const SuperAdminSalesModerationWidget({Key? key}) : super(key: key);
@@ -19,21 +21,25 @@ class SuperAdminSalesModerationWidget extends StatefulWidget {
 
 class _SuperAdminSalesModerationWidgetState
     extends State<SuperAdminSalesModerationWidget> {
-  TextEditingController? textController;
-  final _unfocusNode = FocusNode();
+  late SuperAdminSalesModerationModel _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
-    textController = TextEditingController();
+    _model = createModel(context, () => SuperAdminSalesModerationModel());
+
+    _model.textController = TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
-    textController?.dispose();
     super.dispose();
   }
 
@@ -52,8 +58,12 @@ class _SuperAdminSalesModerationWidgetState
               Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  SuperAdminAppBarWidget(
-                    page: 'Главная',
+                  wrapWithModel(
+                    model: _model.superAdminAppBarModel,
+                    updateCallback: () => setState(() {}),
+                    child: SuperAdminAppBarWidget(
+                      page: 'Главная',
+                    ),
                   ),
                   Expanded(
                     child: Container(
@@ -200,8 +210,8 @@ class _SuperAdminSalesModerationWidgetState
                                                               Expanded(
                                                                 child:
                                                                     TextFormField(
-                                                                  controller:
-                                                                      textController,
+                                                                  controller: _model
+                                                                      .textController,
                                                                   autofocus:
                                                                       true,
                                                                   obscureText:
@@ -257,6 +267,10 @@ class _SuperAdminSalesModerationWidgetState
                                                                         useGoogleFonts:
                                                                             GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                       ),
+                                                                  validator: _model
+                                                                      .textControllerValidator
+                                                                      .asValidator(
+                                                                          context),
                                                                 ),
                                                               ),
                                                               Icon(

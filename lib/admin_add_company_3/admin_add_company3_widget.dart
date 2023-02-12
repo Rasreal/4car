@@ -9,6 +9,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'admin_add_company3_model.dart';
+export 'admin_add_company3_model.dart';
 
 class AdminAddCompany3Widget extends StatefulWidget {
   const AdminAddCompany3Widget({
@@ -25,22 +27,25 @@ class AdminAddCompany3Widget extends StatefulWidget {
 }
 
 class _AdminAddCompany3WidgetState extends State<AdminAddCompany3Widget> {
-  TextEditingController? textController;
-  final _unfocusNode = FocusNode();
+  late AdminAddCompany3Model _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  final formKey = GlobalKey<FormState>();
+  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
-    textController = TextEditingController();
+    _model = createModel(context, () => AdminAddCompany3Model());
+
+    _model.textController = TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
-    textController?.dispose();
     super.dispose();
   }
 
@@ -59,8 +64,12 @@ class _AdminAddCompany3WidgetState extends State<AdminAddCompany3Widget> {
               Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  AdminAppBarWidget(
-                    pageName: 'Главная',
+                  wrapWithModel(
+                    model: _model.adminAppBarModel,
+                    updateCallback: () => setState(() {}),
+                    child: AdminAppBarWidget(
+                      pageName: 'Главная',
+                    ),
                   ),
                   Expanded(
                     child: Stack(
@@ -227,7 +236,7 @@ class _AdminAddCompany3WidgetState extends State<AdminAddCompany3Widget> {
                                                       ),
                                                     ),
                                                     Form(
-                                                      key: formKey,
+                                                      key: _model.formKey,
                                                       autovalidateMode:
                                                           AutovalidateMode
                                                               .disabled,
@@ -237,8 +246,8 @@ class _AdminAddCompany3WidgetState extends State<AdminAddCompany3Widget> {
                                                                 .fromSTEB(0, 16,
                                                                     0, 0),
                                                         child: TextFormField(
-                                                          controller:
-                                                              textController,
+                                                          controller: _model
+                                                              .textController,
                                                           obscureText: false,
                                                           decoration:
                                                               InputDecoration(
@@ -339,6 +348,10 @@ class _AdminAddCompany3WidgetState extends State<AdminAddCompany3Widget> {
                                                                             .bodyText1Family),
                                                               ),
                                                           maxLines: 4,
+                                                          validator: _model
+                                                              .textControllerValidator
+                                                              .asValidator(
+                                                                  context),
                                                         ),
                                                       ),
                                                     ),
@@ -862,14 +875,17 @@ class _AdminAddCompany3WidgetState extends State<AdminAddCompany3Widget> {
                                     ),
                                     FFButtonWidget(
                                       onPressed: () async {
-                                        if (formKey.currentState == null ||
-                                            !formKey.currentState!.validate()) {
+                                        if (_model.formKey.currentState ==
+                                                null ||
+                                            !_model.formKey.currentState!
+                                                .validate()) {
                                           return;
                                         }
 
                                         final companiesUpdateData =
                                             createCompaniesRecordData(
-                                          conveniences: textController!.text,
+                                          conveniences:
+                                              _model.textController.text,
                                         );
                                         await widget.company!
                                             .update(companiesUpdateData);
@@ -936,7 +952,11 @@ class _AdminAddCompany3WidgetState extends State<AdminAddCompany3Widget> {
                   ),
                 ],
               ),
-              AdminAppBarInfoWidget(),
+              wrapWithModel(
+                model: _model.adminAppBarInfoModel,
+                updateCallback: () => setState(() {}),
+                child: AdminAppBarInfoWidget(),
+              ),
             ],
           ),
         ),

@@ -8,6 +8,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'admin_add_services_duration_model.dart';
+export 'admin_add_services_duration_model.dart';
 
 class AdminAddServicesDurationWidget extends StatefulWidget {
   const AdminAddServicesDurationWidget({
@@ -24,13 +26,27 @@ class AdminAddServicesDurationWidget extends StatefulWidget {
 
 class _AdminAddServicesDurationWidgetState
     extends State<AdminAddServicesDurationWidget> {
-  String? dropDownValue;
+  late AdminAddServicesDurationModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => AdminAddServicesDurationModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
   }
 
   @override
@@ -48,12 +64,12 @@ class _AdminAddServicesDurationWidgetState
         ),
       ),
       child: FlutterFlowDropDown<String>(
-        initialOption: dropDownValue ??= '15 мин',
+        initialOption: _model.dropDownValue ??= '15 мин',
         options: FFAppState().adminForCarServicesDuration.toList(),
         onChanged: (val) async {
-          setState(() => dropDownValue = val);
+          setState(() => _model.dropDownValue = val);
           final companyServicesUpdateData = createCompanyServicesRecordData(
-            duration: functions.durationToInt(dropDownValue!),
+            duration: functions.durationToInt(_model.dropDownValue!),
           );
           await widget.service!.update(companyServicesUpdateData);
         },

@@ -7,6 +7,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'super_admin_sales_details_model.dart';
+export 'super_admin_sales_details_model.dart';
 
 class SuperAdminSalesDetailsWidget extends StatefulWidget {
   const SuperAdminSalesDetailsWidget({
@@ -25,13 +27,27 @@ class SuperAdminSalesDetailsWidget extends StatefulWidget {
 
 class _SuperAdminSalesDetailsWidgetState
     extends State<SuperAdminSalesDetailsWidget> {
-  final formKey = GlobalKey<FormState>();
+  late SuperAdminSalesDetailsModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => SuperAdminSalesDetailsModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
   }
 
   @override
@@ -47,7 +63,7 @@ class _SuperAdminSalesDetailsWidgetState
           borderRadius: BorderRadius.circular(8),
         ),
         child: Form(
-          key: formKey,
+          key: _model.formKey,
           autovalidateMode: AutovalidateMode.disabled,
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(24, 24, 24, 24),

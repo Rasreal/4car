@@ -11,6 +11,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'admin_clients_model.dart';
+export 'admin_clients_model.dart';
 
 class AdminClientsWidget extends StatefulWidget {
   const AdminClientsWidget({Key? key}) : super(key: key);
@@ -20,13 +22,16 @@ class AdminClientsWidget extends StatefulWidget {
 }
 
 class _AdminClientsWidgetState extends State<AdminClientsWidget> {
-  TextEditingController? textController;
-  final _unfocusNode = FocusNode();
+  late AdminClientsModel _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => AdminClientsModel());
+
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       if (FFAppState().adminClentsType == null ||
@@ -37,14 +42,15 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
       }
     });
 
-    textController = TextEditingController();
+    _model.textController = TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
-    textController?.dispose();
     super.dispose();
   }
 
@@ -61,8 +67,12 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              AdminAppBarWidget(
-                pageName: 'Клиенты',
+              wrapWithModel(
+                model: _model.adminAppBarModel,
+                updateCallback: () => setState(() {}),
+                child: AdminAppBarWidget(
+                  pageName: 'Клиенты',
+                ),
               ),
               Expanded(
                 child: Container(
@@ -338,8 +348,8 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                               Expanded(
                                                                 child:
                                                                     TextFormField(
-                                                                  controller:
-                                                                      textController,
+                                                                  controller: _model
+                                                                      .textController,
                                                                   autofocus:
                                                                       true,
                                                                   obscureText:
@@ -395,6 +405,10 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                         useGoogleFonts:
                                                                             GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                       ),
+                                                                  validator: _model
+                                                                      .textControllerValidator
+                                                                      .asValidator(
+                                                                          context),
                                                                 ),
                                                               ),
                                                               Icon(
@@ -1187,8 +1201,6 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                                         padding: MediaQuery.of(context).viewInsets,
                                                                                         child: AdminFeedbackReviewWidget(
                                                                                           booking: columnBookingsRecord,
-                                                                                          company: containerReviewsClientsCompaniesRecord,
-                                                                                          comment: listViewCommentsRecord,
                                                                                         ),
                                                                                       );
                                                                                     },

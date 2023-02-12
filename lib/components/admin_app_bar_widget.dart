@@ -1,9 +1,12 @@
 import '../auth/auth_util.dart';
+import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'admin_app_bar_model.dart';
+export 'admin_app_bar_model.dart';
 
 class AdminAppBarWidget extends StatefulWidget {
   const AdminAppBarWidget({
@@ -18,11 +21,27 @@ class AdminAppBarWidget extends StatefulWidget {
 }
 
 class _AdminAppBarWidgetState extends State<AdminAppBarWidget> {
+  late AdminAppBarModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => AdminAppBarModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
   }
 
   @override
@@ -77,27 +96,139 @@ class _AdminAppBarWidgetState extends State<AdminAppBarWidget> {
                         Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
-                              child: InkWell(
-                                onTap: () async {
-                                  if (FFAppState().adminAppBar == 'notify') {
-                                    FFAppState().update(() {
-                                      FFAppState().adminAppBar = '';
-                                    });
-                                  } else {
-                                    FFAppState().update(() {
-                                      FFAppState().adminAppBar = 'notify';
-                                    });
-                                  }
-                                },
-                                child: Icon(
-                                  FFIcons.kicNotification,
-                                  color: Colors.black,
-                                  size: 24,
-                                ),
+                            StreamBuilder<List<CompaniesRecord>>(
+                              stream: queryCompaniesRecord(
+                                queryBuilder: (companiesRecord) =>
+                                    companiesRecord.where('company_users',
+                                        arrayContains: currentUserReference),
+                                singleRecord: true,
                               ),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 50,
+                                      height: 50,
+                                      child: CircularProgressIndicator(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryColor,
+                                      ),
+                                    ),
+                                  );
+                                }
+                                List<CompaniesRecord>
+                                    columnCompaniesRecordList = snapshot.data!;
+                                // Return an empty Container when the item does not exist.
+                                if (snapshot.data!.isEmpty) {
+                                  return Container();
+                                }
+                                final columnCompaniesRecord =
+                                    columnCompaniesRecordList.isNotEmpty
+                                        ? columnCompaniesRecordList.first
+                                        : null;
+                                return Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 0, 16, 0),
+                                      child: FutureBuilder<int>(
+                                        future:
+                                            queryCompanyNotificationsRecordCount(
+                                          parent:
+                                              columnCompaniesRecord!.reference,
+                                          queryBuilder:
+                                              (companyNotificationsRecord) =>
+                                                  companyNotificationsRecord
+                                                      .where('opened',
+                                                          isEqualTo: true),
+                                        ),
+                                        builder: (context, snapshot) {
+                                          // Customize what your widget looks like when it's loading.
+                                          if (!snapshot.hasData) {
+                                            return Center(
+                                              child: SizedBox(
+                                                width: 50,
+                                                height: 50,
+                                                child:
+                                                    CircularProgressIndicator(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryColor,
+                                                ),
+                                              ),
+                                            );
+                                          }
+                                          int stackCount = snapshot.data!;
+                                          return Container(
+                                            width: 30,
+                                            height: 30,
+                                            child: Stack(
+                                              children: [
+                                                Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0, 0),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(
+                                                                0, 0, 16, 0),
+                                                    child: InkWell(
+                                                      onTap: () async {
+                                                        if (FFAppState()
+                                                                .adminAppBar ==
+                                                            'notify') {
+                                                          FFAppState()
+                                                              .update(() {
+                                                            FFAppState()
+                                                                .adminAppBar = '';
+                                                          });
+                                                        } else {
+                                                          FFAppState()
+                                                              .update(() {
+                                                            FFAppState()
+                                                                    .adminAppBar =
+                                                                'notify';
+                                                          });
+                                                        }
+                                                      },
+                                                      child: Icon(
+                                                        FFIcons.kicNotification,
+                                                        color: Colors.black,
+                                                        size: 24,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                if (stackCount >= 1)
+                                                  Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            1, -1),
+                                                    child: Container(
+                                                      width: 10,
+                                                      height: 10,
+                                                      decoration: BoxDecoration(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .red1,
+                                                        shape: BoxShape.circle,
+                                                      ),
+                                                    ),
+                                                  ),
+                                              ],
+                                            ),
+                                          );
+                                        },
+                                      ),
+                                    ),
+                                  ],
+                                );
+                              },
                             ),
                             InkWell(
                               onTap: () async {

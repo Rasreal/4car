@@ -17,6 +17,7 @@ import 'schema/promotion_record.dart';
 import 'schema/bookings_record.dart';
 import 'schema/company_document_record.dart';
 import 'schema/forcar_times_record.dart';
+import 'schema/company_notifications_record.dart';
 import 'schema/serializers.dart';
 
 export 'dart:async' show StreamSubscription;
@@ -36,6 +37,7 @@ export 'schema/promotion_record.dart';
 export 'schema/bookings_record.dart';
 export 'schema/company_document_record.dart';
 export 'schema/forcar_times_record.dart';
+export 'schema/company_notifications_record.dart';
 
 /// Functions to query UserRecords (as a Stream and as a Future).
 Future<int> queryUserRecordCount({
@@ -684,6 +686,63 @@ Future<FFFirestorePage<ForcarTimesRecord>> queryForcarTimesRecordPage({
       pageSize: pageSize,
       isStream: isStream,
     );
+
+/// Functions to query CompanyNotificationsRecords (as a Stream and as a Future).
+Future<int> queryCompanyNotificationsRecordCount({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      CompanyNotificationsRecord.collection(parent),
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<CompanyNotificationsRecord>> queryCompanyNotificationsRecord({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      CompanyNotificationsRecord.collection(parent),
+      CompanyNotificationsRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<CompanyNotificationsRecord>> queryCompanyNotificationsRecordOnce({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      CompanyNotificationsRecord.collection(parent),
+      CompanyNotificationsRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<CompanyNotificationsRecord>>
+    queryCompanyNotificationsRecordPage({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+        queryCollectionPage(
+          CompanyNotificationsRecord.collection(parent),
+          CompanyNotificationsRecord.serializer,
+          queryBuilder: queryBuilder,
+          nextPageMarker: nextPageMarker,
+          pageSize: pageSize,
+          isStream: isStream,
+        );
 
 Future<int> queryCollectionCount(
   Query collection, {

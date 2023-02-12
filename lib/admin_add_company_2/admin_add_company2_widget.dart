@@ -8,6 +8,8 @@ import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'admin_add_company2_model.dart';
+export 'admin_add_company2_model.dart';
 
 class AdminAddCompany2Widget extends StatefulWidget {
   const AdminAddCompany2Widget({
@@ -22,18 +24,23 @@ class AdminAddCompany2Widget extends StatefulWidget {
 }
 
 class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
-  final _unfocusNode = FocusNode();
+  late AdminAddCompany2Model _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => AdminAddCompany2Model());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
     super.dispose();
   }
@@ -53,8 +60,12 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
               Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  AdminAppBarWidget(
-                    pageName: 'Главная',
+                  wrapWithModel(
+                    model: _model.adminAppBarModel,
+                    updateCallback: () => setState(() {}),
+                    child: AdminAppBarWidget(
+                      pageName: 'Главная',
+                    ),
                   ),
                   Expanded(
                     child: Stack(
@@ -303,11 +314,20 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                                         0,
                                                                         12),
                                                             child:
-                                                                AdminAddServicesWidget(
-                                                              bodyName: 'Седан',
-                                                              companyDoc: widget
-                                                                  .company!
-                                                                  .reference,
+                                                                wrapWithModel(
+                                                              model: _model
+                                                                  .adminAddServicesModel1,
+                                                              updateCallback:
+                                                                  () => setState(
+                                                                      () {}),
+                                                              child:
+                                                                  AdminAddServicesWidget(
+                                                                bodyName:
+                                                                    'Седан',
+                                                                companyDoc: widget
+                                                                    .company!
+                                                                    .reference,
+                                                              ),
                                                             ),
                                                           ),
                                                           Divider(
@@ -346,12 +366,20 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                                         0,
                                                                         12),
                                                             child:
-                                                                AdminAddServicesWidget(
-                                                              bodyName:
-                                                                  'Хэтчбек',
-                                                              companyDoc: widget
-                                                                  .company!
-                                                                  .reference,
+                                                                wrapWithModel(
+                                                              model: _model
+                                                                  .adminAddServicesModel2,
+                                                              updateCallback:
+                                                                  () => setState(
+                                                                      () {}),
+                                                              child:
+                                                                  AdminAddServicesWidget(
+                                                                bodyName:
+                                                                    'Хэтчбэк',
+                                                                companyDoc: widget
+                                                                    .company!
+                                                                    .reference,
+                                                              ),
                                                             ),
                                                           ),
                                                           Divider(
@@ -390,12 +418,20 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                                         0,
                                                                         12),
                                                             child:
-                                                                AdminAddServicesWidget(
-                                                              bodyName:
-                                                                  'Универсал',
-                                                              companyDoc: widget
-                                                                  .company!
-                                                                  .reference,
+                                                                wrapWithModel(
+                                                              model: _model
+                                                                  .adminAddServicesModel3,
+                                                              updateCallback:
+                                                                  () => setState(
+                                                                      () {}),
+                                                              child:
+                                                                  AdminAddServicesWidget(
+                                                                bodyName:
+                                                                    'Универсал',
+                                                                companyDoc: widget
+                                                                    .company!
+                                                                    .reference,
+                                                              ),
                                                             ),
                                                           ),
                                                           Divider(
@@ -434,12 +470,20 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                                         0,
                                                                         12),
                                                             child:
-                                                                AdminAddServicesWidget(
-                                                              bodyName:
-                                                                  'Кроссовер',
-                                                              companyDoc: widget
-                                                                  .company!
-                                                                  .reference,
+                                                                wrapWithModel(
+                                                              model: _model
+                                                                  .adminAddServicesModel4,
+                                                              updateCallback:
+                                                                  () => setState(
+                                                                      () {}),
+                                                              child:
+                                                                  AdminAddServicesWidget(
+                                                                bodyName:
+                                                                    'Кроссовер',
+                                                                companyDoc: widget
+                                                                    .company!
+                                                                    .reference,
+                                                              ),
                                                             ),
                                                           ),
                                                           Divider(
@@ -478,11 +522,20 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                                         0,
                                                                         12),
                                                             child:
-                                                                AdminAddServicesWidget(
-                                                              bodyName: 'Джип',
-                                                              companyDoc: widget
-                                                                  .company!
-                                                                  .reference,
+                                                                wrapWithModel(
+                                                              model: _model
+                                                                  .adminAddServicesModel5,
+                                                              updateCallback:
+                                                                  () => setState(
+                                                                      () {}),
+                                                              child:
+                                                                  AdminAddServicesWidget(
+                                                                bodyName:
+                                                                    'Джип',
+                                                                companyDoc: widget
+                                                                    .company!
+                                                                    .reference,
+                                                              ),
                                                             ),
                                                           ),
                                                           Divider(
@@ -521,11 +574,20 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                                         0,
                                                                         12),
                                                             child:
-                                                                AdminAddServicesWidget(
-                                                              bodyName: 'Пикап',
-                                                              companyDoc: widget
-                                                                  .company!
-                                                                  .reference,
+                                                                wrapWithModel(
+                                                              model: _model
+                                                                  .adminAddServicesModel6,
+                                                              updateCallback:
+                                                                  () => setState(
+                                                                      () {}),
+                                                              child:
+                                                                  AdminAddServicesWidget(
+                                                                bodyName:
+                                                                    'Пикап',
+                                                                companyDoc: widget
+                                                                    .company!
+                                                                    .reference,
+                                                              ),
                                                             ),
                                                           ),
                                                           Divider(
@@ -564,12 +626,20 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                                         0,
                                                                         12),
                                                             child:
-                                                                AdminAddServicesWidget(
-                                                              bodyName:
-                                                                  'Минивен',
-                                                              companyDoc: widget
-                                                                  .company!
-                                                                  .reference,
+                                                                wrapWithModel(
+                                                              model: _model
+                                                                  .adminAddServicesModel7,
+                                                              updateCallback:
+                                                                  () => setState(
+                                                                      () {}),
+                                                              child:
+                                                                  AdminAddServicesWidget(
+                                                                bodyName:
+                                                                    'Минивен',
+                                                                companyDoc: widget
+                                                                    .company!
+                                                                    .reference,
+                                                              ),
                                                             ),
                                                           ),
                                                           Divider(
@@ -608,12 +678,20 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                                         0,
                                                                         12),
                                                             child:
-                                                                AdminAddServicesWidget(
-                                                              bodyName:
-                                                                  'Микроавтобус',
-                                                              companyDoc: widget
-                                                                  .company!
-                                                                  .reference,
+                                                                wrapWithModel(
+                                                              model: _model
+                                                                  .adminAddServicesModel8,
+                                                              updateCallback:
+                                                                  () => setState(
+                                                                      () {}),
+                                                              child:
+                                                                  AdminAddServicesWidget(
+                                                                bodyName:
+                                                                    'Микроавтобус',
+                                                                companyDoc: widget
+                                                                    .company!
+                                                                    .reference,
+                                                              ),
                                                             ),
                                                           ),
                                                           Divider(
@@ -1226,7 +1304,11 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                   ),
                 ],
               ),
-              AdminAppBarInfoWidget(),
+              wrapWithModel(
+                model: _model.adminAppBarInfoModel,
+                updateCallback: () => setState(() {}),
+                child: AdminAppBarInfoWidget(),
+              ),
             ],
           ),
         ),

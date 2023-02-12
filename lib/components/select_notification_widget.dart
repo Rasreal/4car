@@ -4,6 +4,8 @@ import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'select_notification_model.dart';
+export 'select_notification_model.dart';
 
 class SelectNotificationWidget extends StatefulWidget {
   const SelectNotificationWidget({Key? key}) : super(key: key);
@@ -14,11 +16,27 @@ class SelectNotificationWidget extends StatefulWidget {
 }
 
 class _SelectNotificationWidgetState extends State<SelectNotificationWidget> {
+  late SelectNotificationModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => SelectNotificationModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
   }
 
   @override

@@ -7,6 +7,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'add_car_model.dart';
+export 'add_car_model.dart';
 
 class AddCarWidget extends StatefulWidget {
   const AddCarWidget({Key? key}) : super(key: key);
@@ -16,20 +18,27 @@ class AddCarWidget extends StatefulWidget {
 }
 
 class _AddCarWidgetState extends State<AddCarWidget> {
-  MyCarsRecord? firstCar;
-  TextEditingController? textController;
-  final formKey = GlobalKey<FormState>();
+  late AddCarModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
 
   @override
   void initState() {
     super.initState();
-    textController = TextEditingController();
+    _model = createModel(context, () => AddCarModel());
+
+    _model.textController = TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
-    textController?.dispose();
+    _model.dispose();
+
     super.dispose();
   }
 
@@ -243,10 +252,10 @@ class _AddCarWidgetState extends State<AddCarWidget> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                   child: Form(
-                    key: formKey,
+                    key: _model.formKey,
                     autovalidateMode: AutovalidateMode.disabled,
                     child: TextFormField(
-                      controller: textController,
+                      controller: _model.textController,
                       obscureText: false,
                       decoration: InputDecoration(
                         hintText: '337REZ05',
@@ -281,13 +290,8 @@ class _AddCarWidgetState extends State<AddCarWidget> {
                         ),
                       ),
                       style: FlutterFlowTheme.of(context).bodyText1,
-                      validator: (val) {
-                        if (val == null || val.isEmpty) {
-                          return 'Напишите номер машины';
-                        }
-
-                        return null;
-                      },
+                      validator:
+                          _model.textControllerValidator.asValidator(context),
                     ),
                   ),
                 ),
@@ -299,73 +303,76 @@ class _AddCarWidgetState extends State<AddCarWidget> {
                       children: [
                         FFButtonWidget(
                           onPressed: () async {
-                            if (formKey.currentState == null ||
-                                !formKey.currentState!.validate()) {
+                            if (_model.formKey.currentState == null ||
+                                !_model.formKey.currentState!.validate()) {
                               return;
                             }
-
                             if (valueOrDefault(
                                         currentUserDocument?.carscount, 0)
                                     .toString() ==
                                 '0') {
-                              final myCarsCreateData = createMyCarsRecordData(
-                                carNum: textController!.text,
+                              final myCarsCreateData1 = createMyCarsRecordData(
+                                carNum: _model.textController.text,
                                 carBody: FFAppState().addCarBody,
                                 carOrder: 1,
                               );
-                              var myCarsRecordReference =
+                              var myCarsRecordReference1 =
                                   MyCarsRecord.createDoc(currentUserReference!);
-                              await myCarsRecordReference.set(myCarsCreateData);
-                              firstCar = MyCarsRecord.getDocumentFromData(
-                                  myCarsCreateData, myCarsRecordReference);
+                              await myCarsRecordReference1
+                                  .set(myCarsCreateData1);
+                              _model.firstCar =
+                                  MyCarsRecord.getDocumentFromData(
+                                      myCarsCreateData1,
+                                      myCarsRecordReference1);
 
-                              final userUpdateData = createUserRecordData(
+                              final userUpdateData1 = createUserRecordData(
                                 carscount: 1,
-                                firstCar: firstCar!.reference,
+                                firstCar: _model.firstCar!.reference,
                                 firstCarBody: FFAppState().addCarBody,
-                                firstCarName: textController!.text,
+                                firstCarName: _model.textController.text,
                               );
                               await currentUserReference!
-                                  .update(userUpdateData);
+                                  .update(userUpdateData1);
                             } else {
                               if (valueOrDefault(
                                           currentUserDocument?.carscount, 0)
                                       .toString() ==
                                   '1') {
-                                final myCarsCreateData = createMyCarsRecordData(
-                                  carNum: textController!.text,
+                                final myCarsCreateData2 =
+                                    createMyCarsRecordData(
+                                  carNum: _model.textController.text,
                                   carBody: FFAppState().addCarBody,
                                   carOrder: 2,
                                 );
                                 await MyCarsRecord.createDoc(
                                         currentUserReference!)
-                                    .set(myCarsCreateData);
+                                    .set(myCarsCreateData2);
 
-                                final userUpdateData = createUserRecordData(
+                                final userUpdateData2 = createUserRecordData(
                                   carscount: 2,
                                 );
                                 await currentUserReference!
-                                    .update(userUpdateData);
+                                    .update(userUpdateData2);
                               } else {
                                 if (valueOrDefault(
                                             currentUserDocument?.carscount, 0)
                                         .toString() ==
                                     '2') {
-                                  final myCarsCreateData =
+                                  final myCarsCreateData3 =
                                       createMyCarsRecordData(
-                                    carNum: textController!.text,
+                                    carNum: _model.textController.text,
                                     carBody: FFAppState().addCarBody,
                                     carOrder: 3,
                                   );
                                   await MyCarsRecord.createDoc(
                                           currentUserReference!)
-                                      .set(myCarsCreateData);
+                                      .set(myCarsCreateData3);
 
-                                  final userUpdateData = createUserRecordData(
+                                  final userUpdateData3 = createUserRecordData(
                                     carscount: 3,
                                   );
                                   await currentUserReference!
-                                      .update(userUpdateData);
+                                      .update(userUpdateData3);
                                 }
                               }
                             }

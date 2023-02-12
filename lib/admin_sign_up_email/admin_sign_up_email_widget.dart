@@ -9,6 +9,8 @@ import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
+import 'admin_sign_up_email_model.dart';
+export 'admin_sign_up_email_model.dart';
 
 class AdminSignUpEmailWidget extends StatefulWidget {
   const AdminSignUpEmailWidget({Key? key}) : super(key: key);
@@ -18,21 +20,16 @@ class AdminSignUpEmailWidget extends StatefulWidget {
 }
 
 class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
-  TextEditingController? emailController;
-  TextEditingController? fioController;
-  TextEditingController? phoneController;
-  final phoneMask = MaskTextInputFormatter(mask: '+# (###) ###-##-##');
-  TextEditingController? textField111Controller;
-  late bool textField111Visibility;
-  TextEditingController? textField222Controller;
-  late bool textField222Visibility;
-  final _unfocusNode = FocusNode();
+  late AdminSignUpEmailModel _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  final formKey = GlobalKey<FormState>();
+  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => AdminSignUpEmailModel());
+
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       FFAppState().update(() {
@@ -40,24 +37,19 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
       });
     });
 
-    emailController = TextEditingController();
-    fioController = TextEditingController();
-    phoneController = TextEditingController();
-    textField111Controller = TextEditingController();
-    textField111Visibility = false;
-    textField222Controller = TextEditingController();
-    textField222Visibility = false;
+    _model.fioController = TextEditingController();
+    _model.phoneController = TextEditingController();
+    _model.emailController = TextEditingController();
+    _model.textField111Controller = TextEditingController();
+    _model.textField222Controller = TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
-    emailController?.dispose();
-    fioController?.dispose();
-    phoneController?.dispose();
-    textField111Controller?.dispose();
-    textField222Controller?.dispose();
     super.dispose();
   }
 
@@ -85,7 +77,7 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Form(
-                  key: formKey,
+                  key: _model.formKey,
                   autovalidateMode: AutovalidateMode.disabled,
                   child: Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(60, 0, 60, 0),
@@ -136,21 +128,21 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                           child: Container(
                             width: 356,
                             child: TextFormField(
-                              controller: fioController,
+                              controller: _model.fioController,
                               onChanged: (_) => EasyDebounce.debounce(
-                                'fioController',
+                                '_model.fioController',
                                 Duration(milliseconds: 2000),
                                 () async {
                                   FFAppState().update(() {
                                     FFAppState().adminAddStaffFIO =
-                                        fioController!.text;
+                                        _model.fioController.text;
                                   });
                                 },
                               ),
                               onFieldSubmitted: (_) async {
                                 FFAppState().update(() {
                                   FFAppState().adminAddStaffFIO =
-                                      fioController!.text;
+                                      _model.fioController.text;
                                 });
                               },
                               obscureText: false,
@@ -197,13 +189,8 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                                 ),
                               ),
                               style: FlutterFlowTheme.of(context).bodyText1,
-                              validator: (val) {
-                                if (val == null || val.isEmpty) {
-                                  return 'Заполните поле';
-                                }
-
-                                return null;
-                              },
+                              validator: _model.fioControllerValidator
+                                  .asValidator(context),
                             ),
                           ),
                         ),
@@ -212,21 +199,21 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                           child: Container(
                             width: 356,
                             child: TextFormField(
-                              controller: phoneController,
+                              controller: _model.phoneController,
                               onChanged: (_) => EasyDebounce.debounce(
-                                'phoneController',
+                                '_model.phoneController',
                                 Duration(milliseconds: 2000),
                                 () async {
                                   FFAppState().update(() {
                                     FFAppState().adminAddStaffPhone =
-                                        phoneController!.text;
+                                        _model.phoneController.text;
                                   });
                                 },
                               ),
                               onFieldSubmitted: (_) async {
                                 FFAppState().update(() {
                                   FFAppState().adminAddStaffPhone =
-                                      phoneController!.text;
+                                      _model.phoneController.text;
                                 });
                               },
                               obscureText: false,
@@ -274,14 +261,9 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                               ),
                               style: FlutterFlowTheme.of(context).bodyText1,
                               keyboardType: TextInputType.phone,
-                              validator: (val) {
-                                if (val == null || val.isEmpty) {
-                                  return 'Заполните поле';
-                                }
-
-                                return null;
-                              },
-                              inputFormatters: [phoneMask],
+                              validator: _model.phoneControllerValidator
+                                  .asValidator(context),
+                              inputFormatters: [_model.phoneMask],
                             ),
                           ),
                         ),
@@ -290,7 +272,7 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                           child: Container(
                             width: 356,
                             child: TextFormField(
-                              controller: emailController,
+                              controller: _model.emailController,
                               obscureText: false,
                               decoration: InputDecoration(
                                 hintText: 'Email',
@@ -335,13 +317,8 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                                 ),
                               ),
                               style: FlutterFlowTheme.of(context).bodyText1,
-                              validator: (val) {
-                                if (val == null || val.isEmpty) {
-                                  return 'Заполните поле';
-                                }
-
-                                return null;
-                              },
+                              validator: _model.emailControllerValidator
+                                  .asValidator(context),
                             ),
                           ),
                         ),
@@ -350,8 +327,8 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                           child: Container(
                             width: 356,
                             child: TextFormField(
-                              controller: textField111Controller,
-                              obscureText: !textField111Visibility,
+                              controller: _model.textField111Controller,
+                              obscureText: !_model.textField111Visibility,
                               decoration: InputDecoration(
                                 hintText: 'Пароль',
                                 hintStyle: FlutterFlowTheme.of(context)
@@ -395,12 +372,12 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                                 ),
                                 suffixIcon: InkWell(
                                   onTap: () => setState(
-                                    () => textField111Visibility =
-                                        !textField111Visibility,
+                                    () => _model.textField111Visibility =
+                                        !_model.textField111Visibility,
                                   ),
                                   focusNode: FocusNode(skipTraversal: true),
                                   child: Icon(
-                                    textField111Visibility
+                                    _model.textField111Visibility
                                         ? Icons.visibility_outlined
                                         : Icons.visibility_off_outlined,
                                     color: Color(0xFF9CA3AF),
@@ -409,13 +386,8 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                                 ),
                               ),
                               style: FlutterFlowTheme.of(context).bodyText1,
-                              validator: (val) {
-                                if (val == null || val.isEmpty) {
-                                  return 'Заполните поле';
-                                }
-
-                                return null;
-                              },
+                              validator: _model.textField111ControllerValidator
+                                  .asValidator(context),
                             ),
                           ),
                         ),
@@ -424,8 +396,8 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                           child: Container(
                             width: 356,
                             child: TextFormField(
-                              controller: textField222Controller,
-                              obscureText: !textField222Visibility,
+                              controller: _model.textField222Controller,
+                              obscureText: !_model.textField222Visibility,
                               decoration: InputDecoration(
                                 hintText: 'Пароль',
                                 hintStyle: FlutterFlowTheme.of(context)
@@ -469,12 +441,12 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                                 ),
                                 suffixIcon: InkWell(
                                   onTap: () => setState(
-                                    () => textField222Visibility =
-                                        !textField222Visibility,
+                                    () => _model.textField222Visibility =
+                                        !_model.textField222Visibility,
                                   ),
                                   focusNode: FocusNode(skipTraversal: true),
                                   child: Icon(
-                                    textField222Visibility
+                                    _model.textField222Visibility
                                         ? Icons.visibility_outlined
                                         : Icons.visibility_off_outlined,
                                     color: Color(0xFF9CA3AF),
@@ -483,13 +455,8 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                                 ),
                               ),
                               style: FlutterFlowTheme.of(context).bodyText1,
-                              validator: (val) {
-                                if (val == null || val.isEmpty) {
-                                  return 'Заполните поле';
-                                }
-
-                                return null;
-                              },
+                              validator: _model.textField222ControllerValidator
+                                  .asValidator(context),
                             ),
                           ),
                         ),
@@ -497,14 +464,13 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 24),
                           child: FFButtonWidget(
                             onPressed: () async {
-                              if (formKey.currentState == null ||
-                                  !formKey.currentState!.validate()) {
+                              if (_model.formKey.currentState == null ||
+                                  !_model.formKey.currentState!.validate()) {
                                 return;
                               }
-
                               GoRouter.of(context).prepareAuthEvent();
-                              if (textField111Controller?.text !=
-                                  textField222Controller?.text) {
+                              if (_model.textField111Controller.text !=
+                                  _model.textField222Controller.text) {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
                                     content: Text(
@@ -517,8 +483,8 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
 
                               final user = await createAccountWithEmail(
                                 context,
-                                emailController!.text,
-                                textField111Controller!.text,
+                                _model.emailController.text,
+                                _model.textField111Controller.text,
                               );
                               if (user == null) {
                                 return;

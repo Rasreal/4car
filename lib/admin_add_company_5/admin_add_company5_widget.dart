@@ -14,6 +14,8 @@ import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
+import 'admin_add_company5_model.dart';
+export 'admin_add_company5_model.dart';
 
 class AdminAddCompany5Widget extends StatefulWidget {
   const AdminAddCompany5Widget({
@@ -30,23 +32,16 @@ class AdminAddCompany5Widget extends StatefulWidget {
 }
 
 class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
-  CompanyDocumentRecord? newCompanyDoc;
-  Completer<List<CompanyServicesRecord>>? _firestoreRequestCompleter;
-  TextEditingController? textController1;
-  TextEditingController? textController2;
-  TextEditingController? textController3;
-  TextEditingController? textController4;
-  TextEditingController? textController5;
-  TextEditingController? textController6;
-  final textFieldMask6 = MaskTextInputFormatter(mask: '+# (###) ###-##-##');
-  TextEditingController? textController7;
-  TextEditingController? textController8;
-  final _unfocusNode = FocusNode();
+  late AdminAddCompany5Model _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => AdminAddCompany5Model());
+
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       FFAppState().update(() {
@@ -59,15 +54,9 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
-    textController1?.dispose();
-    textController2?.dispose();
-    textController3?.dispose();
-    textController4?.dispose();
-    textController5?.dispose();
-    textController6?.dispose();
-    textController7?.dispose();
-    textController8?.dispose();
     super.dispose();
   }
 
@@ -86,8 +75,12 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
               Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  AdminAppBarWidget(
-                    pageName: 'Главная',
+                  wrapWithModel(
+                    model: _model.adminAppBarModel,
+                    updateCallback: () => setState(() {}),
+                    child: AdminAppBarWidget(
+                      pageName: 'Главная',
+                    ),
                   ),
                   Expanded(
                     child: FutureBuilder<CompaniesRecord>(
@@ -545,7 +538,7 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                           child: Container(
                                                                                             width: 346,
                                                                                             child: TextFormField(
-                                                                                              controller: textController1 ??= TextEditingController(
+                                                                                              controller: _model.textController1 ??= TextEditingController(
                                                                                                 text: valueOrDefault<String>(
                                                                                                   stackCompaniesRecord.binIin?.toString(),
                                                                                                   'null',
@@ -606,13 +599,14 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                                     fontWeight: FontWeight.normal,
                                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                   ),
+                                                                                              validator: _model.textController1Validator.asValidator(context),
                                                                                             ),
                                                                                           ),
                                                                                         ),
                                                                                         Container(
                                                                                           width: 346,
                                                                                           child: TextFormField(
-                                                                                            controller: textController2 ??= TextEditingController(
+                                                                                            controller: _model.textController2 ??= TextEditingController(
                                                                                               text: valueOrDefault<String>(
                                                                                                 stackCompaniesRecord.iban,
                                                                                                 'null',
@@ -673,6 +667,7 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                                   fontWeight: FontWeight.normal,
                                                                                                   useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                 ),
+                                                                                            validator: _model.textController2Validator.asValidator(context),
                                                                                           ),
                                                                                         ),
                                                                                       ],
@@ -724,7 +719,7 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                             child: Container(
                                                                                               width: 346,
                                                                                               child: TextFormField(
-                                                                                                controller: textController3 ??= TextEditingController(
+                                                                                                controller: _model.textController3 ??= TextEditingController(
                                                                                                   text: valueOrDefault<String>(
                                                                                                     stackCompaniesRecord.city,
                                                                                                     'null',
@@ -785,13 +780,14 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                                       fontWeight: FontWeight.normal,
                                                                                                       useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                     ),
+                                                                                                validator: _model.textController3Validator.asValidator(context),
                                                                                               ),
                                                                                             ),
                                                                                           ),
                                                                                           Container(
                                                                                             width: 346,
                                                                                             child: TextFormField(
-                                                                                              controller: textController4 ??= TextEditingController(
+                                                                                              controller: _model.textController4 ??= TextEditingController(
                                                                                                 text: valueOrDefault<String>(
                                                                                                   stackCompaniesRecord.street,
                                                                                                   'null',
@@ -852,6 +848,7 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                                     fontWeight: FontWeight.normal,
                                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                   ),
+                                                                                              validator: _model.textController4Validator.asValidator(context),
                                                                                             ),
                                                                                           ),
                                                                                         ],
@@ -979,7 +976,7 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                               child: Container(
                                                                                 width: 346,
                                                                                 child: TextFormField(
-                                                                                  controller: textController5 ??= TextEditingController(
+                                                                                  controller: _model.textController5 ??= TextEditingController(
                                                                                     text: valueOrDefault<String>(
                                                                                       stackCompaniesRecord.countBox?.toString(),
                                                                                       'null',
@@ -1039,6 +1036,7 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                         fontWeight: FontWeight.normal,
                                                                                         useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                       ),
+                                                                                  validator: _model.textController5Validator.asValidator(context),
                                                                                 ),
                                                                               ),
                                                                             ),
@@ -1100,7 +1098,7 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                               child: Container(
                                                                                 width: 346,
                                                                                 child: TextFormField(
-                                                                                  controller: textController6 ??= TextEditingController(
+                                                                                  controller: _model.textController6 ??= TextEditingController(
                                                                                     text: valueOrDefault<String>(
                                                                                       stackCompaniesRecord.phoneNum,
                                                                                       'null',
@@ -1161,8 +1159,9 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                         useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                       ),
                                                                                   keyboardType: TextInputType.phone,
+                                                                                  validator: _model.textController6Validator.asValidator(context),
                                                                                   inputFormatters: [
-                                                                                    textFieldMask6
+                                                                                    _model.textFieldMask6
                                                                                   ],
                                                                                 ),
                                                                               ),
@@ -1228,7 +1227,7 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                   child: Container(
                                                                                     width: 181,
                                                                                     child: TextFormField(
-                                                                                      controller: textController7 ??= TextEditingController(
+                                                                                      controller: _model.textController7 ??= TextEditingController(
                                                                                         text: valueOrDefault<String>(
                                                                                           stackCompaniesRecord.openTime,
                                                                                           'null',
@@ -1289,6 +1288,7 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                             fontWeight: FontWeight.normal,
                                                                                             useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                           ),
+                                                                                      validator: _model.textController7Validator.asValidator(context),
                                                                                     ),
                                                                                   ),
                                                                                 ),
@@ -1298,7 +1298,7 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                     child: Container(
                                                                                       width: 181,
                                                                                       child: TextFormField(
-                                                                                        controller: textController8 ??= TextEditingController(
+                                                                                        controller: _model.textController8 ??= TextEditingController(
                                                                                           text: valueOrDefault<String>(
                                                                                             stackCompaniesRecord.closeTime,
                                                                                             'null',
@@ -1359,6 +1359,7 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                               fontWeight: FontWeight.normal,
                                                                                               useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                             ),
+                                                                                        validator: _model.textController8Validator.asValidator(context),
                                                                                       ),
                                                                                     ),
                                                                                   ),
@@ -1464,7 +1465,7 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                   FFAppState().update(() {
                                                                                     FFAppState().adminSelectServicesBody = 'Седан';
                                                                                   });
-                                                                                  setState(() => _firestoreRequestCompleter = null);
+                                                                                  setState(() => _model.firestoreRequestCompleter = null);
                                                                                 },
                                                                                 child: Container(
                                                                                   width: 171,
@@ -1506,7 +1507,7 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                   FFAppState().update(() {
                                                                                     FFAppState().adminSelectServicesBody = 'Хетчбэк';
                                                                                   });
-                                                                                  setState(() => _firestoreRequestCompleter = null);
+                                                                                  setState(() => _model.firestoreRequestCompleter = null);
                                                                                 },
                                                                                 child: Container(
                                                                                   width: 171,
@@ -1548,7 +1549,7 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                   FFAppState().update(() {
                                                                                     FFAppState().adminSelectServicesBody = 'Кроссовер';
                                                                                   });
-                                                                                  setState(() => _firestoreRequestCompleter = null);
+                                                                                  setState(() => _model.firestoreRequestCompleter = null);
                                                                                 },
                                                                                 child: Container(
                                                                                   width: 171,
@@ -1590,7 +1591,7 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                   FFAppState().update(() {
                                                                                     FFAppState().adminSelectServicesBody = 'Внедорожник';
                                                                                   });
-                                                                                  setState(() => _firestoreRequestCompleter = null);
+                                                                                  setState(() => _model.firestoreRequestCompleter = null);
                                                                                 },
                                                                                 child: Container(
                                                                                   width: 171,
@@ -1632,7 +1633,7 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                   FFAppState().update(() {
                                                                                     FFAppState().adminSelectServicesBody = 'Пикап';
                                                                                   });
-                                                                                  setState(() => _firestoreRequestCompleter = null);
+                                                                                  setState(() => _model.firestoreRequestCompleter = null);
                                                                                 },
                                                                                 child: Container(
                                                                                   width: 171,
@@ -1674,7 +1675,7 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                   FFAppState().update(() {
                                                                                     FFAppState().adminSelectServicesBody = 'Минивен';
                                                                                   });
-                                                                                  setState(() => _firestoreRequestCompleter = null);
+                                                                                  setState(() => _model.firestoreRequestCompleter = null);
                                                                                 },
                                                                                 child: Container(
                                                                                   width: 171,
@@ -1716,7 +1717,7 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                   FFAppState().update(() {
                                                                                     FFAppState().adminSelectServicesBody = 'Купе';
                                                                                   });
-                                                                                  setState(() => _firestoreRequestCompleter = null);
+                                                                                  setState(() => _model.firestoreRequestCompleter = null);
                                                                                 },
                                                                                 child: Container(
                                                                                   width: 171,
@@ -1777,7 +1778,7 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                 Padding(
                                                                               padding: EdgeInsetsDirectional.fromSTEB(24, 24, 24, 24),
                                                                               child: FutureBuilder<List<CompanyServicesRecord>>(
-                                                                                future: (_firestoreRequestCompleter ??= Completer<List<CompanyServicesRecord>>()
+                                                                                future: (_model.firestoreRequestCompleter ??= Completer<List<CompanyServicesRecord>>()
                                                                                       ..complete(queryCompanyServicesRecordOnce(
                                                                                         parent: widget.company,
                                                                                         queryBuilder: (companyServicesRecord) => companyServicesRecord.where('car_body', isEqualTo: FFAppState().adminSelectServicesBody),
@@ -1799,8 +1800,8 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                   List<CompanyServicesRecord> listView1CompanyServicesRecordList = snapshot.data!;
                                                                                   return RefreshIndicator(
                                                                                     onRefresh: () async {
-                                                                                      setState(() => _firestoreRequestCompleter = null);
-                                                                                      await waitForFirestoreRequestCompleter();
+                                                                                      setState(() => _model.firestoreRequestCompleter = null);
+                                                                                      await _model.waitForFirestoreRequestCompleter();
                                                                                     },
                                                                                     child: ListView.builder(
                                                                                       padding: EdgeInsets.zero,
@@ -2409,16 +2410,17 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                     currentUserReference!);
                                             await companyDocumentRecordReference
                                                 .set(companyDocumentCreateData);
-                                            newCompanyDoc = CompanyDocumentRecord
-                                                .getDocumentFromData(
-                                                    companyDocumentCreateData,
-                                                    companyDocumentRecordReference);
+                                            _model.newCompanyDoc =
+                                                CompanyDocumentRecord
+                                                    .getDocumentFromData(
+                                                        companyDocumentCreateData,
+                                                        companyDocumentRecordReference);
 
                                             final companiesUpdateData = {
                                               ...createCompaniesRecordData(
                                                 status: 'Модерация',
-                                                companyDocument:
-                                                    newCompanyDoc!.reference,
+                                                companyDocument: _model
+                                                    .newCompanyDoc!.reference,
                                               ),
                                               'company_users':
                                                   FieldValue.arrayUnion(
@@ -2429,8 +2431,8 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
 
                                             final userUpdateData =
                                                 createUserRecordData(
-                                              merchanDocument:
-                                                  newCompanyDoc!.reference,
+                                              merchanDocument: _model
+                                                  .newCompanyDoc!.reference,
                                             );
                                             await currentUserReference!
                                                 .update(userUpdateData);
@@ -2494,26 +2496,15 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                   ),
                 ],
               ),
-              AdminAppBarInfoWidget(),
+              wrapWithModel(
+                model: _model.adminAppBarInfoModel,
+                updateCallback: () => setState(() {}),
+                child: AdminAppBarInfoWidget(),
+              ),
             ],
           ),
         ),
       ),
     );
-  }
-
-  Future waitForFirestoreRequestCompleter({
-    double minWait = 0,
-    double maxWait = double.infinity,
-  }) async {
-    final stopwatch = Stopwatch()..start();
-    while (true) {
-      await Future.delayed(Duration(milliseconds: 50));
-      final timeElapsed = stopwatch.elapsedMilliseconds;
-      final requestComplete = _firestoreRequestCompleter?.isCompleted ?? false;
-      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
-        break;
-      }
-    }
   }
 }

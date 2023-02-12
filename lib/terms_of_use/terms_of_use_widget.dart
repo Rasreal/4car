@@ -4,6 +4,8 @@ import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'terms_of_use_model.dart';
+export 'terms_of_use_model.dart';
 
 class TermsOfUseWidget extends StatefulWidget {
   const TermsOfUseWidget({Key? key}) : super(key: key);
@@ -13,18 +15,23 @@ class TermsOfUseWidget extends StatefulWidget {
 }
 
 class _TermsOfUseWidgetState extends State<TermsOfUseWidget> {
-  final _unfocusNode = FocusNode();
+  late TermsOfUseModel _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => TermsOfUseModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
     super.dispose();
   }

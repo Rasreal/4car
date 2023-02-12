@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'sign_up_code_model.dart';
+export 'sign_up_code_model.dart';
 
 class SignUpCodeWidget extends StatefulWidget {
   const SignUpCodeWidget({Key? key}) : super(key: key);
@@ -17,13 +19,16 @@ class SignUpCodeWidget extends StatefulWidget {
 }
 
 class _SignUpCodeWidgetState extends State<SignUpCodeWidget> {
-  TextEditingController? pinCodeController;
-  final _unfocusNode = FocusNode();
+  late SignUpCodeModel _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => SignUpCodeModel());
+
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       FFAppState().update(() {
@@ -31,14 +36,14 @@ class _SignUpCodeWidgetState extends State<SignUpCodeWidget> {
       });
     });
 
-    pinCodeController = TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
-    pinCodeController?.dispose();
     super.dispose();
   }
 
@@ -139,7 +144,7 @@ class _SignUpCodeWidgetState extends State<SignUpCodeWidget> {
                     selectedFillColor:
                         FlutterFlowTheme.of(context).secondaryText,
                   ),
-                  controller: pinCodeController,
+                  controller: _model.pinCodeController,
                   onChanged: (_) => {},
                 ),
                 Spacer(),
@@ -185,7 +190,7 @@ class _SignUpCodeWidgetState extends State<SignUpCodeWidget> {
                 FFButtonWidget(
                   onPressed: () async {
                     GoRouter.of(context).prepareAuthEvent();
-                    final smsCodeVal = pinCodeController!.text;
+                    final smsCodeVal = _model.pinCodeController!.text;
                     if (smsCodeVal == null || smsCodeVal.isEmpty) {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
@@ -209,8 +214,8 @@ class _SignUpCodeWidgetState extends State<SignUpCodeWidget> {
                     width: 130,
                     height: 48,
                     color: valueOrDefault<Color>(
-                      pinCodeController!.text != null &&
-                              pinCodeController!.text != ''
+                      _model.pinCodeController!.text != null &&
+                              _model.pinCodeController!.text != ''
                           ? FlutterFlowTheme.of(context).primaryColor
                           : FlutterFlowTheme.of(context).starblue,
                       FlutterFlowTheme.of(context).starblue,

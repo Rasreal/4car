@@ -10,6 +10,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'super_admin_users_model.dart';
+export 'super_admin_users_model.dart';
 
 class SuperAdminUsersWidget extends StatefulWidget {
   const SuperAdminUsersWidget({Key? key}) : super(key: key);
@@ -19,13 +21,16 @@ class SuperAdminUsersWidget extends StatefulWidget {
 }
 
 class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
-  TextEditingController? textController;
-  final _unfocusNode = FocusNode();
+  late SuperAdminUsersModel _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => SuperAdminUsersModel());
+
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       FFAppState().update(() {
@@ -33,14 +38,15 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
       });
     });
 
-    textController = TextEditingController();
+    _model.textController = TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
-    textController?.dispose();
     super.dispose();
   }
 
@@ -58,8 +64,12 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SuperAdminAppBarWidget(
-                page: 'Пользователи',
+              wrapWithModel(
+                model: _model.superAdminAppBarModel,
+                updateCallback: () => setState(() {}),
+                child: SuperAdminAppBarWidget(
+                  page: 'Пользователи',
+                ),
               ),
               Expanded(
                 child: Container(
@@ -277,8 +287,8 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                     children: [
                                                       Expanded(
                                                         child: TextFormField(
-                                                          controller:
-                                                              textController,
+                                                          controller: _model
+                                                              .textController,
                                                           autofocus: true,
                                                           obscureText: false,
                                                           decoration:
@@ -339,6 +349,10 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                                         FlutterFlowTheme.of(context)
                                                                             .bodyText1Family),
                                                               ),
+                                                          validator: _model
+                                                              .textControllerValidator
+                                                              .asValidator(
+                                                                  context),
                                                         ),
                                                       ),
                                                       Icon(
@@ -1183,8 +1197,6 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                                                     padding: MediaQuery.of(context).viewInsets,
                                                                                     child: AdminFeedbackReviewWidget(
                                                                                       booking: columnBookingsRecord,
-                                                                                      company: rowCompaniesRecord,
-                                                                                      comment: listViewCommentsRecord,
                                                                                     ),
                                                                                   );
                                                                                 },
@@ -1824,11 +1836,10 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                                           BookingsRecord>>(
                                                                     stream:
                                                                         queryBookingsRecord(
-                                                                      queryBuilder: (bookingsRecord) => bookingsRecord
-                                                                          .where(
-                                                                              'booked_user',
-                                                                              isEqualTo: listViewUserRecord.reference)
-                                                                          .orderBy('booked_date'),
+                                                                      queryBuilder: (bookingsRecord) => bookingsRecord.where(
+                                                                          'booked_user',
+                                                                          isEqualTo:
+                                                                              listViewUserRecord.reference),
                                                                     ),
                                                                     builder:
                                                                         (context,
@@ -1851,19 +1862,43 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                                         );
                                                                       }
                                                                       List<BookingsRecord>
-                                                                          textBookingsRecordList =
+                                                                          containerBookingsRecordList =
                                                                           snapshot
                                                                               .data!;
-                                                                      return Text(
-                                                                        '${functions.oborot(textBookingsRecordList.toList()).toString()} ₸',
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyText1
-                                                                            .override(
-                                                                              fontFamily: 'Roboto',
-                                                                              color: FlutterFlowTheme.of(context).primaryText,
-                                                                              fontWeight: FontWeight.normal,
-                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                      return Container(
+                                                                        decoration:
+                                                                            BoxDecoration(),
+                                                                        child:
+                                                                            Row(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          children: [
+                                                                            Text(
+                                                                              valueOrDefault<String>(
+                                                                                functions.oborot(containerBookingsRecordList.toList()).toString(),
+                                                                                '0',
+                                                                              ),
+                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                    fontFamily: 'Roboto',
+                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                                    fontWeight: FontWeight.normal,
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                  ),
                                                                             ),
+                                                                            Text(
+                                                                              valueOrDefault<String>(
+                                                                                functions.oborotName(containerBookingsRecordList.toList()),
+                                                                                ' тг',
+                                                                              ),
+                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                    fontFamily: 'Roboto',
+                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                                    fontWeight: FontWeight.normal,
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                  ),
+                                                                            ),
+                                                                          ],
+                                                                        ),
                                                                       );
                                                                     },
                                                                   ),

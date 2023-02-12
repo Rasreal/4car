@@ -4,6 +4,8 @@ import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'success_model.dart';
+export 'success_model.dart';
 
 class SuccessWidget extends StatefulWidget {
   const SuccessWidget({
@@ -18,11 +20,27 @@ class SuccessWidget extends StatefulWidget {
 }
 
 class _SuccessWidgetState extends State<SuccessWidget> {
+  late SuccessModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => SuccessModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
   }
 
   @override

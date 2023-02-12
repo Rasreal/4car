@@ -4,6 +4,7 @@ import '../components/admin_app_bar_info_widget.dart';
 import '../components/admin_app_bar_widget.dart';
 import '../components/admin_new_booking_record_widget.dart';
 import '../components/admin_times_widget.dart';
+import '../flutter_flow/flutter_flow_drop_down.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -12,6 +13,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'admin_main_model.dart';
+export 'admin_main_model.dart';
 
 class AdminMainWidget extends StatefulWidget {
   const AdminMainWidget({Key? key}) : super(key: key);
@@ -21,13 +24,16 @@ class AdminMainWidget extends StatefulWidget {
 }
 
 class _AdminMainWidgetState extends State<AdminMainWidget> {
-  CompaniesRecord? addCompany;
-  final _unfocusNode = FocusNode();
+  late AdminMainModel _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => AdminMainModel());
+
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       if (valueOrDefault(currentUserDocument?.role, '') == 'Супер Админ') {
@@ -40,6 +46,8 @@ class _AdminMainWidgetState extends State<AdminMainWidget> {
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
     super.dispose();
   }
@@ -60,8 +68,12 @@ class _AdminMainWidgetState extends State<AdminMainWidget> {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  AdminAppBarWidget(
-                    pageName: 'Главная',
+                  wrapWithModel(
+                    model: _model.adminAppBarModel,
+                    updateCallback: () => setState(() {}),
+                    child: AdminAppBarWidget(
+                      pageName: 'Главная',
+                    ),
                   ),
                   Expanded(
                     child: Container(
@@ -91,388 +103,446 @@ class _AdminMainWidgetState extends State<AdminMainWidget> {
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
-                                        if (currentUserDocument!
-                                                .merchanDocument !=
-                                            null)
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0, 0, 23, 0),
-                                            child: AuthUserStreamWidget(
-                                              builder: (context) => Container(
-                                                width: 392,
-                                                height: 168,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryBackground,
-                                                  borderRadius:
-                                                      BorderRadius.circular(8),
-                                                ),
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(24, 24, 24, 24),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                    children: [
-                                                      Expanded(
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.min,
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .start,
-                                                          children: [
+                                        Container(
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
+                                          ),
+                                          child: StreamBuilder<
+                                              List<CompaniesRecord>>(
+                                            stream: queryCompaniesRecord(
+                                              queryBuilder: (companiesRecord) =>
+                                                  companiesRecord.where(
+                                                      'company_users',
+                                                      arrayContains:
+                                                          currentUserReference),
+                                              singleRecord: true,
+                                            ),
+                                            builder: (context, snapshot) {
+                                              // Customize what your widget looks like when it's loading.
+                                              if (!snapshot.hasData) {
+                                                return Center(
+                                                  child: SizedBox(
+                                                    width: 50,
+                                                    height: 50,
+                                                    child:
+                                                        CircularProgressIndicator(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryColor,
+                                                    ),
+                                                  ),
+                                                );
+                                              }
+                                              List<CompaniesRecord>
+                                                  rowCompaniesRecordList =
+                                                  snapshot.data!;
+                                              // Return an empty Container when the item does not exist.
+                                              if (snapshot.data!.isEmpty) {
+                                                return Container();
+                                              }
+                                              final rowCompaniesRecord =
+                                                  rowCompaniesRecordList
+                                                          .isNotEmpty
+                                                      ? rowCompaniesRecordList
+                                                          .first
+                                                      : null;
+                                              return Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  if (currentUserDocument!
+                                                          .merchanDocument !=
+                                                      null)
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0, 0, 23, 0),
+                                                      child:
+                                                          AuthUserStreamWidget(
+                                                        builder: (context) =>
                                                             Container(
-                                                              width: 48,
-                                                              height: 48,
-                                                              decoration:
-                                                                  BoxDecoration(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryBackground,
-                                                                shape: BoxShape
-                                                                    .circle,
-                                                              ),
-                                                              child: Icon(
-                                                                FFIcons.kicBoks,
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryColor,
-                                                                size: 24,
-                                                              ),
-                                                            ),
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          16,
-                                                                          0,
-                                                                          0,
-                                                                          0),
-                                                              child: Column(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .start,
-                                                                children: [
-                                                                  Text(
-                                                                    'Боксы',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyText1
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Inter',
-                                                                          fontSize:
-                                                                              18,
-                                                                          fontWeight:
-                                                                              FontWeight.w500,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                          width: 392,
+                                                          height: 168,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryBackground,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8),
+                                                          ),
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        24,
+                                                                        24,
+                                                                        24,
+                                                                        24),
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                Expanded(
+                                                                  child: Row(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .min,
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    children: [
+                                                                      Container(
+                                                                        width:
+                                                                            48,
+                                                                        height:
+                                                                            48,
+                                                                        decoration:
+                                                                            BoxDecoration(
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).secondaryBackground,
+                                                                          shape:
+                                                                              BoxShape.circle,
                                                                         ),
-                                                                  ),
-                                                                  Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
+                                                                        child:
+                                                                            Icon(
+                                                                          FFIcons
+                                                                              .kicBoks,
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).primaryColor,
+                                                                          size:
+                                                                              24,
+                                                                        ),
+                                                                      ),
+                                                                      Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            16,
                                                                             0,
-                                                                            8,
                                                                             0,
                                                                             0),
-                                                                    child: Text(
-                                                                      'Укажите сколько боксов будет сегодня\nработать.',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyText1
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Inter',
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).gray2,
-                                                                            fontWeight:
-                                                                                FontWeight.normal,
-                                                                            useGoogleFonts:
-                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
-                                                                          ),
-                                                                    ),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                      Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          Expanded(
-                                                            child: Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0,
-                                                                          0,
-                                                                          24,
-                                                                          0),
-                                                              child: Container(
-                                                                height: 40,
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryBackground,
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              8),
-                                                                  border: Border
-                                                                      .all(
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .gray2,
+                                                                        child:
+                                                                            Column(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          crossAxisAlignment:
+                                                                              CrossAxisAlignment.start,
+                                                                          children: [
+                                                                            Text(
+                                                                              'Боксы',
+                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                    fontFamily: 'Inter',
+                                                                                    fontSize: 18,
+                                                                                    fontWeight: FontWeight.w500,
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                  ),
+                                                                            ),
+                                                                            Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                                                                              child: Text(
+                                                                                'Укажите сколько боксов будет сегодня\nработать.',
+                                                                                style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                      fontFamily: 'Inter',
+                                                                                      color: FlutterFlowTheme.of(context).gray2,
+                                                                                      fontWeight: FontWeight.normal,
+                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                    ),
+                                                                              ),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      ),
+                                                                    ],
                                                                   ),
                                                                 ),
-                                                                child: Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          16,
-                                                                          0,
-                                                                          16,
-                                                                          0),
+                                                                Row(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  children: [
+                                                                    Padding(
+                                                                      padding: EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              0,
+                                                                              0,
+                                                                              16,
+                                                                              0),
+                                                                      child: FlutterFlowDropDown<
+                                                                          String>(
+                                                                        options: rowCompaniesRecord!
+                                                                            .countBoxString!
+                                                                            .toList()
+                                                                            .toList(),
+                                                                        onChanged:
+                                                                            (val) =>
+                                                                                setState(() => _model.dropDownUserValue = val),
+                                                                        width:
+                                                                            128,
+                                                                        height:
+                                                                            40,
+                                                                        textStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyText1
+                                                                            .override(
+                                                                              fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                              color: FlutterFlowTheme.of(context).primaryText,
+                                                                              fontWeight: FontWeight.normal,
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                            ),
+                                                                        hintText:
+                                                                            'Бокс №1',
+                                                                        fillColor:
+                                                                            Colors.white,
+                                                                        elevation:
+                                                                            1,
+                                                                        borderColor:
+                                                                            FlutterFlowTheme.of(context).gray2,
+                                                                        borderWidth:
+                                                                            1,
+                                                                        borderRadius:
+                                                                            8,
+                                                                        margin: EdgeInsetsDirectional.fromSTEB(
+                                                                            12,
+                                                                            4,
+                                                                            12,
+                                                                            4),
+                                                                        hidesUnderline:
+                                                                            true,
+                                                                      ),
+                                                                    ),
+                                                                    FFButtonWidget(
+                                                                      onPressed:
+                                                                          () {
+                                                                        print(
+                                                                            'Button pressed ...');
+                                                                      },
+                                                                      text:
+                                                                          'Сохранить',
+                                                                      options:
+                                                                          FFButtonOptions(
+                                                                        width:
+                                                                            118,
+                                                                        height:
+                                                                            40,
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primaryColor,
+                                                                        textStyle: FlutterFlowTheme.of(context)
+                                                                            .subtitle2
+                                                                            .override(
+                                                                              fontFamily: 'Inter',
+                                                                              color: Colors.white,
+                                                                              fontSize: 14,
+                                                                              fontWeight: FontWeight.normal,
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
+                                                                            ),
+                                                                        elevation:
+                                                                            0,
+                                                                        borderSide:
+                                                                            BorderSide(
+                                                                          color:
+                                                                              Colors.transparent,
+                                                                          width:
+                                                                              1,
+                                                                        ),
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(8),
+                                                                      ),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  if (currentUserDocument!
+                                                          .merchanDocument !=
+                                                      null)
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0, 0, 23, 0),
+                                                      child:
+                                                          AuthUserStreamWidget(
+                                                        builder: (context) =>
+                                                            Container(
+                                                          width: 392,
+                                                          height: 168,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryBackground,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8),
+                                                          ),
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        24,
+                                                                        24,
+                                                                        24,
+                                                                        24),
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                Expanded(
+                                                                  child: Row(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .min,
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    children: [
+                                                                      Container(
+                                                                        width:
+                                                                            48,
+                                                                        height:
+                                                                            48,
+                                                                        decoration:
+                                                                            BoxDecoration(
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).secondaryBackground,
+                                                                          shape:
+                                                                              BoxShape.circle,
+                                                                        ),
+                                                                        child:
+                                                                            Icon(
+                                                                          FFIcons
+                                                                              .kicAddEnroll,
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).primaryColor,
+                                                                          size:
+                                                                              24,
+                                                                        ),
+                                                                      ),
+                                                                      Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            16,
+                                                                            0,
+                                                                            0,
+                                                                            0),
+                                                                        child:
+                                                                            Column(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          crossAxisAlignment:
+                                                                              CrossAxisAlignment.start,
+                                                                          children: [
+                                                                            Text(
+                                                                              'Новая запись',
+                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                    fontFamily: 'Inter',
+                                                                                    fontSize: 18,
+                                                                                    fontWeight: FontWeight.w500,
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                  ),
+                                                                            ),
+                                                                            Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                                                                              child: Text(
+                                                                                'Добавьте новую запись если она\nпришла не через приложение.',
+                                                                                style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                      fontFamily: 'Inter',
+                                                                                      color: FlutterFlowTheme.of(context).gray2,
+                                                                                      fontWeight: FontWeight.normal,
+                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                    ),
+                                                                              ),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                                InkWell(
+                                                                  onTap:
+                                                                      () async {
+                                                                    FFAppState()
+                                                                        .update(
+                                                                            () {
+                                                                      FFAppState()
+                                                                              .adminSelectBookingDate =
+                                                                          getCurrentTimestamp;
+                                                                      FFAppState()
+                                                                          .bookingSelectedServicesName = [];
+                                                                    });
+                                                                    await showModalBottomSheet(
+                                                                      isScrollControlled:
+                                                                          true,
+                                                                      backgroundColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      enableDrag:
+                                                                          false,
+                                                                      context:
+                                                                          context,
+                                                                      builder:
+                                                                          (context) {
+                                                                        return Padding(
+                                                                          padding:
+                                                                              MediaQuery.of(context).viewInsets,
+                                                                          child:
+                                                                              AdminNewBookingRecordWidget(
+                                                                            company:
+                                                                                rowCompaniesRecord,
+                                                                          ),
+                                                                        );
+                                                                      },
+                                                                    ).then((value) =>
+                                                                        setState(
+                                                                            () {}));
+                                                                  },
                                                                   child: Row(
                                                                     mainAxisSize:
                                                                         MainAxisSize
                                                                             .max,
                                                                     children: [
-                                                                      Expanded(
+                                                                      Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            0,
+                                                                            0,
+                                                                            8,
+                                                                            0),
                                                                         child:
-                                                                            Text(
-                                                                          '1 Бокс',
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodyText1
-                                                                              .override(
-                                                                                fontFamily: 'Inter',
-                                                                                color: FlutterFlowTheme.of(context).gray2,
-                                                                                fontWeight: FontWeight.w500,
-                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
-                                                                              ),
+                                                                            Icon(
+                                                                          FFIcons
+                                                                              .kicPlus,
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).primaryColor,
+                                                                          size:
+                                                                              22,
                                                                         ),
                                                                       ),
-                                                                      Icon(
-                                                                        FFIcons
-                                                                            .kicArrowsButtonDown,
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .gray2,
-                                                                        size:
-                                                                            24,
-                                                                      ),
-                                                                    ],
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                          FFButtonWidget(
-                                                            onPressed: () {
-                                                              print(
-                                                                  'Button pressed ...');
-                                                            },
-                                                            text: 'Сохранить',
-                                                            options:
-                                                                FFButtonOptions(
-                                                              width: 118,
-                                                              height: 40,
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .primaryColor,
-                                                              textStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .subtitle2
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Inter',
-                                                                        color: Colors
-                                                                            .white,
-                                                                        fontSize:
-                                                                            14,
-                                                                        fontWeight:
-                                                                            FontWeight.normal,
-                                                                        useGoogleFonts:
-                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
-                                                                      ),
-                                                              elevation: 0,
-                                                              borderSide:
-                                                                  BorderSide(
-                                                                color: Colors
-                                                                    .transparent,
-                                                                width: 1,
-                                                              ),
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          8),
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        if (currentUserDocument!
-                                                .merchanDocument !=
-                                            null)
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0, 0, 23, 0),
-                                            child: AuthUserStreamWidget(
-                                              builder: (context) =>
-                                                  StreamBuilder<
-                                                      List<CompaniesRecord>>(
-                                                stream: queryCompaniesRecord(
-                                                  queryBuilder: (companiesRecord) =>
-                                                      companiesRecord.where(
-                                                          'company_users',
-                                                          arrayContains:
-                                                              currentUserReference),
-                                                  singleRecord: true,
-                                                ),
-                                                builder: (context, snapshot) {
-                                                  // Customize what your widget looks like when it's loading.
-                                                  if (!snapshot.hasData) {
-                                                    return Center(
-                                                      child: SizedBox(
-                                                        width: 50,
-                                                        height: 50,
-                                                        child:
-                                                            CircularProgressIndicator(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryColor,
-                                                        ),
-                                                      ),
-                                                    );
-                                                  }
-                                                  List<CompaniesRecord>
-                                                      containerNewBookingCompaniesRecordList =
-                                                      snapshot.data!;
-                                                  // Return an empty Container when the item does not exist.
-                                                  if (snapshot.data!.isEmpty) {
-                                                    return Container();
-                                                  }
-                                                  final containerNewBookingCompaniesRecord =
-                                                      containerNewBookingCompaniesRecordList
-                                                              .isNotEmpty
-                                                          ? containerNewBookingCompaniesRecordList
-                                                              .first
-                                                          : null;
-                                                  return Container(
-                                                    width: 392,
-                                                    height: 168,
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .primaryBackground,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8),
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(24, 24,
-                                                                  24, 24),
-                                                      child: Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          Expanded(
-                                                            child: Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .min,
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              children: [
-                                                                Container(
-                                                                  width: 48,
-                                                                  height: 48,
-                                                                  decoration:
-                                                                      BoxDecoration(
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .secondaryBackground,
-                                                                    shape: BoxShape
-                                                                        .circle,
-                                                                  ),
-                                                                  child: Icon(
-                                                                    FFIcons
-                                                                        .kicAddEnroll,
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryColor,
-                                                                    size: 24,
-                                                                  ),
-                                                                ),
-                                                                Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          16,
-                                                                          0,
-                                                                          0,
-                                                                          0),
-                                                                  child: Column(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .start,
-                                                                    children: [
                                                                       Text(
-                                                                        'Новая запись',
+                                                                        'Добавить запись',
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyText1
                                                                             .override(
                                                                               fontFamily: 'Inter',
-                                                                              fontSize: 18,
-                                                                              fontWeight: FontWeight.w500,
+                                                                              color: FlutterFlowTheme.of(context).primaryColor,
+                                                                              fontSize: 16,
+                                                                              fontWeight: FontWeight.normal,
                                                                               useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                             ),
-                                                                      ),
-                                                                      Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            8,
-                                                                            0,
-                                                                            0),
-                                                                        child:
-                                                                            Text(
-                                                                          'Добавьте новую запись если она\nпришла не через приложение.',
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodyText1
-                                                                              .override(
-                                                                                fontFamily: 'Inter',
-                                                                                color: FlutterFlowTheme.of(context).gray2,
-                                                                                fontWeight: FontWeight.normal,
-                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
-                                                                              ),
-                                                                        ),
                                                                       ),
                                                                     ],
                                                                   ),
@@ -480,93 +550,14 @@ class _AdminMainWidgetState extends State<AdminMainWidget> {
                                                               ],
                                                             ),
                                                           ),
-                                                          InkWell(
-                                                            onTap: () async {
-                                                              FFAppState()
-                                                                  .update(() {
-                                                                FFAppState()
-                                                                        .adminSelectBookingDate =
-                                                                    getCurrentTimestamp;
-                                                                FFAppState()
-                                                                    .bookingSelectedServicesName = [];
-                                                              });
-                                                              await showModalBottomSheet(
-                                                                isScrollControlled:
-                                                                    true,
-                                                                backgroundColor:
-                                                                    Colors
-                                                                        .transparent,
-                                                                enableDrag:
-                                                                    false,
-                                                                context:
-                                                                    context,
-                                                                builder:
-                                                                    (context) {
-                                                                  return Padding(
-                                                                    padding: MediaQuery.of(
-                                                                            context)
-                                                                        .viewInsets,
-                                                                    child:
-                                                                        AdminNewBookingRecordWidget(
-                                                                      company:
-                                                                          containerNewBookingCompaniesRecord,
-                                                                    ),
-                                                                  );
-                                                                },
-                                                              ).then((value) =>
-                                                                  setState(
-                                                                      () {}));
-                                                            },
-                                                            child: Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0,
-                                                                          0,
-                                                                          8,
-                                                                          0),
-                                                                  child: Icon(
-                                                                    FFIcons
-                                                                        .kicPlus,
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryColor,
-                                                                    size: 22,
-                                                                  ),
-                                                                ),
-                                                                Text(
-                                                                  'Добавить запись',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyText1
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Inter',
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .primaryColor,
-                                                                        fontSize:
-                                                                            16,
-                                                                        fontWeight:
-                                                                            FontWeight.normal,
-                                                                        useGoogleFonts:
-                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
-                                                                      ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                        ],
+                                                        ),
                                                       ),
                                                     ),
-                                                  );
-                                                },
-                                              ),
-                                            ),
+                                                ],
+                                              );
+                                            },
                                           ),
+                                        ),
                                         if (currentUserDocument!
                                                 .merchanDocument ==
                                             null)
@@ -812,23 +803,19 @@ class _AdminMainWidgetState extends State<AdminMainWidget> {
                                                                     onTap:
                                                                         () async {
                                                                       final companiesCreateData =
-                                                                          {
-                                                                        ...createCompaniesRecordData(
-                                                                          status:
-                                                                              'new',
-                                                                          adminCreatedBy:
-                                                                              currentUserReference,
-                                                                        ),
-                                                                        'listServices':
-                                                                            FFAppState().adminForCarServices,
-                                                                      };
+                                                                          createCompaniesRecordData(
+                                                                        status:
+                                                                            'new',
+                                                                        adminCreatedBy:
+                                                                            currentUserReference,
+                                                                      );
                                                                       var companiesRecordReference = CompaniesRecord
                                                                           .collection
                                                                           .doc();
                                                                       await companiesRecordReference
                                                                           .set(
                                                                               companiesCreateData);
-                                                                      addCompany = CompaniesRecord.getDocumentFromData(
+                                                                      _model.addCompany = CompaniesRecord.getDocumentFromData(
                                                                           companiesCreateData,
                                                                           companiesRecordReference);
 
@@ -839,7 +826,7 @@ class _AdminMainWidgetState extends State<AdminMainWidget> {
                                                                             {
                                                                           'company':
                                                                               serializeParam(
-                                                                            addCompany!.reference,
+                                                                            _model.addCompany!.reference,
                                                                             ParamType.DocumentReference,
                                                                           ),
                                                                         }.withoutNulls,
@@ -1052,17 +1039,15 @@ class _AdminMainWidgetState extends State<AdminMainWidget> {
                                                         BorderRadius.circular(
                                                             8),
                                                   ),
-                                                  child: FutureBuilder<
-                                                      List<
-                                                          CompanyDocumentRecord>>(
-                                                    future:
-                                                        queryCompanyDocumentRecordOnce(
-                                                      queryBuilder: (companyDocumentRecord) =>
-                                                          companyDocumentRecord.where(
+                                                  child: StreamBuilder<
+                                                      List<CompaniesRecord>>(
+                                                    stream:
+                                                        queryCompaniesRecord(
+                                                      queryBuilder: (companiesRecord) =>
+                                                          companiesRecord.where(
                                                               'company_users',
                                                               arrayContains:
                                                                   currentUserReference),
-                                                      singleRecord: true,
                                                     ),
                                                     builder:
                                                         (context, snapshot) {
@@ -1081,31 +1066,33 @@ class _AdminMainWidgetState extends State<AdminMainWidget> {
                                                           ),
                                                         );
                                                       }
-                                                      List<CompanyDocumentRecord>
-                                                          columnCompanyDocumentRecordList =
+                                                      List<CompaniesRecord>
+                                                          columnCompaniesRecordList =
                                                           snapshot.data!;
-                                                      // Return an empty Container when the item does not exist.
-                                                      if (snapshot
-                                                          .data!.isEmpty) {
-                                                        return Container();
-                                                      }
-                                                      final columnCompanyDocumentRecord =
-                                                          columnCompanyDocumentRecordList
-                                                                  .isNotEmpty
-                                                              ? columnCompanyDocumentRecordList
-                                                                  .first
-                                                              : null;
                                                       return Column(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
-                                                        children: [
-                                                          if (columnCompanyDocumentRecord !=
-                                                              null)
-                                                            FutureBuilder<
+                                                        children: List.generate(
+                                                            columnCompaniesRecordList
+                                                                .length,
+                                                            (columnIndex) {
+                                                          final columnCompaniesRecord =
+                                                              columnCompaniesRecordList[
+                                                                  columnIndex];
+                                                          return Visibility(
+                                                            visible:
+                                                                columnCompaniesRecord !=
+                                                                    null,
+                                                            child: StreamBuilder<
                                                                 List<
                                                                     ForcarTimesRecord>>(
-                                                              future:
-                                                                  queryForcarTimesRecordOnce(),
+                                                              stream:
+                                                                  queryForcarTimesRecord(
+                                                                queryBuilder: (forcarTimesRecord) =>
+                                                                    forcarTimesRecord
+                                                                        .orderBy(
+                                                                            'time_order'),
+                                                              ),
                                                               builder: (context,
                                                                   snapshot) {
                                                                 // Customize what your widget looks like when it's loading.
@@ -1143,54 +1130,27 @@ class _AdminMainWidgetState extends State<AdminMainWidget> {
                                                                     final columnForcarTimesRecord =
                                                                         columnForcarTimesRecordList[
                                                                             columnIndex];
-                                                                    return FutureBuilder<
-                                                                        int>(
-                                                                      future:
-                                                                          queryBookingsRecordCount(
-                                                                        queryBuilder: (bookingsRecord) => bookingsRecord
-                                                                            .where('booked_company_document',
-                                                                                isEqualTo: columnCompanyDocumentRecord!.reference)
-                                                                            .where('selected_times_order', arrayContains: columnForcarTimesRecord.timeOrder)
-                                                                            .where('cancelled', isEqualTo: false),
-                                                                      ),
-                                                                      builder:
-                                                                          (context,
-                                                                              snapshot) {
-                                                                        // Customize what your widget looks like when it's loading.
-                                                                        if (!snapshot
-                                                                            .hasData) {
-                                                                          return Center(
-                                                                            child:
-                                                                                SizedBox(
-                                                                              width: 50,
-                                                                              height: 50,
-                                                                              child: CircularProgressIndicator(
-                                                                                color: FlutterFlowTheme.of(context).primaryColor,
-                                                                              ),
-                                                                            ),
-                                                                          );
-                                                                        }
-                                                                        int columnCount =
-                                                                            snapshot.data!;
-                                                                        return Column(
-                                                                          mainAxisSize:
-                                                                              MainAxisSize.max,
-                                                                          children: [
-                                                                            if (columnCount >=
-                                                                                1)
-                                                                              AdminTimesWidget(
-                                                                                companyDoc: columnCompanyDocumentRecord,
-                                                                                timeOrder: columnForcarTimesRecord.timeOrder,
-                                                                              ),
-                                                                          ],
-                                                                        );
-                                                                      },
+                                                                    return Column(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      children: [
+                                                                        AdminTimesWidget(
+                                                                          key: Key(
+                                                                              'Key6vf_${columnIndex}_of_${columnForcarTimesRecordList.length}'),
+                                                                          companyDoc:
+                                                                              columnCompaniesRecord,
+                                                                          timeOrder:
+                                                                              columnForcarTimesRecord.timeOrder,
+                                                                        ),
+                                                                      ],
                                                                     );
                                                                   }),
                                                                 );
                                                               },
                                                             ),
-                                                        ],
+                                                          );
+                                                        }),
                                                       );
                                                     },
                                                   ),
@@ -1213,7 +1173,11 @@ class _AdminMainWidgetState extends State<AdminMainWidget> {
               ),
               Align(
                 alignment: AlignmentDirectional(0, -1),
-                child: AdminAppBarInfoWidget(),
+                child: wrapWithModel(
+                  model: _model.adminAppBarInfoModel,
+                  updateCallback: () => setState(() {}),
+                  child: AdminAppBarInfoWidget(),
+                ),
               ),
             ],
           ),

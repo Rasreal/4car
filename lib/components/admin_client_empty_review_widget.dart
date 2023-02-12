@@ -3,6 +3,8 @@ import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'admin_client_empty_review_model.dart';
+export 'admin_client_empty_review_model.dart';
 
 class AdminClientEmptyReviewWidget extends StatefulWidget {
   const AdminClientEmptyReviewWidget({Key? key}) : super(key: key);
@@ -14,11 +16,27 @@ class AdminClientEmptyReviewWidget extends StatefulWidget {
 
 class _AdminClientEmptyReviewWidgetState
     extends State<AdminClientEmptyReviewWidget> {
+  late AdminClientEmptyReviewModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => AdminClientEmptyReviewModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
   }
 
   @override

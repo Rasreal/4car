@@ -16,6 +16,8 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'sign_up2_model.dart';
+export 'sign_up2_model.dart';
 
 class SignUp2Widget extends StatefulWidget {
   const SignUp2Widget({Key? key}) : super(key: key);
@@ -26,6 +28,11 @@ class SignUp2Widget extends StatefulWidget {
 
 class _SignUp2WidgetState extends State<SignUp2Widget>
     with TickerProviderStateMixin {
+  late SignUp2Model _model;
+
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
+
   final animationsMap = {
     'containerOnActionTriggerAnimation': AnimationInfo(
       trigger: AnimationTrigger.onActionTrigger,
@@ -49,13 +56,13 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
       ],
     ),
   };
-  TextEditingController? textController;
-  final _unfocusNode = FocusNode();
-  final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => SignUp2Model());
+
+    _model.textController = TextEditingController();
     setupAnimations(
       animationsMap.values.where((anim) =>
           anim.trigger == AnimationTrigger.onActionTrigger ||
@@ -63,14 +70,14 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
       this,
     );
 
-    textController = TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
-    textController?.dispose();
     super.dispose();
   }
 
@@ -122,7 +129,7 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                       child: TextFormField(
-                        controller: textController,
+                        controller: _model.textController,
                         obscureText: false,
                         decoration: InputDecoration(
                           hintText: 'Ввести',
@@ -166,6 +173,8 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                           ),
                         ),
                         style: FlutterFlowTheme.of(context).bodyText1,
+                        validator:
+                            _model.textControllerValidator.asValidator(context),
                       ),
                     ),
                     Padding(
@@ -302,21 +311,21 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                                         onTap: () async {
                                           if (currentUserDocument!.firstCar ==
                                               columnMyCarsRecord.reference) {
-                                            final userUpdateData = {
+                                            final userUpdateData1 = {
                                               'firstCar': FieldValue.delete(),
                                             };
                                             await currentUserReference!
-                                                .update(userUpdateData);
+                                                .update(userUpdateData1);
                                           }
                                           await columnMyCarsRecord.reference
                                               .delete();
 
-                                          final userUpdateData = {
+                                          final userUpdateData2 = {
                                             'carscount':
                                                 FieldValue.increment(-(1)),
                                           };
                                           await currentUserReference!
-                                              .update(userUpdateData);
+                                              .update(userUpdateData2);
                                         },
                                         child: Text(
                                           'Удалить',
@@ -679,7 +688,7 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                                     onPressed: () async {
                                       final userUpdateData =
                                           createUserRecordData(
-                                        displayName: textController!.text,
+                                        displayName: _model.textController.text,
                                       );
                                       await currentUserReference!
                                           .update(userUpdateData);

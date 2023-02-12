@@ -28,7 +28,7 @@
             <string>Editor</string>
             <key>CFBundleURLSchemes</key>
             <array>
-                <string>com.googleusercontent.apps.91139422644-khkoetd9fecsov7jkijvrkta2eb7ugh2</string>
+                <string>com.googleusercontent.apps.539047140274-mm7b03upakbviil53dnn0a0vhq15o3km</string>
                 
             </array>
         </dict>
@@ -90,7 +90,5 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 
-	<key>CADisableMinimumFrameDurationOnPhone</key>
-	<true/>
 </dict>
 </plist>

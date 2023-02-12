@@ -13,6 +13,8 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'current_booking_record_model.dart';
+export 'current_booking_record_model.dart';
 
 class CurrentBookingRecordWidget extends StatefulWidget {
   const CurrentBookingRecordWidget({
@@ -29,6 +31,11 @@ class CurrentBookingRecordWidget extends StatefulWidget {
 
 class _CurrentBookingRecordWidgetState extends State<CurrentBookingRecordWidget>
     with TickerProviderStateMixin {
+  late CurrentBookingRecordModel _model;
+
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
+
   final animationsMap = {
     'containerOnActionTriggerAnimation': AnimationInfo(
       trigger: AnimationTrigger.onActionTrigger,
@@ -52,16 +59,15 @@ class _CurrentBookingRecordWidgetState extends State<CurrentBookingRecordWidget>
       ],
     ),
   };
-  bool? canceled;
-  final _unfocusNode = FocusNode();
-  final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => CurrentBookingRecordModel());
+
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      if (canceled!) {
+      if (_model.canceled!) {
         if (animationsMap['containerOnActionTriggerAnimation'] != null) {
           await animationsMap['containerOnActionTriggerAnimation']!
               .controller
@@ -82,6 +88,8 @@ class _CurrentBookingRecordWidgetState extends State<CurrentBookingRecordWidget>
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
     super.dispose();
   }
@@ -258,8 +266,12 @@ class _CurrentBookingRecordWidgetState extends State<CurrentBookingRecordWidget>
                                         }
                                         final companyCardCompaniesRecord =
                                             snapshot.data!;
-                                        return CompanyCardWidget(
-                                          company: companyCardCompaniesRecord,
+                                        return wrapWithModel(
+                                          model: _model.companyCardModel,
+                                          updateCallback: () => setState(() {}),
+                                          child: CompanyCardWidget(
+                                            company: companyCardCompaniesRecord,
+                                          ),
                                         );
                                       },
                                     ),
@@ -627,13 +639,13 @@ class _CurrentBookingRecordWidgetState extends State<CurrentBookingRecordWidget>
                                                           .viewInsets,
                                                   child:
                                                       BookingCancellationWidget(
-                                                    booking: stackBookingsRecord
-                                                        .reference,
+                                                    booking:
+                                                        stackBookingsRecord,
                                                   ),
                                                 );
                                               },
                                             ).then((value) => setState(
-                                                () => canceled = value));
+                                                () => _model.canceled = value));
 
                                             setState(() {});
                                           },

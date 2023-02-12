@@ -4,6 +4,8 @@ import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'empty_booked_history_model.dart';
+export 'empty_booked_history_model.dart';
 
 class EmptyBookedHistoryWidget extends StatefulWidget {
   const EmptyBookedHistoryWidget({Key? key}) : super(key: key);
@@ -14,11 +16,27 @@ class EmptyBookedHistoryWidget extends StatefulWidget {
 }
 
 class _EmptyBookedHistoryWidgetState extends State<EmptyBookedHistoryWidget> {
+  late EmptyBookedHistoryModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => EmptyBookedHistoryModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
   }
 
   @override

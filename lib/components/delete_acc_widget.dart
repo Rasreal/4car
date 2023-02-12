@@ -4,6 +4,8 @@ import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'delete_acc_model.dart';
+export 'delete_acc_model.dart';
 
 class DeleteAccWidget extends StatefulWidget {
   const DeleteAccWidget({Key? key}) : super(key: key);
@@ -13,11 +15,27 @@ class DeleteAccWidget extends StatefulWidget {
 }
 
 class _DeleteAccWidgetState extends State<DeleteAccWidget> {
+  late DeleteAccModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => DeleteAccModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
   }
 
   @override

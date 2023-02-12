@@ -181,14 +181,6 @@ class _$CompaniesRecordSerializer
         ..add('closed_time_order')
         ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
-    value = object.listServices;
-    if (value != null) {
-      result
-        ..add('listServices')
-        ..add(serializers.serialize(value,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(String)])));
-    }
     value = object.companyDocument;
     if (value != null) {
       result
@@ -350,12 +342,6 @@ class _$CompaniesRecordSerializer
           result.closedTimeOrder = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int?;
           break;
-        case 'listServices':
-          result.listServices.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(
-                      BuiltList, const [const FullType(String)]))!
-              as BuiltList<Object?>);
-          break;
         case 'company_document':
           result.companyDocument = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -444,8 +430,6 @@ class _$CompaniesRecord extends CompaniesRecord {
   @override
   final int? closedTimeOrder;
   @override
-  final BuiltList<String>? listServices;
-  @override
   final DocumentReference<Object?>? companyDocument;
   @override
   final double? forCarPercent;
@@ -485,7 +469,6 @@ class _$CompaniesRecord extends CompaniesRecord {
       this.closeTime,
       this.openTimeOrder,
       this.closedTimeOrder,
-      this.listServices,
       this.companyDocument,
       this.forCarPercent,
       this.countBoxString,
@@ -529,7 +512,6 @@ class _$CompaniesRecord extends CompaniesRecord {
         closeTime == other.closeTime &&
         openTimeOrder == other.openTimeOrder &&
         closedTimeOrder == other.closedTimeOrder &&
-        listServices == other.listServices &&
         companyDocument == other.companyDocument &&
         forCarPercent == other.forCarPercent &&
         countBoxString == other.countBoxString &&
@@ -558,20 +540,20 @@ class _$CompaniesRecord extends CompaniesRecord {
                                                                 $jc(
                                                                     $jc(
                                                                         $jc(
-                                                                            $jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc(0, name.hashCode), rating.hashCode), location.hashCode), logo.hashCode), city.hashCode), street.hashCode), address2GIS.hashCode), adminCreatedBy.hashCode), conveniences.hashCode), countBox.hashCode), status.hashCode),
-                                                                                tooName.hashCode),
-                                                                            binIin.hashCode),
-                                                                        iban.hashCode),
-                                                                    fioAdmin.hashCode),
-                                                                dateDogovor.hashCode),
-                                                            dogovorPdf.hashCode),
-                                                        linkCity.hashCode),
-                                                    phoneNum.hashCode),
-                                                openTime.hashCode),
-                                            closeTime.hashCode),
-                                        openTimeOrder.hashCode),
-                                    closedTimeOrder.hashCode),
-                                listServices.hashCode),
+                                                                            $jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc(0, name.hashCode), rating.hashCode), location.hashCode), logo.hashCode), city.hashCode), street.hashCode), address2GIS.hashCode), adminCreatedBy.hashCode), conveniences.hashCode), countBox.hashCode),
+                                                                                status.hashCode),
+                                                                            tooName.hashCode),
+                                                                        binIin.hashCode),
+                                                                    iban.hashCode),
+                                                                fioAdmin.hashCode),
+                                                            dateDogovor.hashCode),
+                                                        dogovorPdf.hashCode),
+                                                    linkCity.hashCode),
+                                                phoneNum.hashCode),
+                                            openTime.hashCode),
+                                        closeTime.hashCode),
+                                    openTimeOrder.hashCode),
+                                closedTimeOrder.hashCode),
                             companyDocument.hashCode),
                         forCarPercent.hashCode),
                     countBoxString.hashCode),
@@ -606,7 +588,6 @@ class _$CompaniesRecord extends CompaniesRecord {
           ..add('closeTime', closeTime)
           ..add('openTimeOrder', openTimeOrder)
           ..add('closedTimeOrder', closedTimeOrder)
-          ..add('listServices', listServices)
           ..add('companyDocument', companyDocument)
           ..add('forCarPercent', forCarPercent)
           ..add('countBoxString', countBoxString)
@@ -718,12 +699,6 @@ class CompaniesRecordBuilder
   set closedTimeOrder(int? closedTimeOrder) =>
       _$this._closedTimeOrder = closedTimeOrder;
 
-  ListBuilder<String>? _listServices;
-  ListBuilder<String> get listServices =>
-      _$this._listServices ??= new ListBuilder<String>();
-  set listServices(ListBuilder<String>? listServices) =>
-      _$this._listServices = listServices;
-
   DocumentReference<Object?>? _companyDocument;
   DocumentReference<Object?>? get companyDocument => _$this._companyDocument;
   set companyDocument(DocumentReference<Object?>? companyDocument) =>
@@ -784,7 +759,6 @@ class CompaniesRecordBuilder
       _closeTime = $v.closeTime;
       _openTimeOrder = $v.openTimeOrder;
       _closedTimeOrder = $v.closedTimeOrder;
-      _listServices = $v.listServices?.toBuilder();
       _companyDocument = $v.companyDocument;
       _forCarPercent = $v.forCarPercent;
       _countBoxString = $v.countBoxString?.toBuilder();
@@ -838,7 +812,6 @@ class CompaniesRecordBuilder
               closeTime: closeTime,
               openTimeOrder: openTimeOrder,
               closedTimeOrder: closedTimeOrder,
-              listServices: _listServices?.build(),
               companyDocument: companyDocument,
               forCarPercent: forCarPercent,
               countBoxString: _countBoxString?.build(),
@@ -850,9 +823,6 @@ class CompaniesRecordBuilder
       try {
         _$failedField = 'rating';
         _rating?.build();
-
-        _$failedField = 'listServices';
-        _listServices?.build();
 
         _$failedField = 'countBoxString';
         _countBoxString?.build();

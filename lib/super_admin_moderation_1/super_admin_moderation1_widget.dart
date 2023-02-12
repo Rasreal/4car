@@ -1,6 +1,5 @@
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
-import '../components/admin_app_bar_info_widget.dart';
 import '../components/super_admin_app_bar_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -12,6 +11,8 @@ import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
+import 'super_admin_moderation1_model.dart';
+export 'super_admin_moderation1_model.dart';
 
 class SuperAdminModeration1Widget extends StatefulWidget {
   const SuperAdminModeration1Widget({
@@ -28,22 +29,16 @@ class SuperAdminModeration1Widget extends StatefulWidget {
 
 class _SuperAdminModeration1WidgetState
     extends State<SuperAdminModeration1Widget> {
-  Completer<List<CompanyServicesRecord>>? _firestoreRequestCompleter;
-  TextEditingController? textController1;
-  TextEditingController? textController2;
-  TextEditingController? textController3;
-  TextEditingController? textController4;
-  TextEditingController? textController5;
-  TextEditingController? textController6;
-  final textFieldMask6 = MaskTextInputFormatter(mask: '+# (###) ###-##-##');
-  TextEditingController? textController7;
-  TextEditingController? textController8;
-  final _unfocusNode = FocusNode();
+  late SuperAdminModeration1Model _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => SuperAdminModeration1Model());
+
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       FFAppState().update(() {
@@ -56,15 +51,9 @@ class _SuperAdminModeration1WidgetState
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
-    textController1?.dispose();
-    textController2?.dispose();
-    textController3?.dispose();
-    textController4?.dispose();
-    textController5?.dispose();
-    textController6?.dispose();
-    textController7?.dispose();
-    textController8?.dispose();
     super.dispose();
   }
 
@@ -83,8 +72,12 @@ class _SuperAdminModeration1WidgetState
               Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  SuperAdminAppBarWidget(
-                    page: 'Главная',
+                  wrapWithModel(
+                    model: _model.superAdminAppBarModel,
+                    updateCallback: () => setState(() {}),
+                    child: SuperAdminAppBarWidget(
+                      page: 'Главная',
+                    ),
                   ),
                   Expanded(
                     child: Stack(
@@ -564,7 +557,7 @@ class _SuperAdminModeration1WidgetState
                                                                                         child: Container(
                                                                                           width: 346,
                                                                                           child: TextFormField(
-                                                                                            controller: textController1 ??= TextEditingController(
+                                                                                            controller: _model.textController1 ??= TextEditingController(
                                                                                               text: columnCompaniesRecord.binIin?.toString(),
                                                                                             ),
                                                                                             readOnly: true,
@@ -622,13 +615,14 @@ class _SuperAdminModeration1WidgetState
                                                                                                   fontWeight: FontWeight.normal,
                                                                                                   useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                 ),
+                                                                                            validator: _model.textController1Validator.asValidator(context),
                                                                                           ),
                                                                                         ),
                                                                                       ),
                                                                                       Container(
                                                                                         width: 346,
                                                                                         child: TextFormField(
-                                                                                          controller: textController2 ??= TextEditingController(
+                                                                                          controller: _model.textController2 ??= TextEditingController(
                                                                                             text: columnCompaniesRecord.iban,
                                                                                           ),
                                                                                           readOnly: true,
@@ -686,6 +680,7 @@ class _SuperAdminModeration1WidgetState
                                                                                                 fontWeight: FontWeight.normal,
                                                                                                 useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                               ),
+                                                                                          validator: _model.textController2Validator.asValidator(context),
                                                                                         ),
                                                                                       ),
                                                                                     ],
@@ -741,7 +736,7 @@ class _SuperAdminModeration1WidgetState
                                                                                           child: Container(
                                                                                             width: 346,
                                                                                             child: TextFormField(
-                                                                                              controller: textController3 ??= TextEditingController(
+                                                                                              controller: _model.textController3 ??= TextEditingController(
                                                                                                 text: columnCompaniesRecord.iban,
                                                                                               ),
                                                                                               readOnly: true,
@@ -799,13 +794,14 @@ class _SuperAdminModeration1WidgetState
                                                                                                     fontWeight: FontWeight.normal,
                                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                   ),
+                                                                                              validator: _model.textController3Validator.asValidator(context),
                                                                                             ),
                                                                                           ),
                                                                                         ),
                                                                                         Container(
                                                                                           width: 346,
                                                                                           child: TextFormField(
-                                                                                            controller: textController4 ??= TextEditingController(
+                                                                                            controller: _model.textController4 ??= TextEditingController(
                                                                                               text: columnCompaniesRecord.street,
                                                                                             ),
                                                                                             readOnly: true,
@@ -863,6 +859,7 @@ class _SuperAdminModeration1WidgetState
                                                                                                   fontWeight: FontWeight.normal,
                                                                                                   useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                 ),
+                                                                                            validator: _model.textController4Validator.asValidator(context),
                                                                                           ),
                                                                                         ),
                                                                                       ],
@@ -989,7 +986,7 @@ class _SuperAdminModeration1WidgetState
                                                                               child: Container(
                                                                                 width: 346,
                                                                                 child: TextFormField(
-                                                                                  controller: textController5 ??= TextEditingController(
+                                                                                  controller: _model.textController5 ??= TextEditingController(
                                                                                     text: columnCompaniesRecord.countBox?.toString(),
                                                                                   ),
                                                                                   readOnly: true,
@@ -1046,6 +1043,7 @@ class _SuperAdminModeration1WidgetState
                                                                                         fontWeight: FontWeight.normal,
                                                                                         useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                       ),
+                                                                                  validator: _model.textController5Validator.asValidator(context),
                                                                                 ),
                                                                               ),
                                                                             ),
@@ -1107,7 +1105,7 @@ class _SuperAdminModeration1WidgetState
                                                                               child: Container(
                                                                                 width: 346,
                                                                                 child: TextFormField(
-                                                                                  controller: textController6 ??= TextEditingController(
+                                                                                  controller: _model.textController6 ??= TextEditingController(
                                                                                     text: columnCompaniesRecord.phoneNum,
                                                                                   ),
                                                                                   readOnly: true,
@@ -1165,8 +1163,9 @@ class _SuperAdminModeration1WidgetState
                                                                                         useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                       ),
                                                                                   keyboardType: TextInputType.phone,
+                                                                                  validator: _model.textController6Validator.asValidator(context),
                                                                                   inputFormatters: [
-                                                                                    textFieldMask6
+                                                                                    _model.textFieldMask6
                                                                                   ],
                                                                                 ),
                                                                               ),
@@ -1232,7 +1231,7 @@ class _SuperAdminModeration1WidgetState
                                                                                   child: Container(
                                                                                     width: 181,
                                                                                     child: TextFormField(
-                                                                                      controller: textController7 ??= TextEditingController(
+                                                                                      controller: _model.textController7 ??= TextEditingController(
                                                                                         text: columnCompaniesRecord.openTime,
                                                                                       ),
                                                                                       readOnly: true,
@@ -1290,6 +1289,7 @@ class _SuperAdminModeration1WidgetState
                                                                                             fontWeight: FontWeight.normal,
                                                                                             useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                           ),
+                                                                                      validator: _model.textController7Validator.asValidator(context),
                                                                                     ),
                                                                                   ),
                                                                                 ),
@@ -1299,7 +1299,7 @@ class _SuperAdminModeration1WidgetState
                                                                                     child: Container(
                                                                                       width: 181,
                                                                                       child: TextFormField(
-                                                                                        controller: textController8 ??= TextEditingController(
+                                                                                        controller: _model.textController8 ??= TextEditingController(
                                                                                           text: columnCompaniesRecord.closeTime,
                                                                                         ),
                                                                                         readOnly: true,
@@ -1357,6 +1357,7 @@ class _SuperAdminModeration1WidgetState
                                                                                               fontWeight: FontWeight.normal,
                                                                                               useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                             ),
+                                                                                        validator: _model.textController8Validator.asValidator(context),
                                                                                       ),
                                                                                     ),
                                                                                   ),
@@ -1462,7 +1463,7 @@ class _SuperAdminModeration1WidgetState
                                                                                   FFAppState().update(() {
                                                                                     FFAppState().adminSelectServicesBody = 'Седан';
                                                                                   });
-                                                                                  setState(() => _firestoreRequestCompleter = null);
+                                                                                  setState(() => _model.firestoreRequestCompleter = null);
                                                                                 },
                                                                                 child: Container(
                                                                                   width: 171,
@@ -1504,7 +1505,7 @@ class _SuperAdminModeration1WidgetState
                                                                                   FFAppState().update(() {
                                                                                     FFAppState().adminSelectServicesBody = 'Хетчбэк';
                                                                                   });
-                                                                                  setState(() => _firestoreRequestCompleter = null);
+                                                                                  setState(() => _model.firestoreRequestCompleter = null);
                                                                                 },
                                                                                 child: Container(
                                                                                   width: 171,
@@ -1546,7 +1547,7 @@ class _SuperAdminModeration1WidgetState
                                                                                   FFAppState().update(() {
                                                                                     FFAppState().adminSelectServicesBody = 'Кроссовер';
                                                                                   });
-                                                                                  setState(() => _firestoreRequestCompleter = null);
+                                                                                  setState(() => _model.firestoreRequestCompleter = null);
                                                                                 },
                                                                                 child: Container(
                                                                                   width: 171,
@@ -1588,7 +1589,7 @@ class _SuperAdminModeration1WidgetState
                                                                                   FFAppState().update(() {
                                                                                     FFAppState().adminSelectServicesBody = 'Внедорожник';
                                                                                   });
-                                                                                  setState(() => _firestoreRequestCompleter = null);
+                                                                                  setState(() => _model.firestoreRequestCompleter = null);
                                                                                 },
                                                                                 child: Container(
                                                                                   width: 171,
@@ -1630,7 +1631,7 @@ class _SuperAdminModeration1WidgetState
                                                                                   FFAppState().update(() {
                                                                                     FFAppState().adminSelectServicesBody = 'Пикап';
                                                                                   });
-                                                                                  setState(() => _firestoreRequestCompleter = null);
+                                                                                  setState(() => _model.firestoreRequestCompleter = null);
                                                                                 },
                                                                                 child: Container(
                                                                                   width: 171,
@@ -1672,7 +1673,7 @@ class _SuperAdminModeration1WidgetState
                                                                                   FFAppState().update(() {
                                                                                     FFAppState().adminSelectServicesBody = 'Минивен';
                                                                                   });
-                                                                                  setState(() => _firestoreRequestCompleter = null);
+                                                                                  setState(() => _model.firestoreRequestCompleter = null);
                                                                                 },
                                                                                 child: Container(
                                                                                   width: 171,
@@ -1714,7 +1715,7 @@ class _SuperAdminModeration1WidgetState
                                                                                   FFAppState().update(() {
                                                                                     FFAppState().adminSelectServicesBody = 'Купе';
                                                                                   });
-                                                                                  setState(() => _firestoreRequestCompleter = null);
+                                                                                  setState(() => _model.firestoreRequestCompleter = null);
                                                                                 },
                                                                                 child: Container(
                                                                                   width: 171,
@@ -1775,7 +1776,7 @@ class _SuperAdminModeration1WidgetState
                                                                                 Padding(
                                                                               padding: EdgeInsetsDirectional.fromSTEB(24, 24, 24, 24),
                                                                               child: FutureBuilder<List<CompanyServicesRecord>>(
-                                                                                future: (_firestoreRequestCompleter ??= Completer<List<CompanyServicesRecord>>()
+                                                                                future: (_model.firestoreRequestCompleter ??= Completer<List<CompanyServicesRecord>>()
                                                                                       ..complete(queryCompanyServicesRecordOnce(
                                                                                         parent: widget.company,
                                                                                         queryBuilder: (companyServicesRecord) => companyServicesRecord.where('car_body', isEqualTo: FFAppState().adminSelectServicesBody),
@@ -1797,8 +1798,8 @@ class _SuperAdminModeration1WidgetState
                                                                                   List<CompanyServicesRecord> listViewCompanyServicesRecordList = snapshot.data!;
                                                                                   return RefreshIndicator(
                                                                                     onRefresh: () async {
-                                                                                      setState(() => _firestoreRequestCompleter = null);
-                                                                                      await waitForFirestoreRequestCompleter();
+                                                                                      setState(() => _model.firestoreRequestCompleter = null);
+                                                                                      await _model.waitForFirestoreRequestCompleter();
                                                                                     },
                                                                                     child: ListView.builder(
                                                                                       padding: EdgeInsets.zero,
@@ -2375,7 +2376,6 @@ class _SuperAdminModeration1WidgetState
                   ),
                 ],
               ),
-              AdminAppBarInfoWidget(),
               if (FFAppState().superAdminCencelledModeration)
                 Align(
                   alignment: AlignmentDirectional(0, 0),
@@ -2702,20 +2702,5 @@ class _SuperAdminModeration1WidgetState
         ),
       ),
     );
-  }
-
-  Future waitForFirestoreRequestCompleter({
-    double minWait = 0,
-    double maxWait = double.infinity,
-  }) async {
-    final stopwatch = Stopwatch()..start();
-    while (true) {
-      await Future.delayed(Duration(milliseconds: 50));
-      final timeElapsed = stopwatch.elapsedMilliseconds;
-      final requestComplete = _firestoreRequestCompleter?.isCompleted ?? false;
-      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
-        break;
-      }
-    }
   }
 }

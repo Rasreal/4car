@@ -11,6 +11,8 @@ import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
+import 'admin_analytics_model.dart';
+export 'admin_analytics_model.dart';
 
 class AdminAnalyticsWidget extends StatefulWidget {
   const AdminAnalyticsWidget({Key? key}) : super(key: key);
@@ -20,12 +22,16 @@ class AdminAnalyticsWidget extends StatefulWidget {
 }
 
 class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget> {
-  final _unfocusNode = FocusNode();
+  late AdminAnalyticsModel _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => AdminAnalyticsModel());
+
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       if (FFAppState().adminAnalyticsType == null ||
@@ -41,6 +47,8 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget> {
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
     super.dispose();
   }
@@ -58,8 +66,12 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              AdminAppBarWidget(
-                pageName: 'Аналитика',
+              wrapWithModel(
+                model: _model.adminAppBarModel,
+                updateCallback: () => setState(() {}),
+                child: AdminAppBarWidget(
+                  pageName: 'Аналитика',
+                ),
               ),
               Expanded(
                 child: SingleChildScrollView(
@@ -1650,8 +1662,8 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget> {
                                             );
                                           },
                                         ),
-                                      FutureBuilder<List<CommentsRecord>>(
-                                        future: queryCommentsRecordOnce(
+                                      StreamBuilder<List<CommentsRecord>>(
+                                        stream: queryCommentsRecord(
                                           parent:
                                               containerContentCompaniesRecord!
                                                   .reference,

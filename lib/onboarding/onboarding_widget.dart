@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'onboarding_model.dart';
+export 'onboarding_model.dart';
 
 class OnboardingWidget extends StatefulWidget {
   const OnboardingWidget({Key? key}) : super(key: key);
@@ -16,13 +18,16 @@ class OnboardingWidget extends StatefulWidget {
 }
 
 class _OnboardingWidgetState extends State<OnboardingWidget> {
-  PageController? pageViewController;
-  final _unfocusNode = FocusNode();
+  late OnboardingModel _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => OnboardingModel());
+
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       if (FFAppState().signINcode) {
@@ -38,6 +43,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
     super.dispose();
   }
@@ -77,7 +84,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0, 0, 0, 50),
                                   child: PageView(
-                                    controller: pageViewController ??=
+                                    controller: _model.pageViewController ??=
                                         PageController(initialPage: 0),
                                     scrollDirection: Axis.horizontal,
                                     children: [
@@ -301,12 +308,13 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                         0, 0, 0, 10),
                                     child: smooth_page_indicator
                                         .SmoothPageIndicator(
-                                      controller: pageViewController ??=
+                                      controller: _model.pageViewController ??=
                                           PageController(initialPage: 0),
                                       count: 3,
                                       axisDirection: Axis.horizontal,
                                       onDotClicked: (i) {
-                                        pageViewController!.animateToPage(
+                                        _model.pageViewController!
+                                            .animateToPage(
                                           i,
                                           duration: Duration(milliseconds: 500),
                                           curve: Curves.ease,

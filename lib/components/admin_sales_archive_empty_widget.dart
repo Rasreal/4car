@@ -3,6 +3,8 @@ import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'admin_sales_archive_empty_model.dart';
+export 'admin_sales_archive_empty_model.dart';
 
 class AdminSalesArchiveEmptyWidget extends StatefulWidget {
   const AdminSalesArchiveEmptyWidget({Key? key}) : super(key: key);
@@ -14,11 +16,27 @@ class AdminSalesArchiveEmptyWidget extends StatefulWidget {
 
 class _AdminSalesArchiveEmptyWidgetState
     extends State<AdminSalesArchiveEmptyWidget> {
+  late AdminSalesArchiveEmptyModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => AdminSalesArchiveEmptyModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
   }
 
   @override

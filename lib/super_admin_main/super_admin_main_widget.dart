@@ -1,6 +1,5 @@
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
-import '../components/admin_app_bar_info_widget.dart';
 import '../components/super_admin_app_bar_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -11,6 +10,8 @@ import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
+import 'super_admin_main_model.dart';
+export 'super_admin_main_model.dart';
 
 class SuperAdminMainWidget extends StatefulWidget {
   const SuperAdminMainWidget({Key? key}) : super(key: key);
@@ -20,17 +21,16 @@ class SuperAdminMainWidget extends StatefulWidget {
 }
 
 class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
-  PagingController<DocumentSnapshot?, CompaniesRecord>? _pagingController;
-  Query? _pagingQuery;
-  List<StreamSubscription?> _streamSubscriptions = [];
+  late SuperAdminMainModel _model;
 
-  TextEditingController? textController;
-  final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => SuperAdminMainModel());
+
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       if (valueOrDefault(currentUserDocument?.role, '') == 'Руководитель') {
@@ -38,14 +38,14 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
       }
     });
 
-    textController = TextEditingController();
+    _model.textController = TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
-    _streamSubscriptions.forEach((s) => s?.cancel());
-    textController?.dispose();
+    _model.dispose();
+
     _unfocusNode.dispose();
     super.dispose();
   }
@@ -66,8 +66,12 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SuperAdminAppBarWidget(
-                    page: 'Главная',
+                  wrapWithModel(
+                    model: _model.superAdminAppBarModel,
+                    updateCallback: () => setState(() {}),
+                    child: SuperAdminAppBarWidget(
+                      page: 'Главная',
+                    ),
                   ),
                   Expanded(
                     child: Container(
@@ -278,8 +282,25 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                               0)
                                                             InkWell(
                                                               onTap: () async {
-                                                                context.pushNamed(
-                                                                    'super_admin_moderation');
+                                                                context
+                                                                    .pushNamed(
+                                                                  'super_admin_moderation',
+                                                                  extra: <
+                                                                      String,
+                                                                      dynamic>{
+                                                                    kTransitionInfoKey:
+                                                                        TransitionInfo(
+                                                                      hasTransition:
+                                                                          true,
+                                                                      transitionType:
+                                                                          PageTransitionType
+                                                                              .fade,
+                                                                      duration: Duration(
+                                                                          milliseconds:
+                                                                              0),
+                                                                    ),
+                                                                  },
+                                                                );
                                                               },
                                                               child: Text(
                                                                 'Подробнее',
@@ -486,27 +507,48 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                               .bodyText1Family),
                                                                 ),
                                                           ),
-                                                          Text(
-                                                            'Подробнее',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyText1
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Open Sans',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryColor,
-                                                                  fontSize: 16,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyText1Family),
-                                                                ),
+                                                          InkWell(
+                                                            onTap: () async {
+                                                              context.pushNamed(
+                                                                'super_admin_cancelled_bookings',
+                                                                extra: <String,
+                                                                    dynamic>{
+                                                                  kTransitionInfoKey:
+                                                                      TransitionInfo(
+                                                                    hasTransition:
+                                                                        true,
+                                                                    transitionType:
+                                                                        PageTransitionType
+                                                                            .fade,
+                                                                    duration: Duration(
+                                                                        milliseconds:
+                                                                            0),
+                                                                  ),
+                                                                },
+                                                              );
+                                                            },
+                                                            child: Text(
+                                                              'Подробнее',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyText1
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Open Sans',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryColor,
+                                                                    fontSize:
+                                                                        16,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .normal,
+                                                                    useGoogleFonts: GoogleFonts
+                                                                            .asMap()
+                                                                        .containsKey(
+                                                                            FlutterFlowTheme.of(context).bodyText1Family),
+                                                                  ),
+                                                            ),
                                                           ),
                                                         ],
                                                       ),
@@ -689,27 +731,48 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                               .bodyText1Family),
                                                                 ),
                                                           ),
-                                                          Text(
-                                                            'Подробнее',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyText1
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Open Sans',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryColor,
-                                                                  fontSize: 16,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyText1Family),
-                                                                ),
+                                                          InkWell(
+                                                            onTap: () async {
+                                                              context.pushNamed(
+                                                                'super_admin_sales_moderation',
+                                                                extra: <String,
+                                                                    dynamic>{
+                                                                  kTransitionInfoKey:
+                                                                      TransitionInfo(
+                                                                    hasTransition:
+                                                                        true,
+                                                                    transitionType:
+                                                                        PageTransitionType
+                                                                            .fade,
+                                                                    duration: Duration(
+                                                                        milliseconds:
+                                                                            0),
+                                                                  ),
+                                                                },
+                                                              );
+                                                            },
+                                                            child: Text(
+                                                              'Подробнее',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyText1
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Open Sans',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryColor,
+                                                                    fontSize:
+                                                                        16,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .normal,
+                                                                    useGoogleFonts: GoogleFonts
+                                                                            .asMap()
+                                                                        .containsKey(
+                                                                            FlutterFlowTheme.of(context).bodyText1Family),
+                                                                  ),
+                                                            ),
                                                           ),
                                                         ],
                                                       ),
@@ -1125,8 +1188,8 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                   children: [
                                                     Expanded(
                                                       child: TextFormField(
-                                                        controller:
-                                                            textController,
+                                                        controller: _model
+                                                            .textController,
                                                         autofocus: true,
                                                         obscureText: false,
                                                         decoration:
@@ -1184,6 +1247,10 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                           FlutterFlowTheme.of(context)
                                                                               .bodyText1Family),
                                                                 ),
+                                                        validator: _model
+                                                            .textControllerValidator
+                                                            .asValidator(
+                                                                context),
                                                       ),
                                                     ),
                                                     Icon(
@@ -1592,38 +1659,44 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                             Query<Object?>)
                                                         queryBuilder =
                                                         (companiesRecord) =>
-                                                            companiesRecord.where(
-                                                                'status',
-                                                                isNotEqualTo:
-                                                                    'Модерация');
-                                                    if (_pagingController !=
+                                                            companiesRecord
+                                                                .where('status',
+                                                                    isNotEqualTo:
+                                                                        'new');
+                                                    if (_model
+                                                            .pagingController !=
                                                         null) {
                                                       final query =
                                                           queryBuilder(
                                                               CompaniesRecord
                                                                   .collection);
                                                       if (query !=
-                                                          _pagingQuery) {
+                                                          _model.pagingQuery) {
                                                         // The query has changed
-                                                        _pagingQuery = query;
-                                                        _streamSubscriptions
+                                                        _model.pagingQuery =
+                                                            query;
+                                                        _model
+                                                            .streamSubscriptions
                                                             .forEach((s) =>
                                                                 s?.cancel());
-                                                        _streamSubscriptions
+                                                        _model
+                                                            .streamSubscriptions
                                                             .clear();
-                                                        _pagingController!
+                                                        _model.pagingController!
                                                             .refresh();
                                                       }
-                                                      return _pagingController!;
+                                                      return _model
+                                                          .pagingController!;
                                                     }
 
-                                                    _pagingController =
+                                                    _model.pagingController =
                                                         PagingController(
                                                             firstPageKey: null);
-                                                    _pagingQuery = queryBuilder(
-                                                        CompaniesRecord
-                                                            .collection);
-                                                    _pagingController!
+                                                    _model.pagingQuery =
+                                                        queryBuilder(
+                                                            CompaniesRecord
+                                                                .collection);
+                                                    _model.pagingController!
                                                         .addPageRequestListener(
                                                             (nextPageMarker) {
                                                       queryCompaniesRecordPage(
@@ -1632,13 +1705,13 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                 companiesRecord.where(
                                                                     'status',
                                                                     isNotEqualTo:
-                                                                        'Модерация'),
+                                                                        'new'),
                                                         nextPageMarker:
                                                             nextPageMarker,
                                                         pageSize: 25,
                                                         isStream: true,
                                                       ).then((page) {
-                                                        _pagingController!
+                                                        _model.pagingController!
                                                             .appendPage(
                                                           page.data,
                                                           page.nextPageMarker,
@@ -1648,29 +1721,30 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                 ?.listen(
                                                                     (data) {
                                                           data.forEach((item) {
-                                                            final itemIndexes =
-                                                                _pagingController!
-                                                                    .itemList!
-                                                                    .asMap()
-                                                                    .map((k,
-                                                                            v) =>
-                                                                        MapEntry(
-                                                                            v.reference.id,
-                                                                            k));
+                                                            final itemIndexes = _model
+                                                                .pagingController!
+                                                                .itemList!
+                                                                .asMap()
+                                                                .map((k, v) =>
+                                                                    MapEntry(
+                                                                        v.reference
+                                                                            .id,
+                                                                        k));
                                                             final index =
                                                                 itemIndexes[item
                                                                     .reference
                                                                     .id];
-                                                            final items =
-                                                                _pagingController!
-                                                                    .itemList!;
+                                                            final items = _model
+                                                                .pagingController!
+                                                                .itemList!;
                                                             if (index != null) {
                                                               items
                                                                   .replaceRange(
                                                                       index,
                                                                       index + 1,
                                                                       [item]);
-                                                              _pagingController!
+                                                              _model
+                                                                  .pagingController!
                                                                   .itemList = {
                                                                 for (var item
                                                                     in items)
@@ -1681,11 +1755,14 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                           });
                                                           setState(() {});
                                                         });
-                                                        _streamSubscriptions.add(
-                                                            streamSubscription);
+                                                        _model
+                                                            .streamSubscriptions
+                                                            .add(
+                                                                streamSubscription);
                                                       });
                                                     });
-                                                    return _pagingController!;
+                                                    return _model
+                                                        .pagingController!;
                                                   }(),
                                                   padding: EdgeInsets.zero,
                                                   shrinkWrap: true,
@@ -1712,7 +1789,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                     itemBuilder: (context, _,
                                                         listViewIndex) {
                                                       final listViewCompaniesRecord =
-                                                          _pagingController!
+                                                          _model.pagingController!
                                                                   .itemList![
                                                               listViewIndex];
                                                       return Column(
@@ -1735,7 +1812,12 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                 Expanded(
                                                                   flex: 5,
                                                                   child: Text(
-                                                                    '№123781',
+                                                                    valueOrDefault<
+                                                                        String>(
+                                                                      listViewCompaniesRecord
+                                                                          .numDogovor,
+                                                                      'null',
+                                                                    ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodyText1
@@ -1754,8 +1836,12 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                 Expanded(
                                                                   flex: 10,
                                                                   child: Text(
-                                                                    listViewCompaniesRecord
-                                                                        .name!,
+                                                                    valueOrDefault<
+                                                                        String>(
+                                                                      listViewCompaniesRecord
+                                                                          .name,
+                                                                      'null',
+                                                                    ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodyText1
@@ -1846,21 +1932,60 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                 ),
                                                                 Expanded(
                                                                   flex: 6,
-                                                                  child: Text(
-                                                                    '146',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyText1
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Inter',
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primaryText,
-                                                                          fontWeight:
-                                                                              FontWeight.normal,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                  child:
+                                                                      FutureBuilder<
+                                                                          int>(
+                                                                    future:
+                                                                        queryBookingsRecordCount(
+                                                                      queryBuilder: (bookingsRecord) => bookingsRecord
+                                                                          .where(
+                                                                              'booked_company',
+                                                                              isEqualTo: listViewCompaniesRecord
+                                                                                  .reference)
+                                                                          .where(
+                                                                              'status',
+                                                                              isEqualTo: 'Закончено'),
+                                                                    ),
+                                                                    builder:
+                                                                        (context,
+                                                                            snapshot) {
+                                                                      // Customize what your widget looks like when it's loading.
+                                                                      if (!snapshot
+                                                                          .hasData) {
+                                                                        return Center(
+                                                                          child:
+                                                                              SizedBox(
+                                                                            width:
+                                                                                50,
+                                                                            height:
+                                                                                50,
+                                                                            child:
+                                                                                CircularProgressIndicator(
+                                                                              color: FlutterFlowTheme.of(context).primaryColor,
+                                                                            ),
+                                                                          ),
+                                                                        );
+                                                                      }
+                                                                      int textCount =
+                                                                          snapshot
+                                                                              .data!;
+                                                                      return Text(
+                                                                        valueOrDefault<
+                                                                            String>(
+                                                                          textCount
+                                                                              .toString(),
+                                                                          '0',
                                                                         ),
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyText1
+                                                                            .override(
+                                                                              fontFamily: 'Inter',
+                                                                              color: FlutterFlowTheme.of(context).primaryText,
+                                                                              fontWeight: FontWeight.normal,
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                            ),
+                                                                      );
+                                                                    },
                                                                   ),
                                                                 ),
                                                                 Expanded(
@@ -1878,7 +2003,17 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                         decoration:
                                                                             BoxDecoration(
                                                                           color:
-                                                                              FlutterFlowTheme.of(context).green,
+                                                                              () {
+                                                                            if (listViewCompaniesRecord.status ==
+                                                                                'Активно') {
+                                                                              return FlutterFlowTheme.of(context).green;
+                                                                            } else if (listViewCompaniesRecord.status ==
+                                                                                'Неактивна') {
+                                                                              return FlutterFlowTheme.of(context).red1;
+                                                                            } else {
+                                                                              return FlutterFlowTheme.of(context).primaryText;
+                                                                            }
+                                                                          }(),
                                                                           shape:
                                                                               BoxShape.circle,
                                                                         ),
@@ -1891,7 +2026,11 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                             0),
                                                                         child:
                                                                             Text(
-                                                                          'Активна',
+                                                                          valueOrDefault<
+                                                                              String>(
+                                                                            listViewCompaniesRecord.status,
+                                                                            'null',
+                                                                          ),
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyText1
                                                                               .override(
@@ -1907,9 +2046,21 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                 ),
                                                                 FFButtonWidget(
                                                                   onPressed:
-                                                                      () {
-                                                                    print(
-                                                                        'Button pressed ...');
+                                                                      () async {
+                                                                    context
+                                                                        .pushNamed(
+                                                                      'super_admin_current_company',
+                                                                      queryParams:
+                                                                          {
+                                                                        'currentCompany':
+                                                                            serializeParam(
+                                                                          listViewCompaniesRecord
+                                                                              .reference,
+                                                                          ParamType
+                                                                              .DocumentReference,
+                                                                        ),
+                                                                      }.withoutNulls,
+                                                                    );
                                                                   },
                                                                   text:
                                                                       'Подробнее',
@@ -1978,7 +2129,6 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                   ),
                 ],
               ),
-              AdminAppBarInfoWidget(),
             ],
           ),
         ),

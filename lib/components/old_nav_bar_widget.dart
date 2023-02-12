@@ -3,6 +3,8 @@ import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'old_nav_bar_model.dart';
+export 'old_nav_bar_model.dart';
 
 class OldNavBarWidget extends StatefulWidget {
   const OldNavBarWidget({Key? key}) : super(key: key);
@@ -12,11 +14,27 @@ class OldNavBarWidget extends StatefulWidget {
 }
 
 class _OldNavBarWidgetState extends State<OldNavBarWidget> {
+  late OldNavBarModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => OldNavBarModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
   }
 
   @override

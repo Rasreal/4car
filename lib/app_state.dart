@@ -66,6 +66,10 @@ class FFAppState extends ChangeNotifier {
     _selectedServices.remove(_value);
   }
 
+  void removeAtIndexFromSelectedServices(int _index) {
+    _selectedServices.removeAt(_index);
+  }
+
   String _cancelBooking = '';
   String get cancelBooking => _cancelBooking;
   set cancelBooking(String _value) {
@@ -84,6 +88,10 @@ class FFAppState extends ChangeNotifier {
 
   void removeFromCountryCodes(String _value) {
     _countryCodes.remove(_value);
+  }
+
+  void removeAtIndexFromCountryCodes(int _index) {
+    _countryCodes.removeAt(_index);
   }
 
   String _adminSelectServicesBody = '';
@@ -163,6 +171,10 @@ class FFAppState extends ChangeNotifier {
     _bookedTimes.remove(_value);
   }
 
+  void removeAtIndexFromBookedTimes(int _index) {
+    _bookedTimes.removeAt(_index);
+  }
+
   List<String> _adminForCarServices = [
     'Комплексная мойка',
     'Мойка кузова',
@@ -210,6 +222,11 @@ class FFAppState extends ChangeNotifier {
     prefs.setStringList('ff_adminForCarServices', _adminForCarServices);
   }
 
+  void removeAtIndexFromAdminForCarServices(int _index) {
+    _adminForCarServices.removeAt(_index);
+    prefs.setStringList('ff_adminForCarServices', _adminForCarServices);
+  }
+
   List<String> _adminForCarServicesDuration = [
     '0 мин',
     '15 мин',
@@ -251,6 +268,12 @@ class FFAppState extends ChangeNotifier {
         'ff_adminForCarServicesDuration', _adminForCarServicesDuration);
   }
 
+  void removeAtIndexFromAdminForCarServicesDuration(int _index) {
+    _adminForCarServicesDuration.removeAt(_index);
+    prefs.setStringList(
+        'ff_adminForCarServicesDuration', _adminForCarServicesDuration);
+  }
+
   double _superAdminSelectPercent = 0.0;
   double get superAdminSelectPercent => _superAdminSelectPercent;
   set superAdminSelectPercent(double _value) {
@@ -287,6 +310,10 @@ class FFAppState extends ChangeNotifier {
 
   void removeFromBookingSelectedServicesName(String _value) {
     _bookingSelectedServicesName.remove(_value);
+  }
+
+  void removeAtIndexFromBookingSelectedServicesName(int _index) {
+    _bookingSelectedServicesName.removeAt(_index);
   }
 
   DocumentReference? _adminOfficeCurrentCompany;
@@ -348,6 +375,12 @@ class FFAppState extends ChangeNotifier {
   String get superAdminCurrentCompany => _superAdminCurrentCompany;
   set superAdminCurrentCompany(String _value) {
     _superAdminCurrentCompany = _value;
+  }
+
+  DocumentReference? _adminNotificationLink;
+  DocumentReference? get adminNotificationLink => _adminNotificationLink;
+  set adminNotificationLink(DocumentReference? _value) {
+    _adminNotificationLink = _value;
   }
 }
 

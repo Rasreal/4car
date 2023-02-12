@@ -11,6 +11,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'sucsess_booking_review_model.dart';
+export 'sucsess_booking_review_model.dart';
 
 class SucsessBookingReviewWidget extends StatefulWidget {
   const SucsessBookingReviewWidget({
@@ -27,20 +29,27 @@ class SucsessBookingReviewWidget extends StatefulWidget {
 
 class _SucsessBookingReviewWidgetState
     extends State<SucsessBookingReviewWidget> {
-  TextEditingController? textController;
-  double? ratingBarValue2;
-  final formKey = GlobalKey<FormState>();
+  late SucsessBookingReviewModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
 
   @override
   void initState() {
     super.initState();
-    textController = TextEditingController();
+    _model = createModel(context, () => SucsessBookingReviewModel());
+
+    _model.textController = TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
-    textController?.dispose();
+    _model.dispose();
+
     super.dispose();
   }
 
@@ -432,15 +441,15 @@ class _SucsessBookingReviewWidgetState
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(0, 20, 0, 16),
                             child: RatingBar.builder(
-                              onRatingUpdate: (newValue) =>
-                                  setState(() => ratingBarValue2 = newValue),
+                              onRatingUpdate: (newValue) => setState(
+                                  () => _model.ratingBarValue2 = newValue),
                               itemBuilder: (context, index) => Icon(
                                 FFIcons.kicSmallStar14x14,
                                 color:
                                     FlutterFlowTheme.of(context).primaryColor,
                               ),
                               direction: Axis.horizontal,
-                              initialRating: ratingBarValue2 ??= 0,
+                              initialRating: _model.ratingBarValue2 ??= 0,
                               unratedColor:
                                   FlutterFlowTheme.of(context).starblue,
                               itemCount: 5,
@@ -471,14 +480,14 @@ class _SucsessBookingReviewWidgetState
                           ),
                         ),
                         Form(
-                          key: formKey,
+                          key: _model.formKey,
                           autovalidateMode: AutovalidateMode.disabled,
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                             child: TextFormField(
-                              controller: textController,
+                              controller: _model.textController,
                               onChanged: (_) => EasyDebounce.debounce(
-                                'textController',
+                                '_model.textController',
                                 Duration(milliseconds: 200),
                                 () => setState(() {}),
                               ),
@@ -519,13 +528,8 @@ class _SucsessBookingReviewWidgetState
                               style: FlutterFlowTheme.of(context).bodyText1,
                               maxLines: 3,
                               keyboardType: TextInputType.multiline,
-                              validator: (val) {
-                                if (val == null || val.isEmpty) {
-                                  return 'Заполните форму';
-                                }
-
-                                return null;
-                              },
+                              validator: _model.textControllerValidator
+                                  .asValidator(context),
                             ),
                           ),
                         ),
@@ -533,19 +537,19 @@ class _SucsessBookingReviewWidgetState
                           padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                           child: FFButtonWidget(
                             onPressed: () async {
-                              if (ratingBarValue2! >= 1.0) {
-                                if (formKey.currentState == null ||
-                                    !formKey.currentState!.validate()) {
+                              if (_model.ratingBarValue2! >= 1.0) {
+                                if (_model.formKey.currentState == null ||
+                                    !_model.formKey.currentState!.validate()) {
                                   return;
                                 }
 
                                 final commentsCreateData =
                                     createCommentsRecordData(
-                                  comment: textController!.text,
+                                  comment: _model.textController.text,
                                   createdBy: currentUserReference,
                                   createdAt: getCurrentTimestamp,
                                   company: columnCompaniesRecord.reference,
-                                  rating: ratingBarValue2,
+                                  rating: _model.ratingBarValue2,
                                   bookedComment: true,
                                   bookingDoc: widget.booking,
                                 );
@@ -560,8 +564,8 @@ class _SucsessBookingReviewWidgetState
                                     .update(userUpdateData);
 
                                 final companiesUpdateData = {
-                                  'rating':
-                                      FieldValue.arrayUnion([ratingBarValue2]),
+                                  'rating': FieldValue.arrayUnion(
+                                      [_model.ratingBarValue2]),
                                 };
                                 await columnCompaniesRecord.reference
                                     .update(companiesUpdateData);
@@ -589,9 +593,9 @@ class _SucsessBookingReviewWidgetState
                               width: 130,
                               height: 48,
                               color: valueOrDefault<Color>(
-                                (textController!.text != null &&
-                                            textController!.text != '') &&
-                                        (ratingBarValue2! >= 1.0)
+                                (_model.textController.text != null &&
+                                            _model.textController.text != '') &&
+                                        (_model.ratingBarValue2! >= 1.0)
                                     ? FlutterFlowTheme.of(context).primaryColor
                                     : FlutterFlowTheme.of(context).starblue,
                                 FlutterFlowTheme.of(context).starblue,

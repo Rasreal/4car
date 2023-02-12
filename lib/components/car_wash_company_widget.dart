@@ -12,6 +12,8 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
+import 'car_wash_company_model.dart';
+export 'car_wash_company_model.dart';
 
 class CarWashCompanyWidget extends StatefulWidget {
   const CarWashCompanyWidget({
@@ -26,14 +28,21 @@ class CarWashCompanyWidget extends StatefulWidget {
 }
 
 class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
+  late CarWashCompanyModel _model;
+
   LatLng? currentUserLocationValue;
-  PagingController<DocumentSnapshot?, PromotionRecord>? _pagingController;
-  Query? _pagingQuery;
-  List<StreamSubscription?> _streamSubscriptions = [];
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => CarWashCompanyModel());
+
     getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
         .then((loc) => setState(() => currentUserLocationValue = loc));
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -41,7 +50,8 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
 
   @override
   void dispose() {
-    _streamSubscriptions.forEach((s) => s?.cancel());
+    _model.dispose();
+
     super.dispose();
   }
 
@@ -1230,26 +1240,30 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                     promotionRecord.where(
                                                         'status',
                                                         isEqualTo: 'Активно');
-                                            if (_pagingController != null) {
+                                            if (_model.pagingController !=
+                                                null) {
                                               final query = queryBuilder(
                                                   PromotionRecord.collection());
-                                              if (query != _pagingQuery) {
+                                              if (query != _model.pagingQuery) {
                                                 // The query has changed
-                                                _pagingQuery = query;
-                                                _streamSubscriptions.forEach(
-                                                    (s) => s?.cancel());
-                                                _streamSubscriptions.clear();
-                                                _pagingController!.refresh();
+                                                _model.pagingQuery = query;
+                                                _model.streamSubscriptions
+                                                    .forEach(
+                                                        (s) => s?.cancel());
+                                                _model.streamSubscriptions
+                                                    .clear();
+                                                _model.pagingController!
+                                                    .refresh();
                                               }
-                                              return _pagingController!;
+                                              return _model.pagingController!;
                                             }
 
-                                            _pagingController =
+                                            _model.pagingController =
                                                 PagingController(
                                                     firstPageKey: null);
-                                            _pagingQuery = queryBuilder(
+                                            _model.pagingQuery = queryBuilder(
                                                 PromotionRecord.collection());
-                                            _pagingController!
+                                            _model.pagingController!
                                                 .addPageRequestListener(
                                                     (nextPageMarker) {
                                               queryPromotionRecordPage(
@@ -1265,7 +1279,8 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                 pageSize: 25,
                                                 isStream: true,
                                               ).then((page) {
-                                                _pagingController!.appendPage(
+                                                _model.pagingController!
+                                                    .appendPage(
                                                   page.data,
                                                   page.nextPageMarker,
                                                 );
@@ -1273,24 +1288,21 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                     .dataStream
                                                     ?.listen((data) {
                                                   data.forEach((item) {
-                                                    final itemIndexes =
-                                                        _pagingController!
-                                                            .itemList!
-                                                            .asMap()
-                                                            .map((k, v) =>
-                                                                MapEntry(
-                                                                    v.reference
-                                                                        .id,
-                                                                    k));
+                                                    final itemIndexes = _model
+                                                        .pagingController!
+                                                        .itemList!
+                                                        .asMap()
+                                                        .map((k, v) => MapEntry(
+                                                            v.reference.id, k));
                                                     final index = itemIndexes[
                                                         item.reference.id];
-                                                    final items =
-                                                        _pagingController!
-                                                            .itemList!;
+                                                    final items = _model
+                                                        .pagingController!
+                                                        .itemList!;
                                                     if (index != null) {
                                                       items.replaceRange(index,
                                                           index + 1, [item]);
-                                                      _pagingController!
+                                                      _model.pagingController!
                                                           .itemList = {
                                                         for (var item in items)
                                                           item.reference: item
@@ -1299,11 +1311,11 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                   });
                                                   setState(() {});
                                                 });
-                                                _streamSubscriptions
+                                                _model.streamSubscriptions
                                                     .add(streamSubscription);
                                               });
                                             });
-                                            return _pagingController!;
+                                            return _model.pagingController!;
                                           }(),
                                           padding: EdgeInsets.zero,
                                           scrollDirection: Axis.vertical,
@@ -1328,7 +1340,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                             itemBuilder:
                                                 (context, _, listViewIndex) {
                                               final listViewPromotionRecord =
-                                                  _pagingController!
+                                                  _model.pagingController!
                                                       .itemList![listViewIndex];
                                               return Padding(
                                                 padding: EdgeInsetsDirectional

@@ -18,6 +18,8 @@ import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'admin_add_company1_model.dart';
+export 'admin_add_company1_model.dart';
 
 class AdminAddCompany1Widget extends StatefulWidget {
   const AdminAddCompany1Widget({
@@ -32,38 +34,28 @@ class AdminAddCompany1Widget extends StatefulWidget {
 }
 
 class _AdminAddCompany1WidgetState extends State<AdminAddCompany1Widget> {
-  bool isMediaUploading = false;
-  String uploadedFileUrl = '';
+  late AdminAddCompany1Model _model;
 
-  TextEditingController? companyNameController;
-  final cityKey = GlobalKey();
-  TextEditingController? cityController;
-  String? citySelectedOption;
-  TextEditingController? addressController;
-  var placePickerValue = FFPlace();
-  TextEditingController? countBoxController;
-  String? closeValue;
-  String? openValue;
-  final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  final formKey = GlobalKey<FormState>();
+  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
-    addressController = TextEditingController();
-    cityController = TextEditingController();
-    companyNameController = TextEditingController();
-    countBoxController = TextEditingController();
+    _model = createModel(context, () => AdminAddCompany1Model());
+
+    _model.companyNameController = TextEditingController();
+    _model.cityController = TextEditingController();
+    _model.addressController = TextEditingController();
+    _model.countBoxController = TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
-    addressController?.dispose();
-    companyNameController?.dispose();
-    countBoxController?.dispose();
     super.dispose();
   }
 
@@ -82,8 +74,12 @@ class _AdminAddCompany1WidgetState extends State<AdminAddCompany1Widget> {
               Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  AdminAppBarWidget(
-                    pageName: 'Главная',
+                  wrapWithModel(
+                    model: _model.adminAppBarModel,
+                    updateCallback: () => setState(() {}),
+                    child: AdminAppBarWidget(
+                      pageName: 'Главная',
+                    ),
                   ),
                   Expanded(
                     child: Container(
@@ -205,7 +201,7 @@ class _AdminAddCompany1WidgetState extends State<AdminAddCompany1Widget> {
                                                       BorderRadius.circular(8),
                                                 ),
                                                 child: Form(
-                                                  key: formKey,
+                                                  key: _model.formKey,
                                                   autovalidateMode:
                                                       AutovalidateMode.disabled,
                                                   child: Padding(
@@ -273,8 +269,8 @@ class _AdminAddCompany1WidgetState extends State<AdminAddCompany1Widget> {
                                                         Container(
                                                           width: 432,
                                                           child: TextFormField(
-                                                            controller:
-                                                                companyNameController,
+                                                            controller: _model
+                                                                .companyNameController,
                                                             obscureText: false,
                                                             decoration:
                                                                 InputDecoration(
@@ -393,6 +389,10 @@ class _AdminAddCompany1WidgetState extends State<AdminAddCompany1Widget> {
                                                                           FlutterFlowTheme.of(context)
                                                                               .bodyText1Family),
                                                                 ),
+                                                            validator: _model
+                                                                .companyNameControllerValidator
+                                                                .asValidator(
+                                                                    context),
                                                           ),
                                                         ),
                                                         Padding(
@@ -437,8 +437,10 @@ class _AdminAddCompany1WidgetState extends State<AdminAddCompany1Widget> {
                                                                         m.storagePath,
                                                                         context))) {
                                                               setState(() =>
-                                                                  isMediaUploading =
+                                                                  _model.isMediaUploading =
                                                                       true);
+                                                              var selectedUploadedFiles =
+                                                                  <FFUploadedFile>[];
                                                               var downloadUrls =
                                                                   <String>[];
                                                               try {
@@ -448,6 +450,17 @@ class _AdminAddCompany1WidgetState extends State<AdminAddCompany1Widget> {
                                                                   showLoading:
                                                                       true,
                                                                 );
+                                                                selectedUploadedFiles =
+                                                                    selectedMedia
+                                                                        .map((m) =>
+                                                                            FFUploadedFile(
+                                                                              name: m.storagePath.split('/').last,
+                                                                              bytes: m.bytes,
+                                                                              height: m.dimensions?.height,
+                                                                              width: m.dimensions?.width,
+                                                                            ))
+                                                                        .toList();
+
                                                                 downloadUrls = (await Future
                                                                         .wait(
                                                                   selectedMedia
@@ -468,17 +481,25 @@ class _AdminAddCompany1WidgetState extends State<AdminAddCompany1Widget> {
                                                                 ScaffoldMessenger.of(
                                                                         context)
                                                                     .hideCurrentSnackBar();
-                                                                isMediaUploading =
+                                                                _model.isMediaUploading =
                                                                     false;
                                                               }
-                                                              if (downloadUrls
-                                                                      .length ==
-                                                                  selectedMedia
-                                                                      .length) {
-                                                                setState(() =>
-                                                                    uploadedFileUrl =
-                                                                        downloadUrls
-                                                                            .first);
+                                                              if (selectedUploadedFiles
+                                                                          .length ==
+                                                                      selectedMedia
+                                                                          .length &&
+                                                                  downloadUrls
+                                                                          .length ==
+                                                                      selectedMedia
+                                                                          .length) {
+                                                                setState(() {
+                                                                  _model.uploadedLocalFile =
+                                                                      selectedUploadedFiles
+                                                                          .first;
+                                                                  _model.uploadedFileUrl =
+                                                                      downloadUrls
+                                                                          .first;
+                                                                });
                                                                 showUploadMessage(
                                                                     context,
                                                                     'Success!');
@@ -496,9 +517,9 @@ class _AdminAddCompany1WidgetState extends State<AdminAddCompany1Widget> {
                                                                 MainAxisSize
                                                                     .max,
                                                             children: [
-                                                              if (uploadedFileUrl ==
+                                                              if (_model.uploadedFileUrl ==
                                                                       null ||
-                                                                  uploadedFileUrl ==
+                                                                  _model.uploadedFileUrl ==
                                                                       '')
                                                                 Row(
                                                                   mainAxisSize:
@@ -542,9 +563,9 @@ class _AdminAddCompany1WidgetState extends State<AdminAddCompany1Widget> {
                                                                     ),
                                                                   ],
                                                                 ),
-                                                              if (uploadedFileUrl !=
+                                                              if (_model.uploadedFileUrl !=
                                                                       null &&
-                                                                  uploadedFileUrl !=
+                                                                  _model.uploadedFileUrl !=
                                                                       '')
                                                                 Row(
                                                                   mainAxisSize:
@@ -566,7 +587,8 @@ class _AdminAddCompany1WidgetState extends State<AdminAddCompany1Widget> {
                                                                           .network(
                                                                         valueOrDefault<
                                                                             String>(
-                                                                          uploadedFileUrl,
+                                                                          _model
+                                                                              .uploadedFileUrl,
                                                                           'null',
                                                                         ),
                                                                       ),
@@ -688,9 +710,11 @@ class _AdminAddCompany1WidgetState extends State<AdminAddCompany1Widget> {
                                                                         options) {
                                                                   return AutocompleteOptionsList(
                                                                     textFieldKey:
-                                                                        cityKey,
+                                                                        _model
+                                                                            .cityKey,
                                                                     textController:
-                                                                        cityController!,
+                                                                        _model
+                                                                            .cityController!,
                                                                     options: options
                                                                         .toList(),
                                                                     onSelected:
@@ -715,7 +739,7 @@ class _AdminAddCompany1WidgetState extends State<AdminAddCompany1Widget> {
                                                                 onSelected: (String
                                                                     selection) {
                                                                   setState(() =>
-                                                                      citySelectedOption =
+                                                                      _model.citySelectedOption =
                                                                           selection);
                                                                   FocusScope.of(
                                                                           context)
@@ -728,11 +752,11 @@ class _AdminAddCompany1WidgetState extends State<AdminAddCompany1Widget> {
                                                                   focusNode,
                                                                   onEditingComplete,
                                                                 ) {
-                                                                  cityController =
+                                                                  _model.cityController =
                                                                       textEditingController;
                                                                   return TextFormField(
-                                                                    key:
-                                                                        cityKey,
+                                                                    key: _model
+                                                                        .cityKey,
                                                                     controller:
                                                                         textEditingController,
                                                                     focusNode:
@@ -845,6 +869,10 @@ class _AdminAddCompany1WidgetState extends State<AdminAddCompany1Widget> {
                                                                           useGoogleFonts:
                                                                               GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                         ),
+                                                                    validator: _model
+                                                                        .cityControllerValidator
+                                                                        .asValidator(
+                                                                            context),
                                                                   );
                                                                 },
                                                               ),
@@ -891,8 +919,8 @@ class _AdminAddCompany1WidgetState extends State<AdminAddCompany1Widget> {
                                                             width: 432,
                                                             child:
                                                                 TextFormField(
-                                                              controller:
-                                                                  addressController,
+                                                              controller: _model
+                                                                  .addressController,
                                                               obscureText:
                                                                   false,
                                                               decoration:
@@ -1015,20 +1043,24 @@ class _AdminAddCompany1WidgetState extends State<AdminAddCompany1Widget> {
                                                                         .containsKey(
                                                                             FlutterFlowTheme.of(context).bodyText1Family),
                                                                   ),
+                                                              validator: _model
+                                                                  .addressControllerValidator
+                                                                  .asValidator(
+                                                                      context),
                                                             ),
                                                           ),
                                                         FlutterFlowPlacePicker(
                                                           iOSGoogleMapsApiKey:
-                                                              'AIzaSyCpDAtEMAf9LNwBRt6-TrnW52_kOn89AzM',
+                                                              'AIzaSyD_Gu6ZuVgKaZH60x4gpxBkUlxDqSPm4qQ',
                                                           androidGoogleMapsApiKey:
-                                                              'AIzaSyCwI175Y4UpCSyDcbSHIe7fAMOY6nDbsho',
+                                                              'AIzaSyCe0eUefCoSoOpnQA3URSpRhmJbVfthg7U',
                                                           webGoogleMapsApiKey:
                                                               'AIzaSyAOoGU_UPECFi98sxuR83rQYtzzYImXv5s',
                                                           onSelect:
                                                               (place) async {
-                                                            setState(() =>
-                                                                placePickerValue =
-                                                                    place);
+                                                            setState(() => _model
+                                                                    .placePickerValue =
+                                                                place);
                                                           },
                                                           defaultText:
                                                               'Выберите адрес ',
@@ -1104,12 +1136,12 @@ class _AdminAddCompany1WidgetState extends State<AdminAddCompany1Widget> {
                                                         Container(
                                                           width: 432,
                                                           child: TextFormField(
-                                                            controller:
-                                                                countBoxController,
+                                                            controller: _model
+                                                                .countBoxController,
                                                             onChanged: (_) =>
                                                                 EasyDebounce
                                                                     .debounce(
-                                                              'countBoxController',
+                                                              '_model.countBoxController',
                                                               Duration(
                                                                   milliseconds:
                                                                       500),
@@ -1233,6 +1265,10 @@ class _AdminAddCompany1WidgetState extends State<AdminAddCompany1Widget> {
                                                                           FlutterFlowTheme.of(context)
                                                                               .bodyText1Family),
                                                                 ),
+                                                            validator: _model
+                                                                .countBoxControllerValidator
+                                                                .asValidator(
+                                                                    context),
                                                           ),
                                                         ),
                                                         Padding(
@@ -1312,7 +1348,7 @@ class _AdminAddCompany1WidgetState extends State<AdminAddCompany1Widget> {
                                                                   return FlutterFlowDropDown<
                                                                       String>(
                                                                     initialOption:
-                                                                        openValue ??=
+                                                                        _model.openValue ??=
                                                                             '10:00',
                                                                     options: openForcarTimesRecordList
                                                                         .map((e) => valueOrDefault<String>(
@@ -1323,7 +1359,7 @@ class _AdminAddCompany1WidgetState extends State<AdminAddCompany1Widget> {
                                                                         .toList(),
                                                                     onChanged: (val) =>
                                                                         setState(() =>
-                                                                            openValue =
+                                                                            _model.openValue =
                                                                                 val),
                                                                     width: 160,
                                                                     height: 48,
@@ -1376,7 +1412,7 @@ class _AdminAddCompany1WidgetState extends State<AdminAddCompany1Widget> {
                                                                             isGreaterThan: valueOrDefault<
                                                                                 int>(
                                                                               functions.stringToInt(valueOrDefault<String>(
-                                                                                openValue,
+                                                                                _model.openValue,
                                                                                 '10:00',
                                                                               )),
                                                                               0,
@@ -1410,7 +1446,7 @@ class _AdminAddCompany1WidgetState extends State<AdminAddCompany1Widget> {
                                                                 return FlutterFlowDropDown<
                                                                     String>(
                                                                   initialOption:
-                                                                      closeValue ??=
+                                                                      _model.closeValue ??=
                                                                           '22:00',
                                                                   options: closeForcarTimesRecordList
                                                                       .map((e) =>
@@ -1420,7 +1456,7 @@ class _AdminAddCompany1WidgetState extends State<AdminAddCompany1Widget> {
                                                                       .toList(),
                                                                   onChanged: (val) =>
                                                                       setState(() =>
-                                                                          closeValue =
+                                                                          _model.closeValue =
                                                                               val),
                                                                   width: 160,
                                                                   height: 48,
@@ -1947,10 +1983,13 @@ class _AdminAddCompany1WidgetState extends State<AdminAddCompany1Widget> {
                                         stream: queryCityesRecord(
                                           queryBuilder: (cityesRecord) =>
                                               cityesRecord.where('name',
-                                                  isEqualTo:
-                                                      cityController!.text != ''
-                                                          ? cityController!.text
-                                                          : null),
+                                                  isEqualTo: _model
+                                                              .cityController
+                                                              .text !=
+                                                          ''
+                                                      ? _model
+                                                          .cityController.text
+                                                      : null),
                                           singleRecord: true,
                                         ),
                                         builder: (context, snapshot) {
@@ -2010,63 +2049,79 @@ class _AdminAddCompany1WidgetState extends State<AdminAddCompany1Widget> {
                                                     snapshot.data!;
                                                 return FFButtonWidget(
                                                   onPressed: () async {
-                                                    if (formKey.currentState ==
+                                                    if (_model.formKey
+                                                                .currentState ==
                                                             null ||
-                                                        !formKey.currentState!
+                                                        !_model.formKey
+                                                            .currentState!
                                                             .validate()) {
                                                       return;
                                                     }
 
                                                     final companiesUpdateData =
-                                                        createCompaniesRecordData(
-                                                      name:
-                                                          companyNameController!
-                                                              .text,
-                                                      location: placePickerValue
-                                                          .latLng,
-                                                      logo: uploadedFileUrl,
-                                                      city: citySelectedOption,
-                                                      street:
-                                                          placePickerValue.name,
-                                                      adminCreatedBy:
-                                                          currentUserReference,
-                                                      countBox: int.tryParse(
-                                                          countBoxController!
-                                                              .text),
-                                                      openTimeOrder:
-                                                          valueOrDefault<int>(
-                                                        functions.stringToInt(
+                                                        {
+                                                      ...createCompaniesRecordData(
+                                                        name: _model
+                                                            .companyNameController
+                                                            .text,
+                                                        location: _model
+                                                            .placePickerValue
+                                                            .latLng,
+                                                        logo: _model
+                                                            .uploadedFileUrl,
+                                                        city: _model
+                                                            .citySelectedOption,
+                                                        street: _model
+                                                            .placePickerValue
+                                                            .name,
+                                                        adminCreatedBy:
+                                                            currentUserReference,
+                                                        countBox: int.tryParse(
+                                                            _model
+                                                                .countBoxController
+                                                                .text),
+                                                        openTimeOrder:
+                                                            valueOrDefault<int>(
+                                                          functions.stringToInt(
+                                                              valueOrDefault<
+                                                                  String>(
+                                                            _model.openValue,
+                                                            '0',
+                                                          )),
+                                                          0,
+                                                        ),
+                                                        closedTimeOrder:
+                                                            valueOrDefault<int>(
+                                                          functions.stringToInt(
+                                                              valueOrDefault<
+                                                                  String>(
+                                                            _model.closeValue,
+                                                            '0',
+                                                          )),
+                                                          0,
+                                                        ),
+                                                        openTime:
                                                             valueOrDefault<
                                                                 String>(
-                                                          openValue,
+                                                          _model.openValue,
                                                           '0',
-                                                        )),
-                                                        0,
-                                                      ),
-                                                      closedTimeOrder:
-                                                          valueOrDefault<int>(
-                                                        functions.stringToInt(
+                                                        ),
+                                                        closeTime:
                                                             valueOrDefault<
                                                                 String>(
-                                                          closeValue,
+                                                          _model.closeValue,
                                                           '0',
-                                                        )),
-                                                        0,
+                                                        ),
+                                                        linkCity:
+                                                            containerCityesRecord!
+                                                                .reference,
                                                       ),
-                                                      openTime: valueOrDefault<
-                                                          String>(
-                                                        openValue,
-                                                        '0',
-                                                      ),
-                                                      closeTime: valueOrDefault<
-                                                          String>(
-                                                        closeValue,
-                                                        '0',
-                                                      ),
-                                                      linkCity:
-                                                          containerCityesRecord!
-                                                              .reference,
-                                                    );
+                                                      'count_box_string':
+                                                          functions.boxesName(
+                                                              int.parse(_model
+                                                                  .countBoxController
+                                                                  .text)),
+                                                    };
                                                     await widget.company!.update(
                                                         companiesUpdateData);
 
@@ -2098,33 +2153,33 @@ class _AdminAddCompany1WidgetState extends State<AdminAddCompany1Widget> {
                                                   options: FFButtonOptions(
                                                     width: 185,
                                                     height: 48,
-                                                    color:
-                                                        (companyNameController!
-                                                                            .text !=
-                                                                        null &&
-                                                                    companyNameController!
-                                                                            .text !=
-                                                                        '') &&
-                                                                (cityController!
-                                                                            .text !=
-                                                                        null &&
-                                                                    cityController!
-                                                                            .text !=
-                                                                        '') &&
-                                                                (placePickerValue !=
-                                                                    null) &&
-                                                                (countBoxController!
-                                                                            .text !=
-                                                                        null &&
-                                                                    countBoxController!
-                                                                            .text !=
-                                                                        '')
-                                                            ? FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryColor
-                                                            : FlutterFlowTheme
-                                                                    .of(context)
-                                                                .starblue,
+                                                    color: (_model
+                                                                        .companyNameController
+                                                                        .text !=
+                                                                    null &&
+                                                                _model.companyNameController
+                                                                        .text !=
+                                                                    '') &&
+                                                            (_model.cityController
+                                                                        .text !=
+                                                                    null &&
+                                                                _model.cityController
+                                                                        .text !=
+                                                                    '') &&
+                                                            (_model.placePickerValue !=
+                                                                null) &&
+                                                            (_model.countBoxController
+                                                                        .text !=
+                                                                    null &&
+                                                                _model.countBoxController
+                                                                        .text !=
+                                                                    '')
+                                                        ? FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryColor
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .starblue,
                                                     textStyle: FlutterFlowTheme
                                                             .of(context)
                                                         .subtitle2
@@ -2167,7 +2222,11 @@ class _AdminAddCompany1WidgetState extends State<AdminAddCompany1Widget> {
                   ),
                 ],
               ),
-              AdminAppBarInfoWidget(),
+              wrapWithModel(
+                model: _model.adminAppBarInfoModel,
+                updateCallback: () => setState(() {}),
+                child: AdminAppBarInfoWidget(),
+              ),
             ],
           ),
         ),

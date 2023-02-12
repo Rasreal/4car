@@ -10,11 +10,13 @@ import '../flutter_flow/flutter_flow_widgets.dart';
 import '../flutter_flow/custom_functions.dart' as functions;
 import '../flutter_flow/random_data_util.dart' as random_data;
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'admin_new_booking_record_model.dart';
+export 'admin_new_booking_record_model.dart';
 
 class AdminNewBookingRecordWidget extends StatefulWidget {
   const AdminNewBookingRecordWidget({
@@ -31,27 +33,29 @@ class AdminNewBookingRecordWidget extends StatefulWidget {
 
 class _AdminNewBookingRecordWidgetState
     extends State<AdminNewBookingRecordWidget> {
-  BookingsRecord? booking;
-  DateTime? datePicked;
-  TextEditingController? textController1;
-  TextEditingController? textController3;
-  final textFieldKey2 = GlobalKey();
-  TextEditingController? textController2;
-  String? textFieldSelectedOption2;
+  late AdminNewBookingRecordModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
 
   @override
   void initState() {
     super.initState();
-    textController1 = TextEditingController();
-    textController2 = TextEditingController();
-    textController3 = TextEditingController();
+    _model = createModel(context, () => AdminNewBookingRecordModel());
+
+    _model.textController1 = TextEditingController();
+    _model.textController2 = TextEditingController();
+    _model.textController3 = TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
-    textController1?.dispose();
-    textController3?.dispose();
+    _model.dispose();
+
     super.dispose();
   }
 
@@ -115,7 +119,7 @@ class _AdminNewBookingRecordWidgetState
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                 child: TextFormField(
-                  controller: textController1,
+                  controller: _model.textController1,
                   obscureText: false,
                   decoration: InputDecoration(
                     hintText: 'Имя',
@@ -164,6 +168,8 @@ class _AdminNewBookingRecordWidgetState
                         useGoogleFonts: GoogleFonts.asMap().containsKey(
                             FlutterFlowTheme.of(context).bodyText1Family),
                       ),
+                  validator:
+                      _model.textController1Validator.asValidator(context),
                 ),
               ),
               Padding(
@@ -183,43 +189,24 @@ class _AdminNewBookingRecordWidgetState
                 padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                 child: InkWell(
                   onTap: () async {
-                    if (kIsWeb) {
-                      final _datePickedDate = await showDatePicker(
-                        context: context,
-                        initialDate: getCurrentTimestamp,
-                        firstDate: getCurrentTimestamp,
-                        lastDate: DateTime(2050),
-                      );
+                    final _datePickedDate = await showDatePicker(
+                      context: context,
+                      initialDate: getCurrentTimestamp,
+                      firstDate: getCurrentTimestamp,
+                      lastDate: DateTime(2050),
+                    );
 
-                      if (_datePickedDate != null) {
-                        setState(
-                          () => datePicked = DateTime(
-                            _datePickedDate.year,
-                            _datePickedDate.month,
-                            _datePickedDate.day,
-                          ),
+                    if (_datePickedDate != null) {
+                      setState(() {
+                        _model.datePicked = DateTime(
+                          _datePickedDate.year,
+                          _datePickedDate.month,
+                          _datePickedDate.day,
                         );
-                      }
-                    } else {
-                      await DatePicker.showDatePicker(
-                        context,
-                        showTitleActions: true,
-                        onConfirm: (date) {
-                          setState(() => datePicked = date);
-                        },
-                        currentTime: getCurrentTimestamp,
-                        minTime: getCurrentTimestamp,
-                        locale: LocaleType.values.firstWhere(
-                          (l) =>
-                              l.name ==
-                              FFLocalizations.of(context).languageCode,
-                          orElse: () => LocaleType.en,
-                        ),
-                      );
+                      });
                     }
-
                     FFAppState().update(() {
-                      FFAppState().adminSelectBookingDate = datePicked;
+                      FFAppState().adminSelectBookingDate = _model.datePicked;
                     });
                   },
                   child: Container(
@@ -246,7 +233,7 @@ class _AdminNewBookingRecordWidgetState
                                   locale:
                                       FFLocalizations.of(context).languageCode,
                                 ),
-                                'null',
+                                'Выбрать',
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyText1
@@ -524,7 +511,7 @@ class _AdminNewBookingRecordWidgetState
                             }
                             return [
                               'Седан',
-                              'Хэтчбек',
+                              'Хэтчбэк',
                               'Универсал ',
                               'Кроссовер',
                               'Джип',
@@ -539,13 +526,13 @@ class _AdminNewBookingRecordWidgetState
                           },
                           optionsViewBuilder: (context, onSelected, options) {
                             return AutocompleteOptionsList(
-                              textFieldKey: textFieldKey2,
-                              textController: textController2!,
+                              textFieldKey: _model.textFieldKey2,
+                              textController: _model.textController2!,
                               options: options.toList(),
                               onSelected: onSelected,
                               textStyle: FlutterFlowTheme.of(context).bodyText1,
                               textHighlightStyle: TextStyle(),
-                              elevation: 0,
+                              elevation: 4,
                               optionBackgroundColor:
                                   FlutterFlowTheme.of(context)
                                       .primaryBackground,
@@ -555,8 +542,8 @@ class _AdminNewBookingRecordWidgetState
                             );
                           },
                           onSelected: (String selection) {
-                            setState(
-                                () => textFieldSelectedOption2 = selection);
+                            setState(() =>
+                                _model.textFieldSelectedOption2 = selection);
                             FocusScope.of(context).unfocus();
                           },
                           fieldViewBuilder: (
@@ -565,12 +552,31 @@ class _AdminNewBookingRecordWidgetState
                             focusNode,
                             onEditingComplete,
                           ) {
-                            textController2 = textEditingController;
+                            _model.textController2 = textEditingController;
                             return TextFormField(
-                              key: textFieldKey2,
+                              key: _model.textFieldKey2,
                               controller: textEditingController,
                               focusNode: focusNode,
                               onEditingComplete: onEditingComplete,
+                              onChanged: (_) => EasyDebounce.debounce(
+                                '_model.textController2',
+                                Duration(milliseconds: 2000),
+                                () async {
+                                  FFAppState().update(() {
+                                    FFAppState().selectedServices = [];
+                                    FFAppState().price = 0;
+                                    FFAppState().bookingSelectedServicesName =
+                                        [];
+                                  });
+                                },
+                              ),
+                              onFieldSubmitted: (_) async {
+                                FFAppState().update(() {
+                                  FFAppState().selectedServices = [];
+                                  FFAppState().price = 0;
+                                  FFAppState().bookingSelectedServicesName = [];
+                                });
+                              },
                               obscureText: false,
                               decoration: InputDecoration(
                                 hintText: 'Седан',
@@ -627,6 +633,8 @@ class _AdminNewBookingRecordWidgetState
                                             FlutterFlowTheme.of(context)
                                                 .bodyText1Family),
                                   ),
+                              validator: _model.textController2Validator
+                                  .asValidator(context),
                             );
                           },
                         ),
@@ -634,7 +642,7 @@ class _AdminNewBookingRecordWidgetState
                     ),
                     Expanded(
                       child: TextFormField(
-                        controller: textController3,
+                        controller: _model.textController3,
                         obscureText: false,
                         decoration: InputDecoration(
                           hintText: '345YDS02',
@@ -686,6 +694,8 @@ class _AdminNewBookingRecordWidgetState
                               useGoogleFonts: GoogleFonts.asMap().containsKey(
                                   FlutterFlowTheme.of(context).bodyText1Family),
                             ),
+                        validator: _model.textController3Validator
+                            .asValidator(context),
                       ),
                     ),
                   ],
@@ -718,7 +728,7 @@ class _AdminNewBookingRecordWidgetState
                             padding: MediaQuery.of(context).viewInsets,
                             child: SelectServicesWidget(
                               company: widget.company!.reference,
-                              carBody: textFieldSelectedOption2,
+                              carBody: _model.textFieldSelectedOption2,
                             ),
                           );
                         },
@@ -1028,63 +1038,74 @@ class _AdminNewBookingRecordWidgetState
                                     .toList();
                                 FFAppState().selectedServices = [];
                               });
-
-                              final bookingsCreateData = {
-                                ...createBookingsRecordData(
-                                  bookedCompany: widget.company!.reference,
-                                  timeName: columnForcarTimesRecord.timeName,
-                                  timeOrder: columnForcarTimesRecord.timeOrder,
-                                  status: 'Забронировано',
-                                  bookedDate: datePicked,
-                                  totalPrice: FFAppState().price,
-                                  id: valueOrDefault<String>(
-                                    functions.idGenerator(valueOrDefault<int>(
-                                      random_data.randomInteger(
-                                          100000, 999000000),
-                                      0,
-                                    )),
-                                    '0',
-                                  ),
-                                  carBody: textFieldSelectedOption2,
-                                  carName: textController3!.text,
-                                  bookedCompanyDocument:
-                                      widget.company!.companyDocument,
-                                  bookedDateString: dateTimeFormat(
-                                    'd/M/y',
-                                    datePicked,
-                                    locale: FFLocalizations.of(context)
-                                        .languageCode,
-                                  ),
-                                  createdByAdmin: true,
-                                ),
-                                'selected_company_services':
-                                    FFAppState().selectedServices,
-                                'selected_times_order':
-                                    FFAppState().bookedTimes,
-                                'selected_company_services_name':
-                                    FFAppState().bookingSelectedServicesName,
-                              };
-                              var bookingsRecordReference =
-                                  BookingsRecord.collection.doc();
-                              await bookingsRecordReference
-                                  .set(bookingsCreateData);
-                              booking = BookingsRecord.getDocumentFromData(
-                                  bookingsCreateData, bookingsRecordReference);
-                              Navigator.pop(context);
-                              await showModalBottomSheet(
-                                isScrollControlled: true,
-                                backgroundColor: Colors.transparent,
-                                enableDrag: false,
-                                context: context,
-                                builder: (context) {
-                                  return Padding(
-                                    padding: MediaQuery.of(context).viewInsets,
-                                    child: SuccessWidget(
-                                      message: 'Запись добавлена',
+                              if (FFAppState().adminSelectBookingDate != null) {
+                                final bookingsCreateData = {
+                                  ...createBookingsRecordData(
+                                    bookedCompany: widget.company!.reference,
+                                    timeName: columnForcarTimesRecord.timeName,
+                                    timeOrder:
+                                        columnForcarTimesRecord.timeOrder,
+                                    status: 'Забронировано',
+                                    bookedDate: _model.datePicked,
+                                    totalPrice: FFAppState().price,
+                                    id: valueOrDefault<String>(
+                                      functions.idGenerator(valueOrDefault<int>(
+                                        random_data.randomInteger(
+                                            100000, 999000000),
+                                        0,
+                                      )),
+                                      '0',
                                     ),
-                                  );
-                                },
-                              ).then((value) => setState(() {}));
+                                    carBody: _model.textFieldSelectedOption2,
+                                    carName: _model.textController3.text,
+                                    bookedCompanyDocument:
+                                        widget.company!.companyDocument,
+                                    bookedDateString: dateTimeFormat(
+                                      'd/M/y',
+                                      FFAppState().adminSelectBookingDate,
+                                      locale: FFLocalizations.of(context)
+                                          .languageCode,
+                                    ),
+                                    createdByAdmin: true,
+                                    createdAdminUserName:
+                                        _model.textController1.text,
+                                  ),
+                                  'selected_company_services':
+                                      FFAppState().selectedServices,
+                                  'selected_times_order':
+                                      FFAppState().bookedTimes,
+                                  'selected_company_services_name':
+                                      FFAppState().bookingSelectedServicesName,
+                                };
+                                var bookingsRecordReference =
+                                    BookingsRecord.collection.doc();
+                                await bookingsRecordReference
+                                    .set(bookingsCreateData);
+                                _model.booking =
+                                    BookingsRecord.getDocumentFromData(
+                                        bookingsCreateData,
+                                        bookingsRecordReference);
+                                Navigator.pop(context);
+                                await showModalBottomSheet(
+                                  isScrollControlled: true,
+                                  backgroundColor: Colors.transparent,
+                                  enableDrag: false,
+                                  context: context,
+                                  builder: (context) {
+                                    return Padding(
+                                      padding:
+                                          MediaQuery.of(context).viewInsets,
+                                      child: SuccessWidget(
+                                        message: 'Запись добавлена',
+                                      ),
+                                    );
+                                  },
+                                ).then((value) => setState(() {}));
+
+                                FFAppState().update(() {
+                                  FFAppState().adminSelectBookingDate = null;
+                                });
+                              }
 
                               setState(() {});
                             },

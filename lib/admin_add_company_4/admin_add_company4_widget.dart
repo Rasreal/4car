@@ -10,10 +10,11 @@ import '../flutter_flow/upload_media.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
+import 'admin_add_company4_model.dart';
+export 'admin_add_company4_model.dart';
 
 class AdminAddCompany4Widget extends StatefulWidget {
   const AdminAddCompany4Widget({
@@ -30,45 +31,30 @@ class AdminAddCompany4Widget extends StatefulWidget {
 }
 
 class _AdminAddCompany4WidgetState extends State<AdminAddCompany4Widget> {
-  bool isMediaUploading = false;
-  String uploadedFileUrl = '';
+  late AdminAddCompany4Model _model;
 
-  DateTime? datePicked;
-  TextEditingController? binController;
-  final binMask = MaskTextInputFormatter(mask: '##########');
-  TextEditingController? tooController;
-  TextEditingController? ibanController;
-  final ibanMask = MaskTextInputFormatter(mask: 'AA## AAAA #### #### ####');
-  TextEditingController? fIOAdminController;
-  TextEditingController? numDogovorController;
-  final numDogovorMask = MaskTextInputFormatter(mask: '№########');
-  TextEditingController? phoneNumController;
-  final phoneNumMask = MaskTextInputFormatter(mask: '+# (###) ###-##-##');
-  final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  final formKey = GlobalKey<FormState>();
+  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
-    binController = TextEditingController();
-    tooController = TextEditingController();
-    ibanController = TextEditingController();
-    fIOAdminController = TextEditingController();
-    numDogovorController = TextEditingController();
-    phoneNumController = TextEditingController();
+    _model = createModel(context, () => AdminAddCompany4Model());
+
+    _model.tooController = TextEditingController();
+    _model.binController = TextEditingController();
+    _model.ibanController = TextEditingController();
+    _model.fIOAdminController = TextEditingController();
+    _model.numDogovorController = TextEditingController();
+    _model.phoneNumController = TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
-    binController?.dispose();
-    tooController?.dispose();
-    ibanController?.dispose();
-    fIOAdminController?.dispose();
-    numDogovorController?.dispose();
-    phoneNumController?.dispose();
     super.dispose();
   }
 
@@ -87,8 +73,12 @@ class _AdminAddCompany4WidgetState extends State<AdminAddCompany4Widget> {
               Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  AdminAppBarWidget(
-                    pageName: 'Главная',
+                  wrapWithModel(
+                    model: _model.adminAppBarModel,
+                    updateCallback: () => setState(() {}),
+                    child: AdminAppBarWidget(
+                      pageName: 'Главная',
+                    ),
                   ),
                   Expanded(
                     child: Stack(
@@ -202,7 +192,7 @@ class _AdminAddCompany4WidgetState extends State<AdminAddCompany4Widget> {
                                                     BorderRadius.circular(8),
                                               ),
                                               child: Form(
-                                                key: formKey,
+                                                key: _model.formKey,
                                                 autovalidateMode:
                                                     AutovalidateMode.disabled,
                                                 child: Padding(
@@ -265,8 +255,8 @@ class _AdminAddCompany4WidgetState extends State<AdminAddCompany4Widget> {
                                                       Container(
                                                         width: 448,
                                                         child: TextFormField(
-                                                          controller:
-                                                              tooController,
+                                                          controller: _model
+                                                              .tooController,
                                                           obscureText: false,
                                                           decoration:
                                                               InputDecoration(
@@ -393,6 +383,10 @@ class _AdminAddCompany4WidgetState extends State<AdminAddCompany4Widget> {
                                                                         FlutterFlowTheme.of(context)
                                                                             .bodyText1Family),
                                                               ),
+                                                          validator: _model
+                                                              .tooControllerValidator
+                                                              .asValidator(
+                                                                  context),
                                                         ),
                                                       ),
                                                       Padding(
@@ -423,8 +417,8 @@ class _AdminAddCompany4WidgetState extends State<AdminAddCompany4Widget> {
                                                       Container(
                                                         width: 448,
                                                         child: TextFormField(
-                                                          controller:
-                                                              binController,
+                                                          controller: _model
+                                                              .binController,
                                                           obscureText: false,
                                                           decoration:
                                                               InputDecoration(
@@ -554,8 +548,12 @@ class _AdminAddCompany4WidgetState extends State<AdminAddCompany4Widget> {
                                                           keyboardType:
                                                               TextInputType
                                                                   .number,
+                                                          validator: _model
+                                                              .binControllerValidator
+                                                              .asValidator(
+                                                                  context),
                                                           inputFormatters: [
-                                                            binMask
+                                                            _model.binMask
                                                           ],
                                                         ),
                                                       ),
@@ -587,8 +585,8 @@ class _AdminAddCompany4WidgetState extends State<AdminAddCompany4Widget> {
                                                       Container(
                                                         width: 448,
                                                         child: TextFormField(
-                                                          controller:
-                                                              ibanController,
+                                                          controller: _model
+                                                              .ibanController,
                                                           obscureText: false,
                                                           decoration:
                                                               InputDecoration(
@@ -715,8 +713,12 @@ class _AdminAddCompany4WidgetState extends State<AdminAddCompany4Widget> {
                                                                         FlutterFlowTheme.of(context)
                                                                             .bodyText1Family),
                                                               ),
+                                                          validator: _model
+                                                              .ibanControllerValidator
+                                                              .asValidator(
+                                                                  context),
                                                           inputFormatters: [
-                                                            ibanMask
+                                                            _model.ibanMask
                                                           ],
                                                         ),
                                                       ),
@@ -748,8 +750,8 @@ class _AdminAddCompany4WidgetState extends State<AdminAddCompany4Widget> {
                                                       Container(
                                                         width: 448,
                                                         child: TextFormField(
-                                                          controller:
-                                                              fIOAdminController,
+                                                          controller: _model
+                                                              .fIOAdminController,
                                                           obscureText: false,
                                                           decoration:
                                                               InputDecoration(
@@ -876,6 +878,10 @@ class _AdminAddCompany4WidgetState extends State<AdminAddCompany4Widget> {
                                                                         FlutterFlowTheme.of(context)
                                                                             .bodyText1Family),
                                                               ),
+                                                          validator: _model
+                                                              .fIOAdminControllerValidator
+                                                              .asValidator(
+                                                                  context),
                                                         ),
                                                       ),
                                                       Padding(
@@ -906,8 +912,8 @@ class _AdminAddCompany4WidgetState extends State<AdminAddCompany4Widget> {
                                                       Container(
                                                         width: 448,
                                                         child: TextFormField(
-                                                          controller:
-                                                              numDogovorController,
+                                                          controller: _model
+                                                              .numDogovorController,
                                                           obscureText: false,
                                                           decoration:
                                                               InputDecoration(
@@ -1036,8 +1042,13 @@ class _AdminAddCompany4WidgetState extends State<AdminAddCompany4Widget> {
                                                           keyboardType:
                                                               TextInputType
                                                                   .number,
+                                                          validator: _model
+                                                              .numDogovorControllerValidator
+                                                              .asValidator(
+                                                                  context),
                                                           inputFormatters: [
-                                                            numDogovorMask
+                                                            _model
+                                                                .numDogovorMask
                                                           ],
                                                         ),
                                                       ),
@@ -1069,8 +1080,8 @@ class _AdminAddCompany4WidgetState extends State<AdminAddCompany4Widget> {
                                                       Container(
                                                         width: 448,
                                                         child: TextFormField(
-                                                          controller:
-                                                              phoneNumController,
+                                                          controller: _model
+                                                              .phoneNumController,
                                                           obscureText: false,
                                                           decoration:
                                                               InputDecoration(
@@ -1200,8 +1211,12 @@ class _AdminAddCompany4WidgetState extends State<AdminAddCompany4Widget> {
                                                           keyboardType:
                                                               TextInputType
                                                                   .phone,
+                                                          validator: _model
+                                                              .phoneNumControllerValidator
+                                                              .asValidator(
+                                                                  context),
                                                           inputFormatters: [
-                                                            phoneNumMask
+                                                            _model.phoneNumMask
                                                           ],
                                                         ),
                                                       ),
@@ -1249,65 +1264,32 @@ class _AdminAddCompany4WidgetState extends State<AdminAddCompany4Widget> {
                                                         ),
                                                         child: InkWell(
                                                           onTap: () async {
-                                                            if (kIsWeb) {
-                                                              final _datePickedDate =
-                                                                  await showDatePicker(
-                                                                context:
-                                                                    context,
-                                                                initialDate:
-                                                                    getCurrentTimestamp,
-                                                                firstDate:
-                                                                    DateTime(
-                                                                        1900),
-                                                                lastDate:
-                                                                    DateTime(
-                                                                        2050),
-                                                              );
+                                                            final _datePickedDate =
+                                                                await showDatePicker(
+                                                              context: context,
+                                                              initialDate:
+                                                                  getCurrentTimestamp,
+                                                              firstDate:
+                                                                  DateTime(
+                                                                      1900),
+                                                              lastDate:
+                                                                  DateTime(
+                                                                      2050),
+                                                            );
 
-                                                              if (_datePickedDate !=
-                                                                  null) {
-                                                                setState(
-                                                                  () => datePicked =
-                                                                      DateTime(
-                                                                    _datePickedDate
-                                                                        .year,
-                                                                    _datePickedDate
-                                                                        .month,
-                                                                    _datePickedDate
-                                                                        .day,
-                                                                  ),
+                                                            if (_datePickedDate !=
+                                                                null) {
+                                                              setState(() {
+                                                                _model.datePicked =
+                                                                    DateTime(
+                                                                  _datePickedDate
+                                                                      .year,
+                                                                  _datePickedDate
+                                                                      .month,
+                                                                  _datePickedDate
+                                                                      .day,
                                                                 );
-                                                              }
-                                                            } else {
-                                                              await DatePicker
-                                                                  .showDatePicker(
-                                                                context,
-                                                                showTitleActions:
-                                                                    true,
-                                                                onConfirm:
-                                                                    (date) {
-                                                                  setState(() =>
-                                                                      datePicked =
-                                                                          date);
-                                                                },
-                                                                currentTime:
-                                                                    getCurrentTimestamp,
-                                                                minTime:
-                                                                    DateTime(0,
-                                                                        0, 0),
-                                                                locale: LocaleType
-                                                                    .values
-                                                                    .firstWhere(
-                                                                  (l) =>
-                                                                      l.name ==
-                                                                      FFLocalizations.of(
-                                                                              context)
-                                                                          .languageCode,
-                                                                  orElse: () =>
-                                                                      LocaleType
-                                                                          .en,
-                                                                ),
-                                                              );
+                                                              });
                                                             }
                                                           },
                                                           child: Row(
@@ -1315,7 +1297,8 @@ class _AdminAddCompany4WidgetState extends State<AdminAddCompany4Widget> {
                                                                 MainAxisSize
                                                                     .max,
                                                             children: [
-                                                              if (datePicked ==
+                                                              if (_model
+                                                                      .datePicked ==
                                                                   null)
                                                                 Expanded(
                                                                   child:
@@ -1344,7 +1327,8 @@ class _AdminAddCompany4WidgetState extends State<AdminAddCompany4Widget> {
                                                                     ),
                                                                   ),
                                                                 ),
-                                                              if (datePicked !=
+                                                              if (_model
+                                                                      .datePicked !=
                                                                   null)
                                                                 Expanded(
                                                                   child:
@@ -1360,7 +1344,8 @@ class _AdminAddCompany4WidgetState extends State<AdminAddCompany4Widget> {
                                                                           String>(
                                                                         dateTimeFormat(
                                                                           'd/M/y',
-                                                                          datePicked,
+                                                                          _model
+                                                                              .datePicked,
                                                                           locale:
                                                                               FFLocalizations.of(context).languageCode,
                                                                         ),
@@ -1443,8 +1428,10 @@ class _AdminAddCompany4WidgetState extends State<AdminAddCompany4Widget> {
                                                             if (selectedFile !=
                                                                 null) {
                                                               setState(() =>
-                                                                  isMediaUploading =
+                                                                  _model.isMediaUploading =
                                                                       true);
+                                                              FFUploadedFile?
+                                                                  selectedUploadedFile;
                                                               String?
                                                                   downloadUrl;
                                                               try {
@@ -1453,6 +1440,17 @@ class _AdminAddCompany4WidgetState extends State<AdminAddCompany4Widget> {
                                                                   'Uploading file...',
                                                                   showLoading:
                                                                       true,
+                                                                );
+                                                                selectedUploadedFile =
+                                                                    FFUploadedFile(
+                                                                  name: selectedFile
+                                                                      .storagePath
+                                                                      .split(
+                                                                          '/')
+                                                                      .last,
+                                                                  bytes:
+                                                                      selectedFile
+                                                                          .bytes,
                                                                 );
                                                                 downloadUrl = await uploadData(
                                                                     selectedFile
@@ -1463,14 +1461,19 @@ class _AdminAddCompany4WidgetState extends State<AdminAddCompany4Widget> {
                                                                 ScaffoldMessenger.of(
                                                                         context)
                                                                     .hideCurrentSnackBar();
-                                                                isMediaUploading =
+                                                                _model.isMediaUploading =
                                                                     false;
                                                               }
-                                                              if (downloadUrl !=
-                                                                  null) {
-                                                                setState(() =>
-                                                                    uploadedFileUrl =
-                                                                        downloadUrl!);
+                                                              if (selectedUploadedFile !=
+                                                                      null &&
+                                                                  downloadUrl !=
+                                                                      null) {
+                                                                setState(() {
+                                                                  _model.uploadedLocalFile =
+                                                                      selectedUploadedFile!;
+                                                                  _model.uploadedFileUrl =
+                                                                      downloadUrl!;
+                                                                });
                                                                 showUploadMessage(
                                                                   context,
                                                                   'Success!',
@@ -1507,9 +1510,9 @@ class _AdminAddCompany4WidgetState extends State<AdminAddCompany4Widget> {
                                                                   size: 24,
                                                                 ),
                                                               ),
-                                                              if (uploadedFileUrl !=
+                                                              if (_model.uploadedFileUrl !=
                                                                       null &&
-                                                                  uploadedFileUrl !=
+                                                                  _model.uploadedFileUrl !=
                                                                       '')
                                                                 Text(
                                                                   'Загружено',
@@ -1529,9 +1532,9 @@ class _AdminAddCompany4WidgetState extends State<AdminAddCompany4Widget> {
                                                                             GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                       ),
                                                                 ),
-                                                              if (uploadedFileUrl ==
+                                                              if (_model.uploadedFileUrl ==
                                                                       null ||
-                                                                  uploadedFileUrl ==
+                                                                  _model.uploadedFileUrl ==
                                                                       '')
                                                                 Text(
                                                                   'Загрузить',
@@ -1985,23 +1988,27 @@ class _AdminAddCompany4WidgetState extends State<AdminAddCompany4Widget> {
                                     ),
                                     FFButtonWidget(
                                       onPressed: () async {
-                                        if (formKey.currentState == null ||
-                                            !formKey.currentState!.validate()) {
+                                        if (_model.formKey.currentState ==
+                                                null ||
+                                            !_model.formKey.currentState!
+                                                .validate()) {
                                           return;
                                         }
 
                                         final companiesUpdateData =
                                             createCompaniesRecordData(
-                                          tooName: tooController!.text,
-                                          binIin:
-                                              int.tryParse(binController!.text),
-                                          iban: ibanController!.text,
-                                          fioAdmin: fIOAdminController!.text,
+                                          tooName: _model.tooController.text,
+                                          binIin: int.tryParse(
+                                              _model.binController.text),
+                                          iban: _model.ibanController.text,
+                                          fioAdmin:
+                                              _model.fIOAdminController.text,
                                           numDogovor:
-                                              numDogovorController!.text,
-                                          dateDogovor: datePicked,
-                                          dogovorPdf: uploadedFileUrl,
-                                          phoneNum: phoneNumController!.text,
+                                              _model.numDogovorController.text,
+                                          dateDogovor: _model.datePicked,
+                                          dogovorPdf: _model.uploadedFileUrl,
+                                          phoneNum:
+                                              _model.phoneNumController.text,
                                         );
                                         await widget.company!
                                             .update(companiesUpdateData);
@@ -2068,7 +2075,11 @@ class _AdminAddCompany4WidgetState extends State<AdminAddCompany4Widget> {
                   ),
                 ],
               ),
-              AdminAppBarInfoWidget(),
+              wrapWithModel(
+                model: _model.adminAppBarInfoModel,
+                updateCallback: () => setState(() {}),
+                child: AdminAppBarInfoWidget(),
+              ),
             ],
           ),
         ),

@@ -5,6 +5,8 @@ import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'admin_sign_in_email_model.dart';
+export 'admin_sign_in_email_model.dart';
 
 class AdminSignInEmailWidget extends StatefulWidget {
   const AdminSignInEmailWidget({Key? key}) : super(key: key);
@@ -14,27 +16,26 @@ class AdminSignInEmailWidget extends StatefulWidget {
 }
 
 class _AdminSignInEmailWidgetState extends State<AdminSignInEmailWidget> {
-  TextEditingController? emailTextController;
-  TextEditingController? passwordTextController;
-  late bool passwordVisibility;
-  bool? checkboxValue;
-  final _unfocusNode = FocusNode();
+  late AdminSignInEmailModel _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
-    emailTextController = TextEditingController();
-    passwordTextController = TextEditingController();
-    passwordVisibility = false;
+    _model = createModel(context, () => AdminSignInEmailModel());
+
+    _model.emailTextController = TextEditingController();
+    _model.passwordTextController = TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
-    emailTextController?.dispose();
-    passwordTextController?.dispose();
     super.dispose();
   }
 
@@ -101,7 +102,7 @@ class _AdminSignInEmailWidgetState extends State<AdminSignInEmailWidget> {
                       child: Container(
                         width: 356,
                         child: TextFormField(
-                          controller: emailTextController,
+                          controller: _model.emailTextController,
                           obscureText: false,
                           decoration: InputDecoration(
                             hintText: 'Email',
@@ -145,6 +146,8 @@ class _AdminSignInEmailWidgetState extends State<AdminSignInEmailWidget> {
                             ),
                           ),
                           style: FlutterFlowTheme.of(context).bodyText1,
+                          validator: _model.emailTextControllerValidator
+                              .asValidator(context),
                         ),
                       ),
                     ),
@@ -153,8 +156,8 @@ class _AdminSignInEmailWidgetState extends State<AdminSignInEmailWidget> {
                       child: Container(
                         width: 356,
                         child: TextFormField(
-                          controller: passwordTextController,
-                          obscureText: !passwordVisibility,
+                          controller: _model.passwordTextController,
+                          obscureText: !_model.passwordVisibility,
                           decoration: InputDecoration(
                             hintText: 'Пароль',
                             hintStyle: FlutterFlowTheme.of(context)
@@ -197,11 +200,12 @@ class _AdminSignInEmailWidgetState extends State<AdminSignInEmailWidget> {
                             ),
                             suffixIcon: InkWell(
                               onTap: () => setState(
-                                () => passwordVisibility = !passwordVisibility,
+                                () => _model.passwordVisibility =
+                                    !_model.passwordVisibility,
                               ),
                               focusNode: FocusNode(skipTraversal: true),
                               child: Icon(
-                                passwordVisibility
+                                _model.passwordVisibility
                                     ? Icons.visibility_outlined
                                     : Icons.visibility_off_outlined,
                                 color: Color(0xFF9CA3AF),
@@ -210,6 +214,8 @@ class _AdminSignInEmailWidgetState extends State<AdminSignInEmailWidget> {
                             ),
                           ),
                           style: FlutterFlowTheme.of(context).bodyText1,
+                          validator: _model.passwordTextControllerValidator
+                              .asValidator(context),
                         ),
                       ),
                     ),
@@ -229,9 +235,10 @@ class _AdminSignInEmailWidgetState extends State<AdminSignInEmailWidget> {
                                   FlutterFlowTheme.of(context).gray2,
                             ),
                             child: Checkbox(
-                              value: checkboxValue ??= false,
+                              value: _model.checkboxValue ??= false,
                               onChanged: (newValue) async {
-                                setState(() => checkboxValue = newValue!);
+                                setState(
+                                    () => _model.checkboxValue = newValue!);
                               },
                               activeColor:
                                   FlutterFlowTheme.of(context).primaryColor,
@@ -294,8 +301,8 @@ class _AdminSignInEmailWidgetState extends State<AdminSignInEmailWidget> {
 
                           final user = await signInWithEmail(
                             context,
-                            emailTextController!.text,
-                            passwordTextController!.text,
+                            _model.emailTextController.text,
+                            _model.passwordTextController.text,
                           );
                           if (user == null) {
                             return;

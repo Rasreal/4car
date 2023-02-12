@@ -8,6 +8,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'admin_sales_details_model.dart';
+export 'admin_sales_details_model.dart';
 
 class AdminSalesDetailsWidget extends StatefulWidget {
   const AdminSalesDetailsWidget({
@@ -25,13 +27,27 @@ class AdminSalesDetailsWidget extends StatefulWidget {
 }
 
 class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
-  final formKey = GlobalKey<FormState>();
+  late AdminSalesDetailsModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => AdminSalesDetailsModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
   }
 
   @override
@@ -47,7 +63,7 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
           borderRadius: BorderRadius.circular(8),
         ),
         child: Form(
-          key: formKey,
+          key: _model.formKey,
           autovalidateMode: AutovalidateMode.disabled,
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(24, 24, 24, 24),
@@ -128,7 +144,7 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                         ),
                   ),
                 ),
-                if (widget.promotion!.moderation ?? true)
+                if (!widget.promotion!.moderation!)
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                     child: Row(
@@ -222,7 +238,7 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                       ],
                     ),
                   ),
-                if (!widget.promotion!.moderation!)
+                if (!widget.promotion!.moderation! || !widget.promotion!.top!)
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0, 28, 0, 0),
                     child: Container(

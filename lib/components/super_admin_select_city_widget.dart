@@ -4,6 +4,8 @@ import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'super_admin_select_city_model.dart';
+export 'super_admin_select_city_model.dart';
 
 class SuperAdminSelectCityWidget extends StatefulWidget {
   const SuperAdminSelectCityWidget({Key? key}) : super(key: key);
@@ -15,11 +17,27 @@ class SuperAdminSelectCityWidget extends StatefulWidget {
 
 class _SuperAdminSelectCityWidgetState
     extends State<SuperAdminSelectCityWidget> {
+  late SuperAdminSelectCityModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => SuperAdminSelectCityModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
   }
 
   @override

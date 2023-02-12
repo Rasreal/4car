@@ -15,6 +15,8 @@ import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
+import 'super_admin_current_company_model.dart';
+export 'super_admin_current_company_model.dart';
 
 class SuperAdminCurrentCompanyWidget extends StatefulWidget {
   const SuperAdminCurrentCompanyWidget({
@@ -31,23 +33,16 @@ class SuperAdminCurrentCompanyWidget extends StatefulWidget {
 
 class _SuperAdminCurrentCompanyWidgetState
     extends State<SuperAdminCurrentCompanyWidget> {
-  Completer<List<CompanyServicesRecord>>? _firestoreRequestCompleter;
-  TextEditingController? textController1;
-  TextEditingController? textController2;
-  TextEditingController? textController3;
-  TextEditingController? textController4;
-  TextEditingController? textController5;
-  TextEditingController? textController6;
-  final textFieldMask6 = MaskTextInputFormatter(mask: '+# (###) ###-##-##');
-  TextEditingController? textController7;
-  TextEditingController? textController8;
-  TextEditingController? textController9;
-  final _unfocusNode = FocusNode();
+  late SuperAdminCurrentCompanyModel _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => SuperAdminCurrentCompanyModel());
+
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       FFAppState().update(() {
@@ -55,22 +50,15 @@ class _SuperAdminCurrentCompanyWidgetState
       });
     });
 
-    textController9 = TextEditingController();
+    _model.textController9 = TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
-    textController1?.dispose();
-    textController2?.dispose();
-    textController3?.dispose();
-    textController4?.dispose();
-    textController5?.dispose();
-    textController6?.dispose();
-    textController7?.dispose();
-    textController8?.dispose();
-    textController9?.dispose();
     super.dispose();
   }
 
@@ -87,8 +75,12 @@ class _SuperAdminCurrentCompanyWidgetState
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              SuperAdminAppBarWidget(
-                page: 'Главная',
+              wrapWithModel(
+                model: _model.superAdminAppBarModel,
+                updateCallback: () => setState(() {}),
+                child: SuperAdminAppBarWidget(
+                  page: 'Главная',
+                ),
               ),
               Expanded(
                 child: Container(
@@ -115,27 +107,40 @@ class _SuperAdminCurrentCompanyWidgetState
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 3, 0),
-                                      child: Icon(
-                                        FFIcons.kicBack,
-                                        color: Colors.black,
-                                        size: 14,
-                                      ),
-                                    ),
-                                    Text(
-                                      'Назад',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1
-                                          .override(
-                                            fontFamily: 'Inter',
-                                            fontWeight: FontWeight.w500,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyText1Family),
+                                    InkWell(
+                                      onTap: () async {
+                                        context.pop();
+                                      },
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 0, 3, 0),
+                                            child: Icon(
+                                              FFIcons.kicBack,
+                                              color: Colors.black,
+                                              size: 14,
+                                            ),
                                           ),
+                                          Text(
+                                            'Назад',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  fontWeight: FontWeight.w500,
+                                                  useGoogleFonts: GoogleFonts
+                                                          .asMap()
+                                                      .containsKey(
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyText1Family),
+                                                ),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -435,7 +440,7 @@ class _SuperAdminCurrentCompanyWidgetState
                                 ],
                               ),
                               if (FFAppState().superAdminCurrentCompany ==
-                                  'Данные о компании')
+                                  'Данные компании')
                                 FutureBuilder<CompaniesRecord>(
                                   future: CompaniesRecord.getDocumentOnce(
                                       widget.currentCompany!),
@@ -979,7 +984,7 @@ class _SuperAdminCurrentCompanyWidgetState
                                                                                 child: Container(
                                                                                   width: 346,
                                                                                   child: TextFormField(
-                                                                                    controller: textController1 ??= TextEditingController(
+                                                                                    controller: _model.textController1 ??= TextEditingController(
                                                                                       text: columnCompaniesRecord.binIin?.toString(),
                                                                                     ),
                                                                                     readOnly: true,
@@ -1037,13 +1042,14 @@ class _SuperAdminCurrentCompanyWidgetState
                                                                                           fontWeight: FontWeight.normal,
                                                                                           useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                         ),
+                                                                                    validator: _model.textController1Validator.asValidator(context),
                                                                                   ),
                                                                                 ),
                                                                               ),
                                                                               Container(
                                                                                 width: 346,
                                                                                 child: TextFormField(
-                                                                                  controller: textController2 ??= TextEditingController(
+                                                                                  controller: _model.textController2 ??= TextEditingController(
                                                                                     text: columnCompaniesRecord.iban,
                                                                                   ),
                                                                                   readOnly: true,
@@ -1101,6 +1107,7 @@ class _SuperAdminCurrentCompanyWidgetState
                                                                                         fontWeight: FontWeight.normal,
                                                                                         useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                       ),
+                                                                                  validator: _model.textController2Validator.asValidator(context),
                                                                                 ),
                                                                               ),
                                                                             ],
@@ -1175,7 +1182,7 @@ class _SuperAdminCurrentCompanyWidgetState
                                                                                   child: Container(
                                                                                     width: 346,
                                                                                     child: TextFormField(
-                                                                                      controller: textController3 ??= TextEditingController(
+                                                                                      controller: _model.textController3 ??= TextEditingController(
                                                                                         text: columnCompaniesRecord.iban,
                                                                                       ),
                                                                                       readOnly: true,
@@ -1233,13 +1240,14 @@ class _SuperAdminCurrentCompanyWidgetState
                                                                                             fontWeight: FontWeight.normal,
                                                                                             useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                           ),
+                                                                                      validator: _model.textController3Validator.asValidator(context),
                                                                                     ),
                                                                                   ),
                                                                                 ),
                                                                                 Container(
                                                                                   width: 346,
                                                                                   child: TextFormField(
-                                                                                    controller: textController4 ??= TextEditingController(
+                                                                                    controller: _model.textController4 ??= TextEditingController(
                                                                                       text: columnCompaniesRecord.street,
                                                                                     ),
                                                                                     readOnly: true,
@@ -1297,6 +1305,7 @@ class _SuperAdminCurrentCompanyWidgetState
                                                                                           fontWeight: FontWeight.normal,
                                                                                           useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                         ),
+                                                                                    validator: _model.textController4Validator.asValidator(context),
                                                                                   ),
                                                                                 ),
                                                                               ],
@@ -1433,7 +1442,7 @@ class _SuperAdminCurrentCompanyWidgetState
                                                                             346,
                                                                         child:
                                                                             TextFormField(
-                                                                          controller: textController5 ??=
+                                                                          controller: _model.textController5 ??=
                                                                               TextEditingController(
                                                                             text:
                                                                                 columnCompaniesRecord.countBox?.toString(),
@@ -1505,6 +1514,9 @@ class _SuperAdminCurrentCompanyWidgetState
                                                                                 fontWeight: FontWeight.normal,
                                                                                 useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                               ),
+                                                                          validator: _model
+                                                                              .textController5Validator
+                                                                              .asValidator(context),
                                                                         ),
                                                                       ),
                                                                     ),
@@ -1585,7 +1597,7 @@ class _SuperAdminCurrentCompanyWidgetState
                                                                             346,
                                                                         child:
                                                                             TextFormField(
-                                                                          controller: textController6 ??=
+                                                                          controller: _model.textController6 ??=
                                                                               TextEditingController(
                                                                             text:
                                                                                 columnCompaniesRecord.phoneNum,
@@ -1659,8 +1671,11 @@ class _SuperAdminCurrentCompanyWidgetState
                                                                               ),
                                                                           keyboardType:
                                                                               TextInputType.phone,
+                                                                          validator: _model
+                                                                              .textController6Validator
+                                                                              .asValidator(context),
                                                                           inputFormatters: [
-                                                                            textFieldMask6
+                                                                            _model.textFieldMask6
                                                                           ],
                                                                         ),
                                                                       ),
@@ -1746,7 +1761,7 @@ class _SuperAdminCurrentCompanyWidgetState
                                                                                 181,
                                                                             child:
                                                                                 TextFormField(
-                                                                              controller: textController7 ??= TextEditingController(
+                                                                              controller: _model.textController7 ??= TextEditingController(
                                                                                 text: columnCompaniesRecord.openTime,
                                                                               ),
                                                                               readOnly: true,
@@ -1804,6 +1819,7 @@ class _SuperAdminCurrentCompanyWidgetState
                                                                                     fontWeight: FontWeight.normal,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                   ),
+                                                                              validator: _model.textController7Validator.asValidator(context),
                                                                             ),
                                                                           ),
                                                                         ),
@@ -1819,7 +1835,7 @@ class _SuperAdminCurrentCompanyWidgetState
                                                                                 Container(
                                                                               width: 181,
                                                                               child: TextFormField(
-                                                                                controller: textController8 ??= TextEditingController(
+                                                                                controller: _model.textController8 ??= TextEditingController(
                                                                                   text: columnCompaniesRecord.closeTime,
                                                                                 ),
                                                                                 readOnly: true,
@@ -1877,6 +1893,7 @@ class _SuperAdminCurrentCompanyWidgetState
                                                                                       fontWeight: FontWeight.normal,
                                                                                       useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                     ),
+                                                                                validator: _model.textController8Validator.asValidator(context),
                                                                               ),
                                                                             ),
                                                                           ),
@@ -1979,7 +1996,7 @@ class _SuperAdminCurrentCompanyWidgetState
                                                                                 'Седан';
                                                                           });
                                                                           setState(() =>
-                                                                              _firestoreRequestCompleter = null);
+                                                                              _model.firestoreRequestCompleter = null);
                                                                         },
                                                                         child:
                                                                             Container(
@@ -2034,7 +2051,7 @@ class _SuperAdminCurrentCompanyWidgetState
                                                                                 'Хетчбэк';
                                                                           });
                                                                           setState(() =>
-                                                                              _firestoreRequestCompleter = null);
+                                                                              _model.firestoreRequestCompleter = null);
                                                                         },
                                                                         child:
                                                                             Container(
@@ -2089,7 +2106,7 @@ class _SuperAdminCurrentCompanyWidgetState
                                                                                 'Кроссовер';
                                                                           });
                                                                           setState(() =>
-                                                                              _firestoreRequestCompleter = null);
+                                                                              _model.firestoreRequestCompleter = null);
                                                                         },
                                                                         child:
                                                                             Container(
@@ -2144,7 +2161,7 @@ class _SuperAdminCurrentCompanyWidgetState
                                                                                 'Внедорожник';
                                                                           });
                                                                           setState(() =>
-                                                                              _firestoreRequestCompleter = null);
+                                                                              _model.firestoreRequestCompleter = null);
                                                                         },
                                                                         child:
                                                                             Container(
@@ -2199,7 +2216,7 @@ class _SuperAdminCurrentCompanyWidgetState
                                                                                 'Пикап';
                                                                           });
                                                                           setState(() =>
-                                                                              _firestoreRequestCompleter = null);
+                                                                              _model.firestoreRequestCompleter = null);
                                                                         },
                                                                         child:
                                                                             Container(
@@ -2254,7 +2271,7 @@ class _SuperAdminCurrentCompanyWidgetState
                                                                                 'Минивен';
                                                                           });
                                                                           setState(() =>
-                                                                              _firestoreRequestCompleter = null);
+                                                                              _model.firestoreRequestCompleter = null);
                                                                         },
                                                                         child:
                                                                             Container(
@@ -2309,7 +2326,7 @@ class _SuperAdminCurrentCompanyWidgetState
                                                                                 'Купе';
                                                                           });
                                                                           setState(() =>
-                                                                              _firestoreRequestCompleter = null);
+                                                                              _model.firestoreRequestCompleter = null);
                                                                         },
                                                                         child:
                                                                             Container(
@@ -2395,7 +2412,7 @@ class _SuperAdminCurrentCompanyWidgetState
                                                                       child: FutureBuilder<
                                                                           List<
                                                                               CompanyServicesRecord>>(
-                                                                        future: (_firestoreRequestCompleter ??= Completer<List<CompanyServicesRecord>>()
+                                                                        future: (_model.firestoreRequestCompleter ??= Completer<List<CompanyServicesRecord>>()
                                                                               ..complete(queryCompanyServicesRecordOnce(
                                                                                 parent: widget.currentCompany,
                                                                                 queryBuilder: (companyServicesRecord) => companyServicesRecord.where('car_body', isEqualTo: FFAppState().adminSelectServicesBody),
@@ -2423,8 +2440,8 @@ class _SuperAdminCurrentCompanyWidgetState
                                                                           return RefreshIndicator(
                                                                             onRefresh:
                                                                                 () async {
-                                                                              setState(() => _firestoreRequestCompleter = null);
-                                                                              await waitForFirestoreRequestCompleter();
+                                                                              setState(() => _model.firestoreRequestCompleter = null);
+                                                                              await _model.waitForFirestoreRequestCompleter();
                                                                             },
                                                                             child:
                                                                                 ListView.builder(
@@ -3404,8 +3421,8 @@ class _SuperAdminCurrentCompanyWidgetState
                                                           Expanded(
                                                             child:
                                                                 TextFormField(
-                                                              controller:
-                                                                  textController9,
+                                                              controller: _model
+                                                                  .textController9,
                                                               autofocus: true,
                                                               obscureText:
                                                                   false,
@@ -3466,6 +3483,10 @@ class _SuperAdminCurrentCompanyWidgetState
                                                                         .containsKey(
                                                                             FlutterFlowTheme.of(context).bodyText1Family),
                                                                   ),
+                                                              validator: _model
+                                                                  .textController9Validator
+                                                                  .asValidator(
+                                                                      context),
                                                             ),
                                                           ),
                                                           Icon(
@@ -4281,8 +4302,6 @@ class _SuperAdminCurrentCompanyWidgetState
                                                                                   padding: MediaQuery.of(context).viewInsets,
                                                                                   child: AdminFeedbackReviewWidget(
                                                                                     booking: columnBookingsRecord,
-                                                                                    company: containerReviewsClientsCompaniesRecord,
-                                                                                    comment: listViewCommentsRecord,
                                                                                   ),
                                                                                 );
                                                                               },
@@ -4329,8 +4348,11 @@ class _SuperAdminCurrentCompanyWidgetState
                                 StreamBuilder<List<BookingsRecord>>(
                                   stream: queryBookingsRecord(
                                     queryBuilder: (bookingsRecord) =>
-                                        bookingsRecord.where('status',
-                                            isNotEqualTo: 'Забронировано'),
+                                        bookingsRecord
+                                            .where('status',
+                                                isNotEqualTo: 'Закончено')
+                                            .where('cancelled',
+                                                isEqualTo: false),
                                   ),
                                   builder: (context, snapshot) {
                                     // Customize what your widget looks like when it's loading.
@@ -4455,10 +4477,13 @@ class _SuperAdminCurrentCompanyWidgetState
                                                                             0,
                                                                             0),
                                                                     child: Text(
-                                                                      functions
-                                                                          .oborot(
-                                                                              containerBookingsRecordList.toList())
-                                                                          .toString(),
+                                                                      valueOrDefault<
+                                                                          String>(
+                                                                        functions
+                                                                            .oborot(containerBookingsRecordList.toList())
+                                                                            .toString(),
+                                                                        '0',
+                                                                      ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .bodyText1
@@ -4748,9 +4773,12 @@ class _SuperAdminCurrentCompanyWidgetState
                                                                             0,
                                                                             0),
                                                                     child: Text(
-                                                                      functions.averageCheque(
-                                                                          containerBookingsRecordList
-                                                                              .toList()),
+                                                                      valueOrDefault<
+                                                                          String>(
+                                                                        functions
+                                                                            .averageCheque(containerBookingsRecordList.toList()),
+                                                                        '0',
+                                                                      ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .bodyText1
@@ -5557,20 +5585,5 @@ class _SuperAdminCurrentCompanyWidgetState
         ),
       ),
     );
-  }
-
-  Future waitForFirestoreRequestCompleter({
-    double minWait = 0,
-    double maxWait = double.infinity,
-  }) async {
-    final stopwatch = Stopwatch()..start();
-    while (true) {
-      await Future.delayed(Duration(milliseconds: 50));
-      final timeElapsed = stopwatch.elapsedMilliseconds;
-      final requestComplete = _firestoreRequestCompleter?.isCompleted ?? false;
-      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
-        break;
-      }
-    }
   }
 }

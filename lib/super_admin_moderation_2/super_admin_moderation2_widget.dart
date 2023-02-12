@@ -1,6 +1,5 @@
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
-import '../components/admin_app_bar_info_widget.dart';
 import '../components/super_admin_app_bar_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -9,6 +8,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'super_admin_moderation2_model.dart';
+export 'super_admin_moderation2_model.dart';
 
 class SuperAdminModeration2Widget extends StatefulWidget {
   const SuperAdminModeration2Widget({
@@ -25,18 +26,23 @@ class SuperAdminModeration2Widget extends StatefulWidget {
 
 class _SuperAdminModeration2WidgetState
     extends State<SuperAdminModeration2Widget> {
-  final _unfocusNode = FocusNode();
+  late SuperAdminModeration2Model _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => SuperAdminModeration2Model());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
     super.dispose();
   }
@@ -56,8 +62,12 @@ class _SuperAdminModeration2WidgetState
               Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  SuperAdminAppBarWidget(
-                    page: 'Главная',
+                  wrapWithModel(
+                    model: _model.superAdminAppBarModel,
+                    updateCallback: () => setState(() {}),
+                    child: SuperAdminAppBarWidget(
+                      page: 'Главная',
+                    ),
                   ),
                   Expanded(
                     child: Stack(
@@ -1096,7 +1106,6 @@ class _SuperAdminModeration2WidgetState
                   ),
                 ],
               ),
-              AdminAppBarInfoWidget(),
               if (FFAppState().superAdminCencelledModeration)
                 Align(
                   alignment: AlignmentDirectional(0, 0),

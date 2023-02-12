@@ -8,6 +8,8 @@ import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'edit_car_model.dart';
+export 'edit_car_model.dart';
 
 class EditCarWidget extends StatefulWidget {
   const EditCarWidget({
@@ -22,19 +24,27 @@ class EditCarWidget extends StatefulWidget {
 }
 
 class _EditCarWidgetState extends State<EditCarWidget> {
-  TextEditingController? textController;
-  final formKey = GlobalKey<FormState>();
+  late EditCarModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
 
   @override
   void initState() {
     super.initState();
-    textController = TextEditingController(text: widget.myCar!.carNum);
+    _model = createModel(context, () => EditCarModel());
+
+    _model.textController = TextEditingController(text: widget.myCar!.carNum);
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
-    textController?.dispose();
+    _model.dispose();
+
     super.dispose();
   }
 
@@ -268,12 +278,12 @@ class _EditCarWidgetState extends State<EditCarWidget> {
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                     child: Form(
-                      key: formKey,
+                      key: _model.formKey,
                       autovalidateMode: AutovalidateMode.disabled,
                       child: TextFormField(
-                        controller: textController,
+                        controller: _model.textController,
                         onChanged: (_) => EasyDebounce.debounce(
-                          'textController',
+                          '_model.textController',
                           Duration(milliseconds: 500),
                           () => setState(() {}),
                         ),
@@ -311,6 +321,8 @@ class _EditCarWidgetState extends State<EditCarWidget> {
                           ),
                         ),
                         style: FlutterFlowTheme.of(context).bodyText1,
+                        validator:
+                            _model.textControllerValidator.asValidator(context),
                       ),
                     ),
                   ),
@@ -320,13 +332,13 @@ class _EditCarWidgetState extends State<EditCarWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            if (formKey.currentState == null ||
-                                !formKey.currentState!.validate()) {
+                            if (_model.formKey.currentState == null ||
+                                !_model.formKey.currentState!.validate()) {
                               return;
                             }
 
                             final myCarsUpdateData = createMyCarsRecordData(
-                              carNum: textController!.text,
+                              carNum: _model.textController.text,
                               carBody: FFAppState().addCarBody,
                             );
                             await widget.myCar!.reference
@@ -361,25 +373,26 @@ class _EditCarWidgetState extends State<EditCarWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
                           child: FFButtonWidget(
                             onPressed: () async {
-                              if (formKey.currentState == null ||
-                                  !formKey.currentState!.validate()) {
+                              if (_model.formKey.currentState == null ||
+                                  !_model.formKey.currentState!.validate()) {
                                 return;
                               }
-
                               if (FFAppState().addCarBody != null &&
                                   FFAppState().addCarBody != '') {
-                                final myCarsUpdateData = createMyCarsRecordData(
-                                  carNum: textController!.text,
+                                final myCarsUpdateData1 =
+                                    createMyCarsRecordData(
+                                  carNum: _model.textController.text,
                                   carBody: FFAppState().addCarBody,
                                 );
                                 await widget.myCar!.reference
-                                    .update(myCarsUpdateData);
+                                    .update(myCarsUpdateData1);
                               } else {
-                                final myCarsUpdateData = createMyCarsRecordData(
-                                  carNum: textController!.text,
+                                final myCarsUpdateData2 =
+                                    createMyCarsRecordData(
+                                  carNum: _model.textController.text,
                                 );
                                 await widget.myCar!.reference
-                                    .update(myCarsUpdateData);
+                                    .update(myCarsUpdateData2);
                               }
 
                               Navigator.pop(context);

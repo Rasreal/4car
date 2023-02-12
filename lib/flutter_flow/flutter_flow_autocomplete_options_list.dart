@@ -15,7 +15,7 @@ class AutocompleteOptionsList extends StatelessWidget {
     this.optionHighlightColor,
     this.textHighlightStyle,
     this.maxHeight,
-    this.elevation = 0.0,
+    this.elevation = 4.0,
   }) : super(key: key);
 
   final GlobalKey textFieldKey;

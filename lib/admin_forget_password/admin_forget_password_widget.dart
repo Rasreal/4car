@@ -5,6 +5,8 @@ import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'admin_forget_password_model.dart';
+export 'admin_forget_password_model.dart';
 
 class AdminForgetPasswordWidget extends StatefulWidget {
   const AdminForgetPasswordWidget({Key? key}) : super(key: key);
@@ -15,21 +17,25 @@ class AdminForgetPasswordWidget extends StatefulWidget {
 }
 
 class _AdminForgetPasswordWidgetState extends State<AdminForgetPasswordWidget> {
-  TextEditingController? emailTextController;
-  final _unfocusNode = FocusNode();
+  late AdminForgetPasswordModel _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
-    emailTextController = TextEditingController();
+    _model = createModel(context, () => AdminForgetPasswordModel());
+
+    _model.emailTextController = TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
-    emailTextController?.dispose();
     super.dispose();
   }
 
@@ -119,7 +125,7 @@ class _AdminForgetPasswordWidgetState extends State<AdminForgetPasswordWidget> {
                         child: Container(
                           width: 356,
                           child: TextFormField(
-                            controller: emailTextController,
+                            controller: _model.emailTextController,
                             obscureText: false,
                             decoration: InputDecoration(
                               hintText: 'Email',
@@ -164,6 +170,8 @@ class _AdminForgetPasswordWidgetState extends State<AdminForgetPasswordWidget> {
                               ),
                             ),
                             style: FlutterFlowTheme.of(context).bodyText1,
+                            validator: _model.emailTextControllerValidator
+                                .asValidator(context),
                           ),
                         ),
                       ),
@@ -171,7 +179,7 @@ class _AdminForgetPasswordWidgetState extends State<AdminForgetPasswordWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 24),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            if (emailTextController!.text.isEmpty) {
+                            if (_model.emailTextController.text.isEmpty) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
                                   content: Text(
@@ -182,7 +190,7 @@ class _AdminForgetPasswordWidgetState extends State<AdminForgetPasswordWidget> {
                               return;
                             }
                             await resetPassword(
-                              email: emailTextController!.text,
+                              email: _model.emailTextController.text,
                               context: context,
                             );
 

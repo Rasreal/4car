@@ -9,6 +9,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'select_car_model.dart';
+export 'select_car_model.dart';
 
 class SelectCarWidget extends StatefulWidget {
   const SelectCarWidget({Key? key}) : super(key: key);
@@ -18,13 +20,27 @@ class SelectCarWidget extends StatefulWidget {
 }
 
 class _SelectCarWidgetState extends State<SelectCarWidget> {
-  Completer<List<MyCarsRecord>>? _firestoreRequestCompleter;
+  late SelectCarModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => SelectCarModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
   }
 
   @override
@@ -76,7 +92,7 @@ class _SelectCarWidgetState extends State<SelectCarWidget> {
               ),
             ),
             FutureBuilder<List<MyCarsRecord>>(
-              future: (_firestoreRequestCompleter ??=
+              future: (_model.firestoreRequestCompleter ??=
                       Completer<List<MyCarsRecord>>()
                         ..complete(queryMyCarsRecordOnce(
                           parent: currentUserReference,
@@ -100,8 +116,8 @@ class _SelectCarWidgetState extends State<SelectCarWidget> {
                 List<MyCarsRecord> listViewMyCarsRecordList = snapshot.data!;
                 return RefreshIndicator(
                   onRefresh: () async {
-                    setState(() => _firestoreRequestCompleter = null);
-                    await waitForFirestoreRequestCompleter();
+                    setState(() => _model.firestoreRequestCompleter = null);
+                    await _model.waitForFirestoreRequestCompleter();
                   },
                   child: ListView.builder(
                     padding: EdgeInsets.zero,
@@ -119,7 +135,8 @@ class _SelectCarWidgetState extends State<SelectCarWidget> {
                               FFAppState().selectedCar =
                                   listViewMyCarsRecord.reference;
                             });
-                            setState(() => _firestoreRequestCompleter = null);
+                            setState(
+                                () => _model.firestoreRequestCompleter = null);
                           },
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -273,20 +290,5 @@ class _SelectCarWidgetState extends State<SelectCarWidget> {
         ),
       ),
     );
-  }
-
-  Future waitForFirestoreRequestCompleter({
-    double minWait = 0,
-    double maxWait = double.infinity,
-  }) async {
-    final stopwatch = Stopwatch()..start();
-    while (true) {
-      await Future.delayed(Duration(milliseconds: 50));
-      final timeElapsed = stopwatch.elapsedMilliseconds;
-      final requestComplete = _firestoreRequestCompleter?.isCompleted ?? false;
-      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
-        break;
-      }
-    }
   }
 }

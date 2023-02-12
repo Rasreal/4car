@@ -15,6 +15,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'edit_profile_model.dart';
+export 'edit_profile_model.dart';
 
 class EditProfileWidget extends StatefulWidget {
   const EditProfileWidget({
@@ -29,17 +31,16 @@ class EditProfileWidget extends StatefulWidget {
 }
 
 class _EditProfileWidgetState extends State<EditProfileWidget> {
-  bool isMediaUploading = false;
-  String uploadedFileUrl = '';
+  late EditProfileModel _model;
 
-  TextEditingController? textController1;
-  TextEditingController? textController2;
-  final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => EditProfileModel());
+
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       if (widget.page == 'carNull') {
@@ -61,16 +62,17 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
       }
     });
 
-    textController1 = TextEditingController(text: currentUserDisplayName);
-    textController2 = TextEditingController(text: currentPhoneNumber);
+    _model.textController1 =
+        TextEditingController(text: currentUserDisplayName);
+    _model.textController2 = TextEditingController(text: currentPhoneNumber);
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
-    textController1?.dispose();
-    textController2?.dispose();
     super.dispose();
   }
 
@@ -163,8 +165,8 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                               height: 88,
                               child: Stack(
                                 children: [
-                                  if (uploadedFileUrl == null ||
-                                      uploadedFileUrl == '')
+                                  if (_model.uploadedFileUrl == null ||
+                                      _model.uploadedFileUrl == '')
                                     AuthUserStreamWidget(
                                       builder: (context) => ClipRRect(
                                         borderRadius: BorderRadius.circular(8),
@@ -179,12 +181,12 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                         ),
                                       ),
                                     ),
-                                  if (uploadedFileUrl != null &&
-                                      uploadedFileUrl != '')
+                                  if (_model.uploadedFileUrl != null &&
+                                      _model.uploadedFileUrl != '')
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(8),
                                       child: Image.network(
-                                        uploadedFileUrl,
+                                        _model.uploadedFileUrl,
                                         width: 80,
                                         height: 80,
                                         fit: BoxFit.cover,
@@ -212,8 +214,10 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                             selectedMedia.every((m) =>
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
-                                          setState(
-                                              () => isMediaUploading = true);
+                                          setState(() =>
+                                              _model.isMediaUploading = true);
+                                          var selectedUploadedFiles =
+                                              <FFUploadedFile>[];
                                           var downloadUrls = <String>[];
                                           try {
                                             showUploadMessage(
@@ -221,6 +225,20 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                               'Uploading file...',
                                               showLoading: true,
                                             );
+                                            selectedUploadedFiles =
+                                                selectedMedia
+                                                    .map((m) => FFUploadedFile(
+                                                          name: m.storagePath
+                                                              .split('/')
+                                                              .last,
+                                                          bytes: m.bytes,
+                                                          height: m.dimensions
+                                                              ?.height,
+                                                          width: m.dimensions
+                                                              ?.width,
+                                                        ))
+                                                    .toList();
+
                                             downloadUrls = (await Future.wait(
                                               selectedMedia.map(
                                                 (m) async => await uploadData(
@@ -233,12 +251,18 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                           } finally {
                                             ScaffoldMessenger.of(context)
                                                 .hideCurrentSnackBar();
-                                            isMediaUploading = false;
+                                            _model.isMediaUploading = false;
                                           }
-                                          if (downloadUrls.length ==
-                                              selectedMedia.length) {
-                                            setState(() => uploadedFileUrl =
-                                                downloadUrls.first);
+                                          if (selectedUploadedFiles.length ==
+                                                  selectedMedia.length &&
+                                              downloadUrls.length ==
+                                                  selectedMedia.length) {
+                                            setState(() {
+                                              _model.uploadedLocalFile =
+                                                  selectedUploadedFiles.first;
+                                              _model.uploadedFileUrl =
+                                                  downloadUrls.first;
+                                            });
                                             showUploadMessage(
                                                 context, 'Success!');
                                           } else {
@@ -276,7 +300,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                           child: AuthUserStreamWidget(
                             builder: (context) => TextFormField(
-                              controller: textController1,
+                              controller: _model.textController1,
                               obscureText: false,
                               decoration: InputDecoration(
                                 hintText: 'Добавить имя',
@@ -312,6 +336,8 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                 ),
                               ),
                               style: FlutterFlowTheme.of(context).bodyText1,
+                              validator: _model.textController1Validator
+                                  .asValidator(context),
                             ),
                           ),
                         ),
@@ -335,7 +361,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                           child: AuthUserStreamWidget(
                             builder: (context) => TextFormField(
-                              controller: textController2,
+                              controller: _model.textController2,
                               obscureText: false,
                               decoration: InputDecoration(
                                 hintText: '+7 (000) 000 00 00',
@@ -371,6 +397,8 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                 ),
                               ),
                               style: FlutterFlowTheme.of(context).bodyText1,
+                              validator: _model.textController2Validator
+                                  .asValidator(context),
                             ),
                           ),
                         ),
@@ -440,22 +468,22 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                                       .reference ==
                                                   currentUserDocument!
                                                       .firstCar) {
-                                                final userUpdateData = {
+                                                final userUpdateData1 = {
                                                   'firstCar':
                                                       FieldValue.delete(),
                                                 };
                                                 await currentUserReference!
-                                                    .update(userUpdateData);
+                                                    .update(userUpdateData1);
                                               }
                                               await columnMyCarsRecord.reference
                                                   .delete();
 
-                                              final userUpdateData = {
+                                              final userUpdateData2 = {
                                                 'carscount':
                                                     FieldValue.increment(-(1)),
                                               };
                                               await currentUserReference!
-                                                  .update(userUpdateData);
+                                                  .update(userUpdateData2);
                                             },
                                             child: Text(
                                               'Удалить',
@@ -869,28 +897,32 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                     EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
                                 child: FFButtonWidget(
                                   onPressed: () async {
-                                    if (uploadedFileUrl != null &&
-                                        uploadedFileUrl != '') {
-                                      final userUpdateData =
+                                    if (_model.uploadedFileUrl != null &&
+                                        _model.uploadedFileUrl != '') {
+                                      final userUpdateData1 =
                                           createUserRecordData(
-                                        displayName: textController1!.text,
-                                        photoUrl: uploadedFileUrl,
-                                        text:
-                                            int.tryParse(textController2!.text),
-                                        phoneNumber: textController2!.text,
+                                        displayName:
+                                            _model.textController1.text,
+                                        photoUrl: _model.uploadedFileUrl,
+                                        text: int.tryParse(
+                                            _model.textController2.text),
+                                        phoneNumber:
+                                            _model.textController2.text,
                                       );
                                       await currentUserReference!
-                                          .update(userUpdateData);
+                                          .update(userUpdateData1);
                                     } else {
-                                      final userUpdateData =
+                                      final userUpdateData2 =
                                           createUserRecordData(
-                                        displayName: textController1!.text,
-                                        text:
-                                            int.tryParse(textController2!.text),
-                                        phoneNumber: textController2!.text,
+                                        displayName:
+                                            _model.textController1.text,
+                                        text: int.tryParse(
+                                            _model.textController2.text),
+                                        phoneNumber:
+                                            _model.textController2.text,
                                       );
                                       await currentUserReference!
-                                          .update(userUpdateData);
+                                          .update(userUpdateData2);
                                     }
 
                                     context.pushNamed('HomePage');

@@ -4,6 +4,8 @@ import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'super_admin_app_bar_model.dart';
+export 'super_admin_app_bar_model.dart';
 
 class SuperAdminAppBarWidget extends StatefulWidget {
   const SuperAdminAppBarWidget({
@@ -18,11 +20,27 @@ class SuperAdminAppBarWidget extends StatefulWidget {
 }
 
 class _SuperAdminAppBarWidgetState extends State<SuperAdminAppBarWidget> {
+  late SuperAdminAppBarModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => SuperAdminAppBarModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
   }
 
   @override
@@ -223,7 +241,16 @@ class _SuperAdminAppBarWidgetState extends State<SuperAdminAppBarWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 48, 0),
                           child: InkWell(
                             onTap: () async {
-                              context.pushNamed('super_admin_analytics');
+                              context.pushNamed(
+                                'super_admin_analytics',
+                                extra: <String, dynamic>{
+                                  kTransitionInfoKey: TransitionInfo(
+                                    hasTransition: true,
+                                    transitionType: PageTransitionType.fade,
+                                    duration: Duration(milliseconds: 0),
+                                  ),
+                                },
+                              );
                             },
                             child: Text(
                               'Аналитика',
@@ -252,7 +279,16 @@ class _SuperAdminAppBarWidgetState extends State<SuperAdminAppBarWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 48, 0),
                           child: InkWell(
                             onTap: () async {
-                              context.pushNamed('super_admin_users');
+                              context.pushNamed(
+                                'super_admin_users',
+                                extra: <String, dynamic>{
+                                  kTransitionInfoKey: TransitionInfo(
+                                    hasTransition: true,
+                                    transitionType: PageTransitionType.fade,
+                                    duration: Duration(milliseconds: 0),
+                                  ),
+                                },
+                              );
                             },
                             child: Text(
                               'Пользователи',

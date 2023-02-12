@@ -211,14 +211,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => AdminClientsWidget(),
             ),
             FFRoute(
-              name: 'admin_analytics',
-              path: 'adminAnalytics',
-              builder: (context, params) => AdminAnalyticsWidget(),
-            ),
-            FFRoute(
               name: 'admin_office',
               path: 'adminOffice',
               builder: (context, params) => AdminOfficeWidget(),
+            ),
+            FFRoute(
+              name: 'admin_analytics',
+              path: 'adminAnalytics',
+              builder: (context, params) => AdminAnalyticsWidget(),
             ),
             FFRoute(
               name: 'admin_add_company_1',
@@ -378,6 +378,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'HomePageCopy',
               path: 'homePageCopy',
               builder: (context, params) => HomePageCopyWidget(),
+            ),
+            FFRoute(
+              name: 'admin_notifications',
+              path: 'adminNotifications',
+              builder: (context, params) => AdminNotificationsWidget(),
+            ),
+            FFRoute(
+              name: 'super_admin_cancelled_bookings',
+              path: 'superAdminCancelledBookings',
+              builder: (context, params) => SuperAdminCancelledBookingsWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),

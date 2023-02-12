@@ -10,6 +10,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'admin_edit_sales_model.dart';
+export 'admin_edit_sales_model.dart';
 
 class AdminEditSalesWidget extends StatefulWidget {
   const AdminEditSalesWidget({
@@ -24,29 +26,33 @@ class AdminEditSalesWidget extends StatefulWidget {
 }
 
 class _AdminEditSalesWidgetState extends State<AdminEditSalesWidget> {
-  bool isMediaUploading = false;
-  String uploadedFileUrl = '';
+  late AdminEditSalesModel _model;
 
-  TextEditingController? textController1;
-  TextEditingController? textController2;
-  final formKey = GlobalKey<FormState>();
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
 
   @override
   void initState() {
     super.initState();
-    textController1 = TextEditingController(
+    _model = createModel(context, () => AdminEditSalesModel());
+
+    _model.textController1 = TextEditingController(
         text: valueOrDefault<String>(
       widget.promotion!.title,
       'null',
     ));
-    textController2 = TextEditingController(text: widget.promotion!.subtitle);
+    _model.textController2 =
+        TextEditingController(text: widget.promotion!.subtitle);
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
-    textController1?.dispose();
-    textController2?.dispose();
+    _model.dispose();
+
     super.dispose();
   }
 
@@ -65,7 +71,7 @@ class _AdminEditSalesWidgetState extends State<AdminEditSalesWidget> {
               borderRadius: BorderRadius.circular(8),
             ),
             child: Form(
-              key: formKey,
+              key: _model.formKey,
               autovalidateMode: AutovalidateMode.disabled,
               child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(24, 24, 24, 24),
@@ -115,9 +121,19 @@ class _AdminEditSalesWidgetState extends State<AdminEditSalesWidget> {
                         if (selectedMedia != null &&
                             selectedMedia.every((m) =>
                                 validateFileFormat(m.storagePath, context))) {
-                          setState(() => isMediaUploading = true);
+                          setState(() => _model.isMediaUploading = true);
+                          var selectedUploadedFiles = <FFUploadedFile>[];
                           var downloadUrls = <String>[];
                           try {
+                            selectedUploadedFiles = selectedMedia
+                                .map((m) => FFUploadedFile(
+                                      name: m.storagePath.split('/').last,
+                                      bytes: m.bytes,
+                                      height: m.dimensions?.height,
+                                      width: m.dimensions?.width,
+                                    ))
+                                .toList();
+
                             downloadUrls = (await Future.wait(
                               selectedMedia.map(
                                 (m) async =>
@@ -128,11 +144,16 @@ class _AdminEditSalesWidgetState extends State<AdminEditSalesWidget> {
                                 .map((u) => u!)
                                 .toList();
                           } finally {
-                            isMediaUploading = false;
+                            _model.isMediaUploading = false;
                           }
-                          if (downloadUrls.length == selectedMedia.length) {
-                            setState(
-                                () => uploadedFileUrl = downloadUrls.first);
+                          if (selectedUploadedFiles.length ==
+                                  selectedMedia.length &&
+                              downloadUrls.length == selectedMedia.length) {
+                            setState(() {
+                              _model.uploadedLocalFile =
+                                  selectedUploadedFiles.first;
+                              _model.uploadedFileUrl = downloadUrls.first;
+                            });
                           } else {
                             setState(() {});
                             return;
@@ -142,8 +163,9 @@ class _AdminEditSalesWidgetState extends State<AdminEditSalesWidget> {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(8),
                         child: Image.network(
-                          uploadedFileUrl != null && uploadedFileUrl != ''
-                              ? uploadedFileUrl
+                          _model.uploadedFileUrl != null &&
+                                  _model.uploadedFileUrl != ''
+                              ? _model.uploadedFileUrl
                               : valueOrDefault<String>(
                                   widget.promotion!.img,
                                   'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/for-car-main-fh9k7j/assets/kpbtqngy3jdc/nullImage.png',
@@ -157,7 +179,7 @@ class _AdminEditSalesWidgetState extends State<AdminEditSalesWidget> {
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
                       child: TextFormField(
-                        controller: textController1,
+                        controller: _model.textController1,
                         obscureText: false,
                         decoration: InputDecoration(
                           hintText: 'Название',
@@ -212,12 +234,14 @@ class _AdminEditSalesWidgetState extends State<AdminEditSalesWidget> {
                               useGoogleFonts: GoogleFonts.asMap().containsKey(
                                   FlutterFlowTheme.of(context).bodyText1Family),
                             ),
+                        validator: _model.textController1Validator
+                            .asValidator(context),
                       ),
                     ),
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
                       child: TextFormField(
-                        controller: textController2,
+                        controller: _model.textController2,
                         obscureText: false,
                         decoration: InputDecoration(
                           hintText: 'Текст',
@@ -272,6 +296,8 @@ class _AdminEditSalesWidgetState extends State<AdminEditSalesWidget> {
                               useGoogleFonts: GoogleFonts.asMap().containsKey(
                                   FlutterFlowTheme.of(context).bodyText1Family),
                             ),
+                        validator: _model.textController2Validator
+                            .asValidator(context),
                       ),
                     ),
                     Padding(
@@ -283,6 +309,7 @@ class _AdminEditSalesWidgetState extends State<AdminEditSalesWidget> {
                           FFButtonWidget(
                             onPressed: () async {
                               await widget.promotion!.reference.delete();
+                              Navigator.pop(context);
                             },
                             text: 'Удалить ',
                             options: FFButtonOptions(
@@ -313,22 +340,23 @@ class _AdminEditSalesWidgetState extends State<AdminEditSalesWidget> {
                           ),
                           FFButtonWidget(
                             onPressed: () async {
-                              if (formKey.currentState == null ||
-                                  !formKey.currentState!.validate()) {
+                              if (_model.formKey.currentState == null ||
+                                  !_model.formKey.currentState!.validate()) {
                                 return;
                               }
 
                               final promotionUpdateData =
                                   createPromotionRecordData(
-                                title: textController1!.text,
-                                subtitle: textController2!.text,
-                                img: uploadedFileUrl != null &&
-                                        uploadedFileUrl != ''
-                                    ? uploadedFileUrl
+                                title: _model.textController1.text,
+                                subtitle: _model.textController2.text,
+                                img: _model.uploadedFileUrl != null &&
+                                        _model.uploadedFileUrl != ''
+                                    ? _model.uploadedFileUrl
                                     : widget.promotion!.img,
                               );
                               await widget.promotion!.reference
                                   .update(promotionUpdateData);
+                              Navigator.pop(context);
                               await showModalBottomSheet(
                                 isScrollControlled: true,
                                 backgroundColor: Colors.transparent,

@@ -7,6 +7,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'select_services_model.dart';
+export 'select_services_model.dart';
 
 class SelectServicesWidget extends StatefulWidget {
   const SelectServicesWidget({
@@ -23,11 +25,27 @@ class SelectServicesWidget extends StatefulWidget {
 }
 
 class _SelectServicesWidgetState extends State<SelectServicesWidget> {
+  late SelectServicesModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => SelectServicesModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
   }
 
   @override

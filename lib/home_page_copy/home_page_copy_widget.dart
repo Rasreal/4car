@@ -18,6 +18,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'home_page_copy_model.dart';
+export 'home_page_copy_model.dart';
 
 class HomePageCopyWidget extends StatefulWidget {
   const HomePageCopyWidget({Key? key}) : super(key: key);
@@ -27,18 +29,17 @@ class HomePageCopyWidget extends StatefulWidget {
 }
 
 class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
-  Completer<List<CompaniesRecord>>? _firestoreRequestCompleter;
-  TextEditingController? textController;
-  LatLng? googleMapsCenter;
-  final googleMapsController = Completer<GoogleMapController>();
-  LatLng? currentUserLocationValue;
-  final _unfocusNode = FocusNode();
+  late HomePageCopyModel _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  bool? switchListTileValue;
+  final _unfocusNode = FocusNode();
+  LatLng? currentUserLocationValue;
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => HomePageCopyModel());
+
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       if (valueOrDefault<bool>(
@@ -64,14 +65,15 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
 
     getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
         .then((loc) => setState(() => currentUserLocationValue = loc));
-    textController = TextEditingController();
+    _model.textController = TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
-    textController?.dispose();
     super.dispose();
   }
 
@@ -363,9 +365,10 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                       ),
                       Expanded(
                         child: SwitchListTile(
-                          value: switchListTileValue ??= true,
+                          value: _model.switchListTileValue ??= true,
                           onChanged: (newValue) async {
-                            setState(() => switchListTileValue = newValue!);
+                            setState(
+                                () => _model.switchListTileValue = newValue!);
                           },
                           title: Text(
                             'Уведомления',
@@ -382,6 +385,8 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                           tileColor: Colors.white,
                           dense: true,
                           controlAffinity: ListTileControlAffinity.trailing,
+                          contentPadding:
+                              EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                         ),
                       ),
                     ],
@@ -567,10 +572,10 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                                     googleMapCompaniesRecordList =
                                     snapshot.data!;
                                 return FlutterFlowGoogleMap(
-                                  controller: googleMapsController,
+                                  controller: _model.googleMapsController,
                                   onCameraIdle: (latLng) =>
-                                      googleMapsCenter = latLng,
-                                  initialLocation: googleMapsCenter ??=
+                                      _model.googleMapsCenter = latLng,
+                                  initialLocation: _model.googleMapsCenter ??=
                                       currentUserLocationValue!,
                                   markers: googleMapCompaniesRecordList
                                       .map(
@@ -707,10 +712,10 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                                                   Expanded(
                                                     child: TextFormField(
                                                       controller:
-                                                          textController,
+                                                          _model.textController,
                                                       onChanged: (_) =>
                                                           EasyDebounce.debounce(
-                                                        'textController',
+                                                        '_model.textController',
                                                         Duration(
                                                             milliseconds: 500),
                                                         () => setState(() {}),
@@ -818,27 +823,28 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                                                                     4.0),
                                                           ),
                                                         ),
-                                                        suffixIcon:
-                                                            textController!.text
-                                                                    .isNotEmpty
-                                                                ? InkWell(
-                                                                    onTap:
-                                                                        () async {
-                                                                      textController
-                                                                          ?.clear();
-                                                                      setState(
-                                                                          () {});
-                                                                    },
-                                                                    child: Icon(
-                                                                      Icons
-                                                                          .clear,
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .gray3,
-                                                                      size: 22,
-                                                                    ),
-                                                                  )
-                                                                : null,
+                                                        suffixIcon: _model
+                                                                .textController!
+                                                                .text
+                                                                .isNotEmpty
+                                                            ? InkWell(
+                                                                onTap:
+                                                                    () async {
+                                                                  _model
+                                                                      .textController
+                                                                      ?.clear();
+                                                                  setState(
+                                                                      () {});
+                                                                },
+                                                                child: Icon(
+                                                                  Icons.clear,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .gray3,
+                                                                  size: 22,
+                                                                ),
+                                                              )
+                                                            : null,
                                                       ),
                                                       style:
                                                           FlutterFlowTheme.of(
@@ -858,13 +864,18 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                                                                             .bodyText1Family),
                                                               ),
                                                       maxLines: null,
+                                                      validator: _model
+                                                          .textControllerValidator
+                                                          .asValidator(context),
                                                     ),
                                                   ),
                                                 ],
                                               ),
                                             ),
-                                            if (textController!.text == null ||
-                                                textController!.text == '')
+                                            if (_model.textController.text ==
+                                                    null ||
+                                                _model.textController.text ==
+                                                    '')
                                               Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
@@ -1156,6 +1167,8 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                                                                   },
                                                                   child:
                                                                       CompanyCardWidget(
+                                                                    key: Key(
+                                                                        'Key6mg_${columnIndex}_of_${columnCompaniesRecordList.length}'),
                                                                     company:
                                                                         columnCompaniesRecord,
                                                                   ),
@@ -1169,8 +1182,10 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                                                   ),
                                                 ],
                                               ),
-                                            if (textController!.text != null &&
-                                                textController!.text != '')
+                                            if (_model.textController.text !=
+                                                    null &&
+                                                _model.textController.text !=
+                                                    '')
                                               Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(8, 0, 8, 0),
@@ -1413,8 +1428,10 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                                                   ],
                                                 ),
                                               ),
-                                            if (textController!.text != null &&
-                                                textController!.text != '')
+                                            if (_model.textController.text !=
+                                                    null &&
+                                                _model.textController.text !=
+                                                    '')
                                               Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(8, 0, 8, 0),
@@ -1427,7 +1444,8 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                                                           FutureBuilder<
                                                               List<
                                                                   CompaniesRecord>>(
-                                                        future: (_firestoreRequestCompleter ??=
+                                                        future: (_model
+                                                                    .firestoreRequestCompleter ??=
                                                                 Completer<
                                                                     List<
                                                                         CompaniesRecord>>()
@@ -1464,7 +1482,7 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                                                             onRefresh:
                                                                 () async {
                                                               setState(() =>
-                                                                  _firestoreRequestCompleter =
+                                                                  _model.firestoreRequestCompleter =
                                                                       null);
                                                             },
                                                             child: ListView
@@ -1485,7 +1503,8 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                                                                         listViewIndex];
                                                                 return Visibility(
                                                                   visible: functions.showSearchResult2(
-                                                                      textController!
+                                                                      _model
+                                                                          .textController
                                                                           .text,
                                                                       listViewCompaniesRecord
                                                                           .name!),
@@ -1706,20 +1725,5 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
         ),
       ),
     );
-  }
-
-  Future waitForFirestoreRequestCompleter({
-    double minWait = 0,
-    double maxWait = double.infinity,
-  }) async {
-    final stopwatch = Stopwatch()..start();
-    while (true) {
-      await Future.delayed(Duration(milliseconds: 50));
-      final timeElapsed = stopwatch.elapsedMilliseconds;
-      final requestComplete = _firestoreRequestCompleter?.isCompleted ?? false;
-      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
-        break;
-      }
-    }
   }
 }

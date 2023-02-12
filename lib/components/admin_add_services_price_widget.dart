@@ -7,6 +7,8 @@ import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'admin_add_services_price_model.dart';
+export 'admin_add_services_price_model.dart';
 
 class AdminAddServicesPriceWidget extends StatefulWidget {
   const AdminAddServicesPriceWidget({
@@ -23,19 +25,28 @@ class AdminAddServicesPriceWidget extends StatefulWidget {
 
 class _AdminAddServicesPriceWidgetState
     extends State<AdminAddServicesPriceWidget> {
-  TextEditingController? textController;
+  late AdminAddServicesPriceModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
 
   @override
   void initState() {
     super.initState();
-    textController =
+    _model = createModel(context, () => AdminAddServicesPriceModel());
+
+    _model.textController =
         TextEditingController(text: widget.service!.price?.toString());
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
-    textController?.dispose();
+    _model.dispose();
+
     super.dispose();
   }
 
@@ -50,13 +61,13 @@ class _AdminAddServicesPriceWidgetState
       child: Container(
         width: 89,
         child: TextFormField(
-          controller: textController,
+          controller: _model.textController,
           onChanged: (_) => EasyDebounce.debounce(
-            'textController',
+            '_model.textController',
             Duration(milliseconds: 1000),
             () async {
               final companyServicesUpdateData = createCompanyServicesRecordData(
-                price: double.tryParse(textController!.text),
+                price: double.tryParse(_model.textController.text),
               );
               await widget.service!.reference.update(companyServicesUpdateData);
             },
@@ -111,6 +122,7 @@ class _AdminAddServicesPriceWidgetState
                 useGoogleFonts: GoogleFonts.asMap()
                     .containsKey(FlutterFlowTheme.of(context).bodyText1Family),
               ),
+          validator: _model.textControllerValidator.asValidator(context),
         ),
       ),
     );

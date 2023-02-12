@@ -5,16 +5,12 @@
       "queryScope": "COLLECTION",
       "fields": [
         {
-          "fieldPath": "booked_company_document",
+          "fieldPath": "booked_user",
           "order": "ASCENDING"
         },
         {
-          "fieldPath": "cancelled",
+          "fieldPath": "status",
           "order": "ASCENDING"
-        },
-        {
-          "fieldPath": "selected_times_order",
-          "arrayConfig": "CONTAINS"
         }
       ]
     },
@@ -79,11 +75,29 @@
       "queryScope": "COLLECTION",
       "fields": [
         {
-          "fieldPath": "booked_company_document",
+          "fieldPath": "cancelled",
           "order": "ASCENDING"
         },
         {
           "fieldPath": "status",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "bookings",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "booked_company",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "booked_date_string",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "cancelled",
           "order": "ASCENDING"
         },
         {
@@ -110,16 +124,6 @@
       "indexes": [
         {
           "order": "ASCENDING",
-          "queryScope": "COLLECTION_GROUP"
-        }
-      ]
-    },
-    {
-      "collectionGroup": "company_document",
-      "fieldPath": "company_users",
-      "indexes": [
-        {
-          "arrayConfig": "CONTAINS",
           "queryScope": "COLLECTION_GROUP"
         }
       ]

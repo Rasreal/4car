@@ -14,6 +14,8 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'my_notes_model.dart';
+export 'my_notes_model.dart';
 
 class MyNotesWidget extends StatefulWidget {
   const MyNotesWidget({Key? key}) : super(key: key);
@@ -23,20 +25,21 @@ class MyNotesWidget extends StatefulWidget {
 }
 
 class _MyNotesWidgetState extends State<MyNotesWidget> {
-  Completer<CompaniesRecord>? _documentRequestCompleter;
-  Completer<List<BookingsRecord>>? _firestoreRequestCompleter;
-  LatLng? currentUserLocationValue;
-  final _unfocusNode = FocusNode();
+  late MyNotesModel _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  String? choiceChipsValue;
+  final _unfocusNode = FocusNode();
+  LatLng? currentUserLocationValue;
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => MyNotesModel());
+
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      setState(() => _firestoreRequestCompleter = null);
-      setState(() => _documentRequestCompleter = null);
+      setState(() => _model.firestoreRequestCompleter = null);
+      setState(() => _model.documentRequestCompleter = null);
     });
 
     getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
@@ -46,6 +49,8 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
     super.dispose();
   }
@@ -96,8 +101,8 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                       child: FlutterFlowChoiceChips(
                         initiallySelected: ['Мои записи'],
                         options: [ChipData('Мои записи'), ChipData('История')],
-                        onChanged: (val) =>
-                            setState(() => choiceChipsValue = val?.first),
+                        onChanged: (val) => setState(
+                            () => _model.choiceChipsValue = val?.first),
                         selectedChipStyle: ChipStyle(
                           backgroundColor: Colors.white,
                           textStyle: FlutterFlowTheme.of(context)
@@ -139,13 +144,13 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                         ),
                         chipSpacing: 0,
                         multiselect: false,
-                        initialized: choiceChipsValue != null,
+                        initialized: _model.choiceChipsValue != null,
                         alignment: WrapAlignment.spaceEvenly,
                       ),
                     ),
                   ),
                 ),
-                if (choiceChipsValue == 'Мои записи')
+                if (_model.choiceChipsValue == 'Мои записи')
                   Expanded(
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
@@ -156,7 +161,7 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                               queryBuilder: (bookingsRecord) => bookingsRecord
                                   .where('booked_user',
                                       isEqualTo: currentUserReference)
-                                  .where('status', isEqualTo: 'Забронировано'),
+                                  .where('status', isNotEqualTo: 'Закончено'),
                             ),
                             builder: (context, snapshot) {
                               // Customize what your widget looks like when it's loading.
@@ -757,17 +762,18 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                       ],
                     ),
                   ),
-                if (choiceChipsValue == 'История')
+                if (_model.choiceChipsValue == 'История')
                   Expanded(
                     child: FutureBuilder<List<BookingsRecord>>(
-                      future: (_firestoreRequestCompleter ??=
+                      future: (_model.firestoreRequestCompleter ??=
                               Completer<List<BookingsRecord>>()
                                 ..complete(queryBookingsRecordOnce(
                                   queryBuilder: (bookingsRecord) =>
                                       bookingsRecord
                                           .where('booked_user',
                                               isEqualTo: currentUserReference)
-                                          .where('status', isEqualTo: 'Архив'),
+                                          .where('status',
+                                              isEqualTo: 'Закончено'),
                                 )))
                           .future,
                       builder: (context, snapshot) {
@@ -1353,7 +1359,8 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                             ),
                                           ),
                                           FutureBuilder<CompaniesRecord>(
-                                            future: (_documentRequestCompleter ??=
+                                            future: (_model
+                                                        .documentRequestCompleter ??=
                                                     Completer<CompaniesRecord>()
                                                       ..complete(CompaniesRecord
                                                           .getDocumentOnce(
@@ -1488,35 +1495,5 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
         ),
       ),
     );
-  }
-
-  Future waitForDocumentRequestCompleter({
-    double minWait = 0,
-    double maxWait = double.infinity,
-  }) async {
-    final stopwatch = Stopwatch()..start();
-    while (true) {
-      await Future.delayed(Duration(milliseconds: 50));
-      final timeElapsed = stopwatch.elapsedMilliseconds;
-      final requestComplete = _documentRequestCompleter?.isCompleted ?? false;
-      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
-        break;
-      }
-    }
-  }
-
-  Future waitForFirestoreRequestCompleter({
-    double minWait = 0,
-    double maxWait = double.infinity,
-  }) async {
-    final stopwatch = Stopwatch()..start();
-    while (true) {
-      await Future.delayed(Duration(milliseconds: 50));
-      final timeElapsed = stopwatch.elapsedMilliseconds;
-      final requestComplete = _firestoreRequestCompleter?.isCompleted ?? false;
-      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
-        break;
-      }
-    }
   }
 }

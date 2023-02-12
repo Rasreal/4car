@@ -10,6 +10,8 @@ import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'admin_add_services_model.dart';
+export 'admin_add_services_model.dart';
 
 class AdminAddServicesWidget extends StatefulWidget {
   const AdminAddServicesWidget({
@@ -26,19 +28,27 @@ class AdminAddServicesWidget extends StatefulWidget {
 }
 
 class _AdminAddServicesWidgetState extends State<AdminAddServicesWidget> {
-  Map<String?, String> dropDownValueMap = {};
-  TextEditingController? new1Controller;
+  late AdminAddServicesModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
 
   @override
   void initState() {
     super.initState();
-    new1Controller = TextEditingController();
+    _model = createModel(context, () => AdminAddServicesModel());
+
+    _model.new1Controller = TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
-    new1Controller?.dispose();
+    _model.dispose();
+
     super.dispose();
   }
 
@@ -280,9 +290,10 @@ class _AdminAddServicesWidgetState extends State<AdminAddServicesWidget> {
                                                   .fromSTEB(0, 0, 55, 0),
                                               child:
                                                   FlutterFlowDropDown<String>(
-                                                initialOption: dropDownValueMap[
-                                                        servicesItem] ??=
-                                                    valueOrDefault<String>(
+                                                initialOption:
+                                                    _model.dropDownValueMap[
+                                                            servicesItem] ??=
+                                                        valueOrDefault<String>(
                                                   container1CompanyServicesRecord!
                                                       .durationName,
                                                   '0 мин',
@@ -292,7 +303,7 @@ class _AdminAddServicesWidgetState extends State<AdminAddServicesWidget> {
                                                     .toList(),
                                                 onChanged: (val) async {
                                                   setState(() =>
-                                                      dropDownValueMap[
+                                                      _model.dropDownValueMap[
                                                           servicesItem] = val!);
                                                   final companyServicesUpdateData =
                                                       createCompanyServicesRecordData(
@@ -301,7 +312,7 @@ class _AdminAddServicesWidgetState extends State<AdminAddServicesWidget> {
                                                       functions.durationToInt(
                                                           valueOrDefault<
                                                               String>(
-                                                        dropDownValueMap[
+                                                        _model.dropDownValueMap[
                                                             servicesItem],
                                                         '0',
                                                       )),
@@ -346,6 +357,8 @@ class _AdminAddServicesWidgetState extends State<AdminAddServicesWidget> {
                                               ),
                                             ),
                                             AdminAddServicesPriceWidget(
+                                              key: Key(
+                                                  'Key3cy_${servicesIndex}_of_${services.length}'),
                                               service:
                                                   container1CompanyServicesRecord,
                                             ),
@@ -372,7 +385,7 @@ class _AdminAddServicesWidgetState extends State<AdminAddServicesWidget> {
                         child: Container(
                           width: 500,
                           child: TextFormField(
-                            controller: new1Controller,
+                            controller: _model.new1Controller,
                             obscureText: false,
                             decoration: InputDecoration(
                               hintText: 'Введите название услуги',
@@ -433,22 +446,19 @@ class _AdminAddServicesWidgetState extends State<AdminAddServicesWidget> {
                                       .containsKey(FlutterFlowTheme.of(context)
                                           .bodyText1Family),
                                 ),
+                            validator: _model.new1ControllerValidator
+                                .asValidator(context),
                           ),
                         ),
                       ),
                       InkWell(
                         onTap: () async {
-                          final companiesUpdateData = {
-                            'listServices':
-                                FieldValue.arrayUnion([new1Controller!.text]),
-                          };
-                          await widget.companyDoc!.update(companiesUpdateData);
                           FFAppState().update(() {
-                            FFAppState()
-                                .addToAdminForCarServices(new1Controller!.text);
+                            FFAppState().addToAdminForCarServices(
+                                _model.new1Controller.text);
                           });
                           setState(() {
-                            new1Controller?.clear();
+                            _model.new1Controller?.clear();
                           });
                         },
                         child: Row(

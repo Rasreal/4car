@@ -4,6 +4,8 @@ import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'about_company_model.dart';
+export 'about_company_model.dart';
 
 class AboutCompanyWidget extends StatefulWidget {
   const AboutCompanyWidget({Key? key}) : super(key: key);
@@ -13,18 +15,23 @@ class AboutCompanyWidget extends StatefulWidget {
 }
 
 class _AboutCompanyWidgetState extends State<AboutCompanyWidget> {
-  final _unfocusNode = FocusNode();
+  late AboutCompanyModel _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => AboutCompanyModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
     super.dispose();
   }

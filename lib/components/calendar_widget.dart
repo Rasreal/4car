@@ -5,6 +5,8 @@ import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'calendar_model.dart';
+export 'calendar_model.dart';
 
 class CalendarWidget extends StatefulWidget {
   const CalendarWidget({Key? key}) : super(key: key);
@@ -14,16 +16,27 @@ class CalendarWidget extends StatefulWidget {
 }
 
 class _CalendarWidgetState extends State<CalendarWidget> {
-  DateTimeRange? calendarSelectedDay;
+  late CalendarModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
 
   @override
   void initState() {
     super.initState();
-    calendarSelectedDay = DateTimeRange(
-      start: DateTime.now().startOfDay,
-      end: DateTime.now().endOfDay,
-    );
+    _model = createModel(context, () => CalendarModel());
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
   }
 
   @override
@@ -87,7 +100,7 @@ class _CalendarWidgetState extends State<CalendarWidget> {
             weekFormat: false,
             weekStartsMonday: false,
             onChange: (DateTimeRange? newSelectedDate) {
-              setState(() => calendarSelectedDay = newSelectedDate);
+              setState(() => _model.calendarSelectedDay = newSelectedDate);
             },
             titleStyle: TextStyle(),
             dayOfWeekStyle: TextStyle(),

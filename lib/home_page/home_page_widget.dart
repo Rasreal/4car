@@ -12,6 +12,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'home_page_model.dart';
+export 'home_page_model.dart';
 
 class HomePageWidget extends StatefulWidget {
   const HomePageWidget({Key? key}) : super(key: key);
@@ -21,15 +23,17 @@ class HomePageWidget extends StatefulWidget {
 }
 
 class _HomePageWidgetState extends State<HomePageWidget> {
-  LatLng? currentUserLocationValue;
-  final _unfocusNode = FocusNode();
+  late HomePageModel _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  LatLng? googleMapsCenter;
-  final googleMapsController = Completer<GoogleMapController>();
+  final _unfocusNode = FocusNode();
+  LatLng? currentUserLocationValue;
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => HomePageModel());
+
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       if (valueOrDefault<bool>(
@@ -60,6 +64,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
     super.dispose();
   }
@@ -137,10 +143,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       googleMapCompaniesRecordList =
                                       snapshot.data!;
                                   return FlutterFlowGoogleMap(
-                                    controller: googleMapsController,
+                                    controller: _model.googleMapsController,
                                     onCameraIdle: (latLng) =>
-                                        googleMapsCenter = latLng,
-                                    initialLocation: googleMapsCenter ??=
+                                        _model.googleMapsCenter = latLng,
+                                    initialLocation: _model.googleMapsCenter ??=
                                         currentUserLocationValue!,
                                     markers: googleMapCompaniesRecordList
                                         .map(
@@ -534,6 +540,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                 },
                                                                 child:
                                                                     CompanyCardWidget(
+                                                                  key: Key(
+                                                                      'Key3fb_${columnIndex}_of_${columnCompaniesRecordList.length}'),
                                                                   company:
                                                                       columnCompaniesRecord,
                                                                 ),

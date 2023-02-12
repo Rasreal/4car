@@ -20,6 +20,8 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'booking_page_copy_model.dart';
+export 'booking_page_copy_model.dart';
 
 class BookingPageCopyWidget extends StatefulWidget {
   const BookingPageCopyWidget({
@@ -35,6 +37,12 @@ class BookingPageCopyWidget extends StatefulWidget {
 
 class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
     with TickerProviderStateMixin {
+  late BookingPageCopyModel _model;
+
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
+  LatLng? currentUserLocationValue;
+
   final animationsMap = {
     'containerOnActionTriggerAnimation': AnimationInfo(
       trigger: AnimationTrigger.onActionTrigger,
@@ -58,15 +66,14 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
       ],
     ),
   };
-  BookingsRecord? booking;
-  DateTimeRange? calendarSelectedDay;
-  LatLng? currentUserLocationValue;
-  final _unfocusNode = FocusNode();
-  final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => BookingPageCopyModel());
+
+    getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
+        .then((loc) => setState(() => currentUserLocationValue = loc));
     setupAnimations(
       animationsMap.values.where((anim) =>
           anim.trigger == AnimationTrigger.onActionTrigger ||
@@ -74,17 +81,13 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
       this,
     );
 
-    calendarSelectedDay = DateTimeRange(
-      start: DateTime.now().startOfDay,
-      end: DateTime.now().endOfDay,
-    );
-    getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
-        .then((loc) => setState(() => currentUserLocationValue = loc));
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
     super.dispose();
   }
@@ -481,8 +484,8 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                               weekStartsMonday: true,
                               initialDate: getCurrentTimestamp,
                               onChange: (DateTimeRange? newSelectedDate) {
-                                setState(() =>
-                                    calendarSelectedDay = newSelectedDate);
+                                setState(() => _model.calendarSelectedDay =
+                                    newSelectedDate);
                               },
                               titleStyle: TextStyle(),
                               dayOfWeekStyle: TextStyle(),
@@ -562,7 +565,8 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                                   getCurrentTimestamp,
                                                   wrapForcarTimesRecord
                                                       .timeOrder!,
-                                                  calendarSelectedDay!.start) ==
+                                                  _model.calendarSelectedDay!
+                                                      .start) ==
                                               true) &&
                                           (wrapForcarTimesRecord.timeOrder! >=
                                               widget.company!.openTimeOrder!) &&
@@ -576,7 +580,8 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                           future: queryBookingsRecordOnce(
                                             queryBuilder: (bookingsRecord) =>
                                                 bookingsRecord
-                                                    .where('time_name',
+                                                    .where(
+                                                        'time_name',
                                                         isEqualTo: wrapForcarTimesRecord
                                                                     .timeName !=
                                                                 ''
@@ -590,9 +595,9 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                                                 .timeOrder)
                                                     .where(
                                                         'booked_date',
-                                                        isEqualTo:
-                                                            calendarSelectedDay
-                                                                ?.end)
+                                                        isEqualTo: _model
+                                                            .calendarSelectedDay
+                                                            ?.end)
                                                     .where(
                                                         'booked_company',
                                                         isEqualTo: widget
@@ -1403,9 +1408,9 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                                         buttonForcarTimesRecord
                                                             .timeOrder,
                                                     status: 'Забронировано',
-                                                    bookedDate:
-                                                        calendarSelectedDay
-                                                            ?.end,
+                                                    bookedDate: _model
+                                                        .calendarSelectedDay
+                                                        ?.end,
                                                     totalPrice:
                                                         FFAppState().price,
                                                     id: functions.idGenerator(
@@ -1421,7 +1426,8 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                                         .carOrder,
                                                     notifyTimeName:
                                                         functions.notifyTime(
-                                                            calendarSelectedDay!
+                                                            _model
+                                                                .calendarSelectedDay!
                                                                 .end,
                                                             buttonForcarTimesRecord
                                                                 .timeOrder!,
@@ -1437,7 +1443,7 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                                         .doc();
                                                 await bookingsRecordReference
                                                     .set(bookingsCreateData);
-                                                booking = BookingsRecord
+                                                _model.booking = BookingsRecord
                                                     .getDocumentFromData(
                                                         bookingsCreateData,
                                                         bookingsRecordReference);

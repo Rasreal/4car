@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'main_model.dart';
+export 'main_model.dart';
 
 class MainWidget extends StatefulWidget {
   const MainWidget({Key? key}) : super(key: key);
@@ -13,24 +15,27 @@ class MainWidget extends StatefulWidget {
 }
 
 class _MainWidgetState extends State<MainWidget> {
-  TextEditingController? textController;
-  double? ratingBarValue1;
-  double? ratingBarValue2;
-  double? ratingBarValue3;
-  double? ratingBarValue4;
-  double? ratingBarValue5;
-  double? ratingBarValue6;
+  late MainModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
 
   @override
   void initState() {
     super.initState();
-    textController = TextEditingController();
+    _model = createModel(context, () => MainModel());
+
+    _model.textController = TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
-    textController?.dispose();
+    _model.dispose();
+
     super.dispose();
   }
 
@@ -48,7 +53,7 @@ class _MainWidgetState extends State<MainWidget> {
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
               child: TextFormField(
-                controller: textController,
+                controller: _model.textController,
                 autofocus: true,
                 obscureText: false,
                 decoration: InputDecoration(
@@ -101,6 +106,7 @@ class _MainWidgetState extends State<MainWidget> {
                       useGoogleFonts: GoogleFonts.asMap().containsKey(
                           FlutterFlowTheme.of(context).bodyText1Family),
                     ),
+                validator: _model.textControllerValidator.asValidator(context),
               ),
             ),
             Padding(
@@ -230,14 +236,16 @@ class _MainWidgetState extends State<MainWidget> {
                                         0, 0, 0, 4),
                                     child: RatingBar.builder(
                                       onRatingUpdate: (newValue) => setState(
-                                          () => ratingBarValue1 = newValue),
+                                          () => _model.ratingBarValue1 =
+                                              newValue),
                                       itemBuilder: (context, index) => Icon(
                                         Icons.star_rounded,
                                         color: FlutterFlowTheme.of(context)
                                             .primaryColor,
                                       ),
                                       direction: Axis.horizontal,
-                                      initialRating: ratingBarValue1 ??= 3,
+                                      initialRating: _model.ratingBarValue1 ??=
+                                          3,
                                       unratedColor: Color(0xFF9E9E9E),
                                       itemCount: 5,
                                       itemSize: 14,
@@ -393,14 +401,16 @@ class _MainWidgetState extends State<MainWidget> {
                                           0, 0, 0, 4),
                                       child: RatingBar.builder(
                                         onRatingUpdate: (newValue) => setState(
-                                            () => ratingBarValue2 = newValue),
+                                            () => _model.ratingBarValue2 =
+                                                newValue),
                                         itemBuilder: (context, index) => Icon(
                                           Icons.star_rounded,
                                           color: FlutterFlowTheme.of(context)
                                               .primaryColor,
                                         ),
                                         direction: Axis.horizontal,
-                                        initialRating: ratingBarValue2 ??= 3,
+                                        initialRating:
+                                            _model.ratingBarValue2 ??= 3,
                                         unratedColor: Color(0xFF9E9E9E),
                                         itemCount: 5,
                                         itemSize: 14,
@@ -557,14 +567,16 @@ class _MainWidgetState extends State<MainWidget> {
                                           0, 0, 0, 4),
                                       child: RatingBar.builder(
                                         onRatingUpdate: (newValue) => setState(
-                                            () => ratingBarValue3 = newValue),
+                                            () => _model.ratingBarValue3 =
+                                                newValue),
                                         itemBuilder: (context, index) => Icon(
                                           Icons.star_rounded,
                                           color: FlutterFlowTheme.of(context)
                                               .primaryColor,
                                         ),
                                         direction: Axis.horizontal,
-                                        initialRating: ratingBarValue3 ??= 3,
+                                        initialRating:
+                                            _model.ratingBarValue3 ??= 3,
                                         unratedColor: Color(0xFF9E9E9E),
                                         itemCount: 5,
                                         itemSize: 14,
@@ -721,14 +733,16 @@ class _MainWidgetState extends State<MainWidget> {
                                           0, 0, 0, 4),
                                       child: RatingBar.builder(
                                         onRatingUpdate: (newValue) => setState(
-                                            () => ratingBarValue4 = newValue),
+                                            () => _model.ratingBarValue4 =
+                                                newValue),
                                         itemBuilder: (context, index) => Icon(
                                           Icons.star_rounded,
                                           color: FlutterFlowTheme.of(context)
                                               .primaryColor,
                                         ),
                                         direction: Axis.horizontal,
-                                        initialRating: ratingBarValue4 ??= 3,
+                                        initialRating:
+                                            _model.ratingBarValue4 ??= 3,
                                         unratedColor: Color(0xFF9E9E9E),
                                         itemCount: 5,
                                         itemSize: 14,
@@ -885,14 +899,16 @@ class _MainWidgetState extends State<MainWidget> {
                                           0, 0, 0, 4),
                                       child: RatingBar.builder(
                                         onRatingUpdate: (newValue) => setState(
-                                            () => ratingBarValue5 = newValue),
+                                            () => _model.ratingBarValue5 =
+                                                newValue),
                                         itemBuilder: (context, index) => Icon(
                                           Icons.star_rounded,
                                           color: FlutterFlowTheme.of(context)
                                               .primaryColor,
                                         ),
                                         direction: Axis.horizontal,
-                                        initialRating: ratingBarValue5 ??= 3,
+                                        initialRating:
+                                            _model.ratingBarValue5 ??= 3,
                                         unratedColor: Color(0xFF9E9E9E),
                                         itemCount: 5,
                                         itemSize: 14,
@@ -1049,14 +1065,16 @@ class _MainWidgetState extends State<MainWidget> {
                                           0, 0, 0, 4),
                                       child: RatingBar.builder(
                                         onRatingUpdate: (newValue) => setState(
-                                            () => ratingBarValue6 = newValue),
+                                            () => _model.ratingBarValue6 =
+                                                newValue),
                                         itemBuilder: (context, index) => Icon(
                                           Icons.star_rounded,
                                           color: FlutterFlowTheme.of(context)
                                               .primaryColor,
                                         ),
                                         direction: Axis.horizontal,
-                                        initialRating: ratingBarValue6 ??= 3,
+                                        initialRating:
+                                            _model.ratingBarValue6 ??= 3,
                                         unratedColor: Color(0xFF9E9E9E),
                                         itemCount: 5,
                                         itemSize: 14,

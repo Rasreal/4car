@@ -6,6 +6,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'empty_company_services_model.dart';
+export 'empty_company_services_model.dart';
 
 class EmptyCompanyServicesWidget extends StatefulWidget {
   const EmptyCompanyServicesWidget({
@@ -26,11 +28,27 @@ class EmptyCompanyServicesWidget extends StatefulWidget {
 
 class _EmptyCompanyServicesWidgetState
     extends State<EmptyCompanyServicesWidget> {
+  late EmptyCompanyServicesModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => EmptyCompanyServicesModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
   }
 
   @override

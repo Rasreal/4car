@@ -10,6 +10,8 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'code_model.dart';
+export 'code_model.dart';
 
 class CodeWidget extends StatefulWidget {
   const CodeWidget({Key? key}) : super(key: key);
@@ -19,6 +21,11 @@ class CodeWidget extends StatefulWidget {
 }
 
 class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
+  late CodeModel _model;
+
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
+
   final animationsMap = {
     'columnOnActionTriggerAnimation': AnimationInfo(
       trigger: AnimationTrigger.onActionTrigger,
@@ -42,13 +49,12 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
       ],
     ),
   };
-  TextEditingController? pinCodeController;
-  final _unfocusNode = FocusNode();
-  final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => CodeModel());
+
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       FFAppState().update(() {
@@ -56,7 +62,6 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
       });
     });
 
-    pinCodeController = TextEditingController();
     setupAnimations(
       animationsMap.values.where((anim) =>
           anim.trigger == AnimationTrigger.onActionTrigger ||
@@ -69,8 +74,9 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
-    pinCodeController?.dispose();
     super.dispose();
   }
 
@@ -173,7 +179,7 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
                       selectedFillColor:
                           FlutterFlowTheme.of(context).secondaryText,
                     ),
-                    controller: pinCodeController,
+                    controller: _model.pinCodeController,
                     onChanged: (_) => {},
                   ),
                   Spacer(),
@@ -223,7 +229,7 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
                   FFButtonWidget(
                     onPressed: () async {
                       GoRouter.of(context).prepareAuthEvent();
-                      final smsCodeVal = pinCodeController!.text;
+                      final smsCodeVal = _model.pinCodeController!.text;
                       if (smsCodeVal == null || smsCodeVal.isEmpty) {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
@@ -255,8 +261,8 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
                       width: 130,
                       height: 48,
                       color: valueOrDefault<Color>(
-                        pinCodeController!.text != null &&
-                                pinCodeController!.text != ''
+                        _model.pinCodeController!.text != null &&
+                                _model.pinCodeController!.text != ''
                             ? FlutterFlowTheme.of(context).primaryColor
                             : FlutterFlowTheme.of(context).starblue,
                         FlutterFlowTheme.of(context).starblue,

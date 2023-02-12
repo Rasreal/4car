@@ -3,23 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>91139422644-khkoetd9fecsov7jkijvrkta2eb7ugh2.apps.googleusercontent.com</string>
+	<string>539047140274-mm7b03upakbviil53dnn0a0vhq15o3km.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.91139422644-khkoetd9fecsov7jkijvrkta2eb7ugh2</string>
-	<key>ANDROID_CLIENT_ID</key>
-	<string>91139422644-1t98v0k8n0q9qtri4037fspk3jrdcrb0.apps.googleusercontent.com</string>
+	<string>com.googleusercontent.apps.539047140274-mm7b03upakbviil53dnn0a0vhq15o3km</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCpDAtEMAf9LNwBRt6-TrnW52_kOn89AzM</string>
+	<string>AIzaSyD_Gu6ZuVgKaZH60x4gpxBkUlxDqSPm4qQ</string>
 	<key>GCM_SENDER_ID</key>
-	<string>91139422644</string>
+	<string>539047140274</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.wlff.forcarmain</string>
 	<key>PROJECT_ID</key>
-	<string>carmain-7a68b</string>
+	<string>forcar-last</string>
 	<key>STORAGE_BUCKET</key>
-	<string>carmain-7a68b.appspot.com</string>
+	<string>forcar-last.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -31,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:91139422644:ios:46eb6bc9649a88daf4dae1</string>
+	<string>1:539047140274:ios:cf6dce6393fc18e5eee2ab</string>
 </dict>
 </plist>

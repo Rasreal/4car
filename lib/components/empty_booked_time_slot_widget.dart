@@ -3,6 +3,8 @@ import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'empty_booked_time_slot_model.dart';
+export 'empty_booked_time_slot_model.dart';
 
 class EmptyBookedTimeSlotWidget extends StatefulWidget {
   const EmptyBookedTimeSlotWidget({Key? key}) : super(key: key);
@@ -13,11 +15,27 @@ class EmptyBookedTimeSlotWidget extends StatefulWidget {
 }
 
 class _EmptyBookedTimeSlotWidgetState extends State<EmptyBookedTimeSlotWidget> {
+  late EmptyBookedTimeSlotModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => EmptyBookedTimeSlotModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
   }
 
   @override

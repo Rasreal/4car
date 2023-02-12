@@ -8,6 +8,8 @@ import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'favorites_car_washes_model.dart';
+export 'favorites_car_washes_model.dart';
 
 class FavoritesCarWashesWidget extends StatefulWidget {
   const FavoritesCarWashesWidget({Key? key}) : super(key: key);
@@ -18,18 +20,23 @@ class FavoritesCarWashesWidget extends StatefulWidget {
 }
 
 class _FavoritesCarWashesWidgetState extends State<FavoritesCarWashesWidget> {
-  final _unfocusNode = FocusNode();
+  late FavoritesCarWashesModel _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => FavoritesCarWashesModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
     super.dispose();
   }
@@ -157,6 +164,8 @@ class _FavoritesCarWashesWidgetState extends State<FavoritesCarWashesWidget> {
                                       ).then((value) => setState(() {}));
                                     },
                                     child: CompanyCardWidget(
+                                      key: Key(
+                                          'Key3ua_${myFavsIndex}_of_${myFavs.length}'),
                                       company: companyCardCompaniesRecord,
                                     ),
                                   );

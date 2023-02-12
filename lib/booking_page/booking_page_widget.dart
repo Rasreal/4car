@@ -20,6 +20,8 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'booking_page_model.dart';
+export 'booking_page_model.dart';
 
 class BookingPageWidget extends StatefulWidget {
   const BookingPageWidget({
@@ -35,6 +37,12 @@ class BookingPageWidget extends StatefulWidget {
 
 class _BookingPageWidgetState extends State<BookingPageWidget>
     with TickerProviderStateMixin {
+  late BookingPageModel _model;
+
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
+  LatLng? currentUserLocationValue;
+
   final animationsMap = {
     'containerOnActionTriggerAnimation': AnimationInfo(
       trigger: AnimationTrigger.onActionTrigger,
@@ -58,15 +66,21 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
       ],
     ),
   };
-  BookingsRecord? booking;
-  DateTimeRange? calendarSelectedDay;
-  LatLng? currentUserLocationValue;
-  final _unfocusNode = FocusNode();
-  final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => BookingPageModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      setState(() {
+        FFAppState().selectPush = 60;
+      });
+    });
+
+    getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
+        .then((loc) => setState(() => currentUserLocationValue = loc));
     setupAnimations(
       animationsMap.values.where((anim) =>
           anim.trigger == AnimationTrigger.onActionTrigger ||
@@ -74,17 +88,13 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
       this,
     );
 
-    calendarSelectedDay = DateTimeRange(
-      start: DateTime.now().startOfDay,
-      end: DateTime.now().endOfDay,
-    );
-    getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
-        .then((loc) => setState(() => currentUserLocationValue = loc));
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
     super.dispose();
   }
@@ -522,8 +532,8 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                   weekStartsMonday: true,
                                   initialDate: getCurrentTimestamp,
                                   onChange: (DateTimeRange? newSelectedDate) {
-                                    setState(() =>
-                                        calendarSelectedDay = newSelectedDate);
+                                    setState(() => _model.calendarSelectedDay =
+                                        newSelectedDate);
                                   },
                                   titleStyle: TextStyle(),
                                   dayOfWeekStyle: TextStyle(),
@@ -607,7 +617,8 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                                       getCurrentTimestamp,
                                                       wrapForcarTimesRecord
                                                           .timeOrder!,
-                                                      calendarSelectedDay!
+                                                      _model
+                                                          .calendarSelectedDay!
                                                           .end) ==
                                                   true) &&
                                               (wrapForcarTimesRecord
@@ -638,9 +649,9 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                                             wrapForcarTimesRecord
                                                                 .timeOrder)
                                                     .where('booked_date',
-                                                        isEqualTo:
-                                                            calendarSelectedDay
-                                                                ?.start)
+                                                        isEqualTo: _model
+                                                            .calendarSelectedDay
+                                                            ?.start)
                                                     .where('booked_company',
                                                         isEqualTo: widget
                                                             .company!.reference)
@@ -1015,7 +1026,7 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                               if (FFAppState()
                                                       .selectedServices
                                                       .length ==
-                                                  null)
+                                                  0)
                                                 Text(
                                                   'Выбрать',
                                                   style: FlutterFlowTheme.of(
@@ -1031,22 +1042,25 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                                     mainAxisSize:
                                                         MainAxisSize.max,
                                                     children: [
-                                                      Text(
-                                                        valueOrDefault<String>(
-                                                          functions
-                                                              .listStringToString(
-                                                                  FFAppState()
-                                                                      .bookingSelectedServicesName
-                                                                      .toList(),
-                                                                  30),
-                                                          '0',
-                                                        ).maybeHandleOverflow(
-                                                            maxChars: 80),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyText1,
-                                                      ),
+                                                      if (FFAppState()
+                                                              .selectedServices
+                                                              .length !=
+                                                          0)
+                                                        Text(
+                                                          valueOrDefault<
+                                                              String>(
+                                                            functions.listStringToString(
+                                                                FFAppState()
+                                                                    .bookingSelectedServicesName
+                                                                    .toList(),
+                                                                30),
+                                                            '0',
+                                                          ).maybeHandleOverflow(
+                                                              maxChars: 80),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyText1,
+                                                        ),
                                                     ],
                                                   ),
                                                 ),
@@ -1551,9 +1565,9 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                                                   .timeOrder,
                                                           status:
                                                               'Забронировано',
-                                                          bookedDate:
-                                                              calendarSelectedDay
-                                                                  ?.end,
+                                                          bookedDate: _model
+                                                              .calendarSelectedDay
+                                                              ?.end,
                                                           totalPrice:
                                                               FFAppState()
                                                                   .price,
@@ -1585,13 +1599,15 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                                           bookedDateString:
                                                               dateTimeFormat(
                                                             'd/M/y',
-                                                            calendarSelectedDay
+                                                            _model
+                                                                .calendarSelectedDay
                                                                 ?.start,
                                                             locale: FFLocalizations
                                                                     .of(context)
                                                                 .languageCode,
                                                           ),
                                                           createdByUser: true,
+                                                          cancelled: false,
                                                         ),
                                                         'selected_company_services':
                                                             FFAppState()
@@ -1610,7 +1626,7 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                                       await bookingsRecordReference
                                                           .set(
                                                               bookingsCreateData);
-                                                      booking = BookingsRecord
+                                                      _model.booking = BookingsRecord
                                                           .getDocumentFromData(
                                                               bookingsCreateData,
                                                               bookingsRecordReference);
@@ -1622,10 +1638,24 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                                             .controller
                                                             .forward(from: 0.0);
                                                       }
-                                                      await Future.delayed(
-                                                          const Duration(
-                                                              milliseconds:
-                                                                  1000));
+
+                                                      final companyNotificationsCreateData =
+                                                          createCompanyNotificationsRecordData(
+                                                        message:
+                                                            'Новая запись: ${_model.booking!.carBody}, ${_model.booking!.carName}, ${_model.booking!.timeName}',
+                                                        date:
+                                                            getCurrentTimestamp,
+                                                        opened: false,
+                                                        bookingRef: _model
+                                                            .booking!.reference,
+                                                        type: 'new_booking',
+                                                      );
+                                                      await CompanyNotificationsRecord
+                                                              .createDoc(widget
+                                                                  .company!
+                                                                  .reference)
+                                                          .set(
+                                                              companyNotificationsCreateData);
                                                       FFAppState().update(() {
                                                         FFAppState()
                                                             .selectPush = 1000;
@@ -1725,69 +1755,63 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                   ],
                 ),
               ),
-              if (responsiveVisibility(
-                context: context,
-                phone: false,
-              ))
-                Container(
-                  width: double.infinity,
-                  height: double.infinity,
-                  decoration: BoxDecoration(
-                    color: Color(0x64000000),
-                  ),
-                  child: Align(
-                    alignment: AlignmentDirectional(0, 0),
-                    child: Container(
-                      width: 192,
-                      height: 176,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
-                            child: Container(
-                              width: 48,
-                              height: 48,
-                              decoration: BoxDecoration(
-                                color:
-                                    FlutterFlowTheme.of(context).primaryColor,
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Icon(
-                                FFIcons.kcheeek,
-                                color: Colors.white,
-                                size: 44,
-                              ),
+              Container(
+                width: double.infinity,
+                height: double.infinity,
+                decoration: BoxDecoration(
+                  color: Color(0x64000000),
+                ),
+                child: Align(
+                  alignment: AlignmentDirectional(0, 0),
+                  child: Container(
+                    width: 192,
+                    height: 176,
+                    decoration: BoxDecoration(
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
+                          child: Container(
+                            width: 48,
+                            height: 48,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context).primaryColor,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Icon(
+                              FFIcons.kcheeek,
+                              color: Colors.white,
+                              size: 44,
                             ),
                           ),
-                          Text(
-                            'Вы успешно\nзаписались!',
-                            textAlign: TextAlign.center,
-                            style: FlutterFlowTheme.of(context)
-                                .bodyText1
-                                .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .bodyText1Family,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w500,
-                                  useGoogleFonts: GoogleFonts.asMap()
-                                      .containsKey(FlutterFlowTheme.of(context)
-                                          .bodyText1Family),
-                                ),
-                          ),
-                        ],
-                      ),
+                        ),
+                        Text(
+                          'Вы успешно\nзаписались!',
+                          textAlign: TextAlign.center,
+                          style: FlutterFlowTheme.of(context)
+                              .bodyText1
+                              .override(
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .bodyText1Family,
+                                fontSize: 15,
+                                fontWeight: FontWeight.w500,
+                                useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                    FlutterFlowTheme.of(context)
+                                        .bodyText1Family),
+                              ),
+                        ),
+                      ],
                     ),
                   ),
-                ).animateOnActionTrigger(
-                  animationsMap['containerOnActionTriggerAnimation']!,
                 ),
+              ).animateOnActionTrigger(
+                animationsMap['containerOnActionTriggerAnimation']!,
+              ),
             ],
           ),
         ),

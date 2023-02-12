@@ -8,6 +8,8 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart'
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'company_stories_bottomsheet_model.dart';
+export 'company_stories_bottomsheet_model.dart';
 
 class CompanyStoriesBottomsheetWidget extends StatefulWidget {
   const CompanyStoriesBottomsheetWidget({
@@ -26,13 +28,27 @@ class CompanyStoriesBottomsheetWidget extends StatefulWidget {
 
 class _CompanyStoriesBottomsheetWidgetState
     extends State<CompanyStoriesBottomsheetWidget> {
-  PageController? pageViewController;
+  late CompanyStoriesBottomsheetModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => CompanyStoriesBottomsheetModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
   }
 
   @override
@@ -76,13 +92,15 @@ class _CompanyStoriesBottomsheetWidgetState
                         child: Stack(
                           children: [
                             PageView.builder(
-                              controller: pageViewController ??= PageController(
-                                  initialPage: min(
-                                      valueOrDefault<int>(
-                                        widget.index,
-                                        0,
-                                      ),
-                                      pageViewPromotionRecordList.length - 1)),
+                              controller: _model.pageViewController ??=
+                                  PageController(
+                                      initialPage: min(
+                                          valueOrDefault<int>(
+                                            widget.index,
+                                            0,
+                                          ),
+                                          pageViewPromotionRecordList.length -
+                                              1)),
                               scrollDirection: Axis.horizontal,
                               itemCount: pageViewPromotionRecordList.length,
                               itemBuilder: (context, pageViewIndex) {
@@ -373,7 +391,7 @@ class _CompanyStoriesBottomsheetWidgetState
                                     EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
                                 child:
                                     smooth_page_indicator.SmoothPageIndicator(
-                                  controller: pageViewController ??=
+                                  controller: _model.pageViewController ??=
                                       PageController(
                                           initialPage: min(
                                               valueOrDefault<int>(
@@ -386,7 +404,7 @@ class _CompanyStoriesBottomsheetWidgetState
                                   count: pageViewPromotionRecordList.length,
                                   axisDirection: Axis.horizontal,
                                   onDotClicked: (i) {
-                                    pageViewController!.animateToPage(
+                                    _model.pageViewController!.animateToPage(
                                       i,
                                       duration: Duration(milliseconds: 500),
                                       curve: Curves.ease,

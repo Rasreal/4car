@@ -7,6 +7,8 @@ import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'profile_model.dart';
+export 'profile_model.dart';
 
 class ProfileWidget extends StatefulWidget {
   const ProfileWidget({Key? key}) : super(key: key);
@@ -16,20 +18,23 @@ class ProfileWidget extends StatefulWidget {
 }
 
 class _ProfileWidgetState extends State<ProfileWidget> {
-  bool? switchListTileValue1;
-  final _unfocusNode = FocusNode();
+  late ProfileModel _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  bool? switchListTileValue2;
+  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => ProfileModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
     super.dispose();
   }
@@ -303,9 +308,10 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                       ),
                       Expanded(
                         child: SwitchListTile(
-                          value: switchListTileValue2 ??= true,
+                          value: _model.switchListTileValue2 ??= true,
                           onChanged: (newValue) async {
-                            setState(() => switchListTileValue2 = newValue!);
+                            setState(
+                                () => _model.switchListTileValue2 = newValue!);
                           },
                           title: Text(
                             'Уведомления',
@@ -322,6 +328,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                           tileColor: Colors.white,
                           dense: true,
                           controlAffinity: ListTileControlAffinity.trailing,
+                          contentPadding:
+                              EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                         ),
                       ),
                     ],
@@ -854,9 +862,10 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                         ),
                         Expanded(
                           child: SwitchListTile(
-                            value: switchListTileValue1 ??= true,
+                            value: _model.switchListTileValue1 ??= true,
                             onChanged: (newValue) async {
-                              setState(() => switchListTileValue1 = newValue!);
+                              setState(() =>
+                                  _model.switchListTileValue1 = newValue!);
                             },
                             title: Text(
                               'Уведомления',
@@ -875,6 +884,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                             tileColor: Colors.white,
                             dense: true,
                             controlAffinity: ListTileControlAffinity.trailing,
+                            contentPadding:
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                           ),
                         ),
                       ],

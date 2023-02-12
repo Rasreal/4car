@@ -7,6 +7,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'booking_cancellation_model.dart';
+export 'booking_cancellation_model.dart';
 
 class BookingCancellationWidget extends StatefulWidget {
   const BookingCancellationWidget({
@@ -14,7 +16,7 @@ class BookingCancellationWidget extends StatefulWidget {
     this.booking,
   }) : super(key: key);
 
-  final DocumentReference? booking;
+  final BookingsRecord? booking;
 
   @override
   _BookingCancellationWidgetState createState() =>
@@ -22,19 +24,27 @@ class BookingCancellationWidget extends StatefulWidget {
 }
 
 class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
-  TextEditingController? textController;
-  final formKey = GlobalKey<FormState>();
+  late BookingCancellationModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
 
   @override
   void initState() {
     super.initState();
-    textController = TextEditingController();
+    _model = createModel(context, () => BookingCancellationModel());
+
+    _model.textController = TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
-    textController?.dispose();
+    _model.dispose();
+
     super.dispose();
   }
 
@@ -367,12 +377,12 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
                   ),
             ),
             Form(
-              key: formKey,
+              key: _model.formKey,
               autovalidateMode: AutovalidateMode.disabled,
               child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                 child: TextFormField(
-                  controller: textController,
+                  controller: _model.textController,
                   obscureText: false,
                   decoration: InputDecoration(
                     hintText: 'Написать...',
@@ -409,17 +419,8 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
                   style: FlutterFlowTheme.of(context).bodyText1,
                   maxLines: 3,
                   keyboardType: TextInputType.multiline,
-                  validator: (val) {
-                    if (val == null || val.isEmpty) {
-                      return 'Field is required';
-                    }
-
-                    if (val.length < 10) {
-                      return 'напишите причину больше 10 символов';
-                    }
-
-                    return null;
-                  },
+                  validator:
+                      _model.textControllerValidator.asValidator(context),
                 ),
               ),
             ),
@@ -430,29 +431,47 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
                   if (FFAppState().cancelBooking != null &&
                       FFAppState().cancelBooking != '') {
                     if (FFAppState().cancelBooking == 'Другая причина') {
-                      if (formKey.currentState == null ||
-                          !formKey.currentState!.validate()) {
+                      if (_model.formKey.currentState == null ||
+                          !_model.formKey.currentState!.validate()) {
                         return;
                       }
 
-                      final bookingsUpdateData = createBookingsRecordData(
-                        status: 'Архив',
+                      final bookingsUpdateData1 = createBookingsRecordData(
+                        status: 'Закончено',
                         cancelWhy: FFAppState().cancelBooking,
-                        cancelComment: textController!.text,
+                        cancelComment: _model.textController.text,
                         cancelTimeDate: getCurrentTimestamp,
                         cancelled: true,
+                        openedSuperAdmin: false,
                       );
-                      await widget.booking!.update(bookingsUpdateData);
+                      await widget.booking!.reference
+                          .update(bookingsUpdateData1);
                     } else {
-                      final bookingsUpdateData = createBookingsRecordData(
-                        status: 'Архив',
+                      final bookingsUpdateData2 = createBookingsRecordData(
+                        status: 'Закончено',
                         cancelWhy: FFAppState().cancelBooking,
                         cancelTimeDate: getCurrentTimestamp,
                         cancelled: true,
+                        openedSuperAdmin: false,
                       );
-                      await widget.booking!.update(bookingsUpdateData);
+                      await widget.booking!.reference
+                          .update(bookingsUpdateData2);
                     }
 
+                    final companyNotificationsCreateData =
+                        createCompanyNotificationsRecordData(
+                      message: 'Запись №${valueOrDefault<String>(
+                        widget.booking!.id,
+                        '1',
+                      )} была отменёна пользователем.',
+                      date: getCurrentTimestamp,
+                      opened: false,
+                      bookingRef: widget.booking!.reference,
+                      type: 'cancel_booking',
+                    );
+                    await CompanyNotificationsRecord.createDoc(
+                            widget.booking!.bookedCompany!)
+                        .set(companyNotificationsCreateData);
                     Navigator.pop(context, true);
                   }
                 },

@@ -7,6 +7,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'super_admin_reject_moderation_model.dart';
+export 'super_admin_reject_moderation_model.dart';
 
 class SuperAdminRejectModerationWidget extends StatefulWidget {
   const SuperAdminRejectModerationWidget({
@@ -23,11 +25,27 @@ class SuperAdminRejectModerationWidget extends StatefulWidget {
 
 class _SuperAdminRejectModerationWidgetState
     extends State<SuperAdminRejectModerationWidget> {
+  late SuperAdminRejectModerationModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => SuperAdminRejectModerationModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
   }
 
   @override

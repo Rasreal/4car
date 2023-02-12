@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'company_card_model.dart';
+export 'company_card_model.dart';
 
 class CompanyCardWidget extends StatefulWidget {
   const CompanyCardWidget({
@@ -22,14 +24,31 @@ class CompanyCardWidget extends StatefulWidget {
 }
 
 class _CompanyCardWidgetState extends State<CompanyCardWidget> {
+  late CompanyCardModel _model;
+
   LatLng? currentUserLocationValue;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => CompanyCardModel());
+
     getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
         .then((loc) => setState(() => currentUserLocationValue = loc));
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
   }
 
   @override

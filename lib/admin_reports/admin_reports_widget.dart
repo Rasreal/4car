@@ -9,6 +9,8 @@ import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'admin_reports_model.dart';
+export 'admin_reports_model.dart';
 
 class AdminReportsWidget extends StatefulWidget {
   const AdminReportsWidget({Key? key}) : super(key: key);
@@ -18,21 +20,25 @@ class AdminReportsWidget extends StatefulWidget {
 }
 
 class _AdminReportsWidgetState extends State<AdminReportsWidget> {
-  TextEditingController? textController;
-  final _unfocusNode = FocusNode();
+  late AdminReportsModel _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
-    textController = TextEditingController();
+    _model = createModel(context, () => AdminReportsModel());
+
+    _model.textController = TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
-    textController?.dispose();
     super.dispose();
   }
 
@@ -49,8 +55,12 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              AdminAppBarWidget(
-                pageName: 'Отчеты',
+              wrapWithModel(
+                model: _model.adminAppBarModel,
+                updateCallback: () => setState(() {}),
+                child: AdminAppBarWidget(
+                  pageName: 'Отчеты',
+                ),
               ),
               Expanded(
                 child: Container(
@@ -144,7 +154,8 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                             children: [
                                               Expanded(
                                                 child: TextFormField(
-                                                  controller: textController,
+                                                  controller:
+                                                      _model.textController,
                                                   autofocus: true,
                                                   obscureText: false,
                                                   decoration: InputDecoration(
@@ -195,6 +206,9 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                         context)
                                                                     .bodyText1Family),
                                                       ),
+                                                  validator: _model
+                                                      .textControllerValidator
+                                                      .asValidator(context),
                                                 ),
                                               ),
                                               Icon(
