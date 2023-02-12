@@ -97,7 +97,7 @@ class _SignUpCodeWidgetState extends State<SignUpCodeWidget> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 30),
                   child: Text(
-                    'Мы отправим на ваш номер сообщение с 4х значным кодом, введите его',
+                    'Мы отправим на ваш номер сообщение с 6ти значным кодом, введите его',
                     style: FlutterFlowTheme.of(context).bodyText1.override(
                           fontFamily:
                               FlutterFlowTheme.of(context).bodyText1Family,

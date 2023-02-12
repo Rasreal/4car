@@ -1,3 +1,5 @@
+import 'package:flutter/cupertino.dart';
+
 import '../auth/auth_util.dart';
 import '../components/add_city_widget.dart';
 import '../components/log_out_widget.dart';
@@ -289,41 +291,70 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 18, 0, 0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
-                        child: Icon(
-                          FFIcons.kicNotification,
-                          color: FlutterFlowTheme.of(context).primaryColor,
-                          size: 22,
-                        ),
-                      ),
-                      Expanded(
-                        child: SwitchListTile(
-                          value: switchListTileValue2 ??= true,
-                          onChanged: (newValue) async {
-                            setState(() => switchListTileValue2 = newValue!);
-                          },
-                          title: Text(
-                            'Уведомления',
+                      Row(
+                        children: [
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                            child: Icon(
+                              FFIcons.kicNotification,
+                              color: FlutterFlowTheme.of(context).primaryColor,
+                              size: 22,
+                            ),
+                          ),
+                          Text(
+                            'Уве2домления',
                             style: FlutterFlowTheme.of(context).title3.override(
                                   fontFamily:
                                       FlutterFlowTheme.of(context).title3Family,
                                   fontSize: 14,
-                                  fontWeight: FontWeight.normal,
+                                  fontWeight: FontWeight.w500,
                                   useGoogleFonts: GoogleFonts.asMap()
                                       .containsKey(FlutterFlowTheme.of(context)
                                           .title3Family),
                                 ),
                           ),
-                          tileColor: Colors.white,
-                          dense: true,
-                          controlAffinity: ListTileControlAffinity.trailing,
+                        ],
+                      ),
+
+                      Transform.scale(
+                        scale: 0.7,
+                        child: CupertinoSwitch(
+                          value: switchListTileValue1 ??= true,
+                          onChanged: (newValue) async {
+                            setState(() => switchListTileValue1 = newValue!);
+                          },
                         ),
                       ),
+                      // Expanded(
+                      //   child: SwitchListTile(
+                      //     value: switchListTileValue ??= true,
+                      //     onChanged: (newValue) async {
+                      //       setState(() => switchListTileValue = newValue!);
+                      //     },
+                      //     title: Text(
+                      //       'Уведомления',
+                      //       style:
+                      //           FlutterFlowTheme.of(context).title3.override(
+                      //                 fontFamily: FlutterFlowTheme.of(context)
+                      //                     .title3Family,
+                      //                 fontSize: 14,
+                      //                 fontWeight: FontWeight.w500,
+                      //                 useGoogleFonts: GoogleFonts.asMap()
+                      //                     .containsKey(
+                      //                         FlutterFlowTheme.of(context)
+                      //                             .title3Family),
+                      //               ),
+                      //     ),
+                      //     tileColor: Colors.white,
+                      //     dense: true,
+                      //     controlAffinity: ListTileControlAffinity.trailing,
+                      //   ),
+                      // ),
                     ],
                   ),
                 ),
@@ -843,22 +874,21 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(0, 18, 0, 10),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
-                          child: Icon(
-                            FFIcons.kicNotification,
-                            color: FlutterFlowTheme.of(context).primaryColor,
-                            size: 22,
-                          ),
-                        ),
-                        Expanded(
-                          child: SwitchListTile(
-                            value: switchListTileValue1 ??= true,
-                            onChanged: (newValue) async {
-                              setState(() => switchListTileValue1 = newValue!);
-                            },
-                            title: Text(
+                        Row(
+                          children: [
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
+                              child: Icon(
+                                FFIcons.kicNotification,
+                                color:
+                                    FlutterFlowTheme.of(context).primaryColor,
+                                size: 22,
+                              ),
+                            ),
+                            Text(
                               'Уведомления',
                               style:
                                   FlutterFlowTheme.of(context).title3.override(
@@ -872,9 +902,16 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                     .title3Family),
                                       ),
                             ),
-                            tileColor: Colors.white,
-                            dense: true,
-                            controlAffinity: ListTileControlAffinity.trailing,
+                          ],
+                        ),
+                        Transform.scale(
+                          scale: 0.7,
+                          child: CupertinoSwitch(
+                            activeColor: Colors.blue,
+                            value: switchListTileValue1 ??= true,
+                            onChanged: (newValue) async {
+                              setState(() => switchListTileValue1 = newValue!);
+                            },
                           ),
                         ),
                       ],

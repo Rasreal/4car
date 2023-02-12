@@ -102,6 +102,8 @@ class _FlutterFlowGoogleMapState extends State<FlutterFlowGoogleMap> {
   Widget build(BuildContext context) => AbsorbPointer(
         absorbing: !widget.allowInteraction,
         child: GoogleMap(
+          myLocationButtonEnabled: false,
+
           onMapCreated: (controller) async {
             _controller.complete(controller);
             await controller.setMapStyle(googleMapStyleStrings[widget.style]);
@@ -114,7 +116,7 @@ class _FlutterFlowGoogleMapState extends State<FlutterFlowGoogleMap> {
           ),
           mapType: widget.mapType,
           zoomGesturesEnabled: widget.allowZoom,
-          zoomControlsEnabled: widget.showZoomControls,
+          zoomControlsEnabled: false,
           myLocationEnabled: widget.showLocation,
           compassEnabled: widget.showCompass,
           mapToolbarEnabled: widget.showMapToolbar,

@@ -833,7 +833,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                         ),
                                                       ),
                                                       Text(
-                                                        'от ${listView1CompanyServicesRecord.price.toString()} тг',
+                                                        'от ${listView1CompanyServicesRecord.price!.toInt().toString()} тг',
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)

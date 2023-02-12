@@ -205,7 +205,7 @@ class _SelectServicesWidgetState extends State<SelectServicesWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0, 4, 0, 0),
                                       child: Text(
-                                        '${listViewCompanyServicesRecord.price?.toString()} тг',
+                                        '${listViewCompanyServicesRecord.price?.toInt().toString()} тг',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyText1
                                             .override(

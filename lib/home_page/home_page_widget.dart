@@ -1114,201 +1114,201 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                           width: double.infinity,
                                           height: 100,
                                           child: AuthUserStreamWidget(
-                                            builder: (context){
-                                              return FutureBuilder<
-                                                  List<PromotionRecord>>(
-                                                future: queryPromotionRecordOnce(
-                                                  queryBuilder: (promotionRecord) =>
-                                                      promotionRecord.where(
-                                                          'city_link',
-                                                          isEqualTo:
-                                                          currentUserDocument!
-                                                              .country),
-                                                  limit: 3,
-                                                ),
-                                                builder: (context, snapshot) {
-                                                  // Customize what your widget looks like when it's loading.
-                                                  if (!snapshot.hasData) {
-                                                    return Center(
-                                                      child: SizedBox(
-                                                        width: 50,
-                                                        height: 50,
-                                                        child:
-                                                        CircularProgressIndicator(
-                                                          color:
-                                                          FlutterFlowTheme.of(
-                                                              context)
-                                                              .primaryColor,
-                                                        ),
+                                            builder: (context) => FutureBuilder<
+                                                List<PromotionRecord>>(
+                                              future: queryPromotionRecordOnce(
+                                                queryBuilder: (promotionRecord) =>
+                                                    promotionRecord
+                                                        .where('city_link',
+                                                            isEqualTo:
+                                                                currentUserDocument!
+                                                                    .country)
+                                                        .where('top',
+                                                            isEqualTo: true),
+                                                limit: 3,
+                                              ),
+                                              builder: (context, snapshot) {
+                                                // Customize what your widget looks like when it's loading.
+                                                if (!snapshot.hasData) {
+                                                  return Center(
+                                                    child: SizedBox(
+                                                      width: 50,
+                                                      height: 50,
+                                                      child:
+                                                          CircularProgressIndicator(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryColor,
                                                       ),
-                                                    );
-                                                  }
-                                                  List<PromotionRecord>
-                                                  listViewPromotionRecordList =
-                                                  snapshot.data!;
-                                                  return ListView.builder(
-                                                    padding: EdgeInsets.zero,
-                                                    shrinkWrap: true,
-                                                    scrollDirection:
-                                                    Axis.horizontal,
-                                                    itemCount:
-                                                    listViewPromotionRecordList
-                                                        .length,
-                                                    itemBuilder:
-                                                        (context, listViewIndex) {
-                                                      final listViewPromotionRecord =
-                                                      listViewPromotionRecordList[
-                                                      listViewIndex];
-                                                      return Padding(
-                                                        padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                            0, 0, 16, 0),
-                                                        child: InkWell(
-                                                          onTap: () async {
-                                                            await showModalBottomSheet(
-                                                              isScrollControlled:
-                                                              true,
-                                                              backgroundColor:
-                                                              Colors
-                                                                  .transparent,
-                                                              context: context,
-                                                              builder: (context) {
-                                                                return Padding(
-                                                                  padding: MediaQuery.of(
-                                                                      context)
-                                                                      .viewInsets,
+                                                    ),
+                                                  );
+                                                }
+                                                List<PromotionRecord>
+                                                    listViewPromotionRecordList =
+                                                    snapshot.data!;
+                                                return ListView.builder(
+                                                  padding: EdgeInsets.zero,
+                                                  shrinkWrap: true,
+                                                  scrollDirection:
+                                                      Axis.horizontal,
+                                                  itemCount:
+                                                      listViewPromotionRecordList
+                                                          .length,
+                                                  itemBuilder:
+                                                      (context, listViewIndex) {
+                                                    final listViewPromotionRecord =
+                                                        listViewPromotionRecordList[
+                                                            listViewIndex];
+                                                    return Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0, 0, 16, 0),
+                                                      child: InkWell(
+                                                        onTap: () async {
+                                                          await showModalBottomSheet(
+                                                            isScrollControlled:
+                                                                true,
+                                                            backgroundColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            context: context,
+                                                            builder: (context) {
+                                                              return Padding(
+                                                                padding: MediaQuery.of(
+                                                                        context)
+                                                                    .viewInsets,
+                                                                child:
+                                                                    Container(
+                                                                  height: double
+                                                                      .infinity,
                                                                   child:
-                                                                  Container(
-                                                                    height: double
-                                                                        .infinity,
-                                                                    child:
-                                                                    CompanyStoriesBottomsheetWidget(
-                                                                      currentCompanyStories:
-                                                                      listViewPromotionRecord,
-                                                                      index:
-                                                                      listViewIndex,
-                                                                    ),
-                                                                  ),
-                                                                );
-                                                              },
-                                                            ).then((value) =>
-                                                                setState(() {}));
-                                                          },
-                                                          child: Container(
-                                                            width: 104,
-                                                            height: 100,
-                                                            child: Stack(
-                                                              children: [
-                                                                ClipRRect(
-                                                                  borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                      8),
-                                                                  child: Image
-                                                                      .network(
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                      listViewPromotionRecord
-                                                                          .img,
-                                                                      'https://picsum.photos/seed/112/600',
-                                                                    ),
-                                                                    width: 104,
-                                                                    height: 100,
-                                                                    fit: BoxFit
-                                                                        .cover,
+                                                                      CompanyStoriesBottomsheetWidget(
+                                                                    currentCompanyStories:
+                                                                        listViewPromotionRecord,
+                                                                    index:
+                                                                        listViewIndex,
                                                                   ),
                                                                 ),
-                                                                Container(
-                                                                  width: 104,
-                                                                  height: 100,
-                                                                  decoration:
-                                                                  BoxDecoration(
-                                                                    gradient:
-                                                                    LinearGradient(
-                                                                      colors: [
-                                                                        Colors
-                                                                            .transparent,
-                                                                        Colors
-                                                                            .black
-                                                                      ],
-                                                                      stops: [
-                                                                        0,
-                                                                        1
-                                                                      ],
-                                                                      begin:
-                                                                      AlignmentDirectional(
-                                                                          0,
-                                                                          -1),
-                                                                      end:
-                                                                      AlignmentDirectional(
-                                                                          0,
-                                                                          1),
-                                                                    ),
-                                                                    borderRadius:
+                                                              );
+                                                            },
+                                                          ).then((value) =>
+                                                              setState(() {}));
+                                                        },
+                                                        child: Container(
+                                                          width: 104,
+                                                          height: 100,
+                                                          child: Stack(
+                                                            children: [
+                                                              ClipRRect(
+                                                                borderRadius:
                                                                     BorderRadius
                                                                         .circular(
-                                                                        8),
+                                                                            8),
+                                                                child: Image
+                                                                    .network(
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                    listViewPromotionRecord
+                                                                        .img,
+                                                                    'https://picsum.photos/seed/112/600',
                                                                   ),
+                                                                  width: 104,
+                                                                  height: 100,
+                                                                  fit: BoxFit
+                                                                      .cover,
                                                                 ),
-                                                                Column(
-                                                                  mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                                  mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .center,
-                                                                  crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                                  children: [
-                                                                    Expanded(
-                                                                      child:
-                                                                      Align(
-                                                                        alignment:
+                                                              ),
+                                                              Container(
+                                                                width: 104,
+                                                                height: 100,
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  gradient:
+                                                                      LinearGradient(
+                                                                    colors: [
+                                                                      Colors
+                                                                          .transparent,
+                                                                      Colors
+                                                                          .black
+                                                                    ],
+                                                                    stops: [
+                                                                      0,
+                                                                      1
+                                                                    ],
+                                                                    begin:
                                                                         AlignmentDirectional(
-                                                                            -1,
+                                                                            0,
+                                                                            -1),
+                                                                    end:
+                                                                        AlignmentDirectional(
+                                                                            0,
                                                                             1),
-                                                                        child:
-                                                                        Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              6,
-                                                                              0,
-                                                                              6,
+                                                                  ),
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
                                                                               8),
-                                                                          child:
-                                                                          Text(
-                                                                            listViewPromotionRecord
-                                                                                .title!,
-                                                                            textAlign:
-                                                                            TextAlign.start,
-                                                                            maxLines:
-                                                                            2,
-                                                                            style: FlutterFlowTheme.of(context)
-                                                                                .bodyText1
-                                                                                .override(
-                                                                              fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
-                                                                              color: Colors.white,
-                                                                              fontSize: 11,
-                                                                              fontWeight: FontWeight.w500,
-                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
-                                                                            ),
-                                                                          ),
+                                                                ),
+                                                              ),
+                                                              Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .center,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .start,
+                                                                children: [
+                                                                  Expanded(
+                                                                    child:
+                                                                        Align(
+                                                                      alignment:
+                                                                          AlignmentDirectional(
+                                                                              -1,
+                                                                              1),
+                                                                      child:
+                                                                          Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            6,
+                                                                            0,
+                                                                            6,
+                                                                            8),
+                                                                        child:
+                                                                            Text(
+                                                                          listViewPromotionRecord
+                                                                              .title!,
+                                                                          textAlign:
+                                                                              TextAlign.start,
+                                                                          maxLines:
+                                                                              2,
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodyText1
+                                                                              .override(
+                                                                                fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                color: Colors.white,
+                                                                                fontSize: 11,
+                                                                                fontWeight: FontWeight.w500,
+                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              ),
                                                                         ),
                                                                       ),
                                                                     ),
-                                                                  ],
-                                                                ),
-                                                              ],
-                                                            ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ],
                                                           ),
                                                         ),
-                                                      );
-                                                    },
-                                                  );
-                                                },
-                                              );
-                                            }
+                                                      ),
+                                                    );
+                                                  },
+                                                );
+                                              },
+                                            ),
                                           )),
                                     ),
                                     Divider(
@@ -1319,8 +1319,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0, 14, 0, 0),
                                       child: AuthUserStreamWidget(
-                                          builder: (context){
-                                            return FutureBuilder<
+                                          builder: (context) {
+                                        return FutureBuilder<
                                             List<CompaniesRecord>>(
                                           future: queryCompaniesRecordOnce(
                                             queryBuilder: (companiesRecord) =>
@@ -1406,8 +1406,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                               },
                                             );
                                           },
-                                        );}
-                                      ),
+                                        );
+                                      }),
                                     ),
                                   ],
                                 ),
@@ -1419,194 +1419,189 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       AuthUserStreamWidget(
-                                          builder: (context) {
-                                            final searchHistory =
-                                                (currentUserDocument
-                                                            ?.searchHistory
-                                                            ?.toList() ??
-                                                        [])
-                                                    .toList();
-                                            return ListView.builder(
-                                              physics:
-                                                  NeverScrollableScrollPhysics(),
-                                              padding: EdgeInsets.zero,
-                                              shrinkWrap: true,
-                                              scrollDirection: Axis.vertical,
-                                              itemCount: searchHistory.length,
-                                              itemBuilder: (context,
-                                                  searchHistoryIndex) {
-                                                final searchHistoryItem =
-                                                    searchHistory[
-                                                        searchHistoryIndex];
-                                                return // Generated code for this Column Widget...
-                                                    StreamBuilder<
-                                                        CompaniesRecord>(
-                                                  stream: CompaniesRecord
-                                                      .getDocument(
-                                                          searchHistoryItem),
-                                                  builder: (context, snapshot) {
-                                                    // Customize what your widget looks like when it's loading.
-                                                    if (!snapshot.hasData) {
-                                                      return Center(
-                                                        child: SizedBox(
-                                                          width: 50,
-                                                          height: 50,
-                                                          child:
-                                                              CircularProgressIndicator(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryColor,
-                                                          ),
+                                        builder: (context) {
+                                          final searchHistory =
+                                              (currentUserDocument
+                                                          ?.searchHistory
+                                                          ?.toList() ??
+                                                      [])
+                                                  .toList();
+                                          return ListView.builder(
+                                            physics:
+                                                NeverScrollableScrollPhysics(),
+                                            padding: EdgeInsets.zero,
+                                            shrinkWrap: true,
+                                            scrollDirection: Axis.vertical,
+                                            itemCount: searchHistory.length,
+                                            itemBuilder:
+                                                (context, searchHistoryIndex) {
+                                              final searchHistoryItem =
+                                                  searchHistory[
+                                                      searchHistoryIndex];
+                                              return // Generated code for this Column Widget...
+                                                  StreamBuilder<
+                                                      CompaniesRecord>(
+                                                stream:
+                                                    CompaniesRecord.getDocument(
+                                                        searchHistoryItem),
+                                                builder: (context, snapshot) {
+                                                  // Customize what your widget looks like when it's loading.
+                                                  if (!snapshot.hasData) {
+                                                    return Center(
+                                                      child: SizedBox(
+                                                        width: 50,
+                                                        height: 50,
+                                                        child:
+                                                            CircularProgressIndicator(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryColor,
                                                         ),
-                                                      );
-                                                    }
-                                                    final columnCompaniesRecord =
-                                                        snapshot.data!;
-                                                    return InkWell(
-                                                      onTap: () async {
-                                                        await showModalBottomSheet(
-                                                          isScrollControlled:
-                                                              true,
-                                                          backgroundColor:
-                                                              Colors
-                                                                  .transparent,
-                                                          context: context,
-                                                          builder: (context) {
-                                                            return Padding(
-                                                              padding: MediaQuery
-                                                                      .of(context)
-                                                                  .viewInsets,
-                                                              child: Container(
-                                                                height: MediaQuery.of(
-                                                                            context)
-                                                                        .size
-                                                                        .height *
-                                                                    0.8,
-                                                                child:
-                                                                    CarWashCompanyWidget(
-                                                                  currentCompanyLink:
-                                                                      columnCompaniesRecord
-                                                                          .reference,
-                                                                ),
-                                                              ),
-                                                            );
-                                                          },
-                                                        ).then((value) =>
-                                                            setState(() {}));
-                                                      },
-                                                      child: Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0,
-                                                                        16,
-                                                                        0,
-                                                                        8),
-                                                            child: Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                Icon(
-                                                                  Icons
-                                                                      .access_time,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .gray2,
-                                                                  size: 24,
-                                                                ),
-                                                                Expanded(
-                                                                  child:
-                                                                      Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            8,
-                                                                            0,
-                                                                            0,
-                                                                            0),
-                                                                    child:
-                                                                        Column(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      crossAxisAlignment:
-                                                                          CrossAxisAlignment
-                                                                              .start,
-                                                                      children: [
-                                                                        Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0,
-                                                                              0,
-                                                                              0,
-                                                                              2),
-                                                                          child:
-                                                                              Text(
-                                                                            columnCompaniesRecord.name!,
-                                                                            style:
-                                                                                FlutterFlowTheme.of(context).bodyText1,
-                                                                          ),
-                                                                        ),
-                                                                        Row(
-                                                                          mainAxisSize:
-                                                                              MainAxisSize.max,
-                                                                          mainAxisAlignment:
-                                                                              MainAxisAlignment.spaceBetween,
-                                                                          children: [
-                                                                            Text(
-                                                                              columnCompaniesRecord.street!,
-                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
-                                                                                    color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                    fontSize: 12,
-                                                                                    fontWeight: FontWeight.normal,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
-                                                                                  ),
-                                                                            ),
-                                                                            Text(
-                                                                              valueOrDefault<String>(
-                                                                                '${formatNumber(
-                                                                                  functions.returnDistanceBetweenTwoPoints(currentUserLocationValue, columnCompaniesRecord.location),
-                                                                                  formatType: FormatType.custom,
-                                                                                  format: '',
-                                                                                  locale: '',
-                                                                                )}км',
-                                                                                '----',
-                                                                              ),
-                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
-                                                                                    color: Color(0xFF9CA3AF),
-                                                                                    fontSize: 12,
-                                                                                    fontWeight: FontWeight.w500,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
-                                                                                  ),
-                                                                            ),
-                                                                          ],
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                          Divider(
-                                                            thickness: 1,
-                                                            color: Color(
-                                                                0xFFEFEFEF),
-                                                          ),
-                                                        ],
                                                       ),
                                                     );
-                                                  },
-                                                );
-                                              },
-                                            );
-                                          },
-
+                                                  }
+                                                  final columnCompaniesRecord =
+                                                      snapshot.data!;
+                                                  return InkWell(
+                                                    onTap: () async {
+                                                      await showModalBottomSheet(
+                                                        isScrollControlled:
+                                                            true,
+                                                        backgroundColor:
+                                                            Colors.transparent,
+                                                        context: context,
+                                                        builder: (context) {
+                                                          return Padding(
+                                                            padding:
+                                                                MediaQuery.of(
+                                                                        context)
+                                                                    .viewInsets,
+                                                            child: Container(
+                                                              height: MediaQuery.of(
+                                                                          context)
+                                                                      .size
+                                                                      .height *
+                                                                  0.8,
+                                                              child:
+                                                                  CarWashCompanyWidget(
+                                                                currentCompanyLink:
+                                                                    columnCompaniesRecord
+                                                                        .reference,
+                                                              ),
+                                                            ),
+                                                          );
+                                                        },
+                                                      ).then((value) =>
+                                                          setState(() {}));
+                                                    },
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(0,
+                                                                      16, 0, 8),
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              Icon(
+                                                                Icons
+                                                                    .access_time,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .gray2,
+                                                                size: 24,
+                                                              ),
+                                                              Expanded(
+                                                                child: Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          8,
+                                                                          0,
+                                                                          0,
+                                                                          0),
+                                                                  child: Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    children: [
+                                                                      Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            0,
+                                                                            0,
+                                                                            0,
+                                                                            2),
+                                                                        child:
+                                                                            Text(
+                                                                          columnCompaniesRecord
+                                                                              .name!,
+                                                                          style:
+                                                                              FlutterFlowTheme.of(context).bodyText1,
+                                                                        ),
+                                                                      ),
+                                                                      Row(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        mainAxisAlignment:
+                                                                            MainAxisAlignment.spaceBetween,
+                                                                        children: [
+                                                                          Text(
+                                                                            columnCompaniesRecord.street!,
+                                                                            style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                  fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                  color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                  fontSize: 12,
+                                                                                  fontWeight: FontWeight.normal,
+                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                ),
+                                                                          ),
+                                                                          Text(
+                                                                            valueOrDefault<String>(
+                                                                              '${formatNumber(
+                                                                                functions.returnDistanceBetweenTwoPoints(currentUserLocationValue, columnCompaniesRecord.location),
+                                                                                formatType: FormatType.custom,
+                                                                                format: '',
+                                                                                locale: '',
+                                                                              )}км',
+                                                                              '----',
+                                                                            ),
+                                                                            style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                  fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                  color: Color(0xFF9CA3AF),
+                                                                                  fontSize: 12,
+                                                                                  fontWeight: FontWeight.w500,
+                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                ),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        Divider(
+                                                          thickness: 1,
+                                                          color:
+                                                              Color(0xFFEFEFEF),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  );
+                                                },
+                                              );
+                                            },
+                                          );
+                                        },
                                       ),
                                       if ((currentUserDocument?.searchHistory
                                                       ?.toList() ??
@@ -1615,8 +1610,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                               .toString() !=
                                           '0')
                                         AuthUserStreamWidget(
-                                            builder: (context){
-                                              return InkWell(
+                                            builder: (context) {
+                                          return InkWell(
                                             onTap: () async {
                                               final userUpdateData = {
                                                 'search_history':
@@ -1652,8 +1647,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 )),
                                               ),
                                             ),
-                                          );}
-                                        ),
+                                          );
+                                        }),
                                     ],
                                   ),
                                 ),
@@ -1665,9 +1660,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
-                                      AuthUserStreamWidget(
-                                    builder: (context){
-    return FutureBuilder<
+                                      AuthUserStreamWidget(builder: (context) {
+                                        return FutureBuilder<
                                             List<CompaniesRecord>>(
                                           future: (_firestoreRequestCompleter ??=
                                                   Completer<
@@ -1934,8 +1928,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                               ),
                                             );
                                           },
-                                        ); }
-                                      ),
+                                        );
+                                      }),
                                     ],
                                   ),
                                 )
