@@ -71,8 +71,6 @@ abstract class CompaniesRecord
   @BuiltValueField(wireName: 'closed_time_order')
   int? get closedTimeOrder;
 
-  BuiltList<String>? get listServices;
-
   @BuiltValueField(wireName: 'company_document')
   DocumentReference? get companyDocument;
 
@@ -111,7 +109,6 @@ abstract class CompaniesRecord
     ..closeTime = ''
     ..openTimeOrder = 0
     ..closedTimeOrder = 0
-    ..listServices = ListBuilder()
     ..forCarPercent = 0.0
     ..countBoxString = ListBuilder()
     ..companyUsers = ListBuilder()
@@ -192,7 +189,6 @@ Map<String, dynamic> createCompaniesRecordData({
         ..closeTime = closeTime
         ..openTimeOrder = openTimeOrder
         ..closedTimeOrder = closedTimeOrder
-        ..listServices = null
         ..companyDocument = companyDocument
         ..forCarPercent = forCarPercent
         ..countBoxString = null

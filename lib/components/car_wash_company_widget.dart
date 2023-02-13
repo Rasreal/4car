@@ -13,6 +13,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
 
+
 class CarWashCompanyWidget extends StatefulWidget {
   const CarWashCompanyWidget({
     Key? key,
@@ -26,14 +27,20 @@ class CarWashCompanyWidget extends StatefulWidget {
 }
 
 class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
+
   LatLng? currentUserLocationValue;
-  PagingController<DocumentSnapshot?, PromotionRecord>? _pagingController;
-  Query? _pagingQuery;
-  List<StreamSubscription?> _streamSubscriptions = [];
+  PagingController<DocumentSnapshot?, PromotionRecord>? pagingController;
+  Query? pagingQuery;
+  List<StreamSubscription?> streamSubscriptions = [];
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+  }
 
   @override
   void initState() {
     super.initState();
+
     getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
         .then((loc) => setState(() => currentUserLocationValue = loc));
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -41,7 +48,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
 
   @override
   void dispose() {
-    _streamSubscriptions.forEach((s) => s?.cancel());
+
     super.dispose();
   }
 
@@ -126,7 +133,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                             Expanded(
                               child: Padding(
                                 padding:
-                                    EdgeInsetsDirectional.fromSTEB(14, 0, 0, 0),
+                                EdgeInsetsDirectional.fromSTEB(14, 0, 0, 0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -134,14 +141,14 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                     Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceBetween,
                                       crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      CrossAxisAlignment.start,
                                       children: [
                                         Column(
                                           mainAxisSize: MainAxisSize.max,
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                           children: [
                                             Padding(
                                               padding: EdgeInsetsDirectional
@@ -151,30 +158,30 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 4, 0),
+                                                    EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                        0, 0, 4, 0),
                                                     child: Text(
                                                       containerCompaniesRecord
                                                           .name!,
                                                       style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyText1
-                                                              .override(
-                                                                fontFamily: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyText1Family,
-                                                                fontSize: 16,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
-                                                              ),
+                                                      FlutterFlowTheme.of(
+                                                          context)
+                                                          .bodyText1
+                                                          .override(
+                                                        fontFamily: FlutterFlowTheme.of(
+                                                            context)
+                                                            .bodyText1Family,
+                                                        fontSize: 16,
+                                                        fontWeight:
+                                                        FontWeight
+                                                            .w500,
+                                                        useGoogleFonts: GoogleFonts
+                                                            .asMap()
+                                                            .containsKey(
+                                                            FlutterFlowTheme.of(context)
+                                                                .bodyText1Family),
+                                                      ),
                                                     ),
                                                   ),
                                                   Container(
@@ -182,20 +189,20 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                     height: 6,
                                                     decoration: BoxDecoration(
                                                       color:
-                                                          valueOrDefault<Color>(
+                                                      valueOrDefault<Color>(
                                                         functions.closedOpened(
-                                                                    getCurrentTimestamp,
-                                                                    containerCompaniesRecord
-                                                                        .openTimeOrder!,
-                                                                    containerCompaniesRecord
-                                                                        .closedTimeOrder!) ==
-                                                                true
+                                                            getCurrentTimestamp,
+                                                            containerCompaniesRecord
+                                                                .openTimeOrder!,
+                                                            containerCompaniesRecord
+                                                                .closedTimeOrder!) ==
+                                                            true
                                                             ? FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryColor
+                                                            .of(context)
+                                                            .primaryColor
                                                             : FlutterFlowTheme
-                                                                    .of(context)
-                                                                .red1,
+                                                            .of(context)
+                                                            .red1,
                                                         Colors.white,
                                                       ),
                                                       shape: BoxShape.circle,
@@ -210,11 +217,11 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                               child: RatingBarIndicator(
                                                 itemBuilder: (context, index) =>
                                                     Icon(
-                                                  Icons.star_rounded,
-                                                  color: FlutterFlowTheme.of(
+                                                      Icons.star_rounded,
+                                                      color: FlutterFlowTheme.of(
                                                           context)
-                                                      .primaryColor,
-                                                ),
+                                                          .primaryColor,
+                                                    ),
                                                 direction: Axis.horizontal,
                                                 rating: valueOrDefault<double>(
                                                   functions.averageRating(
@@ -224,8 +231,8 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                   0.0,
                                                 ),
                                                 unratedColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .starblue,
+                                                FlutterFlowTheme.of(context)
+                                                    .starblue,
                                                 itemCount: 5,
                                                 itemSize: 14,
                                               ),
@@ -243,37 +250,37 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                   width: 50,
                                                   height: 50,
                                                   child:
-                                                      CircularProgressIndicator(
+                                                  CircularProgressIndicator(
                                                     color: FlutterFlowTheme.of(
-                                                            context)
+                                                        context)
                                                         .primaryColor,
                                                   ),
                                                 ),
                                               );
                                             }
                                             final toggleIconUserRecord =
-                                                snapshot.data!;
+                                            snapshot.data!;
                                             return ToggleIcon(
                                               onPressed: () async {
                                                 final favCompanyElement =
                                                     widget.currentCompanyLink;
                                                 final favCompanyUpdate =
-                                                    toggleIconUserRecord
-                                                            .favCompany!
-                                                            .toList()
-                                                            .contains(
-                                                                favCompanyElement)
-                                                        ? FieldValue
-                                                            .arrayRemove([
-                                                            favCompanyElement
-                                                          ])
-                                                        : FieldValue
-                                                            .arrayUnion([
-                                                            favCompanyElement
-                                                          ]);
+                                                toggleIconUserRecord
+                                                    .favCompany!
+                                                    .toList()
+                                                    .contains(
+                                                    favCompanyElement)
+                                                    ? FieldValue
+                                                    .arrayRemove([
+                                                  favCompanyElement
+                                                ])
+                                                    : FieldValue
+                                                    .arrayUnion([
+                                                  favCompanyElement
+                                                ]);
                                                 final userUpdateData = {
                                                   'favCompany':
-                                                      favCompanyUpdate,
+                                                  favCompanyUpdate,
                                                 };
                                                 await toggleIconUserRecord
                                                     .reference
@@ -283,19 +290,19 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                   .favCompany!
                                                   .toList()
                                                   .contains(widget
-                                                      .currentCompanyLink),
+                                                  .currentCompanyLink),
                                               onIcon: Icon(
                                                 FFIcons.kicSaveee,
                                                 color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryColor,
+                                                FlutterFlowTheme.of(context)
+                                                    .primaryColor,
                                                 size: 24,
                                               ),
                                               offIcon: Icon(
                                                 FFIcons.kproperty1unsaved,
                                                 color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryColor,
+                                                FlutterFlowTheme.of(context)
+                                                    .primaryColor,
                                                 size: 24,
                                               ),
                                             );
@@ -306,7 +313,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                     Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
                                           valueOrDefault<String>(
@@ -316,26 +323,26 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyText1
                                               .override(
-                                                fontFamily:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyText1Family,
-                                                fontWeight: FontWeight.normal,
-                                                useGoogleFonts: GoogleFonts
-                                                        .asMap()
-                                                    .containsKey(
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyText1Family),
-                                              ),
+                                            fontFamily:
+                                            FlutterFlowTheme.of(context)
+                                                .bodyText1Family,
+                                            fontWeight: FontWeight.normal,
+                                            useGoogleFonts: GoogleFonts
+                                                .asMap()
+                                                .containsKey(
+                                                FlutterFlowTheme.of(
+                                                    context)
+                                                    .bodyText1Family),
+                                          ),
                                         ),
                                         Text(
                                           valueOrDefault<String>(
                                             '${formatNumber(
                                               functions
                                                   .returnDistanceBetweenTwoPoints(
-                                                      currentUserLocationValue,
-                                                      containerCompaniesRecord
-                                                          .location),
+                                                  currentUserLocationValue,
+                                                  containerCompaniesRecord
+                                                      .location),
                                               formatType: FormatType.custom,
                                               format: '',
                                               locale: '',
@@ -345,18 +352,18 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyText1
                                               .override(
-                                                fontFamily:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyText1Family,
-                                                color: Color(0xFF9CA3AF),
-                                                fontWeight: FontWeight.w500,
-                                                useGoogleFonts: GoogleFonts
-                                                        .asMap()
-                                                    .containsKey(
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyText1Family),
-                                              ),
+                                            fontFamily:
+                                            FlutterFlowTheme.of(context)
+                                                .bodyText1Family,
+                                            color: Color(0xFF9CA3AF),
+                                            fontWeight: FontWeight.w500,
+                                            useGoogleFonts: GoogleFonts
+                                                .asMap()
+                                                .containsKey(
+                                                FlutterFlowTheme.of(
+                                                    context)
+                                                    .bodyText1Family),
+                                          ),
                                         ),
                                       ],
                                     ),
@@ -377,13 +384,13 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                               children: [
                                 TabBar(
                                   labelColor:
-                                      FlutterFlowTheme.of(context).primaryColor,
+                                  FlutterFlowTheme.of(context).primaryColor,
                                   unselectedLabelColor:
-                                      FlutterFlowTheme.of(context).primaryText,
+                                  FlutterFlowTheme.of(context).primaryText,
                                   labelStyle:
-                                      FlutterFlowTheme.of(context).bodyText1,
+                                  FlutterFlowTheme.of(context).bodyText1,
                                   indicatorColor:
-                                      FlutterFlowTheme.of(context).primaryColor,
+                                  FlutterFlowTheme.of(context).primaryColor,
                                   tabs: [
                                     Tab(
                                       text: 'Инфо',
@@ -414,120 +421,120 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
-                                                    CrossAxisAlignment.stretch,
+                                                CrossAxisAlignment.stretch,
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 0, 8),
+                                                    EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                        0, 0, 0, 8),
                                                     child: Text(
                                                       'Время работы',
                                                       style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyText1
-                                                              .override(
-                                                                fontFamily: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyText1Family,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
-                                                              ),
+                                                      FlutterFlowTheme.of(
+                                                          context)
+                                                          .bodyText1
+                                                          .override(
+                                                        fontFamily: FlutterFlowTheme.of(
+                                                            context)
+                                                            .bodyText1Family,
+                                                        fontWeight:
+                                                        FontWeight
+                                                            .w500,
+                                                        useGoogleFonts: GoogleFonts
+                                                            .asMap()
+                                                            .containsKey(
+                                                            FlutterFlowTheme.of(context)
+                                                                .bodyText1Family),
+                                                      ),
                                                     ),
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 0, 12),
+                                                    EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                        0, 0, 0, 12),
                                                     child: Row(
                                                       mainAxisSize:
-                                                          MainAxisSize.max,
+                                                      MainAxisSize.max,
                                                       children: [
                                                         Text(
                                                           'Еженедельно ',
                                                           style: FlutterFlowTheme
-                                                                  .of(context)
+                                                              .of(context)
                                                               .bodyText1
                                                               .override(
-                                                                fontFamily: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyText1Family,
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .gray2,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
-                                                              ),
+                                                            fontFamily: FlutterFlowTheme.of(
+                                                                context)
+                                                                .bodyText1Family,
+                                                            color: FlutterFlowTheme.of(
+                                                                context)
+                                                                .gray2,
+                                                            useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                                .containsKey(
+                                                                FlutterFlowTheme.of(context)
+                                                                    .bodyText1Family),
+                                                          ),
                                                         ),
                                                         Text(
                                                           containerCompaniesRecord
                                                               .openTime!,
                                                           style: FlutterFlowTheme
-                                                                  .of(context)
+                                                              .of(context)
                                                               .bodyText1
                                                               .override(
-                                                                fontFamily: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyText1Family,
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .gray2,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
-                                                              ),
+                                                            fontFamily: FlutterFlowTheme.of(
+                                                                context)
+                                                                .bodyText1Family,
+                                                            color: FlutterFlowTheme.of(
+                                                                context)
+                                                                .gray2,
+                                                            useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                                .containsKey(
+                                                                FlutterFlowTheme.of(context)
+                                                                    .bodyText1Family),
+                                                          ),
                                                         ),
                                                         Text(
                                                           ' - ',
                                                           style: FlutterFlowTheme
-                                                                  .of(context)
+                                                              .of(context)
                                                               .bodyText1
                                                               .override(
-                                                                fontFamily: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyText1Family,
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .gray2,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
-                                                              ),
+                                                            fontFamily: FlutterFlowTheme.of(
+                                                                context)
+                                                                .bodyText1Family,
+                                                            color: FlutterFlowTheme.of(
+                                                                context)
+                                                                .gray2,
+                                                            useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                                .containsKey(
+                                                                FlutterFlowTheme.of(context)
+                                                                    .bodyText1Family),
+                                                          ),
                                                         ),
                                                         Text(
                                                           containerCompaniesRecord
                                                               .closeTime!,
                                                           style: FlutterFlowTheme
-                                                                  .of(context)
+                                                              .of(context)
                                                               .bodyText1
                                                               .override(
-                                                                fontFamily: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyText1Family,
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .gray2,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
-                                                              ),
+                                                            fontFamily: FlutterFlowTheme.of(
+                                                                context)
+                                                                .bodyText1Family,
+                                                            color: FlutterFlowTheme.of(
+                                                                context)
+                                                                .gray2,
+                                                            useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                                .containsKey(
+                                                                FlutterFlowTheme.of(context)
+                                                                    .bodyText1Family),
+                                                          ),
                                                         ),
                                                       ],
                                                     ),
@@ -536,7 +543,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                     height: 1,
                                                     thickness: 1,
                                                     color: FlutterFlowTheme.of(
-                                                            context)
+                                                        context)
                                                         .gray4,
                                                   ),
                                                 ],
@@ -548,39 +555,39 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
-                                                    CrossAxisAlignment.stretch,
+                                                CrossAxisAlignment.stretch,
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 0, 8),
+                                                    EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                        0, 0, 0, 8),
                                                     child: Text(
                                                       'Номер телефона',
                                                       style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyText1
-                                                              .override(
-                                                                fontFamily: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyText1Family,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
-                                                              ),
+                                                      FlutterFlowTheme.of(
+                                                          context)
+                                                          .bodyText1
+                                                          .override(
+                                                        fontFamily: FlutterFlowTheme.of(
+                                                            context)
+                                                            .bodyText1Family,
+                                                        fontWeight:
+                                                        FontWeight
+                                                            .w500,
+                                                        useGoogleFonts: GoogleFonts
+                                                            .asMap()
+                                                            .containsKey(
+                                                            FlutterFlowTheme.of(context)
+                                                                .bodyText1Family),
+                                                      ),
                                                     ),
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 0, 12),
+                                                    EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                        0, 0, 0, 12),
                                                     child: Text(
                                                       valueOrDefault<String>(
                                                         functions.phoneNum(
@@ -589,29 +596,29 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                         '-',
                                                       ),
                                                       style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyText1
-                                                              .override(
-                                                                fontFamily: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyText1Family,
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .gray2,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
-                                                              ),
+                                                      FlutterFlowTheme.of(
+                                                          context)
+                                                          .bodyText1
+                                                          .override(
+                                                        fontFamily: FlutterFlowTheme.of(
+                                                            context)
+                                                            .bodyText1Family,
+                                                        color: FlutterFlowTheme.of(
+                                                            context)
+                                                            .gray2,
+                                                        useGoogleFonts: GoogleFonts
+                                                            .asMap()
+                                                            .containsKey(
+                                                            FlutterFlowTheme.of(context)
+                                                                .bodyText1Family),
+                                                      ),
                                                     ),
                                                   ),
                                                   Divider(
                                                     height: 1,
                                                     thickness: 1,
                                                     color: FlutterFlowTheme.of(
-                                                            context)
+                                                        context)
                                                         .gray4,
                                                   ),
                                                 ],
@@ -623,39 +630,39 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
-                                                    CrossAxisAlignment.stretch,
+                                                CrossAxisAlignment.stretch,
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 0, 8),
+                                                    EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                        0, 0, 0, 8),
                                                     child: Text(
                                                       'Количество боксов',
                                                       style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyText1
-                                                              .override(
-                                                                fontFamily: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyText1Family,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
-                                                              ),
+                                                      FlutterFlowTheme.of(
+                                                          context)
+                                                          .bodyText1
+                                                          .override(
+                                                        fontFamily: FlutterFlowTheme.of(
+                                                            context)
+                                                            .bodyText1Family,
+                                                        fontWeight:
+                                                        FontWeight
+                                                            .w500,
+                                                        useGoogleFonts: GoogleFonts
+                                                            .asMap()
+                                                            .containsKey(
+                                                            FlutterFlowTheme.of(context)
+                                                                .bodyText1Family),
+                                                      ),
                                                     ),
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 0, 12),
+                                                    EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                        0, 0, 0, 12),
                                                     child: Text(
                                                       valueOrDefault<String>(
                                                         '${valueOrDefault<String>(
@@ -667,29 +674,29 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                         '-',
                                                       ),
                                                       style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyText1
-                                                              .override(
-                                                                fontFamily: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyText1Family,
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .gray2,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
-                                                              ),
+                                                      FlutterFlowTheme.of(
+                                                          context)
+                                                          .bodyText1
+                                                          .override(
+                                                        fontFamily: FlutterFlowTheme.of(
+                                                            context)
+                                                            .bodyText1Family,
+                                                        color: FlutterFlowTheme.of(
+                                                            context)
+                                                            .gray2,
+                                                        useGoogleFonts: GoogleFonts
+                                                            .asMap()
+                                                            .containsKey(
+                                                            FlutterFlowTheme.of(context)
+                                                                .bodyText1Family),
+                                                      ),
                                                     ),
                                                   ),
                                                   Divider(
                                                     height: 1,
                                                     thickness: 1,
                                                     color: FlutterFlowTheme.of(
-                                                            context)
+                                                        context)
                                                         .gray4,
                                                   ),
                                                 ],
@@ -701,39 +708,39 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
-                                                    CrossAxisAlignment.stretch,
+                                                CrossAxisAlignment.stretch,
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 0, 8),
+                                                    EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                        0, 0, 0, 8),
                                                     child: Text(
                                                       'Удобства',
                                                       style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyText1
-                                                              .override(
-                                                                fontFamily: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyText1Family,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
-                                                              ),
+                                                      FlutterFlowTheme.of(
+                                                          context)
+                                                          .bodyText1
+                                                          .override(
+                                                        fontFamily: FlutterFlowTheme.of(
+                                                            context)
+                                                            .bodyText1Family,
+                                                        fontWeight:
+                                                        FontWeight
+                                                            .w500,
+                                                        useGoogleFonts: GoogleFonts
+                                                            .asMap()
+                                                            .containsKey(
+                                                            FlutterFlowTheme.of(context)
+                                                                .bodyText1Family),
+                                                      ),
                                                     ),
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 0, 12),
+                                                    EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                        0, 0, 0, 12),
                                                     child: Text(
                                                       valueOrDefault<String>(
                                                         containerCompaniesRecord
@@ -741,29 +748,29 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                         '-',
                                                       ),
                                                       style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyText1
-                                                              .override(
-                                                                fontFamily: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyText1Family,
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .gray2,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
-                                                              ),
+                                                      FlutterFlowTheme.of(
+                                                          context)
+                                                          .bodyText1
+                                                          .override(
+                                                        fontFamily: FlutterFlowTheme.of(
+                                                            context)
+                                                            .bodyText1Family,
+                                                        color: FlutterFlowTheme.of(
+                                                            context)
+                                                            .gray2,
+                                                        useGoogleFonts: GoogleFonts
+                                                            .asMap()
+                                                            .containsKey(
+                                                            FlutterFlowTheme.of(context)
+                                                                .bodyText1Family),
+                                                      ),
                                                     ),
                                                   ),
                                                   Divider(
                                                     height: 1,
                                                     thickness: 1,
                                                     color: FlutterFlowTheme.of(
-                                                            context)
+                                                        context)
                                                         .gray4,
                                                   ),
                                                 ],
@@ -773,85 +780,71 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            16, 0, 16, 0),
-                                        child: FutureBuilder<
-                                            List<CompanyServicesRecord>>(
-                                          future:
-                                              queryCompanyServicesRecordOnce(
-                                            parent: containerCompaniesRecord
-                                                .reference,
-                                            queryBuilder:
-                                                (companyServicesRecord) =>
-                                                    companyServicesRecord
-                                                        .orderBy('price'),
-                                          ),
-                                          builder: (context, snapshot) {
-                                            // Customize what your widget looks like when it's loading.
-                                            if (!snapshot.hasData) {
-                                              return Center(
-                                                child: SizedBox(
-                                                  width: 50,
-                                                  height: 50,
-                                                  child:
-                                                      CircularProgressIndicator(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryColor,
-                                                  ),
-                                                ),
-                                              );
-                                            }
-                                            List<CompanyServicesRecord>
-                                                listView1CompanyServicesRecordList =
-                                                snapshot.data!;
-                                            return ListView.builder(
-                                              padding: EdgeInsets.zero,
-                                              scrollDirection: Axis.vertical,
-                                              itemCount:
-                                                  listView1CompanyServicesRecordList
-                                                      .length,
-                                              itemBuilder:
-                                                  (context, listView1Index) {
-                                                final listView1CompanyServicesRecord =
-                                                    listView1CompanyServicesRecordList[
-                                                        listView1Index];
-                                                return Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 20, 0, 0),
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Expanded(
-                                                        child: Text(
-                                                          listView1CompanyServicesRecord
-                                                              .name!,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyText1,
-                                                        ),
-                                                      ),
-                                                      Text(
-                                                        'от ${listView1CompanyServicesRecord.price!.toInt().toString()} тг',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyText1,
-                                                      ),
-                                                    ],
+                                        padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
+                                        child: AuthUserStreamWidget(
+                                          builder: (context) => StreamBuilder<List<CompanyServicesRecord>>(
+                                            stream: queryCompanyServicesRecord(
+                                              parent: containerCompaniesRecord.reference,
+                                              queryBuilder: (companyServicesRecord) => companyServicesRecord
+                                                  .where('car_body',
+                                                  isEqualTo: valueOrDefault(
+                                                      currentUserDocument?.firstCarBody, '') !=
+                                                      ''
+                                                      ? valueOrDefault(currentUserDocument?.firstCarBody, '')
+                                                      : null)
+                                                  .orderBy('price'),
+                                            ),
+                                            builder: (context, snapshot) {
+                                              // Customize what your widget looks like when it's loading.
+                                              if (!snapshot.hasData) {
+                                                return Center(
+                                                  child: SizedBox(
+                                                    width: 50,
+                                                    height: 50,
+                                                    child: CircularProgressIndicator(
+                                                      color: FlutterFlowTheme.of(context).primaryColor,
+                                                    ),
                                                   ),
                                                 );
-                                              },
-                                            );
-                                          },
+                                              }
+                                              List<CompanyServicesRecord> listView1CompanyServicesRecordList =
+                                              snapshot.data!;
+                                              return ListView.builder(
+                                                padding: EdgeInsets.zero,
+                                                scrollDirection: Axis.vertical,
+                                                itemCount: listView1CompanyServicesRecordList.length,
+                                                itemBuilder: (context, listView1Index) {
+                                                  final listView1CompanyServicesRecord =
+                                                  listView1CompanyServicesRecordList[listView1Index];
+                                                  return Padding(
+                                                    padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                                                    child: Row(
+                                                      mainAxisSize: MainAxisSize.max,
+                                                      children: [
+                                                        Expanded(
+                                                          child: Text(
+                                                            listView1CompanyServicesRecord.name!,
+                                                            style: FlutterFlowTheme.of(context).bodyText1,
+                                                          ),
+                                                        ),
+                                                        Text(
+                                                          'от ${listView1CompanyServicesRecord.price?.toInt().toString()} тг',
+                                                          style: FlutterFlowTheme.of(context).bodyText1,
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  );
+                                                },
+                                              );
+                                            },
+                                          ),
                                         ),
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             16, 0, 16, 20),
                                         child:
-                                            FutureBuilder<List<CommentsRecord>>(
+                                        FutureBuilder<List<CommentsRecord>>(
                                           future: queryCommentsRecordOnce(
                                             parent: widget.currentCompanyLink,
                                           ),
@@ -863,43 +856,43 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                   width: 50,
                                                   height: 50,
                                                   child:
-                                                      CircularProgressIndicator(
+                                                  CircularProgressIndicator(
                                                     color: FlutterFlowTheme.of(
-                                                            context)
+                                                        context)
                                                         .primaryColor,
                                                   ),
                                                 ),
                                               );
                                             }
                                             List<CommentsRecord>
-                                                listViewCommentsRecordList =
-                                                snapshot.data!;
+                                            listViewCommentsRecordList =
+                                            snapshot.data!;
                                             return ListView.builder(
                                               padding: EdgeInsets.zero,
                                               scrollDirection: Axis.vertical,
                                               itemCount:
-                                                  listViewCommentsRecordList
-                                                      .length,
+                                              listViewCommentsRecordList
+                                                  .length,
                                               itemBuilder:
                                                   (context, listViewIndex) {
                                                 final listViewCommentsRecord =
-                                                    listViewCommentsRecordList[
-                                                        listViewIndex];
+                                                listViewCommentsRecordList[
+                                                listViewIndex];
                                                 return Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(0, 12, 0, 0),
                                                   child: Column(
                                                     mainAxisSize:
-                                                        MainAxisSize.max,
+                                                    MainAxisSize.max,
                                                     crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .stretch,
+                                                    CrossAxisAlignment
+                                                        .stretch,
                                                     children: [
                                                       StreamBuilder<UserRecord>(
                                                         stream: UserRecord
                                                             .getDocument(
-                                                                listViewCommentsRecord
-                                                                    .createdBy!),
+                                                            listViewCommentsRecord
+                                                                .createdBy!),
                                                         builder: (context,
                                                             snapshot) {
                                                           // Customize what your widget looks like when it's loading.
@@ -910,31 +903,31 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                 width: 50,
                                                                 height: 50,
                                                                 child:
-                                                                    CircularProgressIndicator(
+                                                                CircularProgressIndicator(
                                                                   color: FlutterFlowTheme.of(
-                                                                          context)
+                                                                      context)
                                                                       .primaryColor,
                                                                 ),
                                                               ),
                                                             );
                                                           }
                                                           final rowUserRecord =
-                                                              snapshot.data!;
+                                                          snapshot.data!;
                                                           return Row(
                                                             mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
+                                                            MainAxisSize
+                                                                .max,
                                                             children: [
                                                               Container(
                                                                 width: 32,
                                                                 height: 32,
                                                                 decoration:
-                                                                    BoxDecoration(
+                                                                BoxDecoration(
                                                                   color: FlutterFlowTheme.of(
-                                                                          context)
+                                                                      context)
                                                                       .secondaryBackground,
                                                                   image:
-                                                                      DecorationImage(
+                                                                  DecorationImage(
                                                                     fit: BoxFit
                                                                         .cover,
                                                                     image: Image
@@ -943,36 +936,36 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                     ).image,
                                                                   ),
                                                                   borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              8),
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                      8),
                                                                   border: Border
                                                                       .all(
                                                                     color: FlutterFlowTheme.of(
-                                                                            context)
+                                                                        context)
                                                                         .gray3,
                                                                   ),
                                                                 ),
                                                                 child:
-                                                                    Visibility(
+                                                                Visibility(
                                                                   visible: rowUserRecord
-                                                                              .photoUrl !=
-                                                                          null &&
+                                                                      .photoUrl !=
+                                                                      null &&
                                                                       rowUserRecord
-                                                                              .photoUrl !=
+                                                                          .photoUrl !=
                                                                           '',
                                                                   child:
-                                                                      ClipRRect(
+                                                                  ClipRRect(
                                                                     borderRadius:
-                                                                        BorderRadius
-                                                                            .circular(8),
+                                                                    BorderRadius
+                                                                        .circular(8),
                                                                     child: Image
                                                                         .network(
                                                                       rowUserRecord
                                                                           .photoUrl!,
                                                                       width: 30,
                                                                       height:
-                                                                          30,
+                                                                      30,
                                                                       fit: BoxFit
                                                                           .cover,
                                                                     ),
@@ -983,17 +976,17 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                 child: Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          8,
-                                                                          0,
-                                                                          0,
-                                                                          0),
+                                                                      8,
+                                                                      0,
+                                                                      0,
+                                                                      0),
                                                                   child: Column(
                                                                     mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
+                                                                    MainAxisSize
+                                                                        .max,
                                                                     crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .start,
+                                                                    CrossAxisAlignment
+                                                                        .start,
                                                                     children: [
                                                                       Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
@@ -1002,15 +995,15 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                             0,
                                                                             4),
                                                                         child:
-                                                                            Text(
+                                                                        Text(
                                                                           rowUserRecord
                                                                               .displayName!,
                                                                           style:
-                                                                              TextStyle(
+                                                                          TextStyle(
                                                                             fontWeight:
-                                                                                FontWeight.w500,
+                                                                            FontWeight.w500,
                                                                             fontSize:
-                                                                                12,
+                                                                            12,
                                                                           ),
                                                                         ),
                                                                       ),
@@ -1020,16 +1013,16 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                           listViewCommentsRecord
                                                                               .createdAt!,
                                                                           locale:
-                                                                              FFLocalizations.of(context).languageCode,
+                                                                          FFLocalizations.of(context).languageCode,
                                                                         ),
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyText1
                                                                             .override(
-                                                                              fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
-                                                                              color: FlutterFlowTheme.of(context).gray2,
-                                                                              fontSize: 12,
-                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
-                                                                            ),
+                                                                          fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                          color: FlutterFlowTheme.of(context).gray2,
+                                                                          fontSize: 12,
+                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                        ),
                                                                       ),
                                                                     ],
                                                                   ),
@@ -1038,19 +1031,19 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                               RatingBarIndicator(
                                                                 itemBuilder:
                                                                     (context,
-                                                                            index) =>
-                                                                        Icon(
-                                                                  Icons
-                                                                      .star_rounded,
-                                                                  color: FlutterFlowTheme.of(
+                                                                    index) =>
+                                                                    Icon(
+                                                                      Icons
+                                                                          .star_rounded,
+                                                                      color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .primaryColor,
-                                                                ),
+                                                                          .primaryColor,
+                                                                    ),
                                                                 direction: Axis
                                                                     .horizontal,
                                                                 rating:
-                                                                    listViewCommentsRecord
-                                                                        .rating!,
+                                                                listViewCommentsRecord
+                                                                    .rating!,
                                                                 unratedColor: Color(
                                                                     0xFF9E9E9E),
                                                                 itemCount: 5,
@@ -1062,68 +1055,68 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(0, 12,
-                                                                    0, 12),
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0, 12,
+                                                            0, 12),
                                                         child: Text(
                                                           listViewCommentsRecord
                                                               .comment!,
                                                           style: FlutterFlowTheme
-                                                                  .of(context)
+                                                              .of(context)
                                                               .bodyText1,
                                                         ),
                                                       ),
                                                       if (listViewCommentsRecord
-                                                              .booleanResponse ??
+                                                          .booleanResponse ??
                                                           true)
                                                         Container(
                                                           width:
-                                                              double.infinity,
+                                                          double.infinity,
                                                           decoration:
-                                                              BoxDecoration(
+                                                          BoxDecoration(
                                                             color: FlutterFlowTheme
-                                                                    .of(context)
+                                                                .of(context)
                                                                 .gray4,
                                                             borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        8),
+                                                            BorderRadius
+                                                                .circular(
+                                                                8),
                                                           ),
                                                           child: Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        12,
-                                                                        12,
-                                                                        12,
-                                                                        12),
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                12,
+                                                                12,
+                                                                12,
+                                                                12),
                                                             child: Column(
                                                               mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
+                                                              MainAxisSize
+                                                                  .max,
                                                               crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .stretch,
+                                                              CrossAxisAlignment
+                                                                  .stretch,
                                                               children: [
                                                                 Row(
                                                                   mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
+                                                                  MainAxisSize
+                                                                      .max,
                                                                   children: [
                                                                     Container(
                                                                       width: 32,
                                                                       height:
-                                                                          32,
+                                                                      32,
                                                                       decoration:
-                                                                          BoxDecoration(
+                                                                      BoxDecoration(
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .secondaryBackground,
                                                                         image:
-                                                                            DecorationImage(
+                                                                        DecorationImage(
                                                                           fit: BoxFit
                                                                               .cover,
                                                                           image:
-                                                                              Image.network(
+                                                                          Image.network(
                                                                             valueOrDefault<String>(
                                                                               containerCompaniesRecord.logo,
                                                                               'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/e4car-dch9vg/assets/mq76tomaqbk1/4car.png',
@@ -1131,28 +1124,28 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                           ).image,
                                                                         ),
                                                                         borderRadius:
-                                                                            BorderRadius.circular(8),
+                                                                        BorderRadius.circular(8),
                                                                         border:
-                                                                            Border.all(
+                                                                        Border.all(
                                                                           color:
-                                                                              FlutterFlowTheme.of(context).gray3,
+                                                                          FlutterFlowTheme.of(context).gray3,
                                                                         ),
                                                                       ),
                                                                     ),
                                                                     Expanded(
                                                                       child:
-                                                                          Padding(
+                                                                      Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
                                                                             8,
                                                                             0,
                                                                             0,
                                                                             0),
                                                                         child:
-                                                                            Column(
+                                                                        Column(
                                                                           mainAxisSize:
-                                                                              MainAxisSize.max,
+                                                                          MainAxisSize.max,
                                                                           crossAxisAlignment:
-                                                                              CrossAxisAlignment.start,
+                                                                          CrossAxisAlignment.start,
                                                                           children: [
                                                                             Padding(
                                                                               padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 4),
@@ -1167,11 +1160,11 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                             Text(
                                                                               'Официальный ответ',
                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
-                                                                                    color: FlutterFlowTheme.of(context).gray2,
-                                                                                    fontSize: 12,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
-                                                                                  ),
+                                                                                fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                color: FlutterFlowTheme.of(context).gray2,
+                                                                                fontSize: 12,
+                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              ),
                                                                             ),
                                                                           ],
                                                                         ),
@@ -1182,18 +1175,18 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                 Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0,
-                                                                          12,
-                                                                          0,
-                                                                          0),
+                                                                      0,
+                                                                      12,
+                                                                      0,
+                                                                      0),
                                                                   child: Text(
                                                                     listViewCommentsRecord
                                                                         .responseComment!,
                                                                     textAlign:
-                                                                        TextAlign
-                                                                            .start,
+                                                                    TextAlign
+                                                                        .start,
                                                                     style: FlutterFlowTheme.of(
-                                                                            context)
+                                                                        context)
                                                                         .bodyText1,
                                                                   ),
                                                                 ),
@@ -1204,9 +1197,9 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                       Divider(
                                                         thickness: 1,
                                                         color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .gray3,
+                                                        FlutterFlowTheme.of(
+                                                            context)
+                                                            .gray3,
                                                       ),
                                                     ],
                                                   ),
@@ -1224,92 +1217,93 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                             PromotionRecord>(
                                           pagingController: () {
                                             final Query<Object?> Function(
-                                                    Query<Object?>)
-                                                queryBuilder =
+                                                Query<Object?>)
+                                            queryBuilder =
                                                 (promotionRecord) =>
-                                                    promotionRecord.where(
-                                                        'status',
-                                                        isEqualTo: 'Активно');
-                                            if (_pagingController != null) {
+                                                promotionRecord.where(
+                                                    'status',
+                                                    isEqualTo: 'Активно');
+                                            if (pagingController !=
+                                                null) {
                                               final query = queryBuilder(
                                                   PromotionRecord.collection());
-                                              if (query != _pagingQuery) {
+                                              if (query != pagingQuery) {
                                                 // The query has changed
-                                                _pagingQuery = query;
-                                                _streamSubscriptions.forEach(
-                                                    (s) => s?.cancel());
-                                                _streamSubscriptions.clear();
-                                                _pagingController!.refresh();
+                                                pagingQuery = query;
+                                                streamSubscriptions
+                                                    .forEach(
+                                                        (s) => s?.cancel());
+                                                streamSubscriptions
+                                                    .clear();
+                                                pagingController!
+                                                    .refresh();
                                               }
-                                              return _pagingController!;
+                                              return pagingController!;
                                             }
 
-                                            _pagingController =
+                                            pagingController =
                                                 PagingController(
                                                     firstPageKey: null);
-                                            _pagingQuery = queryBuilder(
+                                            pagingQuery = queryBuilder(
                                                 PromotionRecord.collection());
-                                            _pagingController!
+                                            pagingController!
                                                 .addPageRequestListener(
                                                     (nextPageMarker) {
-                                              queryPromotionRecordPage(
-                                                parent:
+                                                  queryPromotionRecordPage(
+                                                    parent:
                                                     widget.currentCompanyLink,
-                                                queryBuilder:
-                                                    (promotionRecord) =>
+                                                    queryBuilder:
+                                                        (promotionRecord) =>
                                                         promotionRecord.where(
                                                             'status',
                                                             isEqualTo:
-                                                                'Активно'),
-                                                nextPageMarker: nextPageMarker,
-                                                pageSize: 25,
-                                                isStream: true,
-                                              ).then((page) {
-                                                _pagingController!.appendPage(
-                                                  page.data,
-                                                  page.nextPageMarker,
-                                                );
-                                                final streamSubscription = page
-                                                    .dataStream
-                                                    ?.listen((data) {
-                                                  data.forEach((item) {
-                                                    final itemIndexes =
-                                                        _pagingController!
+                                                            'Активно'),
+                                                    nextPageMarker: nextPageMarker,
+                                                    pageSize: 25,
+                                                    isStream: true,
+                                                  ).then((page) {
+                                                    pagingController!
+                                                        .appendPage(
+                                                      page.data,
+                                                      page.nextPageMarker,
+                                                    );
+                                                    final streamSubscription = page
+                                                        .dataStream
+                                                        ?.listen((data) {
+                                                      data.forEach((item) {
+                                                        final itemIndexes =
+                                                            pagingController!
                                                             .itemList!
                                                             .asMap()
-                                                            .map((k, v) =>
-                                                                MapEntry(
-                                                                    v.reference
-                                                                        .id,
-                                                                    k));
-                                                    final index = itemIndexes[
+                                                            .map((k, v) => MapEntry(
+                                                            v.reference.id, k));
+                                                        final index = itemIndexes[
                                                         item.reference.id];
-                                                    final items =
-                                                        _pagingController!
+                                                        final items = pagingController!
                                                             .itemList!;
-                                                    if (index != null) {
-                                                      items.replaceRange(index,
-                                                          index + 1, [item]);
-                                                      _pagingController!
-                                                          .itemList = {
-                                                        for (var item in items)
-                                                          item.reference: item
-                                                      }.values.toList();
-                                                    }
+                                                        if (index != null) {
+                                                          items.replaceRange(index,
+                                                              index + 1, [item]);
+                                                          pagingController!
+                                                              .itemList = {
+                                                            for (var item in items)
+                                                              item.reference: item
+                                                          }.values.toList();
+                                                        }
+                                                      });
+                                                      setState(() {});
+                                                    });
+                                                    streamSubscriptions
+                                                        .add(streamSubscription);
                                                   });
-                                                  setState(() {});
                                                 });
-                                                _streamSubscriptions
-                                                    .add(streamSubscription);
-                                              });
-                                            });
-                                            return _pagingController!;
+                                            return pagingController!;
                                           }(),
                                           padding: EdgeInsets.zero,
                                           scrollDirection: Axis.vertical,
                                           builderDelegate:
-                                              PagedChildBuilderDelegate<
-                                                  PromotionRecord>(
+                                          PagedChildBuilderDelegate<
+                                              PromotionRecord>(
                                             // Customize what your widget looks like when it's loading the first page.
                                             firstPageProgressIndicatorBuilder:
                                                 (_) => Center(
@@ -1317,9 +1311,9 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                 width: 50,
                                                 height: 50,
                                                 child:
-                                                    CircularProgressIndicator(
+                                                CircularProgressIndicator(
                                                   color: FlutterFlowTheme.of(
-                                                          context)
+                                                      context)
                                                       .primaryColor,
                                                 ),
                                               ),
@@ -1328,8 +1322,8 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                             itemBuilder:
                                                 (context, _, listViewIndex) {
                                               final listViewPromotionRecord =
-                                                  _pagingController!
-                                                      .itemList![listViewIndex];
+                                              pagingController!
+                                                  .itemList![listViewIndex];
                                               return Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(0, 16, 0, 0),
@@ -1338,21 +1332,21 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                     await showModalBottomSheet(
                                                       isScrollControlled: true,
                                                       backgroundColor:
-                                                          Colors.transparent,
+                                                      Colors.transparent,
                                                       context: context,
                                                       builder: (context) {
                                                         return Padding(
                                                           padding:
-                                                              MediaQuery.of(
-                                                                      context)
-                                                                  .viewInsets,
+                                                          MediaQuery.of(
+                                                              context)
+                                                              .viewInsets,
                                                           child: Container(
                                                             height:
-                                                                double.infinity,
+                                                            double.infinity,
                                                             child:
-                                                                CompanyStoriesBottomsheetWidget(
+                                                            CompanyStoriesBottomsheetWidget(
                                                               currentCompanyStories:
-                                                                  listViewPromotionRecord,
+                                                              listViewPromotionRecord,
                                                             ),
                                                           ),
                                                         );
@@ -1364,12 +1358,12 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                     children: [
                                                       ClipRRect(
                                                         borderRadius:
-                                                            BorderRadius
-                                                                .circular(8),
+                                                        BorderRadius
+                                                            .circular(8),
                                                         child: Image.network(
                                                           'https://picsum.photos/seed/252/600',
                                                           width:
-                                                              double.infinity,
+                                                          double.infinity,
                                                           height: 128,
                                                           fit: BoxFit.cover,
                                                         ),
@@ -1378,18 +1372,18 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                         width: double.infinity,
                                                         height: 128,
                                                         decoration:
-                                                            BoxDecoration(
+                                                        BoxDecoration(
                                                           image:
-                                                              DecorationImage(
+                                                          DecorationImage(
                                                             fit: BoxFit.cover,
                                                             image:
-                                                                Image.network(
+                                                            Image.network(
                                                               listViewPromotionRecord
                                                                   .img!,
                                                             ).image,
                                                           ),
                                                           gradient:
-                                                              LinearGradient(
+                                                          LinearGradient(
                                                             colors: [
                                                               Colors
                                                                   .transparent,
@@ -1397,50 +1391,50 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                             ],
                                                             stops: [0, 1],
                                                             begin:
-                                                                AlignmentDirectional(
-                                                                    0, -1),
+                                                            AlignmentDirectional(
+                                                                0, -1),
                                                             end:
-                                                                AlignmentDirectional(
-                                                                    0, 1),
+                                                            AlignmentDirectional(
+                                                                0, 1),
                                                           ),
                                                           borderRadius:
-                                                              BorderRadius
-                                                                  .circular(8),
+                                                          BorderRadius
+                                                              .circular(8),
                                                         ),
                                                         child: Align(
                                                           alignment:
-                                                              AlignmentDirectional(
-                                                                  -1, 1),
+                                                          AlignmentDirectional(
+                                                              -1, 1),
                                                           child: Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        16,
-                                                                        0,
-                                                                        0,
-                                                                        10),
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                16,
+                                                                0,
+                                                                0,
+                                                                10),
                                                             child: Text(
                                                               listViewPromotionRecord
                                                                   .title!,
                                                               style: FlutterFlowTheme
-                                                                      .of(context)
+                                                                  .of(context)
                                                                   .bodyText1
                                                                   .override(
-                                                                    fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family,
-                                                                    color: Colors
-                                                                        .white,
-                                                                    fontSize:
-                                                                        16,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w500,
-                                                                    useGoogleFonts: GoogleFonts
-                                                                            .asMap()
-                                                                        .containsKey(
-                                                                            FlutterFlowTheme.of(context).bodyText1Family),
-                                                                  ),
+                                                                fontFamily:
+                                                                FlutterFlowTheme.of(context)
+                                                                    .bodyText1Family,
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize:
+                                                                16,
+                                                                fontWeight:
+                                                                FontWeight
+                                                                    .w500,
+                                                                useGoogleFonts: GoogleFonts
+                                                                    .asMap()
+                                                                    .containsKey(
+                                                                    FlutterFlowTheme.of(context).bodyText1Family),
+                                                              ),
                                                             ),
                                                           ),
                                                         ),
@@ -1473,11 +1467,11 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                           Expanded(
                             child: Padding(
                               padding:
-                                  EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
+                              EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                               child: FFButtonWidget(
                                 onPressed: () async {
                                   if (valueOrDefault(
-                                          currentUserDocument?.carscount, 0) <
+                                      currentUserDocument?.carscount, 0) <
                                       1) {
                                     context.pushNamed(
                                       'edit_profile',
@@ -1494,7 +1488,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                           currentUserDocument!.firstCar;
                                       FFAppState().selectedServices = [];
                                       FFAppState().bookingSelectedServicesName =
-                                          [];
+                                      [];
                                     });
                                     FFAppState().update(() {
                                       FFAppState().selectedTimeSlot = null;
@@ -1523,18 +1517,18 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                   width: 130,
                                   height: 48,
                                   color:
-                                      FlutterFlowTheme.of(context).primaryColor,
+                                  FlutterFlowTheme.of(context).primaryColor,
                                   textStyle: FlutterFlowTheme.of(context)
                                       .subtitle2
                                       .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .subtitle2Family,
-                                        color: Colors.white,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey(
-                                                FlutterFlowTheme.of(context)
-                                                    .subtitle2Family),
-                                      ),
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .subtitle2Family,
+                                    color: Colors.white,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey(
+                                        FlutterFlowTheme.of(context)
+                                            .subtitle2Family),
+                                  ),
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
                                     width: 1,

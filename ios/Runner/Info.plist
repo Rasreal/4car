@@ -28,7 +28,7 @@
             <string>Editor</string>
             <key>CFBundleURLSchemes</key>
             <array>
-                <string>com.googleusercontent.apps.91139422644-khkoetd9fecsov7jkijvrkta2eb7ugh2</string>
+                <string>com.googleusercontent.apps.539047140274-mm7b03upakbviil53dnn0a0vhq15o3km</string>
                 
             </array>
         </dict>
@@ -41,6 +41,22 @@
         <key>CFBundleURLSchemes</key>
         <array>
         <string>forcarmain</string>
+        </array>
+        <key>LSApplicationQueriesSchemes</key>
+        <array>
+            <string>comgooglemaps</string>
+            <string>baidumap</string>
+            <string>iosamap</string>
+            <string>waze</string>
+            <string>yandexmaps</string>
+            <string>yandexnavi</string>
+            <string>citymapper</string>
+            <string>mapswithme</string>
+            <string>osmandmaps</string>
+            <string>dgis</string>
+            <string>qqmap</string>
+            <string>here-location</string>
+            <string>tomtomgo</string>
         </array>
         </dict>
     </array>

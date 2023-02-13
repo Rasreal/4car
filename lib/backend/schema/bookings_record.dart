@@ -82,6 +82,11 @@ abstract class BookingsRecord
 
   bool? get createdByAdmin;
 
+  String? get createdAdminUserName;
+
+  @BuiltValueField(wireName: 'opened_super_admin')
+  bool? get openedSuperAdmin;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -106,7 +111,9 @@ abstract class BookingsRecord
     ..boxName = ''
     ..forCarPay = 0.0
     ..createdByUser = false
-    ..createdByAdmin = false;
+    ..createdByAdmin = false
+    ..createdAdminUserName = ''
+    ..openedSuperAdmin = false;
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('bookings');
@@ -153,6 +160,8 @@ Map<String, dynamic> createBookingsRecordData({
   double? forCarPay,
   bool? createdByUser,
   bool? createdByAdmin,
+  String? createdAdminUserName,
+  bool? openedSuperAdmin,
 }) {
   final firestoreData = serializers.toFirestore(
     BookingsRecord.serializer,
@@ -183,7 +192,9 @@ Map<String, dynamic> createBookingsRecordData({
         ..boxName = boxName
         ..forCarPay = forCarPay
         ..createdByUser = createdByUser
-        ..createdByAdmin = createdByAdmin,
+        ..createdByAdmin = createdByAdmin
+        ..createdAdminUserName = createdAdminUserName
+        ..openedSuperAdmin = openedSuperAdmin,
     ),
   );
 

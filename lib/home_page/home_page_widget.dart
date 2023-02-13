@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/scheduler.dart';
 
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
@@ -10,6 +11,7 @@ import '../components/car_wash_company_widget.dart';
 import '../components/company_card_widget.dart';
 import '../components/company_stories_bottomsheet_widget.dart';
 import '../components/log_out_widget.dart';
+import '../components/sucsess_booking_review_widget.dart';
 import '../flutter_flow/flutter_flow_google_map.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/lat_lng.dart';
@@ -95,7 +97,27 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   void initState() {
     focused = _focus.hasFocus;
     loadData();
-
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      if (valueOrDefault<bool>(
+          currentUserDocument?.lastBookingBoolean, false)) {
+        await showModalBottomSheet(
+          isScrollControlled: true,
+          backgroundColor: Colors.transparent,
+          context: context,
+          builder: (context) {
+            return Padding(
+              padding: MediaQuery.of(context).viewInsets,
+              child: Container(
+                height: MediaQuery.of(context).size.height * 0.6,
+                child: SucsessBookingReviewWidget(
+                  booking: currentUserDocument!.linkLastBooking,
+                ),
+              ),
+            );
+          },
+        ).then((value) => setState(() {}));
+      }
+    });
     super.initState();
     getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
         .then((loc) => setState(() {
@@ -718,7 +740,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   child: Stack(
                                     children: [
                                       FutureBuilder<List<CompaniesRecord>>(
-                                        future: queryCompaniesRecordOnce(),
+                                        future: queryCompaniesRecordOnce(
+                                          queryBuilder: (companiesRecord) =>
+                                              companiesRecord.where('status', isEqualTo: 'Активно'),
+                                        ),
                                         builder: (context, snapshot) {
                                           // Customize what your widget looks like when it's loading.
                                           if (!snapshot.hasData) {

@@ -647,12 +647,7 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                             ),
                             Expanded(
                               child: Text(
-                                valueOrDefault<String>(
-                                  functions.listStringToString(
-                                      widget.company!.listServices!.toList(),
-                                      500),
-                                  '0',
-                                ),
+                                'wwwww',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyText1
                                     .override(

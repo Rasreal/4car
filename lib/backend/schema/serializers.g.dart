@@ -13,6 +13,7 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(CommentsRecord.serializer)
       ..add(CompaniesRecord.serializer)
       ..add(CompanyDocumentRecord.serializer)
+      ..add(CompanyNotificationsRecord.serializer)
       ..add(CompanyServicesRecord.serializer)
       ..add(ForcarTimesRecord.serializer)
       ..add(MyCarsRecord.serializer)
@@ -74,9 +75,6 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(double)]),
           () => new ListBuilder<double>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
           () => new ListBuilder<String>())

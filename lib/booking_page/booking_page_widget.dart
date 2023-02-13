@@ -21,6 +21,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
+
 class BookingPageWidget extends StatefulWidget {
   const BookingPageWidget({
     Key? key,
@@ -35,6 +36,14 @@ class BookingPageWidget extends StatefulWidget {
 
 class _BookingPageWidgetState extends State<BookingPageWidget>
     with TickerProviderStateMixin {
+  DateTimeRange? calendarSelectedDay;
+  // Stores action output result for [Backend Call - Create Document] action in Button widget.
+  BookingsRecord? booking;
+
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
+  LatLng? currentUserLocationValue;
+
   final animationsMap = {
     'containerOnActionTriggerAnimation': AnimationInfo(
       trigger: AnimationTrigger.onActionTrigger,
@@ -58,33 +67,37 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
       ],
     ),
   };
-  BookingsRecord? booking;
-  DateTimeRange? calendarSelectedDay;
-  LatLng? currentUserLocationValue;
-  final _unfocusNode = FocusNode();
-  final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    setupAnimations(
-      animationsMap.values.where((anim) =>
-          anim.trigger == AnimationTrigger.onActionTrigger ||
-          !anim.applyInitialState),
-      this,
-    );
 
     calendarSelectedDay = DateTimeRange(
       start: DateTime.now().startOfDay,
       end: DateTime.now().endOfDay,
     );
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      setState(() {
+        FFAppState().selectPush = 60;
+      });
+    });
+
     getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
         .then((loc) => setState(() => currentUserLocationValue = loc));
+    setupAnimations(
+      animationsMap.values.where((anim) =>
+      anim.trigger == AnimationTrigger.onActionTrigger ||
+          !anim.applyInitialState),
+      this,
+    );
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
+
     _unfocusNode.dispose();
     super.dispose();
   }
@@ -143,7 +156,7 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                   kTransitionInfoKey: TransitionInfo(
                                     hasTransition: true,
                                     transitionType:
-                                        PageTransitionType.leftToRight,
+                                    PageTransitionType.leftToRight,
                                   ),
                                 },
                               );
@@ -154,14 +167,14 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                             style: FlutterFlowTheme.of(context)
                                 .bodyText1
                                 .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .bodyText1Family,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w500,
-                                  useGoogleFonts: GoogleFonts.asMap()
-                                      .containsKey(FlutterFlowTheme.of(context)
-                                          .bodyText1Family),
-                                ),
+                              fontFamily: FlutterFlowTheme.of(context)
+                                  .bodyText1Family,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w500,
+                              useGoogleFonts: GoogleFonts.asMap()
+                                  .containsKey(FlutterFlowTheme.of(context)
+                                  .bodyText1Family),
+                            ),
                           ),
                           FlutterFlowIconButton(
                             borderColor: Colors.transparent,
@@ -185,7 +198,7 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                       padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                       child: StreamBuilder<MyCarsRecord>(
                         stream:
-                            MyCarsRecord.getDocument(FFAppState().selectedCar!),
+                        MyCarsRecord.getDocument(FFAppState().selectedCar!),
                         builder: (context, snapshot) {
                           // Customize what your widget looks like when it's loading.
                           if (!snapshot.hasData) {
@@ -195,7 +208,7 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                 height: 50,
                                 child: CircularProgressIndicator(
                                   color:
-                                      FlutterFlowTheme.of(context).primaryColor,
+                                  FlutterFlowTheme.of(context).primaryColor,
                                 ),
                               ),
                             );
@@ -207,7 +220,7 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                             children: [
                               Padding(
                                 padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 20, 0, 8),
+                                EdgeInsetsDirectional.fromSTEB(0, 20, 0, 8),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -236,39 +249,39 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                           children: [
                                             Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
+                                              MainAxisAlignment
+                                                  .spaceBetween,
                                               crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
+                                              CrossAxisAlignment.start,
                                               children: [
                                                 Column(
                                                   mainAxisSize:
-                                                      MainAxisSize.max,
+                                                  MainAxisSize.max,
                                                   crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
+                                                  CrossAxisAlignment.start,
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0, 0, 0, 6),
+                                                      EdgeInsetsDirectional
+                                                          .fromSTEB(
+                                                          0, 0, 0, 6),
                                                       child: Row(
                                                         mainAxisSize:
-                                                            MainAxisSize.max,
+                                                        MainAxisSize.max,
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0,
-                                                                        0,
-                                                                        4,
-                                                                        0),
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                0,
+                                                                0,
+                                                                4,
+                                                                0),
                                                             child: Text(
                                                               valueOrDefault<
                                                                   String>(
@@ -277,43 +290,43 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                                                 'null',
                                                               ),
                                                               style: FlutterFlowTheme
-                                                                      .of(context)
+                                                                  .of(context)
                                                                   .bodyText1
                                                                   .override(
-                                                                    fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family,
-                                                                    fontSize:
-                                                                        16,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w500,
-                                                                    useGoogleFonts: GoogleFonts
-                                                                            .asMap()
-                                                                        .containsKey(
-                                                                            FlutterFlowTheme.of(context).bodyText1Family),
-                                                                  ),
+                                                                fontFamily:
+                                                                FlutterFlowTheme.of(context)
+                                                                    .bodyText1Family,
+                                                                fontSize:
+                                                                16,
+                                                                fontWeight:
+                                                                FontWeight
+                                                                    .w500,
+                                                                useGoogleFonts: GoogleFonts
+                                                                    .asMap()
+                                                                    .containsKey(
+                                                                    FlutterFlowTheme.of(context).bodyText1Family),
+                                                              ),
                                                             ),
                                                           ),
                                                           Container(
                                                             width: 6,
                                                             height: 6,
                                                             decoration:
-                                                                BoxDecoration(
+                                                            BoxDecoration(
                                                               color:
-                                                                  valueOrDefault<
-                                                                      Color>(
+                                                              valueOrDefault<
+                                                                  Color>(
                                                                 functions.closedOpened(
-                                                                            getCurrentTimestamp,
-                                                                            valueOrDefault<int>(
-                                                                              widget.company!.openTimeOrder,
-                                                                              0,
-                                                                            ),
-                                                                            valueOrDefault<int>(
-                                                                              widget.company!.closedTimeOrder,
-                                                                              0,
-                                                                            )) ==
-                                                                        true
+                                                                    getCurrentTimestamp,
+                                                                    valueOrDefault<int>(
+                                                                      widget.company!.openTimeOrder,
+                                                                      0,
+                                                                    ),
+                                                                    valueOrDefault<int>(
+                                                                      widget.company!.closedTimeOrder,
+                                                                      0,
+                                                                    )) ==
+                                                                    true
                                                                     ? FlutterFlowTheme.of(context).primaryColor
                                                                     : FlutterFlowTheme.of(context).red1,
                                                                 Colors.white,
@@ -327,34 +340,34 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0, 0, 0, 4),
+                                                      EdgeInsetsDirectional
+                                                          .fromSTEB(
+                                                          0, 0, 0, 4),
                                                       child: RatingBarIndicator(
                                                         itemBuilder:
                                                             (context, index) =>
-                                                                Icon(
-                                                          Icons.star_rounded,
-                                                          color: FlutterFlowTheme
+                                                            Icon(
+                                                              Icons.star_rounded,
+                                                              color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .primaryColor,
-                                                        ),
+                                                                  .primaryColor,
+                                                            ),
                                                         direction:
-                                                            Axis.horizontal,
+                                                        Axis.horizontal,
                                                         rating: valueOrDefault<
                                                             double>(
                                                           functions
                                                               .averageRating(
-                                                                  widget
-                                                                      .company!
-                                                                      .rating!
-                                                                      .toList()),
+                                                              widget
+                                                                  .company!
+                                                                  .rating!
+                                                                  .toList()),
                                                           0.0,
                                                         ),
                                                         unratedColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .starblue,
+                                                        FlutterFlowTheme.of(
+                                                            context)
+                                                            .starblue,
                                                         itemCount: 5,
                                                         itemSize: 14,
                                                       ),
@@ -372,66 +385,66 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                                           width: 50,
                                                           height: 50,
                                                           child:
-                                                              CircularProgressIndicator(
+                                                          CircularProgressIndicator(
                                                             color: FlutterFlowTheme
-                                                                    .of(context)
+                                                                .of(context)
                                                                 .primaryColor,
                                                           ),
                                                         ),
                                                       );
                                                     }
                                                     final toggleIconUserRecord =
-                                                        snapshot.data!;
+                                                    snapshot.data!;
                                                     return ToggleIcon(
                                                       onPressed: () async {
                                                         final favCompanyElement =
                                                             widget.company!
                                                                 .reference;
                                                         final favCompanyUpdate =
-                                                            toggleIconUserRecord
-                                                                    .favCompany!
-                                                                    .toList()
-                                                                    .contains(
-                                                                        favCompanyElement)
-                                                                ? FieldValue
-                                                                    .arrayRemove([
-                                                                    favCompanyElement
-                                                                  ])
-                                                                : FieldValue
-                                                                    .arrayUnion([
-                                                                    favCompanyElement
-                                                                  ]);
+                                                        toggleIconUserRecord
+                                                            .favCompany!
+                                                            .toList()
+                                                            .contains(
+                                                            favCompanyElement)
+                                                            ? FieldValue
+                                                            .arrayRemove([
+                                                          favCompanyElement
+                                                        ])
+                                                            : FieldValue
+                                                            .arrayUnion([
+                                                          favCompanyElement
+                                                        ]);
                                                         final userUpdateData = {
                                                           'favCompany':
-                                                              favCompanyUpdate,
+                                                          favCompanyUpdate,
                                                         };
                                                         await toggleIconUserRecord
                                                             .reference
                                                             .update(
-                                                                userUpdateData);
+                                                            userUpdateData);
                                                       },
                                                       value:
-                                                          toggleIconUserRecord
-                                                              .favCompany!
-                                                              .toList()
-                                                              .contains(widget
-                                                                  .company!
-                                                                  .reference),
+                                                      toggleIconUserRecord
+                                                          .favCompany!
+                                                          .toList()
+                                                          .contains(widget
+                                                          .company!
+                                                          .reference),
                                                       onIcon: Icon(
                                                         FFIcons.kicSaveee,
                                                         color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryColor,
+                                                        FlutterFlowTheme.of(
+                                                            context)
+                                                            .primaryColor,
                                                         size: 24,
                                                       ),
                                                       offIcon: Icon(
                                                         FFIcons
                                                             .kproperty1unsaved,
                                                         color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryColor,
+                                                        FlutterFlowTheme.of(
+                                                            context)
+                                                            .primaryColor,
                                                         size: 24,
                                                       ),
                                                     );
@@ -442,8 +455,8 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                             Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
+                                              MainAxisAlignment
+                                                  .spaceBetween,
                                               children: [
                                                 Text(
                                                   valueOrDefault<String>(
@@ -451,57 +464,57 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                                     'null',
                                                   ),
                                                   style: FlutterFlowTheme.of(
-                                                          context)
+                                                      context)
                                                       .bodyText1
                                                       .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyText1Family,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyText1Family),
-                                                      ),
+                                                    fontFamily:
+                                                    FlutterFlowTheme.of(
+                                                        context)
+                                                        .bodyText1Family,
+                                                    fontWeight:
+                                                    FontWeight.normal,
+                                                    useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                        .containsKey(
+                                                        FlutterFlowTheme.of(
+                                                            context)
+                                                            .bodyText1Family),
+                                                  ),
                                                 ),
                                                 Text(
                                                   valueOrDefault<String>(
                                                     '${formatNumber(
                                                       functions
                                                           .returnDistanceBetweenTwoPoints(
-                                                              currentUserLocationValue,
-                                                              widget.company!
-                                                                  .location),
+                                                          currentUserLocationValue,
+                                                          widget.company!
+                                                              .location),
                                                       formatType:
-                                                          FormatType.custom,
+                                                      FormatType.custom,
                                                       format: '',
                                                       locale: '',
                                                     )}км',
                                                     '----',
                                                   ),
                                                   style: FlutterFlowTheme.of(
-                                                          context)
+                                                      context)
                                                       .bodyText1
                                                       .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyText1Family,
-                                                        color:
-                                                            Color(0xFF9CA3AF),
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyText1Family),
-                                                      ),
+                                                    fontFamily:
+                                                    FlutterFlowTheme.of(
+                                                        context)
+                                                        .bodyText1Family,
+                                                    color:
+                                                    Color(0xFF9CA3AF),
+                                                    fontWeight:
+                                                    FontWeight.w500,
+                                                    useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                        .containsKey(
+                                                        FlutterFlowTheme.of(
+                                                            context)
+                                                            .bodyText1Family),
+                                                  ),
                                                 ),
                                               ],
                                             ),
@@ -517,13 +530,13 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                     0, 10, 0, 12),
                                 child: FlutterFlowCalendar(
                                   color:
-                                      FlutterFlowTheme.of(context).primaryColor,
+                                  FlutterFlowTheme.of(context).primaryColor,
                                   weekFormat: true,
                                   weekStartsMonday: true,
                                   initialDate: getCurrentTimestamp,
                                   onChange: (DateTimeRange? newSelectedDate) {
-                                    setState(() =>
-                                        calendarSelectedDay = newSelectedDate);
+                                    setState(() => calendarSelectedDay =
+                                        newSelectedDate);
                                   },
                                   titleStyle: TextStyle(),
                                   dayOfWeekStyle: TextStyle(),
@@ -531,7 +544,7 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                   selectedDateStyle: TextStyle(),
                                   inactiveDateStyle: TextStyle(),
                                   locale:
-                                      FFLocalizations.of(context).languageCode,
+                                  FFLocalizations.of(context).languageCode,
                                 ),
                               ),
                               Divider(
@@ -540,25 +553,25 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                               ),
                               Padding(
                                 padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+                                EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
                                 child: Text(
                                   'Выбрать время',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyText1
                                       .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .bodyText1Family,
-                                        fontWeight: FontWeight.w500,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey(
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyText1Family),
-                                      ),
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .bodyText1Family,
+                                    fontWeight: FontWeight.w500,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey(
+                                        FlutterFlowTheme.of(context)
+                                            .bodyText1Family),
+                                  ),
                                 ),
                               ),
                               Padding(
                                 padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                                EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
                                 child: FutureBuilder<List<ForcarTimesRecord>>(
                                   future: queryForcarTimesRecordOnce(
                                     queryBuilder: (forcarTimesRecord) =>
@@ -579,8 +592,8 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                       );
                                     }
                                     List<ForcarTimesRecord>
-                                        wrapForcarTimesRecordList =
-                                        snapshot.data!;
+                                    wrapForcarTimesRecordList =
+                                    snapshot.data!;
                                     if (wrapForcarTimesRecordList.isEmpty) {
                                       return Center(
                                         child: EmptyBookedTimeSlotWidget(),
@@ -591,234 +604,233 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                       runSpacing: 0,
                                       alignment: WrapAlignment.start,
                                       crossAxisAlignment:
-                                          WrapCrossAlignment.start,
+                                      WrapCrossAlignment.start,
                                       direction: Axis.horizontal,
                                       runAlignment: WrapAlignment.start,
                                       verticalDirection: VerticalDirection.down,
                                       clipBehavior: Clip.none,
                                       children: List.generate(
                                           wrapForcarTimesRecordList.length,
-                                          (wrapIndex) {
-                                        final wrapForcarTimesRecord =
+                                              (wrapIndex) {
+                                            final wrapForcarTimesRecord =
                                             wrapForcarTimesRecordList[
-                                                wrapIndex];
-                                        return Visibility(
-                                          visible: (functions.comparisonTime(
-                                                      getCurrentTimestamp,
-                                                      wrapForcarTimesRecord
-                                                          .timeOrder!,
-                                                      calendarSelectedDay!
-                                                          .end) ==
+                                            wrapIndex];
+                                            return Visibility(
+                                              visible: (functions.comparisonTime(
+                                                  getCurrentTimestamp,
+                                                  wrapForcarTimesRecord
+                                                      .timeOrder!,
+                                                  calendarSelectedDay!
+                                                      .end) ==
                                                   true) &&
-                                              (wrapForcarTimesRecord
+                                                  (wrapForcarTimesRecord
                                                       .timeOrder! >=
-                                                  widget.company!
-                                                      .openTimeOrder!) &&
-                                              (wrapForcarTimesRecord
+                                                      widget.company!
+                                                          .openTimeOrder!) &&
+                                                  (wrapForcarTimesRecord
                                                       .timeOrder! <=
-                                                  widget.company!
-                                                      .closedTimeOrder!),
-                                          child: Padding(
-                                            padding:
+                                                      widget.company!
+                                                          .closedTimeOrder!),
+                                              child: Padding(
+                                                padding:
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0, 0, 16, 16),
-                                            child: StreamBuilder<
-                                                List<BookingsRecord>>(
-                                              stream: queryBookingsRecord(
-                                                queryBuilder: (bookingsRecord) => bookingsRecord
-                                                    .where('time_name',
+                                                child: StreamBuilder<
+                                                    List<BookingsRecord>>(
+                                                  stream: queryBookingsRecord(
+                                                    queryBuilder: (bookingsRecord) => bookingsRecord
+                                                        .where('time_name',
                                                         isEqualTo: wrapForcarTimesRecord
-                                                                    .timeName !=
-                                                                ''
+                                                            .timeName !=
+                                                            ''
                                                             ? wrapForcarTimesRecord
-                                                                .timeName
+                                                            .timeName
                                                             : null)
-                                                    .where('time_order',
+                                                        .where('time_order',
                                                         isEqualTo:
-                                                            wrapForcarTimesRecord
-                                                                .timeOrder)
-                                                    .where('booked_date',
-                                                        isEqualTo:
-                                                            calendarSelectedDay
-                                                                ?.start)
-                                                    .where('booked_company',
+                                                        wrapForcarTimesRecord
+                                                            .timeOrder)
+                                                        .where('booked_date',
+                                                        isEqualTo: calendarSelectedDay
+                                                            ?.start)
+                                                        .where('booked_company',
                                                         isEqualTo: widget
                                                             .company!.reference)
-                                                    .where('cancelled',
+                                                        .where('cancelled',
                                                         isEqualTo: false),
-                                              ),
-                                              builder: (context, snapshot) {
-                                                // Customize what your widget looks like when it's loading.
-                                                if (!snapshot.hasData) {
-                                                  return Center(
-                                                    child: SizedBox(
-                                                      width: 50,
-                                                      height: 50,
-                                                      child:
+                                                  ),
+                                                  builder: (context, snapshot) {
+                                                    // Customize what your widget looks like when it's loading.
+                                                    if (!snapshot.hasData) {
+                                                      return Center(
+                                                        child: SizedBox(
+                                                          width: 50,
+                                                          height: 50,
+                                                          child:
                                                           CircularProgressIndicator(
-                                                        color:
+                                                            color:
                                                             FlutterFlowTheme.of(
-                                                                    context)
+                                                                context)
                                                                 .primaryColor,
-                                                      ),
-                                                    ),
-                                                  );
-                                                }
-                                                List<BookingsRecord>
+                                                          ),
+                                                        ),
+                                                      );
+                                                    }
+                                                    List<BookingsRecord>
                                                     containerBookingsRecordList =
                                                     snapshot.data!;
-                                                return InkWell(
-                                                  onTap: () async {
-                                                    if (containerBookingsRecordList
-                                                            .length <
-                                                        widget.company!
-                                                            .countBox!) {
-                                                      if (FFAppState()
-                                                              .selectedTimeSlot ==
-                                                          wrapForcarTimesRecord
-                                                              .reference) {
-                                                        FFAppState().update(() {
-                                                          FFAppState()
-                                                                  .selectedTimeSlot =
-                                                              null;
-                                                          FFAppState().price =
-                                                              0;
-                                                          FFAppState()
-                                                              .selectedServices = [];
-                                                        });
-                                                      } else {
-                                                        FFAppState().update(() {
-                                                          FFAppState()
-                                                                  .selectedTimeSlot =
-                                                              wrapForcarTimesRecord
-                                                                  .reference;
-                                                          FFAppState()
-                                                              .selectedServices = [];
-                                                          FFAppState().price =
-                                                              0;
-                                                          FFAppState()
-                                                              .selectedServicesDuration = 0;
-                                                          FFAppState()
-                                                              .bookedTimes = [];
-                                                        });
-                                                        FFAppState().update(() {
-                                                          FFAppState()
-                                                              .addToBookedTimes(
-                                                                  wrapForcarTimesRecord
-                                                                      .timeOrder!);
-                                                        });
-                                                      }
-                                                    }
-                                                  },
-                                                  child: Container(
-                                                    width: 67,
-                                                    height: 32,
-                                                    decoration: BoxDecoration(
-                                                      color: () {
+                                                    return InkWell(
+                                                      onTap: () async {
                                                         if (containerBookingsRecordList
-                                                                .length >=
+                                                            .length <
                                                             widget.company!
                                                                 .countBox!) {
-                                                          return FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground;
-                                                        } else if (FFAppState()
-                                                                .selectedTimeSlot ==
-                                                            wrapForcarTimesRecord
-                                                                .reference) {
-                                                          return FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryColor;
-                                                        } else {
-                                                          return FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryBackground;
-                                                        }
-                                                      }(),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8),
-                                                      border: Border.all(
-                                                        color: () {
-                                                          if (containerBookingsRecordList
-                                                                  .length >=
-                                                              widget.company!
-                                                                  .countBox!) {
-                                                            return FlutterFlowTheme
-                                                                    .of(context)
-                                                                .gray3;
-                                                          } else if (FFAppState()
-                                                                  .selectedTimeSlot ==
+                                                          if (FFAppState()
+                                                              .selectedTimeSlot ==
                                                               wrapForcarTimesRecord
                                                                   .reference) {
-                                                            return FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryColor;
+                                                            FFAppState().update(() {
+                                                              FFAppState()
+                                                                  .selectedTimeSlot =
+                                                              null;
+                                                              FFAppState().price =
+                                                              0;
+                                                              FFAppState()
+                                                                  .selectedServices = [];
+                                                            });
                                                           } else {
-                                                            return FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryColor;
+                                                            FFAppState().update(() {
+                                                              FFAppState()
+                                                                  .selectedTimeSlot =
+                                                                  wrapForcarTimesRecord
+                                                                      .reference;
+                                                              FFAppState()
+                                                                  .selectedServices = [];
+                                                              FFAppState().price =
+                                                              0;
+                                                              FFAppState()
+                                                                  .selectedServicesDuration = 0;
+                                                              FFAppState()
+                                                                  .bookedTimes = [];
+                                                            });
+                                                            FFAppState().update(() {
+                                                              FFAppState()
+                                                                  .addToBookedTimes(
+                                                                  wrapForcarTimesRecord
+                                                                      .timeOrder!);
+                                                            });
                                                           }
-                                                        }(),
-                                                      ),
-                                                    ),
-                                                    child: Align(
-                                                      alignment:
+                                                        }
+                                                      },
+                                                      child: Container(
+                                                        width: 67,
+                                                        height: 32,
+                                                        decoration: BoxDecoration(
+                                                          color: () {
+                                                            if (containerBookingsRecordList
+                                                                .length >=
+                                                                widget.company!
+                                                                    .countBox!) {
+                                                              return FlutterFlowTheme
+                                                                  .of(context)
+                                                                  .secondaryBackground;
+                                                            } else if (FFAppState()
+                                                                .selectedTimeSlot ==
+                                                                wrapForcarTimesRecord
+                                                                    .reference) {
+                                                              return FlutterFlowTheme
+                                                                  .of(context)
+                                                                  .primaryColor;
+                                                            } else {
+                                                              return FlutterFlowTheme
+                                                                  .of(context)
+                                                                  .primaryBackground;
+                                                            }
+                                                          }(),
+                                                          borderRadius:
+                                                          BorderRadius.circular(
+                                                              8),
+                                                          border: Border.all(
+                                                            color: () {
+                                                              if (containerBookingsRecordList
+                                                                  .length >=
+                                                                  widget.company!
+                                                                      .countBox!) {
+                                                                return FlutterFlowTheme
+                                                                    .of(context)
+                                                                    .gray3;
+                                                              } else if (FFAppState()
+                                                                  .selectedTimeSlot ==
+                                                                  wrapForcarTimesRecord
+                                                                      .reference) {
+                                                                return FlutterFlowTheme
+                                                                    .of(context)
+                                                                    .primaryColor;
+                                                              } else {
+                                                                return FlutterFlowTheme
+                                                                    .of(context)
+                                                                    .primaryColor;
+                                                              }
+                                                            }(),
+                                                          ),
+                                                        ),
+                                                        child: Align(
+                                                          alignment:
                                                           AlignmentDirectional(
                                                               0, 0),
-                                                      child: Text(
-                                                        valueOrDefault<String>(
-                                                          wrapForcarTimesRecord
-                                                              .timeName,
-                                                          '---',
-                                                        ),
-                                                        textAlign:
+                                                          child: Text(
+                                                            valueOrDefault<String>(
+                                                              wrapForcarTimesRecord
+                                                                  .timeName,
+                                                              '---',
+                                                            ),
+                                                            textAlign:
                                                             TextAlign.center,
-                                                        style:
+                                                            style:
                                                             FlutterFlowTheme.of(
-                                                                    context)
+                                                                context)
                                                                 .bodyText1
                                                                 .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyText1Family,
-                                                                  color: () {
-                                                                    if (containerBookingsRecordList
-                                                                            .length >=
-                                                                        widget
-                                                                            .company!
-                                                                            .countBox!) {
-                                                                      return FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .gray3;
-                                                                    } else if (FFAppState()
-                                                                            .selectedTimeSlot ==
-                                                                        wrapForcarTimesRecord
-                                                                            .reference) {
-                                                                      return FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primaryBackground;
-                                                                    } else {
-                                                                      return FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primaryColor;
-                                                                    }
-                                                                  }(),
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyText1Family),
-                                                                ),
+                                                              fontFamily: FlutterFlowTheme.of(
+                                                                  context)
+                                                                  .bodyText1Family,
+                                                              color: () {
+                                                                if (containerBookingsRecordList
+                                                                    .length >=
+                                                                    widget
+                                                                        .company!
+                                                                        .countBox!) {
+                                                                  return FlutterFlowTheme.of(
+                                                                      context)
+                                                                      .gray3;
+                                                                } else if (FFAppState()
+                                                                    .selectedTimeSlot ==
+                                                                    wrapForcarTimesRecord
+                                                                        .reference) {
+                                                                  return FlutterFlowTheme.of(
+                                                                      context)
+                                                                      .primaryBackground;
+                                                                } else {
+                                                                  return FlutterFlowTheme.of(
+                                                                      context)
+                                                                      .primaryColor;
+                                                                }
+                                                              }(),
+                                                              useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                                  .containsKey(
+                                                                  FlutterFlowTheme.of(context)
+                                                                      .bodyText1Family),
+                                                            ),
+                                                          ),
+                                                        ),
                                                       ),
-                                                    ),
-                                                  ),
-                                                );
-                                              },
-                                            ),
-                                          ),
-                                        );
-                                      }),
+                                                    );
+                                                  },
+                                                ),
+                                              ),
+                                            );
+                                          }),
                                     );
                                   },
                                 ),
@@ -839,15 +851,15 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .bodyText2
                                           .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyText2Family,
-                                            fontWeight: FontWeight.w500,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyText2Family),
-                                          ),
+                                        fontFamily:
+                                        FlutterFlowTheme.of(context)
+                                            .bodyText2Family,
+                                        fontWeight: FontWeight.w500,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey(
+                                            FlutterFlowTheme.of(context)
+                                                .bodyText2Family),
+                                      ),
                                     ),
                                   ),
                                   Padding(
@@ -875,7 +887,7 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                           borderRadius:
-                                              BorderRadius.circular(8),
+                                          BorderRadius.circular(8),
                                           border: Border.all(
                                             color: FlutterFlowTheme.of(context)
                                                 .gray2,
@@ -883,19 +895,19 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                         ),
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 10, 0),
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              10, 0, 10, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
+                                            MainAxisAlignment.spaceBetween,
                                             children: [
                                               if (FFAppState().selectedCar ==
                                                   null)
                                                 Text(
                                                   'Выберите авто',
                                                   style: FlutterFlowTheme.of(
-                                                          context)
+                                                      context)
                                                       .bodyText1,
                                                 ),
                                               if (FFAppState().selectedCar !=
@@ -904,15 +916,15 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                                   child: Text(
                                                     '${columnMyCarsRecord.carBody}, ${columnMyCarsRecord.carNum}',
                                                     style: FlutterFlowTheme.of(
-                                                            context)
+                                                        context)
                                                         .bodyText1,
                                                   ),
                                                 ),
                                               Icon(
                                                 FFIcons.kicArrowsButtonDown,
                                                 color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .gray2,
+                                                FlutterFlowTheme.of(context)
+                                                    .gray2,
                                                 size: 24,
                                               ),
                                             ],
@@ -935,15 +947,15 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .bodyText2
                                           .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyText2Family,
-                                            fontWeight: FontWeight.w500,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyText2Family),
-                                          ),
+                                        fontFamily:
+                                        FlutterFlowTheme.of(context)
+                                            .bodyText2Family,
+                                        fontWeight: FontWeight.w500,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey(
+                                            FlutterFlowTheme.of(context)
+                                                .bodyText2Family),
+                                      ),
                                     ),
                                   ),
                                   Padding(
@@ -963,7 +975,7 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                                     .viewInsets,
                                                 child: SelectServicesWidget(
                                                   company:
-                                                      widget.company!.reference,
+                                                  widget.company!.reference,
                                                   carBody: columnMyCarsRecord
                                                       .carBody,
                                                 ),
@@ -978,14 +990,14 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                                 'Выберите время для записи',
                                                 style: TextStyle(
                                                   color: FlutterFlowTheme.of(
-                                                          context)
+                                                      context)
                                                       .primaryText,
                                                 ),
                                               ),
                                               duration:
-                                                  Duration(milliseconds: 4000),
+                                              Duration(milliseconds: 4000),
                                               backgroundColor:
-                                                  Color(0x00000000),
+                                              Color(0x00000000),
                                             ),
                                           );
                                         }
@@ -997,7 +1009,7 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                           borderRadius:
-                                              BorderRadius.circular(8),
+                                          BorderRadius.circular(8),
                                           border: Border.all(
                                             color: FlutterFlowTheme.of(context)
                                                 .gray2,
@@ -1005,35 +1017,35 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                         ),
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 10, 0),
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              10, 0, 10, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
+                                            MainAxisAlignment.spaceBetween,
                                             children: [
                                               if (FFAppState()
-                                                      .selectedServices
-                                                      .length ==
+                                                  .selectedServices
+                                                  .length ==
                                                   0)
                                                 Text(
                                                   'Выбрать',
                                                   style: FlutterFlowTheme.of(
-                                                          context)
+                                                      context)
                                                       .bodyText1,
                                                 ),
                                               if (FFAppState()
-                                                      .selectedServices
-                                                      .length !=
+                                                  .selectedServices
+                                                  .length !=
                                                   null)
                                                 Expanded(
                                                   child: Row(
                                                     mainAxisSize:
-                                                        MainAxisSize.max,
+                                                    MainAxisSize.max,
                                                     children: [
                                                       if (FFAppState()
-                                                              .selectedServices
-                                                              .length !=
+                                                          .selectedServices
+                                                          .length !=
                                                           0)
                                                         Text(
                                                           valueOrDefault<
@@ -1047,7 +1059,7 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                                           ).maybeHandleOverflow(
                                                               maxChars: 80),
                                                           style: FlutterFlowTheme
-                                                                  .of(context)
+                                                              .of(context)
                                                               .bodyText1,
                                                         ),
                                                     ],
@@ -1056,8 +1068,8 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                               Icon(
                                                 FFIcons.kicArrowsButtonDown,
                                                 color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .gray2,
+                                                FlutterFlowTheme.of(context)
+                                                    .gray2,
                                                 size: 24,
                                               ),
                                             ],
@@ -1080,15 +1092,15 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .bodyText2
                                           .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyText2Family,
-                                            fontWeight: FontWeight.w500,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyText2Family),
-                                          ),
+                                        fontFamily:
+                                        FlutterFlowTheme.of(context)
+                                            .bodyText2Family,
+                                        fontWeight: FontWeight.w500,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey(
+                                            FlutterFlowTheme.of(context)
+                                                .bodyText2Family),
+                                      ),
                                     ),
                                   ),
                                   Padding(
@@ -1116,7 +1128,7 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                           borderRadius:
-                                              BorderRadius.circular(8),
+                                          BorderRadius.circular(8),
                                           border: Border.all(
                                             color: FlutterFlowTheme.of(context)
                                                 .gray2,
@@ -1124,112 +1136,112 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                         ),
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 10, 0),
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              10, 0, 10, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
+                                            MainAxisAlignment.spaceBetween,
                                             children: [
                                               if (FFAppState().selectPush ==
                                                   1000)
                                                 Text(
                                                   'Не напоминать',
                                                   style: FlutterFlowTheme.of(
-                                                          context)
+                                                      context)
                                                       .bodyText1
                                                       .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyText1Family,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .red1,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyText1Family),
-                                                      ),
+                                                    fontFamily:
+                                                    FlutterFlowTheme.of(
+                                                        context)
+                                                        .bodyText1Family,
+                                                    color:
+                                                    FlutterFlowTheme.of(
+                                                        context)
+                                                        .red1,
+                                                    useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                        .containsKey(
+                                                        FlutterFlowTheme.of(
+                                                            context)
+                                                            .bodyText1Family),
+                                                  ),
                                                 ),
                                               if (FFAppState().selectPush == 30)
                                                 Text(
                                                   'За пол часа до записи',
                                                   style: FlutterFlowTheme.of(
-                                                          context)
+                                                      context)
                                                       .bodyText1
                                                       .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyText1Family,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyText1Family),
-                                                      ),
+                                                    fontFamily:
+                                                    FlutterFlowTheme.of(
+                                                        context)
+                                                        .bodyText1Family,
+                                                    color:
+                                                    FlutterFlowTheme.of(
+                                                        context)
+                                                        .primaryText,
+                                                    useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                        .containsKey(
+                                                        FlutterFlowTheme.of(
+                                                            context)
+                                                            .bodyText1Family),
+                                                  ),
                                                 ),
                                               if (FFAppState().selectPush == 60)
                                                 Text(
                                                   'За 1 час до записи',
                                                   style: FlutterFlowTheme.of(
-                                                          context)
+                                                      context)
                                                       .bodyText1
                                                       .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyText1Family,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyText1Family),
-                                                      ),
+                                                    fontFamily:
+                                                    FlutterFlowTheme.of(
+                                                        context)
+                                                        .bodyText1Family,
+                                                    color:
+                                                    FlutterFlowTheme.of(
+                                                        context)
+                                                        .primaryText,
+                                                    useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                        .containsKey(
+                                                        FlutterFlowTheme.of(
+                                                            context)
+                                                            .bodyText1Family),
+                                                  ),
                                                 ),
                                               if (FFAppState().selectPush ==
                                                   120)
                                                 Text(
                                                   'За 2 часа до записи ',
                                                   style: FlutterFlowTheme.of(
-                                                          context)
+                                                      context)
                                                       .bodyText1
                                                       .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyText1Family,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyText1Family),
-                                                      ),
+                                                    fontFamily:
+                                                    FlutterFlowTheme.of(
+                                                        context)
+                                                        .bodyText1Family,
+                                                    color:
+                                                    FlutterFlowTheme.of(
+                                                        context)
+                                                        .primaryText,
+                                                    useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                        .containsKey(
+                                                        FlutterFlowTheme.of(
+                                                            context)
+                                                            .bodyText1Family),
+                                                  ),
                                                 ),
                                               Icon(
                                                 FFIcons.kicArrowsButtonDown,
                                                 color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .gray2,
+                                                FlutterFlowTheme.of(context)
+                                                    .gray2,
                                                 size: 24,
                                               ),
                                             ],
@@ -1259,16 +1271,16 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                       );
                                     }
                                     final columnForcarTimesRecord =
-                                        snapshot.data!;
+                                    snapshot.data!;
                                     return Column(
                                       mainAxisSize: MainAxisSize.max,
                                       crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      CrossAxisAlignment.start,
                                       children: [
                                         Column(
                                           mainAxisSize: MainAxisSize.max,
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                           children: [
                                             Padding(
                                               padding: EdgeInsetsDirectional
@@ -1276,26 +1288,26 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                               child: Text(
                                                 'Продолжительность',
                                                 style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyText2
-                                                        .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyText2Family,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyText2Family),
-                                                        ),
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyText2
+                                                    .override(
+                                                  fontFamily:
+                                                  FlutterFlowTheme.of(
+                                                      context)
+                                                      .bodyText2Family,
+                                                  fontWeight:
+                                                  FontWeight.w500,
+                                                  useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                      .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                          context)
+                                                          .bodyText2Family),
+                                                ),
                                               ),
                                             ),
                                             if (FFAppState()
-                                                    .selectedServicesDuration <=
+                                                .selectedServicesDuration <=
                                                 60)
                                               Padding(
                                                 padding: EdgeInsetsDirectional
@@ -1303,29 +1315,29 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                                 child: Text(
                                                   '${columnForcarTimesRecord.timeName} - ${functions.addTimeOrder(columnForcarTimesRecord.timeOrder, 1).toString()}:00',
                                                   style: FlutterFlowTheme.of(
-                                                          context)
+                                                      context)
                                                       .bodyText2
                                                       .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyText2Family,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyText2Family),
-                                                      ),
+                                                    fontFamily:
+                                                    FlutterFlowTheme.of(
+                                                        context)
+                                                        .bodyText2Family,
+                                                    fontWeight:
+                                                    FontWeight.normal,
+                                                    useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                        .containsKey(
+                                                        FlutterFlowTheme.of(
+                                                            context)
+                                                            .bodyText2Family),
+                                                  ),
                                                 ),
                                               ),
                                             if ((FFAppState()
-                                                        .selectedServicesDuration >
-                                                    60) &&
+                                                .selectedServicesDuration >
+                                                60) &&
                                                 (FFAppState()
-                                                        .selectedServicesDuration <=
+                                                    .selectedServicesDuration <=
                                                     120))
                                               Padding(
                                                 padding: EdgeInsetsDirectional
@@ -1333,29 +1345,29 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                                 child: Text(
                                                   '${columnForcarTimesRecord.timeName} - ${functions.addTimeOrder(columnForcarTimesRecord.timeOrder, 2).toString()}:00',
                                                   style: FlutterFlowTheme.of(
-                                                          context)
+                                                      context)
                                                       .bodyText2
                                                       .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyText2Family,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyText2Family),
-                                                      ),
+                                                    fontFamily:
+                                                    FlutterFlowTheme.of(
+                                                        context)
+                                                        .bodyText2Family,
+                                                    fontWeight:
+                                                    FontWeight.normal,
+                                                    useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                        .containsKey(
+                                                        FlutterFlowTheme.of(
+                                                            context)
+                                                            .bodyText2Family),
+                                                  ),
                                                 ),
                                               ),
                                             if ((FFAppState()
-                                                        .selectedServicesDuration >
-                                                    120) &&
+                                                .selectedServicesDuration >
+                                                120) &&
                                                 (FFAppState()
-                                                        .selectedServicesDuration <=
+                                                    .selectedServicesDuration <=
                                                     180))
                                               Padding(
                                                 padding: EdgeInsetsDirectional
@@ -1363,29 +1375,29 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                                 child: Text(
                                                   '${columnForcarTimesRecord.timeName} - ${functions.addTimeOrder(columnForcarTimesRecord.timeOrder, 3).toString()}:00',
                                                   style: FlutterFlowTheme.of(
-                                                          context)
+                                                      context)
                                                       .bodyText2
                                                       .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyText2Family,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyText2Family),
-                                                      ),
+                                                    fontFamily:
+                                                    FlutterFlowTheme.of(
+                                                        context)
+                                                        .bodyText2Family,
+                                                    fontWeight:
+                                                    FontWeight.normal,
+                                                    useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                        .containsKey(
+                                                        FlutterFlowTheme.of(
+                                                            context)
+                                                            .bodyText2Family),
+                                                  ),
                                                 ),
                                               ),
                                             if ((FFAppState()
-                                                        .selectedServicesDuration >
-                                                    180) &&
+                                                .selectedServicesDuration >
+                                                180) &&
                                                 (FFAppState()
-                                                        .selectedServicesDuration <=
+                                                    .selectedServicesDuration <=
                                                     240))
                                               Padding(
                                                 padding: EdgeInsetsDirectional
@@ -1393,30 +1405,30 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                                 child: Text(
                                                   '${columnForcarTimesRecord.timeName} - ${functions.addTimeOrder(columnForcarTimesRecord.timeOrder, 4).toString()}:00',
                                                   style: FlutterFlowTheme.of(
-                                                          context)
+                                                      context)
                                                       .bodyText2
                                                       .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyText2Family,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyText2Family),
-                                                      ),
+                                                    fontFamily:
+                                                    FlutterFlowTheme.of(
+                                                        context)
+                                                        .bodyText2Family,
+                                                    fontWeight:
+                                                    FontWeight.normal,
+                                                    useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                        .containsKey(
+                                                        FlutterFlowTheme.of(
+                                                            context)
+                                                            .bodyText2Family),
+                                                  ),
                                                 ),
                                               ),
                                           ],
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0, 32, 0, 0),
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              0, 32, 0, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -1426,7 +1438,7 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                                 decoration: BoxDecoration(
                                                   color: Color(0xFFD0E1F0),
                                                   borderRadius:
-                                                      BorderRadius.circular(8),
+                                                  BorderRadius.circular(8),
                                                 ),
                                                 child: Icon(
                                                   FFIcons.kicMoney,
@@ -1439,9 +1451,9 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                                     .fromSTEB(8, 0, 0, 0),
                                                 child: Column(
                                                   mainAxisSize:
-                                                      MainAxisSize.max,
+                                                  MainAxisSize.max,
                                                   crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
+                                                  CrossAxisAlignment.start,
                                                   children: [
                                                     Text(
                                                       'К оплате: ${valueOrDefault<String>(
@@ -1451,48 +1463,48 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                                         '0',
                                                       )}тг',
                                                       style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyText1
-                                                              .override(
-                                                                fontFamily: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyText1Family,
-                                                                fontSize: 16,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
-                                                              ),
+                                                      FlutterFlowTheme.of(
+                                                          context)
+                                                          .bodyText1
+                                                          .override(
+                                                        fontFamily: FlutterFlowTheme.of(
+                                                            context)
+                                                            .bodyText1Family,
+                                                        fontSize: 16,
+                                                        fontWeight:
+                                                        FontWeight
+                                                            .w500,
+                                                        useGoogleFonts: GoogleFonts
+                                                            .asMap()
+                                                            .containsKey(
+                                                            FlutterFlowTheme.of(context)
+                                                                .bodyText1Family),
+                                                      ),
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0, 4, 0, 0),
+                                                      EdgeInsetsDirectional
+                                                          .fromSTEB(
+                                                          0, 4, 0, 0),
                                                       child: Text(
                                                         'Оплата нужно произвести после мойки авто',
                                                         style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyText1
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyText1Family,
-                                                                  color: Color(
-                                                                      0xFFCBCACA),
-                                                                  fontSize: 12,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyText1Family),
-                                                                ),
+                                                        FlutterFlowTheme.of(
+                                                            context)
+                                                            .bodyText1
+                                                            .override(
+                                                          fontFamily: FlutterFlowTheme.of(
+                                                              context)
+                                                              .bodyText1Family,
+                                                          color: Color(
+                                                              0xFFCBCACA),
+                                                          fontSize: 12,
+                                                          useGoogleFonts: GoogleFonts
+                                                              .asMap()
+                                                              .containsKey(
+                                                              FlutterFlowTheme.of(context)
+                                                                  .bodyText1Family),
+                                                        ),
                                                       ),
                                                     ),
                                                   ],
@@ -1502,133 +1514,146 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                           ),
                                         ),
                                         if ((FFAppState().selectedCar !=
-                                                null) &&
+                                            null) &&
                                             (FFAppState().selectedTimeSlot !=
                                                 null) &&
                                             (FFAppState()
-                                                    .selectedServices
-                                                    .length !=
+                                                .selectedServices
+                                                .length !=
                                                 0))
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0, 16, 0, 20),
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                0, 16, 0, 20),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 if ((FFAppState()
-                                                            .selectedCar !=
+                                                    .selectedCar !=
+                                                    null) &&
+                                                    (FFAppState()
+                                                        .selectedTimeSlot !=
                                                         null) &&
                                                     (FFAppState()
-                                                            .selectedTimeSlot !=
-                                                        null) &&
-                                                    (FFAppState()
-                                                            .selectedServices
-                                                            .length !=
+                                                        .selectedServices
+                                                        .length !=
                                                         0))
                                                   FFButtonWidget(
                                                     onPressed: () async {
                                                       FFAppState().update(() {
                                                         FFAppState().bookedTimes = functions
                                                             .listSelectedTimesOrder(
-                                                                FFAppState()
-                                                                    .selectedServicesDuration,
-                                                                columnForcarTimesRecord
-                                                                    .timeOrder!)
+                                                            FFAppState()
+                                                                .selectedServicesDuration,
+                                                            columnForcarTimesRecord
+                                                                .timeOrder!)
                                                             .toList();
                                                       });
 
                                                       final bookingsCreateData =
-                                                          {
+                                                      {
                                                         ...createBookingsRecordData(
                                                           bookedUser:
-                                                              currentUserReference,
+                                                          currentUserReference,
                                                           bookedCompany: widget
                                                               .company!
                                                               .reference,
                                                           timeName:
-                                                              columnForcarTimesRecord
-                                                                  .timeName,
+                                                          columnForcarTimesRecord
+                                                              .timeName,
                                                           timeOrder:
-                                                              columnForcarTimesRecord
-                                                                  .timeOrder,
+                                                          columnForcarTimesRecord
+                                                              .timeOrder,
                                                           status:
-                                                              'Забронировано',
-                                                          bookedDate:
-                                                              calendarSelectedDay
-                                                                  ?.end,
+                                                          'Забронировано',
+                                                          bookedDate: calendarSelectedDay
+                                                              ?.end,
                                                           totalPrice:
-                                                              FFAppState()
-                                                                  .price,
+                                                          FFAppState()
+                                                              .price,
                                                           id: valueOrDefault<
                                                               String>(
                                                             functions.idGenerator(
                                                                 valueOrDefault<
                                                                     int>(
-                                                              random_data
-                                                                  .randomInteger(
+                                                                  random_data
+                                                                      .randomInteger(
                                                                       100000,
                                                                       999000000),
-                                                              0,
-                                                            )),
+                                                                  0,
+                                                                )),
                                                             '0',
                                                           ),
                                                           carBody:
-                                                              columnMyCarsRecord
-                                                                  .carBody,
+                                                          columnMyCarsRecord
+                                                              .carBody,
                                                           carName:
-                                                              columnMyCarsRecord
-                                                                  .carNum,
+                                                          columnMyCarsRecord
+                                                              .carNum,
                                                           carOrder:
-                                                              columnMyCarsRecord
-                                                                  .carOrder,
+                                                          columnMyCarsRecord
+                                                              .carOrder,
                                                           bookedCompanyDocument:
-                                                              widget.company!
-                                                                  .companyDocument,
+                                                          widget.company!
+                                                              .companyDocument,
                                                           bookedDateString:
-                                                              dateTimeFormat(
+                                                          dateTimeFormat(
                                                             'd/M/y',
                                                             calendarSelectedDay
                                                                 ?.start,
                                                             locale: FFLocalizations
-                                                                    .of(context)
+                                                                .of(context)
                                                                 .languageCode,
                                                           ),
                                                           createdByUser: true,
+                                                          cancelled: false,
                                                         ),
                                                         'selected_company_services':
-                                                            FFAppState()
-                                                                .selectedServices,
+                                                        FFAppState()
+                                                            .selectedServices,
                                                         'selected_times_order':
-                                                            FFAppState()
-                                                                .bookedTimes,
+                                                        FFAppState()
+                                                            .bookedTimes,
                                                         'selected_company_services_name':
-                                                            FFAppState()
-                                                                .bookingSelectedServicesName,
+                                                        FFAppState()
+                                                            .bookingSelectedServicesName,
                                                       };
                                                       var bookingsRecordReference =
-                                                          BookingsRecord
-                                                              .collection
-                                                              .doc();
+                                                      BookingsRecord
+                                                          .collection
+                                                          .doc();
                                                       await bookingsRecordReference
                                                           .set(
-                                                              bookingsCreateData);
+                                                          bookingsCreateData);
                                                       booking = BookingsRecord
                                                           .getDocumentFromData(
-                                                              bookingsCreateData,
-                                                              bookingsRecordReference);
+                                                          bookingsCreateData,
+                                                          bookingsRecordReference);
                                                       if (animationsMap[
-                                                              'containerOnActionTriggerAnimation'] !=
+                                                      'containerOnActionTriggerAnimation'] !=
                                                           null) {
                                                         await animationsMap[
-                                                                'containerOnActionTriggerAnimation']!
+                                                        'containerOnActionTriggerAnimation']!
                                                             .controller
                                                             .forward(from: 0.0);
                                                       }
-                                                      await Future.delayed(
-                                                          const Duration(
-                                                              milliseconds:
-                                                                  1000));
+
+                                                      final companyNotificationsCreateData =
+                                                      createCompanyNotificationsRecordData(
+                                                        message:
+                                                        'Новая запись: ${booking!.carBody}, ${booking!.carName}, ${booking!.timeName}',
+                                                        date:
+                                                        getCurrentTimestamp,
+                                                        opened: false,
+                                                        bookingRef: booking!.reference,
+                                                        type: 'new_booking',
+                                                      );
+                                                      await CompanyNotificationsRecord
+                                                          .createDoc(widget
+                                                          .company!
+                                                          .reference)
+                                                          .set(
+                                                          companyNotificationsCreateData);
                                                       FFAppState().update(() {
                                                         FFAppState()
                                                             .selectPush = 1000;
@@ -1644,35 +1669,35 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                                       width: double.infinity,
                                                       height: 48,
                                                       color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primaryColor,
+                                                      FlutterFlowTheme.of(
+                                                          context)
+                                                          .primaryColor,
                                                       textStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .subtitle2
-                                                              .override(
-                                                                fontFamily: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .subtitle2Family,
-                                                                color: Colors
-                                                                    .white,
-                                                                fontSize: 16,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .subtitle2Family),
-                                                              ),
+                                                      FlutterFlowTheme.of(
+                                                          context)
+                                                          .subtitle2
+                                                          .override(
+                                                        fontFamily: FlutterFlowTheme.of(
+                                                            context)
+                                                            .subtitle2Family,
+                                                        color: Colors
+                                                            .white,
+                                                        fontSize: 16,
+                                                        useGoogleFonts: GoogleFonts
+                                                            .asMap()
+                                                            .containsKey(
+                                                            FlutterFlowTheme.of(context)
+                                                                .subtitle2Family),
+                                                      ),
                                                       elevation: 0,
                                                       borderSide: BorderSide(
                                                         color:
-                                                            Colors.transparent,
+                                                        Colors.transparent,
                                                         width: 1,
                                                       ),
                                                       borderRadius:
-                                                          BorderRadius.circular(
-                                                              8),
+                                                      BorderRadius.circular(
+                                                          8),
                                                     ),
                                                   ),
                                               ],
@@ -1697,20 +1722,20 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                       width: double.infinity,
                                       height: 48,
                                       color:
-                                          FlutterFlowTheme.of(context).starblue,
+                                      FlutterFlowTheme.of(context).starblue,
                                       textStyle: FlutterFlowTheme.of(context)
                                           .subtitle2
                                           .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .subtitle2Family,
-                                            color: Colors.white,
-                                            fontSize: 16,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .subtitle2Family),
-                                          ),
+                                        fontFamily:
+                                        FlutterFlowTheme.of(context)
+                                            .subtitle2Family,
+                                        color: Colors.white,
+                                        fontSize: 16,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey(
+                                            FlutterFlowTheme.of(context)
+                                                .subtitle2Family),
+                                      ),
                                       elevation: 0,
                                       borderSide: BorderSide(
                                         color: Colors.transparent,
@@ -1769,14 +1794,14 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                           style: FlutterFlowTheme.of(context)
                               .bodyText1
                               .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .bodyText1Family,
-                                fontSize: 15,
-                                fontWeight: FontWeight.w500,
-                                useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                    FlutterFlowTheme.of(context)
-                                        .bodyText1Family),
-                              ),
+                            fontFamily: FlutterFlowTheme.of(context)
+                                .bodyText1Family,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
+                            useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                FlutterFlowTheme.of(context)
+                                    .bodyText1Family),
+                          ),
                         ),
                       ],
                     ),

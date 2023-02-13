@@ -144,8 +144,8 @@ final parametersBuilderMap =
   'admin_main': ParameterData.none(),
   'admin_reports': ParameterData.none(),
   'admin_clients': ParameterData.none(),
-  'admin_analytics': ParameterData.none(),
   'admin_office': ParameterData.none(),
+  'admin_analytics': ParameterData.none(),
   'admin_add_company_1': (data) async => ParameterData(
         allParams: {
           'company': getParameter<DocumentReference>(data, 'company'),
@@ -232,6 +232,8 @@ final parametersBuilderMap =
         },
       ),
   'HomePageCopy': ParameterData.none(),
+  'admin_notifications': ParameterData.none(),
+  'super_admin_cancelled_bookings': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

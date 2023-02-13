@@ -208,6 +208,20 @@ class _$BookingsRecordSerializer
         ..add(
             serializers.serialize(value, specifiedType: const FullType(bool)));
     }
+    value = object.createdAdminUserName;
+    if (value != null) {
+      result
+        ..add('createdAdminUserName')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.openedSuperAdmin;
+    if (value != null) {
+      result
+        ..add('opened_super_admin')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -349,6 +363,14 @@ class _$BookingsRecordSerializer
           result.createdByAdmin = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool?;
           break;
+        case 'createdAdminUserName':
+          result.createdAdminUserName = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'opened_super_admin':
+          result.openedSuperAdmin = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -416,6 +438,10 @@ class _$BookingsRecord extends BookingsRecord {
   @override
   final bool? createdByAdmin;
   @override
+  final String? createdAdminUserName;
+  @override
+  final bool? openedSuperAdmin;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$BookingsRecord([void Function(BookingsRecordBuilder)? updates]) =>
@@ -448,6 +474,8 @@ class _$BookingsRecord extends BookingsRecord {
       this.forCarPay,
       this.createdByUser,
       this.createdByAdmin,
+      this.createdAdminUserName,
+      this.openedSuperAdmin,
       this.ffRef})
       : super._();
 
@@ -489,6 +517,8 @@ class _$BookingsRecord extends BookingsRecord {
         forCarPay == other.forCarPay &&
         createdByUser == other.createdByUser &&
         createdByAdmin == other.createdByAdmin &&
+        createdAdminUserName == other.createdAdminUserName &&
+        openedSuperAdmin == other.openedSuperAdmin &&
         ffRef == other.ffRef;
   }
 
@@ -512,25 +542,25 @@ class _$BookingsRecord extends BookingsRecord {
                                                                 $jc(
                                                                     $jc(
                                                                         $jc(
-                                                                            $jc($jc($jc($jc($jc($jc($jc($jc($jc(0, bookedUser.hashCode), bookedCompany.hashCode), timeName.hashCode), timeOrder.hashCode), status.hashCode), bookedDate.hashCode), selectedCompanyServices.hashCode), carBody.hashCode),
-                                                                                carName.hashCode),
-                                                                            carOrder.hashCode),
-                                                                        cancelWhy.hashCode),
-                                                                    cancelComment.hashCode),
-                                                                cancelTimeDate.hashCode),
-                                                            id.hashCode),
-                                                        duration.hashCode),
-                                                    totalPrice.hashCode),
-                                                notifyTimeName.hashCode),
-                                            selectedTimesOrder.hashCode),
-                                        cancelled.hashCode),
-                                    bookedCompanyDocument.hashCode),
-                                selectedCompanyServicesName.hashCode),
-                            bookedDateString.hashCode),
-                        boxName.hashCode),
-                    forCarPay.hashCode),
-                createdByUser.hashCode),
-            createdByAdmin.hashCode),
+                                                                            $jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc(0, bookedUser.hashCode), bookedCompany.hashCode), timeName.hashCode), timeOrder.hashCode), status.hashCode), bookedDate.hashCode), selectedCompanyServices.hashCode), carBody.hashCode), carName.hashCode), carOrder.hashCode),
+                                                                                cancelWhy.hashCode),
+                                                                            cancelComment.hashCode),
+                                                                        cancelTimeDate.hashCode),
+                                                                    id.hashCode),
+                                                                duration.hashCode),
+                                                            totalPrice.hashCode),
+                                                        notifyTimeName.hashCode),
+                                                    selectedTimesOrder.hashCode),
+                                                cancelled.hashCode),
+                                            bookedCompanyDocument.hashCode),
+                                        selectedCompanyServicesName.hashCode),
+                                    bookedDateString.hashCode),
+                                boxName.hashCode),
+                            forCarPay.hashCode),
+                        createdByUser.hashCode),
+                    createdByAdmin.hashCode),
+                createdAdminUserName.hashCode),
+            openedSuperAdmin.hashCode),
         ffRef.hashCode));
   }
 
@@ -563,6 +593,8 @@ class _$BookingsRecord extends BookingsRecord {
           ..add('forCarPay', forCarPay)
           ..add('createdByUser', createdByUser)
           ..add('createdByAdmin', createdByAdmin)
+          ..add('createdAdminUserName', createdAdminUserName)
+          ..add('openedSuperAdmin', openedSuperAdmin)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -696,6 +728,16 @@ class BookingsRecordBuilder
   set createdByAdmin(bool? createdByAdmin) =>
       _$this._createdByAdmin = createdByAdmin;
 
+  String? _createdAdminUserName;
+  String? get createdAdminUserName => _$this._createdAdminUserName;
+  set createdAdminUserName(String? createdAdminUserName) =>
+      _$this._createdAdminUserName = createdAdminUserName;
+
+  bool? _openedSuperAdmin;
+  bool? get openedSuperAdmin => _$this._openedSuperAdmin;
+  set openedSuperAdmin(bool? openedSuperAdmin) =>
+      _$this._openedSuperAdmin = openedSuperAdmin;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -734,6 +776,8 @@ class BookingsRecordBuilder
       _forCarPay = $v.forCarPay;
       _createdByUser = $v.createdByUser;
       _createdByAdmin = $v.createdByAdmin;
+      _createdAdminUserName = $v.createdAdminUserName;
+      _openedSuperAdmin = $v.openedSuperAdmin;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -786,6 +830,8 @@ class BookingsRecordBuilder
               forCarPay: forCarPay,
               createdByUser: createdByUser,
               createdByAdmin: createdByAdmin,
+              createdAdminUserName: createdAdminUserName,
+              openedSuperAdmin: openedSuperAdmin,
               ffRef: ffRef);
     } catch (_) {
       late String _$failedField;
