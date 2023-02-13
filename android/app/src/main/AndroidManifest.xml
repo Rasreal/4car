@@ -8,7 +8,9 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="31" />
     <application
+        tools:node="replace"
         android:label="ForCar Main"
         tools:replace="android:label"
         android:icon="@mipmap/ic_launcher"
