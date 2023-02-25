@@ -32,14 +32,14 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
   String? choiceChipsValue;
   var availableMaps;
   @override
-  Future<void> initState() async {
+  initState() {
     super.initState();
     // On page load action.
     //availableMaps = await ml.MapLauncher.installedMaps;
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      setState(() => _firestoreRequestCompleter = null);
-      setState(() => _documentRequestCompleter = null);
-    });
+    // SchedulerBinding.instance.addPostFrameCallback((_) async {
+    //   setState(() => _firestoreRequestCompleter = null);
+    //   setState(() => _documentRequestCompleter = null);
+    // });
 
     getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
         .then((loc) => setState(() => currentUserLocationValue = loc));

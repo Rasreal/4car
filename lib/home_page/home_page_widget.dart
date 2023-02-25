@@ -10,6 +10,7 @@ import '../components/add_city_widget.dart';
 import '../components/car_wash_company_widget.dart';
 import '../components/company_card_widget.dart';
 import '../components/company_stories_bottomsheet_widget.dart';
+import '../components/company_top_stories_bottomsheet.dart';
 import '../components/log_out_widget.dart';
 import '../components/sucsess_booking_review_widget.dart';
 import '../flutter_flow/flutter_flow_google_map.dart';
@@ -108,7 +109,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
             return Padding(
               padding: MediaQuery.of(context).viewInsets,
               child: Container(
-                height: MediaQuery.of(context).size.height * 0.6,
+                height: MediaQuery.of(context).size.height * 0.7,
                 child: SucsessBookingReviewWidget(
                   booking: currentUserDocument!.linkLastBooking,
                 ),
@@ -1132,209 +1133,371 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
+                                    // Padding(
+                                    //   padding: EdgeInsetsDirectional.fromSTEB(
+                                    //       0, 16, 0, 16),
+                                    //   child: Container(
+                                    //       width: double.infinity,
+                                    //       height: 100,
+                                    //       child: AuthUserStreamWidget(
+                                    //         builder: (context) => FutureBuilder<
+                                    //             List<PromotionRecord>>(
+                                    //           future: queryPromotionRecordOnce(
+                                    //             queryBuilder: (promotionRecord) =>
+                                    //                 promotionRecord
+                                    //                     .where('city_link',
+                                    //                         isEqualTo:
+                                    //                             currentUserDocument!
+                                    //                                 .country)
+                                    //                     .where('top',
+                                    //                         isEqualTo: true),
+                                    //             limit: 3,
+                                    //           ),
+                                    //           builder: (context, snapshot) {
+                                    //             // Customize what your widget looks like when it's loading.
+                                    //             if (!snapshot.hasData) {
+                                    //               return Center(
+                                    //                 child: SizedBox(
+                                    //                   width: 50,
+                                    //                   height: 50,
+                                    //                   child:
+                                    //                       CircularProgressIndicator(
+                                    //                     color:
+                                    //                         FlutterFlowTheme.of(
+                                    //                                 context)
+                                    //                             .primaryColor,
+                                    //                   ),
+                                    //                 ),
+                                    //               );
+                                    //             }
+                                    //             List<PromotionRecord>
+                                    //                 listViewPromotionRecordList =
+                                    //                 snapshot.data!;
+                                    //             return ListView.builder(
+                                    //               padding: EdgeInsets.zero,
+                                    //               shrinkWrap: true,
+                                    //               scrollDirection:
+                                    //                   Axis.horizontal,
+                                    //               itemCount:
+                                    //                   listViewPromotionRecordList
+                                    //                       .length,
+                                    //               itemBuilder:
+                                    //                   (context, listViewIndex) {
+                                    //                 final listViewPromotionRecord =
+                                    //                     listViewPromotionRecordList[
+                                    //                         listViewIndex];
+                                    //                 return Padding(
+                                    //                   padding:
+                                    //                       EdgeInsetsDirectional
+                                    //                           .fromSTEB(
+                                    //                               0, 0, 16, 0),
+                                    //                   child: InkWell(
+                                    //                     onTap: () async {
+                                    //                       await showModalBottomSheet(
+                                    //                         isScrollControlled:
+                                    //                             true,
+                                    //                         backgroundColor:
+                                    //                             Colors
+                                    //                                 .transparent,
+                                    //                         context: context,
+                                    //                         builder: (context) {
+                                    //                           return Padding(
+                                    //                             padding: MediaQuery.of(
+                                    //                                     context)
+                                    //                                 .viewInsets,
+                                    //                             child:
+                                    //                                 Container(
+                                    //                               height: double
+                                    //                                   .infinity,
+                                    //                               child:
+                                    //                                   CompanyStoriesBottomsheetWidget(
+                                    //                                 currentCompany:
+                                    //                                     listViewPromotionRecord.reference,
+                                    //                                 index:
+                                    //                                     listViewIndex,
+                                    //                               ),
+                                    //                             ),
+                                    //                           );
+                                    //                         },
+                                    //                       ).then((value) =>
+                                    //                           setState(() {}));
+                                    //                     },
+                                    //                     child: Container(
+                                    //                       width: 104,
+                                    //                       height: 100,
+                                    //                       child: Stack(
+                                    //                         children: [
+                                    //                           ClipRRect(
+                                    //                             borderRadius:
+                                    //                                 BorderRadius
+                                    //                                     .circular(
+                                    //                                         8),
+                                    //                             child: Image
+                                    //                                 .network(
+                                    //                               valueOrDefault<
+                                    //                                   String>(
+                                    //                                 listViewPromotionRecord
+                                    //                                     .img,
+                                    //                                 'https://picsum.photos/seed/112/600',
+                                    //                               ),
+                                    //                               width: 104,
+                                    //                               height: 100,
+                                    //                               fit: BoxFit
+                                    //                                   .cover,
+                                    //                             ),
+                                    //                           ),
+                                    //                           Container(
+                                    //                             width: 104,
+                                    //                             height: 100,
+                                    //                             decoration:
+                                    //                                 BoxDecoration(
+                                    //                               gradient:
+                                    //                                   LinearGradient(
+                                    //                                 colors: [
+                                    //                                   Colors
+                                    //                                       .transparent,
+                                    //                                   Colors
+                                    //                                       .black
+                                    //                                 ],
+                                    //                                 stops: [
+                                    //                                   0,
+                                    //                                   1
+                                    //                                 ],
+                                    //                                 begin:
+                                    //                                     AlignmentDirectional(
+                                    //                                         0,
+                                    //                                         -1),
+                                    //                                 end:
+                                    //                                     AlignmentDirectional(
+                                    //                                         0,
+                                    //                                         1),
+                                    //                               ),
+                                    //                               borderRadius:
+                                    //                                   BorderRadius
+                                    //                                       .circular(
+                                    //                                           8),
+                                    //                             ),
+                                    //                           ),
+                                    //                           Column(
+                                    //                             mainAxisSize:
+                                    //                                 MainAxisSize
+                                    //                                     .max,
+                                    //                             mainAxisAlignment:
+                                    //                                 MainAxisAlignment
+                                    //                                     .center,
+                                    //                             crossAxisAlignment:
+                                    //                                 CrossAxisAlignment
+                                    //                                     .start,
+                                    //                             children: [
+                                    //                               Expanded(
+                                    //                                 child:
+                                    //                                     Align(
+                                    //                                   alignment:
+                                    //                                       AlignmentDirectional(
+                                    //                                           -1,
+                                    //                                           1),
+                                    //                                   child:
+                                    //                                       Padding(
+                                    //                                     padding: EdgeInsetsDirectional.fromSTEB(
+                                    //                                         6,
+                                    //                                         0,
+                                    //                                         6,
+                                    //                                         8),
+                                    //                                     child:
+                                    //                                         Text(
+                                    //                                       listViewPromotionRecord
+                                    //                                           .title!,
+                                    //                                       textAlign:
+                                    //                                           TextAlign.start,
+                                    //                                       maxLines:
+                                    //                                           2,
+                                    //                                       style: FlutterFlowTheme.of(context)
+                                    //                                           .bodyText1
+                                    //                                           .override(
+                                    //                                             fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                    //                                             color: Colors.white,
+                                    //                                             fontSize: 11,
+                                    //                                             fontWeight: FontWeight.w500,
+                                    //                                             useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                    //                                           ),
+                                    //                                     ),
+                                    //                                   ),
+                                    //                                 ),
+                                    //                               ),
+                                    //                             ],
+                                    //                           ),
+                                    //                         ],
+                                    //                       ),
+                                    //                     ),
+                                    //                   ),
+                                    //                 );
+                                    //               },
+                                    //             );
+                                    //           },
+                                    //         ),
+                                    //       )),
+                                    // ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 16, 0, 16),
+                                      padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 16),
                                       child: Container(
-                                          width: double.infinity,
-                                          height: 100,
-                                          child: AuthUserStreamWidget(
-                                            builder: (context) => FutureBuilder<
-                                                List<PromotionRecord>>(
-                                              future: queryPromotionRecordOnce(
-                                                queryBuilder: (promotionRecord) =>
-                                                    promotionRecord
-                                                        .where('city_link',
-                                                            isEqualTo:
-                                                                currentUserDocument!
-                                                                    .country)
-                                                        .where('top',
-                                                            isEqualTo: true),
-                                                limit: 3,
-                                              ),
-                                              builder: (context, snapshot) {
-                                                // Customize what your widget looks like when it's loading.
-                                                if (!snapshot.hasData) {
-                                                  return Center(
-                                                    child: SizedBox(
-                                                      width: 50,
-                                                      height: 50,
-                                                      child:
-                                                          CircularProgressIndicator(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryColor,
-                                                      ),
-                                                    ),
-                                                  );
-                                                }
-                                                List<PromotionRecord>
-                                                    listViewPromotionRecordList =
-                                                    snapshot.data!;
-                                                return ListView.builder(
-                                                  padding: EdgeInsets.zero,
-                                                  shrinkWrap: true,
-                                                  scrollDirection:
-                                                      Axis.horizontal,
-                                                  itemCount:
-                                                      listViewPromotionRecordList
-                                                          .length,
-                                                  itemBuilder:
-                                                      (context, listViewIndex) {
-                                                    final listViewPromotionRecord =
-                                                        listViewPromotionRecordList[
-                                                            listViewIndex];
-                                                    return Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0, 0, 16, 0),
-                                                      child: InkWell(
-                                                        onTap: () async {
-                                                          await showModalBottomSheet(
-                                                            isScrollControlled:
-                                                                true,
-                                                            backgroundColor:
-                                                                Colors
-                                                                    .transparent,
-                                                            context: context,
-                                                            builder: (context) {
-                                                              return Padding(
-                                                                padding: MediaQuery.of(
-                                                                        context)
-                                                                    .viewInsets,
-                                                                child:
-                                                                    Container(
-                                                                  height: double
-                                                                      .infinity,
-                                                                  child:
-                                                                      CompanyStoriesBottomsheetWidget(
-                                                                    currentCompanyStories:
-                                                                        listViewPromotionRecord,
-                                                                    index:
-                                                                        listViewIndex,
-                                                                  ),
-                                                                ),
-                                                              );
-                                                            },
-                                                          ).then((value) =>
-                                                              setState(() {}));
-                                                        },
-                                                        child: Container(
-                                                          width: 104,
-                                                          height: 100,
-                                                          child: Stack(
-                                                            children: [
-                                                              ClipRRect(
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            8),
-                                                                child: Image
-                                                                    .network(
-                                                                  valueOrDefault<
-                                                                      String>(
-                                                                    listViewPromotionRecord
-                                                                        .img,
-                                                                    'https://picsum.photos/seed/112/600',
-                                                                  ),
-                                                                  width: 104,
-                                                                  height: 100,
-                                                                  fit: BoxFit
-                                                                      .cover,
-                                                                ),
-                                                              ),
-                                                              Container(
-                                                                width: 104,
-                                                                height: 100,
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  gradient:
-                                                                      LinearGradient(
-                                                                    colors: [
-                                                                      Colors
-                                                                          .transparent,
-                                                                      Colors
-                                                                          .black
-                                                                    ],
-                                                                    stops: [
-                                                                      0,
-                                                                      1
-                                                                    ],
-                                                                    begin:
-                                                                        AlignmentDirectional(
-                                                                            0,
-                                                                            -1),
-                                                                    end:
-                                                                        AlignmentDirectional(
-                                                                            0,
-                                                                            1),
-                                                                  ),
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              8),
-                                                                ),
-                                                              ),
-                                                              Column(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .center,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .start,
-                                                                children: [
-                                                                  Expanded(
-                                                                    child:
-                                                                        Align(
-                                                                      alignment:
-                                                                          AlignmentDirectional(
-                                                                              -1,
-                                                                              1),
-                                                                      child:
-                                                                          Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            6,
-                                                                            0,
-                                                                            6,
-                                                                            8),
-                                                                        child:
-                                                                            Text(
-                                                                          listViewPromotionRecord
-                                                                              .title!,
-                                                                          textAlign:
-                                                                              TextAlign.start,
-                                                                          maxLines:
-                                                                              2,
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodyText1
-                                                                              .override(
-                                                                                fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
-                                                                                color: Colors.white,
-                                                                                fontSize: 11,
-                                                                                fontWeight: FontWeight.w500,
-                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
-                                                                              ),
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            ],
-                                                          ),
+                                        width: double.infinity,
+                                        decoration: BoxDecoration(
+                                          color: Colors.transparent,
+                                        ),
+                                        child: AuthUserStreamWidget(
+                                          builder: (context) =>
+                                              FutureBuilder<List<PromotionRecord>>(
+                                                future: queryPromotionRecordOnce(
+                                                  queryBuilder: (promotionRecord) => promotionRecord
+                                                      .where('city_link',
+                                                      isEqualTo: currentUserDocument!.country)
+                                                      .where('top', isEqualTo: true),
+                                                  limit: 3,
+                                                ),
+                                                builder: (context, snapshot) {
+                                                  // Customize what your widget looks like when it's loading.
+                                                  if (!snapshot.hasData) {
+                                                    return Center(
+                                                      child: SizedBox(
+                                                        width: 50,
+                                                        height: 50,
+                                                        child: CircularProgressIndicator(
+                                                          color:
+                                                          FlutterFlowTheme.of(context).primaryColor,
                                                         ),
                                                       ),
                                                     );
-                                                  },
-                                                );
-                                              },
-                                            ),
-                                          )),
+                                                  }
+                                                  List<PromotionRecord> rowPromotionRecordList =
+                                                  snapshot.data!;
+                                                  return SingleChildScrollView(
+                                                    scrollDirection: Axis.horizontal,
+                                                    child: Row(
+                                                      mainAxisSize: MainAxisSize.max,
+                                                      children: List.generate(
+                                                          rowPromotionRecordList.length, (rowIndex) {
+                                                        final rowPromotionRecord =
+                                                        rowPromotionRecordList[rowIndex];
+                                                        return Padding(
+                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                              0, 0, 16, 0),
+                                                          child: InkWell(
+                                                            onTap: () async {
+                                                              await showModalBottomSheet(
+                                                                isScrollControlled: true,
+                                                                backgroundColor: Colors.transparent,
+                                                                context: context,
+                                                                builder: (context) {
+                                                                  return Padding(
+                                                                    padding: MediaQuery.of(context)
+                                                                        .viewInsets,
+                                                                    child: Container(
+                                                                      height: double.infinity,
+                                                                      child:
+                                                                      CompanyTopStoriesBottomsheetWidget(
+                                                                        index: rowIndex,
+                                                                      ),
+                                                                    ),
+                                                                  );
+                                                                },
+                                                              ).then((value) => setState(() {}));
+                                                            },
+                                                            child: Container(
+                                                              width: 104,
+                                                              height: 100,
+                                                              child: Stack(
+                                                                children: [
+                                                                  ClipRRect(
+                                                                    borderRadius:
+                                                                    BorderRadius.circular(8),
+                                                                    child: Image.network(
+                                                                      valueOrDefault<String>(
+                                                                        rowPromotionRecord.img,
+                                                                        'https://picsum.photos/seed/112/600',
+                                                                      ),
+                                                                      width: 104,
+                                                                      height: 100,
+                                                                      fit: BoxFit.cover,
+                                                                    ),
+                                                                  ),
+                                                                  Container(
+                                                                    width: 104,
+                                                                    height: 100,
+                                                                    decoration: BoxDecoration(
+                                                                      gradient: LinearGradient(
+                                                                        colors: [
+                                                                          Colors.transparent,
+                                                                          Colors.black
+                                                                        ],
+                                                                        stops: [0, 1],
+                                                                        begin:
+                                                                        AlignmentDirectional(0, -1),
+                                                                        end: AlignmentDirectional(0, 1),
+                                                                      ),
+                                                                      borderRadius:
+                                                                      BorderRadius.circular(8),
+                                                                    ),
+                                                                  ),
+                                                                  Column(
+                                                                    mainAxisSize: MainAxisSize.max,
+                                                                    mainAxisAlignment:
+                                                                    MainAxisAlignment.center,
+                                                                    crossAxisAlignment:
+                                                                    CrossAxisAlignment.start,
+                                                                    children: [
+                                                                      Expanded(
+                                                                        child: Align(
+                                                                          alignment:
+                                                                          AlignmentDirectional(
+                                                                              -1, 1),
+                                                                          child: Padding(
+                                                                            padding:
+                                                                            EdgeInsetsDirectional
+                                                                                .fromSTEB(
+                                                                                6, 0, 6, 8),
+                                                                            child: Text(
+                                                                              rowPromotionRecord.title!,
+                                                                              textAlign:
+                                                                              TextAlign.start,
+                                                                              maxLines: 2,
+                                                                              style:
+                                                                              FlutterFlowTheme.of(
+                                                                                  context)
+                                                                                  .bodyText1
+                                                                                  .override(
+                                                                                fontFamily: FlutterFlowTheme.of(
+                                                                                    context)
+                                                                                    .bodyText1Family,
+                                                                                color: Colors
+                                                                                    .white,
+                                                                                fontSize: 11,
+                                                                                fontWeight:
+                                                                                FontWeight
+                                                                                    .w500,
+                                                                                useGoogleFonts: GoogleFonts
+                                                                                    .asMap()
+                                                                                    .containsKey(
+                                                                                    FlutterFlowTheme.of(context)
+                                                                                        .bodyText1Family),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        );
+                                                      }),
+                                                    ),
+                                                  );
+                                                },
+                                              ),
+                                        ),
+                                      ),
                                     ),
                                     Divider(
                                       thickness: 1,
@@ -1353,7 +1516,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                     'link_city',
                                                     isEqualTo:
                                                         currentUserDocument!
-                                                            .country),
+                                                            .country).where('status', isEqualTo: 'Активно'),
+
                                           ),
                                           builder: (context, snapshot) {
                                             // Customize what your widget looks like when it's loading.

@@ -392,40 +392,40 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
-                  child: InkWell(
-                    onTap: () async {
-                      context.pushNamed('Terms_of_Use');
-                    },
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Icon(
-                          FFIcons.kicTermscond,
-                          color: FlutterFlowTheme.of(context).primaryColor,
-                          size: 22,
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
-                          child: Text(
-                            ' Условия пользования',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyText1
-                                .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .bodyText1Family,
-                                  fontWeight: FontWeight.normal,
-                                  useGoogleFonts: GoogleFonts.asMap()
-                                      .containsKey(FlutterFlowTheme.of(context)
-                                          .bodyText1Family),
-                                ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+                // Padding(
+                //   padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                //   child: InkWell(
+                //     onTap: () async {
+                //       context.pushNamed('Terms_of_Use');
+                //     },
+                //     child: Row(
+                //       mainAxisSize: MainAxisSize.max,
+                //       children: [
+                //         Icon(
+                //           FFIcons.kicTermscond,
+                //           color: FlutterFlowTheme.of(context).primaryColor,
+                //           size: 22,
+                //         ),
+                //         Padding(
+                //           padding: EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
+                //           child: Text(
+                //             ' Условия пользования',
+                //             style: FlutterFlowTheme.of(context)
+                //                 .bodyText1
+                //                 .override(
+                //                   fontFamily: FlutterFlowTheme.of(context)
+                //                       .bodyText1Family,
+                //                   fontWeight: FontWeight.normal,
+                //                   useGoogleFonts: GoogleFonts.asMap()
+                //                       .containsKey(FlutterFlowTheme.of(context)
+                //                           .bodyText1Family),
+                //                 ),
+                //           ),
+                //         ),
+                //       ],
+                //     ),
+                //   ),
+                // ),
                 Expanded(
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
@@ -922,54 +922,54 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                     thickness: 1,
                     color: FlutterFlowTheme.of(context).gray4,
                   ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 14, 0, 14),
-                    child: InkWell(
-                      onTap: () async {
-                        context.pushNamed('Terms_of_Use');
-                      },
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Icon(
-                            FFIcons.kicTermscond,
-                            color: FlutterFlowTheme.of(context).primaryColor,
-                            size: 22,
-                          ),
-                          Expanded(
-                            child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
-                              child: Text(
-                                ' Условия пользования',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
-                                      fontFamily: FlutterFlowTheme.of(context)
-                                          .bodyText1Family,
-                                      fontWeight: FontWeight.w500,
-                                      useGoogleFonts: GoogleFonts.asMap()
-                                          .containsKey(
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyText1Family),
-                                    ),
-                              ),
-                            ),
-                          ),
-                          Icon(
-                            FFIcons.kicArrowsButtonLeft,
-                            color: FlutterFlowTheme.of(context).primaryColor,
-                            size: 22,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Divider(
-                    height: 1,
-                    thickness: 1,
-                    color: FlutterFlowTheme.of(context).gray4,
-                  ),
+                  // Padding(
+                  //   padding: EdgeInsetsDirectional.fromSTEB(0, 14, 0, 14),
+                  //   child: InkWell(
+                  //     onTap: () async {
+                  //       context.pushNamed('Terms_of_Use');
+                  //     },
+                  //     child: Row(
+                  //       mainAxisSize: MainAxisSize.max,
+                  //       children: [
+                  //         Icon(
+                  //           FFIcons.kicTermscond,
+                  //           color: FlutterFlowTheme.of(context).primaryColor,
+                  //           size: 22,
+                  //         ),
+                  //         Expanded(
+                  //           child: Padding(
+                  //             padding:
+                  //                 EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
+                  //             child: Text(
+                  //               ' Условия пользования',
+                  //               style: FlutterFlowTheme.of(context)
+                  //                   .bodyText1
+                  //                   .override(
+                  //                     fontFamily: FlutterFlowTheme.of(context)
+                  //                         .bodyText1Family,
+                  //                     fontWeight: FontWeight.w500,
+                  //                     useGoogleFonts: GoogleFonts.asMap()
+                  //                         .containsKey(
+                  //                             FlutterFlowTheme.of(context)
+                  //                                 .bodyText1Family),
+                  //                   ),
+                  //             ),
+                  //           ),
+                  //         ),
+                  //         Icon(
+                  //           FFIcons.kicArrowsButtonLeft,
+                  //           color: FlutterFlowTheme.of(context).primaryColor,
+                  //           size: 22,
+                  //         ),
+                  //       ],
+                  //     ),
+                  //   ),
+                  // ),
+                  // Divider(
+                  //   height: 1,
+                  //   thickness: 1,
+                  //   color: FlutterFlowTheme.of(context).gray4,
+                  // ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0, 14, 0, 14),
                     child: InkWell(

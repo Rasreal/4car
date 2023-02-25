@@ -6,31 +6,27 @@ import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
 as smooth_page_indicator;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 
-class CompanyStoriesBottomsheetWidget extends StatefulWidget {
-  const CompanyStoriesBottomsheetWidget({
+class CompanyTopStoriesBottomsheetWidget extends StatefulWidget {
+  const CompanyTopStoriesBottomsheetWidget({
     Key? key,
     this.index,
-    this.currentCompany,
   }) : super(key: key);
 
   final int? index;
-  final DocumentReference? currentCompany;
 
   @override
-  _CompanyStoriesBottomsheetWidgetState createState() =>
-      _CompanyStoriesBottomsheetWidgetState();
+  _CompanyTopStoriesBottomsheetWidgetState createState() =>
+      _CompanyTopStoriesBottomsheetWidgetState();
 }
 
-class _CompanyStoriesBottomsheetWidgetState
-    extends State<CompanyStoriesBottomsheetWidget> {
+class _CompanyTopStoriesBottomsheetWidgetState
+    extends State<CompanyTopStoriesBottomsheetWidget> {
   PageController? pageViewController;
-
   @override
   void setState(VoidCallback callback) {
     super.setState(callback);
@@ -68,13 +64,12 @@ class _CompanyStoriesBottomsheetWidgetState
               children: [
                 Expanded(
                   child: AuthUserStreamWidget(
-                    builder: (context) => StreamBuilder<List<PromotionRecord>>(
-                      stream: queryPromotionRecord(
-                        parent: widget.currentCompany,
+                    builder: (context) => FutureBuilder<List<PromotionRecord>>(
+                      future: queryPromotionRecordOnce(
                         queryBuilder: (promotionRecord) => promotionRecord
-                            .where('status', isEqualTo: 'Активно')
                             .where('city_link',
-                            isEqualTo: currentUserDocument!.country),
+                            isEqualTo: currentUserDocument!.country)
+                            .where('top', isEqualTo: true),
                       ),
                       builder: (context, snapshot) {
                         // Customize what your widget looks like when it's loading.

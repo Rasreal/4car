@@ -27,11 +27,11 @@ class CarWashCompanyWidget extends StatefulWidget {
 }
 
 class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
-
-  LatLng? currentUserLocationValue;
   PagingController<DocumentSnapshot?, PromotionRecord>? pagingController;
   Query? pagingQuery;
   List<StreamSubscription?> streamSubscriptions = [];
+  LatLng? currentUserLocationValue;
+
   @override
   void setState(VoidCallback callback) {
     super.setState(callback);
@@ -779,65 +779,111 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                           ],
                                         ),
                                       ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
-                                        child: AuthUserStreamWidget(
-                                          builder: (context) => StreamBuilder<List<CompanyServicesRecord>>(
-                                            stream: queryCompanyServicesRecord(
-                                              parent: containerCompaniesRecord.reference,
-                                              queryBuilder: (companyServicesRecord) => companyServicesRecord
-                                                  .where('car_body',
-                                                  isEqualTo: valueOrDefault(
-                                                      currentUserDocument?.firstCarBody, '') !=
-                                                      ''
-                                                      ? valueOrDefault(currentUserDocument?.firstCarBody, '')
-                                                      : null)
-                                                  .orderBy('price'),
-                                            ),
-                                            builder: (context, snapshot) {
-                                              // Customize what your widget looks like when it's loading.
-                                              if (!snapshot.hasData) {
-                                                return Center(
-                                                  child: SizedBox(
-                                                    width: 50,
-                                                    height: 50,
-                                                    child: CircularProgressIndicator(
-                                                      color: FlutterFlowTheme.of(context).primaryColor,
-                                                    ),
+                                      SingleChildScrollView(
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(16, 0, 16, 0),
+                                              child: AuthUserStreamWidget(
+                                                builder: (context) => StreamBuilder<
+                                                    List<
+                                                        CompanyServicesRecord>>(
+                                                  stream:
+                                                  queryCompanyServicesRecord(
+                                                    parent:
+                                                    containerCompaniesRecord
+                                                        .reference,
+                                                    queryBuilder: (companyServicesRecord) =>
+                                                        companyServicesRecord
+                                                            .where('car_body',
+                                                            isEqualTo: valueOrDefault(currentUserDocument?.firstCarBody, '') !=
+                                                                null &&
+                                                                valueOrDefault(currentUserDocument?.firstCarBody, '') !=
+                                                                    ''
+                                                                ? valueOrDefault(
+                                                                currentUserDocument
+                                                                    ?.firstCarBody,
+                                                                '')
+                                                                : 'Седан' !=
+                                                                ''
+                                                                ? valueOrDefault(currentUserDocument?.firstCarBody, '') != null &&
+                                                                valueOrDefault(currentUserDocument?.firstCarBody, '') != ''
+                                                                ? valueOrDefault(currentUserDocument?.firstCarBody, '')
+                                                                : 'Седан'
+                                                                : null)
+                                                            .orderBy('price'),
                                                   ),
-                                                );
-                                              }
-                                              List<CompanyServicesRecord> listView1CompanyServicesRecordList =
-                                              snapshot.data!;
-                                              return ListView.builder(
-                                                padding: EdgeInsets.zero,
-                                                scrollDirection: Axis.vertical,
-                                                itemCount: listView1CompanyServicesRecordList.length,
-                                                itemBuilder: (context, listView1Index) {
-                                                  final listView1CompanyServicesRecord =
-                                                  listView1CompanyServicesRecordList[listView1Index];
-                                                  return Padding(
-                                                    padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
-                                                    child: Row(
-                                                      mainAxisSize: MainAxisSize.max,
-                                                      children: [
-                                                        Expanded(
-                                                          child: Text(
-                                                            listView1CompanyServicesRecord.name!,
-                                                            style: FlutterFlowTheme.of(context).bodyText1,
+                                                  builder: (context, snapshot) {
+                                                    // Customize what your widget looks like when it's loading.
+                                                    if (!snapshot.hasData) {
+                                                      return Center(
+                                                        child: SizedBox(
+                                                          width: 50,
+                                                          height: 50,
+                                                          child:
+                                                          CircularProgressIndicator(
+                                                            color: FlutterFlowTheme
+                                                                .of(context)
+                                                                .primaryColor,
                                                           ),
                                                         ),
-                                                        Text(
-                                                          'от ${listView1CompanyServicesRecord.price?.toInt().toString()} тг',
-                                                          style: FlutterFlowTheme.of(context).bodyText1,
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  );
-                                                },
-                                              );
-                                            },
-                                          ),
+                                                      );
+                                                    }
+                                                    List<CompanyServicesRecord>
+                                                    listView1CompanyServicesRecordList =
+                                                    snapshot.data!;
+                                                    return Column(
+                                                      mainAxisSize:
+                                                      MainAxisSize.min,
+                                                      children: List.generate(
+                                                          listView1CompanyServicesRecordList
+                                                              .length,
+                                                              (listView1Index) {
+                                                            final listView1CompanyServicesRecord =
+                                                            listView1CompanyServicesRecordList[
+                                                            listView1Index];
+                                                            return Padding(
+                                                              padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(0,
+                                                                  20, 0, 0),
+                                                              child: Row(
+                                                                mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                                children: [
+                                                                  Expanded(
+                                                                    child: Text(
+                                                                      listView1CompanyServicesRecord
+                                                                          .name!,
+                                                                      style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                          .bodyText1,
+                                                                    ),
+                                                                  ),
+                                                                  Text(
+                                                                    'от ${listView1CompanyServicesRecord.price.toString()} тг',
+                                                                    style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                        .bodyText1,
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            );
+                                                          }),
+                                                    );
+                                                  },
+                                                ),
+                                              ),
+                                            ),
+                                            Container(
+                                              width: 100,
+                                              height: 100,
+                                              decoration: BoxDecoration(),
+                                            ),
+                                          ],
                                         ),
                                       ),
                                       Padding(
@@ -1345,8 +1391,11 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                             double.infinity,
                                                             child:
                                                             CompanyStoriesBottomsheetWidget(
-                                                              currentCompanyStories:
-                                                              listViewPromotionRecord,
+                                                              index:
+                                                              listViewIndex,
+                                                              currentCompany:
+                                                              containerCompaniesRecord
+                                                                  .reference,
                                                             ),
                                                           ),
                                                         );
@@ -1467,7 +1516,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                           Expanded(
                             child: Padding(
                               padding:
-                              EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
+                              EdgeInsetsDirectional.fromSTEB(16, 0, 16, 16),
                               child: FFButtonWidget(
                                 onPressed: () async {
                                   if (valueOrDefault(

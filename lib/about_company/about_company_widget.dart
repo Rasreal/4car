@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
+
 class AboutCompanyWidget extends StatefulWidget {
   const AboutCompanyWidget({Key? key}) : super(key: key);
 
@@ -13,8 +14,9 @@ class AboutCompanyWidget extends StatefulWidget {
 }
 
 class _AboutCompanyWidgetState extends State<AboutCompanyWidget> {
-  final _unfocusNode = FocusNode();
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
@@ -25,6 +27,7 @@ class _AboutCompanyWidgetState extends State<AboutCompanyWidget> {
 
   @override
   void dispose() {
+
     _unfocusNode.dispose();
     super.dispose();
   }
@@ -66,13 +69,13 @@ class _AboutCompanyWidgetState extends State<AboutCompanyWidget> {
                       Text(
                         'О компании',
                         style: FlutterFlowTheme.of(context).bodyText1.override(
-                              fontFamily:
-                                  FlutterFlowTheme.of(context).bodyText1Family,
-                              fontSize: 18,
-                              fontWeight: FontWeight.w500,
-                              useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                  FlutterFlowTheme.of(context).bodyText1Family),
-                            ),
+                          fontFamily:
+                          FlutterFlowTheme.of(context).bodyText1Family,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                          useGoogleFonts: GoogleFonts.asMap().containsKey(
+                              FlutterFlowTheme.of(context).bodyText1Family),
+                        ),
                       ),
                       FlutterFlowIconButton(
                         borderColor: Colors.transparent,
@@ -97,23 +100,23 @@ class _AboutCompanyWidgetState extends State<AboutCompanyWidget> {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         Text(
-                          'Мы дорожим каждым нашим клиентом, поэтому высокое качество сервиса —\nприоритет для нас. Вы всегда можете задать интересующие вас вопросы\nв онлайн-режиме или по телефону и получить подробную консультацию\n\nКоманда профессионалов следит за постоянным пополнением и обновлением\nассортимента, разработкой акций и системы выгодных скидок,\nинформировании наших покупателей о появлении новинок. Сотрудники\nпроходят основательную подготовку, совершенствуют свои навыки и знания,\nпроходят специальные курсы и тренинги, чтобы идти в ногу со временем.\n\nНаша миссия — постоянно развиваться и повышать качество нашей продукции\nза счет внедрения инновационных технологий. Делать мир — совершеннее,\nа людей: клиентов, сотрудников и окружающих — счастливее.\n\nВ своей деятельности наша компания руководствуется принципом —\n«Минимизировать негативное воздействие на окружающую среду», поэтому\nответственное отношение к экологии — один из приоритетов компании.',
+                          'Forcar - запись в автомойки в несколько кликов БЕСПЛАТНО\n\nЭкономим ваше время\n- В приложении можно выбрать мойку, посмотреть какие есть услуги и удобства. Например, есть ли кофе и комната ожидания, сколько стоит мойка и где она расположена на карте\n\nЦеним качество\n- Читайте отзывы отзывы от людей, которые уже помыли свои машины.\nДобавили рейтинг, чтобы легче было выбирать хорошие мойки (плохие стараемся удалять)\n\nВыгодные предложения\n- Автомойки публикуют акции, скидки и специальные предложения.\nВыбирайте подходящие\n\nБесплатная запись\n- Чтобы записаться на мойку - не нужно платить. Это бесплатный казахстанский сервис.',
                           style: FlutterFlowTheme.of(context)
                               .bodyText1
                               .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .bodyText1Family,
-                                fontWeight: FontWeight.normal,
-                                useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                    FlutterFlowTheme.of(context)
-                                        .bodyText1Family),
-                              ),
+                            fontFamily: FlutterFlowTheme.of(context)
+                                .bodyText1Family,
+                            fontWeight: FontWeight.normal,
+                            useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                FlutterFlowTheme.of(context)
+                                    .bodyText1Family),
+                          ),
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 22, 0, 0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -132,78 +135,54 @@ class _AboutCompanyWidgetState extends State<AboutCompanyWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyText1
                                           .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyText1Family,
-                                            fontWeight: FontWeight.w500,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyText1Family),
-                                          ),
+                                        fontFamily:
+                                        FlutterFlowTheme.of(context)
+                                            .bodyText1Family,
+                                        fontWeight: FontWeight.w500,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey(
+                                            FlutterFlowTheme.of(context)
+                                                .bodyText1Family),
+                                      ),
                                     ),
                                   ),
                                 ],
                               ),
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Icon(
-                                    FFIcons.kicFacebook,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryColor,
-                                    size: 24,
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        8, 0, 0, 0),
-                                    child: Text(
-                                      'Facebook',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1
-                                          .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyText1Family,
-                                            fontWeight: FontWeight.w500,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyText1Family),
-                                          ),
+                              Padding(
+                                padding:
+                                EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Icon(
+                                      FFIcons.kicLinkedin,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryColor,
+                                      size: 24,
                                     ),
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Icon(
-                                    FFIcons.kicLinkedin,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryColor,
-                                    size: 24,
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        8, 0, 0, 0),
-                                    child: Text(
-                                      'LinkedIn',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1
-                                          .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyText1Family,
-                                            fontWeight: FontWeight.w500,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyText1Family),
-                                          ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          8, 0, 0, 0),
+                                      child: Text(
+                                        'LinkedIn',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1
+                                            .override(
+                                          fontFamily:
+                                          FlutterFlowTheme.of(context)
+                                              .bodyText1Family,
+                                          fontWeight: FontWeight.w500,
+                                          useGoogleFonts:
+                                          GoogleFonts.asMap()
+                                              .containsKey(
+                                              FlutterFlowTheme.of(
+                                                  context)
+                                                  .bodyText1Family),
+                                        ),
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ],
                           ),

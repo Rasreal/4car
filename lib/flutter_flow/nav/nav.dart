@@ -196,11 +196,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => AdminForgetPassword2Widget(),
             ),
             FFRoute(
-              name: 'admin_main',
-              path: 'adminMain',
-              builder: (context, params) => AdminMainWidget(),
-            ),
-            FFRoute(
               name: 'admin_reports',
               path: 'adminReports',
               builder: (context, params) => AdminReportsWidget(),
@@ -248,18 +243,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 docCompany: params.getParam('docCompany', ParamType.Document),
                 company: params.getParam('company', ParamType.DocumentReference,
                     false, ['companies']),
-              ),
-            ),
-            FFRoute(
-              name: 'admin_add_company_4',
-              path: 'adminAddCompany4',
-              asyncParams: {
-                'docCompany': getDoc(['companies'], CompaniesRecord.serializer),
-              },
-              builder: (context, params) => AdminAddCompany4Widget(
-                company: params.getParam('company', ParamType.DocumentReference,
-                    false, ['companies']),
-                docCompany: params.getParam('docCompany', ParamType.Document),
               ),
             ),
             FFRoute(

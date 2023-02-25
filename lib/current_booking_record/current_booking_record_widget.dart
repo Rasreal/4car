@@ -30,8 +30,10 @@ class CurrentBookingRecordWidget extends StatefulWidget {
 
 class _CurrentBookingRecordWidgetState extends State<CurrentBookingRecordWidget>
     with TickerProviderStateMixin {
-  //late CurrentBookingRecordModel _model;
+
+  // Stores action output result for [Bottom Sheet - Booking_cancellation] action in Button widget.
   bool? canceled;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final _unfocusNode = FocusNode();
 
@@ -63,10 +65,15 @@ class _CurrentBookingRecordWidgetState extends State<CurrentBookingRecordWidget>
   void initState() {
     super.initState();
 
-
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-
+      if (canceled!) {
+        if (animationsMap['containerOnActionTriggerAnimation'] != null) {
+          await animationsMap['containerOnActionTriggerAnimation']!
+              .controller
+              .forward(from: 0.0);
+        }
+      }
     });
 
     setupAnimations(
@@ -81,7 +88,6 @@ class _CurrentBookingRecordWidgetState extends State<CurrentBookingRecordWidget>
 
   @override
   void dispose() {
-
 
     _unfocusNode.dispose();
     super.dispose();
@@ -136,7 +142,7 @@ class _CurrentBookingRecordWidgetState extends State<CurrentBookingRecordWidget>
                                 size: 30,
                               ),
                               onPressed: () async {
-                                context.pop();
+                                context.goNamed('My_notes');
                               },
                             ),
                             Text(
@@ -261,7 +267,6 @@ class _CurrentBookingRecordWidgetState extends State<CurrentBookingRecordWidget>
                                         snapshot.data!;
                                         return CompanyCardWidget(
                                             company: companyCardCompaniesRecord,
-
                                         );
                                       },
                                     ),

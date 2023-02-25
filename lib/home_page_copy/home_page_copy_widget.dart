@@ -985,7 +985,7 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                                                                                 Container(
                                                                               height: double.infinity,
                                                                               child: CompanyStoriesBottomsheetWidget(
-                                                                                currentCompanyStories: listViewPromotionRecord,
+                                                                                currentCompany: listViewPromotionRecord.reference,
                                                                                 index: listViewIndex,
                                                                               ),
                                                                             ),
