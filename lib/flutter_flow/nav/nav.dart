@@ -22,8 +22,8 @@ export 'serialization_util.dart';
 const kTransitionInfoKey = '__transition_info__';
 
 class AppStateNotifier extends ChangeNotifier {
-  ForCarMainFirebaseUser? initialUser;
-  ForCarMainFirebaseUser? user;
+  ForcarFirebaseUser? initialUser;
+  ForcarFirebaseUser? user;
   bool showSplashImage = true;
   String? _redirectLocation;
 
@@ -48,7 +48,7 @@ class AppStateNotifier extends ChangeNotifier {
   /// to perform subsequent actions (such as navigation) afterwards.
   void updateNotifyOnAuthChange(bool notify) => notifyOnAuthChange = notify;
 
-  void update(ForCarMainFirebaseUser newUser) {
+  void update(ForcarFirebaseUser newUser) {
     initialUser ??= newUser;
     user = newUser;
     // Refresh the app on auth change unless explicitly marked otherwise.
@@ -70,14 +70,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, _) =>
-          appStateNotifier.loggedIn ? NavBarPage() : OnboardingWidget(),
+      errorBuilder: (context, _) => appStateNotifier.loggedIn
+          ? AdminMainWidget()
+          : AdminSignInEmailWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) =>
-              appStateNotifier.loggedIn ? NavBarPage() : OnboardingWidget(),
+          builder: (context, _) => appStateNotifier.loggedIn
+              ? AdminMainWidget()
+              : AdminSignInEmailWidget(),
           routes: [
             FFRoute(
               name: 'Onboarding',
@@ -92,9 +94,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'HomePage',
               path: 'homePage',
-              builder: (context, params) => params.isEmpty
-                  ? NavBarPage(initialPage: 'HomePage')
-                  : HomePageWidget(),
+              builder: (context, params) => HomePageWidget(),
             ),
             FFRoute(
               name: 'Sign_Up',
@@ -104,7 +104,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'code',
               path: 'code',
-              builder: (context, params) => CodeWidget(),
+              builder: (context, params) => CodeWidget(
+                phone: params.getParam('phone', ParamType.String),
+              ),
             ),
             FFRoute(
               name: 'sign_up_code',
@@ -127,16 +129,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'My_notes',
-              path: 'myNotes',
-              builder: (context, params) => params.isEmpty
-                  ? NavBarPage(initialPage: 'My_notes')
-                  : MyNotesWidget(),
-            ),
-            FFRoute(
               name: 'Terms_of_Use',
               path: 'termsOfUse',
               builder: (context, params) => TermsOfUseWidget(),
+            ),
+            FFRoute(
+              name: 'My_notes',
+              path: 'myNotes',
+              builder: (context, params) => MyNotesWidget(),
             ),
             FFRoute(
               name: 'current_booking_record',
@@ -154,9 +154,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'profile',
               path: 'profile',
-              builder: (context, params) => params.isEmpty
-                  ? NavBarPage(initialPage: 'profile')
-                  : ProfileWidget(),
+              builder: (context, params) => ProfileWidget(),
             ),
             FFRoute(
               name: 'select_city',
@@ -193,7 +191,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'admin_forget_password_2',
               path: 'adminForgetPassword2',
-              builder: (context, params) => AdminForgetPassword2Widget(),
+              builder: (context, params) => AdminForgetPassword2Widget(
+                email: params.getParam('email', ParamType.String),
+              ),
             ),
             FFRoute(
               name: 'admin_main',
@@ -206,14 +206,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => AdminReportsWidget(),
             ),
             FFRoute(
+              name: 'admin_office',
+              path: 'adminOffice',
+              builder: (context, params) => AdminOfficeWidget(
+                success: params.getParam('success', ParamType.bool),
+              ),
+            ),
+            FFRoute(
               name: 'admin_clients',
               path: 'adminClients',
               builder: (context, params) => AdminClientsWidget(),
-            ),
-            FFRoute(
-              name: 'admin_office',
-              path: 'adminOffice',
-              builder: (context, params) => AdminOfficeWidget(),
             ),
             FFRoute(
               name: 'admin_analytics',
@@ -229,16 +231,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'admin_add_company_2',
-              path: 'adminAddCompany2',
-              asyncParams: {
-                'company': getDoc(['companies'], CompaniesRecord.serializer),
-              },
-              builder: (context, params) => AdminAddCompany2Widget(
-                company: params.getParam('company', ParamType.Document),
-              ),
-            ),
-            FFRoute(
               name: 'admin_add_company_3',
               path: 'adminAddCompany3',
               asyncParams: {
@@ -248,6 +240,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 docCompany: params.getParam('docCompany', ParamType.Document),
                 company: params.getParam('company', ParamType.DocumentReference,
                     false, ['companies']),
+              ),
+            ),
+            FFRoute(
+              name: 'admin_add_company_2',
+              path: 'adminAddCompany2',
+              asyncParams: {
+                'company': getDoc(['companies'], CompaniesRecord.serializer),
+              },
+              builder: (context, params) => AdminAddCompany2Widget(
+                company: params.getParam('company', ParamType.Document),
               ),
             ),
             FFRoute(
@@ -275,26 +277,45 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'admin_add_staff_1',
-              path: 'adminAddStaff1',
-              builder: (context, params) => AdminAddStaff1Widget(),
-            ),
-            FFRoute(
               name: 'admin_add_staff_2',
               path: 'adminAddStaff2',
+              asyncParams: {
+                'companyDocument': getDoc(['user', 'company_document'],
+                    CompanyDocumentRecord.serializer),
+              },
               builder: (context, params) => AdminAddStaff2Widget(
                 email: params.getParam('email', ParamType.String),
                 password: params.getParam('password', ParamType.String),
                 password2: params.getParam('password2', ParamType.String),
+                companyDocument:
+                    params.getParam('companyDocument', ParamType.Document),
               ),
             ),
             FFRoute(
               name: 'admin_add_staff_3',
               path: 'adminAddStaff3',
+              asyncParams: {
+                'companyDocument': getDoc(['user', 'company_document'],
+                    CompanyDocumentRecord.serializer),
+              },
               builder: (context, params) => AdminAddStaff3Widget(
                 email: params.getParam('email', ParamType.String),
                 password: params.getParam('password', ParamType.String),
                 password1: params.getParam('password1', ParamType.String),
+                companyDocument:
+                    params.getParam('companyDocument', ParamType.Document),
+              ),
+            ),
+            FFRoute(
+              name: 'admin_add_staff_1',
+              path: 'adminAddStaff1',
+              asyncParams: {
+                'companyDocument': getDoc(['user', 'company_document'],
+                    CompanyDocumentRecord.serializer),
+              },
+              builder: (context, params) => AdminAddStaff1Widget(
+                companyDocument:
+                    params.getParam('companyDocument', ParamType.Document),
               ),
             ),
             FFRoute(
@@ -375,11 +396,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'HomePageCopy',
-              path: 'homePageCopy',
-              builder: (context, params) => HomePageCopyWidget(),
-            ),
-            FFRoute(
               name: 'admin_notifications',
               path: 'adminNotifications',
               builder: (context, params) => AdminNotificationsWidget(),
@@ -388,6 +404,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'super_admin_cancelled_bookings',
               path: 'superAdminCancelledBookings',
               builder: (context, params) => SuperAdminCancelledBookingsWidget(),
+            ),
+            FFRoute(
+              name: 'super_admin_profile',
+              path: 'superAdminProfile',
+              builder: (context, params) => SuperAdminProfileWidget(),
+            ),
+            FFRoute(
+              name: 'manager_profile',
+              path: 'managerProfile',
+              builder: (context, params) => ManagerProfileWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),
@@ -547,7 +573,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.location);
-            return '/onboarding';
+            return '/adminSignInEmail';
           }
           return null;
         },
@@ -561,10 +587,10 @@ class FFRoute {
               : builder(context, ffParams);
           final child = appStateNotifier.loading
               ? Container(
-                  color: Colors.transparent,
+                  color: Colors.white,
                   child: Image.asset(
-                    'assets/images/Splash.png',
-                    fit: BoxFit.cover,
+                    'assets/images/Group_668.png',
+                    fit: BoxFit.none,
                   ),
                 )
               : PushNotificationsHandler(child: page);

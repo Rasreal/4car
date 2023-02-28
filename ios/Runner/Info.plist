@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>ForCar Main</string>
+	<string>Forcar</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -13,7 +13,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>ForCar Main</string>
+	<string>Forcar</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 
@@ -28,7 +28,7 @@
             <string>Editor</string>
             <key>CFBundleURLSchemes</key>
             <array>
-                <string>com.googleusercontent.apps.539047140274-mm7b03upakbviil53dnn0a0vhq15o3km</string>
+                <string>com.googleusercontent.apps.539047140274-9ln3g92k3cbir6mj4sc8cov31djbn8pe</string>
                 
             </array>
         </dict>
@@ -37,10 +37,10 @@
         <key>CFBundleTypeRole</key>
         <string>Editor</string>
         <key>CFBundleURLName</key>
-        <string>forcarmain.com</string>
+        <string>forcar.com</string>
         <key>CFBundleURLSchemes</key>
         <array>
-        <string>forcarmain</string>
+        <string>forcar</string>
         </array>
         </dict>
     </array>

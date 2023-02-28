@@ -66,6 +66,8 @@ abstract class UserRecord implements Built<UserRecord, UserRecordBuilder> {
   @BuiltValueField(wireName: 'admin_status')
   String? get adminStatus;
 
+  DocumentReference? get createdByAdminCompanyRef;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -130,6 +132,7 @@ Map<String, dynamic> createUserRecordData({
   String? firstCarBody,
   String? firstCarName,
   String? adminStatus,
+  DocumentReference? createdByAdminCompanyRef,
 }) {
   final firestoreData = serializers.toFirestore(
     UserRecord.serializer,
@@ -157,7 +160,8 @@ Map<String, dynamic> createUserRecordData({
         ..bookingCompanies = null
         ..firstCarBody = firstCarBody
         ..firstCarName = firstCarName
-        ..adminStatus = adminStatus,
+        ..adminStatus = adminStatus
+        ..createdByAdminCompanyRef = createdByAdminCompanyRef,
     ),
   );
 

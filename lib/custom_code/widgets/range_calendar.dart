@@ -1,9 +1,10 @@
 // Automatic FlutterFlow imports
-import '../../backend/backend.dart';
-import '../../flutter_flow/flutter_flow_theme.dart';
-import '../../flutter_flow/flutter_flow_util.dart';
+import '/backend/backend.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 import 'index.dart'; // Imports other custom widgets
-import '../../flutter_flow/custom_functions.dart'; // Imports custom functions
+import '/custom_code/actions/index.dart'; // Imports custom actions
+import '/flutter_flow/custom_functions.dart'; // Imports custom functions
 import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
@@ -61,6 +62,8 @@ class _RangeCalendarState extends State<RangeCalendar> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: widget.width,
+      height: widget.height,
       child: _buildDefaultRangeDatePickerWithValue(),
     );
   }
@@ -87,8 +90,31 @@ class _RangeCalendarState extends State<RangeCalendar> {
         CalendarDatePicker2(
           config: config,
           initialValue: _rangeDatePickerValueWithDefaultValue,
-          onValueChanged: (values) =>
-              setState(() => _rangeDatePickerValueWithDefaultValue = values),
+          onValueChanged: (values) {
+            setState(() => _rangeDatePickerValueWithDefaultValue = values);
+            DateTime a = _rangeDatePickerValueWithDefaultValue[0]!;
+            DateTime bbb = _rangeDatePickerValueWithDefaultValue[1]!;
+            if (_rangeDatePickerValueWithDefaultValue[1] == null &&
+                _rangeDatePickerValueWithDefaultValue[0] != null) {
+              if (a.isBefore(DateTime.now())) {
+                FFAppState().WEBFilterStartDate = a;
+                FFAppState().WEBFilterEndDate = DateTime.now();
+              } else {
+                FFAppState().WEBFilterStartDate = DateTime.now();
+                ;
+                FFAppState().WEBFilterEndDate = a;
+              }
+            }
+            if (a.isAfter(bbb) &&
+                (_rangeDatePickerValueWithDefaultValue[1] != null &&
+                    _rangeDatePickerValueWithDefaultValue[0] != null)) {
+              FFAppState().WEBFilterEndDate = a;
+              FFAppState().WEBFilterStartDate = bbb;
+            } else {
+              FFAppState().WEBFilterEndDate = bbb;
+              FFAppState().WEBFilterStartDate = a;
+            }
+          },
         ),
         const SizedBox(height: 10),
         Row(

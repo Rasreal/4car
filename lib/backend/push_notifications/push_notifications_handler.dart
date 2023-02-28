@@ -78,10 +78,10 @@ class _PushNotificationsHandlerState extends State<PushNotificationsHandler> {
   @override
   Widget build(BuildContext context) => _loading
       ? Container(
-          color: Colors.transparent,
+          color: Colors.white,
           child: Image.asset(
-            'assets/images/Splash.png',
-            fit: BoxFit.cover,
+            'assets/images/Group_668.png',
+            fit: BoxFit.none,
           ),
         )
       : widget.child;
@@ -112,7 +112,11 @@ final parametersBuilderMap =
   'Sign_in': ParameterData.none(),
   'HomePage': ParameterData.none(),
   'Sign_Up': ParameterData.none(),
-  'code': ParameterData.none(),
+  'code': (data) async => ParameterData(
+        allParams: {
+          'phone': getParameter<String>(data, 'phone'),
+        },
+      ),
   'sign_up_code': ParameterData.none(),
   'Sign_Up_2': ParameterData.none(),
   'booking_page': (data) async => ParameterData(
@@ -121,8 +125,8 @@ final parametersBuilderMap =
               data, 'company', CompaniesRecord.serializer),
         },
       ),
-  'My_notes': ParameterData.none(),
   'Terms_of_Use': ParameterData.none(),
+  'My_notes': ParameterData.none(),
   'current_booking_record': (data) async => ParameterData(
         allParams: {
           'booking': getParameter<DocumentReference>(data, 'booking'),
@@ -140,21 +144,23 @@ final parametersBuilderMap =
   'admin_sign_in_email': ParameterData.none(),
   'admin_sign_up_email': ParameterData.none(),
   'admin_forget_password': ParameterData.none(),
-  'admin_forget_password_2': ParameterData.none(),
+  'admin_forget_password_2': (data) async => ParameterData(
+        allParams: {
+          'email': getParameter<String>(data, 'email'),
+        },
+      ),
   'admin_main': ParameterData.none(),
   'admin_reports': ParameterData.none(),
+  'admin_office': (data) async => ParameterData(
+        allParams: {
+          'success': getParameter<bool>(data, 'success'),
+        },
+      ),
   'admin_clients': ParameterData.none(),
-  'admin_office': ParameterData.none(),
   'admin_analytics': ParameterData.none(),
   'admin_add_company_1': (data) async => ParameterData(
         allParams: {
           'company': getParameter<DocumentReference>(data, 'company'),
-        },
-      ),
-  'admin_add_company_2': (data) async => ParameterData(
-        allParams: {
-          'company': await getDocumentParameter<CompaniesRecord>(
-              data, 'company', CompaniesRecord.serializer),
         },
       ),
   'admin_add_company_3': (data) async => ParameterData(
@@ -162,6 +168,12 @@ final parametersBuilderMap =
           'docCompany': await getDocumentParameter<CompaniesRecord>(
               data, 'docCompany', CompaniesRecord.serializer),
           'company': getParameter<DocumentReference>(data, 'company'),
+        },
+      ),
+  'admin_add_company_2': (data) async => ParameterData(
+        allParams: {
+          'company': await getDocumentParameter<CompaniesRecord>(
+              data, 'company', CompaniesRecord.serializer),
         },
       ),
   'admin_add_company_4': (data) async => ParameterData(
@@ -178,12 +190,13 @@ final parametersBuilderMap =
               data, 'companyDoc', CompaniesRecord.serializer),
         },
       ),
-  'admin_add_staff_1': ParameterData.none(),
   'admin_add_staff_2': (data) async => ParameterData(
         allParams: {
           'email': getParameter<String>(data, 'email'),
           'password': getParameter<String>(data, 'password'),
           'password2': getParameter<String>(data, 'password2'),
+          'companyDocument': await getDocumentParameter<CompanyDocumentRecord>(
+              data, 'companyDocument', CompanyDocumentRecord.serializer),
         },
       ),
   'admin_add_staff_3': (data) async => ParameterData(
@@ -191,6 +204,14 @@ final parametersBuilderMap =
           'email': getParameter<String>(data, 'email'),
           'password': getParameter<String>(data, 'password'),
           'password1': getParameter<String>(data, 'password1'),
+          'companyDocument': await getDocumentParameter<CompanyDocumentRecord>(
+              data, 'companyDocument', CompanyDocumentRecord.serializer),
+        },
+      ),
+  'admin_add_staff_1': (data) async => ParameterData(
+        allParams: {
+          'companyDocument': await getDocumentParameter<CompanyDocumentRecord>(
+              data, 'companyDocument', CompanyDocumentRecord.serializer),
         },
       ),
   'super_admin_main': ParameterData.none(),
@@ -231,9 +252,10 @@ final parametersBuilderMap =
               data, 'company', CompaniesRecord.serializer),
         },
       ),
-  'HomePageCopy': ParameterData.none(),
   'admin_notifications': ParameterData.none(),
   'super_admin_cancelled_bookings': ParameterData.none(),
+  'super_admin_profile': ParameterData.none(),
+  'manager_profile': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

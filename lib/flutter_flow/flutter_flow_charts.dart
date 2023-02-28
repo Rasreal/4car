@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 export 'package:fl_chart/fl_chart.dart'
-    show BarAreaData, FlDotData, LineChartBarData;
+    show BarAreaData, FlDotData, LineChartBarData, BarChartAlignment;
 
 final _format = (NumberFormat()..significantDigits = 2);
 

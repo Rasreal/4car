@@ -94,6 +94,13 @@ class _$CommentsRecordSerializer
         ..add(
             serializers.serialize(value, specifiedType: const FullType(bool)));
     }
+    value = object.obrobotanFilter;
+    if (value != null) {
+      result
+        ..add('obrobotanFilter')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -163,6 +170,10 @@ class _$CommentsRecordSerializer
           result.obtobotan = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool?;
           break;
+        case 'obrobotanFilter':
+          result.obrobotanFilter = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -198,6 +209,8 @@ class _$CommentsRecord extends CommentsRecord {
   @override
   final bool? obtobotan;
   @override
+  final String? obrobotanFilter;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$CommentsRecord([void Function(CommentsRecordBuilder)? updates]) =>
@@ -214,6 +227,7 @@ class _$CommentsRecord extends CommentsRecord {
       this.bookedComment,
       this.bookingDoc,
       this.obtobotan,
+      this.obrobotanFilter,
       this.ffRef})
       : super._();
 
@@ -239,6 +253,7 @@ class _$CommentsRecord extends CommentsRecord {
         bookedComment == other.bookedComment &&
         bookingDoc == other.bookingDoc &&
         obtobotan == other.obtobotan &&
+        obrobotanFilter == other.obrobotanFilter &&
         ffRef == other.ffRef;
   }
 
@@ -253,16 +268,18 @@ class _$CommentsRecord extends CommentsRecord {
                             $jc(
                                 $jc(
                                     $jc(
-                                        $jc($jc(0, comment.hashCode),
-                                            createdBy.hashCode),
-                                        createdAt.hashCode),
-                                    company.hashCode),
-                                rating.hashCode),
-                            booleanResponse.hashCode),
-                        responseComment.hashCode),
-                    bookedComment.hashCode),
-                bookingDoc.hashCode),
-            obtobotan.hashCode),
+                                        $jc(
+                                            $jc($jc(0, comment.hashCode),
+                                                createdBy.hashCode),
+                                            createdAt.hashCode),
+                                        company.hashCode),
+                                    rating.hashCode),
+                                booleanResponse.hashCode),
+                            responseComment.hashCode),
+                        bookedComment.hashCode),
+                    bookingDoc.hashCode),
+                obtobotan.hashCode),
+            obrobotanFilter.hashCode),
         ffRef.hashCode));
   }
 
@@ -279,6 +296,7 @@ class _$CommentsRecord extends CommentsRecord {
           ..add('bookedComment', bookedComment)
           ..add('bookingDoc', bookingDoc)
           ..add('obtobotan', obtobotan)
+          ..add('obrobotanFilter', obrobotanFilter)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -333,6 +351,11 @@ class CommentsRecordBuilder
   bool? get obtobotan => _$this._obtobotan;
   set obtobotan(bool? obtobotan) => _$this._obtobotan = obtobotan;
 
+  String? _obrobotanFilter;
+  String? get obrobotanFilter => _$this._obrobotanFilter;
+  set obrobotanFilter(String? obrobotanFilter) =>
+      _$this._obrobotanFilter = obrobotanFilter;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -354,6 +377,7 @@ class CommentsRecordBuilder
       _bookedComment = $v.bookedComment;
       _bookingDoc = $v.bookingDoc;
       _obtobotan = $v.obtobotan;
+      _obrobotanFilter = $v.obrobotanFilter;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -387,6 +411,7 @@ class CommentsRecordBuilder
             bookedComment: bookedComment,
             bookingDoc: bookingDoc,
             obtobotan: obtobotan,
+            obrobotanFilter: obrobotanFilter,
             ffRef: ffRef);
     replace(_$result);
     return _$result;

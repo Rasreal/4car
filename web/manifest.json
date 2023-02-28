@@ -1,6 +1,6 @@
 {
-    "name": "ForCar Main",
-    "short_name": "ForCar Main",
+    "name": "Forcar",
+    "short_name": "Forcar",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

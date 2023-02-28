@@ -31,10 +31,11 @@
               "client_type": 3
             },
             {
-              "client_id": "539047140274-mm7b03upakbviil53dnn0a0vhq15o3km.apps.googleusercontent.com",
+              "client_id": "539047140274-9ln3g92k3cbir6mj4sc8cov31djbn8pe.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.wlff.forcarmain"
+                "bundle_id": "com.wlff.forcarmain",
+                "app_store_id": "1669022898"
               }
             }
           ]

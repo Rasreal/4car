@@ -382,6 +382,90 @@ class FFAppState extends ChangeNotifier {
   set adminNotificationLink(DocumentReference? _value) {
     _adminNotificationLink = _value;
   }
+
+  String _webFilterDayName = '';
+  String get webFilterDayName => _webFilterDayName;
+  set webFilterDayName(String _value) {
+    _webFilterDayName = _value;
+  }
+
+  DateTime? _WEBFilterStartDate;
+  DateTime? get WEBFilterStartDate => _WEBFilterStartDate;
+  set WEBFilterStartDate(DateTime? _value) {
+    _WEBFilterStartDate = _value;
+  }
+
+  DateTime? _WEBFilterEndDate;
+  DateTime? get WEBFilterEndDate => _WEBFilterEndDate;
+  set WEBFilterEndDate(DateTime? _value) {
+    _WEBFilterEndDate = _value;
+  }
+
+  String _WEBFilterSelectedDayName = '';
+  String get WEBFilterSelectedDayName => _WEBFilterSelectedDayName;
+  set WEBFilterSelectedDayName(String _value) {
+    _WEBFilterSelectedDayName = _value;
+  }
+
+  String _WEBFilterCarBody = '';
+  String get WEBFilterCarBody => _WEBFilterCarBody;
+  set WEBFilterCarBody(String _value) {
+    _WEBFilterCarBody = _value;
+  }
+
+  String _WEBFilterReviewStatus = '';
+  String get WEBFilterReviewStatus => _WEBFilterReviewStatus;
+  set WEBFilterReviewStatus(String _value) {
+    _WEBFilterReviewStatus = _value;
+  }
+
+  DocumentReference? _WEBfilterSelectCity;
+  DocumentReference? get WEBfilterSelectCity => _WEBfilterSelectCity;
+  set WEBfilterSelectCity(DocumentReference? _value) {
+    _WEBfilterSelectCity = _value;
+  }
+
+  String _WEBFilterCompanyStatus = '';
+  String get WEBFilterCompanyStatus => _WEBFilterCompanyStatus;
+  set WEBFilterCompanyStatus(String _value) {
+    _WEBFilterCompanyStatus = _value;
+  }
+
+  String _PrevWEBFilterDateName = '';
+  String get PrevWEBFilterDateName => _PrevWEBFilterDateName;
+  set PrevWEBFilterDateName(String _value) {
+    _PrevWEBFilterDateName = _value;
+  }
+
+  List<String> _webListNames = [];
+  List<String> get webListNames => _webListNames;
+  set webListNames(List<String> _value) {
+    _webListNames = _value;
+  }
+
+  void addToWebListNames(String _value) {
+    _webListNames.add(_value);
+  }
+
+  void removeFromWebListNames(String _value) {
+    _webListNames.remove(_value);
+  }
+
+  void removeAtIndexFromWebListNames(int _index) {
+    _webListNames.removeAt(_index);
+  }
+
+  bool _adminCreateStaff = false;
+  bool get adminCreateStaff => _adminCreateStaff;
+  set adminCreateStaff(bool _value) {
+    _adminCreateStaff = _value;
+  }
+
+  DocumentReference? _addStuffuserRef;
+  DocumentReference? get addStuffuserRef => _addStuffuserRef;
+  set addStuffuserRef(DocumentReference? _value) {
+    _addStuffuserRef = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {

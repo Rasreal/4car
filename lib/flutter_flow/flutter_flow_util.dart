@@ -36,6 +36,7 @@ T valueOrDefault<T>(T? value, T defaultValue) =>
 
 void _setTimeagoLocales() {
   timeago.setLocaleMessages('ru', timeago.RuMessages());
+  timeago.setLocaleMessages('ru_short', timeago.RuShortMessages());
 }
 
 String dateTimeFormat(String format, DateTime? dateTime, {String? locale}) {
