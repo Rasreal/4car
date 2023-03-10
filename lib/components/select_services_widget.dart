@@ -1,4 +1,5 @@
 import '../backend/backend.dart';
+import '../components/empty_services_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -7,6 +8,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+
 
 class SelectServicesWidget extends StatefulWidget {
   const SelectServicesWidget({
@@ -23,11 +25,23 @@ class SelectServicesWidget extends StatefulWidget {
 }
 
 class _SelectServicesWidgetState extends State<SelectServicesWidget> {
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+  }
+
   @override
   void initState() {
     super.initState();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+  }
+
+  @override
+  void dispose() {
+
+    super.dispose();
   }
 
   @override
@@ -71,13 +85,13 @@ class _SelectServicesWidgetState extends State<SelectServicesWidget> {
                 child: Text(
                   'Выберете услугу',
                   style: FlutterFlowTheme.of(context).bodyText1.override(
-                        fontFamily:
-                            FlutterFlowTheme.of(context).bodyText1Family,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                        useGoogleFonts: GoogleFonts.asMap().containsKey(
-                            FlutterFlowTheme.of(context).bodyText1Family),
-                      ),
+                    fontFamily:
+                    FlutterFlowTheme.of(context).bodyText1Family,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                    useGoogleFonts: GoogleFonts.asMap().containsKey(
+                        FlutterFlowTheme.of(context).bodyText1Family),
+                  ),
                 ),
               ),
               FutureBuilder<List<CompanyServicesRecord>>(
@@ -100,7 +114,10 @@ class _SelectServicesWidgetState extends State<SelectServicesWidget> {
                     );
                   }
                   List<CompanyServicesRecord>
-                      listViewCompanyServicesRecordList = snapshot.data!;
+                  listViewCompanyServicesRecordList = snapshot.data!;
+                  if (listViewCompanyServicesRecordList.isEmpty) {
+                    return EmptyServicesWidget();
+                  }
                   return ListView.builder(
                     padding: EdgeInsets.zero,
                     shrinkWrap: true,
@@ -108,7 +125,7 @@ class _SelectServicesWidgetState extends State<SelectServicesWidget> {
                     itemCount: listViewCompanyServicesRecordList.length,
                     itemBuilder: (context, listViewIndex) {
                       final listViewCompanyServicesRecord =
-                          listViewCompanyServicesRecordList[listViewIndex];
+                      listViewCompanyServicesRecordList[listViewIndex];
                       return Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
                         child: Column(
@@ -116,7 +133,7 @@ class _SelectServicesWidgetState extends State<SelectServicesWidget> {
                           children: [
                             Padding(
                               padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                              EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
                               child: InkWell(
                                 onTap: () async {
                                   if (FFAppState().selectedServices.contains(
@@ -131,8 +148,8 @@ class _SelectServicesWidgetState extends State<SelectServicesWidget> {
                                           listViewCompanyServicesRecord.price);
                                       FFAppState()
                                           .removeFromBookingSelectedServicesName(
-                                              listViewCompanyServicesRecord
-                                                  .name!);
+                                          listViewCompanyServicesRecord
+                                              .name!);
                                     });
                                   } else {
                                     FFAppState().update(() {
@@ -144,8 +161,8 @@ class _SelectServicesWidgetState extends State<SelectServicesWidget> {
                                           listViewCompanyServicesRecord.price);
                                       FFAppState()
                                           .addToBookingSelectedServicesName(
-                                              listViewCompanyServicesRecord
-                                                  .name!);
+                                          listViewCompanyServicesRecord
+                                              .name!);
                                     });
                                   }
                                 },
@@ -162,7 +179,7 @@ class _SelectServicesWidgetState extends State<SelectServicesWidget> {
                                           color: FlutterFlowTheme.of(context)
                                               .primaryColor,
                                           borderRadius:
-                                              BorderRadius.circular(4),
+                                          BorderRadius.circular(4),
                                           shape: BoxShape.rectangle,
                                         ),
                                         child: Align(
@@ -182,7 +199,7 @@ class _SelectServicesWidgetState extends State<SelectServicesWidget> {
                                         height: 20,
                                         decoration: BoxDecoration(
                                           borderRadius:
-                                              BorderRadius.circular(4),
+                                          BorderRadius.circular(4),
                                           shape: BoxShape.rectangle,
                                           border: Border.all(
                                             color: FlutterFlowTheme.of(context)
@@ -205,21 +222,21 @@ class _SelectServicesWidgetState extends State<SelectServicesWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0, 4, 0, 0),
                                       child: Text(
-                                        '${listViewCompanyServicesRecord.price?.toInt().toString()} тг',
+                                        '${listViewCompanyServicesRecord.price?.toString()} тг',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyText1
                                             .override(
-                                              fontFamily:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyText1Family,
-                                              fontWeight: FontWeight.w500,
-                                              useGoogleFonts:
-                                                  GoogleFonts.asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyText1Family),
-                                            ),
+                                          fontFamily:
+                                          FlutterFlowTheme.of(context)
+                                              .bodyText1Family,
+                                          fontWeight: FontWeight.w500,
+                                          useGoogleFonts:
+                                          GoogleFonts.asMap()
+                                              .containsKey(
+                                              FlutterFlowTheme.of(
+                                                  context)
+                                                  .bodyText1Family),
+                                        ),
                                       ),
                                     ),
                                   ],
@@ -249,13 +266,13 @@ class _SelectServicesWidgetState extends State<SelectServicesWidget> {
                     height: 48,
                     color: FlutterFlowTheme.of(context).primaryColor,
                     textStyle: FlutterFlowTheme.of(context).subtitle2.override(
-                          fontFamily:
-                              FlutterFlowTheme.of(context).subtitle2Family,
-                          color: Colors.white,
-                          fontSize: 16,
-                          useGoogleFonts: GoogleFonts.asMap().containsKey(
-                              FlutterFlowTheme.of(context).subtitle2Family),
-                        ),
+                      fontFamily:
+                      FlutterFlowTheme.of(context).subtitle2Family,
+                      color: Colors.white,
+                      fontSize: 16,
+                      useGoogleFonts: GoogleFonts.asMap().containsKey(
+                          FlutterFlowTheme.of(context).subtitle2Family),
+                    ),
                     borderSide: BorderSide(
                       color: Colors.transparent,
                       width: 1,

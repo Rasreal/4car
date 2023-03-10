@@ -114,6 +114,7 @@ dependencies:
   flutter_keyboard_visibility: ^5.4.0
   latlong2: ^0.8.1
   flutter_html: ^2.2.1
+  map_launcher: ^2.5.0+1
   #map_launcher: ^2.2.3
 
 dependency_overrides:

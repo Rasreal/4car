@@ -12,6 +12,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
+
 class SucsessBookingReviewWidget extends StatefulWidget {
   const SucsessBookingReviewWidget({
     Key? key,
@@ -27,20 +28,37 @@ class SucsessBookingReviewWidget extends StatefulWidget {
 
 class _SucsessBookingReviewWidgetState
     extends State<SucsessBookingReviewWidget> {
-  TextEditingController? textController;
-  double? ratingBarValue2;
+
   final formKey = GlobalKey<FormState>();
+  // State field(s) for RatingBar widget.
+  double? ratingBarValue2;
+  // State field(s) for TextField widget.
+  TextEditingController? textController;
+  String? Function(BuildContext, String?)? textControllerValidator;
+  String? _textControllerValidator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Заполните форму';
+    }
+
+    return null;
+  }
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+  }
 
   @override
   void initState() {
     super.initState();
-    textController = TextEditingController();
+
+    textController ??= TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
-    textController?.dispose();
+
     super.dispose();
   }
 
@@ -106,7 +124,7 @@ class _SucsessBookingReviewWidgetState
                           alignment: AlignmentDirectional(0, 0),
                           child: Padding(
                             padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 4, 0, 16),
+                            EdgeInsetsDirectional.fromSTEB(0, 4, 0, 16),
                             child: Container(
                               width: 40,
                               height: 4,
@@ -124,14 +142,14 @@ class _SucsessBookingReviewWidgetState
                             style: FlutterFlowTheme.of(context)
                                 .bodyText1
                                 .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .bodyText1Family,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w500,
-                                  useGoogleFonts: GoogleFonts.asMap()
-                                      .containsKey(FlutterFlowTheme.of(context)
-                                          .bodyText1Family),
-                                ),
+                              fontFamily: FlutterFlowTheme.of(context)
+                                  .bodyText1Family,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w500,
+                              useGoogleFonts: GoogleFonts.asMap()
+                                  .containsKey(FlutterFlowTheme.of(context)
+                                  .bodyText1Family),
+                            ),
                           ),
                         ),
                         Divider(
@@ -152,10 +170,10 @@ class _SucsessBookingReviewWidgetState
                                     builder: (context) {
                                       return Padding(
                                         padding:
-                                            MediaQuery.of(context).viewInsets,
+                                        MediaQuery.of(context).viewInsets,
                                         child: CarWashCompanyWidget(
                                           currentCompanyLink:
-                                              columnCompaniesRecord.reference,
+                                          columnCompaniesRecord.reference,
                                         ),
                                       );
                                     },
@@ -189,7 +207,7 @@ class _SucsessBookingReviewWidgetState
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                           children: [
                                             Padding(
                                               padding: EdgeInsetsDirectional
@@ -199,30 +217,30 @@ class _SucsessBookingReviewWidgetState
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 4, 0),
+                                                    EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                        0, 0, 4, 0),
                                                     child: Text(
                                                       columnCompaniesRecord
                                                           .name!,
                                                       style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyText1
-                                                              .override(
-                                                                fontFamily: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyText1Family,
-                                                                fontSize: 16,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
-                                                              ),
+                                                      FlutterFlowTheme.of(
+                                                          context)
+                                                          .bodyText1
+                                                          .override(
+                                                        fontFamily: FlutterFlowTheme.of(
+                                                            context)
+                                                            .bodyText1Family,
+                                                        fontSize: 16,
+                                                        fontWeight:
+                                                        FontWeight
+                                                            .w500,
+                                                        useGoogleFonts: GoogleFonts
+                                                            .asMap()
+                                                            .containsKey(
+                                                            FlutterFlowTheme.of(context)
+                                                                .bodyText1Family),
+                                                      ),
                                                     ),
                                                   ),
                                                   Container(
@@ -230,20 +248,20 @@ class _SucsessBookingReviewWidgetState
                                                     height: 6,
                                                     decoration: BoxDecoration(
                                                       color:
-                                                          valueOrDefault<Color>(
+                                                      valueOrDefault<Color>(
                                                         functions.closedOpened(
-                                                                    getCurrentTimestamp,
-                                                                    columnCompaniesRecord
-                                                                        .openTimeOrder!,
-                                                                    columnCompaniesRecord
-                                                                        .closedTimeOrder!) ==
-                                                                true
+                                                            getCurrentTimestamp,
+                                                            columnCompaniesRecord
+                                                                .openTimeOrder!,
+                                                            columnCompaniesRecord
+                                                                .closedTimeOrder!) ==
+                                                            true
                                                             ? FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryColor
+                                                            .of(context)
+                                                            .primaryColor
                                                             : FlutterFlowTheme
-                                                                    .of(context)
-                                                                .red1,
+                                                            .of(context)
+                                                            .red1,
                                                         Colors.white,
                                                       ),
                                                       shape: BoxShape.circle,
@@ -258,11 +276,11 @@ class _SucsessBookingReviewWidgetState
                                               child: RatingBarIndicator(
                                                 itemBuilder: (context, index) =>
                                                     Icon(
-                                                  Icons.star_rounded,
-                                                  color: FlutterFlowTheme.of(
+                                                      Icons.star_rounded,
+                                                      color: FlutterFlowTheme.of(
                                                           context)
-                                                      .primaryColor,
-                                                ),
+                                                          .primaryColor,
+                                                    ),
                                                 direction: Axis.horizontal,
                                                 rating: valueOrDefault<double>(
                                                   functions.averageRating(
@@ -291,7 +309,7 @@ class _SucsessBookingReviewWidgetState
                               ),
                               Padding(
                                 padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                                EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -305,23 +323,23 @@ class _SucsessBookingReviewWidgetState
                                               Text(
                                                 'Длительность:',
                                                 style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyText1
-                                                        .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyText1Family,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .gray2,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyText1Family),
-                                                        ),
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyText1
+                                                    .override(
+                                                  fontFamily:
+                                                  FlutterFlowTheme.of(
+                                                      context)
+                                                      .bodyText1Family,
+                                                  color: FlutterFlowTheme
+                                                      .of(context)
+                                                      .gray2,
+                                                  useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                      .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                          context)
+                                                          .bodyText1Family),
+                                                ),
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
@@ -332,22 +350,22 @@ class _SucsessBookingReviewWidgetState
                                                     '0 мин',
                                                   ),
                                                   style: FlutterFlowTheme.of(
-                                                          context)
+                                                      context)
                                                       .bodyText1
                                                       .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyText1Family,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyText1Family),
-                                                      ),
+                                                    fontFamily:
+                                                    FlutterFlowTheme.of(
+                                                        context)
+                                                        .bodyText1Family,
+                                                    fontWeight:
+                                                    FontWeight.w500,
+                                                    useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                        .containsKey(
+                                                        FlutterFlowTheme.of(
+                                                            context)
+                                                            .bodyText1Family),
+                                                  ),
                                                 ),
                                               ),
                                             ],
@@ -365,23 +383,23 @@ class _SucsessBookingReviewWidgetState
                                               Text(
                                                 'Стоимость:',
                                                 style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyText1
-                                                        .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyText1Family,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .gray2,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyText1Family),
-                                                        ),
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyText1
+                                                    .override(
+                                                  fontFamily:
+                                                  FlutterFlowTheme.of(
+                                                      context)
+                                                      .bodyText1Family,
+                                                  color: FlutterFlowTheme
+                                                      .of(context)
+                                                      .gray2,
+                                                  useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                      .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                          context)
+                                                          .bodyText1Family),
+                                                ),
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
@@ -392,22 +410,22 @@ class _SucsessBookingReviewWidgetState
                                                     '0 ₸',
                                                   ),
                                                   style: FlutterFlowTheme.of(
-                                                          context)
+                                                      context)
                                                       .bodyText1
                                                       .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyText1Family,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyText1Family),
-                                                      ),
+                                                    fontFamily:
+                                                    FlutterFlowTheme.of(
+                                                        context)
+                                                        .bodyText1Family,
+                                                    fontWeight:
+                                                    FontWeight.w500,
+                                                    useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                        .containsKey(
+                                                        FlutterFlowTheme.of(
+                                                            context)
+                                                            .bodyText1Family),
+                                                  ),
                                                 ),
                                               ),
                                             ],
@@ -430,23 +448,23 @@ class _SucsessBookingReviewWidgetState
                           alignment: AlignmentDirectional(0, 0),
                           child: Padding(
                             padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 20, 0, 16),
+                            EdgeInsetsDirectional.fromSTEB(0, 20, 0, 16),
                             child: RatingBar.builder(
-                              onRatingUpdate: (newValue) =>
-                                  setState(() => ratingBarValue2 = newValue),
+                              onRatingUpdate: (newValue) => setState(
+                                      () => ratingBarValue2 = newValue),
                               itemBuilder: (context, index) => Icon(
                                 FFIcons.kicSmallStar14x14,
                                 color:
-                                    FlutterFlowTheme.of(context).primaryColor,
+                                FlutterFlowTheme.of(context).primaryColor,
                               ),
                               direction: Axis.horizontal,
                               initialRating: ratingBarValue2 ??= 0,
                               unratedColor:
-                                  FlutterFlowTheme.of(context).starblue,
+                              FlutterFlowTheme.of(context).starblue,
                               itemCount: 5,
                               itemSize: 30,
                               glowColor:
-                                  FlutterFlowTheme.of(context).primaryColor,
+                              FlutterFlowTheme.of(context).primaryColor,
                             ),
                           ),
                         ),
@@ -461,13 +479,13 @@ class _SucsessBookingReviewWidgetState
                             style: FlutterFlowTheme.of(context)
                                 .bodyText1
                                 .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .bodyText1Family,
-                                  fontWeight: FontWeight.w500,
-                                  useGoogleFonts: GoogleFonts.asMap()
-                                      .containsKey(FlutterFlowTheme.of(context)
-                                          .bodyText1Family),
-                                ),
+                              fontFamily: FlutterFlowTheme.of(context)
+                                  .bodyText1Family,
+                              fontWeight: FontWeight.w500,
+                              useGoogleFonts: GoogleFonts.asMap()
+                                  .containsKey(FlutterFlowTheme.of(context)
+                                  .bodyText1Family),
+                            ),
                           ),
                         ),
                         Form(
@@ -480,13 +498,13 @@ class _SucsessBookingReviewWidgetState
                               onChanged: (_) => EasyDebounce.debounce(
                                 'textController',
                                 Duration(milliseconds: 200),
-                                () => setState(() {}),
+                                    () => setState(() {}),
                               ),
                               obscureText: false,
                               decoration: InputDecoration(
                                 hintText: 'Написать...',
                                 hintStyle:
-                                    FlutterFlowTheme.of(context).bodyText2,
+                                FlutterFlowTheme.of(context).bodyText2,
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).gray2,
@@ -496,7 +514,8 @@ class _SucsessBookingReviewWidgetState
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
-                                    color: FlutterFlowTheme.of(context).gray2,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryColor,
                                     width: 1,
                                   ),
                                   borderRadius: BorderRadius.circular(8),
@@ -519,13 +538,7 @@ class _SucsessBookingReviewWidgetState
                               style: FlutterFlowTheme.of(context).bodyText1,
                               maxLines: 3,
                               keyboardType: TextInputType.multiline,
-                              validator: (val) {
-                                if (val == null || val.isEmpty) {
-                                  return 'Заполните форму';
-                                }
 
-                                return null;
-                              },
                             ),
                           ),
                         ),
@@ -540,7 +553,7 @@ class _SucsessBookingReviewWidgetState
                                 }
 
                                 final commentsCreateData =
-                                    createCommentsRecordData(
+                                createCommentsRecordData(
                                   comment: textController!.text,
                                   createdBy: currentUserReference,
                                   createdAt: getCurrentTimestamp,
@@ -548,9 +561,10 @@ class _SucsessBookingReviewWidgetState
                                   rating: ratingBarValue2,
                                   bookedComment: true,
                                   bookingDoc: widget.booking,
+                                  obrobotanFilter: 'Не обработан',
                                 );
                                 await CommentsRecord.createDoc(
-                                        columnCompaniesRecord.reference)
+                                    columnCompaniesRecord.reference)
                                     .set(commentsCreateData);
 
                                 final userUpdateData = createUserRecordData(
@@ -560,8 +574,8 @@ class _SucsessBookingReviewWidgetState
                                     .update(userUpdateData);
 
                                 final companiesUpdateData = {
-                                  'rating':
-                                      FieldValue.arrayUnion([ratingBarValue2]),
+                                  'rating': FieldValue.arrayUnion(
+                                      [ratingBarValue2]),
                                 };
                                 await columnCompaniesRecord.reference
                                     .update(companiesUpdateData);
@@ -578,8 +592,8 @@ class _SucsessBookingReviewWidgetState
                                     ),
                                     duration: Duration(milliseconds: 4000),
                                     backgroundColor:
-                                        FlutterFlowTheme.of(context)
-                                            .primaryColor,
+                                    FlutterFlowTheme.of(context)
+                                        .primaryColor,
                                   ),
                                 );
                               }
@@ -590,8 +604,8 @@ class _SucsessBookingReviewWidgetState
                               height: 48,
                               color: valueOrDefault<Color>(
                                 (textController!.text != null &&
-                                            textController!.text != '') &&
-                                        (ratingBarValue2! >= 1.0)
+                                    textController!.text != '') &&
+                                    (ratingBarValue2! >= 1.0)
                                     ? FlutterFlowTheme.of(context).primaryColor
                                     : FlutterFlowTheme.of(context).starblue,
                                 FlutterFlowTheme.of(context).starblue,
@@ -599,15 +613,15 @@ class _SucsessBookingReviewWidgetState
                               textStyle: FlutterFlowTheme.of(context)
                                   .subtitle2
                                   .override(
-                                    fontFamily: FlutterFlowTheme.of(context)
-                                        .subtitle2Family,
-                                    color: Colors.white,
-                                    fontSize: 16,
-                                    useGoogleFonts: GoogleFonts.asMap()
-                                        .containsKey(
-                                            FlutterFlowTheme.of(context)
-                                                .subtitle2Family),
-                                  ),
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .subtitle2Family,
+                                color: Colors.white,
+                                fontSize: 16,
+                                useGoogleFonts: GoogleFonts.asMap()
+                                    .containsKey(
+                                    FlutterFlowTheme.of(context)
+                                        .subtitle2Family),
+                              ),
                               elevation: 0,
                               borderSide: BorderSide(
                                 color: Colors.transparent,

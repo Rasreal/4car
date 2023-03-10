@@ -1,3 +1,7 @@
+//import 'package:firebase_auth/firebase_auth.dart';
+
+import 'package:firebase_auth/firebase_auth.dart';
+
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -2184,6 +2188,39 @@ class _AdminAddStaff3WidgetState extends State<AdminAddStaff3Widget> {
                           ),
                           FFButtonWidget(
                             onPressed: () async {
+                              try {
+
+                                UserCredential result = await FirebaseAuth.instance.createUserWithEmailAndPassword(email: _email, password: _password);
+                                User user = result.user!;
+
+                                await FirebaseFirestore.instance.collection('users')
+                                    .doc(user.uid).set({ 'firstName': "q"});
+
+                                DocumentReference? returnCode;
+                                try {
+                                  returnCode = FirebaseFirestore.instance
+                                      .collection('users')
+                                      .doc(user.uid);
+
+                                  return returnCode;
+                                }
+                                catch (e) {
+                                  print("Error: ");
+                                  return null;
+                                }
+
+
+                                CollectionReference users =
+                                FirebaseFirestore.instance.collection('user');
+                                // Call the user's CollectionReference to add a new user
+                                await users.doc().set({
+                                  'full_name': fullName,
+                                  'age': age,
+                                });
+                                return 'success';
+                              } catch (e) {
+                                return 'Error adding user';
+                              }
                               if (formKey.currentState == null ||
                                   !formKey.currentState!.validate()) {
                                 return;
@@ -2220,6 +2257,7 @@ class _AdminAddStaff3WidgetState extends State<AdminAddStaff3Widget> {
                               await UserRecord.collection
                                   .doc(user.uid)
                                   .update(userCreateData);
+                              var b = user.uid;
 
                               context.goNamedAuth('HomePage', mounted);
                             },

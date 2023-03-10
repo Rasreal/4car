@@ -122,12 +122,7 @@ class _CompanyCardWidgetState extends State<CompanyCardWidget> {
                                             ),
                                       ),
                                     ),
-                                    if (responsiveVisibility(
-                                      context: context,
-                                      tablet: false,
-                                      tabletLandscape: false,
-                                      desktop: false,
-                                    ))
+
                                       Container(
                                         width: 6,
                                         height: 6,

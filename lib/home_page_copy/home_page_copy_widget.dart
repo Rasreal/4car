@@ -547,12 +547,7 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
             Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                if (responsiveVisibility(
-                  context: context,
-                  tablet: false,
-                  tabletLandscape: false,
-                  desktop: false,
-                ))
+
                   Expanded(
                     child: Container(
                       width: double.infinity,
@@ -1694,12 +1689,7 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                   ),
               ],
             ),
-            if (responsiveVisibility(
-              context: context,
-              phone: false,
-              tablet: false,
-              tabletLandscape: false,
-            ))
+
               Align(
                 alignment: AlignmentDirectional(0, 0),
                 child: FFButtonWidget(

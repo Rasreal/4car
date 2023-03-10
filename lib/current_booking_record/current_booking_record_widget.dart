@@ -690,12 +690,7 @@ class _CurrentBookingRecordWidgetState extends State<CurrentBookingRecordWidget>
                       ],
                     ),
                   ),
-                  if (responsiveVisibility(
-                    context: context,
-                    phone: false,
-                    tabletLandscape: false,
-                    desktop: false,
-                  ))
+
                     Container(
                       width: double.infinity,
                       height: double.infinity,

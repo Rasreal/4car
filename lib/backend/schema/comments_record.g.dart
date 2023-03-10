@@ -7,7 +7,7 @@ part of 'comments_record.dart';
 // **************************************************************************
 
 Serializer<CommentsRecord> _$commentsRecordSerializer =
-    new _$CommentsRecordSerializer();
+new _$CommentsRecordSerializer();
 
 class _$CommentsRecordSerializer
     implements StructuredSerializer<CommentsRecord> {
@@ -94,6 +94,13 @@ class _$CommentsRecordSerializer
         ..add(
             serializers.serialize(value, specifiedType: const FullType(bool)));
     }
+    value = object.obrobotanFilter;
+    if (value != null) {
+      result
+        ..add('obrobotanFilter')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -163,6 +170,10 @@ class _$CommentsRecordSerializer
           result.obtobotan = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool?;
           break;
+        case 'obrobotanFilter':
+          result.obrobotanFilter = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -198,6 +209,8 @@ class _$CommentsRecord extends CommentsRecord {
   @override
   final bool? obtobotan;
   @override
+  final String? obrobotanFilter;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$CommentsRecord([void Function(CommentsRecordBuilder)? updates]) =>
@@ -205,16 +218,17 @@ class _$CommentsRecord extends CommentsRecord {
 
   _$CommentsRecord._(
       {this.comment,
-      this.createdBy,
-      this.createdAt,
-      this.company,
-      this.rating,
-      this.booleanResponse,
-      this.responseComment,
-      this.bookedComment,
-      this.bookingDoc,
-      this.obtobotan,
-      this.ffRef})
+        this.createdBy,
+        this.createdAt,
+        this.company,
+        this.rating,
+        this.booleanResponse,
+        this.responseComment,
+        this.bookedComment,
+        this.bookingDoc,
+        this.obtobotan,
+        this.obrobotanFilter,
+        this.ffRef})
       : super._();
 
   @override
@@ -239,6 +253,7 @@ class _$CommentsRecord extends CommentsRecord {
         bookedComment == other.bookedComment &&
         bookingDoc == other.bookingDoc &&
         obtobotan == other.obtobotan &&
+        obrobotanFilter == other.obrobotanFilter &&
         ffRef == other.ffRef;
   }
 
@@ -253,33 +268,36 @@ class _$CommentsRecord extends CommentsRecord {
                             $jc(
                                 $jc(
                                     $jc(
-                                        $jc($jc(0, comment.hashCode),
-                                            createdBy.hashCode),
-                                        createdAt.hashCode),
-                                    company.hashCode),
-                                rating.hashCode),
-                            booleanResponse.hashCode),
-                        responseComment.hashCode),
-                    bookedComment.hashCode),
-                bookingDoc.hashCode),
-            obtobotan.hashCode),
+                                        $jc(
+                                            $jc($jc(0, comment.hashCode),
+                                                createdBy.hashCode),
+                                            createdAt.hashCode),
+                                        company.hashCode),
+                                    rating.hashCode),
+                                booleanResponse.hashCode),
+                            responseComment.hashCode),
+                        bookedComment.hashCode),
+                    bookingDoc.hashCode),
+                obtobotan.hashCode),
+            obrobotanFilter.hashCode),
         ffRef.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'CommentsRecord')
-          ..add('comment', comment)
-          ..add('createdBy', createdBy)
-          ..add('createdAt', createdAt)
-          ..add('company', company)
-          ..add('rating', rating)
-          ..add('booleanResponse', booleanResponse)
-          ..add('responseComment', responseComment)
-          ..add('bookedComment', bookedComment)
-          ..add('bookingDoc', bookingDoc)
-          ..add('obtobotan', obtobotan)
-          ..add('ffRef', ffRef))
+      ..add('comment', comment)
+      ..add('createdBy', createdBy)
+      ..add('createdAt', createdAt)
+      ..add('company', company)
+      ..add('rating', rating)
+      ..add('booleanResponse', booleanResponse)
+      ..add('responseComment', responseComment)
+      ..add('bookedComment', bookedComment)
+      ..add('bookingDoc', bookingDoc)
+      ..add('obtobotan', obtobotan)
+      ..add('obrobotanFilter', obrobotanFilter)
+      ..add('ffRef', ffRef))
         .toString();
   }
 }
@@ -333,6 +351,11 @@ class CommentsRecordBuilder
   bool? get obtobotan => _$this._obtobotan;
   set obtobotan(bool? obtobotan) => _$this._obtobotan = obtobotan;
 
+  String? _obrobotanFilter;
+  String? get obrobotanFilter => _$this._obrobotanFilter;
+  set obrobotanFilter(String? obrobotanFilter) =>
+      _$this._obrobotanFilter = obrobotanFilter;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -354,6 +377,7 @@ class CommentsRecordBuilder
       _bookedComment = $v.bookedComment;
       _bookingDoc = $v.bookingDoc;
       _obtobotan = $v.obtobotan;
+      _obrobotanFilter = $v.obrobotanFilter;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -387,10 +411,9 @@ class CommentsRecordBuilder
             bookedComment: bookedComment,
             bookingDoc: bookingDoc,
             obtobotan: obtobotan,
+            obrobotanFilter: obrobotanFilter,
             ffRef: ffRef);
     replace(_$result);
     return _$result;
   }
 }
-
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas

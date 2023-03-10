@@ -716,12 +716,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          if (responsiveVisibility(
-                            context: context,
-                            tablet: false,
-                            tabletLandscape: false,
-                            desktop: false,
-                          ))
+
                             Expanded(
                               child: GestureDetector(
                                 onTap: () {

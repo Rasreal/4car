@@ -1,5 +1,3 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
-
 part of 'user_record.dart';
 
 // **************************************************************************
@@ -188,6 +186,14 @@ class _$UserRecordSerializer implements StructuredSerializer<UserRecord> {
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
+    value = object.createdByAdminCompanyRef;
+    if (value != null) {
+      result
+        ..add('createdByAdminCompanyRef')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                DocumentReference, const [const FullType.nullable(Object)])));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -236,8 +242,8 @@ class _$UserRecordSerializer implements StructuredSerializer<UserRecord> {
           break;
         case 'permissions':
           result.permissions.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(UserPermissionsStruct))!
-              as UserPermissionsStruct);
+              specifiedType: const FullType(UserPermissionsStruct))!
+          as UserPermissionsStruct);
           break;
         case 'favCompany':
           result.favCompany.replace(serializers.deserialize(value,
@@ -320,6 +326,12 @@ class _$UserRecordSerializer implements StructuredSerializer<UserRecord> {
           result.adminStatus = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
+        case 'createdByAdminCompanyRef':
+          result.createdByAdminCompanyRef = serializers.deserialize(value,
+              specifiedType: const FullType(DocumentReference, const [
+                const FullType.nullable(Object)
+              ])) as DocumentReference<Object?>?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -381,6 +393,8 @@ class _$UserRecord extends UserRecord {
   @override
   final String? adminStatus;
   @override
+  final DocumentReference<Object?>? createdByAdminCompanyRef;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$UserRecord([void Function(UserRecordBuilder)? updates]) =>
@@ -388,29 +402,30 @@ class _$UserRecord extends UserRecord {
 
   _$UserRecord._(
       {this.email,
-      this.displayName,
-      this.photoUrl,
-      this.uid,
-      this.createdTime,
-      this.role,
-      required this.permissions,
-      this.favCompany,
-      this.searchHistory,
-      this.carscount,
-      this.phoneNumber,
-      this.text,
-      this.country,
-      this.countryText,
-      this.linkLastBooking,
-      this.lastBookingBoolean,
-      this.merchanDocument,
-      this.firstCar,
-      this.signUpDate,
-      this.bookingCompanies,
-      this.firstCarBody,
-      this.firstCarName,
-      this.adminStatus,
-      this.ffRef})
+        this.displayName,
+        this.photoUrl,
+        this.uid,
+        this.createdTime,
+        this.role,
+        required this.permissions,
+        this.favCompany,
+        this.searchHistory,
+        this.carscount,
+        this.phoneNumber,
+        this.text,
+        this.country,
+        this.countryText,
+        this.linkLastBooking,
+        this.lastBookingBoolean,
+        this.merchanDocument,
+        this.firstCar,
+        this.signUpDate,
+        this.bookingCompanies,
+        this.firstCarBody,
+        this.firstCarName,
+        this.adminStatus,
+        this.createdByAdminCompanyRef,
+        this.ffRef})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
         permissions, r'UserRecord', 'permissions');
@@ -450,6 +465,7 @@ class _$UserRecord extends UserRecord {
         firstCarBody == other.firstCarBody &&
         firstCarName == other.firstCarName &&
         adminStatus == other.adminStatus &&
+        createdByAdminCompanyRef == other.createdByAdminCompanyRef &&
         ffRef == other.ffRef;
   }
 
@@ -473,55 +489,56 @@ class _$UserRecord extends UserRecord {
                                                                 $jc(
                                                                     $jc(
                                                                         $jc(
-                                                                            $jc($jc($jc($jc($jc($jc(0, email.hashCode), displayName.hashCode), photoUrl.hashCode), uid.hashCode), createdTime.hashCode),
-                                                                                role.hashCode),
-                                                                            permissions.hashCode),
-                                                                        favCompany.hashCode),
-                                                                    searchHistory.hashCode),
-                                                                carscount.hashCode),
-                                                            phoneNumber.hashCode),
-                                                        text.hashCode),
-                                                    country.hashCode),
-                                                countryText.hashCode),
-                                            linkLastBooking.hashCode),
-                                        lastBookingBoolean.hashCode),
-                                    merchanDocument.hashCode),
-                                firstCar.hashCode),
-                            signUpDate.hashCode),
-                        bookingCompanies.hashCode),
-                    firstCarBody.hashCode),
-                firstCarName.hashCode),
-            adminStatus.hashCode),
+                                                                            $jc($jc($jc($jc($jc($jc($jc(0, email.hashCode), displayName.hashCode), photoUrl.hashCode), uid.hashCode), createdTime.hashCode), role.hashCode),
+                                                                                permissions.hashCode),
+                                                                            favCompany.hashCode),
+                                                                        searchHistory.hashCode),
+                                                                    carscount.hashCode),
+                                                                phoneNumber.hashCode),
+                                                            text.hashCode),
+                                                        country.hashCode),
+                                                    countryText.hashCode),
+                                                linkLastBooking.hashCode),
+                                            lastBookingBoolean.hashCode),
+                                        merchanDocument.hashCode),
+                                    firstCar.hashCode),
+                                signUpDate.hashCode),
+                            bookingCompanies.hashCode),
+                        firstCarBody.hashCode),
+                    firstCarName.hashCode),
+                adminStatus.hashCode),
+            createdByAdminCompanyRef.hashCode),
         ffRef.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'UserRecord')
-          ..add('email', email)
-          ..add('displayName', displayName)
-          ..add('photoUrl', photoUrl)
-          ..add('uid', uid)
-          ..add('createdTime', createdTime)
-          ..add('role', role)
-          ..add('permissions', permissions)
-          ..add('favCompany', favCompany)
-          ..add('searchHistory', searchHistory)
-          ..add('carscount', carscount)
-          ..add('phoneNumber', phoneNumber)
-          ..add('text', text)
-          ..add('country', country)
-          ..add('countryText', countryText)
-          ..add('linkLastBooking', linkLastBooking)
-          ..add('lastBookingBoolean', lastBookingBoolean)
-          ..add('merchanDocument', merchanDocument)
-          ..add('firstCar', firstCar)
-          ..add('signUpDate', signUpDate)
-          ..add('bookingCompanies', bookingCompanies)
-          ..add('firstCarBody', firstCarBody)
-          ..add('firstCarName', firstCarName)
-          ..add('adminStatus', adminStatus)
-          ..add('ffRef', ffRef))
+      ..add('email', email)
+      ..add('displayName', displayName)
+      ..add('photoUrl', photoUrl)
+      ..add('uid', uid)
+      ..add('createdTime', createdTime)
+      ..add('role', role)
+      ..add('permissions', permissions)
+      ..add('favCompany', favCompany)
+      ..add('searchHistory', searchHistory)
+      ..add('carscount', carscount)
+      ..add('phoneNumber', phoneNumber)
+      ..add('text', text)
+      ..add('country', country)
+      ..add('countryText', countryText)
+      ..add('linkLastBooking', linkLastBooking)
+      ..add('lastBookingBoolean', lastBookingBoolean)
+      ..add('merchanDocument', merchanDocument)
+      ..add('firstCar', firstCar)
+      ..add('signUpDate', signUpDate)
+      ..add('bookingCompanies', bookingCompanies)
+      ..add('firstCarBody', firstCarBody)
+      ..add('firstCarName', firstCarName)
+      ..add('adminStatus', adminStatus)
+      ..add('createdByAdminCompanyRef', createdByAdminCompanyRef)
+      ..add('ffRef', ffRef))
         .toString();
   }
 }
@@ -618,9 +635,9 @@ class UserRecordBuilder implements Builder<UserRecord, UserRecordBuilder> {
   ListBuilder<DocumentReference<Object?>>? _bookingCompanies;
   ListBuilder<DocumentReference<Object?>> get bookingCompanies =>
       _$this._bookingCompanies ??=
-          new ListBuilder<DocumentReference<Object?>>();
+      new ListBuilder<DocumentReference<Object?>>();
   set bookingCompanies(
-          ListBuilder<DocumentReference<Object?>>? bookingCompanies) =>
+      ListBuilder<DocumentReference<Object?>>? bookingCompanies) =>
       _$this._bookingCompanies = bookingCompanies;
 
   String? _firstCarBody;
@@ -634,6 +651,13 @@ class UserRecordBuilder implements Builder<UserRecord, UserRecordBuilder> {
   String? _adminStatus;
   String? get adminStatus => _$this._adminStatus;
   set adminStatus(String? adminStatus) => _$this._adminStatus = adminStatus;
+
+  DocumentReference<Object?>? _createdByAdminCompanyRef;
+  DocumentReference<Object?>? get createdByAdminCompanyRef =>
+      _$this._createdByAdminCompanyRef;
+  set createdByAdminCompanyRef(
+      DocumentReference<Object?>? createdByAdminCompanyRef) =>
+      _$this._createdByAdminCompanyRef = createdByAdminCompanyRef;
 
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
@@ -669,6 +693,7 @@ class UserRecordBuilder implements Builder<UserRecord, UserRecordBuilder> {
       _firstCarBody = $v.firstCarBody;
       _firstCarName = $v.firstCarName;
       _adminStatus = $v.adminStatus;
+      _createdByAdminCompanyRef = $v.createdByAdminCompanyRef;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -717,6 +742,7 @@ class UserRecordBuilder implements Builder<UserRecord, UserRecordBuilder> {
               firstCarBody: firstCarBody,
               firstCarName: firstCarName,
               adminStatus: adminStatus,
+              createdByAdminCompanyRef: createdByAdminCompanyRef,
               ffRef: ffRef);
     } catch (_) {
       late String _$failedField;
@@ -740,5 +766,3 @@ class UserRecordBuilder implements Builder<UserRecord, UserRecordBuilder> {
     return _$result;
   }
 }
-
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas

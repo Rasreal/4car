@@ -15,16 +15,80 @@
       ]
     },
     {
+      "collectionGroup": "company_services",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "car_body",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "price",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "companies",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "company_users",
+          "arrayConfig": "CONTAINS"
+        },
+        {
+          "fieldPath": "status",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
       "collectionGroup": "bookings",
       "queryScope": "COLLECTION",
       "fields": [
+        {
+          "fieldPath": "status",
+          "order": "ASCENDING"
+        },
         {
           "fieldPath": "booked_company",
           "order": "ASCENDING"
         },
         {
-          "fieldPath": "status",
+          "fieldPath": "booked_date",
           "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "comments",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "booked_comment",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "obrobotanFilter",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "created_at",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "user",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "firstCarBody",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "bookingCompanies",
+          "arrayConfig": "CONTAINS"
         }
       ]
     },
@@ -57,6 +121,20 @@
       ]
     },
     {
+      "collectionGroup": "comments",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "booked_comment",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "created_at",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
       "collectionGroup": "companies",
       "queryScope": "COLLECTION",
       "fields": [
@@ -75,7 +153,7 @@
       "queryScope": "COLLECTION",
       "fields": [
         {
-          "fieldPath": "cancelled",
+          "fieldPath": "booked_company",
           "order": "ASCENDING"
         },
         {
@@ -89,11 +167,67 @@
       "queryScope": "COLLECTION",
       "fields": [
         {
-          "fieldPath": "booked_company",
+          "fieldPath": "cancelled",
           "order": "ASCENDING"
         },
         {
-          "fieldPath": "booked_date_string",
+          "fieldPath": "status",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "companies",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "link_city",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "status",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "bookings",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "status",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "booked_date",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "comments",
+      "queryScope": "COLLECTION_GROUP",
+      "fields": [
+        {
+          "fieldPath": "booked_comment",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "obrobotanFilter",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "created_at",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "bookings",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "booked_company",
           "order": "ASCENDING"
         },
         {
@@ -103,6 +237,42 @@
         {
           "fieldPath": "selected_times_order",
           "arrayConfig": "CONTAINS"
+        },
+        {
+          "fieldPath": "booked_date",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "comments",
+      "queryScope": "COLLECTION_GROUP",
+      "fields": [
+        {
+          "fieldPath": "booked_comment",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "created_by",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "created_at",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "bookings",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "cancelled",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "cancel_time_date",
+          "order": "ASCENDING"
         }
       ]
     }
@@ -149,36 +319,6 @@
       ]
     },
     {
-      "collectionGroup": "comments",
-      "fieldPath": "booked_comment",
-      "indexes": [
-        {
-          "order": "ASCENDING",
-          "queryScope": "COLLECTION_GROUP"
-        }
-      ]
-    },
-    {
-      "collectionGroup": "promotion",
-      "fieldPath": "city_link",
-      "indexes": [
-        {
-          "order": "ASCENDING",
-          "queryScope": "COLLECTION_GROUP"
-        }
-      ]
-    },
-    {
-      "collectionGroup": "comments",
-      "fieldPath": "booked_comment",
-      "indexes": [
-        {
-          "order": "ASCENDING",
-          "queryScope": "COLLECTION_GROUP"
-        }
-      ]
-    },
-    {
       "collectionGroup": "promotion",
       "fieldPath": "top",
       "indexes": [
@@ -201,6 +341,16 @@
     {
       "collectionGroup": "promotion",
       "fieldPath": "moderation",
+      "indexes": [
+        {
+          "order": "ASCENDING",
+          "queryScope": "COLLECTION_GROUP"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "promotion",
+      "fieldPath": "city_link",
       "indexes": [
         {
           "order": "ASCENDING",

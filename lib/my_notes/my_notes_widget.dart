@@ -14,7 +14,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-//import 'package:map_launcher/map_launcher.dart' as ml;
+import 'package:map_launcher/map_launcher.dart' as ml;
 
 class MyNotesWidget extends StatefulWidget {
   const MyNotesWidget({Key? key}) : super(key: key);
@@ -32,14 +32,14 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
   String? choiceChipsValue;
   var availableMaps;
   @override
-  initState() {
+  initState() async {
     super.initState();
     // On page load action.
-    //availableMaps = await ml.MapLauncher.installedMaps;
-    // SchedulerBinding.instance.addPostFrameCallback((_) async {
-    //   setState(() => _firestoreRequestCompleter = null);
-    //   setState(() => _documentRequestCompleter = null);
-    // });
+    availableMaps = await ml.MapLauncher.installedMaps;
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      setState(() => _firestoreRequestCompleter = null);
+      setState(() => _documentRequestCompleter = null);
+    });
 
     getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
         .then((loc) => setState(() => currentUserLocationValue = loc));
@@ -704,119 +704,119 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                   ),
                                                   FFButtonWidget(
                                                     onPressed: () async {
-                                                      // if (await ml.MapLauncher
-                                                      //     .isMapAvailable(ml
-                                                      //     .MapType
-                                                      //     .yandexNavi) !=
-                                                      // false) {
-                                                      // await ml.MapLauncher
-                                                      //     .showMarker(
-                                                      // mapType: ml
-                                                      //     .MapType
-                                                      //     .yandexNavi,
-                                                      // coords: ml.Coords(
-                                                      // containerCompaniesRecord
-                                                      //     .location!
-                                                      //     .latitude,
-                                                      // containerCompaniesRecord
-                                                      //     .location!
-                                                      //     .longitude),
-                                                      // title:
-                                                      // "Destination",
-                                                      // description:
-                                                      // "description",
-                                                      // );
-                                                      // } else if (await ml
-                                                      //     .MapLauncher
-                                                      //     .isMapAvailable(ml
-                                                      //     .MapType
-                                                      //     .doubleGis) !=
-                                                      // false) {
-                                                      // await ml.MapLauncher
-                                                      //     .showMarker(
-                                                      // mapType: ml
-                                                      //     .MapType
-                                                      //     .doubleGis,
-                                                      // coords: ml.Coords(
-                                                      // containerCompaniesRecord
-                                                      //     .location!
-                                                      //     .latitude,
-                                                      // containerCompaniesRecord
-                                                      //     .location!
-                                                      //     .longitude),
-                                                      // title:
-                                                      // "Destination",
-                                                      // description:
-                                                      // "description",
-                                                      // );
-                                                      // } else if (await ml
-                                                      //     .MapLauncher
-                                                      //     .isMapAvailable(ml
-                                                      //     .MapType
-                                                      //     .apple) !=
-                                                      // false) {
-                                                      // await ml.MapLauncher
-                                                      //     .showMarker(
-                                                      // mapType: ml
-                                                      //     .MapType
-                                                      //     .apple,
-                                                      // coords: ml.Coords(
-                                                      // containerCompaniesRecord
-                                                      //     .location!
-                                                      //     .latitude,
-                                                      // containerCompaniesRecord
-                                                      //     .location!
-                                                      //     .longitude),
-                                                      // title:
-                                                      // "Destination",
-                                                      // description:
-                                                      // "description",
-                                                      // );
-                                                      // } else if (await ml
-                                                      //     .MapLauncher
-                                                      //     .isMapAvailable(ml
-                                                      //     .MapType
-                                                      //     .yandexMaps) !=
-                                                      // false) {
-                                                      // await ml.MapLauncher
-                                                      //     .showMarker(
-                                                      // mapType: ml
-                                                      //     .MapType
-                                                      //     .yandexMaps,
-                                                      // coords: ml.Coords(
-                                                      // containerCompaniesRecord
-                                                      //     .location!
-                                                      //     .latitude,
-                                                      // containerCompaniesRecord
-                                                      //     .location!
-                                                      //     .longitude),
-                                                      // title:
-                                                      // "Destionation",
-                                                      // description:
-                                                      // "description",
-                                                      // );
-                                                      // } else {
-                                                      // await availableMaps
-                                                      //     .first
-                                                      //     .showMarker(
-                                                      // coords: ml.Coords(
-                                                      // containerCompaniesRecord
-                                                      //     .location!
-                                                      //     .latitude,
-                                                      // containerCompaniesRecord
-                                                      //     .location!
-                                                      //     .longitude),
-                                                      // title:
-                                                      // "Destination",
-                                                      // );
-                                                      // }
-                                                      // print(
-                                                      // 'Button pressed ...');
-                                                      // print(
-                                                      // 'Button pressed ...');
-                                                      // print(
-                                                      //     'Button pressed ...');
-                                                      //
+                                                      if (await ml.MapLauncher
+                                                          .isMapAvailable(ml
+                                                          .MapType
+                                                          .yandexNavi) !=
+                                                      false) {
+                                                      await ml.MapLauncher
+                                                          .showMarker(
+                                                      mapType: ml
+                                                          .MapType
+                                                          .yandexNavi,
+                                                      coords: ml.Coords(
+                                                      containerCompaniesRecord
+                                                          .location!
+                                                          .latitude,
+                                                      containerCompaniesRecord
+                                                          .location!
+                                                          .longitude),
+                                                      title:
+                                                      "Destination",
+                                                      description:
+                                                      "description",
+                                                      );
+                                                      } else if (await ml
+                                                          .MapLauncher
+                                                          .isMapAvailable(ml
+                                                          .MapType
+                                                          .doubleGis) !=
+                                                      false) {
+                                                      await ml.MapLauncher
+                                                          .showMarker(
+                                                      mapType: ml
+                                                          .MapType
+                                                          .doubleGis,
+                                                      coords: ml.Coords(
+                                                      containerCompaniesRecord
+                                                          .location!
+                                                          .latitude,
+                                                      containerCompaniesRecord
+                                                          .location!
+                                                          .longitude),
+                                                      title:
+                                                      "Destination",
+                                                      description:
+                                                      "description",
+                                                      );
+                                                      } else if (await ml
+                                                          .MapLauncher
+                                                          .isMapAvailable(ml
+                                                          .MapType
+                                                          .apple) !=
+                                                      false) {
+                                                      await ml.MapLauncher
+                                                          .showMarker(
+                                                      mapType: ml
+                                                          .MapType
+                                                          .apple,
+                                                      coords: ml.Coords(
+                                                      containerCompaniesRecord
+                                                          .location!
+                                                          .latitude,
+                                                      containerCompaniesRecord
+                                                          .location!
+                                                          .longitude),
+                                                      title:
+                                                      "Destination",
+                                                      description:
+                                                      "description",
+                                                      );
+                                                      } else if (await ml
+                                                          .MapLauncher
+                                                          .isMapAvailable(ml
+                                                          .MapType
+                                                          .yandexMaps) !=
+                                                      false) {
+                                                      await ml.MapLauncher
+                                                          .showMarker(
+                                                      mapType: ml
+                                                          .MapType
+                                                          .yandexMaps,
+                                                      coords: ml.Coords(
+                                                      containerCompaniesRecord
+                                                          .location!
+                                                          .latitude,
+                                                      containerCompaniesRecord
+                                                          .location!
+                                                          .longitude),
+                                                      title:
+                                                      "Destionation",
+                                                      description:
+                                                      "description",
+                                                      );
+                                                      } else {
+                                                      await availableMaps
+                                                          .first
+                                                          .showMarker(
+                                                      coords: ml.Coords(
+                                                      containerCompaniesRecord
+                                                          .location!
+                                                          .latitude,
+                                                      containerCompaniesRecord
+                                                          .location!
+                                                          .longitude),
+                                                      title:
+                                                      "Destination",
+                                                      );
+                                                      }
+                                                      print(
+                                                      'Button pressed ...');
+                                                      print(
+                                                      'Button pressed ...');
+                                                      print(
+                                                          'Button pressed ...');
+
 
                                                     },
                                                     text: 'Проложить путь',

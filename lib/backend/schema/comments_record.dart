@@ -36,6 +36,8 @@ abstract class CommentsRecord
 
   bool? get obtobotan;
 
+  String? get obrobotanFilter;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -48,7 +50,8 @@ abstract class CommentsRecord
     ..booleanResponse = false
     ..responseComment = ''
     ..bookedComment = false
-    ..obtobotan = false;
+    ..obtobotan = false
+    ..obrobotanFilter = '';
 
   static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
       parent != null
@@ -68,10 +71,10 @@ abstract class CommentsRecord
 
   CommentsRecord._();
   factory CommentsRecord([void Function(CommentsRecordBuilder) updates]) =
-      _$CommentsRecord;
+  _$CommentsRecord;
 
   static CommentsRecord getDocumentFromData(
-          Map<String, dynamic> data, DocumentReference reference) =>
+      Map<String, dynamic> data, DocumentReference reference) =>
       serializers.deserializeWith(serializer,
           {...mapFromFirestore(data), kDocumentReferenceField: reference})!;
 }
@@ -87,11 +90,12 @@ Map<String, dynamic> createCommentsRecordData({
   bool? bookedComment,
   DocumentReference? bookingDoc,
   bool? obtobotan,
+  String? obrobotanFilter,
 }) {
   final firestoreData = serializers.toFirestore(
     CommentsRecord.serializer,
     CommentsRecord(
-      (c) => c
+          (c) => c
         ..comment = comment
         ..createdBy = createdBy
         ..createdAt = createdAt
@@ -101,7 +105,8 @@ Map<String, dynamic> createCommentsRecordData({
         ..responseComment = responseComment
         ..bookedComment = bookedComment
         ..bookingDoc = bookingDoc
-        ..obtobotan = obtobotan,
+        ..obtobotan = obtobotan
+        ..obrobotanFilter = obrobotanFilter,
     ),
   );
 

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import '../auth/auth_util.dart';
 import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
@@ -11,14 +13,27 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
+
 class CodeWidget extends StatefulWidget {
-  const CodeWidget({Key? key}) : super(key: key);
+  const CodeWidget({
+    Key? key,
+    this.phone,
+  }) : super(key: key);
+
+  final String? phone;
 
   @override
   _CodeWidgetState createState() => _CodeWidgetState();
 }
 
 class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
+
+  TextEditingController? pinCodeController;
+  String b = '';
+
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
+
   final animationsMap = {
     'columnOnActionTriggerAnimation': AnimationInfo(
       trigger: AnimationTrigger.onActionTrigger,
@@ -42,24 +57,19 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
       ],
     ),
   };
-  TextEditingController? pinCodeController;
-  final _unfocusNode = FocusNode();
-  final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       FFAppState().update(() {
         FFAppState().signINcode = false;
       });
     });
 
-    pinCodeController = TextEditingController();
     setupAnimations(
       animationsMap.values.where((anim) =>
-          anim.trigger == AnimationTrigger.onActionTrigger ||
+      anim.trigger == AnimationTrigger.onActionTrigger ||
           !anim.applyInitialState),
       this,
     );
@@ -69,8 +79,8 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
 
   @override
   void dispose() {
+
     _unfocusNode.dispose();
-    pinCodeController?.dispose();
     super.dispose();
   }
 
@@ -119,37 +129,37 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
                     child: Text(
                       'Введите код',
                       style: FlutterFlowTheme.of(context).bodyText1.override(
-                            fontFamily:
-                                FlutterFlowTheme.of(context).bodyText1Family,
-                            fontSize: 24,
-                            useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                FlutterFlowTheme.of(context).bodyText1Family),
-                          ),
+                        fontFamily:
+                        FlutterFlowTheme.of(context).bodyText1Family,
+                        fontSize: 24,
+                        useGoogleFonts: GoogleFonts.asMap().containsKey(
+                            FlutterFlowTheme.of(context).bodyText1Family),
+                      ),
                     ),
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 30),
                     child: Text(
-                      'Мы отправим на ваш номер сообщение с 6ти значным кодом, введите его',
+                      'Мы отправим на ваш номер сообщение с 6-ти значным кодом, введите его',
                       style: FlutterFlowTheme.of(context).bodyText1.override(
-                            fontFamily:
-                                FlutterFlowTheme.of(context).bodyText1Family,
-                            fontWeight: FontWeight.w500,
-                            useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                FlutterFlowTheme.of(context).bodyText1Family),
-                          ),
+                        fontFamily:
+                        FlutterFlowTheme.of(context).bodyText1Family,
+                        fontWeight: FontWeight.w500,
+                        useGoogleFonts: GoogleFonts.asMap().containsKey(
+                            FlutterFlowTheme.of(context).bodyText1Family),
+                      ),
                     ),
                   ),
                   PinCodeTextField(
                     appContext: context,
                     length: 6,
                     textStyle: FlutterFlowTheme.of(context).subtitle2.override(
-                          fontFamily:
-                              FlutterFlowTheme.of(context).subtitle2Family,
-                          color: FlutterFlowTheme.of(context).primaryText,
-                          useGoogleFonts: GoogleFonts.asMap().containsKey(
-                              FlutterFlowTheme.of(context).subtitle2Family),
-                        ),
+                      fontFamily:
+                      FlutterFlowTheme.of(context).subtitle2Family,
+                      color: FlutterFlowTheme.of(context).primaryText,
+                      useGoogleFonts: GoogleFonts.asMap().containsKey(
+                          FlutterFlowTheme.of(context).subtitle2Family),
+                    ),
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     enableActiveFill: false,
                     autoFocus: true,
@@ -167,14 +177,16 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
                       inactiveColor: FlutterFlowTheme.of(context).secondaryText,
                       selectedColor: FlutterFlowTheme.of(context).secondaryText,
                       activeFillColor:
-                          FlutterFlowTheme.of(context).secondaryText,
+                      FlutterFlowTheme.of(context).secondaryText,
                       inactiveFillColor:
-                          FlutterFlowTheme.of(context).secondaryText,
+                      FlutterFlowTheme.of(context).secondaryText,
                       selectedFillColor:
-                          FlutterFlowTheme.of(context).secondaryText,
+                      FlutterFlowTheme.of(context).secondaryText,
                     ),
                     controller: pinCodeController,
-                    onChanged: (_) => {},
+                    onChanged: (a) => {
+                      b = a
+                    },
                   ),
                   Spacer(),
                   Padding(
@@ -188,33 +200,67 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
                           style: FlutterFlowTheme.of(context)
                               .bodyText1
                               .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .bodyText1Family,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                fontWeight: FontWeight.normal,
-                                useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                    FlutterFlowTheme.of(context)
-                                        .bodyText1Family),
-                              ),
+                            fontFamily: FlutterFlowTheme.of(context)
+                                .bodyText1Family,
+                            color:
+                            FlutterFlowTheme.of(context).secondaryText,
+                            fontWeight: FontWeight.normal,
+                            useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                FlutterFlowTheme.of(context)
+                                    .bodyText1Family),
+                          ),
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(4, 0, 0, 0),
-                          child: Text(
-                            ' Отправить код заново',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyText1
-                                .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .bodyText1Family,
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryColor,
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w500,
-                                  useGoogleFonts: GoogleFonts.asMap()
-                                      .containsKey(FlutterFlowTheme.of(context)
-                                          .bodyText1Family),
-                                ),
+                          child: InkWell(
+                            onTap: () async {
+                              final phoneNumberVal = widget.phone;
+                              if (phoneNumberVal == null ||
+                                  phoneNumberVal.isEmpty ||
+                                  !phoneNumberVal.startsWith('+')) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                        'Phone Number is required and has to start with +.'),
+                                  ),
+                                );
+                                return;
+                              }
+                              await beginPhoneAuth(
+                                context: context,
+                                phoneNumber: phoneNumberVal,
+                                onCodeSent: () async {
+                                  context.goNamedAuth(
+                                    'code',
+                                    mounted,
+                                    queryParams: {
+                                      'phone': serializeParam(
+                                        widget.phone,
+                                        ParamType.String,
+                                      ),
+                                    }.withoutNulls,
+                                    ignoreRedirect: true,
+                                  );
+                                },
+                              );
+                            },
+                            child: Text(
+                              ' Отправить код заново',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyText1
+                                  .override(
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .bodyText1Family,
+                                color: FlutterFlowTheme.of(context)
+                                    .primaryColor,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500,
+                                useGoogleFonts: GoogleFonts.asMap()
+                                    .containsKey(
+                                    FlutterFlowTheme.of(context)
+                                        .bodyText1Family),
+                              ),
+                            ),
                           ),
                         ),
                       ],
@@ -223,8 +269,8 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
                   FFButtonWidget(
                     onPressed: () async {
                       GoRouter.of(context).prepareAuthEvent();
-                      final smsCodeVal = pinCodeController!.text;
-                      if (smsCodeVal == null || smsCodeVal.isEmpty) {
+                      final smsCodeVal = b;
+                      if (smsCodeVal == null || smsCodeVal.isEmpty || smsCodeVal.length != 6) {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             content: Text('Enter SMS verification code.'),
@@ -246,17 +292,20 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
                             .controller
                             .forward(from: 0.0);
                       }
-                      await Future.delayed(const Duration(milliseconds: 2000));
-
-                      context.goNamedAuth('HomePage', mounted);
+                      if (currentUserDisplayName != null &&
+                          currentUserDisplayName != '') {
+                        context.goNamedAuth('HomePage', mounted);
+                      } else {
+                        context.goNamedAuth('Sign_Up_2', mounted);
+                      }
                     },
                     text: 'Ввести код',
                     options: FFButtonOptions(
                       width: 130,
                       height: 48,
                       color: valueOrDefault<Color>(
-                        pinCodeController!.text != null &&
-                                pinCodeController!.text != ''
+                       pinCodeController?.text != null &&
+                            pinCodeController!.text != ''
                             ? FlutterFlowTheme.of(context).primaryColor
                             : FlutterFlowTheme.of(context).starblue,
                         FlutterFlowTheme.of(context).starblue,
@@ -264,12 +313,12 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
                       textStyle: FlutterFlowTheme.of(context)
                           .subtitle2
                           .override(
-                            fontFamily:
-                                FlutterFlowTheme.of(context).subtitle2Family,
-                            color: Colors.white,
-                            useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                FlutterFlowTheme.of(context).subtitle2Family),
-                          ),
+                        fontFamily:
+                        FlutterFlowTheme.of(context).subtitle2Family,
+                        color: Colors.white,
+                        useGoogleFonts: GoogleFonts.asMap().containsKey(
+                            FlutterFlowTheme.of(context).subtitle2Family),
+                      ),
                       borderSide: BorderSide(
                         color: Colors.transparent,
                         width: 1,
@@ -308,7 +357,7 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
                             borderRadius: 20,
                             buttonSize: 60,
                             fillColor:
-                                FlutterFlowTheme.of(context).primaryColor,
+                            FlutterFlowTheme.of(context).primaryColor,
                             icon: Icon(
                               Icons.check,
                               color: Colors.white,
@@ -320,22 +369,22 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
                           ),
                           Padding(
                             padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                            EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                             child: Text(
                               'Добро пожаловать!',
                               textAlign: TextAlign.center,
                               style: FlutterFlowTheme.of(context)
                                   .bodyText1
                                   .override(
-                                    fontFamily: FlutterFlowTheme.of(context)
-                                        .bodyText1Family,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                    useGoogleFonts: GoogleFonts.asMap()
-                                        .containsKey(
-                                            FlutterFlowTheme.of(context)
-                                                .bodyText1Family),
-                                  ),
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .bodyText1Family,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                                useGoogleFonts: GoogleFonts.asMap()
+                                    .containsKey(
+                                    FlutterFlowTheme.of(context)
+                                        .bodyText1Family),
+                              ),
                             ),
                           ),
                         ],

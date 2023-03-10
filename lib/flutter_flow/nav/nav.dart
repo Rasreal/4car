@@ -104,7 +104,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'code',
               path: 'code',
-              builder: (context, params) => CodeWidget(),
+              builder: (context, params) => CodeWidget(phone: params.getParam('phone', ParamType.String),),
             ),
             FFRoute(
               name: 'sign_up_code',

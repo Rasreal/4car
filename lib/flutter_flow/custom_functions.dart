@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'dart:math' as math;
 
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
@@ -16,6 +18,57 @@ String idGenerator(int randomNumber) {
   final now = DateTime.now();
   double result = now.microsecondsSinceEpoch / randomNumber;
   return result.round().toString();
+}
+
+Future<DocumentReference?> manageUser(
+    // Parameters
+    String emailAddress, //Email from Widget State
+    String password, //Password from Widget State
+    String randomDocGen, //Random String (min 10 max 25 - upper/lowe/digits)
+    DocumentReference company,
+    ) async {
+  //Create the return msg
+  String returnmsg = 'Success';
+  //created time variable
+  DateTime createdTime = DateTime.now();
+  //Create the secondary app to create the users
+  FirebaseApp app = await Firebase.initializeApp(
+      name: randomDocGen, options: Firebase.app().options);
+
+  try {
+    //Create the user with the email & password provided
+    UserCredential userCredential = await FirebaseAuth.instanceFor(app: app)
+        .createUserWithEmailAndPassword(
+        email: emailAddress, password: password);
+
+    // Set the UID generated to a variable so we can use it later
+    String? uid = userCredential.user?.uid;
+    //var userRef = userCredential.user?.reference;
+    // Check if UID is not empy
+    if (uid != null) {
+      //Get collection reference to create our new user document
+      final CollectionReference<Map<String, dynamic>> usersRef =
+      FirebaseFirestore.instance.collection('users');
+
+
+      //Create new user document with the parameters we have (you can add more parameters and just add here the extra)
+      usersRef.doc(uid).set({
+        'uid': uid,
+        'email': emailAddress,
+        'created_time': createdTime,
+        'createdByAdminCompanyRef': company,
+      });
+
+      var b = FirebaseFirestore.instance.collection('users').doc(uid);
+      DocumentReference ab = b;
+      return b;
+    } else {
+      //return "Error while creating the UID";
+    }
+  } on FirebaseAuthException catch (e) {
+
+    return null;
+  }
 }
 
 double averageRating(List<double>? ratingAmount) {

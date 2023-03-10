@@ -92,6 +92,7 @@ class _MyAppState extends State<MyApp> {
       DeviceOrientation.portraitDown,
     ]);
     return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
       title: 'ForCar Main',
       localizationsDelegates: [
         FFLocalizationsDelegate(),
@@ -144,12 +145,6 @@ class _NavBarPageState extends State<NavBarPage> {
     return Scaffold(
       body: _currentPage ?? tabs[_currentPageName],
       bottomNavigationBar: Visibility(
-        visible: responsiveVisibility(
-          context: context,
-          tablet: false,
-          tabletLandscape: false,
-          desktop: false,
-        ),
         child: BottomNavigationBar(
           currentIndex: currentIndex,
           onTap: (i) => setState(() {

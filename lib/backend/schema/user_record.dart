@@ -66,6 +66,8 @@ abstract class UserRecord implements Built<UserRecord, UserRecordBuilder> {
   @BuiltValueField(wireName: 'admin_status')
   String? get adminStatus;
 
+  DocumentReference? get createdByAdminCompanyRef;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -104,7 +106,7 @@ abstract class UserRecord implements Built<UserRecord, UserRecordBuilder> {
   factory UserRecord([void Function(UserRecordBuilder) updates]) = _$UserRecord;
 
   static UserRecord getDocumentFromData(
-          Map<String, dynamic> data, DocumentReference reference) =>
+      Map<String, dynamic> data, DocumentReference reference) =>
       serializers.deserializeWith(serializer,
           {...mapFromFirestore(data), kDocumentReferenceField: reference})!;
 }
@@ -130,11 +132,12 @@ Map<String, dynamic> createUserRecordData({
   String? firstCarBody,
   String? firstCarName,
   String? adminStatus,
+  DocumentReference? createdByAdminCompanyRef,
 }) {
   final firestoreData = serializers.toFirestore(
     UserRecord.serializer,
     UserRecord(
-      (u) => u
+          (u) => u
         ..email = email
         ..displayName = displayName
         ..photoUrl = photoUrl
@@ -157,7 +160,68 @@ Map<String, dynamic> createUserRecordData({
         ..bookingCompanies = null
         ..firstCarBody = firstCarBody
         ..firstCarName = firstCarName
-        ..adminStatus = adminStatus,
+        ..adminStatus = adminStatus
+        ..createdByAdminCompanyRef = createdByAdminCompanyRef,
+    ),
+  );
+
+  // Handle nested data for "permissions" field.
+  addUserPermissionsStructData(firestoreData, permissions, 'permissions');
+
+  return firestoreData;
+}
+
+Map<String, dynamic> createUserRecordData2({
+  String? email,
+  String? displayName,
+  String? photoUrl,
+  String? uid,
+  DateTime? createdTime,
+  String? role,
+  UserPermissionsStruct? permissions,
+  int? carscount,
+  String? phoneNumber,
+  int? text,
+  DocumentReference? country,
+  String? countryText,
+  DocumentReference? linkLastBooking,
+  bool? lastBookingBoolean,
+  DocumentReference? merchanDocument,
+  DocumentReference? firstCar,
+  DateTime? signUpDate,
+  String? firstCarBody,
+  String? firstCarName,
+  String? adminStatus,
+  DocumentReference? createdByAdminCompanyRef,
+}) {
+  final firestoreData = serializers.toFirestore(
+    UserRecord.serializer,
+    UserRecord(
+          (u) => u
+        ..email = email
+        ..displayName = displayName
+        ..photoUrl = photoUrl
+        ..uid = uid
+        ..createdTime = createdTime
+        ..role = role
+        ..permissions = UserPermissionsStructBuilder()
+        ..favCompany = null
+        ..searchHistory = null
+        ..carscount = carscount
+        ..phoneNumber = phoneNumber
+        ..text = text
+        ..country = country
+        ..countryText = countryText
+        ..linkLastBooking = linkLastBooking
+        ..lastBookingBoolean = lastBookingBoolean
+        ..merchanDocument = merchanDocument
+        ..firstCar = firstCar
+        ..signUpDate = signUpDate
+        ..bookingCompanies = null
+        ..firstCarBody = firstCarBody
+        ..firstCarName = firstCarName
+        ..adminStatus = adminStatus
+        ..createdByAdminCompanyRef = createdByAdminCompanyRef,
     ),
   );
 

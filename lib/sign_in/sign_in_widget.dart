@@ -46,12 +46,7 @@ class _SignInWidgetState extends State<SignInWidget> {
         child: GestureDetector(
           onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
           child: Visibility(
-            visible: responsiveVisibility(
-              context: context,
-              tablet: false,
-              tabletLandscape: false,
-              desktop: false,
-            ),
+
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
@@ -242,6 +237,12 @@ class _SignInWidgetState extends State<SignInWidget> {
                                     'code',
                                     mounted,
                                     ignoreRedirect: true,
+                                    queryParams: {
+                                      'phone': serializeParam(
+                                        textController!.text,
+                                        ParamType.String,
+                                      ),
+                                    }.withoutNulls,
                                   );
                                 },
                               );

@@ -9,6 +9,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 
+
 class BookingCancellationWidget extends StatefulWidget {
   const BookingCancellationWidget({
     Key? key,
@@ -23,8 +24,6 @@ class BookingCancellationWidget extends StatefulWidget {
 }
 
 class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
-  //late BookingCancellationModel _model;
-
   final formKey = GlobalKey<FormState>();
   // State field(s) for TextField widget.
   TextEditingController? textController;
@@ -41,10 +40,6 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
     return null;
   }
 
-  /// Initialization and disposal methods.
-
-
-
   @override
   void setState(VoidCallback callback) {
     super.setState(callback);
@@ -53,14 +48,14 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
   @override
   void initState() {
     super.initState();
-    textControllerValidator = _textControllerValidator;
 
+    textController ??= TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
-    textController?.dispose();
+
     super.dispose();
   }
 
@@ -412,21 +407,21 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: FlutterFlowTheme.of(context).gray2,
+                        color: FlutterFlowTheme.of(context).primaryColor,
                         width: 1,
                       ),
                       borderRadius: BorderRadius.circular(8),
                     ),
                     errorBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: Color(0x00000000),
+                        color: FlutterFlowTheme.of(context).red1,
                         width: 1,
                       ),
                       borderRadius: BorderRadius.circular(8),
                     ),
                     focusedErrorBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: Color(0x00000000),
+                        color: FlutterFlowTheme.of(context).red1,
                         width: 1,
                       ),
                       borderRadius: BorderRadius.circular(8),
@@ -434,7 +429,7 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
                   ),
                   style: FlutterFlowTheme.of(context).bodyText1,
                   maxLines: 3,
-                  keyboardType: TextInputType.multiline,
+
                 ),
               ),
             ),
@@ -477,7 +472,7 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
                       message: 'Запись №${valueOrDefault<String>(
                         widget.booking!.id,
                         '1',
-                      )} была отменёна пользователем.',
+                      )} была отменена пользователем.',
                       date: getCurrentTimestamp,
                       opened: false,
                       bookingRef: widget.booking!.reference,
