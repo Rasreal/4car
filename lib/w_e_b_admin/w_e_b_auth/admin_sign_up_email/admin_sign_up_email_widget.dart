@@ -69,27 +69,28 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
               phone: false,
             ),
             child: Align(
-              alignment: AlignmentDirectional(0, 0),
+              alignment: AlignmentDirectional(0.0, 0.0),
               child: Container(
-                width: 476,
+                width: 476.0,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).primaryBackground,
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(8.0),
                 ),
                 child: Form(
                   key: _model.formKey,
                   autovalidateMode: AutovalidateMode.disabled,
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(60, 0, 60, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(60.0, 0.0, 60.0, 0.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Align(
-                          alignment: AlignmentDirectional(0, 0),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 40.0, 0.0, 0.0),
                             child: Text(
                               '4 Car',
                               style: FlutterFlowTheme.of(context)
@@ -99,7 +100,7 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                                         .bodyText1Family,
                                     color: FlutterFlowTheme.of(context)
                                         .primaryColor,
-                                    fontSize: 30,
+                                    fontSize: 30.0,
                                     useGoogleFonts: GoogleFonts.asMap()
                                         .containsKey(
                                             FlutterFlowTheme.of(context)
@@ -109,14 +110,15 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 24),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 24.0, 0.0, 24.0),
                           child: Text(
                             'Регистрация',
                             style: FlutterFlowTheme.of(context)
                                 .bodyText1
                                 .override(
                                   fontFamily: 'Inter',
-                                  fontSize: 22,
+                                  fontSize: 22.0,
                                   useGoogleFonts: GoogleFonts.asMap()
                                       .containsKey(FlutterFlowTheme.of(context)
                                           .bodyText1Family),
@@ -124,9 +126,10 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 16.0),
                           child: Container(
-                            width: 356,
+                            width: 356.0,
                             child: TextFormField(
                               controller: _model.fioController,
                               onChanged: (_) => EasyDebounce.debounce(
@@ -162,31 +165,31 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).gray2,
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context)
                                         .primaryColor,
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 errorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).red1,
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 focusedErrorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).red1,
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                               ),
                               style: FlutterFlowTheme.of(context).bodyText1,
@@ -196,9 +199,10 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 16.0),
                           child: Container(
-                            width: 356,
+                            width: 356.0,
                             child: TextFormField(
                               controller: _model.phoneController,
                               onChanged: (_) => EasyDebounce.debounce(
@@ -234,31 +238,31 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).gray2,
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context)
                                         .primaryColor,
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 errorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).red1,
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 focusedErrorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).red1,
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                               ),
                               style: FlutterFlowTheme.of(context).bodyText1,
@@ -270,9 +274,10 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 16.0),
                           child: Container(
-                            width: 356,
+                            width: 356.0,
                             child: TextFormField(
                               controller: _model.emailController,
                               obscureText: false,
@@ -292,31 +297,31 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).gray2,
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context)
                                         .primaryColor,
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 errorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).red1,
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 focusedErrorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).red1,
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                               ),
                               style: FlutterFlowTheme.of(context).bodyText1,
@@ -326,9 +331,10 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 16.0),
                           child: Container(
-                            width: 356,
+                            width: 356.0,
                             child: TextFormField(
                               controller: _model.textField111Controller,
                               obscureText: !_model.textField111Visibility,
@@ -348,31 +354,31 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).gray2,
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context)
                                         .primaryColor,
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 errorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).red1,
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 focusedErrorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).red1,
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 suffixIcon: InkWell(
                                   onTap: () => setState(
@@ -385,7 +391,7 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                                         ? Icons.visibility_outlined
                                         : Icons.visibility_off_outlined,
                                     color: Color(0xFF9CA3AF),
-                                    size: 22,
+                                    size: 22.0,
                                   ),
                                 ),
                               ),
@@ -396,9 +402,10 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 16.0),
                           child: Container(
-                            width: 356,
+                            width: 356.0,
                             child: TextFormField(
                               controller: _model.textField222Controller,
                               obscureText: !_model.textField222Visibility,
@@ -418,31 +425,31 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).gray2,
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context)
                                         .primaryColor,
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 errorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).red1,
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 focusedErrorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).red1,
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 suffixIcon: InkWell(
                                   onTap: () => setState(
@@ -455,7 +462,7 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                                         ? Icons.visibility_outlined
                                         : Icons.visibility_off_outlined,
                                     color: Color(0xFF9CA3AF),
-                                    size: 22,
+                                    size: 22.0,
                                   ),
                                 ),
                               ),
@@ -466,7 +473,8 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 24),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 24.0),
                           child: FFButtonWidget(
                             onPressed: () async {
                               if (_model.formKey.currentState == null ||
@@ -510,11 +518,11 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                             text: 'Зарегистрироваться',
                             options: FFButtonOptions(
                               width: double.infinity,
-                              height: 48,
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                              iconPadding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                              height: 48.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).primaryColor,
                               textStyle: FlutterFlowTheme.of(context)
                                   .subtitle2
@@ -526,17 +534,18 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                                             FlutterFlowTheme.of(context)
                                                 .subtitle2Family),
                                   ),
-                              elevation: 0,
+                              elevation: 0.0,
                               borderSide: BorderSide(
                                 color: Colors.transparent,
-                                width: 1,
+                                width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(8.0),
                             ),
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 60),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 60.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.center,

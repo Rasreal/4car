@@ -55,20 +55,20 @@ class _FavoritesCarWashesWidgetState extends State<FavoritesCarWashesWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     FlutterFlowIconButton(
                       borderColor: Colors.transparent,
-                      borderRadius: 30,
-                      borderWidth: 1,
-                      buttonSize: 48,
+                      borderRadius: 30.0,
+                      borderWidth: 1.0,
+                      buttonSize: 48.0,
                       icon: Icon(
                         FFIcons.kicBack,
                         color: FlutterFlowTheme.of(context).primaryColor,
-                        size: 24,
+                        size: 24.0,
                       ),
                       onPressed: () async {
                         context.pop();
@@ -79,7 +79,7 @@ class _FavoritesCarWashesWidgetState extends State<FavoritesCarWashesWidget> {
                       style: FlutterFlowTheme.of(context).bodyText1.override(
                             fontFamily:
                                 FlutterFlowTheme.of(context).bodyText1Family,
-                            fontSize: 18,
+                            fontSize: 18.0,
                             fontWeight: FontWeight.w500,
                             useGoogleFonts: GoogleFonts.asMap().containsKey(
                                 FlutterFlowTheme.of(context).bodyText1Family),
@@ -87,13 +87,13 @@ class _FavoritesCarWashesWidgetState extends State<FavoritesCarWashesWidget> {
                     ),
                     FlutterFlowIconButton(
                       borderColor: Colors.transparent,
-                      borderRadius: 30,
-                      borderWidth: 1,
-                      buttonSize: 48,
+                      borderRadius: 30.0,
+                      borderWidth: 1.0,
+                      buttonSize: 48.0,
                       icon: Icon(
                         FFIcons.kicBack,
                         color: FlutterFlowTheme.of(context).primaryBackground,
-                        size: 30,
+                        size: 30.0,
                       ),
                       onPressed: () {
                         print('IconButton pressed ...');
@@ -104,7 +104,8 @@ class _FavoritesCarWashesWidgetState extends State<FavoritesCarWashesWidget> {
               ),
               Expanded(
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(16, 20, 16, 0),
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(16.0, 20.0, 16.0, 0.0),
                   child: AuthUserStreamWidget(
                     builder: (context) => Builder(
                       builder: (context) {
@@ -127,8 +128,8 @@ class _FavoritesCarWashesWidgetState extends State<FavoritesCarWashesWidget> {
                                   if (!snapshot.hasData) {
                                     return Center(
                                       child: SizedBox(
-                                        width: 50,
-                                        height: 50,
+                                        width: 50.0,
+                                        height: 50.0,
                                         child: CircularProgressIndicator(
                                           color: FlutterFlowTheme.of(context)
                                               .primaryColor,

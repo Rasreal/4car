@@ -78,7 +78,7 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
-                          width: 1224,
+                          width: 1224.0,
                           decoration: BoxDecoration(),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
@@ -86,7 +86,7 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                             children: [
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    0, 32, 0, 32),
+                                    0.0, 32.0, 0.0, 32.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment:
@@ -98,7 +98,7 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                           .bodyText1
                                           .override(
                                             fontFamily: 'Inter',
-                                            fontSize: 24,
+                                            fontSize: 24.0,
                                             useGoogleFonts: GoogleFonts.asMap()
                                                 .containsKey(
                                                     FlutterFlowTheme.of(context)
@@ -113,11 +113,11 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 1, 6, 0),
+                                                  0.0, 1.0, 6.0, 0.0),
                                           child: Icon(
                                             FFIcons.kicClose,
                                             color: Color(0xFF1A1A1A),
-                                            size: 16,
+                                            size: 16.0,
                                           ),
                                         ),
                                         Text(
@@ -146,14 +146,14 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Container(
-                                    width: 496,
+                                    width: 496.0,
                                     decoration: BoxDecoration(
                                       color: Colors.white,
-                                      borderRadius: BorderRadius.circular(8),
+                                      borderRadius: BorderRadius.circular(8.0),
                                     ),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          24, 0, 24, 0),
+                                          24.0, 0.0, 24.0, 0.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         crossAxisAlignment:
@@ -162,7 +162,7 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0, 24, 0, 0),
+                                                    0.0, 24.0, 0.0, 0.0),
                                             child: Text(
                                               'Уровень доступа',
                                               style:
@@ -170,7 +170,7 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                                       .bodyText1
                                                       .override(
                                                         fontFamily: 'Inter',
-                                                        fontSize: 20,
+                                                        fontSize: 20.0,
                                                         useGoogleFonts: GoogleFonts
                                                                 .asMap()
                                                             .containsKey(
@@ -183,7 +183,7 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0, 24, 0, 0),
+                                                    0.0, 24.0, 0.0, 0.0),
                                             child: InkWell(
                                               onTap: () async {
                                                 FFAppState().update(() {
@@ -199,16 +199,16 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 2, 16, 0),
+                                                            .fromSTEB(0.0, 2.0,
+                                                                16.0, 0.0),
                                                     child: Material(
                                                       color: Colors.transparent,
-                                                      elevation: 0,
+                                                      elevation: 0.0,
                                                       shape:
                                                           const CircleBorder(),
                                                       child: Container(
-                                                        width: 18,
-                                                        height: 18,
+                                                        width: 18.0,
+                                                        height: 18.0,
                                                         decoration:
                                                             BoxDecoration(
                                                           shape:
@@ -223,22 +223,22 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                                                 : FlutterFlowTheme.of(
                                                                         context)
                                                                     .gray2,
-                                                            width: 0,
+                                                            width: 0.0,
                                                           ),
                                                         ),
                                                         child: Align(
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  0, 0),
+                                                                  0.0, 0.0),
                                                           child: Material(
                                                             color: Colors
                                                                 .transparent,
-                                                            elevation: 0,
+                                                            elevation: 0.0,
                                                             shape:
                                                                 const CircleBorder(),
                                                             child: Container(
-                                                              width: 8,
-                                                              height: 8,
+                                                              width: 8.0,
+                                                              height: 8.0,
                                                               decoration:
                                                                   BoxDecoration(
                                                                 color: FFAppState()
@@ -269,8 +269,11 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(0, 0,
-                                                                    0, 16),
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    16.0),
                                                         child: Text(
                                                           'Менеджер',
                                                           style: FlutterFlowTheme
@@ -280,7 +283,7 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                                                 fontFamily: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyText1Family,
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w500,
@@ -305,7 +308,8 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .gray1,
-                                                                  fontSize: 16,
+                                                                  fontSize:
+                                                                      16.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
@@ -320,7 +324,10 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                                         padding:
                                                             EdgeInsetsDirectional
                                                                 .fromSTEB(
-                                                                    0, 8, 0, 0),
+                                                                    0.0,
+                                                                    8.0,
+                                                                    0.0,
+                                                                    0.0),
                                                         child: Text(
                                                           'Добавление записей',
                                                           style: FlutterFlowTheme
@@ -333,7 +340,7 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .gray1,
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
@@ -354,7 +361,7 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0, 24, 0, 0),
+                                                    0.0, 24.0, 0.0, 0.0),
                                             child: InkWell(
                                               onTap: () async {
                                                 FFAppState().update(() {
@@ -370,16 +377,16 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 2, 16, 0),
+                                                            .fromSTEB(0.0, 2.0,
+                                                                16.0, 0.0),
                                                     child: Material(
                                                       color: Colors.transparent,
-                                                      elevation: 0,
+                                                      elevation: 0.0,
                                                       shape:
                                                           const CircleBorder(),
                                                       child: Container(
-                                                        width: 18,
-                                                        height: 18,
+                                                        width: 18.0,
+                                                        height: 18.0,
                                                         decoration:
                                                             BoxDecoration(
                                                           shape:
@@ -394,22 +401,22 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                                                 : FlutterFlowTheme.of(
                                                                         context)
                                                                     .gray2,
-                                                            width: 0,
+                                                            width: 0.0,
                                                           ),
                                                         ),
                                                         child: Align(
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  0, 0),
+                                                                  0.0, 0.0),
                                                           child: Material(
                                                             color: Colors
                                                                 .transparent,
-                                                            elevation: 0,
+                                                            elevation: 0.0,
                                                             shape:
                                                                 const CircleBorder(),
                                                             child: Container(
-                                                              width: 8,
-                                                              height: 8,
+                                                              width: 8.0,
+                                                              height: 8.0,
                                                               decoration:
                                                                   BoxDecoration(
                                                                 color: FFAppState()
@@ -440,8 +447,11 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(0, 0,
-                                                                    0, 16),
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    16.0),
                                                         child: Text(
                                                           'Администратор',
                                                           style: FlutterFlowTheme
@@ -451,7 +461,7 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                                                 fontFamily: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyText1Family,
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w500,
@@ -476,7 +486,8 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .gray1,
-                                                                  fontSize: 16,
+                                                                  fontSize:
+                                                                      16.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
@@ -491,7 +502,10 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                                         padding:
                                                             EdgeInsetsDirectional
                                                                 .fromSTEB(
-                                                                    0, 8, 0, 0),
+                                                                    0.0,
+                                                                    8.0,
+                                                                    0.0,
+                                                                    0.0),
                                                         child: Text(
                                                           'Добавление записей',
                                                           style: FlutterFlowTheme
@@ -504,7 +518,7 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .gray1,
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
@@ -520,7 +534,10 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                                         padding:
                                                             EdgeInsetsDirectional
                                                                 .fromSTEB(
-                                                                    0, 8, 0, 0),
+                                                                    0.0,
+                                                                    8.0,
+                                                                    0.0,
+                                                                    0.0),
                                                         child: Text(
                                                           'Просмотр отчетов',
                                                           style: FlutterFlowTheme
@@ -533,7 +550,7 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .gray1,
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
@@ -549,7 +566,10 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                                         padding:
                                                             EdgeInsetsDirectional
                                                                 .fromSTEB(
-                                                                    0, 8, 0, 0),
+                                                                    0.0,
+                                                                    8.0,
+                                                                    0.0,
+                                                                    0.0),
                                                         child: Text(
                                                           'Ответы на отзывы',
                                                           style: FlutterFlowTheme
@@ -562,7 +582,7 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .gray1,
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
@@ -578,7 +598,10 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                                         padding:
                                                             EdgeInsetsDirectional
                                                                 .fromSTEB(
-                                                                    0, 8, 0, 0),
+                                                                    0.0,
+                                                                    8.0,
+                                                                    0.0,
+                                                                    0.0),
                                                         child: Text(
                                                           'Доступ к базе данных клиентов',
                                                           style: FlutterFlowTheme
@@ -591,7 +614,7 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .gray1,
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
@@ -607,7 +630,10 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                                         padding:
                                                             EdgeInsetsDirectional
                                                                 .fromSTEB(
-                                                                    0, 8, 0, 0),
+                                                                    0.0,
+                                                                    8.0,
+                                                                    0.0,
+                                                                    0.0),
                                                         child: Text(
                                                           'Добавление акций',
                                                           style: FlutterFlowTheme
@@ -620,7 +646,7 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .gray1,
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
@@ -641,7 +667,7 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0, 24, 0, 53),
+                                                    0.0, 24.0, 0.0, 53.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               crossAxisAlignment:
@@ -649,14 +675,15 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                               children: [
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 2, 16, 0),
+                                                      .fromSTEB(
+                                                          0.0, 2.0, 16.0, 0.0),
                                                   child: Material(
                                                     color: Colors.transparent,
-                                                    elevation: 0,
+                                                    elevation: 0.0,
                                                     shape: const CircleBorder(),
                                                     child: Container(
-                                                      width: 18,
-                                                      height: 18,
+                                                      width: 18.0,
+                                                      height: 18.0,
                                                       decoration: BoxDecoration(
                                                         shape: BoxShape.circle,
                                                         border: Border.all(
@@ -670,22 +697,22 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                                               : FlutterFlowTheme
                                                                       .of(context)
                                                                   .gray2,
-                                                          width: 0,
+                                                          width: 0.0,
                                                         ),
                                                       ),
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0, 0),
+                                                                0.0, 0.0),
                                                         child: Material(
                                                           color: Colors
                                                               .transparent,
-                                                          elevation: 0,
+                                                          elevation: 0.0,
                                                           shape:
                                                               const CircleBorder(),
                                                           child: Container(
-                                                            width: 8,
-                                                            height: 8,
+                                                            width: 8.0,
+                                                            height: 8.0,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color: FFAppState()
@@ -716,7 +743,10 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0, 0, 0, 16),
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  16.0),
                                                       child: Text(
                                                         'Руководитель',
                                                         style:
@@ -727,7 +757,8 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                                                   fontFamily: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyText1Family,
-                                                                  fontSize: 16,
+                                                                  fontSize:
+                                                                      16.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w500,
@@ -752,7 +783,7 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .gray1,
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
@@ -774,17 +805,18 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        24, 0, 0, 0),
+                                        24.0, 0.0, 0.0, 0.0),
                                     child: Container(
-                                      width: 496,
-                                      height: 278,
+                                      width: 496.0,
+                                      height: 278.0,
                                       decoration: BoxDecoration(
                                         color: Colors.white,
-                                        borderRadius: BorderRadius.circular(8),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
                                       ),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            24, 0, 24, 0),
+                                            24.0, 0.0, 24.0, 0.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           crossAxisAlignment:
@@ -792,7 +824,8 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                           children: [
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 24, 0, 0),
+                                                  .fromSTEB(
+                                                      0.0, 24.0, 0.0, 0.0),
                                               child: Text(
                                                 'Выберите уровень доступа',
                                                 style:
@@ -800,7 +833,7 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                                         .bodyText1
                                                         .override(
                                                           fontFamily: 'Inter',
-                                                          fontSize: 18,
+                                                          fontSize: 18.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                           useGoogleFonts: GoogleFonts
@@ -814,7 +847,8 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 16, 0, 0),
+                                                  .fromSTEB(
+                                                      0.0, 16.0, 0.0, 0.0),
                                               child: Text(
                                                 'Выберите роль для нового сотрудника, доступный фунционал написан ниже.',
                                                 style:
@@ -848,25 +882,25 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                   ),
                   Expanded(
                     child: Align(
-                      alignment: AlignmentDirectional(0, 1),
+                      alignment: AlignmentDirectional(0.0, 1.0),
                       child: Container(
                         width: double.infinity,
-                        height: 80,
+                        height: 80.0,
                         decoration: BoxDecoration(
                           color: Colors.white,
                           boxShadow: [
                             BoxShadow(
-                              blurRadius: 16,
+                              blurRadius: 16.0,
                               color: Color(0x24DEDEDE),
-                              offset: Offset(0, -4),
+                              offset: Offset(0.0, -4.0),
                             )
                           ],
                         ),
                         child: Align(
-                          alignment: AlignmentDirectional(0, 0),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Container(
-                            width: 1224,
-                            height: 80,
+                            width: 1224.0,
+                            height: 80.0,
                             decoration: BoxDecoration(
                               color: Colors.white,
                             ),
@@ -878,8 +912,8 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Container(
-                                      width: 24,
-                                      height: 24,
+                                      width: 24.0,
+                                      height: 24.0,
                                       decoration: BoxDecoration(
                                         color:
                                             FlutterFlowTheme.of(context).green,
@@ -887,21 +921,22 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                         border: Border.all(
                                           color: FlutterFlowTheme.of(context)
                                               .green,
-                                          width: 2,
+                                          width: 2.0,
                                         ),
                                       ),
                                       child: Align(
-                                        alignment: AlignmentDirectional(0, 0),
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Icon(
                                           FFIcons.kcheeek,
                                           color: Colors.white,
-                                          size: 18,
+                                          size: 18.0,
                                         ),
                                       ),
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          8, 0, 8, 0),
+                                          8.0, 0.0, 8.0, 0.0),
                                       child: Text(
                                         'Основные данные',
                                         style: FlutterFlowTheme.of(context)
@@ -922,8 +957,8 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                       ),
                                     ),
                                     Container(
-                                      width: 40,
-                                      height: 1,
+                                      width: 40.0,
+                                      height: 1.0,
                                       decoration: BoxDecoration(
                                         color: Color(0xFFEDEDED),
                                       ),
@@ -932,13 +967,13 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      8, 0, 0, 0),
+                                      8.0, 0.0, 0.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Container(
-                                        width: 24,
-                                        height: 24,
+                                        width: 24.0,
+                                        height: 24.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
@@ -946,11 +981,12 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                           border: Border.all(
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryColor,
-                                            width: 2,
+                                            width: 2.0,
                                           ),
                                         ),
                                         child: Align(
-                                          alignment: AlignmentDirectional(0, 0),
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Text(
                                             '2',
                                             style: FlutterFlowTheme.of(context)
@@ -973,7 +1009,7 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            8, 0, 8, 0),
+                                            8.0, 0.0, 8.0, 0.0),
                                         child: Text(
                                           'Уровень доступа',
                                           style: FlutterFlowTheme.of(context)
@@ -994,8 +1030,8 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                         ),
                                       ),
                                       Container(
-                                        width: 40,
-                                        height: 1,
+                                        width: 40.0,
+                                        height: 1.0,
                                         decoration: BoxDecoration(
                                           color: Color(0xFFEDEDED),
                                         ),
@@ -1005,24 +1041,25 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      8, 0, 0, 0),
+                                      8.0, 0.0, 0.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Container(
-                                        width: 24,
-                                        height: 24,
+                                        width: 24.0,
+                                        height: 24.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                           shape: BoxShape.circle,
                                           border: Border.all(
                                             color: Color(0xFF515151),
-                                            width: 2,
+                                            width: 2.0,
                                           ),
                                         ),
                                         child: Align(
-                                          alignment: AlignmentDirectional(0, 0),
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Text(
                                             '3',
                                             style: FlutterFlowTheme.of(context)
@@ -1043,7 +1080,7 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            8, 0, 8, 0),
+                                            8.0, 0.0, 8.0, 0.0),
                                         child: Text(
                                           'Подтверждение',
                                           style: FlutterFlowTheme.of(context)
@@ -1062,8 +1099,8 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                         ),
                                       ),
                                       Container(
-                                        width: 40,
-                                        height: 1,
+                                        width: 40.0,
+                                        height: 1.0,
                                         decoration: BoxDecoration(
                                           color: Color(0xFFEDEDED),
                                         ),
@@ -1101,12 +1138,12 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                   },
                                   text: 'Продолжить',
                                   options: FFButtonOptions(
-                                    width: 185,
-                                    height: 48,
+                                    width: 185.0,
+                                    height: 48.0,
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 0, 0, 0),
+                                        0.0, 0.0, 0.0, 0.0),
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 0, 0, 0),
+                                        0.0, 0.0, 0.0, 0.0),
                                     color: FlutterFlowTheme.of(context)
                                         .primaryColor,
                                     textStyle: FlutterFlowTheme.of(context)
@@ -1120,12 +1157,12 @@ class _AdminAddStaff2WidgetState extends State<AdminAddStaff2Widget> {
                                                   FlutterFlowTheme.of(context)
                                                       .subtitle2Family),
                                         ),
-                                    elevation: 0,
+                                    elevation: 0.0,
                                     borderSide: BorderSide(
                                       color: Colors.transparent,
-                                      width: 1,
+                                      width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(8),
+                                    borderRadius: BorderRadius.circular(8.0),
                                   ),
                                 ),
                               ],

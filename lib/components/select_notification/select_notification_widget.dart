@@ -48,39 +48,39 @@ class _SelectNotificationWidgetState extends State<SelectNotificationWidget> {
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
         borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(0),
-          bottomRight: Radius.circular(0),
-          topLeft: Radius.circular(10),
-          topRight: Radius.circular(10),
+          bottomLeft: Radius.circular(0.0),
+          bottomRight: Radius.circular(0.0),
+          topLeft: Radius.circular(10.0),
+          topRight: Radius.circular(10.0),
         ),
       ),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
+        padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Align(
-              alignment: AlignmentDirectional(0, 0),
+              alignment: AlignmentDirectional(0.0, 0.0),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 16),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 16.0),
                 child: Container(
-                  width: 40,
-                  height: 4,
+                  width: 40.0,
+                  height: 4.0,
                   decoration: BoxDecoration(
                     color: Color(0xFFD9D9D9),
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
                 ),
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 22),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 22.0),
               child: Text(
                 'Напомнить',
                 style: FlutterFlowTheme.of(context).bodyText1.override(
                       fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
-                      fontSize: 18,
+                      fontSize: 18.0,
                       fontWeight: FontWeight.w500,
                       useGoogleFonts: GoogleFonts.asMap().containsKey(
                           FlutterFlowTheme.of(context).bodyText1Family),
@@ -97,13 +97,14 @@ class _SelectNotificationWidgetState extends State<SelectNotificationWidget> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 14),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 14.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Container(
-                          width: 20,
-                          height: 20,
+                          width: 20.0,
+                          height: 20.0,
                           decoration: BoxDecoration(
                             color: valueOrDefault<Color>(
                               FFAppState().selectPush == 30
@@ -123,18 +124,18 @@ class _SelectNotificationWidgetState extends State<SelectNotificationWidget> {
                             ),
                           ),
                           child: Align(
-                            alignment: AlignmentDirectional(0, 0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Icon(
                               Icons.check,
                               color: Colors.white,
-                              size: 12,
+                              size: 12.0,
                             ),
                           ),
                         ),
                         Expanded(
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                16.0, 0.0, 0.0, 0.0),
                             child: Text(
                               'За пол часа до записи',
                               style: FlutterFlowTheme.of(context).bodyText1,
@@ -145,8 +146,8 @@ class _SelectNotificationWidgetState extends State<SelectNotificationWidget> {
                     ),
                   ),
                   Divider(
-                    height: 1,
-                    thickness: 1,
+                    height: 1.0,
+                    thickness: 1.0,
                     color: FlutterFlowTheme.of(context).gray3,
                   ),
                 ],
@@ -162,13 +163,14 @@ class _SelectNotificationWidgetState extends State<SelectNotificationWidget> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 14, 0, 14),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 14.0, 0.0, 14.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Container(
-                          width: 20,
-                          height: 20,
+                          width: 20.0,
+                          height: 20.0,
                           decoration: BoxDecoration(
                             color: valueOrDefault<Color>(
                               FFAppState().selectPush == 60
@@ -188,18 +190,18 @@ class _SelectNotificationWidgetState extends State<SelectNotificationWidget> {
                             ),
                           ),
                           child: Align(
-                            alignment: AlignmentDirectional(0, 0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Icon(
                               Icons.check,
                               color: Colors.white,
-                              size: 12,
+                              size: 12.0,
                             ),
                           ),
                         ),
                         Expanded(
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                16.0, 0.0, 0.0, 0.0),
                             child: Text(
                               'За 1 час до записи',
                               style: FlutterFlowTheme.of(context).bodyText1,
@@ -210,8 +212,8 @@ class _SelectNotificationWidgetState extends State<SelectNotificationWidget> {
                     ),
                   ),
                   Divider(
-                    height: 1,
-                    thickness: 1,
+                    height: 1.0,
+                    thickness: 1.0,
                     color: FlutterFlowTheme.of(context).gray3,
                   ),
                 ],
@@ -227,13 +229,14 @@ class _SelectNotificationWidgetState extends State<SelectNotificationWidget> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 14, 0, 14),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 14.0, 0.0, 14.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Container(
-                          width: 20,
-                          height: 20,
+                          width: 20.0,
+                          height: 20.0,
                           decoration: BoxDecoration(
                             color: valueOrDefault<Color>(
                               FFAppState().selectPush == 120
@@ -253,18 +256,18 @@ class _SelectNotificationWidgetState extends State<SelectNotificationWidget> {
                             ),
                           ),
                           child: Align(
-                            alignment: AlignmentDirectional(0, 0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Icon(
                               Icons.check,
                               color: Colors.white,
-                              size: 12,
+                              size: 12.0,
                             ),
                           ),
                         ),
                         Expanded(
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                16.0, 0.0, 0.0, 0.0),
                             child: Text(
                               'За 2 часа до записи',
                               style: FlutterFlowTheme.of(context).bodyText1,
@@ -275,8 +278,8 @@ class _SelectNotificationWidgetState extends State<SelectNotificationWidget> {
                     ),
                   ),
                   Divider(
-                    height: 1,
-                    thickness: 1,
+                    height: 1.0,
+                    thickness: 1.0,
                     color: FlutterFlowTheme.of(context).gray3,
                   ),
                 ],
@@ -292,13 +295,14 @@ class _SelectNotificationWidgetState extends State<SelectNotificationWidget> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 14, 0, 14),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 14.0, 0.0, 14.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Container(
-                          width: 20,
-                          height: 20,
+                          width: 20.0,
+                          height: 20.0,
                           decoration: BoxDecoration(
                             color: valueOrDefault<Color>(
                               FFAppState().selectPush == 1000
@@ -318,18 +322,18 @@ class _SelectNotificationWidgetState extends State<SelectNotificationWidget> {
                             ),
                           ),
                           child: Align(
-                            alignment: AlignmentDirectional(0, 0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Icon(
                               Icons.check,
                               color: Colors.white,
-                              size: 12,
+                              size: 12.0,
                             ),
                           ),
                         ),
                         Expanded(
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                16.0, 0.0, 0.0, 0.0),
                             child: Text(
                               'Не напоминать',
                               style: FlutterFlowTheme.of(context)
@@ -350,39 +354,40 @@ class _SelectNotificationWidgetState extends State<SelectNotificationWidget> {
                     ),
                   ),
                   Divider(
-                    height: 1,
-                    thickness: 1,
+                    height: 1.0,
+                    thickness: 1.0,
                     color: FlutterFlowTheme.of(context).gray3,
                   ),
                 ],
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 60),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 60.0),
               child: FFButtonWidget(
                 onPressed: () async {
                   Navigator.pop(context);
                 },
                 text: 'Сохранить',
                 options: FFButtonOptions(
-                  width: 130,
-                  height: 48,
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                  iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                  width: 130.0,
+                  height: 48.0,
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                  iconPadding:
+                      EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   color: FlutterFlowTheme.of(context).primaryColor,
                   textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                         fontFamily:
                             FlutterFlowTheme.of(context).subtitle2Family,
                         color: Colors.white,
-                        fontSize: 16,
+                        fontSize: 16.0,
                         useGoogleFonts: GoogleFonts.asMap().containsKey(
                             FlutterFlowTheme.of(context).subtitle2Family),
                       ),
                   borderSide: BorderSide(
                     color: Colors.transparent,
-                    width: 1,
+                    width: 1.0,
                   ),
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(8.0),
                 ),
               ),
             ),

@@ -84,7 +84,7 @@ class _SuperAdminCurrentUserWidgetState
                   Expanded(
                     child: Container(
                       width: double.infinity,
-                      height: 100,
+                      height: 100.0,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                       ),
@@ -94,7 +94,7 @@ class _SuperAdminCurrentUserWidgetState
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Container(
-                              width: 1224,
+                              width: 1224.0,
                               decoration: BoxDecoration(),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -102,7 +102,7 @@ class _SuperAdminCurrentUserWidgetState
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 24, 0, 0),
+                                        0.0, 24.0, 0.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -119,11 +119,12 @@ class _SuperAdminCurrentUserWidgetState
                                             children: [
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(0, 0, 3, 0),
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 3.0, 0.0),
                                                 child: Icon(
                                                   FFIcons.kicBack,
                                                   color: Colors.black,
-                                                  size: 14,
+                                                  size: 14.0,
                                                 ),
                                               ),
                                               Text(
@@ -151,16 +152,16 @@ class _SuperAdminCurrentUserWidgetState
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 21, 0, 0),
+                                        0.0, 21.0, 0.0, 0.0),
                                     child: Container(
-                                      width: 1224,
+                                      width: 1224.0,
                                       decoration: BoxDecoration(
                                         color: Colors.white,
                                         borderRadius: BorderRadius.only(
-                                          bottomLeft: Radius.circular(8),
-                                          bottomRight: Radius.circular(8),
-                                          topLeft: Radius.circular(0),
-                                          topRight: Radius.circular(0),
+                                          bottomLeft: Radius.circular(8.0),
+                                          bottomRight: Radius.circular(8.0),
+                                          topLeft: Radius.circular(0.0),
+                                          topRight: Radius.circular(0.0),
                                         ),
                                       ),
                                       child: Column(
@@ -171,7 +172,7 @@ class _SuperAdminCurrentUserWidgetState
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    48, 48, 48, 48),
+                                                    48.0, 48.0, 48.0, 48.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               crossAxisAlignment:
@@ -179,7 +180,8 @@ class _SuperAdminCurrentUserWidgetState
                                               children: [
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 0, 0, 24),
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 0.0, 24.0),
                                                   child: Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -196,7 +198,7 @@ class _SuperAdminCurrentUserWidgetState
                                                               .override(
                                                                 fontFamily:
                                                                     'Inter',
-                                                                fontSize: 18,
+                                                                fontSize: 18.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w500,
@@ -225,16 +227,16 @@ class _SuperAdminCurrentUserWidgetState
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0,
-                                                                          0,
-                                                                          6,
-                                                                          0),
+                                                                          0.0,
+                                                                          0.0,
+                                                                          6.0,
+                                                                          0.0),
                                                               child: Icon(
                                                                 FFIcons.kicEdit,
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryColor,
-                                                                size: 24,
+                                                                size: 24.0,
                                                               ),
                                                             ),
                                                             Text(
@@ -268,8 +270,8 @@ class _SuperAdminCurrentUserWidgetState
                                                       MainAxisSize.max,
                                                   children: [
                                                     Container(
-                                                      width: 80,
-                                                      height: 80,
+                                                      width: 80.0,
+                                                      height: 80.0,
                                                       clipBehavior:
                                                           Clip.antiAlias,
                                                       decoration: BoxDecoration(
@@ -287,7 +289,10 @@ class _SuperAdminCurrentUserWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  16, 0, 0, 0),
+                                                                  16.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
                                                       child: Column(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -299,10 +304,10 @@ class _SuperAdminCurrentUserWidgetState
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0,
-                                                                        0,
-                                                                        0,
-                                                                        8),
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        8.0),
                                                             child: Text(
                                                               '${valueOrDefault<String>(
                                                                 widget
@@ -317,7 +322,7 @@ class _SuperAdminCurrentUserWidgetState
                                                                     fontFamily:
                                                                         'Inter',
                                                                     fontSize:
-                                                                        18,
+                                                                        18.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w500,
@@ -363,7 +368,8 @@ class _SuperAdminCurrentUserWidgetState
                                                 ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 24, 0, 0),
+                                                      .fromSTEB(
+                                                          0.0, 24.0, 0.0, 0.0),
                                                   child: Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -391,8 +397,8 @@ class _SuperAdminCurrentUserWidgetState
                                                                 .hasData) {
                                                               return Center(
                                                                 child: SizedBox(
-                                                                  width: 50,
-                                                                  height: 50,
+                                                                  width: 50.0,
+                                                                  height: 50.0,
                                                                   child:
                                                                       CircularProgressIndicator(
                                                                     color: FlutterFlowTheme.of(
@@ -438,7 +444,7 @@ class _SuperAdminCurrentUserWidgetState
                                                                           color:
                                                                               FlutterFlowTheme.of(context).gray2,
                                                                           fontSize:
-                                                                              12,
+                                                                              12.0,
                                                                           fontWeight:
                                                                               FontWeight.normal,
                                                                           useGoogleFonts:
@@ -448,10 +454,10 @@ class _SuperAdminCurrentUserWidgetState
                                                                   Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0,
-                                                                            4,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            4.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                     child: Text(
                                                                       valueOrDefault<
                                                                           String>(
@@ -471,7 +477,7 @@ class _SuperAdminCurrentUserWidgetState
                                                                             fontFamily:
                                                                                 'Inter',
                                                                             fontSize:
-                                                                                16,
+                                                                                16.0,
                                                                             fontWeight:
                                                                                 FontWeight.w500,
                                                                             useGoogleFonts:
@@ -510,8 +516,8 @@ class _SuperAdminCurrentUserWidgetState
                                                                 .hasData) {
                                                               return Center(
                                                                 child: SizedBox(
-                                                                  width: 50,
-                                                                  height: 50,
+                                                                  width: 50.0,
+                                                                  height: 50.0,
                                                                   child:
                                                                       CircularProgressIndicator(
                                                                     color: FlutterFlowTheme.of(
@@ -557,7 +563,7 @@ class _SuperAdminCurrentUserWidgetState
                                                                           color:
                                                                               FlutterFlowTheme.of(context).gray2,
                                                                           fontSize:
-                                                                              12,
+                                                                              12.0,
                                                                           fontWeight:
                                                                               FontWeight.normal,
                                                                           useGoogleFonts:
@@ -567,10 +573,10 @@ class _SuperAdminCurrentUserWidgetState
                                                                   Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0,
-                                                                            4,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            4.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                     child: Text(
                                                                       valueOrDefault<
                                                                           String>(
@@ -590,7 +596,7 @@ class _SuperAdminCurrentUserWidgetState
                                                                             fontFamily:
                                                                                 'Inter',
                                                                             fontSize:
-                                                                                16,
+                                                                                16.0,
                                                                             fontWeight:
                                                                                 FontWeight.w500,
                                                                             useGoogleFonts:
@@ -625,8 +631,8 @@ class _SuperAdminCurrentUserWidgetState
                                                                 .hasData) {
                                                               return Center(
                                                                 child: SizedBox(
-                                                                  width: 50,
-                                                                  height: 50,
+                                                                  width: 50.0,
+                                                                  height: 50.0,
                                                                   child:
                                                                       CircularProgressIndicator(
                                                                     color: FlutterFlowTheme.of(
@@ -664,17 +670,17 @@ class _SuperAdminCurrentUserWidgetState
                                                                               .override(
                                                                                 fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
                                                                                 color: FlutterFlowTheme.of(context).gray2,
-                                                                                fontSize: 12,
+                                                                                fontSize: 12.0,
                                                                                 fontWeight: FontWeight.normal,
                                                                                 useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                               ),
                                                                         ),
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0,
-                                                                              4,
-                                                                              0,
-                                                                              0),
+                                                                              0.0,
+                                                                              4.0,
+                                                                              0.0,
+                                                                              0.0),
                                                                           child:
                                                                               Text(
                                                                             valueOrDefault<String>(
@@ -683,7 +689,7 @@ class _SuperAdminCurrentUserWidgetState
                                                                             ),
                                                                             style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                   fontFamily: 'Inter',
-                                                                                  fontSize: 16,
+                                                                                  fontSize: 16.0,
                                                                                   fontWeight: FontWeight.w500,
                                                                                   useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                 ),
@@ -709,7 +715,7 @@ class _SuperAdminCurrentUserWidgetState
                                                                               .override(
                                                                                 fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
                                                                                 color: FlutterFlowTheme.of(context).gray2,
-                                                                                fontSize: 12,
+                                                                                fontSize: 12.0,
                                                                                 fontWeight: FontWeight.normal,
                                                                                 useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                               ),
@@ -719,7 +725,7 @@ class _SuperAdminCurrentUserWidgetState
                                                                               MainAxisSize.max,
                                                                           children: [
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                                                                               child: Text(
                                                                                 valueOrDefault<String>(
                                                                                   functions.averageCheque(containerBookingsRecordList.toList()),
@@ -727,14 +733,14 @@ class _SuperAdminCurrentUserWidgetState
                                                                                 ),
                                                                                 style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                       fontFamily: 'Inter',
-                                                                                      fontSize: 16,
+                                                                                      fontSize: 16.0,
                                                                                       fontWeight: FontWeight.w500,
                                                                                       useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                     ),
                                                                               ),
                                                                             ),
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                                                                               child: Text(
                                                                                 valueOrDefault<String>(
                                                                                   functions.averageChequeName(containerBookingsRecordList.toList()),
@@ -742,7 +748,7 @@ class _SuperAdminCurrentUserWidgetState
                                                                                 ),
                                                                                 style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                       fontFamily: 'Inter',
-                                                                                      fontSize: 16,
+                                                                                      fontSize: 16.0,
                                                                                       fontWeight: FontWeight.w500,
                                                                                       useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                     ),
@@ -770,7 +776,7 @@ class _SuperAdminCurrentUserWidgetState
                                                                               .override(
                                                                                 fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
                                                                                 color: FlutterFlowTheme.of(context).gray2,
-                                                                                fontSize: 12,
+                                                                                fontSize: 12.0,
                                                                                 fontWeight: FontWeight.normal,
                                                                                 useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                               ),
@@ -780,7 +786,7 @@ class _SuperAdminCurrentUserWidgetState
                                                                               MainAxisSize.max,
                                                                           children: [
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                                                                               child: Text(
                                                                                 valueOrDefault<String>(
                                                                                   functions.oborot(containerBookingsRecordList.toList()).toString(),
@@ -788,14 +794,14 @@ class _SuperAdminCurrentUserWidgetState
                                                                                 ),
                                                                                 style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                       fontFamily: 'Inter',
-                                                                                      fontSize: 16,
+                                                                                      fontSize: 16.0,
                                                                                       fontWeight: FontWeight.w500,
                                                                                       useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                     ),
                                                                               ),
                                                                             ),
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                                                                               child: Text(
                                                                                 valueOrDefault<String>(
                                                                                   functions.oborotName(containerBookingsRecordList.toList()),
@@ -803,7 +809,7 @@ class _SuperAdminCurrentUserWidgetState
                                                                                 ),
                                                                                 style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                       fontFamily: 'Inter',
-                                                                                      fontSize: 16,
+                                                                                      fontSize: 16.0,
                                                                                       fontWeight: FontWeight.w500,
                                                                                       useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                     ),
@@ -832,7 +838,7 @@ class _SuperAdminCurrentUserWidgetState
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 24, 0, 0),
+                                        0.0, 24.0, 0.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
@@ -840,12 +846,12 @@ class _SuperAdminCurrentUserWidgetState
                                           FFIcons.kicSettings,
                                           color: FlutterFlowTheme.of(context)
                                               .gray2,
-                                          size: 24,
+                                          size: 24.0,
                                         ),
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  8, 0, 0, 0),
+                                                  8.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             'Фильтр',
                                             style: FlutterFlowTheme.of(context)
@@ -868,7 +874,7 @@ class _SuperAdminCurrentUserWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  24, 0, 0, 0),
+                                                  24.0, 0.0, 0.0, 0.0),
                                           child: InkWell(
                                             onTap: () async {
                                               await showModalBottomSheet(
@@ -890,14 +896,14 @@ class _SuperAdminCurrentUserWidgetState
                                                   (value) => setState(() {}));
                                             },
                                             child: Container(
-                                              width: 212,
-                                              height: 40,
+                                              width: 212.0,
+                                              height: 40.0,
                                               decoration: BoxDecoration(
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryBackground,
                                                 borderRadius:
-                                                    BorderRadius.circular(8),
+                                                    BorderRadius.circular(8.0),
                                                 border: Border.all(
                                                   color: FlutterFlowTheme.of(
                                                           context)
@@ -906,7 +912,8 @@ class _SuperAdminCurrentUserWidgetState
                                               ),
                                               child: Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(16, 0, 16, 0),
+                                                    .fromSTEB(
+                                                        16.0, 0.0, 16.0, 0.0),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -946,7 +953,7 @@ class _SuperAdminCurrentUserWidgetState
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .gray2,
-                                                      size: 24,
+                                                      size: 24.0,
                                                     ),
                                                   ],
                                                 ),
@@ -959,14 +966,14 @@ class _SuperAdminCurrentUserWidgetState
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 32, 0, 0),
+                                        0.0, 32.0, 0.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 24, 0),
+                                                  0.0, 0.0, 24.0, 0.0),
                                           child: InkWell(
                                             onTap: () async {
                                               FFAppState().update(() {
@@ -981,7 +988,8 @@ class _SuperAdminCurrentUserWidgetState
                                               children: [
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 0, 0, 17),
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 0.0, 17.0),
                                                   child: Text(
                                                     'Записи клиента',
                                                     style:
@@ -1000,7 +1008,7 @@ class _SuperAdminCurrentUserWidgetState
                                                                   : FlutterFlowTheme.of(
                                                                           context)
                                                                       .webUnselectedColor,
-                                                              fontSize: 16,
+                                                              fontSize: 16.0,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .normal,
@@ -1014,8 +1022,8 @@ class _SuperAdminCurrentUserWidgetState
                                                   ),
                                                 ),
                                                 Container(
-                                                  width: 125,
-                                                  height: 1,
+                                                  width: 125.0,
+                                                  height: 1.0,
                                                   decoration: BoxDecoration(
                                                     color: FFAppState()
                                                                 .adminClentsType ==
@@ -1035,7 +1043,7 @@ class _SuperAdminCurrentUserWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 24, 0),
+                                                  0.0, 0.0, 24.0, 0.0),
                                           child: InkWell(
                                             onTap: () async {
                                               FFAppState().update(() {
@@ -1050,7 +1058,8 @@ class _SuperAdminCurrentUserWidgetState
                                               children: [
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 0, 0, 17),
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 0.0, 17.0),
                                                   child: Text(
                                                     'Отзывы клиента',
                                                     style:
@@ -1069,7 +1078,7 @@ class _SuperAdminCurrentUserWidgetState
                                                                   : FlutterFlowTheme.of(
                                                                           context)
                                                                       .webUnselectedColor,
-                                                              fontSize: 16,
+                                                              fontSize: 16.0,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .normal,
@@ -1083,8 +1092,8 @@ class _SuperAdminCurrentUserWidgetState
                                                   ),
                                                 ),
                                                 Container(
-                                                  width: 130,
-                                                  height: 1,
+                                                  width: 130.0,
+                                                  height: 1.0,
                                                   decoration: BoxDecoration(
                                                     color: FFAppState()
                                                                 .adminClentsType ==
@@ -1106,12 +1115,13 @@ class _SuperAdminCurrentUserWidgetState
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 0, 0, 200),
+                                        0.0, 0.0, 0.0, 200.0),
                                     child: Container(
-                                      width: 1224,
+                                      width: 1224.0,
                                       decoration: BoxDecoration(
                                         color: Colors.white,
-                                        borderRadius: BorderRadius.circular(8),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
                                       ),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -1120,7 +1130,8 @@ class _SuperAdminCurrentUserWidgetState
                                               'Записи клиента')
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(24, 0, 24, 0),
+                                                  .fromSTEB(
+                                                      24.0, 0.0, 24.0, 0.0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -1129,8 +1140,8 @@ class _SuperAdminCurrentUserWidgetState
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 32, 0, 16),
+                                                            .fromSTEB(0.0, 32.0,
+                                                                0.0, 16.0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -1192,7 +1203,7 @@ class _SuperAdminCurrentUserWidgetState
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .gray2,
-                                                                size: 12,
+                                                                size: 12.0,
                                                               ),
                                                             ],
                                                           ),
@@ -1321,8 +1332,8 @@ class _SuperAdminCurrentUserWidgetState
                                                     ),
                                                   ),
                                                   Divider(
-                                                    height: 1,
-                                                    thickness: 1,
+                                                    height: 1.0,
+                                                    thickness: 1.0,
                                                     color: Color(0xFFEEEEEE),
                                                   ),
                                                   StreamBuilder<
@@ -1348,8 +1359,8 @@ class _SuperAdminCurrentUserWidgetState
                                                       if (!snapshot.hasData) {
                                                         return Center(
                                                           child: SizedBox(
-                                                            width: 50,
-                                                            height: 50,
+                                                            width: 50.0,
+                                                            height: 50.0,
                                                             child:
                                                                 CircularProgressIndicator(
                                                               color: FlutterFlowTheme
@@ -1423,10 +1434,10 @@ class _SuperAdminCurrentUserWidgetState
                                                                 Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0,
-                                                                          16,
-                                                                          0,
-                                                                          16),
+                                                                          0.0,
+                                                                          16.0,
+                                                                          0.0,
+                                                                          16.0),
                                                                   child: Row(
                                                                     mainAxisSize:
                                                                         MainAxisSize
@@ -1460,7 +1471,7 @@ class _SuperAdminCurrentUserWidgetState
                                                                               CrossAxisAlignment.start,
                                                                           children: [
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 4),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
                                                                               child: Text(
                                                                                 valueOrDefault<String>(
                                                                                   listViewBookingsRecord.timeName,
@@ -1572,8 +1583,8 @@ class _SuperAdminCurrentUserWidgetState
                                                                               MainAxisSize.max,
                                                                           children: [
                                                                             Container(
-                                                                              width: 8,
-                                                                              height: 8,
+                                                                              width: 8.0,
+                                                                              height: 8.0,
                                                                               decoration: BoxDecoration(
                                                                                 color: () {
                                                                                   if (!listViewBookingsRecord.cancelled! && (listViewBookingsRecord.status == 'Закончено')) {
@@ -1588,7 +1599,7 @@ class _SuperAdminCurrentUserWidgetState
                                                                               ),
                                                                             ),
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                                                                               child: Text(
                                                                                 () {
                                                                                   if (!listViewBookingsRecord.cancelled! && (listViewBookingsRecord.status == 'Закончено')) {
@@ -1622,8 +1633,9 @@ class _SuperAdminCurrentUserWidgetState
                                                                   ),
                                                                 ),
                                                                 Divider(
-                                                                  height: 1,
-                                                                  thickness: 1,
+                                                                  height: 1.0,
+                                                                  thickness:
+                                                                      1.0,
                                                                   color: Color(
                                                                       0xFFEEEEEE),
                                                                 ),
@@ -1641,15 +1653,16 @@ class _SuperAdminCurrentUserWidgetState
                                               'Отзывы клиента')
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(24, 0, 24, 0),
+                                                  .fromSTEB(
+                                                      24.0, 0.0, 24.0, 0.0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 32, 0, 16),
+                                                            .fromSTEB(0.0, 32.0,
+                                                                0.0, 16.0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -1685,17 +1698,17 @@ class _SuperAdminCurrentUserWidgetState
                                                                 padding:
                                                                     EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            4,
-                                                                            0,
-                                                                            0,
-                                                                            0),
+                                                                            4.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                 child: Icon(
                                                                   Icons
                                                                       .arrow_upward,
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .gray2,
-                                                                  size: 12,
+                                                                  size: 12.0,
                                                                 ),
                                                               ),
                                                             ],
@@ -1780,17 +1793,17 @@ class _SuperAdminCurrentUserWidgetState
                                                                 padding:
                                                                     EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            4,
-                                                                            0,
-                                                                            0,
-                                                                            0),
+                                                                            4.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                 child: Icon(
                                                                   Icons
                                                                       .arrow_upward,
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .gray2,
-                                                                  size: 12,
+                                                                  size: 12.0,
                                                                 ),
                                                               ),
                                                             ],
@@ -1872,8 +1885,8 @@ class _SuperAdminCurrentUserWidgetState
                                                     ),
                                                   ),
                                                   Divider(
-                                                    height: 1,
-                                                    thickness: 1,
+                                                    height: 1.0,
+                                                    thickness: 1.0,
                                                     color: Color(0xFFEEEEEE),
                                                   ),
                                                   PagedListView<
@@ -2032,8 +2045,8 @@ class _SuperAdminCurrentUserWidgetState
                                                       firstPageProgressIndicatorBuilder:
                                                           (_) => Center(
                                                         child: SizedBox(
-                                                          width: 50,
-                                                          height: 50,
+                                                          width: 50.0,
+                                                          height: 50.0,
                                                           child:
                                                               CircularProgressIndicator(
                                                             color: FlutterFlowTheme
@@ -2064,8 +2077,8 @@ class _SuperAdminCurrentUserWidgetState
                                                                 .hasData) {
                                                               return Center(
                                                                 child: SizedBox(
-                                                                  width: 50,
-                                                                  height: 50,
+                                                                  width: 50.0,
+                                                                  height: 50.0,
                                                                   child:
                                                                       CircularProgressIndicator(
                                                                     color: FlutterFlowTheme.of(
@@ -2085,10 +2098,10 @@ class _SuperAdminCurrentUserWidgetState
                                                                 Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0,
-                                                                          16,
-                                                                          0,
-                                                                          16),
+                                                                          0.0,
+                                                                          16.0,
+                                                                          0.0,
+                                                                          16.0),
                                                                   child: FutureBuilder<
                                                                       CompaniesRecord>(
                                                                     future: CompaniesRecord.getDocumentOnce(
@@ -2104,9 +2117,9 @@ class _SuperAdminCurrentUserWidgetState
                                                                           child:
                                                                               SizedBox(
                                                                             width:
-                                                                                50,
+                                                                                50.0,
                                                                             height:
-                                                                                50,
+                                                                                50.0,
                                                                             child:
                                                                                 CircularProgressIndicator(
                                                                               color: FlutterFlowTheme.of(context).primaryColor,
@@ -2130,7 +2143,7 @@ class _SuperAdminCurrentUserWidgetState
                                                                               crossAxisAlignment: CrossAxisAlignment.start,
                                                                               children: [
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 4),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
                                                                                   child: Text(
                                                                                     columnBookingsRecord.timeName!,
                                                                                     style: FlutterFlowTheme.of(context).bodyText1.override(
@@ -2230,8 +2243,8 @@ class _SuperAdminCurrentUserWidgetState
                                                                               mainAxisSize: MainAxisSize.max,
                                                                               children: [
                                                                                 Container(
-                                                                                  width: 8,
-                                                                                  height: 8,
+                                                                                  width: 8.0,
+                                                                                  height: 8.0,
                                                                                   decoration: BoxDecoration(
                                                                                     color: () {
                                                                                       if (listViewCommentsRecord.obtobotan!) {
@@ -2246,7 +2259,7 @@ class _SuperAdminCurrentUserWidgetState
                                                                                   ),
                                                                                 ),
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                                                                                   child: Text(
                                                                                     () {
                                                                                       if (listViewCommentsRecord.obtobotan!) {
@@ -2304,7 +2317,7 @@ class _SuperAdminCurrentUserWidgetState
                                                                               child: Icon(
                                                                                 FFIcons.kicDots,
                                                                                 color: Colors.black,
-                                                                                size: 24,
+                                                                                size: 24.0,
                                                                               ),
                                                                             ),
                                                                           ),
@@ -2314,8 +2327,9 @@ class _SuperAdminCurrentUserWidgetState
                                                                   ),
                                                                 ),
                                                                 Divider(
-                                                                  height: 1,
-                                                                  thickness: 1,
+                                                                  height: 1.0,
+                                                                  thickness:
+                                                                      1.0,
                                                                   color: Color(
                                                                       0xFFEEEEEE),
                                                                 ),
@@ -2344,7 +2358,7 @@ class _SuperAdminCurrentUserWidgetState
                 ],
               ),
               Align(
-                alignment: AlignmentDirectional(0, -1),
+                alignment: AlignmentDirectional(0.0, -1.0),
                 child: wrapWithModel(
                   model: _model.adminAppBarInfoModel,
                   updateCallback: () => setState(() {}),

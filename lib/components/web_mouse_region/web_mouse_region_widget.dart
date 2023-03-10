@@ -49,26 +49,26 @@ class _WebMouseRegionWidgetState extends State<WebMouseRegionWidget> {
     context.watch<FFAppState>();
 
     return Container(
-      width: 249,
-      height: 94,
+      width: 249.0,
+      height: 94.0,
       child: Stack(
         children: [
           Container(
-            width: 249,
+            width: 249.0,
             height: 82.8,
             decoration: BoxDecoration(
               color: Colors.white,
               boxShadow: [
                 BoxShadow(
-                  blurRadius: 8,
+                  blurRadius: 8.0,
                   color: Color(0x13000000),
-                  offset: Offset(0, 2),
+                  offset: Offset(0.0, 2.0),
                 )
               ],
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(8.0),
             ),
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 16),
+              padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
               child: Text(
                 widget.message!,
                 style: FlutterFlowTheme.of(context).bodyText1.override(
@@ -81,11 +81,11 @@ class _WebMouseRegionWidgetState extends State<WebMouseRegionWidget> {
             ),
           ),
           Align(
-            alignment: AlignmentDirectional(0, 1),
+            alignment: AlignmentDirectional(0.0, 1.0),
             child: Image.asset(
               'assets/images/triangle.png',
-              width: 28,
-              height: 13,
+              width: 28.0,
+              height: 13.0,
               fit: BoxFit.cover,
             ),
           ),

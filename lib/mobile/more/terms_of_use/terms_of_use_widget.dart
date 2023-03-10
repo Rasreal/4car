@@ -52,20 +52,20 @@ class _TermsOfUseWidgetState extends State<TermsOfUseWidget> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 14, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 14.0, 0.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       FlutterFlowIconButton(
                         borderColor: Colors.transparent,
-                        borderRadius: 30,
-                        borderWidth: 1,
-                        buttonSize: 48,
+                        borderRadius: 30.0,
+                        borderWidth: 1.0,
+                        buttonSize: 48.0,
                         icon: Icon(
                           FFIcons.kicBack,
                           color: FlutterFlowTheme.of(context).primaryColor,
-                          size: 24,
+                          size: 24.0,
                         ),
                         onPressed: () async {
                           context.pop();
@@ -76,7 +76,7 @@ class _TermsOfUseWidgetState extends State<TermsOfUseWidget> {
                         style: FlutterFlowTheme.of(context).bodyText1.override(
                               fontFamily:
                                   FlutterFlowTheme.of(context).bodyText1Family,
-                              fontSize: 18,
+                              fontSize: 18.0,
                               fontWeight: FontWeight.w500,
                               useGoogleFonts: GoogleFonts.asMap().containsKey(
                                   FlutterFlowTheme.of(context).bodyText1Family),
@@ -84,13 +84,13 @@ class _TermsOfUseWidgetState extends State<TermsOfUseWidget> {
                       ),
                       FlutterFlowIconButton(
                         borderColor: Colors.transparent,
-                        borderRadius: 30,
-                        borderWidth: 1,
-                        buttonSize: 48,
+                        borderRadius: 30.0,
+                        borderWidth: 1.0,
+                        buttonSize: 48.0,
                         icon: Icon(
                           FFIcons.kicBack,
                           color: FlutterFlowTheme.of(context).primaryBackground,
-                          size: 30,
+                          size: 30.0,
                         ),
                         onPressed: () {
                           print('IconButton pressed ...');
@@ -100,7 +100,7 @@ class _TermsOfUseWidgetState extends State<TermsOfUseWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.stretch,

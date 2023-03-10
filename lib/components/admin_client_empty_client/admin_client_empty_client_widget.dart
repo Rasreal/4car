@@ -48,25 +48,25 @@ class _AdminClientEmptyClientWidgetState
       height: MediaQuery.of(context).size.height * 0.35,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).primaryBackground,
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(8.0),
       ),
       child: Align(
-        alignment: AlignmentDirectional(0, 0),
+        alignment: AlignmentDirectional(0.0, 0.0),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
               child: Image.asset(
                 'assets/images/icon1.png',
-                width: 48,
-                height: 48,
+                width: 48.0,
+                height: 48.0,
                 fit: BoxFit.cover,
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
               child: Text(
                 'Нет клиентов',
                 style: FlutterFlowTheme.of(context).bodyText1.override(

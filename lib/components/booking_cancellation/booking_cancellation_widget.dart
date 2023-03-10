@@ -58,32 +58,32 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
         color: Colors.white,
       ),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
+        padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Align(
-              alignment: AlignmentDirectional(0, 0),
+              alignment: AlignmentDirectional(0.0, 0.0),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 16),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 16.0),
                 child: Container(
-                  width: 40,
-                  height: 4,
+                  width: 40.0,
+                  height: 4.0,
                   decoration: BoxDecoration(
                     color: Color(0xFFD9D9D9),
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
                 ),
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 22),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 22.0),
               child: Text(
                 'Обясните причину отмены',
                 style: FlutterFlowTheme.of(context).bodyText1.override(
                       fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
-                      fontSize: 18,
+                      fontSize: 18.0,
                       fontWeight: FontWeight.w500,
                       useGoogleFonts: GoogleFonts.asMap().containsKey(
                           FlutterFlowTheme.of(context).bodyText1Family),
@@ -91,12 +91,13 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                     child: InkWell(
                       onTap: () async {
                         FFAppState().update(() {
@@ -107,8 +108,8 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Container(
-                            width: 20,
-                            height: 20,
+                            width: 20.0,
+                            height: 20.0,
                             decoration: BoxDecoration(
                               color: valueOrDefault<Color>(
                                 FFAppState().cancelBooking ==
@@ -132,18 +133,18 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
                               ),
                             ),
                             child: Align(
-                              alignment: AlignmentDirectional(0, 0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Icon(
                                 Icons.check,
                                 color: Colors.white,
-                                size: 12,
+                                size: 12.0,
                               ),
                             ),
                           ),
                           Expanded(
                             child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 'Появились другие дела',
                                 style: FlutterFlowTheme.of(context).bodyText1,
@@ -161,12 +162,13 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                     child: InkWell(
                       onTap: () async {
                         FFAppState().update(() {
@@ -178,8 +180,8 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Container(
-                            width: 20,
-                            height: 20,
+                            width: 20.0,
+                            height: 20.0,
                             decoration: BoxDecoration(
                               color: valueOrDefault<Color>(
                                 FFAppState().cancelBooking ==
@@ -203,18 +205,18 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
                               ),
                             ),
                             child: Align(
-                              alignment: AlignmentDirectional(0, 0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Icon(
                                 Icons.check,
                                 color: Colors.white,
-                                size: 12,
+                                size: 12.0,
                               ),
                             ),
                           ),
                           Expanded(
                             child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 'Погодные условия не подходящие',
                                 style: FlutterFlowTheme.of(context).bodyText1,
@@ -232,12 +234,13 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                     child: InkWell(
                       onTap: () async {
                         FFAppState().update(() {
@@ -248,8 +251,8 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Container(
-                            width: 20,
-                            height: 20,
+                            width: 20.0,
+                            height: 20.0,
                             decoration: BoxDecoration(
                               color: valueOrDefault<Color>(
                                 FFAppState().cancelBooking == 'Не успеваю'
@@ -271,18 +274,18 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
                               ),
                             ),
                             child: Align(
-                              alignment: AlignmentDirectional(0, 0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Icon(
                                 Icons.check,
                                 color: Colors.white,
-                                size: 12,
+                                size: 12.0,
                               ),
                             ),
                           ),
                           Expanded(
                             child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 'Не успеваю',
                                 style: FlutterFlowTheme.of(context).bodyText1,
@@ -300,12 +303,13 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                     child: InkWell(
                       onTap: () async {
                         FFAppState().update(() {
@@ -316,8 +320,8 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Container(
-                            width: 20,
-                            height: 20,
+                            width: 20.0,
+                            height: 20.0,
                             decoration: BoxDecoration(
                               color: valueOrDefault<Color>(
                                 FFAppState().cancelBooking == 'Другая причина'
@@ -339,18 +343,18 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
                               ),
                             ),
                             child: Align(
-                              alignment: AlignmentDirectional(0, 0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Icon(
                                 Icons.check,
                                 color: Colors.white,
-                                size: 12,
+                                size: 12.0,
                               ),
                             ),
                           ),
                           Expanded(
                             child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 'Другая причина',
                                 style: FlutterFlowTheme.of(context).bodyText1,
@@ -380,7 +384,7 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
               key: _model.formKey,
               autovalidateMode: AutovalidateMode.disabled,
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                 child: TextFormField(
                   controller: _model.textController,
                   obscureText: false,
@@ -390,30 +394,30 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
                         color: FlutterFlowTheme.of(context).gray2,
-                        width: 1,
+                        width: 1.0,
                       ),
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(8.0),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
                         color: FlutterFlowTheme.of(context).primaryColor,
-                        width: 1,
+                        width: 1.0,
                       ),
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(8.0),
                     ),
                     errorBorder: OutlineInputBorder(
                       borderSide: BorderSide(
                         color: FlutterFlowTheme.of(context).red1,
-                        width: 1,
+                        width: 1.0,
                       ),
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(8.0),
                     ),
                     focusedErrorBorder: OutlineInputBorder(
                       borderSide: BorderSide(
                         color: FlutterFlowTheme.of(context).red1,
-                        width: 1,
+                        width: 1.0,
                       ),
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(8.0),
                     ),
                   ),
                   style: FlutterFlowTheme.of(context).bodyText1,
@@ -424,7 +428,7 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 60),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 60.0),
               child: FFButtonWidget(
                 onPressed: () async {
                   if (FFAppState().cancelBooking != null &&
@@ -476,10 +480,11 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
                 },
                 text: 'Сохранить',
                 options: FFButtonOptions(
-                  width: 130,
-                  height: 48,
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                  iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                  width: 130.0,
+                  height: 48.0,
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                  iconPadding:
+                      EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   color: FFAppState().cancelBooking != null &&
                           FFAppState().cancelBooking != ''
                       ? FlutterFlowTheme.of(context).primaryColor
@@ -488,15 +493,15 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
                         fontFamily:
                             FlutterFlowTheme.of(context).subtitle2Family,
                         color: Colors.white,
-                        fontSize: 16,
+                        fontSize: 16.0,
                         useGoogleFonts: GoogleFonts.asMap().containsKey(
                             FlutterFlowTheme.of(context).subtitle2Family),
                       ),
                   borderSide: BorderSide(
                     color: Colors.transparent,
-                    width: 1,
+                    width: 1.0,
                   ),
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(8.0),
                 ),
               ),
             ),

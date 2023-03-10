@@ -52,43 +52,43 @@ class _SuccsesBookingWidgetState extends State<SuccsesBookingWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0, 0),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Container(
-        width: 303,
+        width: 303.0,
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(10.0),
         ),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 16),
+          padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 16.0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 33, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 33.0, 0.0, 0.0),
                 child: Container(
-                  width: 45,
-                  height: 45,
+                  width: 45.0,
+                  height: 45.0,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).primaryColor,
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(10.0),
                   ),
                   child: Icon(
                     FFIcons.kcheeek,
                     color: Colors.white,
-                    size: 40,
+                    size: 40.0,
                   ),
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                 child: Text(
                   'Вы успешно записались!',
                   textAlign: TextAlign.center,
                   style: FlutterFlowTheme.of(context).bodyText1.override(
                         fontFamily:
                             FlutterFlowTheme.of(context).bodyText1Family,
-                        fontSize: 16,
+                        fontSize: 16.0,
                         fontWeight: FontWeight.w500,
                         useGoogleFonts: GoogleFonts.asMap().containsKey(
                             FlutterFlowTheme.of(context).bodyText1Family),
@@ -96,7 +96,7 @@ class _SuccsesBookingWidgetState extends State<SuccsesBookingWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -107,7 +107,8 @@ class _SuccsesBookingWidgetState extends State<SuccsesBookingWidget> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 8.0, 0.0, 0.0),
                             child: Text(
                               'Автомойка',
                               style: FlutterFlowTheme.of(context)
@@ -124,7 +125,8 @@ class _SuccsesBookingWidgetState extends State<SuccsesBookingWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 8.0, 0.0, 0.0),
                             child: Text(
                               'Услуги',
                               style: FlutterFlowTheme.of(context)
@@ -141,7 +143,8 @@ class _SuccsesBookingWidgetState extends State<SuccsesBookingWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 8.0, 0.0, 0.0),
                             child: Text(
                               'Время',
                               style: FlutterFlowTheme.of(context)
@@ -158,7 +161,8 @@ class _SuccsesBookingWidgetState extends State<SuccsesBookingWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 8.0, 0.0, 0.0),
                             child: Text(
                               'Общая сумма',
                               style: FlutterFlowTheme.of(context)
@@ -183,7 +187,8 @@ class _SuccsesBookingWidgetState extends State<SuccsesBookingWidget> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 8.0, 0.0, 0.0),
                             child: StreamBuilder<CompaniesRecord>(
                               stream: CompaniesRecord.getDocument(
                                   widget.booking!.bookedCompany!),
@@ -192,8 +197,8 @@ class _SuccsesBookingWidgetState extends State<SuccsesBookingWidget> {
                                 if (!snapshot.hasData) {
                                   return Center(
                                     child: SizedBox(
-                                      width: 50,
-                                      height: 50,
+                                      width: 50.0,
+                                      height: 50.0,
                                       child: CircularProgressIndicator(
                                         color: FlutterFlowTheme.of(context)
                                             .primaryColor,
@@ -210,21 +215,24 @@ class _SuccsesBookingWidgetState extends State<SuccsesBookingWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 8.0, 0.0, 0.0),
                             child: Text(
                               'Комплексная мой...',
                               style: FlutterFlowTheme.of(context).bodyText1,
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 8.0, 0.0, 0.0),
                             child: Text(
                               widget.booking!.timeName!,
                               style: FlutterFlowTheme.of(context).bodyText1,
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 8.0, 0.0, 0.0),
                             child: Text(
                               '${widget.booking!.totalPrice?.toString()} тг',
                               style: FlutterFlowTheme.of(context).bodyText1,
@@ -237,7 +245,7 @@ class _SuccsesBookingWidgetState extends State<SuccsesBookingWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 16),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 16.0),
                 child: FFButtonWidget(
                   onPressed: () async {
                     if (valueOrDefault(currentUserDocument?.carscount, 0) < 1) {
@@ -281,23 +289,24 @@ class _SuccsesBookingWidgetState extends State<SuccsesBookingWidget> {
                   text: 'Записаться снова',
                   options: FFButtonOptions(
                     width: double.infinity,
-                    height: 48,
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                    iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                    height: 48.0,
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    iconPadding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).primaryColor,
                     textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                           fontFamily:
                               FlutterFlowTheme.of(context).subtitle2Family,
                           color: Colors.white,
-                          fontSize: 16,
+                          fontSize: 16.0,
                           useGoogleFonts: GoogleFonts.asMap().containsKey(
                               FlutterFlowTheme.of(context).subtitle2Family),
                         ),
                     borderSide: BorderSide(
                       color: Colors.transparent,
-                      width: 1,
+                      width: 1.0,
                     ),
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
                 ),
               ),

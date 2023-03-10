@@ -48,15 +48,15 @@ class _SuccessWidgetState extends State<SuccessWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0, 0),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Container(
-        width: 400,
+        width: 400.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).primaryBackground,
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(8.0),
         ),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(24, 24, 24, 24),
+          padding: EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 24.0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -64,16 +64,16 @@ class _SuccessWidgetState extends State<SuccessWidget> {
                 widget.message!,
                 style: FlutterFlowTheme.of(context).bodyText1.override(
                       fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
-                      fontSize: 22,
+                      fontSize: 22.0,
                       useGoogleFonts: GoogleFonts.asMap().containsKey(
                           FlutterFlowTheme.of(context).bodyText1Family),
                     ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                 child: Container(
-                  width: 56,
-                  height: 56,
+                  width: 56.0,
+                  height: 56.0,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).primaryBackground,
                     shape: BoxShape.circle,
@@ -84,12 +84,12 @@ class _SuccessWidgetState extends State<SuccessWidget> {
                   child: Icon(
                     FFIcons.kcheeek,
                     color: FlutterFlowTheme.of(context).green,
-                    size: 24,
+                    size: 24.0,
                   ),
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () async {
                     Navigator.pop(context);
@@ -97,9 +97,10 @@ class _SuccessWidgetState extends State<SuccessWidget> {
                   text: 'Закрыть',
                   options: FFButtonOptions(
                     width: double.infinity,
-                    height: 48,
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                    iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                    height: 48.0,
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    iconPadding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).primaryColor,
                     textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                           fontFamily:
@@ -111,9 +112,9 @@ class _SuccessWidgetState extends State<SuccessWidget> {
                         ),
                     borderSide: BorderSide(
                       color: Colors.transparent,
-                      width: 1,
+                      width: 1.0,
                     ),
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
                 ),
               ),

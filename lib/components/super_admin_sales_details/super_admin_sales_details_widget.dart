@@ -55,24 +55,24 @@ class _SuperAdminSalesDetailsWidgetState
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0, 0),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Container(
-        width: 488,
+        width: 488.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).primaryBackground,
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(8.0),
         ),
         child: Form(
           key: _model.formKey,
           autovalidateMode: AutovalidateMode.disabled,
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(24, 24, 24, 24),
+            padding: EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 24.0),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -82,7 +82,7 @@ class _SuperAdminSalesDetailsWidgetState
                         style: FlutterFlowTheme.of(context).bodyText1.override(
                               fontFamily:
                                   FlutterFlowTheme.of(context).bodyText1Family,
-                              fontSize: 20,
+                              fontSize: 20.0,
                               useGoogleFonts: GoogleFonts.asMap().containsKey(
                                   FlutterFlowTheme.of(context).bodyText1Family),
                             ),
@@ -94,7 +94,7 @@ class _SuperAdminSalesDetailsWidgetState
                         child: Icon(
                           FFIcons.kicClose,
                           color: FlutterFlowTheme.of(context).gray2,
-                          size: 24,
+                          size: 24.0,
                         ),
                       ),
                     ],
@@ -107,8 +107,8 @@ class _SuperAdminSalesDetailsWidgetState
                     if (!snapshot.hasData) {
                       return Center(
                         child: SizedBox(
-                          width: 50,
-                          height: 50,
+                          width: 50.0,
+                          height: 50.0,
                           child: CircularProgressIndicator(
                             color: FlutterFlowTheme.of(context).primaryColor,
                           ),
@@ -120,18 +120,19 @@ class _SuperAdminSalesDetailsWidgetState
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Divider(
-                          height: 1,
-                          thickness: 1,
+                          height: 1.0,
+                          thickness: 1.0,
                           color: FlutterFlowTheme.of(context).gray4,
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 12),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 12.0, 0.0, 12.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Container(
-                                width: 40,
-                                height: 40,
+                                width: 40.0,
+                                height: 40.0,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBackground,
@@ -144,7 +145,7 @@ class _SuperAdminSalesDetailsWidgetState
                                       ),
                                     ).image,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                   border: Border.all(
                                     color:
                                         FlutterFlowTheme.of(context).starblue,
@@ -154,7 +155,7 @@ class _SuperAdminSalesDetailsWidgetState
                               Expanded(
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      12, 0, 40, 0),
+                                      12.0, 0.0, 40.0, 0.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     crossAxisAlignment:
@@ -169,7 +170,7 @@ class _SuperAdminSalesDetailsWidgetState
                                             .bodyText1
                                             .override(
                                               fontFamily: 'Inter',
-                                              fontSize: 16,
+                                              fontSize: 16.0,
                                               fontWeight: FontWeight.w500,
                                               useGoogleFonts:
                                                   GoogleFonts.asMap()
@@ -181,7 +182,7 @@ class _SuperAdminSalesDetailsWidgetState
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 4, 0, 0),
+                                            0.0, 4.0, 0.0, 0.0),
                                         child: Text(
                                           columnCompaniesRecord.street!,
                                           style: FlutterFlowTheme.of(context)
@@ -191,7 +192,7 @@ class _SuperAdminSalesDetailsWidgetState
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .gray1,
-                                                fontSize: 12,
+                                                fontSize: 12.0,
                                                 fontWeight: FontWeight.normal,
                                                 useGoogleFonts: GoogleFonts
                                                         .asMap()
@@ -207,8 +208,8 @@ class _SuperAdminSalesDetailsWidgetState
                                 ),
                               ),
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 24, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 24.0, 0.0),
                                 child: InkWell(
                                   onTap: () async {
                                     context.pushNamed(
@@ -237,8 +238,8 @@ class _SuperAdminSalesDetailsWidgetState
                           ),
                         ),
                         Divider(
-                          height: 1,
-                          thickness: 1,
+                          height: 1.0,
+                          thickness: 1.0,
                           color: FlutterFlowTheme.of(context).gray4,
                         ),
                       ],
@@ -246,22 +247,22 @@ class _SuperAdminSalesDetailsWidgetState
                   },
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 32, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(8.0),
                     child: Image.network(
                       valueOrDefault<String>(
                         widget.promotion!.img,
                         'https://picsum.photos/seed/73/600',
                       ),
-                      width: 440,
-                      height: 256,
+                      width: 440.0,
+                      height: 256.0,
                       fit: BoxFit.cover,
                     ),
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                   child: Text(
                     valueOrDefault<String>(
                       widget.promotion!.title,
@@ -270,14 +271,14 @@ class _SuperAdminSalesDetailsWidgetState
                     style: FlutterFlowTheme.of(context).bodyText1.override(
                           fontFamily:
                               FlutterFlowTheme.of(context).bodyText1Family,
-                          fontSize: 16,
+                          fontSize: 16.0,
                           useGoogleFonts: GoogleFonts.asMap().containsKey(
                               FlutterFlowTheme.of(context).bodyText1Family),
                         ),
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                   child: Text(
                     valueOrDefault<String>(
                       widget.promotion!.subtitle,
@@ -294,13 +295,15 @@ class _SuperAdminSalesDetailsWidgetState
                 ),
                 if (widget.promotion!.moderation ?? true)
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              16.0, 0.0, 0.0, 0.0),
                           child: InkWell(
                             onTap: () async {
                               final promotionUpdateData =
@@ -342,8 +345,8 @@ class _SuperAdminSalesDetailsWidgetState
                             if (!snapshot.hasData) {
                               return Center(
                                 child: SizedBox(
-                                  width: 50,
-                                  height: 50,
+                                  width: 50.0,
+                                  height: 50.0,
                                   child: CircularProgressIndicator(
                                     color: FlutterFlowTheme.of(context)
                                         .primaryColor,
@@ -384,12 +387,12 @@ class _SuperAdminSalesDetailsWidgetState
                               },
                               text: 'Продвинуть ',
                               options: FFButtonOptions(
-                                width: 118,
-                                height: 40,
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                iconPadding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                width: 118.0,
+                                height: 40.0,
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
                                 color:
                                     FlutterFlowTheme.of(context).primaryColor,
                                 textStyle: FlutterFlowTheme.of(context)
@@ -398,19 +401,19 @@ class _SuperAdminSalesDetailsWidgetState
                                       fontFamily: FlutterFlowTheme.of(context)
                                           .subtitle2Family,
                                       color: Colors.white,
-                                      fontSize: 14,
+                                      fontSize: 14.0,
                                       fontWeight: FontWeight.normal,
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
                                               FlutterFlowTheme.of(context)
                                                   .subtitle2Family),
                                     ),
-                                elevation: 0,
+                                elevation: 0.0,
                                 borderSide: BorderSide(
                                   color: Colors.transparent,
-                                  width: 1,
+                                  width: 1.0,
                                 ),
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(8.0),
                               ),
                             );
                           },

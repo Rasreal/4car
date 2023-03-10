@@ -48,18 +48,18 @@ class _SuperAdminAppBarWidgetState extends State<SuperAdminAppBarWidget> {
     context.watch<FFAppState>();
 
     return Container(
-      width: MediaQuery.of(context).size.width,
-      height: 120,
+      width: MediaQuery.of(context).size.width * 1.0,
+      height: 120.0,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).primaryBackground,
       ),
       child: Stack(
         children: [
           Align(
-            alignment: AlignmentDirectional(0, 0),
+            alignment: AlignmentDirectional(0.0, 0.0),
             child: Container(
-              width: 1224,
-              height: 120,
+              width: 1224.0,
+              height: 120.0,
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).primaryBackground,
               ),
@@ -67,8 +67,8 @@ class _SuperAdminAppBarWidgetState extends State<SuperAdminAppBarWidget> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Container(
-                    width: 1224,
-                    height: 71,
+                    width: 1224.0,
+                    height: 71.0,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).primaryBackground,
                     ),
@@ -85,7 +85,7 @@ class _SuperAdminAppBarWidgetState extends State<SuperAdminAppBarWidget> {
                                       .bodyText1Family,
                                   color:
                                       FlutterFlowTheme.of(context).primaryColor,
-                                  fontSize: 25,
+                                  fontSize: 25.0,
                                   useGoogleFonts: GoogleFonts.asMap()
                                       .containsKey(FlutterFlowTheme.of(context)
                                           .bodyText1Family),
@@ -96,8 +96,8 @@ class _SuperAdminAppBarWidgetState extends State<SuperAdminAppBarWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 16.0, 0.0),
                               child: InkWell(
                                 onTap: () async {
                                   if (FFAppState().adminAppBar == 'notify') {
@@ -113,7 +113,7 @@ class _SuperAdminAppBarWidgetState extends State<SuperAdminAppBarWidget> {
                                 child: Icon(
                                   FFIcons.kicNotification,
                                   color: Colors.black,
-                                  size: 24,
+                                  size: 24.0,
                                 ),
                               ),
                             ),
@@ -134,11 +134,11 @@ class _SuperAdminAppBarWidgetState extends State<SuperAdminAppBarWidget> {
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 0, 8, 0),
+                                        0.0, 0.0, 8.0, 0.0),
                                     child: AuthUserStreamWidget(
                                       builder: (context) => Container(
-                                        width: 40,
-                                        height: 40,
+                                        width: 40.0,
+                                        height: 40.0,
                                         clipBehavior: Clip.antiAlias,
                                         decoration: BoxDecoration(
                                           shape: BoxShape.circle,
@@ -154,7 +154,7 @@ class _SuperAdminAppBarWidgetState extends State<SuperAdminAppBarWidget> {
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 0, 8, 0),
+                                        0.0, 0.0, 8.0, 0.0),
                                     child: AuthUserStreamWidget(
                                       builder: (context) => Text(
                                         valueOrDefault<String>(
@@ -165,7 +165,7 @@ class _SuperAdminAppBarWidgetState extends State<SuperAdminAppBarWidget> {
                                             .bodyText1
                                             .override(
                                               fontFamily: 'Inter',
-                                              fontSize: 16,
+                                              fontSize: 16.0,
                                               fontWeight: FontWeight.normal,
                                               useGoogleFonts:
                                                   GoogleFonts.asMap()
@@ -180,7 +180,7 @@ class _SuperAdminAppBarWidgetState extends State<SuperAdminAppBarWidget> {
                                   Icon(
                                     FFIcons.kicArrowsButtonDown,
                                     color: Colors.black,
-                                    size: 24,
+                                    size: 24.0,
                                   ),
                                 ],
                               ),
@@ -191,8 +191,8 @@ class _SuperAdminAppBarWidgetState extends State<SuperAdminAppBarWidget> {
                     ),
                   ),
                   Container(
-                    width: 1224,
-                    height: 47,
+                    width: 1224.0,
+                    height: 47.0,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).primaryBackground,
                     ),
@@ -200,7 +200,8 @@ class _SuperAdminAppBarWidgetState extends State<SuperAdminAppBarWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 48, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 48.0, 0.0),
                           child: InkWell(
                             onTap: () async {
                               context.pushNamed(
@@ -238,7 +239,8 @@ class _SuperAdminAppBarWidgetState extends State<SuperAdminAppBarWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 48, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 48.0, 0.0),
                           child: InkWell(
                             onTap: () async {
                               context.pushNamed(
@@ -276,7 +278,8 @@ class _SuperAdminAppBarWidgetState extends State<SuperAdminAppBarWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 48, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 48.0, 0.0),
                           child: InkWell(
                             onTap: () async {
                               context.pushNamed(
@@ -326,15 +329,15 @@ class _SuperAdminAppBarWidgetState extends State<SuperAdminAppBarWidget> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                width: 1,
-                height: 71,
+                width: 1.0,
+                height: 71.0,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).primaryBackground,
                 ),
               ),
               Divider(
-                height: 1,
-                thickness: 1,
+                height: 1.0,
+                thickness: 1.0,
                 color: FlutterFlowTheme.of(context).drawer,
               ),
             ],

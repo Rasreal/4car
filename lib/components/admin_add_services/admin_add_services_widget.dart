@@ -57,7 +57,7 @@ class _AdminAddServicesWidgetState extends State<AdminAddServicesWidget> {
     context.watch<FFAppState>();
 
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+      padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
       child: Container(
         width: double.infinity,
         color: Colors.white,
@@ -69,15 +69,15 @@ class _AdminAddServicesWidgetState extends State<AdminAddServicesWidget> {
               style: FlutterFlowTheme.of(context).title1.override(
                     fontFamily: FlutterFlowTheme.of(context).title1Family,
                     color: Colors.black,
-                    fontSize: 14,
+                    fontSize: 14.0,
                     fontWeight: FontWeight.normal,
                     useGoogleFonts: GoogleFonts.asMap()
                         .containsKey(FlutterFlowTheme.of(context).title1Family),
                   ),
             ),
             collapsed: Container(
-              width: 1,
-              height: 1,
+              width: 1.0,
+              height: 1.0,
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).secondaryBackground,
               ),
@@ -87,7 +87,7 @@ class _AdminAddServicesWidgetState extends State<AdminAddServicesWidget> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
                   child: Builder(
                     builder: (context) {
                       final services =
@@ -112,8 +112,8 @@ class _AdminAddServicesWidgetState extends State<AdminAddServicesWidget> {
                               if (!snapshot.hasData) {
                                 return Center(
                                   child: SizedBox(
-                                    width: 50,
-                                    height: 50,
+                                    width: 50.0,
+                                    height: 50.0,
                                     child: CircularProgressIndicator(
                                       color: FlutterFlowTheme.of(context)
                                           .primaryColor,
@@ -142,7 +142,7 @@ class _AdminAddServicesWidgetState extends State<AdminAddServicesWidget> {
                                         null))
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 0, 0, 16),
+                                            0.0, 0.0, 0.0, 16.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
@@ -163,12 +163,12 @@ class _AdminAddServicesWidgetState extends State<AdminAddServicesWidget> {
                                                 mainAxisSize: MainAxisSize.min,
                                                 children: [
                                                   Container(
-                                                    width: 16,
-                                                    height: 16,
+                                                    width: 16.0,
+                                                    height: 16.0,
                                                     decoration: BoxDecoration(
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              2),
+                                                              2.0),
                                                       border: Border.all(
                                                         color:
                                                             Color(0xFFB1B1B1),
@@ -178,8 +178,8 @@ class _AdminAddServicesWidgetState extends State<AdminAddServicesWidget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                20, 0, 10, 0),
+                                                            .fromSTEB(20.0, 0.0,
+                                                                10.0, 0.0),
                                                     child: Text(
                                                       servicesItem,
                                                       style:
@@ -204,8 +204,8 @@ class _AdminAddServicesWidgetState extends State<AdminAddServicesWidget> {
                                               ),
                                             ),
                                             Container(
-                                              width: 90,
-                                              height: 40,
+                                              width: 90.0,
+                                              height: 40.0,
                                               decoration: BoxDecoration(
                                                 color: Colors.white,
                                               ),
@@ -216,7 +216,7 @@ class _AdminAddServicesWidgetState extends State<AdminAddServicesWidget> {
                                     if (container1CompanyServicesRecord != null)
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 0, 0, 16),
+                                            0.0, 0.0, 0.0, 16.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.min,
                                           children: [
@@ -235,8 +235,8 @@ class _AdminAddServicesWidgetState extends State<AdminAddServicesWidget> {
                                                     Stack(
                                                       children: [
                                                         Container(
-                                                          width: 16,
-                                                          height: 16,
+                                                          width: 16.0,
+                                                          height: 16.0,
                                                           decoration:
                                                               BoxDecoration(
                                                             color: FlutterFlowTheme
@@ -245,12 +245,12 @@ class _AdminAddServicesWidgetState extends State<AdminAddServicesWidget> {
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        2),
+                                                                        2.0),
                                                           ),
                                                           child: Icon(
                                                             FFIcons.kcheeek,
                                                             color: Colors.white,
-                                                            size: 14,
+                                                            size: 14.0,
                                                           ),
                                                         ),
                                                       ],
@@ -259,7 +259,10 @@ class _AdminAddServicesWidgetState extends State<AdminAddServicesWidget> {
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  20, 0, 10, 0),
+                                                                  20.0,
+                                                                  0.0,
+                                                                  10.0,
+                                                                  0.0),
                                                       child: Text(
                                                         container1CompanyServicesRecord!
                                                             .name!,
@@ -287,7 +290,8 @@ class _AdminAddServicesWidgetState extends State<AdminAddServicesWidget> {
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 55, 0),
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 55.0, 0.0),
                                               child:
                                                   FlutterFlowDropDown<String>(
                                                 initialOption:
@@ -324,8 +328,8 @@ class _AdminAddServicesWidgetState extends State<AdminAddServicesWidget> {
                                                       .update(
                                                           companyServicesUpdateData);
                                                 },
-                                                width: 124,
-                                                height: 40,
+                                                width: 124.0,
+                                                height: 40.0,
                                                 textStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyText1
@@ -345,14 +349,15 @@ class _AdminAddServicesWidgetState extends State<AdminAddServicesWidget> {
                                                         ),
                                                 hintText: '0 мин',
                                                 fillColor: Colors.white,
-                                                elevation: 0,
+                                                elevation: 0.0,
                                                 borderColor:
                                                     FlutterFlowTheme.of(context)
                                                         .gray3,
-                                                borderWidth: 0,
-                                                borderRadius: 8,
+                                                borderWidth: 0.0,
+                                                borderRadius: 8.0,
                                                 margin: EdgeInsetsDirectional
-                                                    .fromSTEB(12, 4, 12, 4),
+                                                    .fromSTEB(
+                                                        12.0, 4.0, 12.0, 4.0),
                                                 hidesUnderline: true,
                                               ),
                                             ),
@@ -376,14 +381,14 @@ class _AdminAddServicesWidgetState extends State<AdminAddServicesWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Expanded(
                         flex: 1,
                         child: Container(
-                          width: 500,
+                          width: 500.0,
                           child: TextFormField(
                             controller: _model.new1Controller,
                             obscureText: false,
@@ -405,36 +410,36 @@ class _AdminAddServicesWidgetState extends State<AdminAddServicesWidget> {
                                 borderSide: BorderSide(
                                   color:
                                       FlutterFlowTheme.of(context).primaryColor,
-                                  width: 0,
+                                  width: 0.0,
                                 ),
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(8.0),
                               ),
                               focusedBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(
                                   color: Color(0x00000000),
-                                  width: 0,
+                                  width: 0.0,
                                 ),
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(8.0),
                               ),
                               errorBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(
                                   color: Color(0x00000000),
-                                  width: 0,
+                                  width: 0.0,
                                 ),
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(8.0),
                               ),
                               focusedErrorBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(
                                   color: Color(0x00000000),
-                                  width: 0,
+                                  width: 0.0,
                                 ),
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(8.0),
                               ),
                               filled: true,
                               fillColor: FlutterFlowTheme.of(context)
                                   .primaryBackground,
-                              contentPadding:
-                                  EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
+                              contentPadding: EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 0.0, 0.0, 0.0),
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyText1
@@ -464,18 +469,18 @@ class _AdminAddServicesWidgetState extends State<AdminAddServicesWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 0.0, 0.0, 0.0),
                               child: Icon(
                                 FFIcons.kicPlus,
                                 color:
                                     FlutterFlowTheme.of(context).primaryColor,
-                                size: 24,
+                                size: 24.0,
                               ),
                             ),
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  8.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 'Добавить услугу ',
                                 style: FlutterFlowTheme.of(context)

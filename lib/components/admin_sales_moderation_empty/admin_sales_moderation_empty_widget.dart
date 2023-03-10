@@ -48,19 +48,19 @@ class _AdminSalesModerationEmptyWidgetState
       height: MediaQuery.of(context).size.height * 0.35,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).primaryBackground,
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(8.0),
       ),
       child: Align(
-        alignment: AlignmentDirectional(0, 0),
+        alignment: AlignmentDirectional(0.0, 0.0),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
               child: Container(
-                width: 48,
-                height: 48,
+                width: 48.0,
+                height: 48.0,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).secondaryBackground,
                   shape: BoxShape.circle,
@@ -68,12 +68,12 @@ class _AdminSalesModerationEmptyWidgetState
                 child: Icon(
                   FFIcons.kicFire,
                   color: FlutterFlowTheme.of(context).primaryColor,
-                  size: 24,
+                  size: 24.0,
                 ),
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
               child: Text(
                 'Нет акций в очереди на топ',
                 style: FlutterFlowTheme.of(context).bodyText1.override(

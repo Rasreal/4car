@@ -49,35 +49,35 @@ class _AdminResetPasswordWidgetState extends State<AdminResetPasswordWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0, 0),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Container(
-        width: 476,
-        height: 220,
+        width: 476.0,
+        height: 220.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).primaryBackground,
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(8.0),
         ),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(60, 0, 60, 0),
+          padding: EdgeInsetsDirectional.fromSTEB(60.0, 0.0, 60.0, 0.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 8),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 8.0),
                 child: Text(
                   'Письмо отправлено',
                   style: FlutterFlowTheme.of(context).bodyText1.override(
                         fontFamily: 'Inter',
-                        fontSize: 22,
+                        fontSize: 22.0,
                         useGoogleFonts: GoogleFonts.asMap().containsKey(
                             FlutterFlowTheme.of(context).bodyText1Family),
                       ),
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 24),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
                 child: Text(
                   'На вашу почту ${widget.emaill} отправлено письмо с ссылкой на смену пароля.',
                   textAlign: TextAlign.center,
@@ -90,7 +90,7 @@ class _AdminResetPasswordWidgetState extends State<AdminResetPasswordWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 24),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
                 child: FFButtonWidget(
                   onPressed: () async {
                     Navigator.pop(context);
@@ -98,9 +98,10 @@ class _AdminResetPasswordWidgetState extends State<AdminResetPasswordWidget> {
                   text: 'Закрыть',
                   options: FFButtonOptions(
                     width: double.infinity,
-                    height: 48,
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                    iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                    height: 48.0,
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    iconPadding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).primaryColor,
                     textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                           fontFamily: 'Inter',
@@ -110,9 +111,9 @@ class _AdminResetPasswordWidgetState extends State<AdminResetPasswordWidget> {
                         ),
                     borderSide: BorderSide(
                       color: Colors.transparent,
-                      width: 1,
+                      width: 1.0,
                     ),
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
                 ),
               ),

@@ -64,15 +64,15 @@ class _AdminNewBookingRecordWidgetState
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0, 0),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Container(
-        width: 479,
+        width: 479.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).primaryBackground,
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(8.0),
         ),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(24, 24, 24, 24),
+          padding: EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 24.0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -86,7 +86,7 @@ class _AdminNewBookingRecordWidgetState
                     style: FlutterFlowTheme.of(context).bodyText1.override(
                           fontFamily:
                               FlutterFlowTheme.of(context).bodyText1Family,
-                          fontSize: 20,
+                          fontSize: 20.0,
                           useGoogleFonts: GoogleFonts.asMap().containsKey(
                               FlutterFlowTheme.of(context).bodyText1Family),
                         ),
@@ -98,13 +98,13 @@ class _AdminNewBookingRecordWidgetState
                     child: Icon(
                       FFIcons.kicClose,
                       color: FlutterFlowTheme.of(context).gray2,
-                      size: 24,
+                      size: 24.0,
                     ),
                   ),
                 ],
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                 child: Text(
                   'Имя гостя',
                   style: FlutterFlowTheme.of(context).bodyText1.override(
@@ -117,7 +117,7 @@ class _AdminNewBookingRecordWidgetState
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                 child: TextFormField(
                   controller: _model.textController1,
                   obscureText: false,
@@ -133,33 +133,33 @@ class _AdminNewBookingRecordWidgetState
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
                         color: FlutterFlowTheme.of(context).gray2,
-                        width: 1,
+                        width: 1.0,
                       ),
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(8.0),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
                         color: Color(0x00000000),
-                        width: 1,
+                        width: 1.0,
                       ),
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(8.0),
                     ),
                     errorBorder: OutlineInputBorder(
                       borderSide: BorderSide(
                         color: Color(0x00000000),
-                        width: 1,
+                        width: 1.0,
                       ),
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(8.0),
                     ),
                     focusedErrorBorder: OutlineInputBorder(
                       borderSide: BorderSide(
                         color: Color(0x00000000),
-                        width: 1,
+                        width: 1.0,
                       ),
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(8.0),
                     ),
                     contentPadding:
-                        EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                   ),
                   style: FlutterFlowTheme.of(context).bodyText1.override(
                         fontFamily:
@@ -173,7 +173,7 @@ class _AdminNewBookingRecordWidgetState
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                 child: Text(
                   'Дата записи',
                   style: FlutterFlowTheme.of(context).bodyText1.override(
@@ -186,7 +186,7 @@ class _AdminNewBookingRecordWidgetState
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                 child: InkWell(
                   onTap: () async {
                     final _datePickedDate = await showDatePicker(
@@ -211,16 +211,17 @@ class _AdminNewBookingRecordWidgetState
                   },
                   child: Container(
                     width: double.infinity,
-                    height: 48,
+                    height: 48.0,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).primaryBackground,
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(8.0),
                       border: Border.all(
                         color: FlutterFlowTheme.of(context).gray2,
                       ),
                     ),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -251,7 +252,7 @@ class _AdminNewBookingRecordWidgetState
                           Icon(
                             FFIcons.kicCalendar,
                             color: FlutterFlowTheme.of(context).gray2,
-                            size: 24,
+                            size: 24.0,
                           ),
                         ],
                       ),
@@ -260,7 +261,7 @@ class _AdminNewBookingRecordWidgetState
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                 child: Text(
                   'Время',
                   style: FlutterFlowTheme.of(context).bodyText1.override(
@@ -273,7 +274,7 @@ class _AdminNewBookingRecordWidgetState
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                 child: FutureBuilder<List<ForcarTimesRecord>>(
                   future: queryForcarTimesRecordOnce(
                     queryBuilder: (forcarTimesRecord) =>
@@ -284,8 +285,8 @@ class _AdminNewBookingRecordWidgetState
                     if (!snapshot.hasData) {
                       return Center(
                         child: SizedBox(
-                          width: 50,
-                          height: 50,
+                          width: 50.0,
+                          height: 50.0,
                           child: CircularProgressIndicator(
                             color: FlutterFlowTheme.of(context).primaryColor,
                           ),
@@ -300,8 +301,8 @@ class _AdminNewBookingRecordWidgetState
                       );
                     }
                     return Wrap(
-                      spacing: 0,
-                      runSpacing: 0,
+                      spacing: 0.0,
+                      runSpacing: 0.0,
                       alignment: WrapAlignment.start,
                       crossAxisAlignment: WrapCrossAlignment.start,
                       direction: Axis.horizontal,
@@ -323,8 +324,8 @@ class _AdminNewBookingRecordWidgetState
                               (wrapForcarTimesRecord.timeOrder! <=
                                   widget.company!.closedTimeOrder!),
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 0, 16, 16),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 16.0, 16.0),
                             child: StreamBuilder<List<BookingsRecord>>(
                               stream: queryBookingsRecord(
                                 queryBuilder: (bookingsRecord) => bookingsRecord
@@ -348,8 +349,8 @@ class _AdminNewBookingRecordWidgetState
                                 if (!snapshot.hasData) {
                                   return Center(
                                     child: SizedBox(
-                                      width: 50,
-                                      height: 50,
+                                      width: 50.0,
+                                      height: 50.0,
                                       child: CircularProgressIndicator(
                                         color: FlutterFlowTheme.of(context)
                                             .primaryColor,
@@ -389,8 +390,8 @@ class _AdminNewBookingRecordWidgetState
                                     }
                                   },
                                   child: Container(
-                                    width: 67,
-                                    height: 32,
+                                    width: 67.0,
+                                    height: 32.0,
                                     decoration: BoxDecoration(
                                       color: () {
                                         if (containerBookingsRecordList
@@ -408,7 +409,7 @@ class _AdminNewBookingRecordWidgetState
                                               .primaryBackground;
                                         }
                                       }(),
-                                      borderRadius: BorderRadius.circular(8),
+                                      borderRadius: BorderRadius.circular(8.0),
                                       border: Border.all(
                                         color: () {
                                           if (containerBookingsRecordList
@@ -429,7 +430,7 @@ class _AdminNewBookingRecordWidgetState
                                       ),
                                     ),
                                     child: Align(
-                                      alignment: AlignmentDirectional(0, 0),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Text(
                                         valueOrDefault<String>(
                                           wrapForcarTimesRecord.timeName,
@@ -483,7 +484,7 @@ class _AdminNewBookingRecordWidgetState
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                 child: Text(
                   'Кузов и номер машины',
                   style: FlutterFlowTheme.of(context).bodyText1.override(
@@ -496,13 +497,14 @@ class _AdminNewBookingRecordWidgetState
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Expanded(
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                         child: Autocomplete<String>(
                           initialValue: TextEditingValue(),
                           optionsBuilder: (textEditingValue) {
@@ -532,13 +534,13 @@ class _AdminNewBookingRecordWidgetState
                               onSelected: onSelected,
                               textStyle: FlutterFlowTheme.of(context).bodyText1,
                               textHighlightStyle: TextStyle(),
-                              elevation: 4,
+                              elevation: 4.0,
                               optionBackgroundColor:
                                   FlutterFlowTheme.of(context)
                                       .primaryBackground,
                               optionHighlightColor: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
-                              maxHeight: 200,
+                              maxHeight: 200.0,
                             );
                           },
                           onSelected: (String selection) {
@@ -594,33 +596,33 @@ class _AdminNewBookingRecordWidgetState
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).gray2,
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: Color(0x00000000),
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 errorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: Color(0x00000000),
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 focusedErrorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: Color(0x00000000),
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                    16, 0, 16, 0),
+                                    16.0, 0.0, 16.0, 0.0),
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyText1
@@ -659,33 +661,33 @@ class _AdminNewBookingRecordWidgetState
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: FlutterFlowTheme.of(context).gray2,
-                              width: 1,
+                              width: 1.0,
                             ),
-                            borderRadius: BorderRadius.circular(8),
+                            borderRadius: BorderRadius.circular(8.0),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0x00000000),
-                              width: 1,
+                              width: 1.0,
                             ),
-                            borderRadius: BorderRadius.circular(8),
+                            borderRadius: BorderRadius.circular(8.0),
                           ),
                           errorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0x00000000),
-                              width: 1,
+                              width: 1.0,
                             ),
-                            borderRadius: BorderRadius.circular(8),
+                            borderRadius: BorderRadius.circular(8.0),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0x00000000),
-                              width: 1,
+                              width: 1.0,
                             ),
-                            borderRadius: BorderRadius.circular(8),
+                            borderRadius: BorderRadius.circular(8.0),
                           ),
-                          contentPadding:
-                              EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
+                          contentPadding: EdgeInsetsDirectional.fromSTEB(
+                              16.0, 0.0, 16.0, 0.0),
                         ),
                         style: FlutterFlowTheme.of(context).bodyText1.override(
                               fontFamily:
@@ -702,7 +704,7 @@ class _AdminNewBookingRecordWidgetState
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                 child: Text(
                   'Услуги',
                   style: FlutterFlowTheme.of(context).bodyText1.override(
@@ -715,7 +717,7 @@ class _AdminNewBookingRecordWidgetState
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                 child: InkWell(
                   onTap: () async {
                     if (FFAppState().selectedTimeSlot != null) {
@@ -753,16 +755,17 @@ class _AdminNewBookingRecordWidgetState
                   },
                   child: Container(
                     width: double.infinity,
-                    height: 48,
+                    height: 48.0,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).primaryBackground,
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(8.0),
                       border: Border.all(
                         color: FlutterFlowTheme.of(context).gray2,
                       ),
                     ),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -806,7 +809,7 @@ class _AdminNewBookingRecordWidgetState
                           Icon(
                             FFIcons.kicArrowsButtonDown,
                             color: FlutterFlowTheme.of(context).gray2,
-                            size: 24,
+                            size: 24.0,
                           ),
                         ],
                       ),
@@ -823,8 +826,8 @@ class _AdminNewBookingRecordWidgetState
                     if (!snapshot.hasData) {
                       return Center(
                         child: SizedBox(
-                          width: 50,
-                          height: 50,
+                          width: 50.0,
+                          height: 50.0,
                           child: CircularProgressIndicator(
                             color: FlutterFlowTheme.of(context).primaryColor,
                           ),
@@ -836,7 +839,8 @@ class _AdminNewBookingRecordWidgetState
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 32, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 32.0, 0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -851,7 +855,7 @@ class _AdminNewBookingRecordWidgetState
                                       .override(
                                         fontFamily: FlutterFlowTheme.of(context)
                                             .bodyText1Family,
-                                        fontSize: 16,
+                                        fontSize: 16.0,
                                         fontWeight: FontWeight.w500,
                                         useGoogleFonts: GoogleFonts.asMap()
                                             .containsKey(
@@ -868,7 +872,7 @@ class _AdminNewBookingRecordWidgetState
                                       60)
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 8, 0, 0),
+                                          0.0, 8.0, 0.0, 0.0),
                                       child: Text(
                                         '${valueOrDefault<String>(
                                           columnForcarTimesRecord.timeName,
@@ -907,7 +911,7 @@ class _AdminNewBookingRecordWidgetState
                                           120))
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 8, 0, 0),
+                                          0.0, 8.0, 0.0, 0.0),
                                       child: Text(
                                         valueOrDefault<String>(
                                           '${valueOrDefault<String>(
@@ -949,7 +953,7 @@ class _AdminNewBookingRecordWidgetState
                                           180))
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 8, 0, 0),
+                                          0.0, 8.0, 0.0, 0.0),
                                       child: Text(
                                         '${valueOrDefault<String>(
                                           columnForcarTimesRecord.timeName,
@@ -988,7 +992,7 @@ class _AdminNewBookingRecordWidgetState
                                           240))
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 8, 0, 0),
+                                          0.0, 8.0, 0.0, 0.0),
                                       child: Text(
                                         '${valueOrDefault<String>(
                                           columnForcarTimesRecord.timeName,
@@ -1027,7 +1031,8 @@ class _AdminNewBookingRecordWidgetState
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 24.0, 0.0, 0.0),
                           child: FFButtonWidget(
                             onPressed: () async {
                               FFAppState().update(() {
@@ -1114,11 +1119,11 @@ class _AdminNewBookingRecordWidgetState
                             text: 'Записаться',
                             options: FFButtonOptions(
                               width: double.infinity,
-                              height: 48,
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                              iconPadding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                              height: 48.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).primaryColor,
                               textStyle: FlutterFlowTheme.of(context)
                                   .subtitle2
@@ -1126,18 +1131,18 @@ class _AdminNewBookingRecordWidgetState
                                     fontFamily: FlutterFlowTheme.of(context)
                                         .subtitle2Family,
                                     color: Colors.white,
-                                    fontSize: 16,
+                                    fontSize: 16.0,
                                     useGoogleFonts: GoogleFonts.asMap()
                                         .containsKey(
                                             FlutterFlowTheme.of(context)
                                                 .subtitle2Family),
                                   ),
-                              elevation: 0,
+                              elevation: 0.0,
                               borderSide: BorderSide(
                                 color: Colors.transparent,
-                                width: 1,
+                                width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(8.0),
                             ),
                           ),
                         ),

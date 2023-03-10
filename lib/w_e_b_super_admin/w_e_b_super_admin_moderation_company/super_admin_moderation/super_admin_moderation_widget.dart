@@ -67,7 +67,7 @@ class _SuperAdminModerationWidgetState
                   Expanded(
                     child: Container(
                       width: double.infinity,
-                      height: 100,
+                      height: 100.0,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                       ),
@@ -77,7 +77,7 @@ class _SuperAdminModerationWidgetState
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Container(
-                              width: 1224,
+                              width: 1224.0,
                               decoration: BoxDecoration(),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -85,7 +85,7 @@ class _SuperAdminModerationWidgetState
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 24, 0, 0),
+                                        0.0, 24.0, 0.0, 0.0),
                                     child: InkWell(
                                       onTap: () async {
                                         context.pop();
@@ -96,11 +96,11 @@ class _SuperAdminModerationWidgetState
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0, 0, 3, 0),
+                                                    0.0, 0.0, 3.0, 0.0),
                                             child: Icon(
                                               FFIcons.kicBack,
                                               color: Colors.black,
-                                              size: 14,
+                                              size: 14.0,
                                             ),
                                           ),
                                           Text(
@@ -124,14 +124,14 @@ class _SuperAdminModerationWidgetState
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 24, 0, 24),
+                                        0.0, 24.0, 0.0, 24.0),
                                     child: Text(
                                       'Компании на модерации',
                                       style: FlutterFlowTheme.of(context)
                                           .bodyText1
                                           .override(
                                             fontFamily: 'Inter',
-                                            fontSize: 24,
+                                            fontSize: 24.0,
                                             useGoogleFonts: GoogleFonts.asMap()
                                                 .containsKey(
                                                     FlutterFlowTheme.of(context)
@@ -144,18 +144,18 @@ class _SuperAdminModerationWidgetState
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
                                           .primaryBackground,
-                                      borderRadius: BorderRadius.circular(8),
+                                      borderRadius: BorderRadius.circular(8.0),
                                     ),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          24, 24, 24, 24),
+                                          24.0, 24.0, 24.0, 24.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0, 0, 0, 16),
+                                                    0.0, 0.0, 0.0, 16.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
@@ -322,13 +322,16 @@ class _SuperAdminModerationWidgetState
                                                         padding:
                                                             EdgeInsetsDirectional
                                                                 .fromSTEB(
-                                                                    4, 0, 0, 0),
+                                                                    4.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
                                                         child: Icon(
                                                           Icons.arrow_upward,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .gray2,
-                                                          size: 12,
+                                                          size: 12.0,
                                                         ),
                                                       ),
                                                     ],
@@ -361,8 +364,8 @@ class _SuperAdminModerationWidgetState
                                             ),
                                           ),
                                           Divider(
-                                            height: 1,
-                                            thickness: 1,
+                                            height: 1.0,
+                                            thickness: 1.0,
                                             color: Color(0xFFEEEEEE),
                                           ),
                                           StreamBuilder<List<CompaniesRecord>>(
@@ -377,8 +380,8 @@ class _SuperAdminModerationWidgetState
                                               if (!snapshot.hasData) {
                                                 return Center(
                                                   child: SizedBox(
-                                                    width: 50,
-                                                    height: 50,
+                                                    width: 50.0,
+                                                    height: 50.0,
                                                     child:
                                                         CircularProgressIndicator(
                                                       color:
@@ -411,8 +414,11 @@ class _SuperAdminModerationWidgetState
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(0, 16,
-                                                                    0, 16),
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    16.0,
+                                                                    0.0,
+                                                                    16.0),
                                                         child: Row(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
@@ -456,8 +462,9 @@ class _SuperAdminModerationWidgetState
                                                                         .start,
                                                                 children: [
                                                                   Container(
-                                                                    width: 48,
-                                                                    height: 48,
+                                                                    width: 48.0,
+                                                                    height:
+                                                                        48.0,
                                                                     clipBehavior:
                                                                         Clip.antiAlias,
                                                                     decoration:
@@ -594,10 +601,10 @@ class _SuperAdminModerationWidgetState
                                                                   Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            24,
-                                                                            0),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            24.0,
+                                                                            0.0),
                                                                     child:
                                                                         FFButtonWidget(
                                                                       onPressed:
@@ -628,19 +635,19 @@ class _SuperAdminModerationWidgetState
                                                                       options:
                                                                           FFButtonOptions(
                                                                         width:
-                                                                            119,
+                                                                            119.0,
                                                                         height:
-                                                                            40,
+                                                                            40.0,
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                         iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryBackground,
                                                                         textStyle: FlutterFlowTheme.of(context)
@@ -648,21 +655,21 @@ class _SuperAdminModerationWidgetState
                                                                             .override(
                                                                               fontFamily: 'Inter',
                                                                               color: FlutterFlowTheme.of(context).primaryColor,
-                                                                              fontSize: 14,
+                                                                              fontSize: 14.0,
                                                                               fontWeight: FontWeight.normal,
                                                                               useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
                                                                             ),
                                                                         elevation:
-                                                                            0,
+                                                                            0.0,
                                                                         borderSide:
                                                                             BorderSide(
                                                                           color:
                                                                               FlutterFlowTheme.of(context).primaryColor,
                                                                           width:
-                                                                              1,
+                                                                              1.0,
                                                                         ),
                                                                         borderRadius:
-                                                                            BorderRadius.circular(8),
+                                                                            BorderRadius.circular(8.0),
                                                                       ),
                                                                     ),
                                                                   ),
@@ -700,21 +707,19 @@ class _SuperAdminModerationWidgetState
                                                                     options:
                                                                         FFButtonOptions(
                                                                       width:
-                                                                          121,
+                                                                          121.0,
                                                                       height:
-                                                                          40,
-                                                                      padding: EdgeInsetsDirectional
-                                                                          .fromSTEB(
-                                                                              0,
-                                                                              0,
-                                                                              0,
-                                                                              0),
-                                                                      iconPadding:
-                                                                          EdgeInsetsDirectional.fromSTEB(
-                                                                              0,
-                                                                              0,
-                                                                              0,
-                                                                              0),
+                                                                          40.0,
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                      iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .primaryColor,
@@ -727,24 +732,24 @@ class _SuperAdminModerationWidgetState
                                                                             color:
                                                                                 Colors.white,
                                                                             fontSize:
-                                                                                14,
+                                                                                14.0,
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                             useGoogleFonts:
                                                                                 GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
                                                                           ),
                                                                       elevation:
-                                                                          0,
+                                                                          0.0,
                                                                       borderSide:
                                                                           BorderSide(
                                                                         color: Colors
                                                                             .transparent,
                                                                         width:
-                                                                            1,
+                                                                            1.0,
                                                                       ),
                                                                       borderRadius:
                                                                           BorderRadius.circular(
-                                                                              8),
+                                                                              8.0),
                                                                     ),
                                                                   ),
                                                                 ],
@@ -754,8 +759,8 @@ class _SuperAdminModerationWidgetState
                                                         ),
                                                       ),
                                                       Divider(
-                                                        height: 1,
-                                                        thickness: 1,
+                                                        height: 1.0,
+                                                        thickness: 1.0,
                                                         color:
                                                             Color(0xFFEEEEEE),
                                                       ),
@@ -781,7 +786,7 @@ class _SuperAdminModerationWidgetState
               ),
               if (FFAppState().superAdminRejectModeration)
                 Align(
-                  alignment: AlignmentDirectional(0, 0),
+                  alignment: AlignmentDirectional(0.0, 0.0),
                   child: InkWell(
                     onTap: () async {
                       FFAppState().update(() {
@@ -798,7 +803,7 @@ class _SuperAdminModerationWidgetState
                   ),
                 ),
               Align(
-                alignment: AlignmentDirectional(0, -1),
+                alignment: AlignmentDirectional(0.0, -1.0),
                 child: wrapWithModel(
                   model: _model.adminAppBarInfoModel,
                   updateCallback: () => setState(() {}),

@@ -71,8 +71,8 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
         if (!snapshot.hasData) {
           return Center(
             child: SizedBox(
-              width: 50,
-              height: 50,
+              width: 50.0,
+              height: 50.0,
               child: CircularProgressIndicator(
                 color: FlutterFlowTheme.of(context).primaryColor,
               ),
@@ -92,14 +92,15 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      width: 86,
+                      width: 86.0,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).primaryBackground,
                       ),
                       child: Align(
-                        alignment: AlignmentDirectional(0, 0),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 24.0, 0.0, 0.0),
                           child: Text(
                             '${widget.timeOrder?.toString()}:00',
                             textAlign: TextAlign.center,
@@ -107,7 +108,7 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                 .bodyText1
                                 .override(
                                   fontFamily: 'Inter',
-                                  fontSize: 18,
+                                  fontSize: 18.0,
                                   fontWeight: FontWeight.w500,
                                   useGoogleFonts: GoogleFonts.asMap()
                                       .containsKey(FlutterFlowTheme.of(context)
@@ -118,8 +119,8 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                       ),
                     ),
                     Container(
-                      width: 1,
-                      height: 267,
+                      width: 1.0,
+                      height: 267.0,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).drawer,
                       ),
@@ -128,8 +129,8 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                       child: Stack(
                         children: [
                           Container(
-                            width: 1134,
-                            height: 267,
+                            width: 1134.0,
+                            height: 267.0,
                             decoration: BoxDecoration(),
                             child: StreamBuilder<List<BookingsRecord>>(
                               stream: queryBookingsRecord(
@@ -151,8 +152,8 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                 if (!snapshot.hasData) {
                                   return Center(
                                     child: SizedBox(
-                                      width: 50,
-                                      height: 50,
+                                      width: 50.0,
+                                      height: 50.0,
                                       child: CircularProgressIndicator(
                                         color: FlutterFlowTheme.of(context)
                                             .primaryColor,
@@ -182,7 +183,7 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    24, 0, 0, 0),
+                                                    24.0, 0.0, 0.0, 0.0),
                                             child: InkWell(
                                               onTap: () async {
                                                 await showModalBottomSheet(
@@ -210,8 +211,8 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                     (value) => setState(() {}));
                                               },
                                               child: Container(
-                                                width: 315,
-                                                height: 219,
+                                                width: 315.0,
+                                                height: 219.0,
                                                 decoration: BoxDecoration(
                                                   color: listViewBookingsRecord
                                                               .selectedTimesOrder!
@@ -225,7 +226,8 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                               context)
                                                           .gray2,
                                                   borderRadius:
-                                                      BorderRadius.circular(8),
+                                                      BorderRadius.circular(
+                                                          8.0),
                                                   border: Border.all(
                                                     color: FlutterFlowTheme.of(
                                                             context)
@@ -234,7 +236,8 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                 ),
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(24, 24, 24, 24),
+                                                      .fromSTEB(24.0, 24.0,
+                                                          24.0, 24.0),
                                                   child: Column(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -242,8 +245,11 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(0, 0,
-                                                                    0, 19),
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    19.0),
                                                         child: Row(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
@@ -259,10 +265,10 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                                 Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0,
-                                                                          0,
-                                                                          0,
-                                                                          16),
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          16.0),
                                                                   child: Text(
                                                                     'Авто',
                                                                     style: FlutterFlowTheme.of(
@@ -283,10 +289,10 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                                 Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0,
-                                                                          0,
-                                                                          0,
-                                                                          16),
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          16.0),
                                                                   child: Text(
                                                                     'Услуги',
                                                                     style: FlutterFlowTheme.of(
@@ -323,10 +329,10 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                                 Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0,
-                                                                          16,
-                                                                          0,
-                                                                          0),
+                                                                          0.0,
+                                                                          16.0,
+                                                                          0.0,
+                                                                          0.0),
                                                                   child: Text(
                                                                     'Продолж.',
                                                                     style: FlutterFlowTheme.of(
@@ -350,10 +356,10 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          20,
-                                                                          0,
-                                                                          0,
-                                                                          0),
+                                                                          20.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
                                                               child: Column(
                                                                 mainAxisSize:
                                                                     MainAxisSize
@@ -365,10 +371,10 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                                   Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            0,
-                                                                            16),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            16.0),
                                                                     child: Text(
                                                                       valueOrDefault<
                                                                           String>(
@@ -394,10 +400,10 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                                   Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            0,
-                                                                            16),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            16.0),
                                                                     child: Text(
                                                                       functions
                                                                           .listStringToString(
@@ -448,10 +454,10 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                                   Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0,
-                                                                            16,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            16.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                     child: Text(
                                                                       '${listViewBookingsRecord.timeName} - ${listViewBookingsRecord.selectedTimesOrder!.toList().last.toString()}:00',
                                                                       style: FlutterFlowTheme.of(
@@ -492,10 +498,10 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0,
-                                                                          0,
-                                                                          16,
-                                                                          0),
+                                                                          0.0,
+                                                                          0.0,
+                                                                          16.0,
+                                                                          0.0),
                                                               child:
                                                                   FlutterFlowDropDown<
                                                                       String>(
@@ -508,8 +514,8 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                                     setState(() =>
                                                                         _model.dropDownAdminValueMap[listViewBookingsRecord] =
                                                                             val!),
-                                                                width: 128,
-                                                                height: 40,
+                                                                width: 128.0,
+                                                                height: 40.0,
                                                                 textStyle: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyText1
@@ -533,20 +539,21 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                                 fillColor:
                                                                     Colors
                                                                         .white,
-                                                                elevation: 1,
+                                                                elevation: 1.0,
                                                                 borderColor:
                                                                     FlutterFlowTheme.of(
                                                                             context)
                                                                         .gray2,
-                                                                borderWidth: 1,
-                                                                borderRadius: 8,
-                                                                margin:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            12,
-                                                                            4,
-                                                                            12,
-                                                                            4),
+                                                                borderWidth:
+                                                                    1.0,
+                                                                borderRadius:
+                                                                    8.0,
+                                                                margin: EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        12.0,
+                                                                        4.0,
+                                                                        12.0,
+                                                                        4.0),
                                                                 hidesUnderline:
                                                                     true,
                                                               ),
@@ -561,13 +568,13 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0,
-                                                                          0,
-                                                                          16,
-                                                                          0),
+                                                                          0.0,
+                                                                          0.0,
+                                                                          16.0,
+                                                                          0.0),
                                                               child: Container(
-                                                                width: 128,
-                                                                height: 40,
+                                                                width: 128.0,
+                                                                height: 40.0,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   color: FlutterFlowTheme.of(
@@ -576,7 +583,7 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .circular(
-                                                                              8),
+                                                                              8.0),
                                                                   border: Border
                                                                       .all(
                                                                     color: FlutterFlowTheme.of(
@@ -587,10 +594,10 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                                 child: Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          16,
-                                                                          0,
-                                                                          0,
-                                                                          0),
+                                                                          16.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
                                                                   child: Row(
                                                                     mainAxisSize:
                                                                         MainAxisSize
@@ -682,22 +689,22 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                               }(),
                                                               options:
                                                                   FFButtonOptions(
-                                                                width: 106,
-                                                                height: 40,
+                                                                width: 106.0,
+                                                                height: 40.0,
                                                                 padding:
                                                                     EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                 iconPadding:
                                                                     EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                 color: () {
                                                                   if (_model.dropDownAdminValueMap[
                                                                               listViewBookingsRecord] !=
@@ -729,7 +736,7 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                                       color: Colors
                                                                           .white,
                                                                       fontSize:
-                                                                          14,
+                                                                          14.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
@@ -738,17 +745,17 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                                           .containsKey(
                                                                               FlutterFlowTheme.of(context).subtitle2Family),
                                                                     ),
-                                                                elevation: 0,
+                                                                elevation: 0.0,
                                                                 borderSide:
                                                                     BorderSide(
                                                                   color: Colors
                                                                       .transparent,
-                                                                  width: 1,
+                                                                  width: 1.0,
                                                                 ),
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
-                                                                            8),
+                                                                            8.0),
                                                               ),
                                                             ),
                                                         ],
@@ -765,7 +772,7 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    24, 0, 0, 0),
+                                                    24.0, 0.0, 0.0, 0.0),
                                             child: FutureBuilder<UserRecord>(
                                               future:
                                                   UserRecord.getDocumentOnce(
@@ -776,8 +783,8 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                 if (!snapshot.hasData) {
                                                   return Center(
                                                     child: SizedBox(
-                                                      width: 50,
-                                                      height: 50,
+                                                      width: 50.0,
+                                                      height: 50.0,
                                                       child:
                                                           CircularProgressIndicator(
                                                         color:
@@ -818,8 +825,8 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                         setState(() {}));
                                                   },
                                                   child: Container(
-                                                    width: 315,
-                                                    height: 219,
+                                                    width: 315.0,
+                                                    height: 219.0,
                                                     decoration: BoxDecoration(
                                                       color: listViewBookingsRecord
                                                                   .selectedTimesOrder!
@@ -834,7 +841,7 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                               .gray2,
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              8),
+                                                              8.0),
                                                       border: Border.all(
                                                         color:
                                                             FlutterFlowTheme.of(
@@ -845,8 +852,11 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                     child: Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
-                                                              .fromSTEB(24, 24,
-                                                                  24, 24),
+                                                              .fromSTEB(
+                                                                  24.0,
+                                                                  24.0,
+                                                                  24.0,
+                                                                  24.0),
                                                       child: Column(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -855,10 +865,10 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0,
-                                                                        0,
-                                                                        0,
-                                                                        19),
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        19.0),
                                                             child: Row(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -873,12 +883,11 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                                           .start,
                                                                   children: [
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional
-                                                                          .fromSTEB(
-                                                                              0,
-                                                                              0,
-                                                                              0,
-                                                                              16),
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          16.0),
                                                                       child:
                                                                           Text(
                                                                         'Авто',
@@ -893,12 +902,11 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional
-                                                                          .fromSTEB(
-                                                                              0,
-                                                                              0,
-                                                                              0,
-                                                                              16),
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          16.0),
                                                                       child:
                                                                           Text(
                                                                         'Услуги',
@@ -929,12 +937,11 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                                           ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional
-                                                                          .fromSTEB(
-                                                                              0,
-                                                                              16,
-                                                                              0,
-                                                                              0),
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          16.0,
+                                                                          0.0,
+                                                                          0.0),
                                                                       child:
                                                                           Text(
                                                                         'Продолж.',
@@ -953,10 +960,10 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                                 Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          20,
-                                                                          0,
-                                                                          0,
-                                                                          0),
+                                                                          20.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
                                                                   child: Column(
                                                                     mainAxisSize:
                                                                         MainAxisSize
@@ -967,10 +974,10 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                                     children: [
                                                                       Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            0,
-                                                                            16),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            16.0),
                                                                         child:
                                                                             Text(
                                                                           '${listViewBookingsRecord.carBody} ${listViewBookingsRecord.carName}',
@@ -986,10 +993,10 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                                       ),
                                                                       Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            0,
-                                                                            16),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            16.0),
                                                                         child:
                                                                             Text(
                                                                           functions
@@ -1026,10 +1033,10 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                                       ),
                                                                       Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            16,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            16.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                         child:
                                                                             Text(
                                                                           '${listViewBookingsRecord.timeName} - ${listViewBookingsRecord.selectedTimesOrder!.toList().last.toString()}:00',
@@ -1063,10 +1070,10 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                                 Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0,
-                                                                          0,
-                                                                          16,
-                                                                          0),
+                                                                          0.0,
+                                                                          0.0,
+                                                                          16.0,
+                                                                          0.0),
                                                                   child:
                                                                       FlutterFlowDropDown<
                                                                           String>(
@@ -1079,8 +1086,10 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                                         setState(() =>
                                                                             _model.dropDownUserValueMap[listViewBookingsRecord] =
                                                                                 val!),
-                                                                    width: 128,
-                                                                    height: 40,
+                                                                    width:
+                                                                        128.0,
+                                                                    height:
+                                                                        40.0,
                                                                     textStyle: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodyText1
@@ -1100,20 +1109,20 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                                         Colors
                                                                             .white,
                                                                     elevation:
-                                                                        1,
+                                                                        1.0,
                                                                     borderColor:
                                                                         FlutterFlowTheme.of(context)
                                                                             .gray2,
                                                                     borderWidth:
-                                                                        1,
+                                                                        1.0,
                                                                     borderRadius:
-                                                                        8,
+                                                                        8.0,
                                                                     margin: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            12,
-                                                                            4,
-                                                                            12,
-                                                                            4),
+                                                                            12.0,
+                                                                            4.0,
+                                                                            12.0,
+                                                                            4.0),
                                                                     hidesUnderline:
                                                                         true,
                                                                   ),
@@ -1127,14 +1136,16 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                                 Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0,
-                                                                          0,
-                                                                          16,
-                                                                          0),
+                                                                          0.0,
+                                                                          0.0,
+                                                                          16.0,
+                                                                          0.0),
                                                                   child:
                                                                       Container(
-                                                                    width: 128,
-                                                                    height: 40,
+                                                                    width:
+                                                                        128.0,
+                                                                    height:
+                                                                        40.0,
                                                                     decoration:
                                                                         BoxDecoration(
                                                                       color: FlutterFlowTheme.of(
@@ -1142,7 +1153,7 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                                           .primaryBackground,
                                                                       borderRadius:
                                                                           BorderRadius.circular(
-                                                                              8),
+                                                                              8.0),
                                                                       border:
                                                                           Border
                                                                               .all(
@@ -1152,12 +1163,11 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                                     ),
                                                                     child:
                                                                         Padding(
-                                                                      padding: EdgeInsetsDirectional
-                                                                          .fromSTEB(
-                                                                              16,
-                                                                              0,
-                                                                              0,
-                                                                              0),
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          16.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
                                                                       child:
                                                                           Row(
                                                                         mainAxisSize:
@@ -1267,20 +1277,22 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                                   }(),
                                                                   options:
                                                                       FFButtonOptions(
-                                                                    width: 106,
-                                                                    height: 40,
+                                                                    width:
+                                                                        106.0,
+                                                                    height:
+                                                                        40.0,
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                     iconPadding:
                                                                         EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                     color: () {
                                                                       if (_model.dropDownUserValueMap[listViewBookingsRecord] !=
                                                                               null &&
@@ -1307,23 +1319,24 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                                                                           color:
                                                                               Colors.white,
                                                                           fontSize:
-                                                                              14,
+                                                                              14.0,
                                                                           fontWeight:
                                                                               FontWeight.normal,
                                                                           useGoogleFonts:
                                                                               GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
                                                                         ),
                                                                     elevation:
-                                                                        0,
+                                                                        0.0,
                                                                     borderSide:
                                                                         BorderSide(
                                                                       color: Colors
                                                                           .transparent,
-                                                                      width: 1,
+                                                                      width:
+                                                                          1.0,
                                                                     ),
                                                                     borderRadius:
-                                                                        BorderRadius
-                                                                            .circular(8),
+                                                                        BorderRadius.circular(
+                                                                            8.0),
                                                                   ),
                                                                 ),
                                                             ],
@@ -1344,16 +1357,16 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                             ),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(1, 0),
+                            alignment: AlignmentDirectional(1.0, 0.0),
                             child: Container(
-                              width: 52,
-                              height: 267,
+                              width: 52.0,
+                              height: 267.0,
                               decoration: BoxDecoration(
                                 gradient: LinearGradient(
                                   colors: [Colors.white, Color(0x00FFFFFF)],
-                                  stops: [0.2, 1],
-                                  begin: AlignmentDirectional(1, 0),
-                                  end: AlignmentDirectional(-1, 0),
+                                  stops: [0.2, 1.0],
+                                  begin: AlignmentDirectional(1.0, 0.0),
+                                  end: AlignmentDirectional(-1.0, 0),
                                 ),
                               ),
                             ),
@@ -1364,8 +1377,8 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                   ],
                 ),
                 Divider(
-                  height: 1,
-                  thickness: 1,
+                  height: 1.0,
+                  thickness: 1.0,
                   color: Color(0xFFEDEDED),
                 ),
               ],

@@ -81,7 +81,7 @@ class _SuperAdminCancelledBookingsWidgetState
                   Expanded(
                     child: Container(
                       width: double.infinity,
-                      height: 100,
+                      height: 100.0,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                       ),
@@ -90,10 +90,10 @@ class _SuperAdminCancelledBookingsWidgetState
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 40),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 40.0),
                               child: Container(
-                                width: 1224,
+                                width: 1224.0,
                                 decoration: BoxDecoration(),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -101,14 +101,14 @@ class _SuperAdminCancelledBookingsWidgetState
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 32, 0, 24),
+                                          0.0, 32.0, 0.0, 24.0),
                                       child: Text(
                                         'Пользователи',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyText1
                                             .override(
                                               fontFamily: 'Inter',
-                                              fontSize: 24,
+                                              fontSize: 24.0,
                                               useGoogleFonts:
                                                   GoogleFonts.asMap()
                                                       .containsKey(
@@ -119,13 +119,13 @@ class _SuperAdminCancelledBookingsWidgetState
                                       ),
                                     ),
                                     Container(
-                                      width: 1224,
+                                      width: 1224.0,
                                       decoration: BoxDecoration(
                                         color: Colors.white,
                                       ),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            24, 0, 24, 0),
+                                            24.0, 0.0, 24.0, 0.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           crossAxisAlignment:
@@ -133,20 +133,21 @@ class _SuperAdminCancelledBookingsWidgetState
                                           children: [
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 24, 0, 0),
+                                                  .fromSTEB(
+                                                      0.0, 24.0, 0.0, 0.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.min,
                                                 children: [
                                                   Container(
-                                                    width: 392,
-                                                    height: 40,
+                                                    width: 392.0,
+                                                    height: 40.0,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
                                                           .primaryBackground,
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              8),
+                                                              8.0),
                                                       border: Border.all(
                                                         color:
                                                             FlutterFlowTheme.of(
@@ -158,7 +159,10 @@ class _SuperAdminCancelledBookingsWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  16, 0, 16, 0),
+                                                                  16.0,
+                                                                  0.0,
+                                                                  16.0,
+                                                                  0.0),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -207,10 +211,10 @@ class _SuperAdminCancelledBookingsWidgetState
                                                                 contentPadding:
                                                                     EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0,
-                                                                            13,
-                                                                            0,
-                                                                            13),
+                                                                            0.0,
+                                                                            13.0,
+                                                                            0.0,
+                                                                            13.0),
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
@@ -239,7 +243,7 @@ class _SuperAdminCancelledBookingsWidgetState
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .gray2,
-                                                            size: 24,
+                                                            size: 24.0,
                                                           ),
                                                         ],
                                                       ),
@@ -248,8 +252,8 @@ class _SuperAdminCancelledBookingsWidgetState
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                24, 0, 0, 0),
+                                                            .fromSTEB(24.0, 0.0,
+                                                                0.0, 0.0),
                                                     child: InkWell(
                                                       onTap: () async {
                                                         await showModalBottomSheet(
@@ -273,8 +277,8 @@ class _SuperAdminCancelledBookingsWidgetState
                                                             setState(() {}));
                                                       },
                                                       child: Container(
-                                                        width: 212,
-                                                        height: 40,
+                                                        width: 212.0,
+                                                        height: 40.0,
                                                         decoration:
                                                             BoxDecoration(
                                                           color: FlutterFlowTheme
@@ -282,7 +286,8 @@ class _SuperAdminCancelledBookingsWidgetState
                                                               .primaryBackground,
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(8),
+                                                                  .circular(
+                                                                      8.0),
                                                           border: Border.all(
                                                             color: FlutterFlowTheme
                                                                     .of(context)
@@ -292,8 +297,11 @@ class _SuperAdminCancelledBookingsWidgetState
                                                         child: Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(16,
-                                                                      0, 16, 0),
+                                                                  .fromSTEB(
+                                                                      16.0,
+                                                                      0.0,
+                                                                      16.0,
+                                                                      0.0),
                                                           child: Row(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -328,7 +336,7 @@ class _SuperAdminCancelledBookingsWidgetState
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .gray2,
-                                                                size: 24,
+                                                                size: 24.0,
                                                               ),
                                                             ],
                                                           ),
@@ -339,18 +347,18 @@ class _SuperAdminCancelledBookingsWidgetState
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                24, 0, 0, 0),
+                                                            .fromSTEB(24.0, 0.0,
+                                                                0.0, 0.0),
                                                     child: Container(
-                                                      width: 212,
-                                                      height: 40,
+                                                      width: 212.0,
+                                                      height: 40.0,
                                                       decoration: BoxDecoration(
                                                         color: FlutterFlowTheme
                                                                 .of(context)
                                                             .primaryBackground,
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8),
+                                                                .circular(8.0),
                                                         border: Border.all(
                                                           color: FlutterFlowTheme
                                                                   .of(context)
@@ -360,8 +368,11 @@ class _SuperAdminCancelledBookingsWidgetState
                                                       child: Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(16, 0,
-                                                                    16, 0),
+                                                                .fromSTEB(
+                                                                    16.0,
+                                                                    0.0,
+                                                                    16.0,
+                                                                    0.0),
                                                         child: Row(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
@@ -393,7 +404,7 @@ class _SuperAdminCancelledBookingsWidgetState
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .gray2,
-                                                              size: 24,
+                                                              size: 24.0,
                                                             ),
                                                           ],
                                                         ),
@@ -408,13 +419,14 @@ class _SuperAdminCancelledBookingsWidgetState
                                               children: [
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 32, 0, 16),
+                                                      .fromSTEB(
+                                                          0.0, 32.0, 0.0, 16.0),
                                                   child: Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
                                                     children: [
                                                       Container(
-                                                        width: 192,
+                                                        width: 192.0,
                                                         decoration:
                                                             BoxDecoration(),
                                                         child: Text(
@@ -440,7 +452,7 @@ class _SuperAdminCancelledBookingsWidgetState
                                                         ),
                                                       ),
                                                       Container(
-                                                        width: 96,
+                                                        width: 96.0,
                                                         decoration:
                                                             BoxDecoration(),
                                                         child: Text(
@@ -466,7 +478,7 @@ class _SuperAdminCancelledBookingsWidgetState
                                                         ),
                                                       ),
                                                       Container(
-                                                        width: 83,
+                                                        width: 83.0,
                                                         decoration:
                                                             BoxDecoration(),
                                                         child: Text(
@@ -492,7 +504,7 @@ class _SuperAdminCancelledBookingsWidgetState
                                                         ),
                                                       ),
                                                       Container(
-                                                        width: 89,
+                                                        width: 89.0,
                                                         decoration:
                                                             BoxDecoration(),
                                                         child: Text(
@@ -518,7 +530,7 @@ class _SuperAdminCancelledBookingsWidgetState
                                                         ),
                                                       ),
                                                       Container(
-                                                        width: 176,
+                                                        width: 176.0,
                                                         decoration:
                                                             BoxDecoration(),
                                                         child: Text(
@@ -544,7 +556,7 @@ class _SuperAdminCancelledBookingsWidgetState
                                                         ),
                                                       ),
                                                       Container(
-                                                        width: 193,
+                                                        width: 193.0,
                                                         decoration:
                                                             BoxDecoration(),
                                                         child: Text(
@@ -570,7 +582,7 @@ class _SuperAdminCancelledBookingsWidgetState
                                                         ),
                                                       ),
                                                       Container(
-                                                        width: 253,
+                                                        width: 253.0,
                                                         decoration:
                                                             BoxDecoration(),
                                                         child: Text(
@@ -596,7 +608,7 @@ class _SuperAdminCancelledBookingsWidgetState
                                                         ),
                                                       ),
                                                       Container(
-                                                        width: 90,
+                                                        width: 90.0,
                                                         decoration:
                                                             BoxDecoration(),
                                                         child: Text(
@@ -625,8 +637,8 @@ class _SuperAdminCancelledBookingsWidgetState
                                                   ),
                                                 ),
                                                 Divider(
-                                                  height: 1,
-                                                  thickness: 1,
+                                                  height: 1.0,
+                                                  thickness: 1.0,
                                                   color: Color(0xFFEEEEEE),
                                                 ),
                                                 StreamBuilder<
@@ -651,8 +663,8 @@ class _SuperAdminCancelledBookingsWidgetState
                                                     if (!snapshot.hasData) {
                                                       return Center(
                                                         child: SizedBox(
-                                                          width: 50,
-                                                          height: 50,
+                                                          width: 50.0,
+                                                          height: 50.0,
                                                           child:
                                                               CircularProgressIndicator(
                                                             color: FlutterFlowTheme
@@ -695,8 +707,8 @@ class _SuperAdminCancelledBookingsWidgetState
                                                                 .hasData) {
                                                               return Center(
                                                                 child: SizedBox(
-                                                                  width: 50,
-                                                                  height: 50,
+                                                                  width: 50.0,
+                                                                  height: 50.0,
                                                                   child:
                                                                       CircularProgressIndicator(
                                                                     color: FlutterFlowTheme.of(
@@ -774,12 +786,11 @@ class _SuperAdminCancelledBookingsWidgetState
                                                                           .max,
                                                                   children: [
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional
-                                                                          .fromSTEB(
-                                                                              0,
-                                                                              16,
-                                                                              0,
-                                                                              16),
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          16.0,
+                                                                          0.0,
+                                                                          16.0),
                                                                       child:
                                                                           Row(
                                                                         mainAxisSize:
@@ -787,7 +798,7 @@ class _SuperAdminCancelledBookingsWidgetState
                                                                         children: [
                                                                           Container(
                                                                             width:
-                                                                                192,
+                                                                                192.0,
                                                                             decoration:
                                                                                 BoxDecoration(),
                                                                             child:
@@ -802,7 +813,7 @@ class _SuperAdminCancelledBookingsWidgetState
                                                                           ),
                                                                           Container(
                                                                             width:
-                                                                                96,
+                                                                                96.0,
                                                                             decoration:
                                                                                 BoxDecoration(),
                                                                             child:
@@ -820,7 +831,7 @@ class _SuperAdminCancelledBookingsWidgetState
                                                                           ),
                                                                           Container(
                                                                             width:
-                                                                                83,
+                                                                                83.0,
                                                                             decoration:
                                                                                 BoxDecoration(),
                                                                             child:
@@ -856,7 +867,7 @@ class _SuperAdminCancelledBookingsWidgetState
                                                                           ),
                                                                           Container(
                                                                             width:
-                                                                                89,
+                                                                                89.0,
                                                                             decoration:
                                                                                 BoxDecoration(),
                                                                             child:
@@ -874,7 +885,7 @@ class _SuperAdminCancelledBookingsWidgetState
                                                                           ),
                                                                           Container(
                                                                             width:
-                                                                                176,
+                                                                                176.0,
                                                                             decoration:
                                                                                 BoxDecoration(),
                                                                             child:
@@ -895,7 +906,7 @@ class _SuperAdminCancelledBookingsWidgetState
                                                                           ),
                                                                           Container(
                                                                             width:
-                                                                                193,
+                                                                                193.0,
                                                                             decoration:
                                                                                 BoxDecoration(),
                                                                             child:
@@ -910,7 +921,7 @@ class _SuperAdminCancelledBookingsWidgetState
                                                                           ),
                                                                           Container(
                                                                             width:
-                                                                                257,
+                                                                                257.0,
                                                                             decoration:
                                                                                 BoxDecoration(),
                                                                             child:
@@ -928,7 +939,7 @@ class _SuperAdminCancelledBookingsWidgetState
                                                                           ),
                                                                           Container(
                                                                             width:
-                                                                                90,
+                                                                                90.0,
                                                                             decoration:
                                                                                 BoxDecoration(),
                                                                             child:
@@ -936,10 +947,10 @@ class _SuperAdminCancelledBookingsWidgetState
                                                                               mainAxisSize: MainAxisSize.max,
                                                                               children: [
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
                                                                                   child: Container(
-                                                                                    width: 8,
-                                                                                    height: 8,
+                                                                                    width: 8.0,
+                                                                                    height: 8.0,
                                                                                     decoration: BoxDecoration(
                                                                                       color: FlutterFlowTheme.of(context).red1,
                                                                                       shape: BoxShape.circle,
@@ -962,9 +973,10 @@ class _SuperAdminCancelledBookingsWidgetState
                                                                       ),
                                                                     ),
                                                                     Divider(
-                                                                      height: 1,
+                                                                      height:
+                                                                          1.0,
                                                                       thickness:
-                                                                          1,
+                                                                          1.0,
                                                                       color: Color(
                                                                           0xFFEEEEEE),
                                                                     ),
@@ -996,7 +1008,7 @@ class _SuperAdminCancelledBookingsWidgetState
                 ],
               ),
               Align(
-                alignment: AlignmentDirectional(0, -1),
+                alignment: AlignmentDirectional(0.0, -1.0),
                 child: wrapWithModel(
                   model: _model.adminAppBarInfoModel,
                   updateCallback: () => setState(() {}),

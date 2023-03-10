@@ -47,7 +47,7 @@ class _AboutCompanyWidgetState extends State<AboutCompanyWidget> {
         child: GestureDetector(
           onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0, 14, 0, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 14.0, 0.0, 0.0),
             child: SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.max,
@@ -58,13 +58,13 @@ class _AboutCompanyWidgetState extends State<AboutCompanyWidget> {
                     children: [
                       FlutterFlowIconButton(
                         borderColor: Colors.transparent,
-                        borderRadius: 30,
-                        borderWidth: 1,
-                        buttonSize: 48,
+                        borderRadius: 30.0,
+                        borderWidth: 1.0,
+                        buttonSize: 48.0,
                         icon: Icon(
                           FFIcons.kicBack,
                           color: FlutterFlowTheme.of(context).primaryColor,
-                          size: 24,
+                          size: 24.0,
                         ),
                         onPressed: () async {
                           context.pop();
@@ -75,7 +75,7 @@ class _AboutCompanyWidgetState extends State<AboutCompanyWidget> {
                         style: FlutterFlowTheme.of(context).bodyText1.override(
                               fontFamily:
                                   FlutterFlowTheme.of(context).bodyText1Family,
-                              fontSize: 18,
+                              fontSize: 18.0,
                               fontWeight: FontWeight.w500,
                               useGoogleFonts: GoogleFonts.asMap().containsKey(
                                   FlutterFlowTheme.of(context).bodyText1Family),
@@ -83,13 +83,13 @@ class _AboutCompanyWidgetState extends State<AboutCompanyWidget> {
                       ),
                       FlutterFlowIconButton(
                         borderColor: Colors.transparent,
-                        borderRadius: 30,
-                        borderWidth: 1,
-                        buttonSize: 48,
+                        borderRadius: 30.0,
+                        borderWidth: 1.0,
+                        buttonSize: 48.0,
                         icon: Icon(
                           FFIcons.kicBack,
                           color: FlutterFlowTheme.of(context).primaryBackground,
-                          size: 30,
+                          size: 30.0,
                         ),
                         onPressed: () {
                           print('IconButton pressed ...');
@@ -98,7 +98,8 @@ class _AboutCompanyWidgetState extends State<AboutCompanyWidget> {
                     ],
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(16, 25, 16, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(16.0, 25.0, 16.0, 0.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -117,7 +118,8 @@ class _AboutCompanyWidgetState extends State<AboutCompanyWidget> {
                               ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 22, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 22.0, 0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -129,11 +131,11 @@ class _AboutCompanyWidgetState extends State<AboutCompanyWidget> {
                                     FFIcons.kicInsta,
                                     color: FlutterFlowTheme.of(context)
                                         .primaryColor,
-                                    size: 24,
+                                    size: 24.0,
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        8, 0, 0, 0),
+                                        8.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       'Instagram',
                                       style: FlutterFlowTheme.of(context)
@@ -153,8 +155,8 @@ class _AboutCompanyWidgetState extends State<AboutCompanyWidget> {
                                 ],
                               ),
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    16.0, 0.0, 0.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -162,11 +164,11 @@ class _AboutCompanyWidgetState extends State<AboutCompanyWidget> {
                                       FFIcons.kicLinkedin,
                                       color: FlutterFlowTheme.of(context)
                                           .primaryColor,
-                                      size: 24,
+                                      size: 24.0,
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          8, 0, 0, 0),
+                                          8.0, 0.0, 0.0, 0.0),
                                       child: Text(
                                         'LinkedIn',
                                         style: FlutterFlowTheme.of(context)

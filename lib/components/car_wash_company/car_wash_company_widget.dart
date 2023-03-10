@@ -63,8 +63,8 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
         color: FlutterFlowTheme.of(context).primaryBackground,
         child: Center(
           child: SizedBox(
-            width: 50,
-            height: 50,
+            width: 50.0,
+            height: 50.0,
             child: CircularProgressIndicator(
               color: FlutterFlowTheme.of(context).primaryColor,
             ),
@@ -80,8 +80,8 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
         if (!snapshot.hasData) {
           return Center(
             child: SizedBox(
-              width: 50,
-              height: 50,
+              width: 50.0,
+              height: 50.0,
               child: CircularProgressIndicator(
                 color: FlutterFlowTheme.of(context).primaryColor,
               ),
@@ -94,14 +94,14 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
           decoration: BoxDecoration(
             color: FlutterFlowTheme.of(context).primaryBackground,
             borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(0),
-              bottomRight: Radius.circular(0),
-              topLeft: Radius.circular(10),
-              topRight: Radius.circular(10),
+              bottomLeft: Radius.circular(0.0),
+              bottomRight: Radius.circular(0.0),
+              topLeft: Radius.circular(10.0),
+              topRight: Radius.circular(10.0),
             ),
           ),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
             child: Container(
               width: double.infinity,
               height: double.infinity,
@@ -111,13 +111,14 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 14),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            16.0, 0.0, 16.0, 14.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Container(
-                              width: 64,
-                              height: 64,
+                              width: 64.0,
+                              height: 64.0,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .primaryBackground,
@@ -130,13 +131,13 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                     ),
                                   ).image,
                                 ),
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(8.0),
                               ),
                             ),
                             Expanded(
                               child: Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(14, 0, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    14.0, 0.0, 0.0, 0.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -155,15 +156,15 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                           children: [
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 0, 6),
+                                                  .fromSTEB(0.0, 0.0, 0.0, 6.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 4, 0),
+                                                            .fromSTEB(0.0, 0.0,
+                                                                4.0, 0.0),
                                                     child: Text(
                                                       containerCompaniesRecord
                                                           .name!,
@@ -175,7 +176,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                 fontFamily: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyText1Family,
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w500,
@@ -188,8 +189,8 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                     ),
                                                   ),
                                                   Container(
-                                                    width: 6,
-                                                    height: 6,
+                                                    width: 6.0,
+                                                    height: 6.0,
                                                     decoration: BoxDecoration(
                                                       color:
                                                           valueOrDefault<Color>(
@@ -216,7 +217,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 0, 4),
+                                                  .fromSTEB(0.0, 0.0, 0.0, 4.0),
                                               child: RatingBarIndicator(
                                                 itemBuilder: (context, index) =>
                                                     Icon(
@@ -237,7 +238,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .starblue,
                                                 itemCount: 5,
-                                                itemSize: 14,
+                                                itemSize: 14.0,
                                               ),
                                             ),
                                           ],
@@ -250,8 +251,8 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                             if (!snapshot.hasData) {
                                               return Center(
                                                 child: SizedBox(
-                                                  width: 50,
-                                                  height: 50,
+                                                  width: 50.0,
+                                                  height: 50.0,
                                                   child:
                                                       CircularProgressIndicator(
                                                     color: FlutterFlowTheme.of(
@@ -299,14 +300,14 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryColor,
-                                                size: 24,
+                                                size: 24.0,
                                               ),
                                               offIcon: Icon(
                                                 FFIcons.kproperty1unsaved,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryColor,
-                                                size: 24,
+                                                size: 24.0,
                                               ),
                                             );
                                           },
@@ -379,7 +380,8 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                       ),
                       Expanded(
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 16.0, 0.0, 0.0),
                           child: DefaultTabController(
                             length: 4,
                             initialIndex: 0,
@@ -414,13 +416,14 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            16, 0, 16, 0),
+                                            16.0, 0.0, 16.0, 0.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 16, 0, 0),
+                                                  .fromSTEB(
+                                                      0.0, 16.0, 0.0, 0.0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -429,8 +432,8 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 0, 8),
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 8.0),
                                                     child: Text(
                                                       'Время работы',
                                                       style:
@@ -455,8 +458,8 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 0, 12),
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 12.0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -543,8 +546,8 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                     ),
                                                   ),
                                                   Divider(
-                                                    height: 1,
-                                                    thickness: 1,
+                                                    height: 1.0,
+                                                    thickness: 1.0,
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .gray4,
@@ -554,7 +557,8 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 16, 0, 0),
+                                                  .fromSTEB(
+                                                      0.0, 16.0, 0.0, 0.0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -563,8 +567,8 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 0, 8),
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 8.0),
                                                     child: Text(
                                                       'Номер телефона',
                                                       style:
@@ -589,8 +593,8 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 0, 12),
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 12.0),
                                                     child: Text(
                                                       valueOrDefault<String>(
                                                         functions.phoneNum(
@@ -618,8 +622,8 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                     ),
                                                   ),
                                                   Divider(
-                                                    height: 1,
-                                                    thickness: 1,
+                                                    height: 1.0,
+                                                    thickness: 1.0,
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .gray4,
@@ -629,7 +633,8 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 16, 0, 0),
+                                                  .fromSTEB(
+                                                      0.0, 16.0, 0.0, 0.0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -638,8 +643,8 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 0, 8),
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 8.0),
                                                     child: Text(
                                                       'Количество боксов',
                                                       style:
@@ -664,8 +669,8 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 0, 12),
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 12.0),
                                                     child: Text(
                                                       valueOrDefault<String>(
                                                         '${valueOrDefault<String>(
@@ -696,8 +701,8 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                     ),
                                                   ),
                                                   Divider(
-                                                    height: 1,
-                                                    thickness: 1,
+                                                    height: 1.0,
+                                                    thickness: 1.0,
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .gray4,
@@ -707,7 +712,8 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 16, 0, 0),
+                                                  .fromSTEB(
+                                                      0.0, 16.0, 0.0, 0.0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -716,8 +722,8 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 0, 8),
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 8.0),
                                                     child: Text(
                                                       'Удобства',
                                                       style:
@@ -742,8 +748,8 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 0, 12),
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 12.0),
                                                     child: Text(
                                                       valueOrDefault<String>(
                                                         containerCompaniesRecord
@@ -770,8 +776,8 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                     ),
                                                   ),
                                                   Divider(
-                                                    height: 1,
-                                                    thickness: 1,
+                                                    height: 1.0,
+                                                    thickness: 1.0,
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .gray4,
@@ -788,7 +794,8 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                           children: [
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(16, 0, 16, 0),
+                                                  .fromSTEB(
+                                                      16.0, 0.0, 16.0, 0.0),
                                               child: AuthUserStreamWidget(
                                                 builder: (context) => StreamBuilder<
                                                     List<
@@ -823,8 +830,8 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                     if (!snapshot.hasData) {
                                                       return Center(
                                                         child: SizedBox(
-                                                          width: 50,
-                                                          height: 50,
+                                                          width: 50.0,
+                                                          height: 50.0,
                                                           child:
                                                               CircularProgressIndicator(
                                                             color: FlutterFlowTheme
@@ -850,8 +857,11 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                         return Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(0,
-                                                                      20, 0, 0),
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      20.0,
+                                                                      0.0,
+                                                                      0.0),
                                                           child: Row(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -882,8 +892,8 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                               ),
                                             ),
                                             Container(
-                                              width: 100,
-                                              height: 100,
+                                              width: 100.0,
+                                              height: 100.0,
                                               decoration: BoxDecoration(),
                                             ),
                                           ],
@@ -891,7 +901,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            16, 0, 16, 20),
+                                            16.0, 0.0, 16.0, 20.0),
                                         child:
                                             FutureBuilder<List<CommentsRecord>>(
                                           future: queryCommentsRecordOnce(
@@ -902,8 +912,8 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                             if (!snapshot.hasData) {
                                               return Center(
                                                 child: SizedBox(
-                                                  width: 50,
-                                                  height: 50,
+                                                  width: 50.0,
+                                                  height: 50.0,
                                                   child:
                                                       CircularProgressIndicator(
                                                     color: FlutterFlowTheme.of(
@@ -929,7 +939,8 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                         listViewIndex];
                                                 return Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 12, 0, 0),
+                                                      .fromSTEB(
+                                                          0.0, 12.0, 0.0, 0.0),
                                                   child: Column(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -949,8 +960,8 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                               .hasData) {
                                                             return Center(
                                                               child: SizedBox(
-                                                                width: 50,
-                                                                height: 50,
+                                                                width: 50.0,
+                                                                height: 50.0,
                                                                 child:
                                                                     CircularProgressIndicator(
                                                                   color: FlutterFlowTheme.of(
@@ -968,8 +979,8 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                     .max,
                                                             children: [
                                                               Container(
-                                                                width: 32,
-                                                                height: 32,
+                                                                width: 32.0,
+                                                                height: 32.0,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   color: FlutterFlowTheme.of(
@@ -987,7 +998,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .circular(
-                                                                              8),
+                                                                              8.0),
                                                                   border: Border
                                                                       .all(
                                                                     color: FlutterFlowTheme.of(
@@ -1006,15 +1017,16 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                   child:
                                                                       ClipRRect(
                                                                     borderRadius:
-                                                                        BorderRadius
-                                                                            .circular(8),
+                                                                        BorderRadius.circular(
+                                                                            8.0),
                                                                     child: Image
                                                                         .network(
                                                                       rowUserRecord
                                                                           .photoUrl!,
-                                                                      width: 30,
+                                                                      width:
+                                                                          30.0,
                                                                       height:
-                                                                          30,
+                                                                          30.0,
                                                                       fit: BoxFit
                                                                           .cover,
                                                                     ),
@@ -1025,10 +1037,10 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                 child: Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          8,
-                                                                          0,
-                                                                          0,
-                                                                          0),
+                                                                          8.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
                                                                   child: Column(
                                                                     mainAxisSize:
                                                                         MainAxisSize
@@ -1039,10 +1051,10 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                     children: [
                                                                       Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            0,
-                                                                            4),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            4.0),
                                                                         child:
                                                                             Text(
                                                                           rowUserRecord
@@ -1054,7 +1066,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                             fontWeight:
                                                                                 FontWeight.w500,
                                                                             fontSize:
-                                                                                12,
+                                                                                12.0,
                                                                           ),
                                                                         ),
                                                                       ),
@@ -1071,7 +1083,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                             .override(
                                                                               fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
                                                                               color: FlutterFlowTheme.of(context).gray2,
-                                                                              fontSize: 12,
+                                                                              fontSize: 12.0,
                                                                               useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                             ),
                                                                       ),
@@ -1098,7 +1110,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                 unratedColor: Color(
                                                                     0xFF9E9E9E),
                                                                 itemCount: 5,
-                                                                itemSize: 14,
+                                                                itemSize: 14.0,
                                                               ),
                                                             ],
                                                           );
@@ -1107,8 +1119,11 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(0, 12,
-                                                                    0, 12),
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    12.0,
+                                                                    0.0,
+                                                                    12.0),
                                                         child: Text(
                                                           listViewCommentsRecord
                                                               .comment!,
@@ -1131,16 +1146,16 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        8),
+                                                                        8.0),
                                                           ),
                                                           child: Padding(
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        12,
-                                                                        12,
-                                                                        12,
-                                                                        12),
+                                                                        12.0,
+                                                                        12.0,
+                                                                        12.0,
+                                                                        12.0),
                                                             child: Column(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -1155,9 +1170,10 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                           .max,
                                                                   children: [
                                                                     Container(
-                                                                      width: 32,
+                                                                      width:
+                                                                          32.0,
                                                                       height:
-                                                                          32,
+                                                                          32.0,
                                                                       decoration:
                                                                           BoxDecoration(
                                                                         color: FlutterFlowTheme.of(context)
@@ -1175,7 +1191,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                           ).image,
                                                                         ),
                                                                         borderRadius:
-                                                                            BorderRadius.circular(8),
+                                                                            BorderRadius.circular(8.0),
                                                                         border:
                                                                             Border.all(
                                                                           color:
@@ -1187,10 +1203,10 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                       child:
                                                                           Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            8,
-                                                                            0,
-                                                                            0,
-                                                                            0),
+                                                                            8.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                         child:
                                                                             Column(
                                                                           mainAxisSize:
@@ -1199,13 +1215,13 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                               CrossAxisAlignment.start,
                                                                           children: [
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 4),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
                                                                               child: Text(
                                                                                 containerCompaniesRecord.name!,
                                                                                 style: TextStyle(
                                                                                   color: FlutterFlowTheme.of(context).primaryText,
                                                                                   fontWeight: FontWeight.w500,
-                                                                                  fontSize: 12,
+                                                                                  fontSize: 12.0,
                                                                                 ),
                                                                               ),
                                                                             ),
@@ -1214,7 +1230,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                     fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
                                                                                     color: FlutterFlowTheme.of(context).gray2,
-                                                                                    fontSize: 12,
+                                                                                    fontSize: 12.0,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                   ),
                                                                             ),
@@ -1227,10 +1243,10 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                 Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0,
-                                                                          12,
-                                                                          0,
-                                                                          0),
+                                                                          0.0,
+                                                                          12.0,
+                                                                          0.0,
+                                                                          0.0),
                                                                   child: Text(
                                                                     listViewCommentsRecord
                                                                         .responseComment!,
@@ -1247,7 +1263,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                           ),
                                                         ),
                                                       Divider(
-                                                        thickness: 1,
+                                                        thickness: 1.0,
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -1263,7 +1279,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            16, 0, 16, 0),
+                                            16.0, 0.0, 16.0, 0.0),
                                         child: PagedListView<
                                             DocumentSnapshot<Object?>?,
                                             PromotionRecord>(
@@ -1361,8 +1377,8 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                             firstPageProgressIndicatorBuilder:
                                                 (_) => Center(
                                               child: SizedBox(
-                                                width: 50,
-                                                height: 50,
+                                                width: 50.0,
+                                                height: 50.0,
                                                 child:
                                                     CircularProgressIndicator(
                                                   color: FlutterFlowTheme.of(
@@ -1379,7 +1395,8 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                       .itemList![listViewIndex];
                                               return Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(0, 16, 0, 0),
+                                                    .fromSTEB(
+                                                        0.0, 16.0, 0.0, 0.0),
                                                 child: InkWell(
                                                   onTap: () async {
                                                     await showModalBottomSheet(
@@ -1415,18 +1432,18 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                       ClipRRect(
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8),
+                                                                .circular(8.0),
                                                         child: Image.network(
                                                           'https://picsum.photos/seed/252/600',
                                                           width:
                                                               double.infinity,
-                                                          height: 128,
+                                                          height: 128.0,
                                                           fit: BoxFit.cover,
                                                         ),
                                                       ),
                                                       Container(
                                                         width: double.infinity,
-                                                        height: 128,
+                                                        height: 128.0,
                                                         decoration:
                                                             BoxDecoration(
                                                           image:
@@ -1445,30 +1462,31 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                   .transparent,
                                                               Colors.black
                                                             ],
-                                                            stops: [0, 1],
+                                                            stops: [0.0, 1.0],
                                                             begin:
                                                                 AlignmentDirectional(
-                                                                    0, -1),
+                                                                    0.0, -1.0),
                                                             end:
                                                                 AlignmentDirectional(
-                                                                    0, 1),
+                                                                    0, 1.0),
                                                           ),
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(8),
+                                                                  .circular(
+                                                                      8.0),
                                                         ),
                                                         child: Align(
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  -1, 1),
+                                                                  -1.0, 1.0),
                                                           child: Padding(
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        16,
-                                                                        0,
-                                                                        0,
-                                                                        10),
+                                                                        16.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        10.0),
                                                             child: Text(
                                                               listViewPromotionRecord
                                                                   .title!,
@@ -1482,7 +1500,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                     color: Colors
                                                                         .white,
                                                                     fontSize:
-                                                                        16,
+                                                                        16.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w500,
@@ -1514,16 +1532,17 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                     ],
                   ),
                   Align(
-                    alignment: AlignmentDirectional(0, 1),
+                    alignment: AlignmentDirectional(0.0, 1.0),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Expanded(
                             child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(16, 0, 16, 16),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 0.0, 16.0, 16.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
                                   if (valueOrDefault(
@@ -1570,12 +1589,12 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                 },
                                 text: 'Записаться',
                                 options: FFButtonOptions(
-                                  width: 130,
-                                  height: 48,
+                                  width: 130.0,
+                                  height: 48.0,
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 0, 0),
+                                      0.0, 0.0, 0.0, 0.0),
                                   iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 0, 0),
+                                      0.0, 0.0, 0.0, 0.0),
                                   color:
                                       FlutterFlowTheme.of(context).primaryColor,
                                   textStyle: FlutterFlowTheme.of(context)
@@ -1591,9 +1610,9 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                       ),
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                               ),
                             ),

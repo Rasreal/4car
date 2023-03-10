@@ -48,11 +48,11 @@ class _AdminAppBarInfoWidgetState extends State<AdminAppBarInfoWidget> {
       visible: (FFAppState().adminAppBar == 'profile') ||
           (FFAppState().adminAppBar == 'notify'),
       child: Align(
-        alignment: AlignmentDirectional(0, -1),
+        alignment: AlignmentDirectional(0.0, -1.0),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0, 55, 0, 0),
+          padding: EdgeInsetsDirectional.fromSTEB(0.0, 55.0, 0.0, 0.0),
           child: Container(
-            width: 1224,
+            width: 1224.0,
             decoration: BoxDecoration(),
             child: Stack(
               children: [
@@ -64,28 +64,29 @@ class _AdminAppBarInfoWidgetState extends State<AdminAppBarInfoWidget> {
                   },
                   child: Container(
                     width: double.infinity,
-                    height: MediaQuery.of(context).size.height * 1,
+                    height: MediaQuery.of(context).size.height * 1.0,
                     decoration: BoxDecoration(),
                   ),
                 ),
                 if (FFAppState().adminAppBar == 'profile')
                   Align(
-                    alignment: AlignmentDirectional(1, -1),
+                    alignment: AlignmentDirectional(1.0, -1.0),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 13, 0, 0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 13.0, 0.0, 0.0),
                       child: Container(
-                        width: 138,
-                        height: 100,
+                        width: 138.0,
+                        height: 100.0,
                         decoration: BoxDecoration(
                           color: FlutterFlowTheme.of(context).primaryBackground,
                           boxShadow: [
                             BoxShadow(
-                              blurRadius: 24,
+                              blurRadius: 24.0,
                               color: Color(0x33000000),
-                              offset: Offset(0, 2),
+                              offset: Offset(0.0, 2.0),
                             )
                           ],
-                          borderRadius: BorderRadius.circular(8),
+                          borderRadius: BorderRadius.circular(8.0),
                         ),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -109,16 +110,16 @@ class _AdminAppBarInfoWidgetState extends State<AdminAppBarInfoWidget> {
                               },
                               child: Container(
                                 width: double.infinity,
-                                height: 40,
+                                height: 40.0,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBackground,
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(-1, 0),
+                                  alignment: AlignmentDirectional(-1.0, 0.0),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        16, 0, 0, 0),
+                                        16.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       'Профиль',
                                       style: FlutterFlowTheme.of(context)
@@ -146,16 +147,16 @@ class _AdminAppBarInfoWidgetState extends State<AdminAppBarInfoWidget> {
                               },
                               child: Container(
                                 width: double.infinity,
-                                height: 40,
+                                height: 40.0,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBackground,
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(-1, 0),
+                                  alignment: AlignmentDirectional(-1.0, 0.0),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        16, 0, 0, 0),
+                                        16.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       'Выйти',
                                       style: FlutterFlowTheme.of(context)
@@ -191,8 +192,8 @@ class _AdminAppBarInfoWidgetState extends State<AdminAppBarInfoWidget> {
                       if (!snapshot.hasData) {
                         return Center(
                           child: SizedBox(
-                            width: 50,
-                            height: 50,
+                            width: 50.0,
+                            height: 50.0,
                             child: CircularProgressIndicator(
                               color: FlutterFlowTheme.of(context).primaryColor,
                             ),
@@ -212,28 +213,28 @@ class _AdminAppBarInfoWidgetState extends State<AdminAppBarInfoWidget> {
                       return Stack(
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(1, -1),
+                            alignment: AlignmentDirectional(1.0, -1.0),
                             child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 13, 110, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 13.0, 110.0, 0.0),
                               child: Container(
-                                width: 402,
-                                height: 480,
+                                width: 402.0,
+                                height: 480.0,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBackground,
                                   boxShadow: [
                                     BoxShadow(
-                                      blurRadius: 24,
+                                      blurRadius: 24.0,
                                       color: Color(0x33000000),
-                                      offset: Offset(0, 2),
+                                      offset: Offset(0.0, 2.0),
                                     )
                                   ],
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      24, 33, 12, 20),
+                                      24.0, 33.0, 12.0, 20.0),
                                   child: SingleChildScrollView(
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
@@ -241,13 +242,14 @@ class _AdminAppBarInfoWidgetState extends State<AdminAppBarInfoWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 12, 0),
+                                                  0.0, 0.0, 12.0, 0.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(0, 0, 0, 16),
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 0.0, 16.0),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -264,7 +266,7 @@ class _AdminAppBarInfoWidgetState extends State<AdminAppBarInfoWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Inter',
-                                                                fontSize: 18,
+                                                                fontSize: 18.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w500,
@@ -306,8 +308,8 @@ class _AdminAppBarInfoWidgetState extends State<AdminAppBarInfoWidget> {
                                                 ),
                                               ),
                                               Divider(
-                                                height: 1,
-                                                thickness: 1,
+                                                height: 1.0,
+                                                thickness: 1.0,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .drawer,
@@ -333,8 +335,8 @@ class _AdminAppBarInfoWidgetState extends State<AdminAppBarInfoWidget> {
                                                       if (!snapshot.hasData) {
                                                         return Center(
                                                           child: SizedBox(
-                                                            width: 50,
-                                                            height: 50,
+                                                            width: 50.0,
+                                                            height: 50.0,
                                                             child:
                                                                 CircularProgressIndicator(
                                                               color: FlutterFlowTheme
@@ -370,18 +372,17 @@ class _AdminAppBarInfoWidgetState extends State<AdminAppBarInfoWidget> {
                                                                   if (!columnCompanyNotificationsRecord
                                                                       .opened!)
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional
-                                                                          .fromSTEB(
-                                                                              0,
-                                                                              0,
-                                                                              12,
-                                                                              0),
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          12.0,
+                                                                          0.0),
                                                                       child:
                                                                           Container(
                                                                         width:
-                                                                            6,
+                                                                            6.0,
                                                                         height:
-                                                                            6,
+                                                                            6.0,
                                                                         decoration:
                                                                             BoxDecoration(
                                                                           color:
@@ -394,12 +395,11 @@ class _AdminAppBarInfoWidgetState extends State<AdminAppBarInfoWidget> {
                                                                   Expanded(
                                                                     child:
                                                                         Padding(
-                                                                      padding: EdgeInsetsDirectional
-                                                                          .fromSTEB(
-                                                                              0,
-                                                                              16,
-                                                                              0,
-                                                                              16),
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          16.0,
+                                                                          0.0,
+                                                                          16.0),
                                                                       child:
                                                                           Column(
                                                                         mainAxisSize:
@@ -420,10 +420,10 @@ class _AdminAppBarInfoWidgetState extends State<AdminAppBarInfoWidget> {
                                                                           ),
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0,
-                                                                                8,
-                                                                                0,
-                                                                                0),
+                                                                                0.0,
+                                                                                8.0,
+                                                                                0.0,
+                                                                                0.0),
                                                                             child:
                                                                                 Text(
                                                                               '${valueOrDefault<String>(
@@ -456,8 +456,8 @@ class _AdminAppBarInfoWidgetState extends State<AdminAppBarInfoWidget> {
                                                                 ],
                                                               ),
                                                               Divider(
-                                                                height: 1,
-                                                                thickness: 1,
+                                                                height: 1.0,
+                                                                thickness: 1.0,
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .drawer,
@@ -480,14 +480,14 @@ class _AdminAppBarInfoWidgetState extends State<AdminAppBarInfoWidget> {
                             ),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(1, -1),
+                            alignment: AlignmentDirectional(1.0, -1.0),
                             child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 4, 150, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 4.0, 150.0, 0.0),
                               child: SvgPicture.asset(
                                 'assets/images/Polygon_1.svg',
-                                width: 32,
-                                height: 13,
+                                width: 32.0,
+                                height: 13.0,
                                 fit: BoxFit.cover,
                               ),
                             ),

@@ -74,7 +74,7 @@ class _SuperAdminModeration2WidgetState
                     child: Stack(
                       children: [
                         Align(
-                          alignment: AlignmentDirectional(0, -1),
+                          alignment: AlignmentDirectional(0.0, -1.0),
                           child: SingleChildScrollView(
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
@@ -89,12 +89,12 @@ class _SuperAdminModeration2WidgetState
                                         .secondaryBackground,
                                   ),
                                   child: Align(
-                                    alignment: AlignmentDirectional(0, 0),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 0, 120),
+                                          0.0, 0.0, 0.0, 120.0),
                                       child: Container(
-                                        width: 1224,
+                                        width: 1224.0,
                                         decoration: BoxDecoration(),
                                         child: FutureBuilder<CompaniesRecord>(
                                           future:
@@ -105,8 +105,8 @@ class _SuperAdminModeration2WidgetState
                                             if (!snapshot.hasData) {
                                               return Center(
                                                 child: SizedBox(
-                                                  width: 50,
-                                                  height: 50,
+                                                  width: 50.0,
+                                                  height: 50.0,
                                                   child:
                                                       CircularProgressIndicator(
                                                     color: FlutterFlowTheme.of(
@@ -125,7 +125,8 @@ class _SuperAdminModeration2WidgetState
                                               children: [
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 32, 0, 32),
+                                                      .fromSTEB(
+                                                          0.0, 32.0, 0.0, 32.0),
                                                   child: Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -142,7 +143,8 @@ class _SuperAdminModeration2WidgetState
                                                                 .override(
                                                                   fontFamily:
                                                                       'Inter',
-                                                                  fontSize: 24,
+                                                                  fontSize:
+                                                                      24.0,
                                                                   useGoogleFonts: GoogleFonts
                                                                           .asMap()
                                                                       .containsKey(
@@ -170,16 +172,16 @@ class _SuperAdminModeration2WidgetState
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0,
-                                                                          1,
-                                                                          6,
-                                                                          0),
+                                                                          0.0,
+                                                                          1.0,
+                                                                          6.0,
+                                                                          0.0),
                                                               child: Icon(
                                                                 FFIcons
                                                                     .kicClose,
                                                                 color: Color(
                                                                     0xFF1A1A1A),
-                                                                size: 16,
+                                                                size: 16.0,
                                                               ),
                                                             ),
                                                             Text(
@@ -222,13 +224,13 @@ class _SuperAdminModeration2WidgetState
                                                           padding:
                                                               EdgeInsetsDirectional
                                                                   .fromSTEB(
-                                                                      0,
-                                                                      0,
-                                                                      0,
-                                                                      100),
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      100.0),
                                                           child: Container(
-                                                            width: 392,
-                                                            height: 468,
+                                                            width: 392.0,
+                                                            height: 468.0,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color: FlutterFlowTheme
@@ -237,16 +239,16 @@ class _SuperAdminModeration2WidgetState
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          8),
+                                                                          8.0),
                                                             ),
                                                             child: Padding(
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          24,
-                                                                          24,
-                                                                          24,
-                                                                          24),
+                                                                          24.0,
+                                                                          24.0,
+                                                                          24.0,
+                                                                          24.0),
                                                               child: Column(
                                                                 mainAxisSize:
                                                                     MainAxisSize
@@ -258,10 +260,10 @@ class _SuperAdminModeration2WidgetState
                                                                   Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            0,
-                                                                            16),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            16.0),
                                                                     child: Row(
                                                                       mainAxisSize:
                                                                           MainAxisSize
@@ -269,9 +271,9 @@ class _SuperAdminModeration2WidgetState
                                                                       children: [
                                                                         Container(
                                                                           width:
-                                                                              56,
+                                                                              56.0,
                                                                           height:
-                                                                              56,
+                                                                              56.0,
                                                                           decoration:
                                                                               BoxDecoration(
                                                                             color:
@@ -287,7 +289,7 @@ class _SuperAdminModeration2WidgetState
                                                                               ).image,
                                                                             ),
                                                                             borderRadius:
-                                                                                BorderRadius.circular(8),
+                                                                                BorderRadius.circular(8.0),
                                                                             border:
                                                                                 Border.all(
                                                                               color: FlutterFlowTheme.of(context).starblue,
@@ -296,10 +298,10 @@ class _SuperAdminModeration2WidgetState
                                                                         ),
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              12,
-                                                                              0,
-                                                                              40,
-                                                                              0),
+                                                                              12.0,
+                                                                              0.0,
+                                                                              40.0,
+                                                                              0.0),
                                                                           child:
                                                                               Column(
                                                                             mainAxisSize:
@@ -314,13 +316,13 @@ class _SuperAdminModeration2WidgetState
                                                                                 ),
                                                                                 style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                       fontFamily: 'Inter',
-                                                                                      fontSize: 18,
+                                                                                      fontSize: 18.0,
                                                                                       fontWeight: FontWeight.w500,
                                                                                       useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                     ),
                                                                               ),
                                                                               Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                                                                                 child: Text(
                                                                                   valueOrDefault<String>(
                                                                                     columnCompaniesRecord.street,
@@ -341,9 +343,9 @@ class _SuperAdminModeration2WidgetState
                                                                     ),
                                                                   ),
                                                                   Divider(
-                                                                    height: 1,
+                                                                    height: 1.0,
                                                                     thickness:
-                                                                        1,
+                                                                        1.0,
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .gray4,
@@ -351,10 +353,10 @@ class _SuperAdminModeration2WidgetState
                                                                   Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0,
-                                                                            24,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            24.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                     child: Text(
                                                                       'Процент',
                                                                       style: FlutterFlowTheme.of(
@@ -364,7 +366,7 @@ class _SuperAdminModeration2WidgetState
                                                                             fontFamily:
                                                                                 'Inter',
                                                                             fontSize:
-                                                                                16,
+                                                                                16.0,
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                             useGoogleFonts:
@@ -375,15 +377,15 @@ class _SuperAdminModeration2WidgetState
                                                                   Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0,
-                                                                            16,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            16.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                     child: Wrap(
                                                                       spacing:
-                                                                          0,
+                                                                          0.0,
                                                                       runSpacing:
-                                                                          16,
+                                                                          16.0,
                                                                       alignment:
                                                                           WrapAlignment
                                                                               .start,
@@ -403,10 +405,10 @@ class _SuperAdminModeration2WidgetState
                                                                       children: [
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0,
-                                                                              0,
-                                                                              24,
-                                                                              0),
+                                                                              0.0,
+                                                                              0.0,
+                                                                              24.0,
+                                                                              0.0),
                                                                           child:
                                                                               FFButtonWidget(
                                                                             onPressed:
@@ -425,33 +427,33 @@ class _SuperAdminModeration2WidgetState
                                                                                 '3,0%',
                                                                             options:
                                                                                 FFButtonOptions(
-                                                                              width: 61,
-                                                                              height: 32,
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                                                              width: 61.0,
+                                                                              height: 32.0,
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               color: FFAppState().superAdminSelectPercent == 3.0 ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).primaryBackground,
                                                                               textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                                                                                     fontFamily: 'Inter',
                                                                                     color: FFAppState().superAdminSelectPercent == 3.0 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primaryColor,
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     fontWeight: FontWeight.normal,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
                                                                                   ),
-                                                                              elevation: 0,
+                                                                              elevation: 0.0,
                                                                               borderSide: BorderSide(
                                                                                 color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                width: 1,
+                                                                                width: 1.0,
                                                                               ),
-                                                                              borderRadius: BorderRadius.circular(8),
+                                                                              borderRadius: BorderRadius.circular(8.0),
                                                                             ),
                                                                           ),
                                                                         ),
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0,
-                                                                              0,
-                                                                              24,
-                                                                              0),
+                                                                              0.0,
+                                                                              0.0,
+                                                                              24.0,
+                                                                              0.0),
                                                                           child:
                                                                               FFButtonWidget(
                                                                             onPressed:
@@ -470,33 +472,33 @@ class _SuperAdminModeration2WidgetState
                                                                                 '2,9%',
                                                                             options:
                                                                                 FFButtonOptions(
-                                                                              width: 61,
-                                                                              height: 32,
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                                                              width: 61.0,
+                                                                              height: 32.0,
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               color: FFAppState().superAdminSelectPercent == 2.9 ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).primaryBackground,
                                                                               textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                                                                                     fontFamily: 'Inter',
                                                                                     color: FFAppState().superAdminSelectPercent == 2.9 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primaryColor,
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     fontWeight: FontWeight.normal,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
                                                                                   ),
-                                                                              elevation: 0,
+                                                                              elevation: 0.0,
                                                                               borderSide: BorderSide(
                                                                                 color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                width: 1,
+                                                                                width: 1.0,
                                                                               ),
-                                                                              borderRadius: BorderRadius.circular(8),
+                                                                              borderRadius: BorderRadius.circular(8.0),
                                                                             ),
                                                                           ),
                                                                         ),
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0,
-                                                                              0,
-                                                                              24,
-                                                                              0),
+                                                                              0.0,
+                                                                              0.0,
+                                                                              24.0,
+                                                                              0.0),
                                                                           child:
                                                                               FFButtonWidget(
                                                                             onPressed:
@@ -515,33 +517,33 @@ class _SuperAdminModeration2WidgetState
                                                                                 '2,8%',
                                                                             options:
                                                                                 FFButtonOptions(
-                                                                              width: 61,
-                                                                              height: 32,
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                                                              width: 61.0,
+                                                                              height: 32.0,
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               color: FFAppState().superAdminSelectPercent == 2.8 ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).primaryBackground,
                                                                               textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                                                                                     fontFamily: 'Inter',
                                                                                     color: FFAppState().superAdminSelectPercent == 2.8 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primaryColor,
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     fontWeight: FontWeight.normal,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
                                                                                   ),
-                                                                              elevation: 0,
+                                                                              elevation: 0.0,
                                                                               borderSide: BorderSide(
                                                                                 color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                width: 1,
+                                                                                width: 1.0,
                                                                               ),
-                                                                              borderRadius: BorderRadius.circular(8),
+                                                                              borderRadius: BorderRadius.circular(8.0),
                                                                             ),
                                                                           ),
                                                                         ),
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0,
-                                                                              0,
-                                                                              24,
-                                                                              0),
+                                                                              0.0,
+                                                                              0.0,
+                                                                              24.0,
+                                                                              0.0),
                                                                           child:
                                                                               FFButtonWidget(
                                                                             onPressed:
@@ -560,33 +562,33 @@ class _SuperAdminModeration2WidgetState
                                                                                 '2,7%',
                                                                             options:
                                                                                 FFButtonOptions(
-                                                                              width: 61,
-                                                                              height: 32,
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                                                              width: 61.0,
+                                                                              height: 32.0,
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               color: FFAppState().superAdminSelectPercent == 2.7 ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).primaryBackground,
                                                                               textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                                                                                     fontFamily: 'Inter',
                                                                                     color: FFAppState().superAdminSelectPercent == 2.7 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primaryColor,
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     fontWeight: FontWeight.normal,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
                                                                                   ),
-                                                                              elevation: 0,
+                                                                              elevation: 0.0,
                                                                               borderSide: BorderSide(
                                                                                 color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                width: 1,
+                                                                                width: 1.0,
                                                                               ),
-                                                                              borderRadius: BorderRadius.circular(8),
+                                                                              borderRadius: BorderRadius.circular(8.0),
                                                                             ),
                                                                           ),
                                                                         ),
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0,
-                                                                              0,
-                                                                              24,
-                                                                              0),
+                                                                              0.0,
+                                                                              0.0,
+                                                                              24.0,
+                                                                              0.0),
                                                                           child:
                                                                               FFButtonWidget(
                                                                             onPressed:
@@ -605,33 +607,33 @@ class _SuperAdminModeration2WidgetState
                                                                                 '2,6%',
                                                                             options:
                                                                                 FFButtonOptions(
-                                                                              width: 61,
-                                                                              height: 32,
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                                                              width: 61.0,
+                                                                              height: 32.0,
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               color: FFAppState().superAdminSelectPercent == 2.6 ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).primaryBackground,
                                                                               textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                                                                                     fontFamily: 'Inter',
                                                                                     color: FFAppState().superAdminSelectPercent == 2.6 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primaryColor,
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     fontWeight: FontWeight.normal,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
                                                                                   ),
-                                                                              elevation: 0,
+                                                                              elevation: 0.0,
                                                                               borderSide: BorderSide(
                                                                                 color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                width: 1,
+                                                                                width: 1.0,
                                                                               ),
-                                                                              borderRadius: BorderRadius.circular(8),
+                                                                              borderRadius: BorderRadius.circular(8.0),
                                                                             ),
                                                                           ),
                                                                         ),
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0,
-                                                                              0,
-                                                                              24,
-                                                                              0),
+                                                                              0.0,
+                                                                              0.0,
+                                                                              24.0,
+                                                                              0.0),
                                                                           child:
                                                                               FFButtonWidget(
                                                                             onPressed:
@@ -650,33 +652,33 @@ class _SuperAdminModeration2WidgetState
                                                                                 '2,5%',
                                                                             options:
                                                                                 FFButtonOptions(
-                                                                              width: 61,
-                                                                              height: 32,
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                                                              width: 61.0,
+                                                                              height: 32.0,
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               color: FFAppState().superAdminSelectPercent == 2.5 ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).primaryBackground,
                                                                               textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                                                                                     fontFamily: 'Inter',
                                                                                     color: FFAppState().superAdminSelectPercent == 2.5 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primaryColor,
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     fontWeight: FontWeight.normal,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
                                                                                   ),
-                                                                              elevation: 0,
+                                                                              elevation: 0.0,
                                                                               borderSide: BorderSide(
                                                                                 color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                width: 1,
+                                                                                width: 1.0,
                                                                               ),
-                                                                              borderRadius: BorderRadius.circular(8),
+                                                                              borderRadius: BorderRadius.circular(8.0),
                                                                             ),
                                                                           ),
                                                                         ),
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0,
-                                                                              0,
-                                                                              24,
-                                                                              0),
+                                                                              0.0,
+                                                                              0.0,
+                                                                              24.0,
+                                                                              0.0),
                                                                           child:
                                                                               FFButtonWidget(
                                                                             onPressed:
@@ -695,33 +697,33 @@ class _SuperAdminModeration2WidgetState
                                                                                 '2,4%',
                                                                             options:
                                                                                 FFButtonOptions(
-                                                                              width: 61,
-                                                                              height: 32,
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                                                              width: 61.0,
+                                                                              height: 32.0,
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               color: FFAppState().superAdminSelectPercent == 2.4 ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).primaryBackground,
                                                                               textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                                                                                     fontFamily: 'Inter',
                                                                                     color: FFAppState().superAdminSelectPercent == 2.4 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primaryColor,
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     fontWeight: FontWeight.normal,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
                                                                                   ),
-                                                                              elevation: 0,
+                                                                              elevation: 0.0,
                                                                               borderSide: BorderSide(
                                                                                 color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                width: 1,
+                                                                                width: 1.0,
                                                                               ),
-                                                                              borderRadius: BorderRadius.circular(8),
+                                                                              borderRadius: BorderRadius.circular(8.0),
                                                                             ),
                                                                           ),
                                                                         ),
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0,
-                                                                              0,
-                                                                              24,
-                                                                              0),
+                                                                              0.0,
+                                                                              0.0,
+                                                                              24.0,
+                                                                              0.0),
                                                                           child:
                                                                               FFButtonWidget(
                                                                             onPressed:
@@ -740,33 +742,33 @@ class _SuperAdminModeration2WidgetState
                                                                                 '2,3%',
                                                                             options:
                                                                                 FFButtonOptions(
-                                                                              width: 61,
-                                                                              height: 32,
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                                                              width: 61.0,
+                                                                              height: 32.0,
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               color: FFAppState().superAdminSelectPercent == 2.3 ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).primaryBackground,
                                                                               textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                                                                                     fontFamily: 'Inter',
                                                                                     color: FFAppState().superAdminSelectPercent == 2.3 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primaryColor,
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     fontWeight: FontWeight.normal,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
                                                                                   ),
-                                                                              elevation: 0,
+                                                                              elevation: 0.0,
                                                                               borderSide: BorderSide(
                                                                                 color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                width: 1,
+                                                                                width: 1.0,
                                                                               ),
-                                                                              borderRadius: BorderRadius.circular(8),
+                                                                              borderRadius: BorderRadius.circular(8.0),
                                                                             ),
                                                                           ),
                                                                         ),
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0,
-                                                                              0,
-                                                                              24,
-                                                                              0),
+                                                                              0.0,
+                                                                              0.0,
+                                                                              24.0,
+                                                                              0.0),
                                                                           child:
                                                                               FFButtonWidget(
                                                                             onPressed:
@@ -785,33 +787,33 @@ class _SuperAdminModeration2WidgetState
                                                                                 '2,2%',
                                                                             options:
                                                                                 FFButtonOptions(
-                                                                              width: 61,
-                                                                              height: 32,
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                                                              width: 61.0,
+                                                                              height: 32.0,
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               color: FFAppState().superAdminSelectPercent == 2.2 ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).primaryBackground,
                                                                               textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                                                                                     fontFamily: 'Inter',
                                                                                     color: FFAppState().superAdminSelectPercent == 2.2 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primaryColor,
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     fontWeight: FontWeight.normal,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
                                                                                   ),
-                                                                              elevation: 0,
+                                                                              elevation: 0.0,
                                                                               borderSide: BorderSide(
                                                                                 color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                width: 1,
+                                                                                width: 1.0,
                                                                               ),
-                                                                              borderRadius: BorderRadius.circular(8),
+                                                                              borderRadius: BorderRadius.circular(8.0),
                                                                             ),
                                                                           ),
                                                                         ),
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0,
-                                                                              0,
-                                                                              24,
-                                                                              0),
+                                                                              0.0,
+                                                                              0.0,
+                                                                              24.0,
+                                                                              0.0),
                                                                           child:
                                                                               FFButtonWidget(
                                                                             onPressed:
@@ -830,33 +832,33 @@ class _SuperAdminModeration2WidgetState
                                                                                 '2,1%',
                                                                             options:
                                                                                 FFButtonOptions(
-                                                                              width: 61,
-                                                                              height: 32,
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                                                              width: 61.0,
+                                                                              height: 32.0,
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               color: FFAppState().superAdminSelectPercent == 2.1 ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).primaryBackground,
                                                                               textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                                                                                     fontFamily: 'Inter',
                                                                                     color: FFAppState().superAdminSelectPercent == 2.1 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primaryColor,
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     fontWeight: FontWeight.normal,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
                                                                                   ),
-                                                                              elevation: 0,
+                                                                              elevation: 0.0,
                                                                               borderSide: BorderSide(
                                                                                 color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                width: 1,
+                                                                                width: 1.0,
                                                                               ),
-                                                                              borderRadius: BorderRadius.circular(8),
+                                                                              borderRadius: BorderRadius.circular(8.0),
                                                                             ),
                                                                           ),
                                                                         ),
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0,
-                                                                              0,
-                                                                              24,
-                                                                              0),
+                                                                              0.0,
+                                                                              0.0,
+                                                                              24.0,
+                                                                              0.0),
                                                                           child:
                                                                               FFButtonWidget(
                                                                             onPressed:
@@ -875,33 +877,33 @@ class _SuperAdminModeration2WidgetState
                                                                                 '2,0%',
                                                                             options:
                                                                                 FFButtonOptions(
-                                                                              width: 61,
-                                                                              height: 32,
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                                                              width: 61.0,
+                                                                              height: 32.0,
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               color: FFAppState().superAdminSelectPercent == 2.0 ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).primaryBackground,
                                                                               textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                                                                                     fontFamily: 'Inter',
                                                                                     color: FFAppState().superAdminSelectPercent == 2.0 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primaryColor,
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     fontWeight: FontWeight.normal,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
                                                                                   ),
-                                                                              elevation: 0,
+                                                                              elevation: 0.0,
                                                                               borderSide: BorderSide(
                                                                                 color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                width: 1,
+                                                                                width: 1.0,
                                                                               ),
-                                                                              borderRadius: BorderRadius.circular(8),
+                                                                              borderRadius: BorderRadius.circular(8.0),
                                                                             ),
                                                                           ),
                                                                         ),
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0,
-                                                                              0,
-                                                                              24,
-                                                                              0),
+                                                                              0.0,
+                                                                              0.0,
+                                                                              24.0,
+                                                                              0.0),
                                                                           child:
                                                                               FFButtonWidget(
                                                                             onPressed:
@@ -920,33 +922,33 @@ class _SuperAdminModeration2WidgetState
                                                                                 '1,9%',
                                                                             options:
                                                                                 FFButtonOptions(
-                                                                              width: 61,
-                                                                              height: 32,
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                                                              width: 61.0,
+                                                                              height: 32.0,
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               color: FFAppState().superAdminSelectPercent == 1.9 ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).primaryBackground,
                                                                               textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                                                                                     fontFamily: 'Inter',
                                                                                     color: FFAppState().superAdminSelectPercent == 1.9 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primaryColor,
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     fontWeight: FontWeight.normal,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
                                                                                   ),
-                                                                              elevation: 0,
+                                                                              elevation: 0.0,
                                                                               borderSide: BorderSide(
                                                                                 color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                width: 1,
+                                                                                width: 1.0,
                                                                               ),
-                                                                              borderRadius: BorderRadius.circular(8),
+                                                                              borderRadius: BorderRadius.circular(8.0),
                                                                             ),
                                                                           ),
                                                                         ),
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0,
-                                                                              0,
-                                                                              24,
-                                                                              0),
+                                                                              0.0,
+                                                                              0.0,
+                                                                              24.0,
+                                                                              0.0),
                                                                           child:
                                                                               FFButtonWidget(
                                                                             onPressed:
@@ -965,33 +967,33 @@ class _SuperAdminModeration2WidgetState
                                                                                 '1,8%',
                                                                             options:
                                                                                 FFButtonOptions(
-                                                                              width: 61,
-                                                                              height: 32,
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                                                              width: 61.0,
+                                                                              height: 32.0,
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               color: FFAppState().superAdminSelectPercent == 1.8 ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).primaryBackground,
                                                                               textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                                                                                     fontFamily: 'Inter',
                                                                                     color: FFAppState().superAdminSelectPercent == 1.8 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primaryColor,
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     fontWeight: FontWeight.normal,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
                                                                                   ),
-                                                                              elevation: 0,
+                                                                              elevation: 0.0,
                                                                               borderSide: BorderSide(
                                                                                 color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                width: 1,
+                                                                                width: 1.0,
                                                                               ),
-                                                                              borderRadius: BorderRadius.circular(8),
+                                                                              borderRadius: BorderRadius.circular(8.0),
                                                                             ),
                                                                           ),
                                                                         ),
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0,
-                                                                              0,
-                                                                              24,
-                                                                              0),
+                                                                              0.0,
+                                                                              0.0,
+                                                                              24.0,
+                                                                              0.0),
                                                                           child:
                                                                               FFButtonWidget(
                                                                             onPressed:
@@ -1010,33 +1012,33 @@ class _SuperAdminModeration2WidgetState
                                                                                 '1,7%',
                                                                             options:
                                                                                 FFButtonOptions(
-                                                                              width: 61,
-                                                                              height: 32,
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                                                              width: 61.0,
+                                                                              height: 32.0,
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               color: FFAppState().superAdminSelectPercent == 1.7 ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).primaryBackground,
                                                                               textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                                                                                     fontFamily: 'Inter',
                                                                                     color: FFAppState().superAdminSelectPercent == 1.7 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primaryColor,
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     fontWeight: FontWeight.normal,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
                                                                                   ),
-                                                                              elevation: 0,
+                                                                              elevation: 0.0,
                                                                               borderSide: BorderSide(
                                                                                 color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                width: 1,
+                                                                                width: 1.0,
                                                                               ),
-                                                                              borderRadius: BorderRadius.circular(8),
+                                                                              borderRadius: BorderRadius.circular(8.0),
                                                                             ),
                                                                           ),
                                                                         ),
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0,
-                                                                              0,
-                                                                              24,
-                                                                              0),
+                                                                              0.0,
+                                                                              0.0,
+                                                                              24.0,
+                                                                              0.0),
                                                                           child:
                                                                               FFButtonWidget(
                                                                             onPressed:
@@ -1055,33 +1057,33 @@ class _SuperAdminModeration2WidgetState
                                                                                 '1,6%',
                                                                             options:
                                                                                 FFButtonOptions(
-                                                                              width: 61,
-                                                                              height: 32,
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                                                              width: 61.0,
+                                                                              height: 32.0,
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               color: FFAppState().superAdminSelectPercent == 1.6 ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).primaryBackground,
                                                                               textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                                                                                     fontFamily: 'Inter',
                                                                                     color: FFAppState().superAdminSelectPercent == 1.6 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primaryColor,
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     fontWeight: FontWeight.normal,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
                                                                                   ),
-                                                                              elevation: 0,
+                                                                              elevation: 0.0,
                                                                               borderSide: BorderSide(
                                                                                 color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                width: 1,
+                                                                                width: 1.0,
                                                                               ),
-                                                                              borderRadius: BorderRadius.circular(8),
+                                                                              borderRadius: BorderRadius.circular(8.0),
                                                                             ),
                                                                           ),
                                                                         ),
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0,
-                                                                              0,
-                                                                              24,
-                                                                              0),
+                                                                              0.0,
+                                                                              0.0,
+                                                                              24.0,
+                                                                              0.0),
                                                                           child:
                                                                               FFButtonWidget(
                                                                             onPressed:
@@ -1100,33 +1102,33 @@ class _SuperAdminModeration2WidgetState
                                                                                 '1,5%',
                                                                             options:
                                                                                 FFButtonOptions(
-                                                                              width: 61,
-                                                                              height: 32,
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                                                              width: 61.0,
+                                                                              height: 32.0,
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               color: FFAppState().superAdminSelectPercent == 1.5 ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).primaryBackground,
                                                                               textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                                                                                     fontFamily: 'Inter',
                                                                                     color: FFAppState().superAdminSelectPercent == 1.5 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primaryColor,
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     fontWeight: FontWeight.normal,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
                                                                                   ),
-                                                                              elevation: 0,
+                                                                              elevation: 0.0,
                                                                               borderSide: BorderSide(
                                                                                 color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                width: 1,
+                                                                                width: 1.0,
                                                                               ),
-                                                                              borderRadius: BorderRadius.circular(8),
+                                                                              borderRadius: BorderRadius.circular(8.0),
                                                                             ),
                                                                           ),
                                                                         ),
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0,
-                                                                              0,
-                                                                              24,
-                                                                              0),
+                                                                              0.0,
+                                                                              0.0,
+                                                                              24.0,
+                                                                              0.0),
                                                                           child:
                                                                               FFButtonWidget(
                                                                             onPressed:
@@ -1145,33 +1147,33 @@ class _SuperAdminModeration2WidgetState
                                                                                 '1,4 %',
                                                                             options:
                                                                                 FFButtonOptions(
-                                                                              width: 61,
-                                                                              height: 32,
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                                                              width: 61.0,
+                                                                              height: 32.0,
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               color: FFAppState().superAdminSelectPercent == 1.4 ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).primaryBackground,
                                                                               textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                                                                                     fontFamily: 'Inter',
                                                                                     color: FFAppState().superAdminSelectPercent == 1.4 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primaryColor,
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     fontWeight: FontWeight.normal,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
                                                                                   ),
-                                                                              elevation: 0,
+                                                                              elevation: 0.0,
                                                                               borderSide: BorderSide(
                                                                                 color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                width: 1,
+                                                                                width: 1.0,
                                                                               ),
-                                                                              borderRadius: BorderRadius.circular(8),
+                                                                              borderRadius: BorderRadius.circular(8.0),
                                                                             ),
                                                                           ),
                                                                         ),
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0,
-                                                                              0,
-                                                                              24,
-                                                                              0),
+                                                                              0.0,
+                                                                              0.0,
+                                                                              24.0,
+                                                                              0.0),
                                                                           child:
                                                                               FFButtonWidget(
                                                                             onPressed:
@@ -1190,33 +1192,33 @@ class _SuperAdminModeration2WidgetState
                                                                                 '1,3 % ',
                                                                             options:
                                                                                 FFButtonOptions(
-                                                                              width: 61,
-                                                                              height: 32,
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                                                              width: 61.0,
+                                                                              height: 32.0,
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               color: FFAppState().superAdminSelectPercent == 1.3 ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).primaryBackground,
                                                                               textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                                                                                     fontFamily: 'Inter',
                                                                                     color: FFAppState().superAdminSelectPercent == 1.3 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primaryColor,
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     fontWeight: FontWeight.normal,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
                                                                                   ),
-                                                                              elevation: 0,
+                                                                              elevation: 0.0,
                                                                               borderSide: BorderSide(
                                                                                 color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                width: 1,
+                                                                                width: 1.0,
                                                                               ),
-                                                                              borderRadius: BorderRadius.circular(8),
+                                                                              borderRadius: BorderRadius.circular(8.0),
                                                                             ),
                                                                           ),
                                                                         ),
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0,
-                                                                              0,
-                                                                              24,
-                                                                              0),
+                                                                              0.0,
+                                                                              0.0,
+                                                                              24.0,
+                                                                              0.0),
                                                                           child:
                                                                               FFButtonWidget(
                                                                             onPressed:
@@ -1235,33 +1237,33 @@ class _SuperAdminModeration2WidgetState
                                                                                 '1,2 %',
                                                                             options:
                                                                                 FFButtonOptions(
-                                                                              width: 61,
-                                                                              height: 32,
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                                                              width: 61.0,
+                                                                              height: 32.0,
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               color: FFAppState().superAdminSelectPercent == 1.2 ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).primaryBackground,
                                                                               textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                                                                                     fontFamily: 'Inter',
                                                                                     color: FFAppState().superAdminSelectPercent == 1.2 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primaryColor,
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     fontWeight: FontWeight.normal,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
                                                                                   ),
-                                                                              elevation: 0,
+                                                                              elevation: 0.0,
                                                                               borderSide: BorderSide(
                                                                                 color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                width: 1,
+                                                                                width: 1.0,
                                                                               ),
-                                                                              borderRadius: BorderRadius.circular(8),
+                                                                              borderRadius: BorderRadius.circular(8.0),
                                                                             ),
                                                                           ),
                                                                         ),
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0,
-                                                                              0,
-                                                                              24,
-                                                                              0),
+                                                                              0.0,
+                                                                              0.0,
+                                                                              24.0,
+                                                                              0.0),
                                                                           child:
                                                                               FFButtonWidget(
                                                                             onPressed:
@@ -1280,33 +1282,33 @@ class _SuperAdminModeration2WidgetState
                                                                                 '1,1 %',
                                                                             options:
                                                                                 FFButtonOptions(
-                                                                              width: 61,
-                                                                              height: 32,
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                                                              width: 61.0,
+                                                                              height: 32.0,
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               color: FFAppState().superAdminSelectPercent == 1.1 ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).primaryBackground,
                                                                               textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                                                                                     fontFamily: 'Inter',
                                                                                     color: FFAppState().superAdminSelectPercent == 1.1 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primaryColor,
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     fontWeight: FontWeight.normal,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
                                                                                   ),
-                                                                              elevation: 0,
+                                                                              elevation: 0.0,
                                                                               borderSide: BorderSide(
                                                                                 color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                width: 1,
+                                                                                width: 1.0,
                                                                               ),
-                                                                              borderRadius: BorderRadius.circular(8),
+                                                                              borderRadius: BorderRadius.circular(8.0),
                                                                             ),
                                                                           ),
                                                                         ),
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0,
-                                                                              0,
-                                                                              24,
-                                                                              0),
+                                                                              0.0,
+                                                                              0.0,
+                                                                              24.0,
+                                                                              0.0),
                                                                           child:
                                                                               FFButtonWidget(
                                                                             onPressed:
@@ -1325,24 +1327,24 @@ class _SuperAdminModeration2WidgetState
                                                                                 '1,0 %',
                                                                             options:
                                                                                 FFButtonOptions(
-                                                                              width: 61,
-                                                                              height: 32,
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                                                              width: 61.0,
+                                                                              height: 32.0,
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               color: FFAppState().superAdminSelectPercent == 1.0 ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).primaryBackground,
                                                                               textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                                                                                     fontFamily: 'Inter',
                                                                                     color: FFAppState().superAdminSelectPercent == 1.0 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primaryColor,
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     fontWeight: FontWeight.normal,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
                                                                                   ),
-                                                                              elevation: 0,
+                                                                              elevation: 0.0,
                                                                               borderSide: BorderSide(
                                                                                 color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                width: 1,
+                                                                                width: 1.0,
                                                                               ),
-                                                                              borderRadius: BorderRadius.circular(8),
+                                                                              borderRadius: BorderRadius.circular(8.0),
                                                                             ),
                                                                           ),
                                                                         ),
@@ -1362,13 +1364,13 @@ class _SuperAdminModeration2WidgetState
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          24,
-                                                                          0,
-                                                                          0,
-                                                                          0),
+                                                                          24.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
                                                               child: Container(
-                                                                width: 496,
-                                                                height: 144,
+                                                                width: 496.0,
+                                                                height: 144.0,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   color: FlutterFlowTheme.of(
@@ -1377,15 +1379,15 @@ class _SuperAdminModeration2WidgetState
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .circular(
-                                                                              8),
+                                                                              8.0),
                                                                 ),
                                                                 child: Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          24,
-                                                                          24,
-                                                                          24,
-                                                                          24),
+                                                                          24.0,
+                                                                          24.0,
+                                                                          24.0,
+                                                                          24.0),
                                                                   child: Column(
                                                                     mainAxisSize:
                                                                         MainAxisSize
@@ -1400,17 +1402,17 @@ class _SuperAdminModeration2WidgetState
                                                                             .bodyText1
                                                                             .override(
                                                                               fontFamily: 'Inter',
-                                                                              fontSize: 18,
+                                                                              fontSize: 18.0,
                                                                               fontWeight: FontWeight.w500,
                                                                               useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                             ),
                                                                       ),
                                                                       Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            16,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            16.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                         child:
                                                                             Text(
                                                                           'Выберите процент который будет сниматься на каждой операции.',
@@ -1447,25 +1449,25 @@ class _SuperAdminModeration2WidgetState
                           ),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(0, 1),
+                          alignment: AlignmentDirectional(0.0, 1.0),
                           child: Container(
                             width: double.infinity,
-                            height: 80,
+                            height: 80.0,
                             decoration: BoxDecoration(
                               color: Colors.white,
                               boxShadow: [
                                 BoxShadow(
-                                  blurRadius: 16,
+                                  blurRadius: 16.0,
                                   color: Color(0x24DEDEDE),
-                                  offset: Offset(0, -4),
+                                  offset: Offset(0.0, -4.0),
                                 )
                               ],
                             ),
                             child: Align(
-                              alignment: AlignmentDirectional(0, 0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Container(
-                                width: 1224,
-                                height: 80,
+                                width: 1224.0,
+                                height: 80.0,
                                 decoration: BoxDecoration(
                                   color: Colors.white,
                                 ),
@@ -1482,8 +1484,8 @@ class _SuperAdminModeration2WidgetState
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Container(
-                                                width: 24,
-                                                height: 24,
+                                                width: 24.0,
+                                                height: 24.0,
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
                                                           context)
@@ -1493,23 +1495,24 @@ class _SuperAdminModeration2WidgetState
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .green,
-                                                    width: 2,
+                                                    width: 2.0,
                                                   ),
                                                 ),
                                                 child: Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0, 0),
+                                                          0.0, 0.0),
                                                   child: Icon(
                                                     FFIcons.kcheeek,
                                                     color: Colors.white,
-                                                    size: 20,
+                                                    size: 20.0,
                                                   ),
                                                 ),
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(8, 0, 8, 0),
+                                                    .fromSTEB(
+                                                        8.0, 0.0, 8.0, 0.0),
                                                 child: Text(
                                                   'Основная информация',
                                                   style: FlutterFlowTheme.of(
@@ -1536,8 +1539,8 @@ class _SuperAdminModeration2WidgetState
                                                 ),
                                               ),
                                               Container(
-                                                width: 40,
-                                                height: 1,
+                                                width: 40.0,
+                                                height: 1.0,
                                                 decoration: BoxDecoration(
                                                   color: Color(0xFFEDEDED),
                                                 ),
@@ -1547,13 +1550,13 @@ class _SuperAdminModeration2WidgetState
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    8, 0, 0, 0),
+                                                    8.0, 0.0, 0.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Container(
-                                                  width: 24,
-                                                  height: 24,
+                                                  width: 24.0,
+                                                  height: 24.0,
                                                   decoration: BoxDecoration(
                                                     color: FlutterFlowTheme.of(
                                                             context)
@@ -1564,13 +1567,13 @@ class _SuperAdminModeration2WidgetState
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .primaryColor,
-                                                      width: 1,
+                                                      width: 1.0,
                                                     ),
                                                   ),
                                                   child: Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0, 0),
+                                                            0.0, 0.0),
                                                     child: Text(
                                                       '2',
                                                       style:
@@ -1598,7 +1601,8 @@ class _SuperAdminModeration2WidgetState
                                                 ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(8, 0, 8, 0),
+                                                      .fromSTEB(
+                                                          8.0, 0.0, 8.0, 0.0),
                                                   child: Text(
                                                     'Установка процента',
                                                     style: FlutterFlowTheme.of(
@@ -1624,8 +1628,8 @@ class _SuperAdminModeration2WidgetState
                                                   ),
                                                 ),
                                                 Container(
-                                                  width: 40,
-                                                  height: 1,
+                                                  width: 40.0,
+                                                  height: 1.0,
                                                   decoration: BoxDecoration(
                                                     color: Color(0xFFEDEDED),
                                                   ),
@@ -1636,13 +1640,13 @@ class _SuperAdminModeration2WidgetState
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    8, 0, 0, 0),
+                                                    8.0, 0.0, 0.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Container(
-                                                  width: 24,
-                                                  height: 24,
+                                                  width: 24.0,
+                                                  height: 24.0,
                                                   decoration: BoxDecoration(
                                                     color: FlutterFlowTheme.of(
                                                             context)
@@ -1653,13 +1657,13 @@ class _SuperAdminModeration2WidgetState
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .text3,
-                                                      width: 1,
+                                                      width: 1.0,
                                                     ),
                                                   ),
                                                   child: Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0, 0),
+                                                            0.0, 0.0),
                                                     child: Text(
                                                       '3',
                                                       style:
@@ -1687,7 +1691,8 @@ class _SuperAdminModeration2WidgetState
                                                 ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(8, 0, 8, 0),
+                                                      .fromSTEB(
+                                                          8.0, 0.0, 8.0, 0.0),
                                                   child: Text(
                                                     'Подтверждение',
                                                     style: FlutterFlowTheme.of(
@@ -1754,13 +1759,13 @@ class _SuperAdminModeration2WidgetState
                                       },
                                       text: 'Продолжить',
                                       options: FFButtonOptions(
-                                        width: 131,
-                                        height: 40,
+                                        width: 131.0,
+                                        height: 40.0,
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 0, 0, 0),
+                                            0.0, 0.0, 0.0, 0.0),
                                         iconPadding:
                                             EdgeInsetsDirectional.fromSTEB(
-                                                0, 0, 0, 0),
+                                                0.0, 0.0, 0.0, 0.0),
                                         color: FFAppState()
                                                     .superAdminSelectPercent !=
                                                 null
@@ -1773,7 +1778,7 @@ class _SuperAdminModeration2WidgetState
                                             .override(
                                               fontFamily: 'Inter',
                                               color: Colors.white,
-                                              fontSize: 14,
+                                              fontSize: 14.0,
                                               fontWeight: FontWeight.normal,
                                               useGoogleFonts:
                                                   GoogleFonts.asMap()
@@ -1782,12 +1787,13 @@ class _SuperAdminModeration2WidgetState
                                                                   context)
                                                               .subtitle2Family),
                                             ),
-                                        elevation: 0,
+                                        elevation: 0.0,
                                         borderSide: BorderSide(
                                           color: Colors.transparent,
-                                          width: 1,
+                                          width: 1.0,
                                         ),
-                                        borderRadius: BorderRadius.circular(8),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
                                       ),
                                     ),
                                   ],
@@ -1803,7 +1809,7 @@ class _SuperAdminModeration2WidgetState
               ),
               if (FFAppState().superAdminCencelledModeration)
                 Align(
-                  alignment: AlignmentDirectional(0, 0),
+                  alignment: AlignmentDirectional(0.0, 0.0),
                   child: InkWell(
                     onTap: () async {
                       FFAppState().update(() {
@@ -1817,18 +1823,18 @@ class _SuperAdminModeration2WidgetState
                         color: Color(0x67272727),
                       ),
                       child: Align(
-                        alignment: AlignmentDirectional(0, 0),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: Container(
-                          width: 392,
-                          height: 150,
+                          width: 392.0,
+                          height: 150.0,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
-                            borderRadius: BorderRadius.circular(16),
+                            borderRadius: BorderRadius.circular(16.0),
                           ),
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(24, 24, 24, 24),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                24.0, 24.0, 24.0, 24.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -1848,16 +1854,17 @@ class _SuperAdminModeration2WidgetState
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 32, 0, 0),
+                                      0.0, 32.0, 0.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Align(
-                                        alignment: AlignmentDirectional(1, 0),
+                                        alignment:
+                                            AlignmentDirectional(1.0, 0.0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 24, 0),
+                                                  0.0, 0.0, 24.0, 0.0),
                                           child: FFButtonWidget(
                                             onPressed: () async {
                                               FFAppState().update(() {
@@ -1871,12 +1878,12 @@ class _SuperAdminModeration2WidgetState
                                             },
                                             text: 'Да',
                                             options: FFButtonOptions(
-                                              width: 160,
-                                              height: 48,
+                                              width: 160.0,
+                                              height: 48.0,
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 0, 0),
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
                                               iconPadding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 0, 0),
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryBackground,
@@ -1888,7 +1895,7 @@ class _SuperAdminModeration2WidgetState
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primaryColor,
-                                                    fontSize: 16,
+                                                    fontSize: 16.0,
                                                     fontWeight: FontWeight.w500,
                                                     useGoogleFonts: GoogleFonts
                                                             .asMap()
@@ -1897,21 +1904,22 @@ class _SuperAdminModeration2WidgetState
                                                                     context)
                                                                 .subtitle2Family),
                                                   ),
-                                              elevation: 0,
+                                              elevation: 0.0,
                                               borderSide: BorderSide(
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryColor,
-                                                width: 1,
+                                                width: 1.0,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(8),
+                                                  BorderRadius.circular(8.0),
                                             ),
                                           ),
                                         ),
                                       ),
                                       Align(
-                                        alignment: AlignmentDirectional(1, 0),
+                                        alignment:
+                                            AlignmentDirectional(1.0, 0.0),
                                         child: FFButtonWidget(
                                           onPressed: () async {
                                             FFAppState().update(() {
@@ -1922,14 +1930,14 @@ class _SuperAdminModeration2WidgetState
                                           },
                                           text: 'Нет',
                                           options: FFButtonOptions(
-                                            width: 160,
-                                            height: 48,
+                                            width: 160.0,
+                                            height: 48.0,
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0, 0, 0, 0),
+                                                    0.0, 0.0, 0.0, 0.0),
                                             iconPadding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0, 0, 0, 0),
+                                                    0.0, 0.0, 0.0, 0.0),
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryColor,
                                             textStyle:
@@ -1947,13 +1955,13 @@ class _SuperAdminModeration2WidgetState
                                                                       context)
                                                                   .subtitle2Family),
                                                     ),
-                                            elevation: 0,
+                                            elevation: 0.0,
                                             borderSide: BorderSide(
                                               color: Colors.transparent,
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                           ),
                                         ),
                                       ),
@@ -1969,7 +1977,7 @@ class _SuperAdminModeration2WidgetState
                   ),
                 ),
               Align(
-                alignment: AlignmentDirectional(0, -1),
+                alignment: AlignmentDirectional(0.0, -1.0),
                 child: wrapWithModel(
                   model: _model.adminAppBarInfoModel,
                   updateCallback: () => setState(() {}),

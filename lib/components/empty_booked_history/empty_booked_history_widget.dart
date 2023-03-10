@@ -58,12 +58,12 @@ class _EmptyBookedHistoryWidgetState extends State<EmptyBookedHistoryWidget> {
               children: [
                 Image.asset(
                   'assets/images/img_empty_page_history.png',
-                  width: 156,
-                  height: 156,
+                  width: 156.0,
+                  height: 156.0,
                   fit: BoxFit.contain,
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                   child: Text(
                     'История записей пуста',
                     textAlign: TextAlign.center,
@@ -80,7 +80,7 @@ class _EmptyBookedHistoryWidgetState extends State<EmptyBookedHistoryWidget> {
             ),
           ),
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 16),
+            padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 16.0),
             child: FFButtonWidget(
               onPressed: () async {
                 context.goNamed('HomePage');
@@ -88,9 +88,9 @@ class _EmptyBookedHistoryWidgetState extends State<EmptyBookedHistoryWidget> {
               text: 'Найти автомойку',
               options: FFButtonOptions(
                 width: double.infinity,
-                height: 48,
-                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                height: 48.0,
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                 color: FlutterFlowTheme.of(context).primaryColor,
                 textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                       fontFamily: FlutterFlowTheme.of(context).subtitle2Family,
@@ -101,9 +101,9 @@ class _EmptyBookedHistoryWidgetState extends State<EmptyBookedHistoryWidget> {
                     ),
                 borderSide: BorderSide(
                   color: Colors.transparent,
-                  width: 1,
+                  width: 1.0,
                 ),
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(8.0),
               ),
             ),
           ),

@@ -69,7 +69,7 @@ class _SuperAdminSalesModerationWidgetState
                   Expanded(
                     child: Container(
                       width: double.infinity,
-                      height: 100,
+                      height: 100.0,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                       ),
@@ -79,7 +79,7 @@ class _SuperAdminSalesModerationWidgetState
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Container(
-                              width: 1224,
+                              width: 1224.0,
                               decoration: BoxDecoration(),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -87,7 +87,7 @@ class _SuperAdminSalesModerationWidgetState
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 24, 0, 0),
+                                        0.0, 24.0, 0.0, 0.0),
                                     child: InkWell(
                                       onTap: () async {
                                         context.pushNamed(
@@ -109,11 +109,11 @@ class _SuperAdminSalesModerationWidgetState
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0, 0, 3, 0),
+                                                    0.0, 0.0, 3.0, 0.0),
                                             child: Icon(
                                               FFIcons.kicBack,
                                               color: Colors.black,
-                                              size: 14,
+                                              size: 14.0,
                                             ),
                                           ),
                                           Text(
@@ -137,14 +137,14 @@ class _SuperAdminSalesModerationWidgetState
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 24, 0, 24),
+                                        0.0, 24.0, 0.0, 24.0),
                                     child: Text(
                                       'Акции в топ',
                                       style: FlutterFlowTheme.of(context)
                                           .bodyText1
                                           .override(
                                             fontFamily: 'Inter',
-                                            fontSize: 24,
+                                            fontSize: 24.0,
                                             useGoogleFonts: GoogleFonts.asMap()
                                                 .containsKey(
                                                     FlutterFlowTheme.of(context)
@@ -157,7 +157,7 @@ class _SuperAdminSalesModerationWidgetState
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
                                           .primaryBackground,
-                                      borderRadius: BorderRadius.circular(8),
+                                      borderRadius: BorderRadius.circular(8.0),
                                     ),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
@@ -165,13 +165,14 @@ class _SuperAdminSalesModerationWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  24, 24, 24, 24),
+                                                  24.0, 24.0, 24.0, 24.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(0, 0, 0, 24),
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 0.0, 24.0),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -180,10 +181,13 @@ class _SuperAdminSalesModerationWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0, 0, 24, 0),
+                                                                  0.0,
+                                                                  0.0,
+                                                                  24.0,
+                                                                  0.0),
                                                       child: Container(
-                                                        width: 392,
-                                                        height: 40,
+                                                        width: 392.0,
+                                                        height: 40.0,
                                                         decoration:
                                                             BoxDecoration(
                                                           color: FlutterFlowTheme
@@ -191,7 +195,8 @@ class _SuperAdminSalesModerationWidgetState
                                                               .primaryBackground,
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(8),
+                                                                  .circular(
+                                                                      8.0),
                                                           border: Border.all(
                                                             color: FlutterFlowTheme
                                                                     .of(context)
@@ -201,8 +206,11 @@ class _SuperAdminSalesModerationWidgetState
                                                         child: Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(16,
-                                                                      0, 16, 0),
+                                                                  .fromSTEB(
+                                                                      16.0,
+                                                                      0.0,
+                                                                      16.0,
+                                                                      0.0),
                                                           child: Row(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -250,10 +258,10 @@ class _SuperAdminSalesModerationWidgetState
                                                                             .none,
                                                                     contentPadding:
                                                                         EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            13,
-                                                                            0,
-                                                                            13),
+                                                                            0.0,
+                                                                            13.0,
+                                                                            0.0,
+                                                                            13.0),
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
@@ -280,7 +288,7 @@ class _SuperAdminSalesModerationWidgetState
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .gray2,
-                                                                size: 24,
+                                                                size: 24.0,
                                                               ),
                                                             ],
                                                           ),
@@ -314,7 +322,10 @@ class _SuperAdminSalesModerationWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  8, 0, 0, 0),
+                                                                  8.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
                                                       child: InkWell(
                                                         onTap: () async {
                                                           await showModalBottomSheet(
@@ -374,7 +385,8 @@ class _SuperAdminSalesModerationWidgetState
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(0, 0, 0, 16),
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 0.0, 16.0),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -543,8 +555,8 @@ class _SuperAdminSalesModerationWidgetState
                                                 ),
                                               ),
                                               Divider(
-                                                height: 1,
-                                                thickness: 1,
+                                                height: 1.0,
+                                                thickness: 1.0,
                                                 color: Color(0xFFEEEEEE),
                                               ),
                                               StreamBuilder<
@@ -565,8 +577,8 @@ class _SuperAdminSalesModerationWidgetState
                                                   if (!snapshot.hasData) {
                                                     return Center(
                                                       child: SizedBox(
-                                                        width: 50,
-                                                        height: 50,
+                                                        width: 50.0,
+                                                        height: 50.0,
                                                         child:
                                                             CircularProgressIndicator(
                                                           color: FlutterFlowTheme
@@ -605,8 +617,8 @@ class _SuperAdminSalesModerationWidgetState
                                                               .hasData) {
                                                             return Center(
                                                               child: SizedBox(
-                                                                width: 50,
-                                                                height: 50,
+                                                                width: 50.0,
+                                                                height: 50.0,
                                                                 child:
                                                                     CircularProgressIndicator(
                                                                   color: FlutterFlowTheme.of(
@@ -624,13 +636,12 @@ class _SuperAdminSalesModerationWidgetState
                                                                     .max,
                                                             children: [
                                                               Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0,
-                                                                            16,
-                                                                            0,
-                                                                            16),
+                                                                padding: EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        16.0,
+                                                                        0.0,
+                                                                        16.0),
                                                                 child: FutureBuilder<
                                                                     CompanyDocumentRecord>(
                                                                   future: CompanyDocumentRecord
@@ -646,9 +657,9 @@ class _SuperAdminSalesModerationWidgetState
                                                                         child:
                                                                             SizedBox(
                                                                           width:
-                                                                              50,
+                                                                              50.0,
                                                                           height:
-                                                                              50,
+                                                                              50.0,
                                                                           child:
                                                                               CircularProgressIndicator(
                                                                             color:
@@ -732,11 +743,11 @@ class _SuperAdminSalesModerationWidgetState
                                                                               mainAxisSize: MainAxisSize.max,
                                                                               children: [
                                                                                 ClipRRect(
-                                                                                  borderRadius: BorderRadius.circular(8),
+                                                                                  borderRadius: BorderRadius.circular(8.0),
                                                                                   child: Image.network(
                                                                                     listViewPromotionRecord.img!,
-                                                                                    width: 56,
-                                                                                    height: 56,
+                                                                                    width: 56.0,
+                                                                                    height: 56.0,
                                                                                     fit: BoxFit.cover,
                                                                                   ),
                                                                                 ),
@@ -801,8 +812,8 @@ class _SuperAdminSalesModerationWidgetState
                                                                 ),
                                                               ),
                                                               Divider(
-                                                                height: 1,
-                                                                thickness: 1,
+                                                                height: 1.0,
+                                                                thickness: 1.0,
                                                                 color: Color(
                                                                     0xFFEEEEEE),
                                                               ),
@@ -831,8 +842,8 @@ class _SuperAdminSalesModerationWidgetState
                                                   if (!snapshot.hasData) {
                                                     return Center(
                                                       child: SizedBox(
-                                                        width: 50,
-                                                        height: 50,
+                                                        width: 50.0,
+                                                        height: 50.0,
                                                         child:
                                                             CircularProgressIndicator(
                                                           color: FlutterFlowTheme
@@ -871,8 +882,8 @@ class _SuperAdminSalesModerationWidgetState
                                                               .hasData) {
                                                             return Center(
                                                               child: SizedBox(
-                                                                width: 50,
-                                                                height: 50,
+                                                                width: 50.0,
+                                                                height: 50.0,
                                                                 child:
                                                                     CircularProgressIndicator(
                                                                   color: FlutterFlowTheme.of(
@@ -890,13 +901,12 @@ class _SuperAdminSalesModerationWidgetState
                                                                     .max,
                                                             children: [
                                                               Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0,
-                                                                            16,
-                                                                            0,
-                                                                            16),
+                                                                padding: EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        16.0,
+                                                                        0.0,
+                                                                        16.0),
                                                                 child: FutureBuilder<
                                                                     CompanyDocumentRecord>(
                                                                   future: CompanyDocumentRecord
@@ -912,9 +922,9 @@ class _SuperAdminSalesModerationWidgetState
                                                                         child:
                                                                             SizedBox(
                                                                           width:
-                                                                              50,
+                                                                              50.0,
                                                                           height:
-                                                                              50,
+                                                                              50.0,
                                                                           child:
                                                                               CircularProgressIndicator(
                                                                             color:
@@ -998,11 +1008,11 @@ class _SuperAdminSalesModerationWidgetState
                                                                               mainAxisSize: MainAxisSize.max,
                                                                               children: [
                                                                                 ClipRRect(
-                                                                                  borderRadius: BorderRadius.circular(8),
+                                                                                  borderRadius: BorderRadius.circular(8.0),
                                                                                   child: Image.network(
                                                                                     listViewPromotionRecord.img!,
-                                                                                    width: 56,
-                                                                                    height: 56,
+                                                                                    width: 56.0,
+                                                                                    height: 56.0,
                                                                                     fit: BoxFit.cover,
                                                                                   ),
                                                                                 ),
@@ -1064,8 +1074,8 @@ class _SuperAdminSalesModerationWidgetState
                                                                 ),
                                                               ),
                                                               Divider(
-                                                                height: 1,
-                                                                thickness: 1,
+                                                                height: 1.0,
+                                                                thickness: 1.0,
                                                                 color: Color(
                                                                     0xFFEEEEEE),
                                                               ),
@@ -1095,7 +1105,7 @@ class _SuperAdminSalesModerationWidgetState
               ),
               if (FFAppState().superAdminRejectModeration)
                 Align(
-                  alignment: AlignmentDirectional(0, 0),
+                  alignment: AlignmentDirectional(0.0, 0.0),
                   child: InkWell(
                     onTap: () async {
                       FFAppState().update(() {
@@ -1112,7 +1122,7 @@ class _SuperAdminSalesModerationWidgetState
                   ),
                 ),
               Align(
-                alignment: AlignmentDirectional(0, -1),
+                alignment: AlignmentDirectional(0.0, -1.0),
                 child: wrapWithModel(
                   model: _model.adminAppBarInfoModel,
                   updateCallback: () => setState(() {}),

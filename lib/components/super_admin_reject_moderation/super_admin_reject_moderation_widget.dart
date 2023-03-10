@@ -53,16 +53,16 @@ class _SuperAdminRejectModerationWidgetState
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0, 0),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Container(
-        width: 392,
-        height: 150,
+        width: 392.0,
+        height: 150.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(16.0),
         ),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(24, 24, 24, 24),
+          padding: EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 24.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -77,14 +77,15 @@ class _SuperAdminRejectModerationWidgetState
                     ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 32, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Align(
-                      alignment: AlignmentDirectional(1, 0),
+                      alignment: AlignmentDirectional(1.0, 0.0),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 24, 0),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 24.0, 0.0),
                         child: FFButtonWidget(
                           onPressed: () async {
                             final companiesUpdateData =
@@ -97,11 +98,12 @@ class _SuperAdminRejectModerationWidgetState
                           },
                           text: 'Да',
                           options: FFButtonOptions(
-                            width: 160,
-                            height: 48,
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                            iconPadding:
-                                EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                            width: 160.0,
+                            height: 48.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
                             color:
                                 FlutterFlowTheme.of(context).primaryBackground,
                             textStyle: FlutterFlowTheme.of(context)
@@ -110,35 +112,36 @@ class _SuperAdminRejectModerationWidgetState
                                   fontFamily: 'Inter',
                                   color:
                                       FlutterFlowTheme.of(context).primaryColor,
-                                  fontSize: 16,
+                                  fontSize: 16.0,
                                   fontWeight: FontWeight.w500,
                                   useGoogleFonts: GoogleFonts.asMap()
                                       .containsKey(FlutterFlowTheme.of(context)
                                           .subtitle2Family),
                                 ),
-                            elevation: 0,
+                            elevation: 0.0,
                             borderSide: BorderSide(
                               color: FlutterFlowTheme.of(context).primaryColor,
-                              width: 1,
+                              width: 1.0,
                             ),
-                            borderRadius: BorderRadius.circular(8),
+                            borderRadius: BorderRadius.circular(8.0),
                           ),
                         ),
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(1, 0),
+                      alignment: AlignmentDirectional(1.0, 0.0),
                       child: FFButtonWidget(
                         onPressed: () async {
                           Navigator.pop(context);
                         },
                         text: 'Нет',
                         options: FFButtonOptions(
-                          width: 160,
-                          height: 48,
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                          iconPadding:
-                              EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                          width: 160.0,
+                          height: 48.0,
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
                           color: FlutterFlowTheme.of(context).primaryColor,
                           textStyle: FlutterFlowTheme.of(context)
                               .subtitle2
@@ -150,12 +153,12 @@ class _SuperAdminRejectModerationWidgetState
                                     FlutterFlowTheme.of(context)
                                         .subtitle2Family),
                               ),
-                          elevation: 0,
+                          elevation: 0.0,
                           borderSide: BorderSide(
                             color: Colors.transparent,
-                            width: 1,
+                            width: 1.0,
                           ),
-                          borderRadius: BorderRadius.circular(8),
+                          borderRadius: BorderRadius.circular(8.0),
                         ),
                       ),
                     ),

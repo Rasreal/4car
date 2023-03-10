@@ -63,8 +63,8 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
         color: FlutterFlowTheme.of(context).primaryBackground,
         child: Center(
           child: SizedBox(
-            width: 50,
-            height: 50,
+            width: 50.0,
+            height: 50.0,
             child: CircularProgressIndicator(
               color: FlutterFlowTheme.of(context).primaryColor,
             ),
@@ -90,14 +90,15 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                   child: Container(
                     decoration: BoxDecoration(
                       color: Color(0xFFF0F0F0),
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(20.0),
                     ),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(4, 0, 4, 0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
                       child: FlutterFlowChoiceChips(
                         initiallySelected: ['Мои записи'],
                         options: [ChipData('Мои записи'), ChipData('История')],
@@ -118,10 +119,10 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                         .bodyText1Family),
                               ),
                           iconColor: Color(0x00000000),
-                          iconSize: 0,
-                          labelPadding:
-                              EdgeInsetsDirectional.fromSTEB(44, 0, 44, 0),
-                          elevation: 0,
+                          iconSize: 0.0,
+                          labelPadding: EdgeInsetsDirectional.fromSTEB(
+                              44.0, 0.0, 44.0, 0.0),
+                          elevation: 0.0,
                         ),
                         unselectedChipStyle: ChipStyle(
                           backgroundColor: Color(0xFFF0F0F0),
@@ -137,12 +138,12 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                         .bodyText2Family),
                               ),
                           iconColor: Color(0x00000000),
-                          iconSize: 0,
-                          labelPadding:
-                              EdgeInsetsDirectional.fromSTEB(44, 0, 44, 0),
-                          elevation: 0,
+                          iconSize: 0.0,
+                          labelPadding: EdgeInsetsDirectional.fromSTEB(
+                              44.0, 0.0, 44.0, 0.0),
+                          elevation: 0.0,
                         ),
-                        chipSpacing: 0,
+                        chipSpacing: 0.0,
                         multiselect: false,
                         initialized: _model.choiceChipsValue != null,
                         alignment: WrapAlignment.spaceEvenly,
@@ -168,8 +169,8 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                               if (!snapshot.hasData) {
                                 return Center(
                                   child: SizedBox(
-                                    width: 50,
-                                    height: 50,
+                                    width: 50.0,
+                                    height: 50.0,
                                     child: CircularProgressIndicator(
                                       color: FlutterFlowTheme.of(context)
                                           .primaryColor,
@@ -196,7 +197,7 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                       listViewBookingsRecordList[listViewIndex];
                                   return Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        16, 12, 16, 0),
+                                        16.0, 12.0, 16.0, 0.0),
                                     child: StreamBuilder<CompaniesRecord>(
                                       stream: CompaniesRecord.getDocument(
                                           listViewBookingsRecord
@@ -206,8 +207,8 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                         if (!snapshot.hasData) {
                                           return Center(
                                             child: SizedBox(
-                                              width: 50,
-                                              height: 50,
+                                              width: 50.0,
+                                              height: 50.0,
                                               child: CircularProgressIndicator(
                                                 color:
                                                     FlutterFlowTheme.of(context)
@@ -237,14 +238,15 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .primaryBackground,
                                               borderRadius:
-                                                  BorderRadius.circular(8),
+                                                  BorderRadius.circular(8.0),
                                               border: Border.all(
                                                 color: Color(0xFFD6D6D6),
                                               ),
                                             ),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(12, 12, 12, 12),
+                                                  .fromSTEB(
+                                                      12.0, 12.0, 12.0, 12.0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -258,14 +260,17 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                         padding:
                                                             EdgeInsetsDirectional
                                                                 .fromSTEB(
-                                                                    0, 0, 0, 8),
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    8.0),
                                                         child: Row(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
                                                           children: [
                                                             Container(
-                                                              width: 40,
-                                                              height: 40,
+                                                              width: 40.0,
+                                                              height: 40.0,
                                                               decoration:
                                                                   BoxDecoration(
                                                                 color: FlutterFlowTheme.of(
@@ -288,7 +293,7 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
-                                                                            8),
+                                                                            8.0),
                                                               ),
                                                             ),
                                                             Expanded(
@@ -296,10 +301,10 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                                 padding:
                                                                     EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            14,
-                                                                            0,
-                                                                            0,
-                                                                            0),
+                                                                            14.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                 child: Column(
                                                                   mainAxisSize:
                                                                       MainAxisSize
@@ -326,25 +331,25 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                                               CrossAxisAlignment.start,
                                                                           children: [
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 6),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 6.0),
                                                                               child: Row(
                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                 children: [
                                                                                   Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 4, 0),
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 4.0, 0.0),
                                                                                     child: Text(
                                                                                       containerCompaniesRecord.name!,
                                                                                       style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                             fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
-                                                                                            fontSize: 16,
+                                                                                            fontSize: 16.0,
                                                                                             fontWeight: FontWeight.w500,
                                                                                             useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                           ),
                                                                                     ),
                                                                                   ),
                                                                                   Container(
-                                                                                    width: 6,
-                                                                                    height: 6,
+                                                                                    width: 6.0,
+                                                                                    height: 6.0,
                                                                                     decoration: BoxDecoration(
                                                                                       color: valueOrDefault<Color>(
                                                                                         functions.closedOpened(getCurrentTimestamp, containerCompaniesRecord.openTimeOrder!, containerCompaniesRecord.closedTimeOrder!) == true ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).red1,
@@ -357,7 +362,7 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                                               ),
                                                                             ),
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 4),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
                                                                               child: RatingBarIndicator(
                                                                                 itemBuilder: (context, index) => Icon(
                                                                                   Icons.star_rounded,
@@ -370,7 +375,7 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                                                 ),
                                                                                 unratedColor: FlutterFlowTheme.of(context).starblue,
                                                                                 itemCount: 5,
-                                                                                itemSize: 14,
+                                                                                itemSize: 14.0,
                                                                               ),
                                                                             ),
                                                                           ],
@@ -385,8 +390,8 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                                             if (!snapshot.hasData) {
                                                                               return Center(
                                                                                 child: SizedBox(
-                                                                                  width: 50,
-                                                                                  height: 50,
+                                                                                  width: 50.0,
+                                                                                  height: 50.0,
                                                                                   child: CircularProgressIndicator(
                                                                                     color: FlutterFlowTheme.of(context).primaryColor,
                                                                                   ),
@@ -414,12 +419,12 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                                               onIcon: Icon(
                                                                                 FFIcons.kicSaveee,
                                                                                 color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                size: 24,
+                                                                                size: 24.0,
                                                                               ),
                                                                               offIcon: Icon(
                                                                                 FFIcons.kproperty1unsaved,
                                                                                 color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                size: 24,
+                                                                                size: 24.0,
                                                                               ),
                                                                             );
                                                                           },
@@ -436,8 +441,11 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(0, 0,
-                                                                    0, 12),
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    12.0),
                                                         child: Row(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
@@ -504,7 +512,7 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                     ],
                                                   ),
                                                   Divider(
-                                                    thickness: 1,
+                                                    thickness: 1.0,
                                                     color: Color(0xFFF2F2F2),
                                                   ),
                                                   Builder(
@@ -528,10 +536,10 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0,
-                                                                        12,
-                                                                        4,
-                                                                        16),
+                                                                        0.0,
+                                                                        12.0,
+                                                                        4.0,
+                                                                        16.0),
                                                             child: StreamBuilder<
                                                                 CompanyServicesRecord>(
                                                               stream: CompanyServicesRecord
@@ -545,9 +553,10 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                                   return Center(
                                                                     child:
                                                                         SizedBox(
-                                                                      width: 50,
+                                                                      width:
+                                                                          50.0,
                                                                       height:
-                                                                          50,
+                                                                          50.0,
                                                                       child:
                                                                           CircularProgressIndicator(
                                                                         color: FlutterFlowTheme.of(context)
@@ -583,8 +592,8 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 0, 16),
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 16.0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -619,10 +628,10 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                                 padding:
                                                                     EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            4,
-                                                                            0,
-                                                                            0,
-                                                                            0),
+                                                                            4.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                 child: Text(
                                                                   valueOrDefault<
                                                                       String>(
@@ -676,10 +685,10 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                                 padding:
                                                                     EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            4,
-                                                                            0,
-                                                                            0,
-                                                                            0),
+                                                                            4.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                 child: Text(
                                                                   valueOrDefault<
                                                                       String>(
@@ -712,16 +721,22 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                     },
                                                     text: 'Проложить путь',
                                                     options: FFButtonOptions(
-                                                      width: 130,
-                                                      height: 40,
+                                                      width: 130.0,
+                                                      height: 40.0,
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0, 0, 0, 0),
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
                                                       iconPadding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0, 0, 0, 0),
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
                                                       color: Colors.white,
                                                       textStyle:
                                                           FlutterFlowTheme.of(
@@ -734,24 +749,24 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryText,
-                                                                fontSize: 14,
+                                                                fontSize: 14.0,
                                                                 useGoogleFonts: GoogleFonts
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
                                                                             .subtitle2Family),
                                                               ),
-                                                      elevation: 0,
+                                                      elevation: 0.0,
                                                       borderSide: BorderSide(
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primaryColor,
-                                                        width: 1,
+                                                        width: 1.0,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              8),
+                                                              8.0),
                                                     ),
                                                   ),
                                                 ],
@@ -789,8 +804,8 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                         if (!snapshot.hasData) {
                           return Center(
                             child: SizedBox(
-                              width: 50,
-                              height: 50,
+                              width: 50.0,
+                              height: 50.0,
                               child: CircularProgressIndicator(
                                 color:
                                     FlutterFlowTheme.of(context).primaryColor,
@@ -814,7 +829,7 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                       choiceHistoryIndex];
                               return Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    16, 12, 16, 0),
+                                    16.0, 12.0, 16.0, 0.0),
                                 child: InkWell(
                                   onTap: () async {
                                     context.goNamed(
@@ -831,14 +846,14 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
                                           .primaryBackground,
-                                      borderRadius: BorderRadius.circular(8),
+                                      borderRadius: BorderRadius.circular(8.0),
                                       border: Border.all(
                                         color: Color(0xFFD6D6D6),
                                       ),
                                     ),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          12, 12, 12, 12),
+                                          12.0, 12.0, 12.0, 12.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         crossAxisAlignment:
@@ -853,8 +868,8 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                               if (!snapshot.hasData) {
                                                 return Center(
                                                   child: SizedBox(
-                                                    width: 50,
-                                                    height: 50,
+                                                    width: 50.0,
+                                                    height: 50.0,
                                                     child:
                                                         CircularProgressIndicator(
                                                       color:
@@ -873,15 +888,15 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 0, 8),
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 8.0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
                                                       children: [
                                                         Container(
-                                                          width: 40,
-                                                          height: 40,
+                                                          width: 40.0,
+                                                          height: 40.0,
                                                           decoration:
                                                               BoxDecoration(
                                                             color: FlutterFlowTheme
@@ -904,7 +919,7 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        8),
+                                                                        8.0),
                                                           ),
                                                         ),
                                                         Expanded(
@@ -912,10 +927,10 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        14,
-                                                                        0,
-                                                                        0,
-                                                                        0),
+                                                                        14.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
                                                             child: Column(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -933,12 +948,11 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                                           .spaceBetween,
                                                                   children: [
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional
-                                                                          .fromSTEB(
-                                                                              0,
-                                                                              0,
-                                                                              0,
-                                                                              6),
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          6.0),
                                                                       child:
                                                                           Row(
                                                                         mainAxisSize:
@@ -946,16 +960,16 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                                         children: [
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0,
-                                                                                0,
-                                                                                4,
-                                                                                0),
+                                                                                0.0,
+                                                                                0.0,
+                                                                                4.0,
+                                                                                0.0),
                                                                             child:
                                                                                 Text(
                                                                               columnCompaniesRecord.name!,
                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                     fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
-                                                                                    fontSize: 16,
+                                                                                    fontSize: 16.0,
                                                                                     fontWeight: FontWeight.w500,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                   ),
@@ -963,9 +977,9 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                                           ),
                                                                           Container(
                                                                             width:
-                                                                                6,
+                                                                                6.0,
                                                                             height:
-                                                                                6,
+                                                                                6.0,
                                                                             decoration:
                                                                                 BoxDecoration(
                                                                               color: valueOrDefault<Color>(
@@ -992,8 +1006,8 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                                           return Center(
                                                                             child:
                                                                                 SizedBox(
-                                                                              width: 50,
-                                                                              height: 50,
+                                                                              width: 50.0,
+                                                                              height: 50.0,
                                                                               child: CircularProgressIndicator(
                                                                                 color: FlutterFlowTheme.of(context).primaryColor,
                                                                               ),
@@ -1030,7 +1044,7 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).primaryColor,
                                                                             size:
-                                                                                24,
+                                                                                24.0,
                                                                           ),
                                                                           offIcon:
                                                                               Icon(
@@ -1038,7 +1052,7 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).primaryColor,
                                                                             size:
-                                                                                24,
+                                                                                24.0,
                                                                           ),
                                                                         );
                                                                       },
@@ -1048,10 +1062,10 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                                 Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0,
-                                                                          0,
-                                                                          0,
-                                                                          4),
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          4.0),
                                                                   child:
                                                                       RatingBarIndicator(
                                                                     itemBuilder:
@@ -1079,7 +1093,7 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                                     itemCount:
                                                                         5,
                                                                     itemSize:
-                                                                        14,
+                                                                        14.0,
                                                                   ),
                                                                 ),
                                                               ],
@@ -1092,8 +1106,8 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 0, 12),
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 12.0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -1164,7 +1178,7 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                             },
                                           ),
                                           Divider(
-                                            thickness: 1,
+                                            thickness: 1.0,
                                             color: Color(0xFFF2F2F2),
                                           ),
                                           Builder(
@@ -1185,8 +1199,8 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                   return Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 12, 4, 16),
+                                                            .fromSTEB(0.0, 12.0,
+                                                                4.0, 16.0),
                                                     child: StreamBuilder<
                                                         CompanyServicesRecord>(
                                                       stream:
@@ -1199,8 +1213,8 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                         if (!snapshot.hasData) {
                                                           return Center(
                                                             child: SizedBox(
-                                                              width: 50,
-                                                              height: 50,
+                                                              width: 50.0,
+                                                              height: 50.0,
                                                               child:
                                                                   CircularProgressIndicator(
                                                                 color: FlutterFlowTheme.of(
@@ -1241,7 +1255,7 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0, 0, 0, 16),
+                                                    0.0, 0.0, 0.0, 16.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
@@ -1276,7 +1290,10 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                         padding:
                                                             EdgeInsetsDirectional
                                                                 .fromSTEB(
-                                                                    4, 0, 0, 0),
+                                                                    4.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
                                                         child: Text(
                                                           valueOrDefault<
                                                               String>(
@@ -1335,7 +1352,10 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                         padding:
                                                             EdgeInsetsDirectional
                                                                 .fromSTEB(
-                                                                    4, 0, 0, 0),
+                                                                    4.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
                                                         child: Text(
                                                           valueOrDefault<
                                                               String>(
@@ -1380,8 +1400,8 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                               if (!snapshot.hasData) {
                                                 return Center(
                                                   child: SizedBox(
-                                                    width: 50,
-                                                    height: 50,
+                                                    width: 50.0,
+                                                    height: 50.0,
                                                     child:
                                                         CircularProgressIndicator(
                                                       color:
@@ -1449,13 +1469,15 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                 },
                                                 text: 'Записаться снова',
                                                 options: FFButtonOptions(
-                                                  width: 130,
-                                                  height: 40,
+                                                  width: 130.0,
+                                                  height: 40.0,
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 0, 0, 0),
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 0.0, 0.0),
                                                   iconPadding:
                                                       EdgeInsetsDirectional
-                                                          .fromSTEB(0, 0, 0, 0),
+                                                          .fromSTEB(0.0, 0.0,
+                                                              0.0, 0.0),
                                                   color: Colors.white,
                                                   textStyle: FlutterFlowTheme
                                                           .of(context)
@@ -1469,7 +1491,7 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primaryText,
-                                                        fontSize: 14,
+                                                        fontSize: 14.0,
                                                         useGoogleFonts: GoogleFonts
                                                                 .asMap()
                                                             .containsKey(
@@ -1477,15 +1499,16 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                                         context)
                                                                     .subtitle2Family),
                                                       ),
-                                                  elevation: 0,
+                                                  elevation: 0.0,
                                                   borderSide: BorderSide(
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primaryColor,
-                                                    width: 1,
+                                                    width: 1.0,
                                                   ),
                                                   borderRadius:
-                                                      BorderRadius.circular(8),
+                                                      BorderRadius.circular(
+                                                          8.0),
                                                 ),
                                               );
                                             },

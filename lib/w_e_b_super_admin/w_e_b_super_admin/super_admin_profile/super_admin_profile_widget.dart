@@ -80,7 +80,7 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                   Expanded(
                     child: Container(
                       width: double.infinity,
-                      height: 100,
+                      height: 100.0,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                       ),
@@ -91,9 +91,9 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                           children: [
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  0, 120, 0, 120),
+                                  0.0, 120.0, 0.0, 120.0),
                               child: Container(
-                                width: 1224,
+                                width: 1224.0,
                                 decoration: BoxDecoration(),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -101,14 +101,14 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 32, 0, 24),
+                                          0.0, 32.0, 0.0, 24.0),
                                       child: Text(
                                         'Кабинет',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyText1
                                             .override(
                                               fontFamily: 'Inter',
-                                              fontSize: 24,
+                                              fontSize: 24.0,
                                               useGoogleFonts:
                                                   GoogleFonts.asMap()
                                                       .containsKey(
@@ -122,14 +122,14 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Container(
-                                          width: 1224,
+                                          width: 1224.0,
                                           decoration: BoxDecoration(
                                             color: Colors.white,
                                             borderRadius: BorderRadius.only(
-                                              bottomLeft: Radius.circular(8),
-                                              bottomRight: Radius.circular(8),
-                                              topLeft: Radius.circular(0),
-                                              topRight: Radius.circular(0),
+                                              bottomLeft: Radius.circular(8.0),
+                                              bottomRight: Radius.circular(8.0),
+                                              topLeft: Radius.circular(0.0),
+                                              topRight: Radius.circular(0.0),
                                             ),
                                           ),
                                           child: Column(
@@ -142,7 +142,8 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                                                   'Личные данные')
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(48, 48, 48, 48),
+                                                      .fromSTEB(48.0, 48.0,
+                                                          48.0, 48.0),
                                                   child: Column(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -153,8 +154,11 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(0, 0,
-                                                                    0, 24),
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    24.0),
                                                         child: Row(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
@@ -172,7 +176,7 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                                                                       fontFamily:
                                                                           'Inter',
                                                                       fontSize:
-                                                                          18,
+                                                                          18.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w500,
@@ -200,17 +204,18 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                                                                   Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            6,
-                                                                            0),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            6.0,
+                                                                            0.0),
                                                                     child: Icon(
                                                                       FFIcons
                                                                           .kicEdit,
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .primaryColor,
-                                                                      size: 24,
+                                                                      size:
+                                                                          24.0,
                                                                     ),
                                                                   ),
                                                                   Text(
@@ -236,10 +241,10 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          24,
-                                                                          0,
-                                                                          0,
-                                                                          0),
+                                                                          24.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
                                                               child: InkWell(
                                                                 onTap:
                                                                     () async {
@@ -298,12 +303,11 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                                                                           .max,
                                                                   children: [
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional
-                                                                          .fromSTEB(
-                                                                              0,
-                                                                              0,
-                                                                              6,
-                                                                              0),
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          6.0,
+                                                                          0.0),
                                                                       child:
                                                                           Icon(
                                                                         FFIcons
@@ -311,7 +315,7 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryColor,
                                                                         size:
-                                                                            22,
+                                                                            22.0,
                                                                       ),
                                                                     ),
                                                                     Text(
@@ -345,8 +349,8 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                                                             builder:
                                                                 (context) =>
                                                                     Container(
-                                                              width: 80,
-                                                              height: 80,
+                                                              width: 80.0,
+                                                              height: 80.0,
                                                               clipBehavior: Clip
                                                                   .antiAlias,
                                                               decoration:
@@ -370,10 +374,10 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        16,
-                                                                        0,
-                                                                        0,
-                                                                        0),
+                                                                        16.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
                                                             child: Column(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -385,10 +389,10 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                                                                 Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0,
-                                                                          0,
-                                                                          0,
-                                                                          8),
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          8.0),
                                                                   child:
                                                                       AuthUserStreamWidget(
                                                                     builder:
@@ -402,7 +406,7 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                                                                             fontFamily:
                                                                                 'Inter',
                                                                             fontSize:
-                                                                                18,
+                                                                                18.0,
                                                                             fontWeight:
                                                                                 FontWeight.w500,
                                                                             useGoogleFonts:
@@ -452,7 +456,7 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                                                                       BorderSide(
                                                                     color: Color(
                                                                         0x00000000),
-                                                                    width: 1,
+                                                                    width: 1.0,
                                                                   ),
                                                                   borderRadius:
                                                                       const BorderRadius
@@ -471,7 +475,7 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                                                                       BorderSide(
                                                                     color: Color(
                                                                         0x00000000),
-                                                                    width: 1,
+                                                                    width: 1.0,
                                                                   ),
                                                                   borderRadius:
                                                                       const BorderRadius
@@ -490,7 +494,7 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                                                                       BorderSide(
                                                                     color: Color(
                                                                         0x00000000),
-                                                                    width: 1,
+                                                                    width: 1.0,
                                                                   ),
                                                                   borderRadius:
                                                                       const BorderRadius
@@ -509,7 +513,7 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                                                                       BorderSide(
                                                                     color: Color(
                                                                         0x00000000),
-                                                                    width: 1,
+                                                                    width: 1.0,
                                                                   ),
                                                                   borderRadius:
                                                                       const BorderRadius
@@ -548,8 +552,11 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(0, 24,
-                                                                    0, 0),
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    24.0,
+                                                                    0.0,
+                                                                    0.0),
                                                         child: Row(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
@@ -574,7 +581,7 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                                                                           color:
                                                                               FlutterFlowTheme.of(context).gray2,
                                                                           fontSize:
-                                                                              12,
+                                                                              12.0,
                                                                           fontWeight:
                                                                               FontWeight.normal,
                                                                           useGoogleFonts:
@@ -584,10 +591,10 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                                                                   Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0,
-                                                                            4,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            4.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                     child:
                                                                         AuthUserStreamWidget(
                                                                       builder:
@@ -598,7 +605,7 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                                                                             .bodyText1
                                                                             .override(
                                                                               fontFamily: 'Inter',
-                                                                              fontSize: 16,
+                                                                              fontSize: 16.0,
                                                                               fontWeight: FontWeight.w500,
                                                                               useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                             ),
@@ -619,7 +626,8 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                                                   'Редактировать данные')
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(48, 48, 48, 48),
+                                                      .fromSTEB(48.0, 48.0,
+                                                          48.0, 48.0),
                                                   child: Column(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -630,8 +638,11 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(0, 0,
-                                                                    0, 24),
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    24.0),
                                                         child: Row(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
@@ -649,7 +660,7 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                                                                       fontFamily:
                                                                           'Inter',
                                                                       fontSize:
-                                                                          18,
+                                                                          18.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w500,
@@ -680,16 +691,17 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                                                                   Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0,
-                                                                            1,
-                                                                            6,
-                                                                            0),
+                                                                            0.0,
+                                                                            1.0,
+                                                                            6.0,
+                                                                            0.0),
                                                                     child: Icon(
                                                                       FFIcons
                                                                           .kicClose,
                                                                       color: Color(
                                                                           0xFF1A1A1A),
-                                                                      size: 16,
+                                                                      size:
+                                                                          16.0,
                                                                     ),
                                                                   ),
                                                                   Text(
@@ -810,9 +822,10 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                                                                     builder:
                                                                         (context) =>
                                                                             Container(
-                                                                      width: 80,
+                                                                      width:
+                                                                          80.0,
                                                                       height:
-                                                                          80,
+                                                                          80.0,
                                                                       clipBehavior:
                                                                           Clip.antiAlias,
                                                                       decoration:
@@ -837,10 +850,10 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                                                                   Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            16,
-                                                                            0,
-                                                                            0,
-                                                                            0),
+                                                                            16.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                     child: Text(
                                                                       'Заменить фото',
                                                                       style: FlutterFlowTheme.of(
@@ -852,7 +865,7 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).primaryColor,
                                                                             fontSize:
-                                                                                14,
+                                                                                14.0,
                                                                             fontWeight:
                                                                                 FontWeight.w500,
                                                                             useGoogleFonts:
@@ -867,16 +880,16 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0,
-                                                                          24,
-                                                                          0,
-                                                                          0),
+                                                                          0.0,
+                                                                          24.0,
+                                                                          0.0,
+                                                                          0.0),
                                                               child:
                                                                   AuthUserStreamWidget(
                                                                 builder:
                                                                     (context) =>
                                                                         Container(
-                                                                  width: 356,
+                                                                  width: 356.0,
                                                                   child:
                                                                       TextFormField(
                                                                     controller:
@@ -897,7 +910,7 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).secondaryText,
                                                                             fontSize:
-                                                                                12,
+                                                                                12.0,
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                             useGoogleFonts:
@@ -912,7 +925,7 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).secondaryText,
                                                                             fontSize:
-                                                                                12,
+                                                                                12.0,
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                             useGoogleFonts:
@@ -925,10 +938,10 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                                                                           color:
                                                                               FlutterFlowTheme.of(context).gray2,
                                                                           width:
-                                                                              1,
+                                                                              1.0,
                                                                         ),
                                                                         borderRadius:
-                                                                            BorderRadius.circular(8),
+                                                                            BorderRadius.circular(8.0),
                                                                       ),
                                                                       focusedBorder:
                                                                           OutlineInputBorder(
@@ -937,10 +950,10 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                                                                           color:
                                                                               Color(0x00000000),
                                                                           width:
-                                                                              1,
+                                                                              1.0,
                                                                         ),
                                                                         borderRadius:
-                                                                            BorderRadius.circular(8),
+                                                                            BorderRadius.circular(8.0),
                                                                       ),
                                                                       errorBorder:
                                                                           OutlineInputBorder(
@@ -949,10 +962,10 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                                                                           color:
                                                                               Color(0x00000000),
                                                                           width:
-                                                                              1,
+                                                                              1.0,
                                                                         ),
                                                                         borderRadius:
-                                                                            BorderRadius.circular(8),
+                                                                            BorderRadius.circular(8.0),
                                                                       ),
                                                                       focusedErrorBorder:
                                                                           OutlineInputBorder(
@@ -961,17 +974,16 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                                                                           color:
                                                                               Color(0x00000000),
                                                                           width:
-                                                                              1,
+                                                                              1.0,
                                                                         ),
                                                                         borderRadius:
-                                                                            BorderRadius.circular(8),
+                                                                            BorderRadius.circular(8.0),
                                                                       ),
-                                                                      contentPadding:
-                                                                          EdgeInsetsDirectional.fromSTEB(
-                                                                              16,
-                                                                              0,
-                                                                              0,
-                                                                              0),
+                                                                      contentPadding: EdgeInsetsDirectional.fromSTEB(
+                                                                          16.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
@@ -982,7 +994,7 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                                                                           color:
                                                                               FlutterFlowTheme.of(context).primaryText,
                                                                           fontSize:
-                                                                              16,
+                                                                              16.0,
                                                                           fontWeight:
                                                                               FontWeight.normal,
                                                                           useGoogleFonts:
@@ -1000,16 +1012,16 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0,
-                                                                          16,
-                                                                          0,
-                                                                          0),
+                                                                          0.0,
+                                                                          16.0,
+                                                                          0.0,
+                                                                          0.0),
                                                               child:
                                                                   AuthUserStreamWidget(
                                                                 builder:
                                                                     (context) =>
                                                                         Container(
-                                                                  width: 356,
+                                                                  width: 356.0,
                                                                   child:
                                                                       TextFormField(
                                                                     controller:
@@ -1030,7 +1042,7 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).secondaryText,
                                                                             fontSize:
-                                                                                12,
+                                                                                12.0,
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                             useGoogleFonts:
@@ -1045,7 +1057,7 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).secondaryText,
                                                                             fontSize:
-                                                                                12,
+                                                                                12.0,
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                             useGoogleFonts:
@@ -1058,10 +1070,10 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                                                                           color:
                                                                               FlutterFlowTheme.of(context).gray2,
                                                                           width:
-                                                                              1,
+                                                                              1.0,
                                                                         ),
                                                                         borderRadius:
-                                                                            BorderRadius.circular(8),
+                                                                            BorderRadius.circular(8.0),
                                                                       ),
                                                                       focusedBorder:
                                                                           OutlineInputBorder(
@@ -1070,10 +1082,10 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                                                                           color:
                                                                               Color(0x00000000),
                                                                           width:
-                                                                              1,
+                                                                              1.0,
                                                                         ),
                                                                         borderRadius:
-                                                                            BorderRadius.circular(8),
+                                                                            BorderRadius.circular(8.0),
                                                                       ),
                                                                       errorBorder:
                                                                           OutlineInputBorder(
@@ -1082,10 +1094,10 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                                                                           color:
                                                                               Color(0x00000000),
                                                                           width:
-                                                                              1,
+                                                                              1.0,
                                                                         ),
                                                                         borderRadius:
-                                                                            BorderRadius.circular(8),
+                                                                            BorderRadius.circular(8.0),
                                                                       ),
                                                                       focusedErrorBorder:
                                                                           OutlineInputBorder(
@@ -1094,17 +1106,16 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                                                                           color:
                                                                               Color(0x00000000),
                                                                           width:
-                                                                              1,
+                                                                              1.0,
                                                                         ),
                                                                         borderRadius:
-                                                                            BorderRadius.circular(8),
+                                                                            BorderRadius.circular(8.0),
                                                                       ),
-                                                                      contentPadding:
-                                                                          EdgeInsetsDirectional.fromSTEB(
-                                                                              16,
-                                                                              0,
-                                                                              0,
-                                                                              0),
+                                                                      contentPadding: EdgeInsetsDirectional.fromSTEB(
+                                                                          16.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
@@ -1115,7 +1126,7 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                                                                           color:
                                                                               FlutterFlowTheme.of(context).primaryText,
                                                                           fontSize:
-                                                                              16,
+                                                                              16.0,
                                                                           fontWeight:
                                                                               FontWeight.normal,
                                                                           useGoogleFonts:
@@ -1155,32 +1166,32 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                   ),
                   if (FFAppState().adminOfficeType == 'Редактировать данные')
                     Align(
-                      alignment: AlignmentDirectional(0, 1),
+                      alignment: AlignmentDirectional(0.0, 1.0),
                       child: Container(
                         width: double.infinity,
-                        height: 80,
+                        height: 80.0,
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
                           boxShadow: [
                             BoxShadow(
-                              blurRadius: 16,
+                              blurRadius: 16.0,
                               color: Color(0x4DDEDEDE),
-                              offset: Offset(0, -4),
+                              offset: Offset(0.0, -4.0),
                             )
                           ],
                         ),
                         child: Align(
-                          alignment: AlignmentDirectional(0, 0),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Container(
-                            width: 1224,
-                            height: 100,
+                            width: 1224.0,
+                            height: 100.0,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
                             ),
                             child: Align(
-                              alignment: AlignmentDirectional(1, 0),
+                              alignment: AlignmentDirectional(1.0, 0.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
                                   if (_model.uploadedFileUrl != null &&
@@ -1229,12 +1240,12 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                                 },
                                 text: 'Сохранить',
                                 options: FFButtonOptions(
-                                  width: 185,
-                                  height: 48,
+                                  width: 185.0,
+                                  height: 48.0,
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 0, 0),
+                                      0.0, 0.0, 0.0, 0.0),
                                   iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 0, 0),
+                                      0.0, 0.0, 0.0, 0.0),
                                   color:
                                       FlutterFlowTheme.of(context).primaryColor,
                                   textStyle: FlutterFlowTheme.of(context)
@@ -1248,12 +1259,12 @@ class _SuperAdminProfileWidgetState extends State<SuperAdminProfileWidget> {
                                                 FlutterFlowTheme.of(context)
                                                     .subtitle2Family),
                                       ),
-                                  elevation: 0,
+                                  elevation: 0.0,
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                               ),
                             ),

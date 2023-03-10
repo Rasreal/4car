@@ -90,8 +90,8 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                 if (!snapshot.hasData) {
                                   return Center(
                                     child: SizedBox(
-                                      width: 50,
-                                      height: 50,
+                                      width: 50.0,
+                                      height: 50.0,
                                       child: CircularProgressIndicator(
                                         color: FlutterFlowTheme.of(context)
                                             .primaryColor,
@@ -113,7 +113,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                             .first
                                         : null;
                                 return Container(
-                                  width: 1224,
+                                  width: 1224.0,
                                   decoration: BoxDecoration(),
                                   child: Visibility(
                                     visible: containerContentCompaniesRecord!
@@ -127,14 +127,14 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 32, 0, 24),
+                                                  0.0, 32.0, 0.0, 24.0),
                                           child: Text(
                                             'Отчеты',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyText1
                                                 .override(
                                                   fontFamily: 'Inter',
-                                                  fontSize: 24,
+                                                  fontSize: 24.0,
                                                   useGoogleFonts: GoogleFonts
                                                           .asMap()
                                                       .containsKey(
@@ -148,14 +148,14 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                           mainAxisSize: MainAxisSize.min,
                                           children: [
                                             Container(
-                                              width: 392,
-                                              height: 40,
+                                              width: 392.0,
+                                              height: 40.0,
                                               decoration: BoxDecoration(
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryBackground,
                                                 borderRadius:
-                                                    BorderRadius.circular(8),
+                                                    BorderRadius.circular(8.0),
                                                 border: Border.all(
                                                   color: FlutterFlowTheme.of(
                                                           context)
@@ -164,7 +164,8 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                               ),
                                               child: Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(16, 0, 16, 0),
+                                                    .fromSTEB(
+                                                        16.0, 0.0, 16.0, 0.0),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -207,10 +208,10 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                           contentPadding:
                                                               EdgeInsetsDirectional
                                                                   .fromSTEB(
-                                                                      0,
-                                                                      13,
-                                                                      0,
-                                                                      13),
+                                                                      0.0,
+                                                                      13.0,
+                                                                      0.0,
+                                                                      13.0),
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -242,7 +243,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .gray2,
-                                                      size: 24,
+                                                      size: 24.0,
                                                     ),
                                                   ],
                                                 ),
@@ -250,7 +251,8 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(24, 0, 0, 0),
+                                                  .fromSTEB(
+                                                      24.0, 0.0, 0.0, 0.0),
                                               child: InkWell(
                                                 onTap: () async {
                                                   await showModalBottomSheet(
@@ -272,15 +274,15 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                       setState(() {}));
                                                 },
                                                 child: Container(
-                                                  width: 212,
-                                                  height: 40,
+                                                  width: 212.0,
+                                                  height: 40.0,
                                                   decoration: BoxDecoration(
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primaryBackground,
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8),
+                                                            8.0),
                                                     border: Border.all(
                                                       color:
                                                           FlutterFlowTheme.of(
@@ -291,8 +293,8 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                16, 0, 16, 0),
+                                                            .fromSTEB(16.0, 0.0,
+                                                                16.0, 0.0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -330,7 +332,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .gray2,
-                                                          size: 24,
+                                                          size: 24.0,
                                                         ),
                                                       ],
                                                     ),
@@ -340,8 +342,8 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                             ),
                                             Expanded(
                                               child: Align(
-                                                alignment:
-                                                    AlignmentDirectional(1, 0),
+                                                alignment: AlignmentDirectional(
+                                                    1.0, 0.0),
                                                 child: FFButtonWidget(
                                                   onPressed: () {
                                                     print('Button pressed ...');
@@ -349,19 +351,19 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                   text: 'Скачать отчет в Excel',
                                                   icon: Icon(
                                                     FFIcons.kicDownload,
-                                                    size: 22,
+                                                    size: 22.0,
                                                   ),
                                                   options: FFButtonOptions(
-                                                    width: 207,
-                                                    height: 40,
+                                                    width: 207.0,
+                                                    height: 40.0,
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 0, 0),
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 0.0),
                                                     iconPadding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 0, 0),
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 0.0),
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primaryColor,
@@ -371,7 +373,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                         .override(
                                                           fontFamily: 'Inter',
                                                           color: Colors.white,
-                                                          fontSize: 14,
+                                                          fontSize: 14.0,
                                                           fontWeight:
                                                               FontWeight.normal,
                                                           useGoogleFonts: GoogleFonts
@@ -381,14 +383,14 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                           context)
                                                                       .subtitle2Family),
                                                         ),
-                                                    elevation: 0,
+                                                    elevation: 0.0,
                                                     borderSide: BorderSide(
                                                       color: Colors.transparent,
-                                                      width: 1,
+                                                      width: 1.0,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8),
+                                                            8.0),
                                                   ),
                                                 ),
                                               ),
@@ -398,22 +400,24 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 24, 0, 0),
+                                                  0.0, 24.0, 0.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.min,
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Container(
-                                                width: 912,
+                                                width: 912.0,
                                                 decoration: BoxDecoration(
                                                   color: Colors.white,
                                                   borderRadius:
-                                                      BorderRadius.circular(8),
+                                                      BorderRadius.circular(
+                                                          8.0),
                                                 ),
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(24, 0, 24, 0),
+                                                      .fromSTEB(
+                                                          24.0, 0.0, 24.0, 0.0),
                                                   child: Column(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -424,8 +428,11 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(0, 23,
-                                                                    0, 0),
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    23.0,
+                                                                    0.0,
+                                                                    0.0),
                                                         child: Text(
                                                           'Операции с ${valueOrDefault<String>(
                                                             dateTimeFormat(
@@ -474,7 +481,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Inter',
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w500,
@@ -489,8 +496,11 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(0, 32,
-                                                                    0, 16),
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    32.0,
+                                                                    0.0,
+                                                                    16.0),
                                                         child: Row(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
@@ -547,7 +557,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .gray2,
-                                                                    size: 12,
+                                                                    size: 12.0,
                                                                   ),
                                                                 ],
                                                               ),
@@ -671,8 +681,8 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                         ),
                                                       ),
                                                       Divider(
-                                                        height: 1,
-                                                        thickness: 1,
+                                                        height: 1.0,
+                                                        thickness: 1.0,
                                                         color:
                                                             Color(0xFFEEEEEE),
                                                       ),
@@ -707,8 +717,8 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                               .hasData) {
                                                             return Center(
                                                               child: SizedBox(
-                                                                width: 50,
-                                                                height: 50,
+                                                                width: 50.0,
+                                                                height: 50.0,
                                                                 child:
                                                                     CircularProgressIndicator(
                                                                   color: FlutterFlowTheme.of(
@@ -748,10 +758,10 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                   Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0,
-                                                                            16,
-                                                                            0,
-                                                                            16),
+                                                                            0.0,
+                                                                            16.0,
+                                                                            0.0,
+                                                                            16.0),
                                                                     child: Row(
                                                                       mainAxisSize:
                                                                           MainAxisSize
@@ -783,7 +793,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                 MainAxisSize.max,
                                                                             children: [
                                                                               Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 4),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
                                                                                 child: Text(
                                                                                   valueOrDefault<String>(
                                                                                     listViewBookingsRecord.timeName,
@@ -891,8 +901,8 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                 MainAxisSize.max,
                                                                             children: [
                                                                               Container(
-                                                                                width: 8,
-                                                                                height: 8,
+                                                                                width: 8.0,
+                                                                                height: 8.0,
                                                                                 decoration: BoxDecoration(
                                                                                   color: () {
                                                                                     if (!listViewBookingsRecord.cancelled! && (listViewBookingsRecord.status == 'Закончено')) {
@@ -907,7 +917,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                 ),
                                                                               ),
                                                                               Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                                                                                 child: Text(
                                                                                   () {
                                                                                     if (!listViewBookingsRecord.cancelled! && (listViewBookingsRecord.status == 'Закончено')) {
@@ -941,9 +951,9 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                     ),
                                                                   ),
                                                                   Divider(
-                                                                    height: 1,
+                                                                    height: 1.0,
                                                                     thickness:
-                                                                        1,
+                                                                        1.0,
                                                                     color: Color(
                                                                         0xFFEEEEEE),
                                                                   ),
@@ -982,8 +992,8 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                   if (!snapshot.hasData) {
                                                     return Center(
                                                       child: SizedBox(
-                                                        width: 50,
-                                                        height: 50,
+                                                        width: 50.0,
+                                                        height: 50.0,
                                                         child:
                                                             CircularProgressIndicator(
                                                           color: FlutterFlowTheme
@@ -1006,10 +1016,10 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        24,
-                                                                        0,
-                                                                        0,
-                                                                        0),
+                                                                        24.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
                                                             child: StreamBuilder<
                                                                 List<
                                                                     BookingsRecord>>(
@@ -1043,9 +1053,10 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                   return Center(
                                                                     child:
                                                                         SizedBox(
-                                                                      width: 50,
+                                                                      width:
+                                                                          50.0,
                                                                       height:
-                                                                          50,
+                                                                          50.0,
                                                                       child:
                                                                           CircularProgressIndicator(
                                                                         color: FlutterFlowTheme.of(context)
@@ -1068,39 +1079,39 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                     children: [
                                                                       Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            0,
-                                                                            24),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            24.0),
                                                                         child:
                                                                             Container(
                                                                           width:
-                                                                              288,
+                                                                              288.0,
                                                                           height:
-                                                                              100,
+                                                                              100.0,
                                                                           decoration:
                                                                               BoxDecoration(
                                                                             color:
                                                                                 Colors.white,
                                                                             borderRadius:
-                                                                                BorderRadius.circular(8),
+                                                                                BorderRadius.circular(8.0),
                                                                           ),
                                                                           child:
                                                                               Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                24,
-                                                                                24,
-                                                                                24,
-                                                                                24),
+                                                                                24.0,
+                                                                                24.0,
+                                                                                24.0,
+                                                                                24.0),
                                                                             child:
                                                                                 Row(
                                                                               mainAxisSize: MainAxisSize.max,
                                                                               children: [
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                                                                                   child: Container(
-                                                                                    width: 48,
-                                                                                    height: 48,
+                                                                                    width: 48.0,
+                                                                                    height: 48.0,
                                                                                     decoration: BoxDecoration(
                                                                                       color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                       shape: BoxShape.circle,
@@ -1108,7 +1119,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                     child: Icon(
                                                                                       FFIcons.kicMoney,
                                                                                       color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                      size: 24,
+                                                                                      size: 24.0,
                                                                                     ),
                                                                                   ),
                                                                                 ),
@@ -1129,7 +1140,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                       crossAxisAlignment: CrossAxisAlignment.end,
                                                                                       children: [
                                                                                         Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                                                                                           child: Text(
                                                                                             valueOrDefault<String>(
                                                                                               functions.oborot(containerBookingsRecordList.toList()).toString(),
@@ -1137,14 +1148,14 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                             ),
                                                                                             style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                   fontFamily: 'Inter',
-                                                                                                  fontSize: 24,
+                                                                                                  fontSize: 24.0,
                                                                                                   fontWeight: FontWeight.w500,
                                                                                                   useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                 ),
                                                                                           ),
                                                                                         ),
                                                                                         Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 2),
+                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 2.0),
                                                                                           child: Text(
                                                                                             valueOrDefault<String>(
                                                                                               functions.oborotName(containerBookingsRecordList.toList()),
@@ -1152,7 +1163,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                             ),
                                                                                             style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                   fontFamily: 'Inter',
-                                                                                                  fontSize: 16,
+                                                                                                  fontSize: 16.0,
                                                                                                   fontWeight: FontWeight.w500,
                                                                                                   useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                 ),
@@ -1169,39 +1180,39 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                       ),
                                                                       Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            0,
-                                                                            24),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            24.0),
                                                                         child:
                                                                             Container(
                                                                           width:
-                                                                              288,
+                                                                              288.0,
                                                                           height:
-                                                                              100,
+                                                                              100.0,
                                                                           decoration:
                                                                               BoxDecoration(
                                                                             color:
                                                                                 Colors.white,
                                                                             borderRadius:
-                                                                                BorderRadius.circular(8),
+                                                                                BorderRadius.circular(8.0),
                                                                           ),
                                                                           child:
                                                                               Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                24,
-                                                                                24,
-                                                                                24,
-                                                                                24),
+                                                                                24.0,
+                                                                                24.0,
+                                                                                24.0,
+                                                                                24.0),
                                                                             child:
                                                                                 Row(
                                                                               mainAxisSize: MainAxisSize.max,
                                                                               children: [
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                                                                                   child: Container(
-                                                                                    width: 48,
-                                                                                    height: 48,
+                                                                                    width: 48.0,
+                                                                                    height: 48.0,
                                                                                     decoration: BoxDecoration(
                                                                                       color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                       shape: BoxShape.circle,
@@ -1209,7 +1220,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                     child: Icon(
                                                                                       FFIcons.kicMoney,
                                                                                       color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                      size: 24,
+                                                                                      size: 24.0,
                                                                                     ),
                                                                                   ),
                                                                                 ),
@@ -1230,7 +1241,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                       crossAxisAlignment: CrossAxisAlignment.end,
                                                                                       children: [
                                                                                         Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                                                                                           child: Text(
                                                                                             valueOrDefault<String>(
                                                                                               containerBookingsRecordList.length.toString(),
@@ -1238,19 +1249,19 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                             ),
                                                                                             style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                   fontFamily: 'Inter',
-                                                                                                  fontSize: 24,
+                                                                                                  fontSize: 24.0,
                                                                                                   fontWeight: FontWeight.w500,
                                                                                                   useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                 ),
                                                                                           ),
                                                                                         ),
                                                                                         Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 2),
+                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 2.0),
                                                                                           child: Text(
                                                                                             ' машин',
                                                                                             style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                   fontFamily: 'Inter',
-                                                                                                  fontSize: 14,
+                                                                                                  fontSize: 14.0,
                                                                                                   fontWeight: FontWeight.w500,
                                                                                                   useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                 ),
@@ -1267,39 +1278,39 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                       ),
                                                                       Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            0,
-                                                                            24),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            24.0),
                                                                         child:
                                                                             Container(
                                                                           width:
-                                                                              288,
+                                                                              288.0,
                                                                           height:
-                                                                              100,
+                                                                              100.0,
                                                                           decoration:
                                                                               BoxDecoration(
                                                                             color:
                                                                                 Colors.white,
                                                                             borderRadius:
-                                                                                BorderRadius.circular(8),
+                                                                                BorderRadius.circular(8.0),
                                                                           ),
                                                                           child:
                                                                               Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                24,
-                                                                                24,
-                                                                                24,
-                                                                                24),
+                                                                                24.0,
+                                                                                24.0,
+                                                                                24.0,
+                                                                                24.0),
                                                                             child:
                                                                                 Row(
                                                                               mainAxisSize: MainAxisSize.max,
                                                                               children: [
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                                                                                   child: Container(
-                                                                                    width: 48,
-                                                                                    height: 48,
+                                                                                    width: 48.0,
+                                                                                    height: 48.0,
                                                                                     decoration: BoxDecoration(
                                                                                       color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                       shape: BoxShape.circle,
@@ -1307,7 +1318,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                     child: Icon(
                                                                                       FFIcons.kicMoney,
                                                                                       color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                      size: 24,
+                                                                                      size: 24.0,
                                                                                     ),
                                                                                   ),
                                                                                 ),
@@ -1328,7 +1339,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                       crossAxisAlignment: CrossAxisAlignment.end,
                                                                                       children: [
                                                                                         Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                                                                                           child: Text(
                                                                                             valueOrDefault<String>(
                                                                                               functions.averageCheque(containerBookingsRecordList.toList()),
@@ -1336,14 +1347,14 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                             ),
                                                                                             style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                   fontFamily: 'Inter',
-                                                                                                  fontSize: 24,
+                                                                                                  fontSize: 24.0,
                                                                                                   fontWeight: FontWeight.w500,
                                                                                                   useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                 ),
                                                                                           ),
                                                                                         ),
                                                                                         Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 2),
+                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 2.0),
                                                                                           child: Text(
                                                                                             valueOrDefault<String>(
                                                                                               functions.averageChequeName(containerBookingsRecordList.toList()),
@@ -1351,7 +1362,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                             ),
                                                                                             style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                   fontFamily: 'Inter',
-                                                                                                  fontSize: 16,
+                                                                                                  fontSize: 16.0,
                                                                                                   fontWeight: FontWeight.w500,
                                                                                                   useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                 ),
@@ -1368,39 +1379,39 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                       ),
                                                                       Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            0,
-                                                                            24),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            24.0),
                                                                         child:
                                                                             Container(
                                                                           width:
-                                                                              288,
+                                                                              288.0,
                                                                           height:
-                                                                              100,
+                                                                              100.0,
                                                                           decoration:
                                                                               BoxDecoration(
                                                                             color:
                                                                                 Colors.white,
                                                                             borderRadius:
-                                                                                BorderRadius.circular(8),
+                                                                                BorderRadius.circular(8.0),
                                                                           ),
                                                                           child:
                                                                               Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                24,
-                                                                                24,
-                                                                                24,
-                                                                                24),
+                                                                                24.0,
+                                                                                24.0,
+                                                                                24.0,
+                                                                                24.0),
                                                                             child:
                                                                                 Row(
                                                                               mainAxisSize: MainAxisSize.max,
                                                                               children: [
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                                                                                   child: Container(
-                                                                                    width: 48,
-                                                                                    height: 48,
+                                                                                    width: 48.0,
+                                                                                    height: 48.0,
                                                                                     decoration: BoxDecoration(
                                                                                       color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                       shape: BoxShape.circle,
@@ -1408,7 +1419,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                     child: Icon(
                                                                                       FFIcons.kicMoney,
                                                                                       color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                      size: 24,
+                                                                                      size: 24.0,
                                                                                     ),
                                                                                   ),
                                                                                 ),
@@ -1429,7 +1440,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                       crossAxisAlignment: CrossAxisAlignment.end,
                                                                                       children: [
                                                                                         Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                                                                                           child: Text(
                                                                                             valueOrDefault<String>(
                                                                                               functions.oborotForCarPrecent(containerBookingsRecordList.toList()),
@@ -1437,14 +1448,14 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                             ),
                                                                                             style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                   fontFamily: 'Inter',
-                                                                                                  fontSize: 24,
+                                                                                                  fontSize: 24.0,
                                                                                                   fontWeight: FontWeight.w500,
                                                                                                   useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                 ),
                                                                                           ),
                                                                                         ),
                                                                                         Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 2),
+                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 2.0),
                                                                                           child: Text(
                                                                                             valueOrDefault<String>(
                                                                                               functions.oborotForCarPrecentName(containerBookingsRecordList.toList()),
@@ -1452,7 +1463,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                             ),
                                                                                             style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                   fontFamily: 'Inter',
-                                                                                                  fontSize: 16,
+                                                                                                  fontSize: 16.0,
                                                                                                   fontWeight: FontWeight.w500,
                                                                                                   useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                 ),
@@ -1478,10 +1489,10 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        24,
-                                                                        0,
-                                                                        0,
-                                                                        0),
+                                                                        24.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
                                                             child: Container(
                                                               decoration:
                                                                   BoxDecoration(),
@@ -1493,40 +1504,40 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                   Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            0,
-                                                                            24),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            24.0),
                                                                     child:
                                                                         Container(
                                                                       width:
-                                                                          288,
+                                                                          288.0,
                                                                       height:
-                                                                          100,
+                                                                          100.0,
                                                                       decoration:
                                                                           BoxDecoration(
                                                                         color: Colors
                                                                             .white,
                                                                         borderRadius:
-                                                                            BorderRadius.circular(8),
+                                                                            BorderRadius.circular(8.0),
                                                                       ),
                                                                       child:
                                                                           Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            24,
-                                                                            24,
-                                                                            24,
-                                                                            24),
+                                                                            24.0,
+                                                                            24.0,
+                                                                            24.0,
+                                                                            24.0),
                                                                         child:
                                                                             Row(
                                                                           mainAxisSize:
                                                                               MainAxisSize.max,
                                                                           children: [
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                                                                               child: Container(
-                                                                                width: 48,
-                                                                                height: 48,
+                                                                                width: 48.0,
+                                                                                height: 48.0,
                                                                                 decoration: BoxDecoration(
                                                                                   color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                   shape: BoxShape.circle,
@@ -1534,7 +1545,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                 child: Icon(
                                                                                   FFIcons.kicMoney,
                                                                                   color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                  size: 24,
+                                                                                  size: 24.0,
                                                                                 ),
                                                                               ),
                                                                             ),
@@ -1555,24 +1566,24 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                   crossAxisAlignment: CrossAxisAlignment.end,
                                                                                   children: [
                                                                                     Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                                                                                       child: Text(
                                                                                         '0 ',
                                                                                         style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                               fontFamily: 'Inter',
-                                                                                              fontSize: 24,
+                                                                                              fontSize: 24.0,
                                                                                               fontWeight: FontWeight.w500,
                                                                                               useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                             ),
                                                                                       ),
                                                                                     ),
                                                                                     Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 2),
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 2.0),
                                                                                       child: Text(
                                                                                         '₸',
                                                                                         style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                               fontFamily: 'Inter',
-                                                                                              fontSize: 16,
+                                                                                              fontSize: 16.0,
                                                                                               fontWeight: FontWeight.w500,
                                                                                               useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                             ),
@@ -1590,40 +1601,40 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                   Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            0,
-                                                                            24),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            24.0),
                                                                     child:
                                                                         Container(
                                                                       width:
-                                                                          288,
+                                                                          288.0,
                                                                       height:
-                                                                          100,
+                                                                          100.0,
                                                                       decoration:
                                                                           BoxDecoration(
                                                                         color: Colors
                                                                             .white,
                                                                         borderRadius:
-                                                                            BorderRadius.circular(8),
+                                                                            BorderRadius.circular(8.0),
                                                                       ),
                                                                       child:
                                                                           Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            24,
-                                                                            24,
-                                                                            24,
-                                                                            24),
+                                                                            24.0,
+                                                                            24.0,
+                                                                            24.0,
+                                                                            24.0),
                                                                         child:
                                                                             Row(
                                                                           mainAxisSize:
                                                                               MainAxisSize.max,
                                                                           children: [
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                                                                               child: Container(
-                                                                                width: 48,
-                                                                                height: 48,
+                                                                                width: 48.0,
+                                                                                height: 48.0,
                                                                                 decoration: BoxDecoration(
                                                                                   color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                   shape: BoxShape.circle,
@@ -1631,7 +1642,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                 child: Icon(
                                                                                   FFIcons.kicMoney,
                                                                                   color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                  size: 24,
+                                                                                  size: 24.0,
                                                                                 ),
                                                                               ),
                                                                             ),
@@ -1652,12 +1663,12 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                   crossAxisAlignment: CrossAxisAlignment.end,
                                                                                   children: [
                                                                                     Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                                                                                       child: Text(
                                                                                         '0 ',
                                                                                         style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                               fontFamily: 'Inter',
-                                                                                              fontSize: 24,
+                                                                                              fontSize: 24.0,
                                                                                               fontWeight: FontWeight.w500,
                                                                                               useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                             ),
@@ -1675,40 +1686,40 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                   Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            0,
-                                                                            24),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            24.0),
                                                                     child:
                                                                         Container(
                                                                       width:
-                                                                          288,
+                                                                          288.0,
                                                                       height:
-                                                                          100,
+                                                                          100.0,
                                                                       decoration:
                                                                           BoxDecoration(
                                                                         color: Colors
                                                                             .white,
                                                                         borderRadius:
-                                                                            BorderRadius.circular(8),
+                                                                            BorderRadius.circular(8.0),
                                                                       ),
                                                                       child:
                                                                           Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            24,
-                                                                            24,
-                                                                            24,
-                                                                            24),
+                                                                            24.0,
+                                                                            24.0,
+                                                                            24.0,
+                                                                            24.0),
                                                                         child:
                                                                             Row(
                                                                           mainAxisSize:
                                                                               MainAxisSize.max,
                                                                           children: [
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                                                                               child: Container(
-                                                                                width: 48,
-                                                                                height: 48,
+                                                                                width: 48.0,
+                                                                                height: 48.0,
                                                                                 decoration: BoxDecoration(
                                                                                   color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                   shape: BoxShape.circle,
@@ -1716,7 +1727,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                 child: Icon(
                                                                                   FFIcons.kicMoney,
                                                                                   color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                  size: 24,
+                                                                                  size: 24.0,
                                                                                 ),
                                                                               ),
                                                                             ),
@@ -1737,24 +1748,24 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                   crossAxisAlignment: CrossAxisAlignment.end,
                                                                                   children: [
                                                                                     Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                                                                                       child: Text(
                                                                                         '0 ',
                                                                                         style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                               fontFamily: 'Inter',
-                                                                                              fontSize: 24,
+                                                                                              fontSize: 24.0,
                                                                                               fontWeight: FontWeight.w500,
                                                                                               useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                             ),
                                                                                       ),
                                                                                     ),
                                                                                     Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 2),
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 2.0),
                                                                                       child: Text(
                                                                                         '₸',
                                                                                         style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                               fontFamily: 'Inter',
-                                                                                              fontSize: 16,
+                                                                                              fontSize: 16.0,
                                                                                               fontWeight: FontWeight.w500,
                                                                                               useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                             ),
@@ -1772,40 +1783,40 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                   Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            0,
-                                                                            24),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            24.0),
                                                                     child:
                                                                         Container(
                                                                       width:
-                                                                          288,
+                                                                          288.0,
                                                                       height:
-                                                                          100,
+                                                                          100.0,
                                                                       decoration:
                                                                           BoxDecoration(
                                                                         color: Colors
                                                                             .white,
                                                                         borderRadius:
-                                                                            BorderRadius.circular(8),
+                                                                            BorderRadius.circular(8.0),
                                                                       ),
                                                                       child:
                                                                           Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            24,
-                                                                            24,
-                                                                            24,
-                                                                            24),
+                                                                            24.0,
+                                                                            24.0,
+                                                                            24.0,
+                                                                            24.0),
                                                                         child:
                                                                             Row(
                                                                           mainAxisSize:
                                                                               MainAxisSize.max,
                                                                           children: [
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                                                                               child: Container(
-                                                                                width: 48,
-                                                                                height: 48,
+                                                                                width: 48.0,
+                                                                                height: 48.0,
                                                                                 decoration: BoxDecoration(
                                                                                   color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                   shape: BoxShape.circle,
@@ -1813,7 +1824,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                 child: Icon(
                                                                                   FFIcons.kicMoney,
                                                                                   color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                  size: 24,
+                                                                                  size: 24.0,
                                                                                 ),
                                                                               ),
                                                                             ),
@@ -1834,24 +1845,24 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                   crossAxisAlignment: CrossAxisAlignment.end,
                                                                                   children: [
                                                                                     Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                                                                                       child: Text(
                                                                                         '0 ',
                                                                                         style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                               fontFamily: 'Inter',
-                                                                                              fontSize: 24,
+                                                                                              fontSize: 24.0,
                                                                                               fontWeight: FontWeight.w500,
                                                                                               useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                             ),
                                                                                       ),
                                                                                     ),
                                                                                     Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 2),
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 2.0),
                                                                                       child: Text(
                                                                                         '₸',
                                                                                         style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                               fontFamily: 'Inter',
-                                                                                              fontSize: 16,
+                                                                                              fontSize: 16.0,
                                                                                               fontWeight: FontWeight.w500,
                                                                                               useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                             ),
@@ -1892,7 +1903,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                 ],
               ),
               Align(
-                alignment: AlignmentDirectional(0, -1),
+                alignment: AlignmentDirectional(0.0, -1.0),
                 child: wrapWithModel(
                   model: _model.adminAppBarInfoModel,
                   updateCallback: () => setState(() {}),

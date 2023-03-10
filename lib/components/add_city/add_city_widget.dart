@@ -55,8 +55,8 @@ class _AddCityWidgetState extends State<AddCityWidget> {
         color: FlutterFlowTheme.of(context).primaryBackground,
         child: Center(
           child: SizedBox(
-            width: 50,
-            height: 50,
+            width: 50.0,
+            height: 50.0,
             child: CircularProgressIndicator(
               color: FlutterFlowTheme.of(context).primaryColor,
             ),
@@ -75,21 +75,21 @@ class _AddCityWidgetState extends State<AddCityWidget> {
         color: FlutterFlowTheme.of(context).secondaryBackground,
       ),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
+        padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Align(
-              alignment: AlignmentDirectional(0, 0),
+              alignment: AlignmentDirectional(0.0, 0.0),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 16),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 16.0),
                 child: Container(
-                  width: 40,
-                  height: 4,
+                  width: 40.0,
+                  height: 4.0,
                   decoration: BoxDecoration(
                     color: Color(0xFFD9D9D9),
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
                 ),
               ),
@@ -103,7 +103,7 @@ class _AddCityWidgetState extends State<AddCityWidget> {
                   style: FlutterFlowTheme.of(context).bodyText1.override(
                         fontFamily:
                             FlutterFlowTheme.of(context).bodyText1Family,
-                        fontSize: 18,
+                        fontSize: 18.0,
                         fontWeight: FontWeight.w500,
                         useGoogleFonts: GoogleFonts.asMap().containsKey(
                             FlutterFlowTheme.of(context).bodyText1Family),
@@ -112,7 +112,7 @@ class _AddCityWidgetState extends State<AddCityWidget> {
               ],
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
               child: TextFormField(
                 controller: _model.textController,
                 onChanged: (_) => EasyDebounce.debounce(
@@ -126,35 +126,35 @@ class _AddCityWidgetState extends State<AddCityWidget> {
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
                       color: FlutterFlowTheme.of(context).gray2,
-                      width: 1,
+                      width: 1.0,
                     ),
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(
                       color: Color(0x00000000),
-                      width: 1,
+                      width: 1.0,
                     ),
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
                   errorBorder: OutlineInputBorder(
                     borderSide: BorderSide(
                       color: Color(0x00000000),
-                      width: 1,
+                      width: 1.0,
                     ),
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
                   focusedErrorBorder: OutlineInputBorder(
                     borderSide: BorderSide(
                       color: Color(0x00000000),
-                      width: 1,
+                      width: 1.0,
                     ),
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
                   prefixIcon: Icon(
                     FFIcons.kicSearch,
                     color: Color(0xFFC4C4C4),
-                    size: 24,
+                    size: 24.0,
                   ),
                 ),
                 style: FlutterFlowTheme.of(context).bodyText1,
@@ -170,7 +170,8 @@ class _AddCityWidgetState extends State<AddCityWidget> {
                     if (_model.textController.text != null &&
                         _model.textController.text != '')
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                         child: StreamBuilder<List<CityesRecord>>(
                           stream: queryCityesRecord(
                             queryBuilder: (cityesRecord) =>
@@ -181,8 +182,8 @@ class _AddCityWidgetState extends State<AddCityWidget> {
                             if (!snapshot.hasData) {
                               return Center(
                                 child: SizedBox(
-                                  width: 50,
-                                  height: 50,
+                                  width: 50.0,
+                                  height: 50.0,
                                   child: CircularProgressIndicator(
                                     color: FlutterFlowTheme.of(context)
                                         .primaryColor,
@@ -221,7 +222,7 @@ class _AddCityWidgetState extends State<AddCityWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 10, 0, 10),
+                                                  0.0, 10.0, 0.0, 10.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -240,20 +241,21 @@ class _AddCityWidgetState extends State<AddCityWidget> {
                                                   '5')
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(5, 0, 0, 0),
+                                                      .fromSTEB(
+                                                          5.0, 0.0, 0.0, 0.0),
                                                   child: Icon(
                                                     FFIcons.kicNavigation,
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primaryColor,
-                                                    size: 24,
+                                                    size: 24.0,
                                                   ),
                                                 ),
                                             ],
                                           ),
                                         ),
                                         Divider(
-                                          thickness: 1,
+                                          thickness: 1.0,
                                           color: Color(0xFFEBEBEB),
                                         ),
                                       ],
@@ -268,7 +270,8 @@ class _AddCityWidgetState extends State<AddCityWidget> {
                     if (_model.textController.text == null ||
                         _model.textController.text == '')
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                         child: StreamBuilder<List<CityesRecord>>(
                           stream: queryCityesRecord(
                             queryBuilder: (cityesRecord) =>
@@ -279,8 +282,8 @@ class _AddCityWidgetState extends State<AddCityWidget> {
                             if (!snapshot.hasData) {
                               return Center(
                                 child: SizedBox(
-                                  width: 50,
-                                  height: 50,
+                                  width: 50.0,
+                                  height: 50.0,
                                   child: CircularProgressIndicator(
                                     color: FlutterFlowTheme.of(context)
                                         .primaryColor,
@@ -313,7 +316,7 @@ class _AddCityWidgetState extends State<AddCityWidget> {
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 10, 0, 10),
+                                            0.0, 10.0, 0.0, 10.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
@@ -332,20 +335,21 @@ class _AddCityWidgetState extends State<AddCityWidget> {
                                                 '5')
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(5, 0, 0, 0),
+                                                    .fromSTEB(
+                                                        5.0, 0.0, 0.0, 0.0),
                                                 child: Icon(
                                                   FFIcons.kicNavigation,
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primaryColor,
-                                                  size: 24,
+                                                  size: 24.0,
                                                 ),
                                               ),
                                           ],
                                         ),
                                       ),
                                       Divider(
-                                        thickness: 1,
+                                        thickness: 1.0,
                                         color: Color(0xFFEBEBEB),
                                       ),
                                     ],

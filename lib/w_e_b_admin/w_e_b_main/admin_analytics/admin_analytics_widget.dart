@@ -43,8 +43,8 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
       ],
     ),
@@ -57,8 +57,8 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
       ],
     ),
@@ -71,8 +71,8 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
       ],
     ),
@@ -85,8 +85,8 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
       ],
     ),
@@ -153,7 +153,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(0, 0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: FutureBuilder<List<CompaniesRecord>>(
                               future: queryCompaniesRecordOnce(
                                 queryBuilder: (companiesRecord) =>
@@ -168,8 +168,8 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                 if (!snapshot.hasData) {
                                   return Center(
                                     child: SizedBox(
-                                      width: 50,
-                                      height: 50,
+                                      width: 50.0,
+                                      height: 50.0,
                                       child: CircularProgressIndicator(
                                         color: FlutterFlowTheme.of(context)
                                             .primaryColor,
@@ -191,14 +191,14 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                             .first
                                         : null;
                                 return Container(
-                                  width: 1224,
+                                  width: 1224.0,
                                   decoration: BoxDecoration(),
                                   child: Visibility(
                                     visible: containerContentCompaniesRecord!
                                             .status !=
                                         'Модерация',
                                     child: Container(
-                                      width: 1224,
+                                      width: 1224.0,
                                       child: Stack(
                                         children: [
                                           Column(
@@ -208,7 +208,8 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                             children: [
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(0, 32, 0, 32),
+                                                    .fromSTEB(
+                                                        0.0, 32.0, 0.0, 32.0),
                                                 child: Text(
                                                   'Аналитика3',
                                                   style: FlutterFlowTheme.of(
@@ -216,7 +217,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                       .bodyText1
                                                       .override(
                                                         fontFamily: 'Inter',
-                                                        fontSize: 24,
+                                                        fontSize: 24.0,
                                                         useGoogleFonts: GoogleFonts
                                                                 .asMap()
                                                             .containsKey(
@@ -232,8 +233,8 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 24, 0),
+                                                            .fromSTEB(0.0, 0.0,
+                                                                24.0, 0.0),
                                                     child: InkWell(
                                                       onTap: () async {
                                                         FFAppState().update(() {
@@ -253,10 +254,10 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0,
-                                                                        0,
-                                                                        0,
-                                                                        17),
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        17.0),
                                                             child: Text(
                                                               'Финансовые показатели',
                                                               style: FlutterFlowTheme
@@ -273,7 +274,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                         : FlutterFlowTheme.of(context)
                                                                             .webUnselectedColor,
                                                                     fontSize:
-                                                                        16,
+                                                                        16.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .normal,
@@ -285,8 +286,8 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                             ),
                                                           ),
                                                           Container(
-                                                            width: 187,
-                                                            height: 1,
+                                                            width: 187.0,
+                                                            height: 1.0,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color: FFAppState()
@@ -307,8 +308,8 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 24, 0),
+                                                            .fromSTEB(0.0, 0.0,
+                                                                24.0, 0.0),
                                                     child: InkWell(
                                                       onTap: () async {
                                                         FFAppState().update(() {
@@ -328,10 +329,10 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0,
-                                                                        0,
-                                                                        0,
-                                                                        17),
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        17.0),
                                                             child: Text(
                                                               'Отзывы',
                                                               style: FlutterFlowTheme
@@ -348,7 +349,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                         : FlutterFlowTheme.of(context)
                                                                             .webUnselectedColor,
                                                                     fontSize:
-                                                                        16,
+                                                                        16.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .normal,
@@ -360,8 +361,8 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                             ),
                                                           ),
                                                           Container(
-                                                            width: 62,
-                                                            height: 1,
+                                                            width: 62.0,
+                                                            height: 1.0,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color: FFAppState()
@@ -383,7 +384,8 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(0, 24, 0, 0),
+                                                    .fromSTEB(
+                                                        0.0, 24.0, 0.0, 0.0),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.min,
@@ -394,13 +396,16 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .gray2,
-                                                      size: 24,
+                                                      size: 24.0,
                                                     ),
                                                     Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  8, 0, 0, 0),
+                                                                  8.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
                                                       child: Text(
                                                         'Фильтр',
                                                         style:
@@ -428,7 +433,10 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  24, 0, 0, 0),
+                                                                  24.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
                                                       child: InkWell(
                                                         onTap: () async {
                                                           await showModalBottomSheet(
@@ -452,8 +460,8 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                               setState(() {}));
                                                         },
                                                         child: Container(
-                                                          width: 184,
-                                                          height: 40,
+                                                          width: 184.0,
+                                                          height: 40.0,
                                                           decoration:
                                                               BoxDecoration(
                                                             color: FlutterFlowTheme
@@ -462,7 +470,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        8),
+                                                                        8.0),
                                                             border: Border.all(
                                                               color: FlutterFlowTheme
                                                                       .of(context)
@@ -473,10 +481,10 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        16,
-                                                                        0,
-                                                                        16,
-                                                                        0),
+                                                                        16.0,
+                                                                        0.0,
+                                                                        16.0,
+                                                                        0.0),
                                                             child: Row(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -511,7 +519,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .gray2,
-                                                                  size: 24,
+                                                                  size: 24.0,
                                                                 ),
                                                               ],
                                                             ),
@@ -523,10 +531,13 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  24, 0, 0, 0),
+                                                                  24.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
                                                       child: Container(
-                                                        width: 184,
-                                                        height: 40,
+                                                        width: 184.0,
+                                                        height: 40.0,
                                                         decoration:
                                                             BoxDecoration(
                                                           color: FlutterFlowTheme
@@ -534,7 +545,8 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                               .primaryBackground,
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(8),
+                                                                  .circular(
+                                                                      8.0),
                                                           border: Border.all(
                                                             color: FlutterFlowTheme
                                                                     .of(context)
@@ -544,8 +556,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                         child: Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(16,
-                                                                      0, 16, 0),
+                                                                  .fromSTEB(
+                                                                      16.0,
+                                                                      0.0,
+                                                                      16.0,
+                                                                      0.0),
                                                           child: Row(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -575,7 +590,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .gray2,
-                                                                size: 24,
+                                                                size: 24.0,
                                                               ),
                                                             ],
                                                           ),
@@ -586,7 +601,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                1, 0),
+                                                                1.0, 0.0),
                                                         child: FFButtonWidget(
                                                           onPressed: () {
                                                             print(
@@ -596,26 +611,26 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                               'Скачать отчет в Excel',
                                                           icon: Icon(
                                                             FFIcons.kicDownload,
-                                                            size: 22,
+                                                            size: 22.0,
                                                           ),
                                                           options:
                                                               FFButtonOptions(
-                                                            width: 207,
-                                                            height: 40,
+                                                            width: 207.0,
+                                                            height: 40.0,
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0,
-                                                                        0,
-                                                                        0,
-                                                                        0),
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
                                                             iconPadding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0,
-                                                                        0,
-                                                                        0,
-                                                                        0),
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryColor,
@@ -629,7 +644,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                       color: Colors
                                                                           .white,
                                                                       fontSize:
-                                                                          14,
+                                                                          14.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
@@ -638,17 +653,17 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                           .containsKey(
                                                                               FlutterFlowTheme.of(context).subtitle2Family),
                                                                     ),
-                                                            elevation: 0,
+                                                            elevation: 0.0,
                                                             borderSide:
                                                                 BorderSide(
                                                               color: Colors
                                                                   .transparent,
-                                                              width: 1,
+                                                              width: 1.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        8),
+                                                                        8.0),
                                                           ),
                                                         ),
                                                       ),
@@ -683,8 +698,8 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                     if (!snapshot.hasData) {
                                                       return Center(
                                                         child: SizedBox(
-                                                          width: 50,
-                                                          height: 50,
+                                                          width: 50.0,
+                                                          height: 50.0,
                                                           child:
                                                               CircularProgressIndicator(
                                                             color: FlutterFlowTheme
@@ -735,8 +750,9 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                 return Center(
                                                                   child:
                                                                       SizedBox(
-                                                                    width: 50,
-                                                                    height: 50,
+                                                                    width: 50.0,
+                                                                    height:
+                                                                        50.0,
                                                                     child:
                                                                         CircularProgressIndicator(
                                                                       color: FlutterFlowTheme.of(
@@ -763,12 +779,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                           .max,
                                                                   children: [
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional
-                                                                          .fromSTEB(
-                                                                              0,
-                                                                              24,
-                                                                              0,
-                                                                              24),
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          24.0,
+                                                                          0.0,
+                                                                          24.0),
                                                                       child:
                                                                           Row(
                                                                         mainAxisSize:
@@ -776,29 +791,29 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                         children: [
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0,
-                                                                                0,
-                                                                                24,
-                                                                                0),
+                                                                                0.0,
+                                                                                0.0,
+                                                                                24.0,
+                                                                                0.0),
                                                                             child:
                                                                                 Container(
-                                                                              width: 392,
-                                                                              height: 98,
+                                                                              width: 392.0,
+                                                                              height: 98.0,
                                                                               decoration: BoxDecoration(
                                                                                 color: Colors.white,
-                                                                                borderRadius: BorderRadius.circular(8),
+                                                                                borderRadius: BorderRadius.circular(8.0),
                                                                               ),
                                                                               child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(24, 24, 24, 24),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 24.0),
                                                                                 child: Row(
                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                   crossAxisAlignment: CrossAxisAlignment.start,
                                                                                   children: [
                                                                                     Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                                                                                       child: Container(
-                                                                                        width: 48,
-                                                                                        height: 48,
+                                                                                        width: 48.0,
+                                                                                        height: 48.0,
                                                                                         decoration: BoxDecoration(
                                                                                           color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                           shape: BoxShape.circle,
@@ -806,7 +821,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                         child: Icon(
                                                                                           FFIcons.kicMoney,
                                                                                           color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                          size: 24,
+                                                                                          size: 24.0,
                                                                                         ),
                                                                                       ),
                                                                                     ),
@@ -828,7 +843,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                             crossAxisAlignment: CrossAxisAlignment.end,
                                                                                             children: [
                                                                                               Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                                                                                                 child: Text(
                                                                                                   valueOrDefault<String>(
                                                                                                     functions.oborot(containerBookingsRecordList.toList()).toString(),
@@ -836,14 +851,14 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                                   ),
                                                                                                   style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                         fontFamily: 'Inter',
-                                                                                                        fontSize: 24,
+                                                                                                        fontSize: 24.0,
                                                                                                         fontWeight: FontWeight.w500,
                                                                                                         useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                       ),
                                                                                                 ),
                                                                                               ),
                                                                                               Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 2),
+                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 2.0),
                                                                                                 child: Text(
                                                                                                   valueOrDefault<String>(
                                                                                                     functions.oborotName(containerBookingsRecordList.toList()),
@@ -851,7 +866,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                                   ),
                                                                                                   style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                         fontFamily: 'Inter',
-                                                                                                        fontSize: 16,
+                                                                                                        fontSize: 16.0,
                                                                                                         fontWeight: FontWeight.w500,
                                                                                                         useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                       ),
@@ -866,22 +881,22 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                       opaque: false,
                                                                                       cursor: MouseCursor.defer ?? MouseCursor.defer,
                                                                                       child: Container(
-                                                                                        width: 20,
-                                                                                        height: 20,
+                                                                                        width: 20.0,
+                                                                                        height: 20.0,
                                                                                         decoration: BoxDecoration(
                                                                                           shape: BoxShape.circle,
                                                                                           border: Border.all(
                                                                                             color: FlutterFlowTheme.of(context).gray2,
-                                                                                            width: 2,
+                                                                                            width: 2.0,
                                                                                           ),
                                                                                         ),
                                                                                         child: Align(
-                                                                                          alignment: AlignmentDirectional(0, 0),
+                                                                                          alignment: AlignmentDirectional(0.0, 0.0),
                                                                                           child: Text(
                                                                                             '?',
                                                                                             style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                   fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
-                                                                                                  fontSize: 12,
+                                                                                                  fontSize: 12.0,
                                                                                                   fontWeight: FontWeight.normal,
                                                                                                   useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                 ),
@@ -908,29 +923,29 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                           ),
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0,
-                                                                                0,
-                                                                                24,
-                                                                                0),
+                                                                                0.0,
+                                                                                0.0,
+                                                                                24.0,
+                                                                                0.0),
                                                                             child:
                                                                                 Container(
-                                                                              width: 392,
-                                                                              height: 98,
+                                                                              width: 392.0,
+                                                                              height: 98.0,
                                                                               decoration: BoxDecoration(
                                                                                 color: Colors.white,
-                                                                                borderRadius: BorderRadius.circular(8),
+                                                                                borderRadius: BorderRadius.circular(8.0),
                                                                               ),
                                                                               child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(24, 24, 24, 24),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 24.0),
                                                                                 child: Row(
                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                   crossAxisAlignment: CrossAxisAlignment.start,
                                                                                   children: [
                                                                                     Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                                                                                       child: Container(
-                                                                                        width: 48,
-                                                                                        height: 48,
+                                                                                        width: 48.0,
+                                                                                        height: 48.0,
                                                                                         decoration: BoxDecoration(
                                                                                           color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                           shape: BoxShape.circle,
@@ -938,7 +953,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                         child: Icon(
                                                                                           FFIcons.kicCar,
                                                                                           color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                          size: 24,
+                                                                                          size: 24.0,
                                                                                         ),
                                                                                       ),
                                                                                     ),
@@ -960,7 +975,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                             crossAxisAlignment: CrossAxisAlignment.end,
                                                                                             children: [
                                                                                               Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                                                                                                 child: Text(
                                                                                                   valueOrDefault<String>(
                                                                                                     containerBookingsRecordList.length.toString(),
@@ -968,7 +983,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                                   ),
                                                                                                   style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                         fontFamily: 'Inter',
-                                                                                                        fontSize: 24,
+                                                                                                        fontSize: 24.0,
                                                                                                         fontWeight: FontWeight.w500,
                                                                                                         useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                       ),
@@ -983,22 +998,22 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                       opaque: false,
                                                                                       cursor: MouseCursor.defer ?? MouseCursor.defer,
                                                                                       child: Container(
-                                                                                        width: 20,
-                                                                                        height: 20,
+                                                                                        width: 20.0,
+                                                                                        height: 20.0,
                                                                                         decoration: BoxDecoration(
                                                                                           shape: BoxShape.circle,
                                                                                           border: Border.all(
                                                                                             color: FlutterFlowTheme.of(context).gray2,
-                                                                                            width: 2,
+                                                                                            width: 2.0,
                                                                                           ),
                                                                                         ),
                                                                                         child: Align(
-                                                                                          alignment: AlignmentDirectional(0, 0),
+                                                                                          alignment: AlignmentDirectional(0.0, 0.0),
                                                                                           child: Text(
                                                                                             '?',
                                                                                             style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                   fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
-                                                                                                  fontSize: 12,
+                                                                                                  fontSize: 12.0,
                                                                                                   fontWeight: FontWeight.normal,
                                                                                                   useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                 ),
@@ -1025,28 +1040,28 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                           ),
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0,
-                                                                                0,
-                                                                                24,
-                                                                                0),
+                                                                                0.0,
+                                                                                0.0,
+                                                                                24.0,
+                                                                                0.0),
                                                                             child:
                                                                                 Container(
-                                                                              width: 392,
-                                                                              height: 98,
+                                                                              width: 392.0,
+                                                                              height: 98.0,
                                                                               decoration: BoxDecoration(
                                                                                 color: Colors.white,
-                                                                                borderRadius: BorderRadius.circular(8),
+                                                                                borderRadius: BorderRadius.circular(8.0),
                                                                               ),
                                                                               child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(24, 24, 24, 24),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 24.0),
                                                                                 child: Row(
                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                   children: [
                                                                                     Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                                                                                       child: Container(
-                                                                                        width: 48,
-                                                                                        height: 48,
+                                                                                        width: 48.0,
+                                                                                        height: 48.0,
                                                                                         decoration: BoxDecoration(
                                                                                           color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                           shape: BoxShape.circle,
@@ -1054,7 +1069,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                         child: Icon(
                                                                                           FFIcons.kicCheck,
                                                                                           color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                          size: 24,
+                                                                                          size: 24.0,
                                                                                         ),
                                                                                       ),
                                                                                     ),
@@ -1075,7 +1090,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                           crossAxisAlignment: CrossAxisAlignment.end,
                                                                                           children: [
                                                                                             Padding(
-                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                                                                                               child: Text(
                                                                                                 valueOrDefault<String>(
                                                                                                   functions.averageCheque(containerBookingsRecordList.toList()),
@@ -1083,14 +1098,14 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                                 ),
                                                                                                 style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                       fontFamily: 'Inter',
-                                                                                                      fontSize: 24,
+                                                                                                      fontSize: 24.0,
                                                                                                       fontWeight: FontWeight.w500,
                                                                                                       useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                     ),
                                                                                               ),
                                                                                             ),
                                                                                             Padding(
-                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 2),
+                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 2.0),
                                                                                               child: Text(
                                                                                                 valueOrDefault<String>(
                                                                                                   functions.averageChequeName(containerBookingsRecordList.toList()),
@@ -1098,7 +1113,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                                 ),
                                                                                                 style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                       fontFamily: 'Inter',
-                                                                                                      fontSize: 16,
+                                                                                                      fontSize: 16.0,
                                                                                                       fontWeight: FontWeight.w500,
                                                                                                       useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                     ),
@@ -1130,21 +1145,21 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                     ))
                                                                       Container(
                                                                         width:
-                                                                            1224,
+                                                                            1224.0,
                                                                         decoration:
                                                                             BoxDecoration(
                                                                           color:
                                                                               Colors.white,
                                                                           borderRadius:
-                                                                              BorderRadius.circular(8),
+                                                                              BorderRadius.circular(8.0),
                                                                         ),
                                                                         child:
                                                                             Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              24,
-                                                                              0,
-                                                                              24,
-                                                                              0),
+                                                                              24.0,
+                                                                              0.0,
+                                                                              24.0,
+                                                                              0.0),
                                                                           child:
                                                                               Column(
                                                                             mainAxisSize:
@@ -1153,19 +1168,19 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                 CrossAxisAlignment.start,
                                                                             children: [
                                                                               Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0, 14, 0, 24),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 14.0, 0.0, 24.0),
                                                                                 child: Text(
                                                                                   'Оборот',
                                                                                   style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                         fontFamily: 'Inter',
-                                                                                        fontSize: 18,
+                                                                                        fontSize: 18.0,
                                                                                         fontWeight: FontWeight.w500,
                                                                                         useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                       ),
                                                                                 ),
                                                                               ),
                                                                               Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
                                                                                 child: Text(
                                                                                   'Заработанная сумма',
                                                                                   style: FlutterFlowTheme.of(context).bodyText1.override(
@@ -1177,8 +1192,8 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                 ),
                                                                               ),
                                                                               Container(
-                                                                                width: 1130,
-                                                                                height: 423,
+                                                                                width: 1130.0,
+                                                                                height: 423.0,
                                                                                 child: FlutterFlowLineChart(
                                                                                   data: [
                                                                                     FFLineChartData(
@@ -1186,7 +1201,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                       yData: containerBookingsRecordList.map((d) => d.totalPrice).toList(),
                                                                                       settings: LineChartBarData(
                                                                                         color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                        barWidth: 1,
+                                                                                        barWidth: 1.0,
                                                                                         isCurved: true,
                                                                                         preventCurveOverShooting: true,
                                                                                         dotData: FlDotData(show: false),
@@ -1207,11 +1222,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                   axisBounds: AxisBounds(),
                                                                                   xAxisLabelInfo: AxisLabelInfo(
                                                                                     showLabels: true,
-                                                                                    labelInterval: 10,
+                                                                                    labelInterval: 10.0,
                                                                                   ),
                                                                                   yAxisLabelInfo: AxisLabelInfo(
                                                                                     showLabels: true,
-                                                                                    labelInterval: 10,
+                                                                                    labelInterval: 10.0,
                                                                                   ),
                                                                                 ),
                                                                               ),
@@ -1220,12 +1235,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                         ),
                                                                       ),
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional
-                                                                          .fromSTEB(
-                                                                              0,
-                                                                              24,
-                                                                              0,
-                                                                              24),
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          24.0,
+                                                                          0.0,
+                                                                          24.0),
                                                                       child:
                                                                           Row(
                                                                         mainAxisSize:
@@ -1233,29 +1247,29 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                         children: [
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0,
-                                                                                0,
-                                                                                24,
-                                                                                0),
+                                                                                0.0,
+                                                                                0.0,
+                                                                                24.0,
+                                                                                0.0),
                                                                             child:
                                                                                 Container(
-                                                                              width: 392,
-                                                                              height: 98,
+                                                                              width: 392.0,
+                                                                              height: 98.0,
                                                                               decoration: BoxDecoration(
                                                                                 color: Colors.white,
-                                                                                borderRadius: BorderRadius.circular(8),
+                                                                                borderRadius: BorderRadius.circular(8.0),
                                                                               ),
                                                                               child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(24, 24, 24, 24),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 24.0),
                                                                                 child: Row(
                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                   crossAxisAlignment: CrossAxisAlignment.start,
                                                                                   children: [
                                                                                     Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                                                                                       child: Container(
-                                                                                        width: 48,
-                                                                                        height: 48,
+                                                                                        width: 48.0,
+                                                                                        height: 48.0,
                                                                                         decoration: BoxDecoration(
                                                                                           color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                           shape: BoxShape.circle,
@@ -1263,7 +1277,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                         child: Icon(
                                                                                           FFIcons.kframe48095571,
                                                                                           color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                          size: 24,
+                                                                                          size: 24.0,
                                                                                         ),
                                                                                       ),
                                                                                     ),
@@ -1285,24 +1299,24 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                             crossAxisAlignment: CrossAxisAlignment.end,
                                                                                             children: [
                                                                                               Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                                                                                                 child: Text(
                                                                                                   '0 ',
                                                                                                   style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                         fontFamily: 'Inter',
-                                                                                                        fontSize: 24,
+                                                                                                        fontSize: 24.0,
                                                                                                         fontWeight: FontWeight.w500,
                                                                                                         useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                       ),
                                                                                                 ),
                                                                                               ),
                                                                                               Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 2),
+                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 2.0),
                                                                                                 child: Text(
                                                                                                   '₸',
                                                                                                   style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                         fontFamily: 'Inter',
-                                                                                                        fontSize: 16,
+                                                                                                        fontSize: 16.0,
                                                                                                         fontWeight: FontWeight.w500,
                                                                                                         useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                       ),
@@ -1317,22 +1331,22 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                       opaque: false,
                                                                                       cursor: MouseCursor.defer ?? MouseCursor.defer,
                                                                                       child: Container(
-                                                                                        width: 20,
-                                                                                        height: 20,
+                                                                                        width: 20.0,
+                                                                                        height: 20.0,
                                                                                         decoration: BoxDecoration(
                                                                                           shape: BoxShape.circle,
                                                                                           border: Border.all(
                                                                                             color: FlutterFlowTheme.of(context).gray2,
-                                                                                            width: 2,
+                                                                                            width: 2.0,
                                                                                           ),
                                                                                         ),
                                                                                         child: Align(
-                                                                                          alignment: AlignmentDirectional(0, 0),
+                                                                                          alignment: AlignmentDirectional(0.0, 0.0),
                                                                                           child: Text(
                                                                                             '?',
                                                                                             style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                   fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
-                                                                                                  fontSize: 12,
+                                                                                                  fontSize: 12.0,
                                                                                                   fontWeight: FontWeight.normal,
                                                                                                   useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                 ),
@@ -1359,29 +1373,29 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                           ),
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0,
-                                                                                0,
-                                                                                24,
-                                                                                0),
+                                                                                0.0,
+                                                                                0.0,
+                                                                                24.0,
+                                                                                0.0),
                                                                             child:
                                                                                 Container(
-                                                                              width: 392,
-                                                                              height: 98,
+                                                                              width: 392.0,
+                                                                              height: 98.0,
                                                                               decoration: BoxDecoration(
                                                                                 color: Colors.white,
-                                                                                borderRadius: BorderRadius.circular(8),
+                                                                                borderRadius: BorderRadius.circular(8.0),
                                                                               ),
                                                                               child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(24, 24, 24, 24),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 24.0),
                                                                                 child: Row(
                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                   crossAxisAlignment: CrossAxisAlignment.start,
                                                                                   children: [
                                                                                     Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                                                                                       child: Container(
-                                                                                        width: 48,
-                                                                                        height: 48,
+                                                                                        width: 48.0,
+                                                                                        height: 48.0,
                                                                                         decoration: BoxDecoration(
                                                                                           color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                           shape: BoxShape.circle,
@@ -1389,7 +1403,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                         child: Icon(
                                                                                           FFIcons.kicBank,
                                                                                           color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                          size: 24,
+                                                                                          size: 24.0,
                                                                                         ),
                                                                                       ),
                                                                                     ),
@@ -1411,24 +1425,24 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                             crossAxisAlignment: CrossAxisAlignment.end,
                                                                                             children: [
                                                                                               Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                                                                                                 child: Text(
                                                                                                   '0 ',
                                                                                                   style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                         fontFamily: 'Inter',
-                                                                                                        fontSize: 24,
+                                                                                                        fontSize: 24.0,
                                                                                                         fontWeight: FontWeight.w500,
                                                                                                         useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                       ),
                                                                                                 ),
                                                                                               ),
                                                                                               Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 2),
+                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 2.0),
                                                                                                 child: Text(
                                                                                                   '₸',
                                                                                                   style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                         fontFamily: 'Inter',
-                                                                                                        fontSize: 14,
+                                                                                                        fontSize: 14.0,
                                                                                                         fontWeight: FontWeight.w500,
                                                                                                         useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                       ),
@@ -1443,22 +1457,22 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                       opaque: false,
                                                                                       cursor: MouseCursor.defer ?? MouseCursor.defer,
                                                                                       child: Container(
-                                                                                        width: 20,
-                                                                                        height: 20,
+                                                                                        width: 20.0,
+                                                                                        height: 20.0,
                                                                                         decoration: BoxDecoration(
                                                                                           shape: BoxShape.circle,
                                                                                           border: Border.all(
                                                                                             color: FlutterFlowTheme.of(context).gray2,
-                                                                                            width: 2,
+                                                                                            width: 2.0,
                                                                                           ),
                                                                                         ),
                                                                                         child: Align(
-                                                                                          alignment: AlignmentDirectional(0, 0),
+                                                                                          alignment: AlignmentDirectional(0.0, 0.0),
                                                                                           child: Text(
                                                                                             '?',
                                                                                             style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                   fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
-                                                                                                  fontSize: 12,
+                                                                                                  fontSize: 12.0,
                                                                                                   fontWeight: FontWeight.normal,
                                                                                                   useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                 ),
@@ -1485,28 +1499,28 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                           ),
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0,
-                                                                                0,
-                                                                                24,
-                                                                                0),
+                                                                                0.0,
+                                                                                0.0,
+                                                                                24.0,
+                                                                                0.0),
                                                                             child:
                                                                                 Container(
-                                                                              width: 392,
-                                                                              height: 98,
+                                                                              width: 392.0,
+                                                                              height: 98.0,
                                                                               decoration: BoxDecoration(
                                                                                 color: Colors.white,
-                                                                                borderRadius: BorderRadius.circular(8),
+                                                                                borderRadius: BorderRadius.circular(8.0),
                                                                               ),
                                                                               child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(24, 24, 24, 24),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 24.0),
                                                                                 child: Row(
                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                   children: [
                                                                                     Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                                                                                       child: Container(
-                                                                                        width: 48,
-                                                                                        height: 48,
+                                                                                        width: 48.0,
+                                                                                        height: 48.0,
                                                                                         decoration: BoxDecoration(
                                                                                           color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                           shape: BoxShape.circle,
@@ -1514,7 +1528,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                         child: Icon(
                                                                                           FFIcons.kicVisitors,
                                                                                           color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                          size: 24,
+                                                                                          size: 24.0,
                                                                                         ),
                                                                                       ),
                                                                                     ),
@@ -1535,7 +1549,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                           crossAxisAlignment: CrossAxisAlignment.end,
                                                                                           children: [
                                                                                             Padding(
-                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                                                                                               child: Text(
                                                                                                 valueOrDefault<String>(
                                                                                                   functions.oborotForCarPrecent(containerBookingsRecordList.toList()),
@@ -1543,14 +1557,14 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                                 ),
                                                                                                 style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                       fontFamily: 'Inter',
-                                                                                                      fontSize: 24,
+                                                                                                      fontSize: 24.0,
                                                                                                       fontWeight: FontWeight.w500,
                                                                                                       useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                     ),
                                                                                               ),
                                                                                             ),
                                                                                             Padding(
-                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 2),
+                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 2.0),
                                                                                               child: Text(
                                                                                                 valueOrDefault<String>(
                                                                                                   functions.oborotForCarPrecentName(containerBookingsRecordList.toList()),
@@ -1558,7 +1572,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                                 ),
                                                                                                 style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                       fontFamily: 'Inter',
-                                                                                                      fontSize: 16,
+                                                                                                      fontSize: 16.0,
                                                                                                       fontWeight: FontWeight.w500,
                                                                                                       useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                     ),
@@ -1590,47 +1604,47 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                     ))
                                                                       Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            0,
-                                                                            80),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            80.0),
                                                                         child:
                                                                             Container(
                                                                           width:
-                                                                              1224,
+                                                                              1224.0,
                                                                           decoration:
                                                                               BoxDecoration(
                                                                             color:
                                                                                 Colors.white,
                                                                             borderRadius:
-                                                                                BorderRadius.circular(8),
+                                                                                BorderRadius.circular(8.0),
                                                                           ),
                                                                           child:
                                                                               Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                24,
-                                                                                0,
-                                                                                24,
-                                                                                0),
+                                                                                24.0,
+                                                                                0.0,
+                                                                                24.0,
+                                                                                0.0),
                                                                             child:
                                                                                 Column(
                                                                               mainAxisSize: MainAxisSize.max,
                                                                               crossAxisAlignment: CrossAxisAlignment.start,
                                                                               children: [
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0, 14, 0, 24),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 14.0, 0.0, 24.0),
                                                                                   child: Text(
                                                                                     'Посещаемость',
                                                                                     style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                           fontFamily: 'Inter',
-                                                                                          fontSize: 18,
+                                                                                          fontSize: 18.0,
                                                                                           fontWeight: FontWeight.w500,
                                                                                           useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                         ),
                                                                                   ),
                                                                                 ),
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
                                                                                   child: Text(
                                                                                     'Колличество моек',
                                                                                     style: FlutterFlowTheme.of(context).bodyText1.override(
@@ -1643,8 +1657,8 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                 ),
                                                                                 AuthUserStreamWidget(
                                                                                   builder: (context) => Container(
-                                                                                    width: 1130,
-                                                                                    height: 423,
+                                                                                    width: 1130.0,
+                                                                                    height: 423.0,
                                                                                     child: FlutterFlowLineChart(
                                                                                       data: [
                                                                                         FFLineChartData(
@@ -1652,7 +1666,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                           yData: (currentUserDocument?.favCompany?.toList() ?? []),
                                                                                           settings: LineChartBarData(
                                                                                             color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                            barWidth: 1,
+                                                                                            barWidth: 1.0,
                                                                                             isCurved: true,
                                                                                             dotData: FlDotData(show: false),
                                                                                             belowBarData: BarAreaData(
@@ -1672,11 +1686,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                       axisBounds: AxisBounds(),
                                                                                       xAxisLabelInfo: AxisLabelInfo(
                                                                                         showLabels: true,
-                                                                                        labelInterval: 10,
+                                                                                        labelInterval: 10.0,
                                                                                       ),
                                                                                       yAxisLabelInfo: AxisLabelInfo(
                                                                                         showLabels: true,
-                                                                                        labelInterval: 10,
+                                                                                        labelInterval: 10.0,
                                                                                       ),
                                                                                     ),
                                                                                   ),
@@ -1707,10 +1721,10 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                 Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0,
-                                                                          24,
-                                                                          0,
-                                                                          24),
+                                                                          0.0,
+                                                                          24.0,
+                                                                          0.0,
+                                                                          24.0),
                                                                   child: Row(
                                                                     mainAxisSize:
                                                                         MainAxisSize
@@ -1718,40 +1732,40 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                     children: [
                                                                       Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            24,
-                                                                            0),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            24.0,
+                                                                            0.0),
                                                                         child:
                                                                             Container(
                                                                           width:
-                                                                              392,
+                                                                              392.0,
                                                                           height:
-                                                                              98,
+                                                                              98.0,
                                                                           decoration:
                                                                               BoxDecoration(
                                                                             color:
                                                                                 Colors.white,
                                                                             borderRadius:
-                                                                                BorderRadius.circular(8),
+                                                                                BorderRadius.circular(8.0),
                                                                           ),
                                                                           child:
                                                                               Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                24,
-                                                                                24,
-                                                                                24,
-                                                                                24),
+                                                                                24.0,
+                                                                                24.0,
+                                                                                24.0,
+                                                                                24.0),
                                                                             child:
                                                                                 Row(
                                                                               mainAxisSize: MainAxisSize.max,
                                                                               crossAxisAlignment: CrossAxisAlignment.start,
                                                                               children: [
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                                                                                   child: Container(
-                                                                                    width: 48,
-                                                                                    height: 48,
+                                                                                    width: 48.0,
+                                                                                    height: 48.0,
                                                                                     decoration: BoxDecoration(
                                                                                       color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                       shape: BoxShape.circle,
@@ -1759,7 +1773,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                     child: Icon(
                                                                                       FFIcons.kicMoney,
                                                                                       color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                      size: 24,
+                                                                                      size: 24.0,
                                                                                     ),
                                                                                   ),
                                                                                 ),
@@ -1781,24 +1795,24 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                         crossAxisAlignment: CrossAxisAlignment.end,
                                                                                         children: [
                                                                                           Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                                                                                             child: Text(
                                                                                               '0 ',
                                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                     fontFamily: 'Inter',
-                                                                                                    fontSize: 24,
+                                                                                                    fontSize: 24.0,
                                                                                                     fontWeight: FontWeight.w500,
                                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
                                                                                           Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 2),
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 2.0),
                                                                                             child: Text(
                                                                                               '₸',
                                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                     fontFamily: 'Inter',
-                                                                                                    fontSize: 16,
+                                                                                                    fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.w500,
                                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                   ),
@@ -1813,22 +1827,22 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                   opaque: false,
                                                                                   cursor: MouseCursor.defer ?? MouseCursor.defer,
                                                                                   child: Container(
-                                                                                    width: 20,
-                                                                                    height: 20,
+                                                                                    width: 20.0,
+                                                                                    height: 20.0,
                                                                                     decoration: BoxDecoration(
                                                                                       shape: BoxShape.circle,
                                                                                       border: Border.all(
                                                                                         color: FlutterFlowTheme.of(context).gray2,
-                                                                                        width: 2,
+                                                                                        width: 2.0,
                                                                                       ),
                                                                                     ),
                                                                                     child: Align(
-                                                                                      alignment: AlignmentDirectional(0, 0),
+                                                                                      alignment: AlignmentDirectional(0.0, 0.0),
                                                                                       child: Text(
                                                                                         '?',
                                                                                         style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                               fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
-                                                                                              fontSize: 12,
+                                                                                              fontSize: 12.0,
                                                                                               fontWeight: FontWeight.normal,
                                                                                               useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                             ),
@@ -1855,40 +1869,40 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                       ),
                                                                       Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            24,
-                                                                            0),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            24.0,
+                                                                            0.0),
                                                                         child:
                                                                             Container(
                                                                           width:
-                                                                              392,
+                                                                              392.0,
                                                                           height:
-                                                                              98,
+                                                                              98.0,
                                                                           decoration:
                                                                               BoxDecoration(
                                                                             color:
                                                                                 Colors.white,
                                                                             borderRadius:
-                                                                                BorderRadius.circular(8),
+                                                                                BorderRadius.circular(8.0),
                                                                           ),
                                                                           child:
                                                                               Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                24,
-                                                                                24,
-                                                                                24,
-                                                                                24),
+                                                                                24.0,
+                                                                                24.0,
+                                                                                24.0,
+                                                                                24.0),
                                                                             child:
                                                                                 Row(
                                                                               mainAxisSize: MainAxisSize.max,
                                                                               crossAxisAlignment: CrossAxisAlignment.start,
                                                                               children: [
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                                                                                   child: Container(
-                                                                                    width: 48,
-                                                                                    height: 48,
+                                                                                    width: 48.0,
+                                                                                    height: 48.0,
                                                                                     decoration: BoxDecoration(
                                                                                       color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                       shape: BoxShape.circle,
@@ -1896,7 +1910,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                     child: Icon(
                                                                                       FFIcons.kicCar,
                                                                                       color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                      size: 24,
+                                                                                      size: 24.0,
                                                                                     ),
                                                                                   ),
                                                                                 ),
@@ -1918,12 +1932,12 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                         crossAxisAlignment: CrossAxisAlignment.end,
                                                                                         children: [
                                                                                           Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                                                                                             child: Text(
                                                                                               '0 ',
                                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                     fontFamily: 'Inter',
-                                                                                                    fontSize: 24,
+                                                                                                    fontSize: 24.0,
                                                                                                     fontWeight: FontWeight.w500,
                                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                   ),
@@ -1938,22 +1952,22 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                   opaque: false,
                                                                                   cursor: MouseCursor.defer ?? MouseCursor.defer,
                                                                                   child: Container(
-                                                                                    width: 20,
-                                                                                    height: 20,
+                                                                                    width: 20.0,
+                                                                                    height: 20.0,
                                                                                     decoration: BoxDecoration(
                                                                                       shape: BoxShape.circle,
                                                                                       border: Border.all(
                                                                                         color: FlutterFlowTheme.of(context).gray2,
-                                                                                        width: 2,
+                                                                                        width: 2.0,
                                                                                       ),
                                                                                     ),
                                                                                     child: Align(
-                                                                                      alignment: AlignmentDirectional(0, 0),
+                                                                                      alignment: AlignmentDirectional(0.0, 0.0),
                                                                                       child: Text(
                                                                                         '?',
                                                                                         style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                               fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
-                                                                                              fontSize: 12,
+                                                                                              fontSize: 12.0,
                                                                                               fontWeight: FontWeight.normal,
                                                                                               useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                             ),
@@ -1980,39 +1994,39 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                       ),
                                                                       Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            24,
-                                                                            0),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            24.0,
+                                                                            0.0),
                                                                         child:
                                                                             Container(
                                                                           width:
-                                                                              392,
+                                                                              392.0,
                                                                           height:
-                                                                              98,
+                                                                              98.0,
                                                                           decoration:
                                                                               BoxDecoration(
                                                                             color:
                                                                                 Colors.white,
                                                                             borderRadius:
-                                                                                BorderRadius.circular(8),
+                                                                                BorderRadius.circular(8.0),
                                                                           ),
                                                                           child:
                                                                               Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                24,
-                                                                                24,
-                                                                                24,
-                                                                                24),
+                                                                                24.0,
+                                                                                24.0,
+                                                                                24.0,
+                                                                                24.0),
                                                                             child:
                                                                                 Row(
                                                                               mainAxisSize: MainAxisSize.max,
                                                                               children: [
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                                                                                   child: Container(
-                                                                                    width: 48,
-                                                                                    height: 48,
+                                                                                    width: 48.0,
+                                                                                    height: 48.0,
                                                                                     decoration: BoxDecoration(
                                                                                       color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                       shape: BoxShape.circle,
@@ -2020,7 +2034,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                     child: Icon(
                                                                                       FFIcons.kicCheck,
                                                                                       color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                      size: 24,
+                                                                                      size: 24.0,
                                                                                     ),
                                                                                   ),
                                                                                 ),
@@ -2041,24 +2055,24 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                       crossAxisAlignment: CrossAxisAlignment.end,
                                                                                       children: [
                                                                                         Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                                                                                           child: Text(
                                                                                             '0 ',
                                                                                             style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                   fontFamily: 'Inter',
-                                                                                                  fontSize: 24,
+                                                                                                  fontSize: 24.0,
                                                                                                   fontWeight: FontWeight.w500,
                                                                                                   useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                 ),
                                                                                           ),
                                                                                         ),
                                                                                         Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 2),
+                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 2.0),
                                                                                           child: Text(
                                                                                             '₸',
                                                                                             style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                   fontFamily: 'Inter',
-                                                                                                  fontSize: 16,
+                                                                                                  fontSize: 16.0,
                                                                                                   fontWeight: FontWeight.w500,
                                                                                                   useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                 ),
@@ -2079,10 +2093,10 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                 Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0,
-                                                                          24,
-                                                                          0,
-                                                                          24),
+                                                                          0.0,
+                                                                          24.0,
+                                                                          0.0,
+                                                                          24.0),
                                                                   child: Row(
                                                                     mainAxisSize:
                                                                         MainAxisSize
@@ -2090,40 +2104,40 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                     children: [
                                                                       Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            24,
-                                                                            0),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            24.0,
+                                                                            0.0),
                                                                         child:
                                                                             Container(
                                                                           width:
-                                                                              392,
+                                                                              392.0,
                                                                           height:
-                                                                              98,
+                                                                              98.0,
                                                                           decoration:
                                                                               BoxDecoration(
                                                                             color:
                                                                                 Colors.white,
                                                                             borderRadius:
-                                                                                BorderRadius.circular(8),
+                                                                                BorderRadius.circular(8.0),
                                                                           ),
                                                                           child:
                                                                               Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                24,
-                                                                                24,
-                                                                                24,
-                                                                                24),
+                                                                                24.0,
+                                                                                24.0,
+                                                                                24.0,
+                                                                                24.0),
                                                                             child:
                                                                                 Row(
                                                                               mainAxisSize: MainAxisSize.max,
                                                                               crossAxisAlignment: CrossAxisAlignment.start,
                                                                               children: [
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                                                                                   child: Container(
-                                                                                    width: 48,
-                                                                                    height: 48,
+                                                                                    width: 48.0,
+                                                                                    height: 48.0,
                                                                                     decoration: BoxDecoration(
                                                                                       color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                       shape: BoxShape.circle,
@@ -2131,7 +2145,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                     child: Icon(
                                                                                       FFIcons.kframe48095571,
                                                                                       color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                      size: 24,
+                                                                                      size: 24.0,
                                                                                     ),
                                                                                   ),
                                                                                 ),
@@ -2153,24 +2167,24 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                         crossAxisAlignment: CrossAxisAlignment.end,
                                                                                         children: [
                                                                                           Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                                                                                             child: Text(
                                                                                               '0 ',
                                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                     fontFamily: 'Inter',
-                                                                                                    fontSize: 24,
+                                                                                                    fontSize: 24.0,
                                                                                                     fontWeight: FontWeight.w500,
                                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
                                                                                           Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 2),
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 2.0),
                                                                                             child: Text(
                                                                                               '₸',
                                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                     fontFamily: 'Inter',
-                                                                                                    fontSize: 16,
+                                                                                                    fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.w500,
                                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                   ),
@@ -2185,22 +2199,22 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                   opaque: false,
                                                                                   cursor: MouseCursor.defer ?? MouseCursor.defer,
                                                                                   child: Container(
-                                                                                    width: 20,
-                                                                                    height: 20,
+                                                                                    width: 20.0,
+                                                                                    height: 20.0,
                                                                                     decoration: BoxDecoration(
                                                                                       shape: BoxShape.circle,
                                                                                       border: Border.all(
                                                                                         color: FlutterFlowTheme.of(context).gray2,
-                                                                                        width: 2,
+                                                                                        width: 2.0,
                                                                                       ),
                                                                                     ),
                                                                                     child: Align(
-                                                                                      alignment: AlignmentDirectional(0, 0),
+                                                                                      alignment: AlignmentDirectional(0.0, 0.0),
                                                                                       child: Text(
                                                                                         '?',
                                                                                         style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                               fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
-                                                                                              fontSize: 12,
+                                                                                              fontSize: 12.0,
                                                                                               fontWeight: FontWeight.normal,
                                                                                               useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                             ),
@@ -2227,40 +2241,40 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                       ),
                                                                       Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            24,
-                                                                            0),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            24.0,
+                                                                            0.0),
                                                                         child:
                                                                             Container(
                                                                           width:
-                                                                              392,
+                                                                              392.0,
                                                                           height:
-                                                                              98,
+                                                                              98.0,
                                                                           decoration:
                                                                               BoxDecoration(
                                                                             color:
                                                                                 Colors.white,
                                                                             borderRadius:
-                                                                                BorderRadius.circular(8),
+                                                                                BorderRadius.circular(8.0),
                                                                           ),
                                                                           child:
                                                                               Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                24,
-                                                                                24,
-                                                                                24,
-                                                                                24),
+                                                                                24.0,
+                                                                                24.0,
+                                                                                24.0,
+                                                                                24.0),
                                                                             child:
                                                                                 Row(
                                                                               mainAxisSize: MainAxisSize.max,
                                                                               crossAxisAlignment: CrossAxisAlignment.start,
                                                                               children: [
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                                                                                   child: Container(
-                                                                                    width: 48,
-                                                                                    height: 48,
+                                                                                    width: 48.0,
+                                                                                    height: 48.0,
                                                                                     decoration: BoxDecoration(
                                                                                       color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                       shape: BoxShape.circle,
@@ -2268,7 +2282,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                     child: Icon(
                                                                                       FFIcons.kicBank,
                                                                                       color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                      size: 24,
+                                                                                      size: 24.0,
                                                                                     ),
                                                                                   ),
                                                                                 ),
@@ -2290,24 +2304,24 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                         crossAxisAlignment: CrossAxisAlignment.end,
                                                                                         children: [
                                                                                           Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                                                                                             child: Text(
                                                                                               '0 ',
                                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                     fontFamily: 'Inter',
-                                                                                                    fontSize: 24,
+                                                                                                    fontSize: 24.0,
                                                                                                     fontWeight: FontWeight.w500,
                                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
                                                                                           Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 2),
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 2.0),
                                                                                             child: Text(
                                                                                               '₸',
                                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                     fontFamily: 'Inter',
-                                                                                                    fontSize: 14,
+                                                                                                    fontSize: 14.0,
                                                                                                     fontWeight: FontWeight.w500,
                                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                   ),
@@ -2322,22 +2336,22 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                   opaque: false,
                                                                                   cursor: MouseCursor.defer ?? MouseCursor.defer,
                                                                                   child: Container(
-                                                                                    width: 20,
-                                                                                    height: 20,
+                                                                                    width: 20.0,
+                                                                                    height: 20.0,
                                                                                     decoration: BoxDecoration(
                                                                                       shape: BoxShape.circle,
                                                                                       border: Border.all(
                                                                                         color: FlutterFlowTheme.of(context).gray2,
-                                                                                        width: 2,
+                                                                                        width: 2.0,
                                                                                       ),
                                                                                     ),
                                                                                     child: Align(
-                                                                                      alignment: AlignmentDirectional(0, 0),
+                                                                                      alignment: AlignmentDirectional(0.0, 0.0),
                                                                                       child: Text(
                                                                                         '?',
                                                                                         style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                               fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
-                                                                                              fontSize: 12,
+                                                                                              fontSize: 12.0,
                                                                                               fontWeight: FontWeight.normal,
                                                                                               useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                             ),
@@ -2364,39 +2378,39 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                       ),
                                                                       Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            24,
-                                                                            0),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            24.0,
+                                                                            0.0),
                                                                         child:
                                                                             Container(
                                                                           width:
-                                                                              392,
+                                                                              392.0,
                                                                           height:
-                                                                              98,
+                                                                              98.0,
                                                                           decoration:
                                                                               BoxDecoration(
                                                                             color:
                                                                                 Colors.white,
                                                                             borderRadius:
-                                                                                BorderRadius.circular(8),
+                                                                                BorderRadius.circular(8.0),
                                                                           ),
                                                                           child:
                                                                               Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                24,
-                                                                                24,
-                                                                                24,
-                                                                                24),
+                                                                                24.0,
+                                                                                24.0,
+                                                                                24.0,
+                                                                                24.0),
                                                                             child:
                                                                                 Row(
                                                                               mainAxisSize: MainAxisSize.max,
                                                                               children: [
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                                                                                   child: Container(
-                                                                                    width: 48,
-                                                                                    height: 48,
+                                                                                    width: 48.0,
+                                                                                    height: 48.0,
                                                                                     decoration: BoxDecoration(
                                                                                       color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                       shape: BoxShape.circle,
@@ -2404,7 +2418,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                     child: Icon(
                                                                                       FFIcons.kicVisitors,
                                                                                       color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                      size: 24,
+                                                                                      size: 24.0,
                                                                                     ),
                                                                                   ),
                                                                                 ),
@@ -2425,24 +2439,24 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                       crossAxisAlignment: CrossAxisAlignment.end,
                                                                                       children: [
                                                                                         Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                                                                                           child: Text(
                                                                                             '0 ',
                                                                                             style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                   fontFamily: 'Inter',
-                                                                                                  fontSize: 24,
+                                                                                                  fontSize: 24.0,
                                                                                                   fontWeight: FontWeight.w500,
                                                                                                   useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                 ),
                                                                                           ),
                                                                                         ),
                                                                                         Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 2),
+                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 2.0),
                                                                                           child: Text(
                                                                                             '₸',
                                                                                             style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                   fontFamily: 'Inter',
-                                                                                                  fontSize: 16,
+                                                                                                  fontSize: 16.0,
                                                                                                   fontWeight: FontWeight.w500,
                                                                                                   useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                 ),
@@ -2473,28 +2487,28 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                   Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            0,
-                                                                            80),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            80.0),
                                                                     child:
                                                                         Container(
                                                                       width:
-                                                                          1224,
+                                                                          1224.0,
                                                                       decoration:
                                                                           BoxDecoration(
                                                                         color: Colors
                                                                             .white,
                                                                         borderRadius:
-                                                                            BorderRadius.circular(8),
+                                                                            BorderRadius.circular(8.0),
                                                                       ),
                                                                       child:
                                                                           Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            24,
-                                                                            0,
-                                                                            24,
-                                                                            0),
+                                                                            24.0,
+                                                                            0.0,
+                                                                            24.0,
+                                                                            0.0),
                                                                         child:
                                                                             Column(
                                                                           mainAxisSize:
@@ -2503,19 +2517,19 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                               CrossAxisAlignment.start,
                                                                           children: [
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 14, 0, 24),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 14.0, 0.0, 24.0),
                                                                               child: Text(
                                                                                 'Посещаемость',
                                                                                 style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                       fontFamily: 'Inter',
-                                                                                      fontSize: 18,
+                                                                                      fontSize: 18.0,
                                                                                       fontWeight: FontWeight.w500,
                                                                                       useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                     ),
                                                                               ),
                                                                             ),
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
                                                                               child: Text(
                                                                                 'Колличество моек',
                                                                                 style: FlutterFlowTheme.of(context).bodyText1.override(
@@ -2528,8 +2542,8 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                             ),
                                                                             AuthUserStreamWidget(
                                                                               builder: (context) => Container(
-                                                                                width: 1130,
-                                                                                height: 423,
+                                                                                width: 1130.0,
+                                                                                height: 423.0,
                                                                                 child: FlutterFlowLineChart(
                                                                                   data: [
                                                                                     FFLineChartData(
@@ -2537,7 +2551,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                       yData: (currentUserDocument?.favCompany?.toList() ?? []),
                                                                                       settings: LineChartBarData(
                                                                                         color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                        barWidth: 1,
+                                                                                        barWidth: 1.0,
                                                                                         isCurved: true,
                                                                                         dotData: FlDotData(show: false),
                                                                                         belowBarData: BarAreaData(
@@ -2557,11 +2571,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                   axisBounds: AxisBounds(),
                                                                                   xAxisLabelInfo: AxisLabelInfo(
                                                                                     showLabels: true,
-                                                                                    labelInterval: 10,
+                                                                                    labelInterval: 10.0,
                                                                                   ),
                                                                                   yAxisLabelInfo: AxisLabelInfo(
                                                                                     showLabels: true,
-                                                                                    labelInterval: 10,
+                                                                                    labelInterval: 10.0,
                                                                                   ),
                                                                                 ),
                                                                               ),
@@ -2603,8 +2617,8 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                   if (!snapshot.hasData) {
                                                     return Center(
                                                       child: SizedBox(
-                                                        width: 50,
-                                                        height: 50,
+                                                        width: 50.0,
+                                                        height: 50.0,
                                                         child:
                                                             CircularProgressIndicator(
                                                           color: FlutterFlowTheme
@@ -2630,8 +2644,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                       child: Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(0, 24,
-                                                                    0, 0),
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    24.0,
+                                                                    0.0,
+                                                                    0.0),
                                                         child: Row(
                                                           mainAxisSize:
                                                               MainAxisSize.min,
@@ -2640,8 +2657,8 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                   .start,
                                                           children: [
                                                             Container(
-                                                              width: 808,
-                                                              height: 417,
+                                                              width: 808.0,
+                                                              height: 417.0,
                                                               decoration:
                                                                   BoxDecoration(
                                                                 color: Colors
@@ -2649,16 +2666,15 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
-                                                                            8),
+                                                                            8.0),
                                                               ),
                                                               child: Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            24,
-                                                                            0,
-                                                                            24,
-                                                                            0),
+                                                                padding: EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        24.0,
+                                                                        0.0,
+                                                                        24.0,
+                                                                        0.0),
                                                                 child: Column(
                                                                   mainAxisSize:
                                                                       MainAxisSize
@@ -2668,12 +2684,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                           .start,
                                                                   children: [
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional
-                                                                          .fromSTEB(
-                                                                              0,
-                                                                              23,
-                                                                              0,
-                                                                              0),
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          23.0,
+                                                                          0.0,
+                                                                          0.0),
                                                                       child:
                                                                           Text(
                                                                         'Рейтинг',
@@ -2681,19 +2696,18 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                             .bodyText1
                                                                             .override(
                                                                               fontFamily: 'Inter',
-                                                                              fontSize: 18,
+                                                                              fontSize: 18.0,
                                                                               fontWeight: FontWeight.w500,
                                                                               useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                             ),
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional
-                                                                          .fromSTEB(
-                                                                              0,
-                                                                              16,
-                                                                              0,
-                                                                              32),
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          16.0,
+                                                                          0.0,
+                                                                          32.0),
                                                                       child:
                                                                           Text(
                                                                         'от 22.08.2022 до 22.09.2022',
@@ -2708,12 +2722,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional
-                                                                          .fromSTEB(
-                                                                              0,
-                                                                              0,
-                                                                              0,
-                                                                              32),
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          32.0),
                                                                       child:
                                                                           Row(
                                                                         mainAxisSize:
@@ -2724,10 +2737,10 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                 MainAxisSize.max,
                                                                             children: [
                                                                               Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                                                                                 child: Container(
-                                                                                  width: 48,
-                                                                                  height: 48,
+                                                                                  width: 48.0,
+                                                                                  height: 48.0,
                                                                                   decoration: BoxDecoration(
                                                                                     color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                     shape: BoxShape.circle,
@@ -2735,7 +2748,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                   child: Icon(
                                                                                     Icons.star_outline_rounded,
                                                                                     color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                    size: 24,
+                                                                                    size: 24.0,
                                                                                   ),
                                                                                 ),
                                                                               ),
@@ -2752,7 +2765,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                         ),
                                                                                   ),
                                                                                   Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                                                                                     child: Text(
                                                                                       valueOrDefault<String>(
                                                                                         functions.averageRating(containerCommentsRecordList.map((e) => e.rating).withoutNulls.toList()).toString(),
@@ -2760,7 +2773,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                       ),
                                                                                       style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                             fontFamily: 'Inter',
-                                                                                            fontSize: 24,
+                                                                                            fontSize: 24.0,
                                                                                             fontWeight: FontWeight.w500,
                                                                                             useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                           ),
@@ -2772,19 +2785,19 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                           ),
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                34,
-                                                                                0,
-                                                                                0,
-                                                                                0),
+                                                                                34.0,
+                                                                                0.0,
+                                                                                0.0,
+                                                                                0.0),
                                                                             child:
                                                                                 Row(
                                                                               mainAxisSize: MainAxisSize.max,
                                                                               children: [
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                                                                                   child: Container(
-                                                                                    width: 48,
-                                                                                    height: 48,
+                                                                                    width: 48.0,
+                                                                                    height: 48.0,
                                                                                     decoration: BoxDecoration(
                                                                                       color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                       shape: BoxShape.circle,
@@ -2792,7 +2805,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                     child: Icon(
                                                                                       FFIcons.kicCheck,
                                                                                       color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                      size: 24,
+                                                                                      size: 24.0,
                                                                                     ),
                                                                                   ),
                                                                                 ),
@@ -2809,7 +2822,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                           ),
                                                                                     ),
                                                                                     Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                                                                                       child: Text(
                                                                                         valueOrDefault<String>(
                                                                                           containerCommentsRecordList.length.toString(),
@@ -2817,7 +2830,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                         ),
                                                                                         style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                               fontFamily: 'Inter',
-                                                                                              fontSize: 24,
+                                                                                              fontSize: 24.0,
                                                                                               fontWeight: FontWeight.w500,
                                                                                               useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                             ),
@@ -2832,12 +2845,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional
-                                                                          .fromSTEB(
-                                                                              0,
-                                                                              0,
-                                                                              0,
-                                                                              52),
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          52.0),
                                                                       child:
                                                                           Column(
                                                                         mainAxisSize:
@@ -2845,10 +2857,10 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                         children: [
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0,
-                                                                                0,
-                                                                                0,
-                                                                                16),
+                                                                                0.0,
+                                                                                0.0,
+                                                                                0.0,
+                                                                                16.0),
                                                                             child:
                                                                                 Row(
                                                                               mainAxisSize: MainAxisSize.max,
@@ -2864,10 +2876,10 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                 Icon(
                                                                                   Icons.star_rounded,
                                                                                   color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                  size: 18,
+                                                                                  size: 18.0,
                                                                                 ),
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                                                                                   child: LinearPercentIndicator(
                                                                                     percent: valueOrDefault<double>(
                                                                                       functions.adminReviewPercentCount(
@@ -2881,17 +2893,17 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                           )),
                                                                                       0.0,
                                                                                     ),
-                                                                                    width: 541,
-                                                                                    lineHeight: 8,
+                                                                                    width: 541.0,
+                                                                                    lineHeight: 8.0,
                                                                                     animation: true,
                                                                                     progressColor: FlutterFlowTheme.of(context).primaryColor,
                                                                                     backgroundColor: Color(0xFFEEEEEE),
-                                                                                    barRadius: Radius.circular(4),
+                                                                                    barRadius: Radius.circular(4.0),
                                                                                     padding: EdgeInsets.zero,
                                                                                   ),
                                                                                 ),
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 24, 0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 24.0, 0.0),
                                                                                   child: Text(
                                                                                     '0',
                                                                                     style: FlutterFlowTheme.of(context).bodyText1.override(
@@ -2931,10 +2943,10 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                           ),
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0,
-                                                                                0,
-                                                                                0,
-                                                                                16),
+                                                                                0.0,
+                                                                                0.0,
+                                                                                0.0,
+                                                                                16.0),
                                                                             child:
                                                                                 Row(
                                                                               mainAxisSize: MainAxisSize.max,
@@ -2950,10 +2962,10 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                 Icon(
                                                                                   Icons.star_rounded,
                                                                                   color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                  size: 18,
+                                                                                  size: 18.0,
                                                                                 ),
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                                                                                   child: LinearPercentIndicator(
                                                                                     percent: valueOrDefault<double>(
                                                                                       functions.adminReviewPercentCount(
@@ -2967,17 +2979,17 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                           )),
                                                                                       0.0,
                                                                                     ),
-                                                                                    width: 541,
-                                                                                    lineHeight: 8,
+                                                                                    width: 541.0,
+                                                                                    lineHeight: 8.0,
                                                                                     animation: true,
                                                                                     progressColor: FlutterFlowTheme.of(context).primaryColor,
                                                                                     backgroundColor: Color(0xFFEEEEEE),
-                                                                                    barRadius: Radius.circular(4),
+                                                                                    barRadius: Radius.circular(4.0),
                                                                                     padding: EdgeInsets.zero,
                                                                                   ),
                                                                                 ),
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 24, 0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 24.0, 0.0),
                                                                                   child: Text(
                                                                                     '0',
                                                                                     style: FlutterFlowTheme.of(context).bodyText1.override(
@@ -3017,10 +3029,10 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                           ),
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0,
-                                                                                0,
-                                                                                0,
-                                                                                16),
+                                                                                0.0,
+                                                                                0.0,
+                                                                                0.0,
+                                                                                16.0),
                                                                             child:
                                                                                 Row(
                                                                               mainAxisSize: MainAxisSize.max,
@@ -3036,10 +3048,10 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                 Icon(
                                                                                   Icons.star_rounded,
                                                                                   color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                  size: 18,
+                                                                                  size: 18.0,
                                                                                 ),
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                                                                                   child: LinearPercentIndicator(
                                                                                     percent: valueOrDefault<double>(
                                                                                       functions.adminReviewPercentCount(
@@ -3053,17 +3065,17 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                           )),
                                                                                       0.0,
                                                                                     ),
-                                                                                    width: 541,
-                                                                                    lineHeight: 8,
+                                                                                    width: 541.0,
+                                                                                    lineHeight: 8.0,
                                                                                     animation: true,
                                                                                     progressColor: FlutterFlowTheme.of(context).primaryColor,
                                                                                     backgroundColor: Color(0xFFEEEEEE),
-                                                                                    barRadius: Radius.circular(4),
+                                                                                    barRadius: Radius.circular(4.0),
                                                                                     padding: EdgeInsets.zero,
                                                                                   ),
                                                                                 ),
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 24, 0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 24.0, 0.0),
                                                                                   child: Text(
                                                                                     '0',
                                                                                     style: FlutterFlowTheme.of(context).bodyText1.override(
@@ -3103,10 +3115,10 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                           ),
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0,
-                                                                                0,
-                                                                                0,
-                                                                                16),
+                                                                                0.0,
+                                                                                0.0,
+                                                                                0.0,
+                                                                                16.0),
                                                                             child:
                                                                                 Row(
                                                                               mainAxisSize: MainAxisSize.max,
@@ -3122,10 +3134,10 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                 Icon(
                                                                                   Icons.star_rounded,
                                                                                   color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                  size: 18,
+                                                                                  size: 18.0,
                                                                                 ),
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                                                                                   child: LinearPercentIndicator(
                                                                                     percent: valueOrDefault<double>(
                                                                                       functions.adminReviewPercentCount(
@@ -3139,17 +3151,17 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                           )),
                                                                                       0.0,
                                                                                     ),
-                                                                                    width: 541,
-                                                                                    lineHeight: 8,
+                                                                                    width: 541.0,
+                                                                                    lineHeight: 8.0,
                                                                                     animation: true,
                                                                                     progressColor: FlutterFlowTheme.of(context).primaryColor,
                                                                                     backgroundColor: Color(0xFFEEEEEE),
-                                                                                    barRadius: Radius.circular(4),
+                                                                                    barRadius: Radius.circular(4.0),
                                                                                     padding: EdgeInsets.zero,
                                                                                   ),
                                                                                 ),
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 24, 0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 24.0, 0.0),
                                                                                   child: Text(
                                                                                     '0',
                                                                                     style: FlutterFlowTheme.of(context).bodyText1.override(
@@ -3202,10 +3214,10 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                               Icon(
                                                                                 Icons.star_rounded,
                                                                                 color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                size: 18,
+                                                                                size: 18.0,
                                                                               ),
                                                                               Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                                                                                 child: LinearPercentIndicator(
                                                                                   percent: valueOrDefault<double>(
                                                                                     functions.adminReviewPercentCount(
@@ -3219,17 +3231,17 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                         )),
                                                                                     0.0,
                                                                                   ),
-                                                                                  width: 541,
-                                                                                  lineHeight: 8,
+                                                                                  width: 541.0,
+                                                                                  lineHeight: 8.0,
                                                                                   animation: true,
                                                                                   progressColor: FlutterFlowTheme.of(context).primaryColor,
                                                                                   backgroundColor: Color(0xFFEEEEEE),
-                                                                                  barRadius: Radius.circular(4),
+                                                                                  barRadius: Radius.circular(4.0),
                                                                                   padding: EdgeInsets.zero,
                                                                                 ),
                                                                               ),
                                                                               Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 24, 0),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 24.0, 0.0),
                                                                                 child: Text(
                                                                                   '0',
                                                                                   style: FlutterFlowTheme.of(context).bodyText1.override(
@@ -3281,29 +3293,29 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                 Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          24,
-                                                                          0,
-                                                                          0,
-                                                                          24),
+                                                                          24.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          24.0),
                                                                   child:
                                                                       Container(
-                                                                    width: 392,
+                                                                    width:
+                                                                        392.0,
                                                                     decoration:
                                                                         BoxDecoration(
                                                                       color: Colors
                                                                           .white,
                                                                       borderRadius:
                                                                           BorderRadius.circular(
-                                                                              8),
+                                                                              8.0),
                                                                     ),
                                                                     child:
                                                                         Padding(
-                                                                      padding: EdgeInsetsDirectional
-                                                                          .fromSTEB(
-                                                                              24,
-                                                                              24,
-                                                                              24,
-                                                                              24),
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          24.0,
+                                                                          24.0,
+                                                                          24.0,
+                                                                          24.0),
                                                                       child:
                                                                           Column(
                                                                         mainAxisSize:
@@ -3311,19 +3323,19 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                         children: [
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0,
-                                                                                0,
-                                                                                0,
-                                                                                24),
+                                                                                0.0,
+                                                                                0.0,
+                                                                                0.0,
+                                                                                24.0),
                                                                             child:
                                                                                 Row(
                                                                               mainAxisSize: MainAxisSize.max,
                                                                               children: [
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                                                                                   child: Container(
-                                                                                    width: 48,
-                                                                                    height: 48,
+                                                                                    width: 48.0,
+                                                                                    height: 48.0,
                                                                                     decoration: BoxDecoration(
                                                                                       color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                       shape: BoxShape.circle,
@@ -3331,7 +3343,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                     child: Icon(
                                                                                       FFIcons.kframe48095574,
                                                                                       color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                      size: 24,
+                                                                                      size: 24.0,
                                                                                     ),
                                                                                   ),
                                                                                 ),
@@ -3352,7 +3364,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                       crossAxisAlignment: CrossAxisAlignment.end,
                                                                                       children: [
                                                                                         Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                                                                                           child: Text(
                                                                                             valueOrDefault<String>(
                                                                                               containerCommentsRecordList.length.toString(),
@@ -3360,7 +3372,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                             ),
                                                                                             style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                   fontFamily: 'Inter',
-                                                                                                  fontSize: 24,
+                                                                                                  fontSize: 24.0,
                                                                                                   fontWeight: FontWeight.w500,
                                                                                                   useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                 ),
@@ -3375,19 +3387,19 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                           ),
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0,
-                                                                                0,
-                                                                                0,
-                                                                                24),
+                                                                                0.0,
+                                                                                0.0,
+                                                                                0.0,
+                                                                                24.0),
                                                                             child:
                                                                                 Row(
                                                                               mainAxisSize: MainAxisSize.max,
                                                                               children: [
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                                                                                   child: Container(
-                                                                                    width: 48,
-                                                                                    height: 48,
+                                                                                    width: 48.0,
+                                                                                    height: 48.0,
                                                                                     decoration: BoxDecoration(
                                                                                       color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                       shape: BoxShape.circle,
@@ -3395,7 +3407,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                     child: Icon(
                                                                                       FFIcons.kframe48095573,
                                                                                       color: FlutterFlowTheme.of(context).green,
-                                                                                      size: 24,
+                                                                                      size: 24.0,
                                                                                     ),
                                                                                   ),
                                                                                 ),
@@ -3416,7 +3428,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                       crossAxisAlignment: CrossAxisAlignment.end,
                                                                                       children: [
                                                                                         Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                                                                                           child: Text(
                                                                                             valueOrDefault<String>(
                                                                                               containerCommentsRecordList.where((e) => e.rating! >= 4.0).toList().length.toString(),
@@ -3424,7 +3436,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                             ),
                                                                                             style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                   fontFamily: 'Inter',
-                                                                                                  fontSize: 24,
+                                                                                                  fontSize: 24.0,
                                                                                                   fontWeight: FontWeight.w500,
                                                                                                   useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                 ),
@@ -3442,10 +3454,10 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                 MainAxisSize.max,
                                                                             children: [
                                                                               Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                                                                                 child: Container(
-                                                                                  width: 48,
-                                                                                  height: 48,
+                                                                                  width: 48.0,
+                                                                                  height: 48.0,
                                                                                   decoration: BoxDecoration(
                                                                                     color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                     shape: BoxShape.circle,
@@ -3453,7 +3465,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                   child: Icon(
                                                                                     FFIcons.kframe48095572,
                                                                                     color: FlutterFlowTheme.of(context).red1,
-                                                                                    size: 24,
+                                                                                    size: 24.0,
                                                                                   ),
                                                                                 ),
                                                                               ),
@@ -3474,7 +3486,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                     crossAxisAlignment: CrossAxisAlignment.end,
                                                                                     children: [
                                                                                       Padding(
-                                                                                        padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                                                                                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                                                                                         child: Text(
                                                                                           valueOrDefault<String>(
                                                                                             containerCommentsRecordList.where((e) => e.rating! <= 3.0).toList().length.toString(),
@@ -3482,7 +3494,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                           ),
                                                                                           style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                 fontFamily: 'Inter',
-                                                                                                fontSize: 24,
+                                                                                                fontSize: 24.0,
                                                                                                 fontWeight: FontWeight.w500,
                                                                                                 useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                               ),
@@ -3502,29 +3514,29 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                 Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          24,
-                                                                          0,
-                                                                          0,
-                                                                          0),
+                                                                          24.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
                                                                   child:
                                                                       Container(
-                                                                    width: 392,
+                                                                    width:
+                                                                        392.0,
                                                                     decoration:
                                                                         BoxDecoration(
                                                                       color: Colors
                                                                           .white,
                                                                       borderRadius:
                                                                           BorderRadius.circular(
-                                                                              8),
+                                                                              8.0),
                                                                     ),
                                                                     child:
                                                                         Padding(
-                                                                      padding: EdgeInsetsDirectional
-                                                                          .fromSTEB(
-                                                                              24,
-                                                                              24,
-                                                                              24,
-                                                                              24),
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          24.0,
+                                                                          24.0,
+                                                                          24.0,
+                                                                          24.0),
                                                                       child:
                                                                           Column(
                                                                         mainAxisSize:
@@ -3535,10 +3547,10 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                 MainAxisSize.max,
                                                                             children: [
                                                                               Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                                                                                 child: Container(
-                                                                                  width: 48,
-                                                                                  height: 48,
+                                                                                  width: 48.0,
+                                                                                  height: 48.0,
                                                                                   decoration: BoxDecoration(
                                                                                     color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                     shape: BoxShape.circle,
@@ -3546,7 +3558,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                   child: Icon(
                                                                                     FFIcons.kframe48095575,
                                                                                     color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                    size: 24,
+                                                                                    size: 24.0,
                                                                                   ),
                                                                                 ),
                                                                               ),
@@ -3567,7 +3579,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                     crossAxisAlignment: CrossAxisAlignment.end,
                                                                                     children: [
                                                                                       Padding(
-                                                                                        padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                                                                                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                                                                                         child: Text(
                                                                                           valueOrDefault<String>(
                                                                                             containerCommentsRecordList.where((e) => e.obtobotan!).toList().length.toString(),
@@ -3575,7 +3587,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                           ),
                                                                                           style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                 fontFamily: 'Inter',
-                                                                                                fontSize: 24,
+                                                                                                fontSize: 24.0,
                                                                                                 fontWeight: FontWeight.w500,
                                                                                                 useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                               ),
@@ -3584,7 +3596,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                     ],
                                                                                   ),
                                                                                   Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                                                                                     child: Text(
                                                                                       'Обработанные плохие отзывы',
                                                                                       style: FlutterFlowTheme.of(context).bodyText1.override(
@@ -3618,7 +3630,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    230, 139, 0, 0),
+                                                    230.0, 139.0, 0.0, 0.0),
                                             child: wrapWithModel(
                                               model:
                                                   _model.webMouseRegionModel1,
@@ -3637,7 +3649,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    650, 139, 0, 0),
+                                                    650.0, 139.0, 0.0, 0.0),
                                             child: wrapWithModel(
                                               model:
                                                   _model.webMouseRegionModel2,
@@ -3656,7 +3668,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    230, 290, 0, 0),
+                                                    230.0, 290.0, 0.0, 0.0),
                                             child: wrapWithModel(
                                               model:
                                                   _model.webMouseRegionModel3,
@@ -3675,7 +3687,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    650, 290, 0, 0),
+                                                    650.0, 290.0, 0.0, 0.0),
                                             child: wrapWithModel(
                                               model:
                                                   _model.webMouseRegionModel4,
@@ -3706,7 +3718,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                 ],
               ),
               Align(
-                alignment: AlignmentDirectional(0, -1),
+                alignment: AlignmentDirectional(0.0, -1.0),
                 child: wrapWithModel(
                   model: _model.adminAppBarInfoModel,
                   updateCallback: () => setState(() {}),

@@ -56,7 +56,7 @@ class _EmptyCompanyServicesWidgetState
     context.watch<FFAppState>();
 
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
       child: Row(
         mainAxisSize: MainAxisSize.max,
         children: [
@@ -77,10 +77,10 @@ class _EmptyCompanyServicesWidgetState
                   Stack(
                     children: [
                       Container(
-                        width: 16,
-                        height: 16,
+                        width: 16.0,
+                        height: 16.0,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(2),
+                          borderRadius: BorderRadius.circular(2.0),
                           border: Border.all(
                             color: Color(0xFFB1B1B1),
                           ),
@@ -89,7 +89,8 @@ class _EmptyCompanyServicesWidgetState
                     ],
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 0, 10, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 10.0, 0.0),
                     child: Text(
                       widget.name!,
                       style: FlutterFlowTheme.of(context).bodyText1.override(
@@ -104,8 +105,8 @@ class _EmptyCompanyServicesWidgetState
             ),
           ),
           Container(
-            width: 90,
-            height: 40,
+            width: 90.0,
+            height: 40.0,
             decoration: BoxDecoration(
               color: Colors.white,
             ),

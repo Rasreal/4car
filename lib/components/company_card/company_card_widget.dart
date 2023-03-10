@@ -59,8 +59,8 @@ class _CompanyCardWidgetState extends State<CompanyCardWidget> {
         color: FlutterFlowTheme.of(context).primaryBackground,
         child: Center(
           child: SizedBox(
-            width: 50,
-            height: 50,
+            width: 50.0,
+            height: 50.0,
             child: CircularProgressIndicator(
               color: FlutterFlowTheme.of(context).primaryColor,
             ),
@@ -73,13 +73,13 @@ class _CompanyCardWidgetState extends State<CompanyCardWidget> {
       mainAxisSize: MainAxisSize.max,
       children: [
         Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 14),
+          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 14.0),
           child: Row(
             mainAxisSize: MainAxisSize.max,
             children: [
               Container(
-                width: 64,
-                height: 64,
+                width: 64.0,
+                height: 64.0,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).primaryBackground,
                   image: DecorationImage(
@@ -91,12 +91,12 @@ class _CompanyCardWidgetState extends State<CompanyCardWidget> {
                       ),
                     ).image,
                   ),
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(8.0),
                 ),
               ),
               Expanded(
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(14, 0, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(14.0, 0.0, 0.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -111,14 +111,14 @@ class _CompanyCardWidgetState extends State<CompanyCardWidget> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 6),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 6.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 4, 0),
+                                          0.0, 0.0, 4.0, 0.0),
                                       child: Text(
                                         valueOrDefault<String>(
                                           widget.company!.name,
@@ -130,7 +130,7 @@ class _CompanyCardWidgetState extends State<CompanyCardWidget> {
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyText1Family,
-                                              fontSize: 16,
+                                              fontSize: 16.0,
                                               fontWeight: FontWeight.w500,
                                               useGoogleFonts:
                                                   GoogleFonts.asMap()
@@ -148,8 +148,8 @@ class _CompanyCardWidgetState extends State<CompanyCardWidget> {
                                       desktop: false,
                                     ))
                                       Container(
-                                        width: 6,
-                                        height: 6,
+                                        width: 6.0,
+                                        height: 6.0,
                                         decoration: BoxDecoration(
                                           color: valueOrDefault<Color>(
                                             functions.closedOpened(
@@ -178,8 +178,8 @@ class _CompanyCardWidgetState extends State<CompanyCardWidget> {
                                 ),
                               ),
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 4),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 4.0),
                                 child: RatingBarIndicator(
                                   itemBuilder: (context, index) => Icon(
                                     Icons.star_rounded,
@@ -195,7 +195,7 @@ class _CompanyCardWidgetState extends State<CompanyCardWidget> {
                                   unratedColor:
                                       FlutterFlowTheme.of(context).starblue,
                                   itemCount: 5,
-                                  itemSize: 14,
+                                  itemSize: 14.0,
                                 ),
                               ),
                             ],
@@ -208,8 +208,8 @@ class _CompanyCardWidgetState extends State<CompanyCardWidget> {
                               if (!snapshot.hasData) {
                                 return Center(
                                   child: SizedBox(
-                                    width: 50,
-                                    height: 50,
+                                    width: 50.0,
+                                    height: 50.0,
                                     child: CircularProgressIndicator(
                                       color: FlutterFlowTheme.of(context)
                                           .primaryColor,
@@ -243,13 +243,13 @@ class _CompanyCardWidgetState extends State<CompanyCardWidget> {
                                   FFIcons.kicSaveee,
                                   color:
                                       FlutterFlowTheme.of(context).primaryColor,
-                                  size: 24,
+                                  size: 24.0,
                                 ),
                                 offIcon: Icon(
                                   FFIcons.kproperty1unsaved,
                                   color:
                                       FlutterFlowTheme.of(context).primaryColor,
-                                  size: 24,
+                                  size: 24.0,
                                 ),
                               );
                             },
@@ -310,7 +310,7 @@ class _CompanyCardWidgetState extends State<CompanyCardWidget> {
           ),
         ),
         Divider(
-          thickness: 1,
+          thickness: 1.0,
           color: Color(0xFFF2F2F2),
         ),
       ],

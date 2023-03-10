@@ -53,8 +53,8 @@ class _SelectCityWidgetState extends State<SelectCityWidget> {
         color: FlutterFlowTheme.of(context).primaryBackground,
         child: Center(
           child: SizedBox(
-            width: 50,
-            height: 50,
+            width: 50.0,
+            height: 50.0,
             child: CircularProgressIndicator(
               color: FlutterFlowTheme.of(context).primaryColor,
             ),
@@ -70,21 +70,22 @@ class _SelectCityWidgetState extends State<SelectCityWidget> {
         child: GestureDetector(
           onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Align(
-                  alignment: AlignmentDirectional(0, 0),
+                  alignment: AlignmentDirectional(0.0, 0.0),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 16),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 16.0),
                     child: Container(
-                      width: 40,
-                      height: 4,
+                      width: 40.0,
+                      height: 4.0,
                       decoration: BoxDecoration(
                         color: Color(0xFFD9D9D9),
-                        borderRadius: BorderRadius.circular(8),
+                        borderRadius: BorderRadius.circular(8.0),
                       ),
                     ),
                   ),
@@ -95,13 +96,13 @@ class _SelectCityWidgetState extends State<SelectCityWidget> {
                   children: [
                     FlutterFlowIconButton(
                       borderColor: Colors.transparent,
-                      borderRadius: 30,
-                      borderWidth: 1,
-                      buttonSize: 48,
+                      borderRadius: 30.0,
+                      borderWidth: 1.0,
+                      buttonSize: 48.0,
                       icon: Icon(
                         FFIcons.kicBack,
                         color: FlutterFlowTheme.of(context).primaryColor,
-                        size: 24,
+                        size: 24.0,
                       ),
                       onPressed: () async {
                         context.pop();
@@ -113,7 +114,7 @@ class _SelectCityWidgetState extends State<SelectCityWidget> {
                       style: FlutterFlowTheme.of(context).bodyText1.override(
                             fontFamily:
                                 FlutterFlowTheme.of(context).bodyText1Family,
-                            fontSize: 18,
+                            fontSize: 18.0,
                             fontWeight: FontWeight.w500,
                             useGoogleFonts: GoogleFonts.asMap().containsKey(
                                 FlutterFlowTheme.of(context).bodyText1Family),
@@ -121,13 +122,13 @@ class _SelectCityWidgetState extends State<SelectCityWidget> {
                     ),
                     FlutterFlowIconButton(
                       borderColor: Colors.transparent,
-                      borderRadius: 30,
-                      borderWidth: 1,
-                      buttonSize: 48,
+                      borderRadius: 30.0,
+                      borderWidth: 1.0,
+                      buttonSize: 48.0,
                       icon: Icon(
                         FFIcons.kicBack,
                         color: FlutterFlowTheme.of(context).primaryBackground,
-                        size: 30,
+                        size: 30.0,
                       ),
                       onPressed: () {
                         print('IconButton pressed ...');
@@ -136,7 +137,7 @@ class _SelectCityWidgetState extends State<SelectCityWidget> {
                   ],
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                   child: TextFormField(
                     controller: _model.textController,
                     onChanged: (_) => EasyDebounce.debounce(
@@ -159,35 +160,35 @@ class _SelectCityWidgetState extends State<SelectCityWidget> {
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                           color: FlutterFlowTheme.of(context).gray2,
-                          width: 1,
+                          width: 1.0,
                         ),
-                        borderRadius: BorderRadius.circular(8),
+                        borderRadius: BorderRadius.circular(8.0),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                           color: Color(0x00000000),
-                          width: 1,
+                          width: 1.0,
                         ),
-                        borderRadius: BorderRadius.circular(8),
+                        borderRadius: BorderRadius.circular(8.0),
                       ),
                       errorBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                           color: Color(0x00000000),
-                          width: 1,
+                          width: 1.0,
                         ),
-                        borderRadius: BorderRadius.circular(8),
+                        borderRadius: BorderRadius.circular(8.0),
                       ),
                       focusedErrorBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                           color: Color(0x00000000),
-                          width: 1,
+                          width: 1.0,
                         ),
-                        borderRadius: BorderRadius.circular(8),
+                        borderRadius: BorderRadius.circular(8.0),
                       ),
                       prefixIcon: Icon(
                         FFIcons.kicSearch,
                         color: Color(0xFFC4C4C4),
-                        size: 24,
+                        size: 24.0,
                       ),
                     ),
                     style: FlutterFlowTheme.of(context).bodyText1,
@@ -196,7 +197,7 @@ class _SelectCityWidgetState extends State<SelectCityWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                   child: StreamBuilder<List<CityesRecord>>(
                     stream: queryCityesRecord(
                       queryBuilder: (cityesRecord) =>
@@ -207,8 +208,8 @@ class _SelectCityWidgetState extends State<SelectCityWidget> {
                       if (!snapshot.hasData) {
                         return Center(
                           child: SizedBox(
-                            width: 50,
-                            height: 50,
+                            width: 50.0,
+                            height: 50.0,
                             child: CircularProgressIndicator(
                               color: FlutterFlowTheme.of(context).primaryColor,
                             ),
@@ -246,7 +247,7 @@ class _SelectCityWidgetState extends State<SelectCityWidget> {
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 10, 0, 10),
+                                        0.0, 10.0, 0.0, 10.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -265,20 +266,20 @@ class _SelectCityWidgetState extends State<SelectCityWidget> {
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    5, 0, 0, 0),
+                                                    5.0, 0.0, 0.0, 0.0),
                                             child: Icon(
                                               FFIcons.kicNavigation,
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryColor,
-                                              size: 24,
+                                              size: 24.0,
                                             ),
                                           ),
                                       ],
                                     ),
                                   ),
                                   Divider(
-                                    thickness: 1,
+                                    thickness: 1.0,
                                     color: Color(0xFFEBEBEB),
                                   ),
                                 ],

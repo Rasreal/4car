@@ -43,24 +43,24 @@ class _LogOutWidgetState extends State<LogOutWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0, 0),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Container(
-        width: 270,
-        height: 119,
+        width: 270.0,
+        height: 119.0,
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(14),
+          borderRadius: BorderRadius.circular(14.0),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 2),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 2.0),
               child: Text(
                 'Выйти с аккаунта?',
                 style: FlutterFlowTheme.of(context).bodyText1.override(
                       fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
-                      fontSize: 17,
+                      fontSize: 17.0,
                       fontWeight: FontWeight.w600,
                       useGoogleFonts: GoogleFonts.asMap().containsKey(
                           FlutterFlowTheme.of(context).bodyText1Family),
@@ -68,21 +68,21 @@ class _LogOutWidgetState extends State<LogOutWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
               child: Text(
                 'Вы точно хотите выйти из аккаунта?',
                 style: FlutterFlowTheme.of(context).bodyText1.override(
                       fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
-                      fontSize: 13,
+                      fontSize: 13.0,
                       useGoogleFonts: GoogleFonts.asMap().containsKey(
                           FlutterFlowTheme.of(context).bodyText1Family),
                     ),
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(0, 1),
+              alignment: AlignmentDirectional(0.0, 1.0),
               child: Container(
-                width: 270,
+                width: 270.0,
                 height: 0.5,
                 decoration: BoxDecoration(
                   color: Color(0x5C3C3C43),
@@ -91,7 +91,7 @@ class _LogOutWidgetState extends State<LogOutWidget> {
             ),
             Expanded(
               child: Align(
-                alignment: AlignmentDirectional(0, 1),
+                alignment: AlignmentDirectional(0.0, 1.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -116,7 +116,7 @@ class _LogOutWidgetState extends State<LogOutWidget> {
                                     fontFamily: FlutterFlowTheme.of(context)
                                         .bodyText1Family,
                                     color: FlutterFlowTheme.of(context).red1,
-                                    fontSize: 17,
+                                    fontSize: 17.0,
                                     fontWeight: FontWeight.w500,
                                     useGoogleFonts: GoogleFonts.asMap()
                                         .containsKey(
@@ -153,7 +153,7 @@ class _LogOutWidgetState extends State<LogOutWidget> {
                                         .bodyText1Family,
                                     color: FlutterFlowTheme.of(context)
                                         .primaryColor,
-                                    fontSize: 17,
+                                    fontSize: 17.0,
                                     fontWeight: FontWeight.w500,
                                     useGoogleFonts: GoogleFonts.asMap()
                                         .containsKey(

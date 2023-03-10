@@ -54,47 +54,48 @@ class _AdminSelectServicesWidgetState extends State<AdminSelectServicesWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0, 0),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Container(
-        width: 431,
+        width: 431.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).primaryBackground,
           borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(0),
-            bottomRight: Radius.circular(0),
-            topLeft: Radius.circular(10),
-            topRight: Radius.circular(10),
+            bottomLeft: Radius.circular(0.0),
+            bottomRight: Radius.circular(0.0),
+            topLeft: Radius.circular(10.0),
+            topRight: Radius.circular(10.0),
           ),
         ),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
+          padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
           child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Align(
-                  alignment: AlignmentDirectional(0, 0),
+                  alignment: AlignmentDirectional(0.0, 0.0),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 16),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 16.0),
                     child: Container(
-                      width: 40,
-                      height: 4,
+                      width: 40.0,
+                      height: 4.0,
                       decoration: BoxDecoration(
                         color: Color(0xFFD9D9D9),
-                        borderRadius: BorderRadius.circular(8),
+                        borderRadius: BorderRadius.circular(8.0),
                       ),
                     ),
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 22),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 22.0),
                   child: Text(
                     'Выберете услугу',
                     style: FlutterFlowTheme.of(context).bodyText1.override(
                           fontFamily:
                               FlutterFlowTheme.of(context).bodyText1Family,
-                          fontSize: 18,
+                          fontSize: 18.0,
                           fontWeight: FontWeight.w500,
                           useGoogleFonts: GoogleFonts.asMap().containsKey(
                               FlutterFlowTheme.of(context).bodyText1Family),
@@ -113,8 +114,8 @@ class _AdminSelectServicesWidgetState extends State<AdminSelectServicesWidget> {
                     if (!snapshot.hasData) {
                       return Center(
                         child: SizedBox(
-                          width: 50,
-                          height: 50,
+                          width: 50.0,
+                          height: 50.0,
                           child: CircularProgressIndicator(
                             color: FlutterFlowTheme.of(context).primaryColor,
                           ),
@@ -132,13 +133,14 @@ class _AdminSelectServicesWidgetState extends State<AdminSelectServicesWidget> {
                         final listViewCompanyServicesRecord =
                             listViewCompanyServicesRecordList[listViewIndex];
                         return Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 8.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 10.0),
                                 child: InkWell(
                                   onTap: () async {
                                     if (FFAppState().selectedServices.contains(
@@ -184,22 +186,22 @@ class _AdminSelectServicesWidgetState extends State<AdminSelectServicesWidget> {
                                               listViewCompanyServicesRecord
                                                   .reference))
                                         Container(
-                                          width: 20,
-                                          height: 20,
+                                          width: 20.0,
+                                          height: 20.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryColor,
                                             borderRadius:
-                                                BorderRadius.circular(4),
+                                                BorderRadius.circular(4.0),
                                             shape: BoxShape.rectangle,
                                           ),
                                           child: Align(
                                             alignment:
-                                                AlignmentDirectional(0, 0),
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Icon(
                                               Icons.check,
                                               color: Colors.white,
-                                              size: 12,
+                                              size: 12.0,
                                             ),
                                           ),
                                         ),
@@ -209,11 +211,11 @@ class _AdminSelectServicesWidgetState extends State<AdminSelectServicesWidget> {
                                               listViewCompanyServicesRecord
                                                   .reference))
                                         Container(
-                                          width: 20,
-                                          height: 20,
+                                          width: 20.0,
+                                          height: 20.0,
                                           decoration: BoxDecoration(
                                             borderRadius:
-                                                BorderRadius.circular(4),
+                                                BorderRadius.circular(4.0),
                                             shape: BoxShape.rectangle,
                                             border: Border.all(
                                               color:
@@ -226,7 +228,7 @@ class _AdminSelectServicesWidgetState extends State<AdminSelectServicesWidget> {
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  16, 0, 0, 0),
+                                                  16.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             listViewCompanyServicesRecord.name!,
                                             style: FlutterFlowTheme.of(context)
@@ -236,7 +238,7 @@ class _AdminSelectServicesWidgetState extends State<AdminSelectServicesWidget> {
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 4, 0, 0),
+                                            0.0, 4.0, 0.0, 0.0),
                                         child: Text(
                                           '${listViewCompanyServicesRecord.price?.toString()} тг',
                                           style: FlutterFlowTheme.of(context)
@@ -260,7 +262,7 @@ class _AdminSelectServicesWidgetState extends State<AdminSelectServicesWidget> {
                                 ),
                               ),
                               Divider(
-                                thickness: 1,
+                                thickness: 1.0,
                                 color: FlutterFlowTheme.of(context).gray3,
                               ),
                             ],
@@ -271,17 +273,19 @@ class _AdminSelectServicesWidgetState extends State<AdminSelectServicesWidget> {
                   },
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 60),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 60.0),
                   child: FFButtonWidget(
                     onPressed: () async {
                       Navigator.pop(context);
                     },
                     text: 'Сохранить',
                     options: FFButtonOptions(
-                      width: 130,
-                      height: 48,
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                      iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                      width: 130.0,
+                      height: 48.0,
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      iconPadding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: FlutterFlowTheme.of(context).primaryColor,
                       textStyle: FlutterFlowTheme.of(context)
                           .subtitle2
@@ -289,15 +293,15 @@ class _AdminSelectServicesWidgetState extends State<AdminSelectServicesWidget> {
                             fontFamily:
                                 FlutterFlowTheme.of(context).subtitle2Family,
                             color: Colors.white,
-                            fontSize: 16,
+                            fontSize: 16.0,
                             useGoogleFonts: GoogleFonts.asMap().containsKey(
                                 FlutterFlowTheme.of(context).subtitle2Family),
                           ),
                       borderSide: BorderSide(
                         color: Colors.transparent,
-                        width: 1,
+                        width: 1.0,
                       ),
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(8.0),
                     ),
                   ),
                 ),

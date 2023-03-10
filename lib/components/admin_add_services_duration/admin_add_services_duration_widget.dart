@@ -54,11 +54,11 @@ class _AdminAddServicesDurationWidgetState
     context.watch<FFAppState>();
 
     return Container(
-      width: 90,
-      height: 40,
+      width: 90.0,
+      height: 40.0,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(8.0),
         border: Border.all(
           color: FlutterFlowTheme.of(context).secondaryText,
         ),
@@ -73,8 +73,8 @@ class _AdminAddServicesDurationWidgetState
           );
           await widget.service!.update(companyServicesUpdateData);
         },
-        width: 40,
-        height: 50,
+        width: 40.0,
+        height: 50.0,
         textStyle: FlutterFlowTheme.of(context).bodyText1.override(
               fontFamily: 'Inter',
               color: FlutterFlowTheme.of(context).text3,
@@ -83,11 +83,11 @@ class _AdminAddServicesDurationWidgetState
                   .containsKey(FlutterFlowTheme.of(context).bodyText1Family),
             ),
         fillColor: Colors.white,
-        elevation: 0,
+        elevation: 0.0,
         borderColor: FlutterFlowTheme.of(context).gray3,
-        borderWidth: 0,
-        borderRadius: 8,
-        margin: EdgeInsetsDirectional.fromSTEB(12, 4, 12, 4),
+        borderWidth: 0.0,
+        borderRadius: 8.0,
+        margin: EdgeInsetsDirectional.fromSTEB(12.0, 4.0, 12.0, 4.0),
         hidesUnderline: true,
       ),
     );

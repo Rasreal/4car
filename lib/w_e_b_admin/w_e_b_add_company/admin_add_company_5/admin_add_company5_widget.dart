@@ -90,8 +90,8 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                         if (!snapshot.hasData) {
                           return Center(
                             child: SizedBox(
-                              width: 50,
-                              height: 50,
+                              width: 50.0,
+                              height: 50.0,
                               child: CircularProgressIndicator(
                                 color:
                                     FlutterFlowTheme.of(context).primaryColor,
@@ -103,7 +103,7 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                         return Stack(
                           children: [
                             Align(
-                              alignment: AlignmentDirectional(0, 0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: SingleChildScrollView(
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -117,13 +117,14 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                             .secondaryBackground,
                                       ),
                                       child: Align(
-                                        alignment: AlignmentDirectional(0, 0),
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 0, 120),
+                                                  0.0, 0.0, 0.0, 120.0),
                                           child: Container(
-                                            width: 1224,
+                                            width: 1224.0,
                                             decoration: BoxDecoration(),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
@@ -132,7 +133,8 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                               children: [
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 32, 0, 32),
+                                                      .fromSTEB(
+                                                          0.0, 32.0, 0.0, 32.0),
                                                   child: Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -149,7 +151,8 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Inter',
-                                                                  fontSize: 24,
+                                                                  fontSize:
+                                                                      24.0,
                                                                   useGoogleFonts: GoogleFonts
                                                                           .asMap()
                                                                       .containsKey(
@@ -173,16 +176,16 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0,
-                                                                          1,
-                                                                          6,
-                                                                          0),
+                                                                          0.0,
+                                                                          1.0,
+                                                                          6.0,
+                                                                          0.0),
                                                               child: Icon(
                                                                 FFIcons
                                                                     .kicClose,
                                                                 color: Color(
                                                                     0xFF1A1A1A),
-                                                                size: 16,
+                                                                size: 16.0,
                                                               ),
                                                             ),
                                                             Text(
@@ -215,7 +218,7 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                       MainAxisSize.max,
                                                   children: [
                                                     Container(
-                                                      width: 1224,
+                                                      width: 1224.0,
                                                       decoration: BoxDecoration(
                                                         color: Colors.white,
                                                       ),
@@ -225,10 +228,10 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                           padding:
                                                               EdgeInsetsDirectional
                                                                   .fromSTEB(
-                                                                      24,
-                                                                      24,
-                                                                      24,
-                                                                      24),
+                                                                      24.0,
+                                                                      24.0,
+                                                                      24.0,
+                                                                      24.0),
                                                           child: Column(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -240,8 +243,9 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                         .max,
                                                                 children: [
                                                                   Container(
-                                                                    width: 56,
-                                                                    height: 56,
+                                                                    width: 56.0,
+                                                                    height:
+                                                                        56.0,
                                                                     decoration:
                                                                         BoxDecoration(
                                                                       color: FlutterFlowTheme.of(
@@ -262,7 +266,7 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                       ),
                                                                       borderRadius:
                                                                           BorderRadius.circular(
-                                                                              8),
+                                                                              8.0),
                                                                       border:
                                                                           Border
                                                                               .all(
@@ -274,10 +278,10 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                   Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            12,
-                                                                            0,
-                                                                            40,
-                                                                            0),
+                                                                            12.0,
+                                                                            0.0,
+                                                                            40.0,
+                                                                            0.0),
                                                                     child:
                                                                         Column(
                                                                       mainAxisSize:
@@ -297,17 +301,17 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                               .bodyText1
                                                                               .override(
                                                                                 fontFamily: 'Inter',
-                                                                                fontSize: 18,
+                                                                                fontSize: 18.0,
                                                                                 fontWeight: FontWeight.w500,
                                                                                 useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                               ),
                                                                         ),
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0,
-                                                                              8,
-                                                                              0,
-                                                                              0),
+                                                                              0.0,
+                                                                              8.0,
+                                                                              0.0,
+                                                                              0.0),
                                                                           child:
                                                                               Text(
                                                                             valueOrDefault<String>(
@@ -331,10 +335,10 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                 padding:
                                                                     EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0,
-                                                                            24,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            24.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                 child: Row(
                                                                   mainAxisSize:
                                                                       MainAxisSize
@@ -345,15 +349,15 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                   children: [
                                                                     Container(
                                                                       width:
-                                                                          392,
+                                                                          392.0,
                                                                       height:
-                                                                          406,
+                                                                          406.0,
                                                                       decoration:
                                                                           BoxDecoration(
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryBackground,
                                                                         borderRadius:
-                                                                            BorderRadius.circular(8),
+                                                                            BorderRadius.circular(8.0),
                                                                         border:
                                                                             Border.all(
                                                                           color:
@@ -363,10 +367,10 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                       child:
                                                                           Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            24,
-                                                                            24,
-                                                                            24,
-                                                                            24),
+                                                                            24.0,
+                                                                            24.0,
+                                                                            24.0,
+                                                                            24.0),
                                                                         child:
                                                                             Column(
                                                                           mainAxisSize:
@@ -378,18 +382,18 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                               'Основная информация',
                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                     fontFamily: 'Inter',
-                                                                                    fontSize: 18,
+                                                                                    fontSize: 18.0,
                                                                                     fontWeight: FontWeight.w500,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                   ),
                                                                             ),
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 8),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 8.0),
                                                                               child: Text(
                                                                                 'Наименование автомойки',
                                                                                 style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                       fontFamily: 'Inter',
-                                                                                      fontSize: 14,
+                                                                                      fontSize: 14.0,
                                                                                       fontWeight: FontWeight.w500,
                                                                                       useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                     ),
@@ -402,18 +406,18 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                               ),
                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                     fontFamily: 'Inter',
-                                                                                    fontSize: 16,
+                                                                                    fontSize: 16.0,
                                                                                     fontWeight: FontWeight.w500,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                   ),
                                                                             ),
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 8),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 8.0),
                                                                               child: Text(
                                                                                 'ФИО руководителя',
                                                                                 style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                       fontFamily: 'Inter',
-                                                                                      fontSize: 14,
+                                                                                      fontSize: 14.0,
                                                                                       fontWeight: FontWeight.w500,
                                                                                       useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                     ),
@@ -426,18 +430,18 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                               ),
                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                     fontFamily: 'Inter',
-                                                                                    fontSize: 16,
+                                                                                    fontSize: 16.0,
                                                                                     fontWeight: FontWeight.w500,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                   ),
                                                                             ),
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 8),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 8.0),
                                                                               child: Text(
                                                                                 'Номер договора',
                                                                                 style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                       fontFamily: 'Inter',
-                                                                                      fontSize: 14,
+                                                                                      fontSize: 14.0,
                                                                                       fontWeight: FontWeight.w500,
                                                                                       useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                     ),
@@ -450,18 +454,18 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                               ),
                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                     fontFamily: 'Inter',
-                                                                                    fontSize: 16,
+                                                                                    fontSize: 16.0,
                                                                                     fontWeight: FontWeight.w500,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                   ),
                                                                             ),
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 8),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 8.0),
                                                                               child: Text(
                                                                                 'Дата заключения договора',
                                                                                 style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                       fontFamily: 'Inter',
-                                                                                      fontSize: 14,
+                                                                                      fontSize: 14.0,
                                                                                       fontWeight: FontWeight.w500,
                                                                                       useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                     ),
@@ -478,7 +482,7 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                               ),
                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                     fontFamily: 'Inter',
-                                                                                    fontSize: 16,
+                                                                                    fontSize: 16.0,
                                                                                     fontWeight: FontWeight.w500,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                   ),
@@ -488,12 +492,11 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional
-                                                                          .fromSTEB(
-                                                                              24,
-                                                                              0,
-                                                                              0,
-                                                                              0),
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          24.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
                                                                       child:
                                                                           Column(
                                                                         mainAxisSize:
@@ -501,20 +504,20 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                         children: [
                                                                           Container(
                                                                             width:
-                                                                                760,
+                                                                                760.0,
                                                                             height:
-                                                                                144,
+                                                                                144.0,
                                                                             decoration:
                                                                                 BoxDecoration(
                                                                               color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                              borderRadius: BorderRadius.circular(8),
+                                                                              borderRadius: BorderRadius.circular(8.0),
                                                                               border: Border.all(
                                                                                 color: Color(0xFFEEEEEE),
                                                                               ),
                                                                             ),
                                                                             child:
                                                                                 Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(24, 24, 24, 24),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 24.0),
                                                                               child: Column(
                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -523,20 +526,20 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                     'Основная информация',
                                                                                     style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                           fontFamily: 'Inter',
-                                                                                          fontSize: 18,
+                                                                                          fontSize: 18.0,
                                                                                           fontWeight: FontWeight.w500,
                                                                                           useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                         ),
                                                                                   ),
                                                                                   Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0, 26, 0, 0),
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 26.0, 0.0, 0.0),
                                                                                     child: Row(
                                                                                       mainAxisSize: MainAxisSize.max,
                                                                                       children: [
                                                                                         Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 20, 0),
+                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
                                                                                           child: Container(
-                                                                                            width: 346,
+                                                                                            width: 346.0,
                                                                                             child: TextFormField(
                                                                                               controller: _model.textController1 ??= TextEditingController(
                                                                                                 text: valueOrDefault<String>(
@@ -551,51 +554,51 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                                 labelStyle: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                       fontFamily: 'Inter',
                                                                                                       color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                                      fontSize: 12,
+                                                                                                      fontSize: 12.0,
                                                                                                       fontWeight: FontWeight.normal,
                                                                                                       useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                     ),
                                                                                                 hintStyle: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                       fontFamily: 'Inter',
                                                                                                       color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                                      fontSize: 12,
+                                                                                                      fontSize: 12.0,
                                                                                                       fontWeight: FontWeight.normal,
                                                                                                       useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                     ),
                                                                                                 enabledBorder: OutlineInputBorder(
                                                                                                   borderSide: BorderSide(
                                                                                                     color: FlutterFlowTheme.of(context).gray2,
-                                                                                                    width: 1,
+                                                                                                    width: 1.0,
                                                                                                   ),
-                                                                                                  borderRadius: BorderRadius.circular(8),
+                                                                                                  borderRadius: BorderRadius.circular(8.0),
                                                                                                 ),
                                                                                                 focusedBorder: OutlineInputBorder(
                                                                                                   borderSide: BorderSide(
                                                                                                     color: Color(0x00000000),
-                                                                                                    width: 1,
+                                                                                                    width: 1.0,
                                                                                                   ),
-                                                                                                  borderRadius: BorderRadius.circular(8),
+                                                                                                  borderRadius: BorderRadius.circular(8.0),
                                                                                                 ),
                                                                                                 errorBorder: OutlineInputBorder(
                                                                                                   borderSide: BorderSide(
                                                                                                     color: Color(0x00000000),
-                                                                                                    width: 1,
+                                                                                                    width: 1.0,
                                                                                                   ),
-                                                                                                  borderRadius: BorderRadius.circular(8),
+                                                                                                  borderRadius: BorderRadius.circular(8.0),
                                                                                                 ),
                                                                                                 focusedErrorBorder: OutlineInputBorder(
                                                                                                   borderSide: BorderSide(
                                                                                                     color: Color(0x00000000),
-                                                                                                    width: 1,
+                                                                                                    width: 1.0,
                                                                                                   ),
-                                                                                                  borderRadius: BorderRadius.circular(8),
+                                                                                                  borderRadius: BorderRadius.circular(8.0),
                                                                                                 ),
-                                                                                                contentPadding: EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
+                                                                                                contentPadding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                                                                                               ),
                                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                     fontFamily: 'Inter',
                                                                                                     color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                    fontSize: 16,
+                                                                                                    fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
                                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                   ),
@@ -604,7 +607,7 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                           ),
                                                                                         ),
                                                                                         Container(
-                                                                                          width: 346,
+                                                                                          width: 346.0,
                                                                                           child: TextFormField(
                                                                                             controller: _model.textController2 ??= TextEditingController(
                                                                                               text: valueOrDefault<String>(
@@ -619,51 +622,51 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                               labelStyle: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                     fontFamily: 'Inter',
                                                                                                     color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                                    fontSize: 12,
+                                                                                                    fontSize: 12.0,
                                                                                                     fontWeight: FontWeight.normal,
                                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                   ),
                                                                                               hintStyle: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                     fontFamily: 'Inter',
                                                                                                     color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                                    fontSize: 12,
+                                                                                                    fontSize: 12.0,
                                                                                                     fontWeight: FontWeight.normal,
                                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                   ),
                                                                                               enabledBorder: OutlineInputBorder(
                                                                                                 borderSide: BorderSide(
                                                                                                   color: FlutterFlowTheme.of(context).gray2,
-                                                                                                  width: 1,
+                                                                                                  width: 1.0,
                                                                                                 ),
-                                                                                                borderRadius: BorderRadius.circular(8),
+                                                                                                borderRadius: BorderRadius.circular(8.0),
                                                                                               ),
                                                                                               focusedBorder: OutlineInputBorder(
                                                                                                 borderSide: BorderSide(
                                                                                                   color: Color(0x00000000),
-                                                                                                  width: 1,
+                                                                                                  width: 1.0,
                                                                                                 ),
-                                                                                                borderRadius: BorderRadius.circular(8),
+                                                                                                borderRadius: BorderRadius.circular(8.0),
                                                                                               ),
                                                                                               errorBorder: OutlineInputBorder(
                                                                                                 borderSide: BorderSide(
                                                                                                   color: Color(0x00000000),
-                                                                                                  width: 1,
+                                                                                                  width: 1.0,
                                                                                                 ),
-                                                                                                borderRadius: BorderRadius.circular(8),
+                                                                                                borderRadius: BorderRadius.circular(8.0),
                                                                                               ),
                                                                                               focusedErrorBorder: OutlineInputBorder(
                                                                                                 borderSide: BorderSide(
                                                                                                   color: Color(0x00000000),
-                                                                                                  width: 1,
+                                                                                                  width: 1.0,
                                                                                                 ),
-                                                                                                borderRadius: BorderRadius.circular(8),
+                                                                                                borderRadius: BorderRadius.circular(8.0),
                                                                                               ),
-                                                                                              contentPadding: EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
+                                                                                              contentPadding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                                                                                             ),
                                                                                             style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                   fontFamily: 'Inter',
                                                                                                   color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                  fontSize: 16,
+                                                                                                  fontSize: 16.0,
                                                                                                   fontWeight: FontWeight.normal,
                                                                                                   useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                 ),
@@ -679,23 +682,23 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                           ),
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0,
-                                                                                24,
-                                                                                0,
-                                                                                0),
+                                                                                0.0,
+                                                                                24.0,
+                                                                                0.0,
+                                                                                0.0),
                                                                             child:
                                                                                 Container(
-                                                                              width: 760,
-                                                                              height: 144,
+                                                                              width: 760.0,
+                                                                              height: 144.0,
                                                                               decoration: BoxDecoration(
                                                                                 color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                borderRadius: BorderRadius.circular(8),
+                                                                                borderRadius: BorderRadius.circular(8.0),
                                                                                 border: Border.all(
                                                                                   color: Color(0xFFEEEEEE),
                                                                                 ),
                                                                               ),
                                                                               child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(24, 24, 24, 24),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 24.0),
                                                                                 child: Column(
                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -704,20 +707,20 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                       'Местоположение',
                                                                                       style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                             fontFamily: 'Inter',
-                                                                                            fontSize: 18,
+                                                                                            fontSize: 18.0,
                                                                                             fontWeight: FontWeight.w500,
                                                                                             useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                           ),
                                                                                     ),
                                                                                     Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0, 26, 0, 0),
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 26.0, 0.0, 0.0),
                                                                                       child: Row(
                                                                                         mainAxisSize: MainAxisSize.max,
                                                                                         children: [
                                                                                           Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 20, 0),
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
                                                                                             child: Container(
-                                                                                              width: 346,
+                                                                                              width: 346.0,
                                                                                               child: TextFormField(
                                                                                                 controller: _model.textController3 ??= TextEditingController(
                                                                                                   text: valueOrDefault<String>(
@@ -732,51 +735,51 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                                   labelStyle: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                         fontFamily: 'Inter',
                                                                                                         color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                                        fontSize: 12,
+                                                                                                        fontSize: 12.0,
                                                                                                         fontWeight: FontWeight.normal,
                                                                                                         useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                       ),
                                                                                                   hintStyle: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                         fontFamily: 'Inter',
                                                                                                         color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                                        fontSize: 12,
+                                                                                                        fontSize: 12.0,
                                                                                                         fontWeight: FontWeight.normal,
                                                                                                         useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                       ),
                                                                                                   enabledBorder: OutlineInputBorder(
                                                                                                     borderSide: BorderSide(
                                                                                                       color: FlutterFlowTheme.of(context).gray2,
-                                                                                                      width: 1,
+                                                                                                      width: 1.0,
                                                                                                     ),
-                                                                                                    borderRadius: BorderRadius.circular(8),
+                                                                                                    borderRadius: BorderRadius.circular(8.0),
                                                                                                   ),
                                                                                                   focusedBorder: OutlineInputBorder(
                                                                                                     borderSide: BorderSide(
                                                                                                       color: Color(0x00000000),
-                                                                                                      width: 1,
+                                                                                                      width: 1.0,
                                                                                                     ),
-                                                                                                    borderRadius: BorderRadius.circular(8),
+                                                                                                    borderRadius: BorderRadius.circular(8.0),
                                                                                                   ),
                                                                                                   errorBorder: OutlineInputBorder(
                                                                                                     borderSide: BorderSide(
                                                                                                       color: Color(0x00000000),
-                                                                                                      width: 1,
+                                                                                                      width: 1.0,
                                                                                                     ),
-                                                                                                    borderRadius: BorderRadius.circular(8),
+                                                                                                    borderRadius: BorderRadius.circular(8.0),
                                                                                                   ),
                                                                                                   focusedErrorBorder: OutlineInputBorder(
                                                                                                     borderSide: BorderSide(
                                                                                                       color: Color(0x00000000),
-                                                                                                      width: 1,
+                                                                                                      width: 1.0,
                                                                                                     ),
-                                                                                                    borderRadius: BorderRadius.circular(8),
+                                                                                                    borderRadius: BorderRadius.circular(8.0),
                                                                                                   ),
-                                                                                                  contentPadding: EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
+                                                                                                  contentPadding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                                                                                                 ),
                                                                                                 style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                       fontFamily: 'Inter',
                                                                                                       color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                      fontSize: 16,
+                                                                                                      fontSize: 16.0,
                                                                                                       fontWeight: FontWeight.normal,
                                                                                                       useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                     ),
@@ -785,7 +788,7 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                             ),
                                                                                           ),
                                                                                           Container(
-                                                                                            width: 346,
+                                                                                            width: 346.0,
                                                                                             child: TextFormField(
                                                                                               controller: _model.textController4 ??= TextEditingController(
                                                                                                 text: valueOrDefault<String>(
@@ -800,51 +803,51 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                                 labelStyle: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                       fontFamily: 'Inter',
                                                                                                       color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                                      fontSize: 12,
+                                                                                                      fontSize: 12.0,
                                                                                                       fontWeight: FontWeight.normal,
                                                                                                       useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                     ),
                                                                                                 hintStyle: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                       fontFamily: 'Inter',
                                                                                                       color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                                      fontSize: 12,
+                                                                                                      fontSize: 12.0,
                                                                                                       fontWeight: FontWeight.normal,
                                                                                                       useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                     ),
                                                                                                 enabledBorder: OutlineInputBorder(
                                                                                                   borderSide: BorderSide(
                                                                                                     color: FlutterFlowTheme.of(context).gray2,
-                                                                                                    width: 1,
+                                                                                                    width: 1.0,
                                                                                                   ),
-                                                                                                  borderRadius: BorderRadius.circular(8),
+                                                                                                  borderRadius: BorderRadius.circular(8.0),
                                                                                                 ),
                                                                                                 focusedBorder: OutlineInputBorder(
                                                                                                   borderSide: BorderSide(
                                                                                                     color: Color(0x00000000),
-                                                                                                    width: 1,
+                                                                                                    width: 1.0,
                                                                                                   ),
-                                                                                                  borderRadius: BorderRadius.circular(8),
+                                                                                                  borderRadius: BorderRadius.circular(8.0),
                                                                                                 ),
                                                                                                 errorBorder: OutlineInputBorder(
                                                                                                   borderSide: BorderSide(
                                                                                                     color: Color(0x00000000),
-                                                                                                    width: 1,
+                                                                                                    width: 1.0,
                                                                                                   ),
-                                                                                                  borderRadius: BorderRadius.circular(8),
+                                                                                                  borderRadius: BorderRadius.circular(8.0),
                                                                                                 ),
                                                                                                 focusedErrorBorder: OutlineInputBorder(
                                                                                                   borderSide: BorderSide(
                                                                                                     color: Color(0x00000000),
-                                                                                                    width: 1,
+                                                                                                    width: 1.0,
                                                                                                   ),
-                                                                                                  borderRadius: BorderRadius.circular(8),
+                                                                                                  borderRadius: BorderRadius.circular(8.0),
                                                                                                 ),
-                                                                                                contentPadding: EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
+                                                                                                contentPadding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                                                                                               ),
                                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                     fontFamily: 'Inter',
                                                                                                     color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                    fontSize: 16,
+                                                                                                    fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
                                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                   ),
@@ -874,7 +877,10 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0, 24, 0, 0),
+                                                                  0.0,
+                                                                  24.0,
+                                                                  0.0,
+                                                                  0.0),
                                                       child: Container(
                                                         width: double.infinity,
                                                         decoration:
@@ -887,10 +893,10 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                           padding:
                                                               EdgeInsetsDirectional
                                                                   .fromSTEB(
-                                                                      24,
-                                                                      24,
-                                                                      24,
-                                                                      24),
+                                                                      24.0,
+                                                                      24.0,
+                                                                      24.0,
+                                                                      24.0),
                                                           child: Column(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -908,7 +914,7 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                       fontFamily:
                                                                           'Inter',
                                                                       fontSize:
-                                                                          18,
+                                                                          18.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w500,
@@ -926,22 +932,22 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                   Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0,
-                                                                            29,
-                                                                            24,
-                                                                            0),
+                                                                            0.0,
+                                                                            29.0,
+                                                                            24.0,
+                                                                            0.0),
                                                                     child:
                                                                         Container(
                                                                       width:
-                                                                          335,
+                                                                          335.0,
                                                                       height:
-                                                                          142,
+                                                                          142.0,
                                                                       decoration:
                                                                           BoxDecoration(
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryBackground,
                                                                         borderRadius:
-                                                                            BorderRadius.circular(8),
+                                                                            BorderRadius.circular(8.0),
                                                                         border:
                                                                             Border.all(
                                                                           color:
@@ -951,10 +957,10 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                       child:
                                                                           Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            24,
-                                                                            24,
-                                                                            24,
-                                                                            24),
+                                                                            24.0,
+                                                                            24.0,
+                                                                            24.0,
+                                                                            24.0),
                                                                         child:
                                                                             Column(
                                                                           mainAxisSize:
@@ -966,15 +972,15 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                               'Количество боксов',
                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                     fontFamily: 'Inter',
-                                                                                    fontSize: 18,
+                                                                                    fontSize: 18.0,
                                                                                     fontWeight: FontWeight.w500,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                   ),
                                                                             ),
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                                                                               child: Container(
-                                                                                width: 346,
+                                                                                width: 346.0,
                                                                                 child: TextFormField(
                                                                                   controller: _model.textController5 ??= TextEditingController(
                                                                                     text: valueOrDefault<String>(
@@ -988,51 +994,51 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                     labelStyle: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                           fontFamily: 'Inter',
                                                                                           color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                          fontSize: 12,
+                                                                                          fontSize: 12.0,
                                                                                           fontWeight: FontWeight.normal,
                                                                                           useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                         ),
                                                                                     hintStyle: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                           fontFamily: 'Inter',
                                                                                           color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                          fontSize: 12,
+                                                                                          fontSize: 12.0,
                                                                                           fontWeight: FontWeight.normal,
                                                                                           useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                         ),
                                                                                     enabledBorder: OutlineInputBorder(
                                                                                       borderSide: BorderSide(
                                                                                         color: FlutterFlowTheme.of(context).gray4,
-                                                                                        width: 1,
+                                                                                        width: 1.0,
                                                                                       ),
-                                                                                      borderRadius: BorderRadius.circular(8),
+                                                                                      borderRadius: BorderRadius.circular(8.0),
                                                                                     ),
                                                                                     focusedBorder: OutlineInputBorder(
                                                                                       borderSide: BorderSide(
                                                                                         color: Color(0x00000000),
-                                                                                        width: 1,
+                                                                                        width: 1.0,
                                                                                       ),
-                                                                                      borderRadius: BorderRadius.circular(8),
+                                                                                      borderRadius: BorderRadius.circular(8.0),
                                                                                     ),
                                                                                     errorBorder: OutlineInputBorder(
                                                                                       borderSide: BorderSide(
                                                                                         color: Color(0x00000000),
-                                                                                        width: 1,
+                                                                                        width: 1.0,
                                                                                       ),
-                                                                                      borderRadius: BorderRadius.circular(8),
+                                                                                      borderRadius: BorderRadius.circular(8.0),
                                                                                     ),
                                                                                     focusedErrorBorder: OutlineInputBorder(
                                                                                       borderSide: BorderSide(
                                                                                         color: Color(0x00000000),
-                                                                                        width: 1,
+                                                                                        width: 1.0,
                                                                                       ),
-                                                                                      borderRadius: BorderRadius.circular(8),
+                                                                                      borderRadius: BorderRadius.circular(8.0),
                                                                                     ),
-                                                                                    contentPadding: EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
+                                                                                    contentPadding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                                                                                   ),
                                                                                   style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                         fontFamily: 'Inter',
                                                                                         color: FlutterFlowTheme.of(context).primaryText,
-                                                                                        fontSize: 16,
+                                                                                        fontSize: 16.0,
                                                                                         fontWeight: FontWeight.normal,
                                                                                         useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                       ),
@@ -1048,22 +1054,22 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                   Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0,
-                                                                            29,
-                                                                            24,
-                                                                            0),
+                                                                            0.0,
+                                                                            29.0,
+                                                                            24.0,
+                                                                            0.0),
                                                                     child:
                                                                         Container(
                                                                       width:
-                                                                          335,
+                                                                          335.0,
                                                                       height:
-                                                                          142,
+                                                                          142.0,
                                                                       decoration:
                                                                           BoxDecoration(
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryBackground,
                                                                         borderRadius:
-                                                                            BorderRadius.circular(8),
+                                                                            BorderRadius.circular(8.0),
                                                                         border:
                                                                             Border.all(
                                                                           color:
@@ -1073,10 +1079,10 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                       child:
                                                                           Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            24,
-                                                                            24,
-                                                                            24,
-                                                                            24),
+                                                                            24.0,
+                                                                            24.0,
+                                                                            24.0,
+                                                                            24.0),
                                                                         child:
                                                                             Column(
                                                                           mainAxisSize:
@@ -1088,15 +1094,15 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                               'Номер телефона',
                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                     fontFamily: 'Inter',
-                                                                                    fontSize: 18,
+                                                                                    fontSize: 18.0,
                                                                                     fontWeight: FontWeight.w500,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                   ),
                                                                             ),
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                                                                               child: Container(
-                                                                                width: 346,
+                                                                                width: 346.0,
                                                                                 child: TextFormField(
                                                                                   controller: _model.textController6 ??= TextEditingController(
                                                                                     text: valueOrDefault<String>(
@@ -1110,51 +1116,51 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                     labelStyle: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                           fontFamily: 'Inter',
                                                                                           color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                          fontSize: 12,
+                                                                                          fontSize: 12.0,
                                                                                           fontWeight: FontWeight.normal,
                                                                                           useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                         ),
                                                                                     hintStyle: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                           fontFamily: 'Inter',
                                                                                           color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                          fontSize: 12,
+                                                                                          fontSize: 12.0,
                                                                                           fontWeight: FontWeight.normal,
                                                                                           useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                         ),
                                                                                     enabledBorder: OutlineInputBorder(
                                                                                       borderSide: BorderSide(
                                                                                         color: FlutterFlowTheme.of(context).gray4,
-                                                                                        width: 1,
+                                                                                        width: 1.0,
                                                                                       ),
-                                                                                      borderRadius: BorderRadius.circular(8),
+                                                                                      borderRadius: BorderRadius.circular(8.0),
                                                                                     ),
                                                                                     focusedBorder: OutlineInputBorder(
                                                                                       borderSide: BorderSide(
                                                                                         color: Color(0x00000000),
-                                                                                        width: 1,
+                                                                                        width: 1.0,
                                                                                       ),
-                                                                                      borderRadius: BorderRadius.circular(8),
+                                                                                      borderRadius: BorderRadius.circular(8.0),
                                                                                     ),
                                                                                     errorBorder: OutlineInputBorder(
                                                                                       borderSide: BorderSide(
                                                                                         color: Color(0x00000000),
-                                                                                        width: 1,
+                                                                                        width: 1.0,
                                                                                       ),
-                                                                                      borderRadius: BorderRadius.circular(8),
+                                                                                      borderRadius: BorderRadius.circular(8.0),
                                                                                     ),
                                                                                     focusedErrorBorder: OutlineInputBorder(
                                                                                       borderSide: BorderSide(
                                                                                         color: Color(0x00000000),
-                                                                                        width: 1,
+                                                                                        width: 1.0,
                                                                                       ),
-                                                                                      borderRadius: BorderRadius.circular(8),
+                                                                                      borderRadius: BorderRadius.circular(8.0),
                                                                                     ),
-                                                                                    contentPadding: EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
+                                                                                    contentPadding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                                                                                   ),
                                                                                   style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                         fontFamily: 'Inter',
                                                                                         color: FlutterFlowTheme.of(context).primaryText,
-                                                                                        fontSize: 16,
+                                                                                        fontSize: 16.0,
                                                                                         fontWeight: FontWeight.normal,
                                                                                         useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                       ),
@@ -1174,22 +1180,22 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                   Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0,
-                                                                            29,
-                                                                            24,
-                                                                            0),
+                                                                            0.0,
+                                                                            29.0,
+                                                                            24.0,
+                                                                            0.0),
                                                                     child:
                                                                         Container(
                                                                       width:
-                                                                          458,
+                                                                          458.0,
                                                                       height:
-                                                                          142,
+                                                                          142.0,
                                                                       decoration:
                                                                           BoxDecoration(
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryBackground,
                                                                         borderRadius:
-                                                                            BorderRadius.circular(8),
+                                                                            BorderRadius.circular(8.0),
                                                                         border:
                                                                             Border.all(
                                                                           color:
@@ -1199,10 +1205,10 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                       child:
                                                                           Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            24,
-                                                                            24,
-                                                                            24,
-                                                                            24),
+                                                                            24.0,
+                                                                            24.0,
+                                                                            24.0,
+                                                                            24.0),
                                                                         child:
                                                                             Column(
                                                                           mainAxisSize:
@@ -1214,7 +1220,7 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                               'График работы',
                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                     fontFamily: 'Inter',
-                                                                                    fontSize: 18,
+                                                                                    fontSize: 18.0,
                                                                                     fontWeight: FontWeight.w500,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                   ),
@@ -1223,9 +1229,9 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                               mainAxisSize: MainAxisSize.max,
                                                                               children: [
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0, 24, 24, 0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 24.0, 0.0),
                                                                                   child: Container(
-                                                                                    width: 181,
+                                                                                    width: 181.0,
                                                                                     child: TextFormField(
                                                                                       controller: _model.textController7 ??= TextEditingController(
                                                                                         text: valueOrDefault<String>(
@@ -1240,51 +1246,51 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                         labelStyle: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                               fontFamily: 'Inter',
                                                                                               color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                              fontSize: 12,
+                                                                                              fontSize: 12.0,
                                                                                               fontWeight: FontWeight.normal,
                                                                                               useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                             ),
                                                                                         hintStyle: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                               fontFamily: 'Inter',
                                                                                               color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                              fontSize: 12,
+                                                                                              fontSize: 12.0,
                                                                                               fontWeight: FontWeight.normal,
                                                                                               useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                             ),
                                                                                         enabledBorder: OutlineInputBorder(
                                                                                           borderSide: BorderSide(
                                                                                             color: FlutterFlowTheme.of(context).gray4,
-                                                                                            width: 1,
+                                                                                            width: 1.0,
                                                                                           ),
-                                                                                          borderRadius: BorderRadius.circular(8),
+                                                                                          borderRadius: BorderRadius.circular(8.0),
                                                                                         ),
                                                                                         focusedBorder: OutlineInputBorder(
                                                                                           borderSide: BorderSide(
                                                                                             color: Color(0x00000000),
-                                                                                            width: 1,
+                                                                                            width: 1.0,
                                                                                           ),
-                                                                                          borderRadius: BorderRadius.circular(8),
+                                                                                          borderRadius: BorderRadius.circular(8.0),
                                                                                         ),
                                                                                         errorBorder: OutlineInputBorder(
                                                                                           borderSide: BorderSide(
                                                                                             color: Color(0x00000000),
-                                                                                            width: 1,
+                                                                                            width: 1.0,
                                                                                           ),
-                                                                                          borderRadius: BorderRadius.circular(8),
+                                                                                          borderRadius: BorderRadius.circular(8.0),
                                                                                         ),
                                                                                         focusedErrorBorder: OutlineInputBorder(
                                                                                           borderSide: BorderSide(
                                                                                             color: Color(0x00000000),
-                                                                                            width: 1,
+                                                                                            width: 1.0,
                                                                                           ),
-                                                                                          borderRadius: BorderRadius.circular(8),
+                                                                                          borderRadius: BorderRadius.circular(8.0),
                                                                                         ),
-                                                                                        contentPadding: EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
+                                                                                        contentPadding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                                                                                       ),
                                                                                       style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                             fontFamily: 'Inter',
                                                                                             color: FlutterFlowTheme.of(context).primaryText,
-                                                                                            fontSize: 16,
+                                                                                            fontSize: 16.0,
                                                                                             fontWeight: FontWeight.normal,
                                                                                             useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                           ),
@@ -1294,9 +1300,9 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                 ),
                                                                                 Expanded(
                                                                                   child: Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                                                                                     child: Container(
-                                                                                      width: 181,
+                                                                                      width: 181.0,
                                                                                       child: TextFormField(
                                                                                         controller: _model.textController8 ??= TextEditingController(
                                                                                           text: valueOrDefault<String>(
@@ -1311,51 +1317,51 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                           labelStyle: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                 fontFamily: 'Inter',
                                                                                                 color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                                fontSize: 12,
+                                                                                                fontSize: 12.0,
                                                                                                 fontWeight: FontWeight.normal,
                                                                                                 useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                               ),
                                                                                           hintStyle: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                 fontFamily: 'Inter',
                                                                                                 color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                                fontSize: 12,
+                                                                                                fontSize: 12.0,
                                                                                                 fontWeight: FontWeight.normal,
                                                                                                 useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                               ),
                                                                                           enabledBorder: OutlineInputBorder(
                                                                                             borderSide: BorderSide(
                                                                                               color: FlutterFlowTheme.of(context).gray4,
-                                                                                              width: 1,
+                                                                                              width: 1.0,
                                                                                             ),
-                                                                                            borderRadius: BorderRadius.circular(8),
+                                                                                            borderRadius: BorderRadius.circular(8.0),
                                                                                           ),
                                                                                           focusedBorder: OutlineInputBorder(
                                                                                             borderSide: BorderSide(
                                                                                               color: Color(0x00000000),
-                                                                                              width: 1,
+                                                                                              width: 1.0,
                                                                                             ),
-                                                                                            borderRadius: BorderRadius.circular(8),
+                                                                                            borderRadius: BorderRadius.circular(8.0),
                                                                                           ),
                                                                                           errorBorder: OutlineInputBorder(
                                                                                             borderSide: BorderSide(
                                                                                               color: Color(0x00000000),
-                                                                                              width: 1,
+                                                                                              width: 1.0,
                                                                                             ),
-                                                                                            borderRadius: BorderRadius.circular(8),
+                                                                                            borderRadius: BorderRadius.circular(8.0),
                                                                                           ),
                                                                                           focusedErrorBorder: OutlineInputBorder(
                                                                                             borderSide: BorderSide(
                                                                                               color: Color(0x00000000),
-                                                                                              width: 1,
+                                                                                              width: 1.0,
                                                                                             ),
-                                                                                            borderRadius: BorderRadius.circular(8),
+                                                                                            borderRadius: BorderRadius.circular(8.0),
                                                                                           ),
-                                                                                          contentPadding: EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
+                                                                                          contentPadding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                                                                                         ),
                                                                                         style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                               fontFamily: 'Inter',
                                                                                               color: FlutterFlowTheme.of(context).primaryText,
-                                                                                              fontSize: 16,
+                                                                                              fontSize: 16.0,
                                                                                               fontWeight: FontWeight.normal,
                                                                                               useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                             ),
@@ -1382,7 +1388,10 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0, 24, 0, 0),
+                                                                  0.0,
+                                                                  24.0,
+                                                                  0.0,
+                                                                  0.0),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -1394,12 +1403,12 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0,
-                                                                        0,
-                                                                        0,
-                                                                        100),
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        100.0),
                                                             child: Container(
-                                                              width: 704,
+                                                              width: 704.0,
                                                               decoration:
                                                                   BoxDecoration(
                                                                 color: FlutterFlowTheme.of(
@@ -1408,16 +1417,15 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
-                                                                            8),
+                                                                            8.0),
                                                               ),
                                                               child: Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            24,
-                                                                            24,
-                                                                            24,
-                                                                            24),
+                                                                padding: EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        24.0,
+                                                                        24.0,
+                                                                        24.0,
+                                                                        24.0),
                                                                 child: Column(
                                                                   mainAxisSize:
                                                                       MainAxisSize
@@ -1435,7 +1443,7 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                             fontFamily:
                                                                                 'Inter',
                                                                             fontSize:
-                                                                                18,
+                                                                                18.0,
                                                                             fontWeight:
                                                                                 FontWeight.w500,
                                                                             useGoogleFonts:
@@ -1443,12 +1451,11 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                           ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional
-                                                                          .fromSTEB(
-                                                                              0,
-                                                                              24,
-                                                                              0,
-                                                                              0),
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          24.0,
+                                                                          0.0,
+                                                                          0.0),
                                                                       child:
                                                                           Row(
                                                                         mainAxisSize:
@@ -1468,24 +1475,24 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                   setState(() => _model.firestoreRequestCompleter = null);
                                                                                 },
                                                                                 child: Container(
-                                                                                  width: 171,
-                                                                                  height: 40,
+                                                                                  width: 171.0,
+                                                                                  height: 40.0,
                                                                                   decoration: BoxDecoration(
                                                                                     color: valueOrDefault<Color>(
                                                                                       FFAppState().adminSelectServicesBody == 'Седан' ? FlutterFlowTheme.of(context).gray4 : FlutterFlowTheme.of(context).primaryBackground,
                                                                                       FlutterFlowTheme.of(context).primaryBackground,
                                                                                     ),
                                                                                     borderRadius: BorderRadius.only(
-                                                                                      bottomLeft: Radius.circular(8),
-                                                                                      bottomRight: Radius.circular(0),
-                                                                                      topLeft: Radius.circular(8),
-                                                                                      topRight: Radius.circular(0),
+                                                                                      bottomLeft: Radius.circular(8.0),
+                                                                                      bottomRight: Radius.circular(0.0),
+                                                                                      topLeft: Radius.circular(8.0),
+                                                                                      topRight: Radius.circular(0.0),
                                                                                     ),
                                                                                   ),
                                                                                   child: Align(
-                                                                                    alignment: AlignmentDirectional(-1, 0),
+                                                                                    alignment: AlignmentDirectional(-1.0, 0.0),
                                                                                     child: Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
                                                                                       child: Text(
                                                                                         'Седан',
                                                                                         style: FlutterFlowTheme.of(context).bodyText1.override(
@@ -1510,24 +1517,24 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                   setState(() => _model.firestoreRequestCompleter = null);
                                                                                 },
                                                                                 child: Container(
-                                                                                  width: 171,
-                                                                                  height: 40,
+                                                                                  width: 171.0,
+                                                                                  height: 40.0,
                                                                                   decoration: BoxDecoration(
                                                                                     color: valueOrDefault<Color>(
                                                                                       FFAppState().adminSelectServicesBody == 'Хетчбэк' ? FlutterFlowTheme.of(context).gray4 : FlutterFlowTheme.of(context).primaryBackground,
                                                                                       FlutterFlowTheme.of(context).primaryBackground,
                                                                                     ),
                                                                                     borderRadius: BorderRadius.only(
-                                                                                      bottomLeft: Radius.circular(8),
-                                                                                      bottomRight: Radius.circular(0),
-                                                                                      topLeft: Radius.circular(8),
-                                                                                      topRight: Radius.circular(0),
+                                                                                      bottomLeft: Radius.circular(8.0),
+                                                                                      bottomRight: Radius.circular(0.0),
+                                                                                      topLeft: Radius.circular(8.0),
+                                                                                      topRight: Radius.circular(0.0),
                                                                                     ),
                                                                                   ),
                                                                                   child: Align(
-                                                                                    alignment: AlignmentDirectional(-1, 0),
+                                                                                    alignment: AlignmentDirectional(-1.0, 0.0),
                                                                                     child: Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
                                                                                       child: Text(
                                                                                         'Хетчбэк',
                                                                                         style: FlutterFlowTheme.of(context).bodyText1.override(
@@ -1552,24 +1559,24 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                   setState(() => _model.firestoreRequestCompleter = null);
                                                                                 },
                                                                                 child: Container(
-                                                                                  width: 171,
-                                                                                  height: 40,
+                                                                                  width: 171.0,
+                                                                                  height: 40.0,
                                                                                   decoration: BoxDecoration(
                                                                                     color: valueOrDefault<Color>(
                                                                                       FFAppState().adminSelectServicesBody == 'Кроссовер' ? FlutterFlowTheme.of(context).gray4 : FlutterFlowTheme.of(context).primaryBackground,
                                                                                       FlutterFlowTheme.of(context).primaryBackground,
                                                                                     ),
                                                                                     borderRadius: BorderRadius.only(
-                                                                                      bottomLeft: Radius.circular(8),
-                                                                                      bottomRight: Radius.circular(0),
-                                                                                      topLeft: Radius.circular(8),
-                                                                                      topRight: Radius.circular(0),
+                                                                                      bottomLeft: Radius.circular(8.0),
+                                                                                      bottomRight: Radius.circular(0.0),
+                                                                                      topLeft: Radius.circular(8.0),
+                                                                                      topRight: Radius.circular(0.0),
                                                                                     ),
                                                                                   ),
                                                                                   child: Align(
-                                                                                    alignment: AlignmentDirectional(-1, 0),
+                                                                                    alignment: AlignmentDirectional(-1.0, 0.0),
                                                                                     child: Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
                                                                                       child: Text(
                                                                                         'Кроссовер',
                                                                                         style: FlutterFlowTheme.of(context).bodyText1.override(
@@ -1594,24 +1601,24 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                   setState(() => _model.firestoreRequestCompleter = null);
                                                                                 },
                                                                                 child: Container(
-                                                                                  width: 171,
-                                                                                  height: 40,
+                                                                                  width: 171.0,
+                                                                                  height: 40.0,
                                                                                   decoration: BoxDecoration(
                                                                                     color: valueOrDefault<Color>(
                                                                                       FFAppState().adminSelectServicesBody == 'Внедорожник' ? FlutterFlowTheme.of(context).gray4 : FlutterFlowTheme.of(context).primaryBackground,
                                                                                       FlutterFlowTheme.of(context).primaryBackground,
                                                                                     ),
                                                                                     borderRadius: BorderRadius.only(
-                                                                                      bottomLeft: Radius.circular(8),
-                                                                                      bottomRight: Radius.circular(0),
-                                                                                      topLeft: Radius.circular(8),
-                                                                                      topRight: Radius.circular(0),
+                                                                                      bottomLeft: Radius.circular(8.0),
+                                                                                      bottomRight: Radius.circular(0.0),
+                                                                                      topLeft: Radius.circular(8.0),
+                                                                                      topRight: Radius.circular(0.0),
                                                                                     ),
                                                                                   ),
                                                                                   child: Align(
-                                                                                    alignment: AlignmentDirectional(-1, 0),
+                                                                                    alignment: AlignmentDirectional(-1.0, 0.0),
                                                                                     child: Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
                                                                                       child: Text(
                                                                                         'Внедорожник',
                                                                                         style: FlutterFlowTheme.of(context).bodyText1.override(
@@ -1636,24 +1643,24 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                   setState(() => _model.firestoreRequestCompleter = null);
                                                                                 },
                                                                                 child: Container(
-                                                                                  width: 171,
-                                                                                  height: 40,
+                                                                                  width: 171.0,
+                                                                                  height: 40.0,
                                                                                   decoration: BoxDecoration(
                                                                                     color: valueOrDefault<Color>(
                                                                                       FFAppState().adminSelectServicesBody == 'Пикап' ? FlutterFlowTheme.of(context).gray4 : FlutterFlowTheme.of(context).primaryBackground,
                                                                                       FlutterFlowTheme.of(context).primaryBackground,
                                                                                     ),
                                                                                     borderRadius: BorderRadius.only(
-                                                                                      bottomLeft: Radius.circular(8),
-                                                                                      bottomRight: Radius.circular(0),
-                                                                                      topLeft: Radius.circular(8),
-                                                                                      topRight: Radius.circular(0),
+                                                                                      bottomLeft: Radius.circular(8.0),
+                                                                                      bottomRight: Radius.circular(0.0),
+                                                                                      topLeft: Radius.circular(8.0),
+                                                                                      topRight: Radius.circular(0.0),
                                                                                     ),
                                                                                   ),
                                                                                   child: Align(
-                                                                                    alignment: AlignmentDirectional(-1, 0),
+                                                                                    alignment: AlignmentDirectional(-1.0, 0.0),
                                                                                     child: Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
                                                                                       child: Text(
                                                                                         'Пикап',
                                                                                         style: FlutterFlowTheme.of(context).bodyText1.override(
@@ -1678,24 +1685,24 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                   setState(() => _model.firestoreRequestCompleter = null);
                                                                                 },
                                                                                 child: Container(
-                                                                                  width: 171,
-                                                                                  height: 40,
+                                                                                  width: 171.0,
+                                                                                  height: 40.0,
                                                                                   decoration: BoxDecoration(
                                                                                     color: valueOrDefault<Color>(
                                                                                       FFAppState().adminSelectServicesBody == 'Минивен' ? FlutterFlowTheme.of(context).gray4 : FlutterFlowTheme.of(context).primaryBackground,
                                                                                       FlutterFlowTheme.of(context).primaryBackground,
                                                                                     ),
                                                                                     borderRadius: BorderRadius.only(
-                                                                                      bottomLeft: Radius.circular(8),
-                                                                                      bottomRight: Radius.circular(0),
-                                                                                      topLeft: Radius.circular(8),
-                                                                                      topRight: Radius.circular(0),
+                                                                                      bottomLeft: Radius.circular(8.0),
+                                                                                      bottomRight: Radius.circular(0.0),
+                                                                                      topLeft: Radius.circular(8.0),
+                                                                                      topRight: Radius.circular(0.0),
                                                                                     ),
                                                                                   ),
                                                                                   child: Align(
-                                                                                    alignment: AlignmentDirectional(-1, 0),
+                                                                                    alignment: AlignmentDirectional(-1.0, 0.0),
                                                                                     child: Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
                                                                                       child: Text(
                                                                                         'Минивен',
                                                                                         style: FlutterFlowTheme.of(context).bodyText1.override(
@@ -1720,24 +1727,24 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                   setState(() => _model.firestoreRequestCompleter = null);
                                                                                 },
                                                                                 child: Container(
-                                                                                  width: 171,
-                                                                                  height: 40,
+                                                                                  width: 171.0,
+                                                                                  height: 40.0,
                                                                                   decoration: BoxDecoration(
                                                                                     color: valueOrDefault<Color>(
                                                                                       FFAppState().adminSelectServicesBody == 'Купе' ? FlutterFlowTheme.of(context).gray4 : FlutterFlowTheme.of(context).primaryBackground,
                                                                                       FlutterFlowTheme.of(context).primaryBackground,
                                                                                     ),
                                                                                     borderRadius: BorderRadius.only(
-                                                                                      bottomLeft: Radius.circular(8),
-                                                                                      bottomRight: Radius.circular(0),
-                                                                                      topLeft: Radius.circular(8),
-                                                                                      topRight: Radius.circular(0),
+                                                                                      bottomLeft: Radius.circular(8.0),
+                                                                                      bottomRight: Radius.circular(0.0),
+                                                                                      topLeft: Radius.circular(8.0),
+                                                                                      topRight: Radius.circular(0.0),
                                                                                     ),
                                                                                   ),
                                                                                   child: Align(
-                                                                                    alignment: AlignmentDirectional(-1, 0),
+                                                                                    alignment: AlignmentDirectional(-1.0, 0.0),
                                                                                     child: Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
                                                                                       child: Text(
                                                                                         'Купе',
                                                                                         style: FlutterFlowTheme.of(context).bodyText1.override(
@@ -1758,17 +1765,17 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                           ),
                                                                           Container(
                                                                             width:
-                                                                                485,
+                                                                                485.0,
                                                                             height:
-                                                                                300,
+                                                                                300.0,
                                                                             decoration:
                                                                                 BoxDecoration(
                                                                               color: FlutterFlowTheme.of(context).primaryBackground,
                                                                               borderRadius: BorderRadius.only(
-                                                                                bottomLeft: Radius.circular(8),
-                                                                                bottomRight: Radius.circular(8),
-                                                                                topLeft: Radius.circular(0),
-                                                                                topRight: Radius.circular(8),
+                                                                                bottomLeft: Radius.circular(8.0),
+                                                                                bottomRight: Radius.circular(8.0),
+                                                                                topLeft: Radius.circular(0.0),
+                                                                                topRight: Radius.circular(8.0),
                                                                               ),
                                                                               border: Border.all(
                                                                                 color: FlutterFlowTheme.of(context).gray4,
@@ -1776,7 +1783,7 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                             ),
                                                                             child:
                                                                                 Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(24, 24, 24, 24),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 24.0),
                                                                               child: FutureBuilder<List<CompanyServicesRecord>>(
                                                                                 future: (_model.firestoreRequestCompleter ??= Completer<List<CompanyServicesRecord>>()
                                                                                       ..complete(queryCompanyServicesRecordOnce(
@@ -1789,8 +1796,8 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                   if (!snapshot.hasData) {
                                                                                     return Center(
                                                                                       child: SizedBox(
-                                                                                        width: 50,
-                                                                                        height: 50,
+                                                                                        width: 50.0,
+                                                                                        height: 50.0,
                                                                                         child: CircularProgressIndicator(
                                                                                           color: FlutterFlowTheme.of(context).primaryColor,
                                                                                         ),
@@ -1810,7 +1817,7 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                       itemBuilder: (context, listView1Index) {
                                                                                         final listView1CompanyServicesRecord = listView1CompanyServicesRecordList[listView1Index];
                                                                                         return Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 24),
+                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
                                                                                           child: Row(
                                                                                             mainAxisSize: MainAxisSize.max,
                                                                                             mainAxisAlignment: MainAxisAlignment.start,
@@ -1863,31 +1870,31 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                 padding:
                                                                     EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            24,
-                                                                            0,
-                                                                            0,
-                                                                            0),
+                                                                            24.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                 child:
                                                                     Container(
-                                                                  width: 496,
-                                                                  height: 208,
+                                                                  width: 496.0,
+                                                                  height: 208.0,
                                                                   decoration:
                                                                       BoxDecoration(
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .primaryBackground,
                                                                     borderRadius:
-                                                                        BorderRadius
-                                                                            .circular(8),
+                                                                        BorderRadius.circular(
+                                                                            8.0),
                                                                   ),
                                                                   child:
                                                                       Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            24,
-                                                                            24,
-                                                                            24,
-                                                                            24),
+                                                                            24.0,
+                                                                            24.0,
+                                                                            24.0,
+                                                                            24.0),
                                                                     child:
                                                                         Column(
                                                                       mainAxisSize:
@@ -1903,34 +1910,34 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                               .bodyText1
                                                                               .override(
                                                                                 fontFamily: 'Inter',
-                                                                                fontSize: 18,
+                                                                                fontSize: 18.0,
                                                                                 fontWeight: FontWeight.w500,
                                                                                 useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                               ),
                                                                         ),
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0,
-                                                                              20,
-                                                                              0,
-                                                                              0),
+                                                                              0.0,
+                                                                              20.0,
+                                                                              0.0,
+                                                                              0.0),
                                                                           child:
                                                                               Container(
                                                                             width:
                                                                                 double.infinity,
                                                                             height:
-                                                                                113,
+                                                                                113.0,
                                                                             decoration:
                                                                                 BoxDecoration(
                                                                               color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                              borderRadius: BorderRadius.circular(8),
+                                                                              borderRadius: BorderRadius.circular(8.0),
                                                                               border: Border.all(
                                                                                 color: FlutterFlowTheme.of(context).gray4,
                                                                               ),
                                                                             ),
                                                                             child:
                                                                                 Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 16),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
                                                                               child: Text(
                                                                                 valueOrDefault<String>(
                                                                                   stackCompaniesRecord.conveniences,
@@ -1938,7 +1945,7 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                                 ),
                                                                                 style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                       fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
-                                                                                      fontSize: 16,
+                                                                                      fontSize: 16.0,
                                                                                       fontWeight: FontWeight.normal,
                                                                                       useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                     ),
@@ -1969,25 +1976,25 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                               ),
                             ),
                             Align(
-                              alignment: AlignmentDirectional(0, 1),
+                              alignment: AlignmentDirectional(0.0, 1.0),
                               child: Container(
                                 width: double.infinity,
-                                height: 80,
+                                height: 80.0,
                                 decoration: BoxDecoration(
                                   color: Colors.white,
                                   boxShadow: [
                                     BoxShadow(
-                                      blurRadius: 16,
+                                      blurRadius: 16.0,
                                       color: Color(0x24DEDEDE),
-                                      offset: Offset(0, -4),
+                                      offset: Offset(0.0, -4.0),
                                     )
                                   ],
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0, 0),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Container(
-                                    width: 1224,
-                                    height: 80,
+                                    width: 1224.0,
+                                    height: 80.0,
                                     decoration: BoxDecoration(
                                       color: Colors.white,
                                     ),
@@ -2003,8 +2010,8 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Container(
-                                                  width: 24,
-                                                  height: 24,
+                                                  width: 24.0,
+                                                  height: 24.0,
                                                   decoration: BoxDecoration(
                                                     color: FlutterFlowTheme.of(
                                                             context)
@@ -2015,23 +2022,24 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .green,
-                                                      width: 2,
+                                                      width: 2.0,
                                                     ),
                                                   ),
                                                   child: Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0, 0),
+                                                            0.0, 0.0),
                                                     child: Icon(
                                                       FFIcons.kcheeek,
                                                       color: Colors.white,
-                                                      size: 20,
+                                                      size: 20.0,
                                                     ),
                                                   ),
                                                 ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(8, 0, 8, 0),
+                                                      .fromSTEB(
+                                                          8.0, 0.0, 8.0, 0.0),
                                                   child: Text(
                                                     'Основная информация',
                                                     style: FlutterFlowTheme.of(
@@ -2057,8 +2065,8 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                   ),
                                                 ),
                                                 Container(
-                                                  width: 40,
-                                                  height: 1,
+                                                  width: 40.0,
+                                                  height: 1.0,
                                                   decoration: BoxDecoration(
                                                     color: Color(0xFFEDEDED),
                                                   ),
@@ -2067,13 +2075,13 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(8, 0, 0, 0),
+                                                  .fromSTEB(8.0, 0.0, 0.0, 0.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
                                                   Container(
-                                                    width: 24,
-                                                    height: 24,
+                                                    width: 24.0,
+                                                    height: 24.0,
                                                     decoration: BoxDecoration(
                                                       color:
                                                           FlutterFlowTheme.of(
@@ -2085,25 +2093,25 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .green,
-                                                        width: 2,
+                                                        width: 2.0,
                                                       ),
                                                     ),
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0, 0),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         FFIcons.kcheeek,
                                                         color: Colors.white,
-                                                        size: 20,
+                                                        size: 20.0,
                                                       ),
                                                     ),
                                                   ),
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                8, 0, 8, 0),
+                                                            .fromSTEB(8.0, 0.0,
+                                                                8.0, 0.0),
                                                     child: Text(
                                                       'Услуги',
                                                       style:
@@ -2128,8 +2136,8 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                     ),
                                                   ),
                                                   Container(
-                                                    width: 40,
-                                                    height: 1,
+                                                    width: 40.0,
+                                                    height: 1.0,
                                                     decoration: BoxDecoration(
                                                       color: Color(0xFFEDEDED),
                                                     ),
@@ -2139,13 +2147,13 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(8, 0, 0, 0),
+                                                  .fromSTEB(8.0, 0.0, 0.0, 0.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
                                                   Container(
-                                                    width: 24,
-                                                    height: 24,
+                                                    width: 24.0,
+                                                    height: 24.0,
                                                     decoration: BoxDecoration(
                                                       color:
                                                           FlutterFlowTheme.of(
@@ -2157,25 +2165,25 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .green,
-                                                        width: 2,
+                                                        width: 2.0,
                                                       ),
                                                     ),
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0, 0),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         FFIcons.kcheeek,
                                                         color: Colors.white,
-                                                        size: 20,
+                                                        size: 20.0,
                                                       ),
                                                     ),
                                                   ),
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                8, 0, 8, 0),
+                                                            .fromSTEB(8.0, 0.0,
+                                                                8.0, 0.0),
                                                     child: Text(
                                                       'Удобства',
                                                       style:
@@ -2201,8 +2209,8 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                     ),
                                                   ),
                                                   Container(
-                                                    width: 40,
-                                                    height: 1,
+                                                    width: 40.0,
+                                                    height: 1.0,
                                                     decoration: BoxDecoration(
                                                       color: Color(0xFFEDEDED),
                                                     ),
@@ -2212,13 +2220,13 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(8, 0, 0, 0),
+                                                  .fromSTEB(8.0, 0.0, 0.0, 0.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
                                                   Container(
-                                                    width: 24,
-                                                    height: 24,
+                                                    width: 24.0,
+                                                    height: 24.0,
                                                     decoration: BoxDecoration(
                                                       color:
                                                           FlutterFlowTheme.of(
@@ -2230,25 +2238,25 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .green,
-                                                        width: 2,
+                                                        width: 2.0,
                                                       ),
                                                     ),
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0, 0),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         FFIcons.kcheeek,
                                                         color: Colors.white,
-                                                        size: 20,
+                                                        size: 20.0,
                                                       ),
                                                     ),
                                                   ),
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                8, 0, 8, 0),
+                                                            .fromSTEB(8.0, 0.0,
+                                                                8.0, 0.0),
                                                     child: Text(
                                                       'Реквизиты',
                                                       style:
@@ -2274,8 +2282,8 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                     ),
                                                   ),
                                                   Container(
-                                                    width: 40,
-                                                    height: 1,
+                                                    width: 40.0,
+                                                    height: 1.0,
                                                     decoration: BoxDecoration(
                                                       color: Color(0xFFEDEDED),
                                                     ),
@@ -2285,13 +2293,13 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(8, 0, 0, 0),
+                                                  .fromSTEB(8.0, 0.0, 0.0, 0.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
                                                   Container(
-                                                    width: 24,
-                                                    height: 24,
+                                                    width: 24.0,
+                                                    height: 24.0,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
@@ -2302,13 +2310,13 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primaryColor,
-                                                        width: 2,
+                                                        width: 2.0,
                                                       ),
                                                     ),
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0, 0),
+                                                              0.0, 0.0),
                                                       child: Text(
                                                         '5',
                                                         style:
@@ -2337,8 +2345,8 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                8, 0, 8, 0),
+                                                            .fromSTEB(8.0, 0.0,
+                                                                8.0, 0.0),
                                                     child: Text(
                                                       'Подтверждение',
                                                       style:
@@ -2455,14 +2463,14 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                           },
                                           text: 'Продолжить',
                                           options: FFButtonOptions(
-                                            width: 185,
-                                            height: 48,
+                                            width: 185.0,
+                                            height: 48.0,
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0, 0, 0, 0),
+                                                    0.0, 0.0, 0.0, 0.0),
                                             iconPadding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0, 0, 0, 0),
+                                                    0.0, 0.0, 0.0, 0.0),
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryColor,
                                             textStyle:
@@ -2480,13 +2488,13 @@ class _AdminAddCompany5WidgetState extends State<AdminAddCompany5Widget> {
                                                                       context)
                                                                   .subtitle2Family),
                                                     ),
-                                            elevation: 0,
+                                            elevation: 0.0,
                                             borderSide: BorderSide(
                                               color: Colors.transparent,
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                           ),
                                         ),
                                       ],

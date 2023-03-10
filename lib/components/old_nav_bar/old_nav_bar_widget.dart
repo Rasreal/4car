@@ -42,22 +42,22 @@ class _OldNavBarWidgetState extends State<OldNavBarWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0, 1),
+      alignment: AlignmentDirectional(0.0, 1.0),
       child: Container(
         width: double.infinity,
-        height: 85,
+        height: 85.0,
         decoration: BoxDecoration(
           color: Color(0xFFF1F1F1),
           boxShadow: [
             BoxShadow(
-              blurRadius: 0,
+              blurRadius: 0.0,
               color: Color(0x4D000000),
-              offset: Offset(0, -0.5),
+              offset: Offset(0.0, -0.5),
             )
           ],
         ),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
+          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
           child: Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -67,11 +67,11 @@ class _OldNavBarWidgetState extends State<OldNavBarWidget> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 6),
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 6.0),
                     child: Icon(
                       FFIcons.kicHome,
                       color: FlutterFlowTheme.of(context).primaryColor,
-                      size: 24,
+                      size: 24.0,
                     ),
                   ),
                   Text(
@@ -79,7 +79,7 @@ class _OldNavBarWidgetState extends State<OldNavBarWidget> {
                     style: FlutterFlowTheme.of(context).bodyText1.override(
                           fontFamily: 'Roboto',
                           color: FlutterFlowTheme.of(context).primaryColor,
-                          fontSize: 13,
+                          fontSize: 13.0,
                           fontWeight: FontWeight.normal,
                           useGoogleFonts: GoogleFonts.asMap().containsKey(
                               FlutterFlowTheme.of(context).bodyText1Family),
@@ -105,11 +105,12 @@ class _OldNavBarWidgetState extends State<OldNavBarWidget> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 6),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 6.0),
                       child: Icon(
                         FFIcons.kicZapisi,
                         color: FlutterFlowTheme.of(context).gray2,
-                        size: 24,
+                        size: 24.0,
                       ),
                     ),
                     Text(
@@ -117,7 +118,7 @@ class _OldNavBarWidgetState extends State<OldNavBarWidget> {
                       style: FlutterFlowTheme.of(context).bodyText1.override(
                             fontFamily: 'Roboto',
                             color: FlutterFlowTheme.of(context).gray2,
-                            fontSize: 13,
+                            fontSize: 13.0,
                             fontWeight: FontWeight.normal,
                             useGoogleFonts: GoogleFonts.asMap().containsKey(
                                 FlutterFlowTheme.of(context).bodyText1Family),
@@ -135,11 +136,12 @@ class _OldNavBarWidgetState extends State<OldNavBarWidget> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 6),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 6.0),
                       child: Icon(
                         FFIcons.kicBurger,
                         color: FlutterFlowTheme.of(context).gray2,
-                        size: 24,
+                        size: 24.0,
                       ),
                     ),
                     Text(
@@ -147,7 +149,7 @@ class _OldNavBarWidgetState extends State<OldNavBarWidget> {
                       style: FlutterFlowTheme.of(context).bodyText1.override(
                             fontFamily: 'Roboto',
                             color: FlutterFlowTheme.of(context).gray2,
-                            fontSize: 13,
+                            fontSize: 13.0,
                             fontWeight: FontWeight.normal,
                             useGoogleFonts: GoogleFonts.asMap().containsKey(
                                 FlutterFlowTheme.of(context).bodyText1Family),

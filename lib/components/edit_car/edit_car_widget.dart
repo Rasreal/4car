@@ -54,39 +54,39 @@ class _EditCarWidgetState extends State<EditCarWidget> {
 
     return Container(
       width: double.infinity,
-      height: 380,
+      height: 380.0,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
         borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(0),
-          bottomRight: Radius.circular(0),
-          topLeft: Radius.circular(10),
-          topRight: Radius.circular(10),
+          bottomLeft: Radius.circular(0.0),
+          bottomRight: Radius.circular(0.0),
+          topLeft: Radius.circular(10.0),
+          topRight: Radius.circular(10.0),
         ),
       ),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 60),
+        padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 60.0),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Align(
-              alignment: AlignmentDirectional(0, 0),
+              alignment: AlignmentDirectional(0.0, 0.0),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 16),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 16.0),
                 child: Container(
-                  width: 40,
-                  height: 4,
+                  width: 40.0,
+                  height: 4.0,
                   decoration: BoxDecoration(
                     color: Color(0xFFD9D9D9),
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
                 ),
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -97,21 +97,22 @@ class _EditCarWidgetState extends State<EditCarWidget> {
                           fontFamily:
                               FlutterFlowTheme.of(context).bodyText1Family,
                           color: FlutterFlowTheme.of(context).primaryText,
-                          fontSize: 18,
+                          fontSize: 18.0,
                           fontWeight: FontWeight.w500,
                           useGoogleFonts: GoogleFonts.asMap().containsKey(
                               FlutterFlowTheme.of(context).bodyText1Family),
                         ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                     child: Text(
                       'Кузов',
                       style: FlutterFlowTheme.of(context).bodyText1.override(
                             fontFamily:
                                 FlutterFlowTheme.of(context).bodyText1Family,
                             color: FlutterFlowTheme.of(context).primaryText,
-                            fontSize: 14,
+                            fontSize: 14.0,
                             fontWeight: FontWeight.w500,
                             useGoogleFonts: GoogleFonts.asMap().containsKey(
                                 FlutterFlowTheme.of(context).bodyText1Family),
@@ -122,15 +123,15 @@ class _EditCarWidgetState extends State<EditCarWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
               child: Container(
                 width: double.infinity,
-                height: 64,
+                height: 64.0,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).secondaryBackground,
                 ),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                   child: StreamBuilder<List<CarBodyRecord>>(
                     stream: queryCarBodyRecord(),
                     builder: (context, snapshot) {
@@ -138,8 +139,8 @@ class _EditCarWidgetState extends State<EditCarWidget> {
                       if (!snapshot.hasData) {
                         return Center(
                           child: SizedBox(
-                            width: 50,
-                            height: 50,
+                            width: 50.0,
+                            height: 50.0,
                             child: CircularProgressIndicator(
                               color: FlutterFlowTheme.of(context).primaryColor,
                             ),
@@ -160,8 +161,8 @@ class _EditCarWidgetState extends State<EditCarWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    8.0, 0.0, 0.0, 0.0),
                                 child: Stack(
                                   children: [
                                     InkWell(
@@ -172,23 +173,24 @@ class _EditCarWidgetState extends State<EditCarWidget> {
                                         });
                                       },
                                       child: Container(
-                                        height: 32,
+                                        height: 32.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                           borderRadius:
-                                              BorderRadius.circular(8),
+                                              BorderRadius.circular(8.0),
                                           border: Border.all(
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryColor,
                                           ),
                                         ),
                                         child: Align(
-                                          alignment: AlignmentDirectional(0, 0),
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    12, 0, 12, 0),
+                                                    12.0, 0.0, 12.0, 0.0),
                                             child: Text(
                                               listViewCarBodyRecord.bodyName!,
                                               style:
@@ -206,23 +208,24 @@ class _EditCarWidgetState extends State<EditCarWidget> {
                                             (FFAppState().addCarBody == null ||
                                                 FFAppState().addCarBody == '')))
                                       Container(
-                                        height: 32,
+                                        height: 32.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .primaryColor,
                                           borderRadius:
-                                              BorderRadius.circular(8),
+                                              BorderRadius.circular(8.0),
                                           border: Border.all(
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryColor,
                                           ),
                                         ),
                                         child: Align(
-                                          alignment: AlignmentDirectional(0, 0),
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    12, 0, 12, 0),
+                                                    12.0, 0.0, 12.0, 0.0),
                                             child: Text(
                                               listViewCarBodyRecord.bodyName!,
                                               style:
@@ -258,7 +261,7 @@ class _EditCarWidgetState extends State<EditCarWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(16, 24, 16, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(16.0, 24.0, 16.0, 0.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -269,14 +272,14 @@ class _EditCarWidgetState extends State<EditCarWidget> {
                           fontFamily:
                               FlutterFlowTheme.of(context).bodyText1Family,
                           color: FlutterFlowTheme.of(context).primaryText,
-                          fontSize: 14,
+                          fontSize: 14.0,
                           fontWeight: FontWeight.w500,
                           useGoogleFonts: GoogleFonts.asMap().containsKey(
                               FlutterFlowTheme.of(context).bodyText1Family),
                         ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                     child: Form(
                       key: _model.formKey,
                       autovalidateMode: AutovalidateMode.disabled,
@@ -294,30 +297,30 @@ class _EditCarWidgetState extends State<EditCarWidget> {
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: FlutterFlowTheme.of(context).gray2,
-                              width: 1,
+                              width: 1.0,
                             ),
-                            borderRadius: BorderRadius.circular(8),
+                            borderRadius: BorderRadius.circular(8.0),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0x00000000),
-                              width: 1,
+                              width: 1.0,
                             ),
-                            borderRadius: BorderRadius.circular(8),
+                            borderRadius: BorderRadius.circular(8.0),
                           ),
                           errorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0x00000000),
-                              width: 1,
+                              width: 1.0,
                             ),
-                            borderRadius: BorderRadius.circular(8),
+                            borderRadius: BorderRadius.circular(8.0),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0x00000000),
-                              width: 1,
+                              width: 1.0,
                             ),
-                            borderRadius: BorderRadius.circular(8),
+                            borderRadius: BorderRadius.circular(8.0),
                           ),
                         ),
                         style: FlutterFlowTheme.of(context).bodyText1,
@@ -329,7 +332,8 @@ class _EditCarWidgetState extends State<EditCarWidget> {
                   Stack(
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                         child: FFButtonWidget(
                           onPressed: () async {
                             if (_model.formKey.currentState == null ||
@@ -348,10 +352,11 @@ class _EditCarWidgetState extends State<EditCarWidget> {
                           text: 'Сохранить',
                           options: FFButtonOptions(
                             width: double.infinity,
-                            height: 48,
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                            iconPadding:
-                                EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                            height: 48.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
                             color: FlutterFlowTheme.of(context).primaryColor,
                             textStyle: FlutterFlowTheme.of(context)
                                 .subtitle2
@@ -366,14 +371,15 @@ class _EditCarWidgetState extends State<EditCarWidget> {
                             borderSide: BorderSide(
                               color: Colors.transparent,
                             ),
-                            borderRadius: BorderRadius.circular(8),
+                            borderRadius: BorderRadius.circular(8.0),
                           ),
                         ),
                       ),
                       if (FFAppState().addCarBody == null ||
                           FFAppState().addCarBody == '')
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 24.0, 0.0, 0.0),
                           child: FFButtonWidget(
                             onPressed: () async {
                               if (_model.formKey.currentState == null ||
@@ -403,11 +409,11 @@ class _EditCarWidgetState extends State<EditCarWidget> {
                             text: 'Сохранить',
                             options: FFButtonOptions(
                               width: double.infinity,
-                              height: 48,
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                              iconPadding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                              height: 48.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).starblue,
                               textStyle: FlutterFlowTheme.of(context)
                                   .subtitle2
@@ -423,7 +429,7 @@ class _EditCarWidgetState extends State<EditCarWidget> {
                               borderSide: BorderSide(
                                 color: Colors.transparent,
                               ),
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(8.0),
                             ),
                           ),
                         ),

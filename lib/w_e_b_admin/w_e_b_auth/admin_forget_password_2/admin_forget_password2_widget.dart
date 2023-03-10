@@ -59,24 +59,25 @@ class _AdminForgetPassword2WidgetState
               phone: false,
             ),
             child: Align(
-              alignment: AlignmentDirectional(0, 0),
+              alignment: AlignmentDirectional(0.0, 0.0),
               child: Container(
-                width: 476,
-                height: 319,
+                width: 476.0,
+                height: 319.0,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).primaryBackground,
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(8.0),
                 ),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(60, 0, 60, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(60.0, 0.0, 60.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Align(
-                        alignment: AlignmentDirectional(0, 0),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 40.0, 0.0, 0.0),
                           child: Text(
                             '4 Car',
                             style: FlutterFlowTheme.of(context)
@@ -86,7 +87,7 @@ class _AdminForgetPassword2WidgetState
                                       .bodyText1Family,
                                   color:
                                       FlutterFlowTheme.of(context).primaryColor,
-                                  fontSize: 30,
+                                  fontSize: 30.0,
                                   useGoogleFonts: GoogleFonts.asMap()
                                       .containsKey(FlutterFlowTheme.of(context)
                                           .bodyText1Family),
@@ -95,14 +96,15 @@ class _AdminForgetPassword2WidgetState
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 8),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 8.0),
                         child: Text(
                           'Пароль отправлен на почту',
                           style: FlutterFlowTheme.of(context)
                               .bodyText1
                               .override(
                                 fontFamily: 'Inter',
-                                fontSize: 22,
+                                fontSize: 22.0,
                                 useGoogleFonts: GoogleFonts.asMap().containsKey(
                                     FlutterFlowTheme.of(context)
                                         .bodyText1Family),
@@ -110,7 +112,8 @@ class _AdminForgetPassword2WidgetState
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 24),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
                         child: Text(
                           'Ссылка для смены выслана на почту ${widget.email}. Теперь Вы можете использовать новые сведения для защиты учетной записи, чтобы войти в нее.',
                           style: FlutterFlowTheme.of(context)
@@ -125,7 +128,8 @@ class _AdminForgetPassword2WidgetState
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 24),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
                         child: FFButtonWidget(
                           onPressed: () async {
                             context.goNamed(
@@ -141,10 +145,11 @@ class _AdminForgetPassword2WidgetState
                           text: 'Войти',
                           options: FFButtonOptions(
                             width: double.infinity,
-                            height: 48,
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                            iconPadding:
-                                EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                            height: 48.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
                             color: FlutterFlowTheme.of(context).primaryColor,
                             textStyle: FlutterFlowTheme.of(context)
                                 .subtitle2
@@ -157,9 +162,9 @@ class _AdminForgetPassword2WidgetState
                                 ),
                             borderSide: BorderSide(
                               color: Colors.transparent,
-                              width: 1,
+                              width: 1.0,
                             ),
-                            borderRadius: BorderRadius.circular(8),
+                            borderRadius: BorderRadius.circular(8.0),
                           ),
                         ),
                       ),

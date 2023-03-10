@@ -62,21 +62,22 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
           child: Stack(
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Expanded(
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
                         child: Container(
                           width: double.infinity,
-                          height: 500,
+                          height: 500.0,
                           child: Stack(
                             children: [
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 50),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 50.0),
                                 child: PageView(
                                   controller: _model.pageViewController ??=
                                       PageController(initialPage: 0),
@@ -93,8 +94,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                             children: [
                                               Image.asset(
                                                 'assets/images/Onboarding1.png',
-                                                width: 280,
-                                                height: 296,
+                                                width: 280.0,
+                                                height: 296.0,
                                                 fit: BoxFit.cover,
                                               ),
                                             ],
@@ -107,7 +108,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                           children: [
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 0, 16),
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 0.0, 16.0),
                                               child: Text(
                                                 'Записывайтесь на любую\nавтомойку в 3 клика',
                                                 style:
@@ -118,7 +120,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .bodyText1Family,
-                                                          fontSize: 24,
+                                                          fontSize: 24.0,
                                                           useGoogleFonts: GoogleFonts
                                                                   .asMap()
                                                               .containsKey(
@@ -163,8 +165,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                             children: [
                                               Image.asset(
                                                 'assets/images/Onboarding2.png',
-                                                width: 280,
-                                                height: 296,
+                                                width: 280.0,
+                                                height: 296.0,
                                                 fit: BoxFit.cover,
                                               ),
                                             ],
@@ -177,7 +179,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                           children: [
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 0, 16),
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 0.0, 16.0),
                                               child: Text(
                                                 'Узнавайте всю нужную информацию об автомойке',
                                                 style:
@@ -188,7 +191,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .bodyText1Family,
-                                                          fontSize: 24,
+                                                          fontSize: 24.0,
                                                           useGoogleFonts: GoogleFonts
                                                                   .asMap()
                                                               .containsKey(
@@ -233,8 +236,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                             children: [
                                               Image.asset(
                                                 'assets/images/Onboarding2.png',
-                                                width: 280,
-                                                height: 296,
+                                                width: 280.0,
+                                                height: 296.0,
                                                 fit: BoxFit.cover,
                                               ),
                                             ],
@@ -247,7 +250,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                           children: [
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 0, 16),
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 0.0, 16.0),
                                               child: Text(
                                                 'Становитесь нашеми партнерами',
                                                 style:
@@ -258,7 +262,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .bodyText1Family,
-                                                          fontSize: 24,
+                                                          fontSize: 24.0,
                                                           useGoogleFonts: GoogleFonts
                                                                   .asMap()
                                                               .containsKey(
@@ -296,10 +300,10 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                 ),
                               ),
                               Align(
-                                alignment: AlignmentDirectional(0, 1),
+                                alignment: AlignmentDirectional(0.0, 1.0),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 0, 10),
+                                      0.0, 0.0, 0.0, 10.0),
                                   child:
                                       smooth_page_indicator.SmoothPageIndicator(
                                     controller: _model.pageViewController ??=
@@ -314,10 +318,10 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                       );
                                     },
                                     effect: smooth_page_indicator.SlideEffect(
-                                      spacing: 8,
-                                      radius: 16,
-                                      dotWidth: 40,
-                                      dotHeight: 4,
+                                      spacing: 8.0,
+                                      radius: 16.0,
+                                      dotWidth: 40.0,
+                                      dotHeight: 4.0,
                                       dotColor: Color(0xFF9E9E9E),
                                       activeDotColor: Color(0xFF3F51B5),
                                       paintStyle: PaintingStyle.fill,
@@ -337,9 +341,11 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                       text: 'Войти',
                       options: FFButtonOptions(
                         width: double.infinity,
-                        height: 48,
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                        iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                        height: 48.0,
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        iconPadding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color: FlutterFlowTheme.of(context).primaryColor,
                         textStyle: FlutterFlowTheme.of(context)
                             .subtitle2
@@ -352,13 +358,14 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                             ),
                         borderSide: BorderSide(
                           color: Colors.transparent,
-                          width: 1,
+                          width: 1.0,
                         ),
-                        borderRadius: BorderRadius.circular(8),
+                        borderRadius: BorderRadius.circular(8.0),
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 10),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 10.0),
                       child: FFButtonWidget(
                         onPressed: () async {
                           context.pushNamed('Sign_Up');
@@ -366,10 +373,11 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                         text: 'Зарегистрироваться',
                         options: FFButtonOptions(
                           width: double.infinity,
-                          height: 48,
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                          iconPadding:
-                              EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                          height: 48.0,
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
                           color: FlutterFlowTheme.of(context).primaryBackground,
                           textStyle: FlutterFlowTheme.of(context)
                               .subtitle2
@@ -383,9 +391,9 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                               ),
                           borderSide: BorderSide(
                             color: FlutterFlowTheme.of(context).primaryColor,
-                            width: 1,
+                            width: 1.0,
                           ),
-                          borderRadius: BorderRadius.circular(8),
+                          borderRadius: BorderRadius.circular(8.0),
                         ),
                       ),
                     ),

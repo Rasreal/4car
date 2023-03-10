@@ -44,15 +44,15 @@ class _WEBFilterSelectCityWidgetState extends State<WEBFilterSelectCityWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0, 0),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Container(
-        width: 672,
+        width: 672.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(8.0),
         ),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(32, 32, 32, 32),
+          padding: EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 32.0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -67,7 +67,7 @@ class _WEBFilterSelectCityWidgetState extends State<WEBFilterSelectCityWidget> {
                       style: FlutterFlowTheme.of(context).bodyText1.override(
                             fontFamily:
                                 FlutterFlowTheme.of(context).bodyText1Family,
-                            fontSize: 24,
+                            fontSize: 24.0,
                             fontWeight: FontWeight.w500,
                             useGoogleFonts: GoogleFonts.asMap().containsKey(
                                 FlutterFlowTheme.of(context).bodyText1Family),
@@ -81,13 +81,13 @@ class _WEBFilterSelectCityWidgetState extends State<WEBFilterSelectCityWidget> {
                     child: Icon(
                       FFIcons.kicClose,
                       color: FlutterFlowTheme.of(context).gray2,
-                      size: 20,
+                      size: 20.0,
                     ),
                   ),
                 ],
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 10),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 10.0),
                 child: InkWell(
                   onTap: () async {
                     if (FFAppState().WEBfilterSelectCity != null) {
@@ -103,25 +103,25 @@ class _WEBFilterSelectCityWidgetState extends State<WEBFilterSelectCityWidget> {
                         children: [
                           if (FFAppState().WEBfilterSelectCity == null)
                             Container(
-                              width: 16,
-                              height: 16,
+                              width: 16.0,
+                              height: 16.0,
                               decoration: BoxDecoration(
                                 color:
                                     FlutterFlowTheme.of(context).primaryColor,
-                                borderRadius: BorderRadius.circular(2),
+                                borderRadius: BorderRadius.circular(2.0),
                               ),
                               child: Icon(
                                 FFIcons.kcheeek,
                                 color: Colors.white,
-                                size: 14,
+                                size: 14.0,
                               ),
                             ),
                           if (FFAppState().WEBfilterSelectCity != null)
                             Container(
-                              width: 16,
-                              height: 16,
+                              width: 16.0,
+                              height: 16.0,
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(2),
+                                borderRadius: BorderRadius.circular(2.0),
                                 border: Border.all(
                                   color: Color(0xFFB1B1B1),
                                 ),
@@ -130,7 +130,8 @@ class _WEBFilterSelectCityWidgetState extends State<WEBFilterSelectCityWidget> {
                         ],
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                         child: Text(
                           'Все',
                           style: FlutterFlowTheme.of(context)
@@ -159,8 +160,8 @@ class _WEBFilterSelectCityWidgetState extends State<WEBFilterSelectCityWidget> {
                   if (!snapshot.hasData) {
                     return Center(
                       child: SizedBox(
-                        width: 50,
-                        height: 50,
+                        width: 50.0,
+                        height: 50.0,
                         child: CircularProgressIndicator(
                           color: FlutterFlowTheme.of(context).primaryColor,
                         ),
@@ -177,7 +178,8 @@ class _WEBFilterSelectCityWidgetState extends State<WEBFilterSelectCityWidget> {
                       final listViewCityesRecord =
                           listViewCityesRecordList[listViewIndex];
                       return Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                         child: InkWell(
                           onTap: () async {
                             if (FFAppState().WEBfilterSelectCity ==
@@ -200,26 +202,28 @@ class _WEBFilterSelectCityWidgetState extends State<WEBFilterSelectCityWidget> {
                                   if (FFAppState().WEBfilterSelectCity ==
                                       listViewCityesRecord.reference)
                                     Container(
-                                      width: 16,
-                                      height: 16,
+                                      width: 16.0,
+                                      height: 16.0,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .primaryColor,
-                                        borderRadius: BorderRadius.circular(2),
+                                        borderRadius:
+                                            BorderRadius.circular(2.0),
                                       ),
                                       child: Icon(
                                         FFIcons.kcheeek,
                                         color: Colors.white,
-                                        size: 14,
+                                        size: 14.0,
                                       ),
                                     ),
                                   if (FFAppState().WEBfilterSelectCity !=
                                       listViewCityesRecord.reference)
                                     Container(
-                                      width: 16,
-                                      height: 16,
+                                      width: 16.0,
+                                      height: 16.0,
                                       decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(2),
+                                        borderRadius:
+                                            BorderRadius.circular(2.0),
                                         border: Border.all(
                                           color: Color(0xFFB1B1B1),
                                         ),
@@ -228,8 +232,8 @@ class _WEBFilterSelectCityWidgetState extends State<WEBFilterSelectCityWidget> {
                                 ],
                               ),
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    8.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   listViewCityesRecord.name!,
                                   style: FlutterFlowTheme.of(context)

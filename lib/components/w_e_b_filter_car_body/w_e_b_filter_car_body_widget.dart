@@ -44,32 +44,32 @@ class _WEBFilterCarBodyWidgetState extends State<WEBFilterCarBodyWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0, 0),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Container(
-        width: 461,
+        width: 461.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).primaryBackground,
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(8.0),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             Align(
-              alignment: AlignmentDirectional(1, 0),
+              alignment: AlignmentDirectional(1.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Align(
-                    alignment: AlignmentDirectional(1, 0),
+                    alignment: AlignmentDirectional(1.0, 0.0),
                     child: FlutterFlowIconButton(
                       borderColor: Colors.transparent,
-                      borderRadius: 30,
-                      borderWidth: 1,
-                      buttonSize: 60,
+                      borderRadius: 30.0,
+                      borderWidth: 1.0,
+                      buttonSize: 60.0,
                       icon: Icon(
                         FFIcons.kicClose,
                         color: FlutterFlowTheme.of(context).gray2,
-                        size: 24,
+                        size: 24.0,
                       ),
                       onPressed: () async {
                         Navigator.pop(context);
@@ -80,7 +80,7 @@ class _WEBFilterCarBodyWidgetState extends State<WEBFilterCarBodyWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 16),
+              padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 16.0),
               child: InkWell(
                 onTap: () async {
                   if (FFAppState().WEBFilterCarBody != 'Все авто') {
@@ -97,25 +97,25 @@ class _WEBFilterCarBodyWidgetState extends State<WEBFilterCarBodyWidget> {
                         if (FFAppState().WEBFilterCarBody == null ||
                             FFAppState().WEBFilterCarBody == '')
                           Container(
-                            width: 16,
-                            height: 16,
+                            width: 16.0,
+                            height: 16.0,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context).primaryColor,
-                              borderRadius: BorderRadius.circular(2),
+                              borderRadius: BorderRadius.circular(2.0),
                             ),
                             child: Icon(
                               FFIcons.kcheeek,
                               color: Colors.white,
-                              size: 14,
+                              size: 14.0,
                             ),
                           ),
                         if (FFAppState().WEBFilterCarBody != null &&
                             FFAppState().WEBFilterCarBody != '')
                           Container(
-                            width: 16,
-                            height: 16,
+                            width: 16.0,
+                            height: 16.0,
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(2),
+                              borderRadius: BorderRadius.circular(2.0),
                               border: Border.all(
                                 color: Color(0xFFB1B1B1),
                               ),
@@ -124,7 +124,8 @@ class _WEBFilterCarBodyWidgetState extends State<WEBFilterCarBodyWidget> {
                       ],
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                       child: Text(
                         'Все авто',
                         style: FlutterFlowTheme.of(context).bodyText1.override(
@@ -141,7 +142,7 @@ class _WEBFilterCarBodyWidgetState extends State<WEBFilterCarBodyWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 24),
+              padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 24.0),
               child: StreamBuilder<List<CarBodyRecord>>(
                 stream: queryCarBodyRecord(),
                 builder: (context, snapshot) {
@@ -149,8 +150,8 @@ class _WEBFilterCarBodyWidgetState extends State<WEBFilterCarBodyWidget> {
                   if (!snapshot.hasData) {
                     return Center(
                       child: SizedBox(
-                        width: 50,
-                        height: 50,
+                        width: 50.0,
+                        height: 50.0,
                         child: CircularProgressIndicator(
                           color: FlutterFlowTheme.of(context).primaryColor,
                         ),
@@ -165,7 +166,8 @@ class _WEBFilterCarBodyWidgetState extends State<WEBFilterCarBodyWidget> {
                       final columnCarBodyRecord =
                           columnCarBodyRecordList[columnIndex];
                       return Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                         child: InkWell(
                           onTap: () async {
                             if (FFAppState().WEBFilterCarBody ==
@@ -188,26 +190,28 @@ class _WEBFilterCarBodyWidgetState extends State<WEBFilterCarBodyWidget> {
                                   if (FFAppState().WEBFilterCarBody ==
                                       columnCarBodyRecord.bodyName)
                                     Container(
-                                      width: 16,
-                                      height: 16,
+                                      width: 16.0,
+                                      height: 16.0,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .primaryColor,
-                                        borderRadius: BorderRadius.circular(2),
+                                        borderRadius:
+                                            BorderRadius.circular(2.0),
                                       ),
                                       child: Icon(
                                         FFIcons.kcheeek,
                                         color: Colors.white,
-                                        size: 14,
+                                        size: 14.0,
                                       ),
                                     ),
                                   if (FFAppState().WEBFilterCarBody !=
                                       columnCarBodyRecord.bodyName)
                                     Container(
-                                      width: 16,
-                                      height: 16,
+                                      width: 16.0,
+                                      height: 16.0,
                                       decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(2),
+                                        borderRadius:
+                                            BorderRadius.circular(2.0),
                                         border: Border.all(
                                           color: Color(0xFFB1B1B1),
                                         ),
@@ -216,8 +220,8 @@ class _WEBFilterCarBodyWidgetState extends State<WEBFilterCarBodyWidget> {
                                 ],
                               ),
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    8.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   columnCarBodyRecord.bodyName!,
                                   style: FlutterFlowTheme.of(context)

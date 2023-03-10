@@ -55,6 +55,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
           },
         ).then((value) => setState(() {}));
       }
+      if (!(currentUserDisplayName != null && currentUserDisplayName != '')) {
+        context.goNamed('Sign_Up_2');
+      }
     });
 
     getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
@@ -78,8 +81,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         color: FlutterFlowTheme.of(context).primaryBackground,
         child: Center(
           child: SizedBox(
-            width: 50,
-            height: 50,
+            width: 50.0,
+            height: 50.0,
             child: CircularProgressIndicator(
               color: FlutterFlowTheme.of(context).primaryColor,
             ),
@@ -102,8 +105,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 children: [
                   if (responsiveVisibility(
                     context: context,
-                    tablet: false,
-                    tabletLandscape: false,
                     desktop: false,
                   ))
                     Expanded(
@@ -130,8 +131,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   if (!snapshot.hasData) {
                                     return Center(
                                       child: SizedBox(
-                                        width: 50,
-                                        height: 50,
+                                        width: 50.0,
+                                        height: 50.0,
                                         child: CircularProgressIndicator(
                                           color: FlutterFlowTheme.of(context)
                                               .primaryColor,
@@ -190,7 +191,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     markerColor: GoogleMarkerColor.blue,
                                     mapType: MapType.normal,
                                     style: GoogleMapStyle.standard,
-                                    initialZoom: 13,
+                                    initialZoom: 13.0,
                                     allowInteraction: true,
                                     allowZoom: true,
                                     showZoomControls: true,
@@ -213,15 +214,15 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
                                       borderRadius: BorderRadius.only(
-                                        bottomLeft: Radius.circular(0),
-                                        bottomRight: Radius.circular(0),
-                                        topLeft: Radius.circular(10),
-                                        topRight: Radius.circular(10),
+                                        bottomLeft: Radius.circular(0.0),
+                                        bottomRight: Radius.circular(0.0),
+                                        topLeft: Radius.circular(10.0),
+                                        topRight: Radius.circular(10.0),
                                       ),
                                     ),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          16, 6, 16, 40),
+                                          16.0, 6.0, 16.0, 40.0),
                                       child: SingleChildScrollView(
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
@@ -241,7 +242,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .bodyText1Family,
-                                                        fontSize: 30,
+                                                        fontSize: 30.0,
                                                         useGoogleFonts: GoogleFonts
                                                                 .asMap()
                                                             .containsKey(
@@ -252,7 +253,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 16, 0, 16),
+                                                      .fromSTEB(
+                                                          0.0, 16.0, 0.0, 16.0),
                                                   child: Container(
                                                     width: double.infinity,
                                                     decoration: BoxDecoration(
@@ -286,8 +288,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                               .hasData) {
                                                             return Center(
                                                               child: SizedBox(
-                                                                width: 50,
-                                                                height: 50,
+                                                                width: 50.0,
+                                                                height: 50.0,
                                                                 child:
                                                                     CircularProgressIndicator(
                                                                   color: FlutterFlowTheme.of(
@@ -317,10 +319,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                 return Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0,
-                                                                          0,
-                                                                          16,
-                                                                          0),
+                                                                          0.0,
+                                                                          0.0,
+                                                                          16.0,
+                                                                          0.0),
                                                                   child:
                                                                       InkWell(
                                                                     onTap:
@@ -353,31 +355,31 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                     child:
                                                                         Container(
                                                                       width:
-                                                                          104,
+                                                                          104.0,
                                                                       height:
-                                                                          100,
+                                                                          100.0,
                                                                       child:
                                                                           Stack(
                                                                         children: [
                                                                           ClipRRect(
                                                                             borderRadius:
-                                                                                BorderRadius.circular(8),
+                                                                                BorderRadius.circular(8.0),
                                                                             child:
                                                                                 Image.network(
                                                                               valueOrDefault<String>(
                                                                                 rowPromotionRecord.img,
                                                                                 'https://picsum.photos/seed/112/600',
                                                                               ),
-                                                                              width: 104,
-                                                                              height: 100,
+                                                                              width: 104.0,
+                                                                              height: 100.0,
                                                                               fit: BoxFit.cover,
                                                                             ),
                                                                           ),
                                                                           Container(
                                                                             width:
-                                                                                104,
+                                                                                104.0,
                                                                             height:
-                                                                                100,
+                                                                                100.0,
                                                                             decoration:
                                                                                 BoxDecoration(
                                                                               gradient: LinearGradient(
@@ -386,13 +388,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                                   Colors.black
                                                                                 ],
                                                                                 stops: [
-                                                                                  0,
-                                                                                  1
+                                                                                  0.0,
+                                                                                  1.0
                                                                                 ],
-                                                                                begin: AlignmentDirectional(0, -1),
-                                                                                end: AlignmentDirectional(0, 1),
+                                                                                begin: AlignmentDirectional(0.0, -1.0),
+                                                                                end: AlignmentDirectional(0, 1.0),
                                                                               ),
-                                                                              borderRadius: BorderRadius.circular(8),
+                                                                              borderRadius: BorderRadius.circular(8.0),
                                                                             ),
                                                                           ),
                                                                           Column(
@@ -405,9 +407,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                             children: [
                                                                               Expanded(
                                                                                 child: Align(
-                                                                                  alignment: AlignmentDirectional(-1, 1),
+                                                                                  alignment: AlignmentDirectional(-1.0, 1.0),
                                                                                   child: Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(6, 0, 6, 8),
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 6.0, 8.0),
                                                                                     child: Text(
                                                                                       rowPromotionRecord.title!,
                                                                                       textAlign: TextAlign.start,
@@ -415,7 +417,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                                       style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                             fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
                                                                                             color: Colors.white,
-                                                                                            fontSize: 11,
+                                                                                            fontSize: 11.0,
                                                                                             fontWeight: FontWeight.w500,
                                                                                             useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                           ),
@@ -439,14 +441,15 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                   ),
                                                 ),
                                                 Divider(
-                                                  thickness: 1,
+                                                  thickness: 1.0,
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .gray3,
                                                 ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 14, 0, 0),
+                                                      .fromSTEB(
+                                                          0.0, 14.0, 0.0, 0.0),
                                                   child: AuthUserStreamWidget(
                                                     builder: (context) =>
                                                         StreamBuilder<
@@ -471,8 +474,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                         if (!snapshot.hasData) {
                                                           return Center(
                                                             child: SizedBox(
-                                                              width: 50,
-                                                              height: 50,
+                                                              width: 50.0,
+                                                              height: 50.0,
                                                               child:
                                                                   CircularProgressIndicator(
                                                                 color: FlutterFlowTheme.of(
@@ -568,17 +571,19 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 tabletLandscape: false,
               ))
                 Align(
-                  alignment: AlignmentDirectional(0, 0),
+                  alignment: AlignmentDirectional(0.0, 0.0),
                   child: FFButtonWidget(
                     onPressed: () async {
                       context.goNamed('admin_main');
                     },
                     text: 'Button55',
                     options: FFButtonOptions(
-                      width: 130,
-                      height: 40,
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                      iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                      width: 130.0,
+                      height: 40.0,
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      iconPadding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: FlutterFlowTheme.of(context).primaryColor,
                       textStyle: FlutterFlowTheme.of(context)
                           .subtitle2
@@ -591,9 +596,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           ),
                       borderSide: BorderSide(
                         color: Colors.transparent,
-                        width: 1,
+                        width: 1.0,
                       ),
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(8.0),
                     ),
                   ),
                 ),

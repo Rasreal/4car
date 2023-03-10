@@ -47,20 +47,20 @@ class _ProfileWidgetState extends State<ProfileWidget> {
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       endDrawer: Drawer(
-        elevation: 16,
+        elevation: 16.0,
         child: Container(
-          width: 100,
-          height: 100,
+          width: 100.0,
+          height: 100.0,
           decoration: BoxDecoration(
             color: FlutterFlowTheme.of(context).primaryBackground,
           ),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(16, 42, 16, 16),
+            padding: EdgeInsetsDirectional.fromSTEB(16.0, 42.0, 16.0, 16.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                   child: InkWell(
                     onTap: () async {
                       context.pushNamed('edit_profile');
@@ -74,28 +74,28 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                           children: [
                             AuthUserStreamWidget(
                               builder: (context) => ClipRRect(
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(8.0),
                                 child: Image.network(
                                   valueOrDefault<String>(
                                     currentUserPhoto,
                                     'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/e4car-dch9vg/assets/tsybuq71uj0t/Avatars_48x48.png',
                                   ),
-                                  width: 48,
-                                  height: 48,
+                                  width: 48.0,
+                                  height: 48.0,
                                   fit: BoxFit.cover,
                                 ),
                               ),
                             ),
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  12.0, 0.0, 0.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 0, 0, 8),
+                                        0.0, 0.0, 0.0, 8.0),
                                     child: AuthUserStreamWidget(
                                       builder: (context) => Text(
                                         valueOrDefault<String>(
@@ -132,7 +132,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                 FlutterFlowTheme.of(context)
                                                     .bodyText1Family,
                                             color: Color(0xFF9CA3AF),
-                                            fontSize: 12,
+                                            fontSize: 12.0,
                                             fontWeight: FontWeight.normal,
                                             useGoogleFonts: GoogleFonts.asMap()
                                                 .containsKey(
@@ -149,18 +149,18 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                         Icon(
                           FFIcons.kicArrowsButtonLeft,
                           color: FlutterFlowTheme.of(context).primaryColor,
-                          size: 24,
+                          size: 24.0,
                         ),
                       ],
                     ),
                   ),
                 ),
                 Divider(
-                  thickness: 1,
+                  thickness: 1.0,
                   color: FlutterFlowTheme.of(context).gray4,
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                   child: InkWell(
                     onTap: () async {
                       await showModalBottomSheet(
@@ -184,10 +184,11 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                         Icon(
                           FFIcons.kicMapIc,
                           color: FlutterFlowTheme.of(context).primaryColor,
-                          size: 22,
+                          size: 22.0,
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              8.0, 0.0, 0.0, 0.0),
                           child: Text(
                             'Город',
                             style: FlutterFlowTheme.of(context)
@@ -203,7 +204,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              8.0, 0.0, 0.0, 0.0),
                           child: AuthUserStreamWidget(
                             builder: (context) => Text(
                               valueOrDefault<String>(
@@ -231,7 +233,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                   child: InkWell(
                     onTap: () async {
                       context.pushNamed('Favorites_Car_Washes');
@@ -242,10 +244,11 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                         Icon(
                           FFIcons.kproperty1unsaved,
                           color: FlutterFlowTheme.of(context).primaryColor,
-                          size: 22,
+                          size: 22.0,
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(9, 0, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              9.0, 0.0, 0.0, 0.0),
                           child: Text(
                             'Избранные',
                             style: FlutterFlowTheme.of(context)
@@ -265,17 +268,18 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Icon(
                         FFIcons.kicShower,
                         color: FlutterFlowTheme.of(context).primaryColor,
-                        size: 22,
+                        size: 22.0,
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                         child: Text(
                           'Добавить автомойку',
                           style: FlutterFlowTheme.of(context)
@@ -294,16 +298,17 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
                         child: Icon(
                           FFIcons.kicNotification,
                           color: FlutterFlowTheme.of(context).primaryColor,
-                          size: 22,
+                          size: 22.0,
                         ),
                       ),
                       Expanded(
@@ -318,7 +323,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                             style: FlutterFlowTheme.of(context).title3.override(
                                   fontFamily:
                                       FlutterFlowTheme.of(context).title3Family,
-                                  fontSize: 14,
+                                  fontSize: 14.0,
                                   fontWeight: FontWeight.normal,
                                   useGoogleFonts: GoogleFonts.asMap()
                                       .containsKey(FlutterFlowTheme.of(context)
@@ -328,15 +333,15 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                           tileColor: Colors.white,
                           dense: true,
                           controlAffinity: ListTileControlAffinity.trailing,
-                          contentPadding:
-                              EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                          contentPadding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
                         ),
                       ),
                     ],
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                   child: InkWell(
                     onTap: () async {
                       context.pushNamed('About_company');
@@ -347,10 +352,11 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                         Icon(
                           FFIcons.kicWorld,
                           color: FlutterFlowTheme.of(context).primaryColor,
-                          size: 22,
+                          size: 22.0,
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              8.0, 0.0, 0.0, 0.0),
                           child: Text(
                             'О компании',
                             style: FlutterFlowTheme.of(context)
@@ -370,7 +376,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                   child: InkWell(
                     onTap: () async {
                       context.pushNamed('Terms_of_Use');
@@ -381,10 +387,11 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                         Icon(
                           FFIcons.kicTermscond,
                           color: FlutterFlowTheme.of(context).primaryColor,
-                          size: 22,
+                          size: 22.0,
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              8.0, 0.0, 0.0, 0.0),
                           child: Text(
                             ' Условия пользования',
                             style: FlutterFlowTheme.of(context)
@@ -412,7 +419,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                         color: FlutterFlowTheme.of(context).gray4,
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 25, 0, 30),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 25.0, 0.0, 30.0),
                         child: InkWell(
                           onTap: () async {
                             await showModalBottomSheet(
@@ -433,11 +441,11 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                               Icon(
                                 FFIcons.kicExit,
                                 color: Color(0xFFE20000),
-                                size: 22,
+                                size: 22.0,
                               ),
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    8.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   'Выйти',
                                   style: FlutterFlowTheme.of(context)
@@ -469,20 +477,21 @@ class _ProfileWidgetState extends State<ProfileWidget> {
         child: GestureDetector(
           onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
             child: SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 24),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
                     child: SelectionArea(
                         child: Text(
                       'Профиль',
                       style: FlutterFlowTheme.of(context).bodyText1.override(
                             fontFamily: 'Inter',
-                            fontSize: 24,
+                            fontSize: 24.0,
                             fontWeight: FontWeight.w600,
                             useGoogleFonts: GoogleFonts.asMap().containsKey(
                                 FlutterFlowTheme.of(context).bodyText1Family),
@@ -498,28 +507,28 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                         children: [
                           AuthUserStreamWidget(
                             builder: (context) => ClipRRect(
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(8.0),
                               child: Image.network(
                                 valueOrDefault<String>(
                                   currentUserPhoto,
                                   'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/e4car-dch9vg/assets/tsybuq71uj0t/Avatars_48x48.png',
                                 ),
-                                width: 48,
-                                height: 48,
+                                width: 48.0,
+                                height: 48.0,
                                 fit: BoxFit.cover,
                               ),
                             ),
                           ),
                           Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                12.0, 0.0, 0.0, 0.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 0, 8),
+                                      0.0, 0.0, 0.0, 8.0),
                                   child: AuthUserStreamWidget(
                                     builder: (context) => Text(
                                       valueOrDefault<String>(
@@ -554,7 +563,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                               FlutterFlowTheme.of(context)
                                                   .bodyText1Family,
                                           color: Color(0xFF9CA3AF),
-                                          fontSize: 12,
+                                          fontSize: 12.0,
                                           fontWeight: FontWeight.normal,
                                           useGoogleFonts: GoogleFonts.asMap()
                                               .containsKey(
@@ -571,7 +580,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                     ],
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 32, 0, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
                     child: SelectionArea(
                         child: Text(
                       'Общее',
@@ -584,7 +594,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                     )),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 22, 0, 14),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 22.0, 0.0, 14.0),
                     child: InkWell(
                       onTap: () async {
                         context.pushNamed(
@@ -603,12 +614,12 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                           Icon(
                             FFIcons.kicAccount,
                             color: FlutterFlowTheme.of(context).primaryColor,
-                            size: 22,
+                            size: 22.0,
                           ),
                           Expanded(
                             child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  8.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 'Личные данные',
                                 style: FlutterFlowTheme.of(context)
@@ -628,19 +639,20 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                           Icon(
                             FFIcons.kicArrowsButtonLeft,
                             color: FlutterFlowTheme.of(context).primaryColor,
-                            size: 22,
+                            size: 22.0,
                           ),
                         ],
                       ),
                     ),
                   ),
                   Divider(
-                    height: 1,
-                    thickness: 1,
+                    height: 1.0,
+                    thickness: 1.0,
                     color: FlutterFlowTheme.of(context).gray4,
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 14, 0, 14),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 14.0, 0.0, 14.0),
                     child: InkWell(
                       onTap: () async {
                         await showModalBottomSheet(
@@ -665,10 +677,11 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                           Icon(
                             FFIcons.kicMapIc,
                             color: FlutterFlowTheme.of(context).primaryColor,
-                            size: 22,
+                            size: 22.0,
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                8.0, 0.0, 0.0, 0.0),
                             child: Text(
                               'Город',
                               style: FlutterFlowTheme.of(context)
@@ -686,8 +699,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                           ),
                           Expanded(
                             child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  8.0, 0.0, 0.0, 0.0),
                               child: AuthUserStreamWidget(
                                 builder: (context) => Text(
                                   valueOrDefault<String>(
@@ -714,19 +727,20 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                           Icon(
                             FFIcons.kicArrowsButtonLeft,
                             color: FlutterFlowTheme.of(context).primaryColor,
-                            size: 22,
+                            size: 22.0,
                           ),
                         ],
                       ),
                     ),
                   ),
                   Divider(
-                    height: 1,
-                    thickness: 1,
+                    height: 1.0,
+                    thickness: 1.0,
                     color: FlutterFlowTheme.of(context).gray4,
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                     child: SelectionArea(
                         child: Text(
                       'Дополнительно',
@@ -739,7 +753,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                     )),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 22, 0, 14),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 22.0, 0.0, 14.0),
                     child: InkWell(
                       onTap: () async {
                         context.pushNamed('Favorites_Car_Washes');
@@ -750,12 +765,12 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                           Icon(
                             FFIcons.kproperty1unsaved,
                             color: FlutterFlowTheme.of(context).primaryColor,
-                            size: 22,
+                            size: 22.0,
                           ),
                           Expanded(
                             child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(9, 0, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  9.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 'Избранные',
                                 style: FlutterFlowTheme.of(context)
@@ -775,19 +790,20 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                           Icon(
                             FFIcons.kicArrowsButtonLeft,
                             color: FlutterFlowTheme.of(context).primaryColor,
-                            size: 22,
+                            size: 22.0,
                           ),
                         ],
                       ),
                     ),
                   ),
                   Divider(
-                    height: 1,
-                    thickness: 1,
+                    height: 1.0,
+                    thickness: 1.0,
                     color: FlutterFlowTheme.of(context).gray4,
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 14, 0, 14),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 14.0, 0.0, 14.0),
                     child: InkWell(
                       onTap: () async {
                         context.pushNamed('About_company');
@@ -798,12 +814,12 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                           Icon(
                             FFIcons.kicWorld,
                             color: FlutterFlowTheme.of(context).primaryColor,
-                            size: 22,
+                            size: 22.0,
                           ),
                           Expanded(
                             child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  8.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 'О компании',
                                 style: FlutterFlowTheme.of(context)
@@ -823,19 +839,20 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                           Icon(
                             FFIcons.kicArrowsButtonLeft,
                             color: FlutterFlowTheme.of(context).primaryColor,
-                            size: 22,
+                            size: 22.0,
                           ),
                         ],
                       ),
                     ),
                   ),
                   Divider(
-                    height: 1,
-                    thickness: 1,
+                    height: 1.0,
+                    thickness: 1.0,
                     color: FlutterFlowTheme.of(context).gray4,
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                     child: SelectionArea(
                         child: Text(
                       'Настройки',
@@ -848,16 +865,18 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                     )),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 18, 0, 10),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 10.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 8.0, 0.0),
                           child: Icon(
                             FFIcons.kicNotification,
                             color: FlutterFlowTheme.of(context).primaryColor,
-                            size: 22,
+                            size: 22.0,
                           ),
                         ),
                         Expanded(
@@ -873,7 +892,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                   FlutterFlowTheme.of(context).title3.override(
                                         fontFamily: FlutterFlowTheme.of(context)
                                             .title3Family,
-                                        fontSize: 14,
+                                        fontSize: 14.0,
                                         fontWeight: FontWeight.w500,
                                         useGoogleFonts: GoogleFonts.asMap()
                                             .containsKey(
@@ -884,20 +903,21 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                             tileColor: Colors.white,
                             dense: true,
                             controlAffinity: ListTileControlAffinity.trailing,
-                            contentPadding:
-                                EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                            contentPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
                           ),
                         ),
                       ],
                     ),
                   ),
                   Divider(
-                    height: 1,
-                    thickness: 1,
+                    height: 1.0,
+                    thickness: 1.0,
                     color: FlutterFlowTheme.of(context).gray4,
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 14, 0, 14),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 14.0, 0.0, 14.0),
                     child: InkWell(
                       onTap: () async {
                         context.pushNamed('Terms_of_Use');
@@ -908,12 +928,12 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                           Icon(
                             FFIcons.kicLock,
                             color: FlutterFlowTheme.of(context).primaryColor,
-                            size: 22,
+                            size: 22.0,
                           ),
                           Expanded(
                             child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  8.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 'Политика конфиденциальности',
                                 style: FlutterFlowTheme.of(context)
@@ -933,19 +953,20 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                           Icon(
                             FFIcons.kicArrowsButtonLeft,
                             color: FlutterFlowTheme.of(context).primaryColor,
-                            size: 22,
+                            size: 22.0,
                           ),
                         ],
                       ),
                     ),
                   ),
                   Divider(
-                    height: 1,
-                    thickness: 1,
+                    height: 1.0,
+                    thickness: 1.0,
                     color: FlutterFlowTheme.of(context).gray4,
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 14, 0, 45),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 14.0, 0.0, 45.0),
                     child: InkWell(
                       onTap: () async {
                         await showModalBottomSheet(
@@ -966,12 +987,12 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                           Icon(
                             FFIcons.kicExit,
                             color: FlutterFlowTheme.of(context).primaryColor,
-                            size: 22,
+                            size: 22.0,
                           ),
                           Expanded(
                             child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  8.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 'Выйти',
                                 style: FlutterFlowTheme.of(context)

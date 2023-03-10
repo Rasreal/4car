@@ -67,11 +67,11 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                   Expanded(
                     child: Container(
                       width: double.infinity,
-                      height: MediaQuery.of(context).size.height * 1,
+                      height: MediaQuery.of(context).size.height * 1.0,
                       child: Stack(
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(0, -1),
+                            alignment: AlignmentDirectional(0.0, -1.0),
                             child: SingleChildScrollView(
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -86,12 +86,13 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                           .secondaryBackground,
                                     ),
                                     child: Align(
-                                      alignment: AlignmentDirectional(0, -1),
+                                      alignment:
+                                          AlignmentDirectional(0.0, -1.0),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 0, 0, 120),
+                                            0.0, 0.0, 0.0, 120.0),
                                         child: Container(
-                                          width: 1224,
+                                          width: 1224.0,
                                           decoration: BoxDecoration(),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.min,
@@ -100,7 +101,8 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                             children: [
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(0, 32, 0, 32),
+                                                    .fromSTEB(
+                                                        0.0, 32.0, 0.0, 32.0),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -117,7 +119,7 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Inter',
-                                                                fontSize: 24,
+                                                                fontSize: 24.0,
                                                                 useGoogleFonts: GoogleFonts
                                                                         .asMap()
                                                                     .containsKey(
@@ -141,15 +143,15 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0,
-                                                                        1,
-                                                                        6,
-                                                                        0),
+                                                                        0.0,
+                                                                        1.0,
+                                                                        6.0,
+                                                                        0.0),
                                                             child: Icon(
                                                               FFIcons.kicClose,
                                                               color: Color(
                                                                   0xFF1A1A1A),
-                                                              size: 16,
+                                                              size: 16.0,
                                                             ),
                                                           ),
                                                           Text(
@@ -193,8 +195,8 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                   if (!snapshot.hasData) {
                                                     return Center(
                                                       child: SizedBox(
-                                                        width: 50,
-                                                        height: 50,
+                                                        width: 50.0,
+                                                        height: 50.0,
                                                         child:
                                                             CircularProgressIndicator(
                                                           color: FlutterFlowTheme
@@ -225,22 +227,23 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                             .start,
                                                     children: [
                                                       Container(
-                                                        width: 496,
+                                                        width: 496.0,
                                                         decoration:
                                                             BoxDecoration(
                                                           color: Colors.white,
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(8),
+                                                                  .circular(
+                                                                      8.0),
                                                         ),
                                                         child: Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
                                                                   .fromSTEB(
-                                                                      24,
-                                                                      24,
-                                                                      24,
-                                                                      24),
+                                                                      24.0,
+                                                                      24.0,
+                                                                      24.0,
+                                                                      24.0),
                                                           child: StreamBuilder<
                                                               List<
                                                                   CompanyNotificationsRecord>>(
@@ -258,8 +261,9 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                 return Center(
                                                                   child:
                                                                       SizedBox(
-                                                                    width: 50,
-                                                                    height: 50,
+                                                                    width: 50.0,
+                                                                    height:
+                                                                        50.0,
                                                                     child:
                                                                         CircularProgressIndicator(
                                                                       color: FlutterFlowTheme.of(
@@ -294,10 +298,10 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                   return Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0,
-                                                                            24,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            24.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                     child:
                                                                         InkWell(
                                                                       onTap:
@@ -326,18 +330,18 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                         children: [
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0,
-                                                                                0,
-                                                                                0,
-                                                                                8),
+                                                                                0.0,
+                                                                                0.0,
+                                                                                0.0,
+                                                                                8.0),
                                                                             child:
                                                                                 Row(
                                                                               mainAxisSize: MainAxisSize.max,
                                                                               children: [
                                                                                 if (!listViewCompanyNotificationsRecord.opened!)
                                                                                   Container(
-                                                                                    width: 6,
-                                                                                    height: 6,
+                                                                                    width: 6.0,
+                                                                                    height: 6.0,
                                                                                     decoration: BoxDecoration(
                                                                                       color: FlutterFlowTheme.of(context).red1,
                                                                                       shape: BoxShape.circle,
@@ -345,7 +349,7 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                   ),
                                                                                 Expanded(
                                                                                   child: Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
                                                                                     child: Text(
                                                                                       valueOrDefault<String>(
                                                                                         listViewCompanyNotificationsRecord.message,
@@ -410,9 +414,9 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                           ),
                                                                           Divider(
                                                                             height:
-                                                                                1,
+                                                                                1.0,
                                                                             thickness:
-                                                                                1,
+                                                                                1.0,
                                                                             color:
                                                                                 Color(0xFFEEEEEE),
                                                                           ),
@@ -432,8 +436,11 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(24,
-                                                                      0, 0, 0),
+                                                                  .fromSTEB(
+                                                                      24.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
                                                           child: StreamBuilder<
                                                               CompanyNotificationsRecord>(
                                                             stream: CompanyNotificationsRecord
@@ -448,8 +455,9 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                 return Center(
                                                                   child:
                                                                       SizedBox(
-                                                                    width: 50,
-                                                                    height: 50,
+                                                                    width: 50.0,
+                                                                    height:
+                                                                        50.0,
                                                                     child:
                                                                         CircularProgressIndicator(
                                                                       color: FlutterFlowTheme.of(
@@ -463,8 +471,8 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                   snapshot
                                                                       .data!;
                                                               return Container(
-                                                                width: 704,
-                                                                height: 694,
+                                                                width: 704.0,
+                                                                height: 694.0,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   color: Colors
@@ -472,15 +480,15 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .circular(
-                                                                              8),
+                                                                              8.0),
                                                                 ),
                                                                 child: Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          32,
-                                                                          24,
-                                                                          32,
-                                                                          24),
+                                                                          32.0,
+                                                                          24.0,
+                                                                          32.0,
+                                                                          24.0),
                                                                   child: Column(
                                                                     mainAxisSize:
                                                                         MainAxisSize
@@ -499,8 +507,8 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                             if (!snapshot.hasData) {
                                                                               return Center(
                                                                                 child: SizedBox(
-                                                                                  width: 50,
-                                                                                  height: 50,
+                                                                                  width: 50.0,
+                                                                                  height: 50.0,
                                                                                   child: CircularProgressIndicator(
                                                                                     color: FlutterFlowTheme.of(context).primaryColor,
                                                                                   ),
@@ -546,12 +554,12 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                   ],
                                                                                 ),
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 24),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 24.0),
                                                                                   child: Text(
                                                                                     containerCompanyNotificationsRecord.message!,
                                                                                     style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                           fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
-                                                                                          fontSize: 16,
+                                                                                          fontSize: 16.0,
                                                                                           fontWeight: FontWeight.w500,
                                                                                           useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                         ),
@@ -567,91 +575,91 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                         crossAxisAlignment: CrossAxisAlignment.start,
                                                                                         children: [
                                                                                           Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                                                                                             child: Text(
                                                                                               '№Заказа',
                                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                     fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
                                                                                                     color: FlutterFlowTheme.of(context).gray2,
-                                                                                                    fontSize: 16,
+                                                                                                    fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
                                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
                                                                                           Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                                                                                             child: Text(
                                                                                               'Время',
                                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                     fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
                                                                                                     color: FlutterFlowTheme.of(context).gray2,
-                                                                                                    fontSize: 16,
+                                                                                                    fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
                                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
                                                                                           Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                                                                                             child: Text(
                                                                                               '№ Бокса ',
                                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                     fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
                                                                                                     color: FlutterFlowTheme.of(context).gray2,
-                                                                                                    fontSize: 16,
+                                                                                                    fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
                                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
                                                                                           Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                                                                                             child: Text(
                                                                                               'Автомобиль',
                                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                     fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
                                                                                                     color: FlutterFlowTheme.of(context).gray2,
-                                                                                                    fontSize: 16,
+                                                                                                    fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
                                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
                                                                                           Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                                                                                             child: Text(
                                                                                               'Услуги ',
                                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                     fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
                                                                                                     color: FlutterFlowTheme.of(context).gray2,
-                                                                                                    fontSize: 16,
+                                                                                                    fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
                                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
                                                                                           Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                                                                                             child: Text(
                                                                                               'Стоимость',
                                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                     fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
                                                                                                     color: FlutterFlowTheme.of(context).gray2,
-                                                                                                    fontSize: 16,
+                                                                                                    fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
                                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
                                                                                           Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                                                                                             child: Text(
                                                                                               'Комментарий',
                                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                     fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
                                                                                                     color: FlutterFlowTheme.of(context).gray2,
-                                                                                                    fontSize: 16,
+                                                                                                    fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
                                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                   ),
@@ -667,7 +675,7 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                         crossAxisAlignment: CrossAxisAlignment.start,
                                                                                         children: [
                                                                                           Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                                                                                             child: Text(
                                                                                               valueOrDefault<String>(
                                                                                                 cancelBookingBookingsRecord.id,
@@ -675,14 +683,14 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                               ),
                                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                     fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
-                                                                                                    fontSize: 16,
+                                                                                                    fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
                                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
                                                                                           Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                                                                                             child: Text(
                                                                                               valueOrDefault<String>(
                                                                                                 cancelBookingBookingsRecord.timeName,
@@ -690,14 +698,14 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                               ),
                                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                     fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
-                                                                                                    fontSize: 16,
+                                                                                                    fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
                                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
                                                                                           Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                                                                                             child: Text(
                                                                                               valueOrDefault<String>(
                                                                                                 cancelBookingBookingsRecord.boxName,
@@ -705,14 +713,14 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                               ),
                                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                     fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
-                                                                                                    fontSize: 16,
+                                                                                                    fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
                                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
                                                                                           Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                                                                                             child: Text(
                                                                                               '${valueOrDefault<String>(
                                                                                                 cancelBookingBookingsRecord.carBody,
@@ -723,26 +731,26 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                               )}',
                                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                     fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
-                                                                                                    fontSize: 16,
+                                                                                                    fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
                                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
                                                                                           Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                                                                                             child: Text(
                                                                                               functions.listStringToString(cancelBookingBookingsRecord.selectedCompanyServicesName!.toList(), 50),
                                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                     fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
-                                                                                                    fontSize: 16,
+                                                                                                    fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
                                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
                                                                                           Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                                                                                             child: Text(
                                                                                               '${valueOrDefault<String>(
                                                                                                 cancelBookingBookingsRecord.totalPrice?.toString(),
@@ -750,14 +758,14 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                               )} тг',
                                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                     fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
-                                                                                                    fontSize: 16,
+                                                                                                    fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
                                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
                                                                                           Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                                                                                             child: Text(
                                                                                               valueOrDefault<String>(
                                                                                                 cancelBookingBookingsRecord.cancelComment,
@@ -765,7 +773,7 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                               ),
                                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                     fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
-                                                                                                    fontSize: 16,
+                                                                                                    fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
                                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                   ),
@@ -793,8 +801,8 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                             if (!snapshot.hasData) {
                                                                               return Center(
                                                                                 child: SizedBox(
-                                                                                  width: 50,
-                                                                                  height: 50,
+                                                                                  width: 50.0,
+                                                                                  height: 50.0,
                                                                                   child: CircularProgressIndicator(
                                                                                     color: FlutterFlowTheme.of(context).primaryColor,
                                                                                   ),
@@ -840,12 +848,12 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                   ],
                                                                                 ),
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 24),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 24.0),
                                                                                   child: Text(
                                                                                     containerCompanyNotificationsRecord.message!,
                                                                                     style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                           fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
-                                                                                          fontSize: 16,
+                                                                                          fontSize: 16.0,
                                                                                           fontWeight: FontWeight.w500,
                                                                                           useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                         ),
@@ -861,78 +869,78 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                         crossAxisAlignment: CrossAxisAlignment.start,
                                                                                         children: [
                                                                                           Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                                                                                             child: Text(
                                                                                               '№Заказа',
                                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                     fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
                                                                                                     color: FlutterFlowTheme.of(context).gray2,
-                                                                                                    fontSize: 16,
+                                                                                                    fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
                                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
                                                                                           Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                                                                                             child: Text(
                                                                                               'Время',
                                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                     fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
                                                                                                     color: FlutterFlowTheme.of(context).gray2,
-                                                                                                    fontSize: 16,
+                                                                                                    fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
                                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
                                                                                           Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                                                                                             child: Text(
                                                                                               '№Бокса ',
                                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                     fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
                                                                                                     color: FlutterFlowTheme.of(context).gray2,
-                                                                                                    fontSize: 16,
+                                                                                                    fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
                                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
                                                                                           Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                                                                                             child: Text(
                                                                                               'Автомобиль',
                                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                     fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
                                                                                                     color: FlutterFlowTheme.of(context).gray2,
-                                                                                                    fontSize: 16,
+                                                                                                    fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
                                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
                                                                                           Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                                                                                             child: Text(
                                                                                               'Услуги ',
                                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                     fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
                                                                                                     color: FlutterFlowTheme.of(context).gray2,
-                                                                                                    fontSize: 16,
+                                                                                                    fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
                                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
                                                                                           Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                                                                                             child: Text(
                                                                                               'Стоимость',
                                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                     fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
                                                                                                     color: FlutterFlowTheme.of(context).gray2,
-                                                                                                    fontSize: 16,
+                                                                                                    fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
                                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                   ),
@@ -948,7 +956,7 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                         crossAxisAlignment: CrossAxisAlignment.start,
                                                                                         children: [
                                                                                           Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                                                                                             child: Text(
                                                                                               valueOrDefault<String>(
                                                                                                 newlBookingBookingsRecord.id,
@@ -956,14 +964,14 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                               ),
                                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                     fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
-                                                                                                    fontSize: 16,
+                                                                                                    fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
                                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
                                                                                           Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                                                                                             child: Text(
                                                                                               valueOrDefault<String>(
                                                                                                 newlBookingBookingsRecord.timeName,
@@ -971,14 +979,14 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                               ),
                                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                     fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
-                                                                                                    fontSize: 16,
+                                                                                                    fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
                                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
                                                                                           Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                                                                                             child: Text(
                                                                                               valueOrDefault<String>(
                                                                                                 newlBookingBookingsRecord.boxName,
@@ -986,14 +994,14 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                               ),
                                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                     fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
-                                                                                                    fontSize: 16,
+                                                                                                    fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
                                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
                                                                                           Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                                                                                             child: Text(
                                                                                               '${valueOrDefault<String>(
                                                                                                 newlBookingBookingsRecord.carBody,
@@ -1004,26 +1012,26 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                               )}',
                                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                     fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
-                                                                                                    fontSize: 16,
+                                                                                                    fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
                                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
                                                                                           Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                                                                                             child: Text(
                                                                                               functions.listStringToString(newlBookingBookingsRecord.selectedCompanyServicesName!.toList(), 50),
                                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                     fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
-                                                                                                    fontSize: 16,
+                                                                                                    fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
                                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
                                                                                           Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                                                                                             child: Text(
                                                                                               '${valueOrDefault<String>(
                                                                                                 newlBookingBookingsRecord.totalPrice?.toString(),
@@ -1031,7 +1039,7 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                               )} тг',
                                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                     fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
-                                                                                                    fontSize: 16,
+                                                                                                    fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
                                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                                   ),

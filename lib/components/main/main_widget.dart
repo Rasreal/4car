@@ -44,14 +44,14 @@ class _MainWidgetState extends State<MainWidget> {
     context.watch<FFAppState>();
 
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(16, 6, 16, 0),
+      padding: EdgeInsetsDirectional.fromSTEB(16.0, 6.0, 16.0, 0.0),
       child: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
               child: TextFormField(
                 controller: _model.textController,
                 autofocus: true,
@@ -69,35 +69,35 @@ class _MainWidgetState extends State<MainWidget> {
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
                       color: Color(0xFFD6D6D6),
-                      width: 1,
+                      width: 1.0,
                     ),
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(
                       color: Color(0x00000000),
-                      width: 1,
+                      width: 1.0,
                     ),
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
                   errorBorder: OutlineInputBorder(
                     borderSide: BorderSide(
                       color: Color(0x00000000),
-                      width: 1,
+                      width: 1.0,
                     ),
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
                   focusedErrorBorder: OutlineInputBorder(
                     borderSide: BorderSide(
                       color: Color(0x00000000),
-                      width: 1,
+                      width: 1.0,
                     ),
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
                   prefixIcon: Icon(
                     Icons.search_rounded,
                     color: Color(0xFFC4C4C4),
-                    size: 20,
+                    size: 20.0,
                   ),
                 ),
                 style: FlutterFlowTheme.of(context).bodyText1.override(
@@ -110,31 +110,33 @@ class _MainWidgetState extends State<MainWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 14),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 14.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Image.network(
                     '',
-                    width: 104,
-                    height: 100,
+                    width: 104.0,
+                    height: 100.0,
                     fit: BoxFit.contain,
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
                     child: Image.network(
                       '',
-                      width: 104,
-                      height: 100,
+                      width: 104.0,
+                      height: 100.0,
                       fit: BoxFit.contain,
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
                     child: Image.network(
                       '',
-                      width: 104,
-                      height: 100,
+                      width: 104.0,
+                      height: 100.0,
                       fit: BoxFit.contain,
                     ),
                   ),
@@ -151,23 +153,24 @@ class _MainWidgetState extends State<MainWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 14),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 14.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Container(
-                            width: 64,
-                            height: 64,
+                            width: 64.0,
+                            height: 64.0,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .primaryBackground,
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(8.0),
                             ),
                           ),
                           Expanded(
                             child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(14, 0, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  14.0, 0.0, 0.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -179,13 +182,13 @@ class _MainWidgetState extends State<MainWidget> {
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 0, 0, 6),
+                                            0.0, 0.0, 0.0, 6.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 4, 0),
+                                                  .fromSTEB(0.0, 0.0, 4.0, 0.0),
                                               child: Text(
                                                 'Pro Auto',
                                                 style:
@@ -196,7 +199,7 @@ class _MainWidgetState extends State<MainWidget> {
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .bodyText1Family,
-                                                          fontSize: 16,
+                                                          fontSize: 16.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                           useGoogleFonts: GoogleFonts
@@ -209,8 +212,8 @@ class _MainWidgetState extends State<MainWidget> {
                                               ),
                                             ),
                                             Container(
-                                              width: 6,
-                                              height: 6,
+                                              width: 6.0,
+                                              height: 6.0,
                                               decoration: BoxDecoration(
                                                 color: Color(0xFF178C23),
                                                 shape: BoxShape.circle,
@@ -221,19 +224,19 @@ class _MainWidgetState extends State<MainWidget> {
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 0, 5, 0),
+                                            0.0, 0.0, 5.0, 0.0),
                                         child: Icon(
                                           Icons.bookmark_border,
                                           color: FlutterFlowTheme.of(context)
                                               .primaryColor,
-                                          size: 17,
+                                          size: 17.0,
                                         ),
                                       ),
                                     ],
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 0, 0, 4),
+                                        0.0, 0.0, 0.0, 4.0),
                                     child: RatingBar.builder(
                                       onRatingUpdate: (newValue) => setState(
                                           () => _model.ratingBarValue1 =
@@ -245,10 +248,10 @@ class _MainWidgetState extends State<MainWidget> {
                                       ),
                                       direction: Axis.horizontal,
                                       initialRating: _model.ratingBarValue1 ??=
-                                          3,
+                                          3.0,
                                       unratedColor: Color(0xFF9E9E9E),
                                       itemCount: 5,
-                                      itemSize: 14,
+                                      itemSize: 14.0,
                                       glowColor: FlutterFlowTheme.of(context)
                                           .primaryColor,
                                     ),
@@ -303,34 +306,35 @@ class _MainWidgetState extends State<MainWidget> {
                       ),
                     ),
                     Divider(
-                      thickness: 1,
+                      thickness: 1.0,
                       color: Color(0xFFF2F2F2),
                     ),
                   ],
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 14, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 14.0, 0.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 14),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 14.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Container(
-                              width: 64,
-                              height: 64,
+                              width: 64.0,
+                              height: 64.0,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .primaryBackground,
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(8.0),
                               ),
                             ),
                             Expanded(
                               child: Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(14, 0, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    14.0, 0.0, 0.0, 0.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -343,13 +347,14 @@ class _MainWidgetState extends State<MainWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 0, 6),
+                                                  0.0, 0.0, 0.0, 6.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(0, 0, 4, 0),
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 4.0, 0.0),
                                                 child: Text(
                                                   'AVTOБАНЯ',
                                                   style: FlutterFlowTheme.of(
@@ -360,7 +365,7 @@ class _MainWidgetState extends State<MainWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .bodyText1Family,
-                                                        fontSize: 16,
+                                                        fontSize: 16.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                         useGoogleFonts: GoogleFonts
@@ -373,8 +378,8 @@ class _MainWidgetState extends State<MainWidget> {
                                                 ),
                                               ),
                                               Container(
-                                                width: 6,
-                                                height: 6,
+                                                width: 6.0,
+                                                height: 6.0,
                                                 decoration: BoxDecoration(
                                                   color: Color(0xFF178C23),
                                                   shape: BoxShape.circle,
@@ -386,19 +391,19 @@ class _MainWidgetState extends State<MainWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 5, 0),
+                                                  0.0, 0.0, 5.0, 0.0),
                                           child: Icon(
                                             Icons.bookmark_rounded,
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryColor,
-                                            size: 17,
+                                            size: 17.0,
                                           ),
                                         ),
                                       ],
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 0, 4),
+                                          0.0, 0.0, 0.0, 4.0),
                                       child: RatingBar.builder(
                                         onRatingUpdate: (newValue) => setState(
                                             () => _model.ratingBarValue2 =
@@ -410,10 +415,10 @@ class _MainWidgetState extends State<MainWidget> {
                                         ),
                                         direction: Axis.horizontal,
                                         initialRating:
-                                            _model.ratingBarValue2 ??= 3,
+                                            _model.ratingBarValue2 ??= 3.0,
                                         unratedColor: Color(0xFF9E9E9E),
                                         itemCount: 5,
-                                        itemSize: 14,
+                                        itemSize: 14.0,
                                         glowColor: FlutterFlowTheme.of(context)
                                             .primaryColor,
                                       ),
@@ -468,35 +473,36 @@ class _MainWidgetState extends State<MainWidget> {
                         ),
                       ),
                       Divider(
-                        thickness: 1,
+                        thickness: 1.0,
                         color: Color(0xFFF2F2F2),
                       ),
                     ],
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 14, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 14.0, 0.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 14),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 14.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Container(
-                              width: 64,
-                              height: 64,
+                              width: 64.0,
+                              height: 64.0,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .primaryBackground,
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(8.0),
                               ),
                             ),
                             Expanded(
                               child: Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(14, 0, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    14.0, 0.0, 0.0, 0.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -509,13 +515,14 @@ class _MainWidgetState extends State<MainWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 0, 6),
+                                                  0.0, 0.0, 0.0, 6.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(0, 0, 4, 0),
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 4.0, 0.0),
                                                 child: Text(
                                                   'Pro Auto',
                                                   style: FlutterFlowTheme.of(
@@ -526,7 +533,7 @@ class _MainWidgetState extends State<MainWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .bodyText1Family,
-                                                        fontSize: 16,
+                                                        fontSize: 16.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                         useGoogleFonts: GoogleFonts
@@ -539,8 +546,8 @@ class _MainWidgetState extends State<MainWidget> {
                                                 ),
                                               ),
                                               Container(
-                                                width: 6,
-                                                height: 6,
+                                                width: 6.0,
+                                                height: 6.0,
                                                 decoration: BoxDecoration(
                                                   color: Color(0xFF178C23),
                                                   shape: BoxShape.circle,
@@ -552,19 +559,19 @@ class _MainWidgetState extends State<MainWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 5, 0),
+                                                  0.0, 0.0, 5.0, 0.0),
                                           child: Icon(
                                             Icons.bookmark_border,
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryColor,
-                                            size: 17,
+                                            size: 17.0,
                                           ),
                                         ),
                                       ],
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 0, 4),
+                                          0.0, 0.0, 0.0, 4.0),
                                       child: RatingBar.builder(
                                         onRatingUpdate: (newValue) => setState(
                                             () => _model.ratingBarValue3 =
@@ -576,10 +583,10 @@ class _MainWidgetState extends State<MainWidget> {
                                         ),
                                         direction: Axis.horizontal,
                                         initialRating:
-                                            _model.ratingBarValue3 ??= 3,
+                                            _model.ratingBarValue3 ??= 3.0,
                                         unratedColor: Color(0xFF9E9E9E),
                                         itemCount: 5,
-                                        itemSize: 14,
+                                        itemSize: 14.0,
                                         glowColor: FlutterFlowTheme.of(context)
                                             .primaryColor,
                                       ),
@@ -634,35 +641,36 @@ class _MainWidgetState extends State<MainWidget> {
                         ),
                       ),
                       Divider(
-                        thickness: 1,
+                        thickness: 1.0,
                         color: Color(0xFFF2F2F2),
                       ),
                     ],
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 14, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 14.0, 0.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 14),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 14.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Container(
-                              width: 64,
-                              height: 64,
+                              width: 64.0,
+                              height: 64.0,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .primaryBackground,
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(8.0),
                               ),
                             ),
                             Expanded(
                               child: Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(14, 0, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    14.0, 0.0, 0.0, 0.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -675,13 +683,14 @@ class _MainWidgetState extends State<MainWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 0, 6),
+                                                  0.0, 0.0, 0.0, 6.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(0, 0, 4, 0),
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 4.0, 0.0),
                                                 child: Text(
                                                   'AVTOБАНЯ',
                                                   style: FlutterFlowTheme.of(
@@ -692,7 +701,7 @@ class _MainWidgetState extends State<MainWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .bodyText1Family,
-                                                        fontSize: 16,
+                                                        fontSize: 16.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                         useGoogleFonts: GoogleFonts
@@ -705,8 +714,8 @@ class _MainWidgetState extends State<MainWidget> {
                                                 ),
                                               ),
                                               Container(
-                                                width: 6,
-                                                height: 6,
+                                                width: 6.0,
+                                                height: 6.0,
                                                 decoration: BoxDecoration(
                                                   color: Color(0xFF178C23),
                                                   shape: BoxShape.circle,
@@ -718,19 +727,19 @@ class _MainWidgetState extends State<MainWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 5, 0),
+                                                  0.0, 0.0, 5.0, 0.0),
                                           child: Icon(
                                             Icons.bookmark_rounded,
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryColor,
-                                            size: 17,
+                                            size: 17.0,
                                           ),
                                         ),
                                       ],
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 0, 4),
+                                          0.0, 0.0, 0.0, 4.0),
                                       child: RatingBar.builder(
                                         onRatingUpdate: (newValue) => setState(
                                             () => _model.ratingBarValue4 =
@@ -742,10 +751,10 @@ class _MainWidgetState extends State<MainWidget> {
                                         ),
                                         direction: Axis.horizontal,
                                         initialRating:
-                                            _model.ratingBarValue4 ??= 3,
+                                            _model.ratingBarValue4 ??= 3.0,
                                         unratedColor: Color(0xFF9E9E9E),
                                         itemCount: 5,
-                                        itemSize: 14,
+                                        itemSize: 14.0,
                                         glowColor: FlutterFlowTheme.of(context)
                                             .primaryColor,
                                       ),
@@ -800,35 +809,36 @@ class _MainWidgetState extends State<MainWidget> {
                         ),
                       ),
                       Divider(
-                        thickness: 1,
+                        thickness: 1.0,
                         color: Color(0xFFF2F2F2),
                       ),
                     ],
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 14, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 14.0, 0.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 14),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 14.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Container(
-                              width: 64,
-                              height: 64,
+                              width: 64.0,
+                              height: 64.0,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .primaryBackground,
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(8.0),
                               ),
                             ),
                             Expanded(
                               child: Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(14, 0, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    14.0, 0.0, 0.0, 0.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -841,13 +851,14 @@ class _MainWidgetState extends State<MainWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 0, 6),
+                                                  0.0, 0.0, 0.0, 6.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(0, 0, 4, 0),
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 4.0, 0.0),
                                                 child: Text(
                                                   'Pro Auto',
                                                   style: FlutterFlowTheme.of(
@@ -858,7 +869,7 @@ class _MainWidgetState extends State<MainWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .bodyText1Family,
-                                                        fontSize: 16,
+                                                        fontSize: 16.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                         useGoogleFonts: GoogleFonts
@@ -871,8 +882,8 @@ class _MainWidgetState extends State<MainWidget> {
                                                 ),
                                               ),
                                               Container(
-                                                width: 6,
-                                                height: 6,
+                                                width: 6.0,
+                                                height: 6.0,
                                                 decoration: BoxDecoration(
                                                   color: Color(0xFF178C23),
                                                   shape: BoxShape.circle,
@@ -884,19 +895,19 @@ class _MainWidgetState extends State<MainWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 5, 0),
+                                                  0.0, 0.0, 5.0, 0.0),
                                           child: Icon(
                                             Icons.bookmark_border,
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryColor,
-                                            size: 17,
+                                            size: 17.0,
                                           ),
                                         ),
                                       ],
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 0, 4),
+                                          0.0, 0.0, 0.0, 4.0),
                                       child: RatingBar.builder(
                                         onRatingUpdate: (newValue) => setState(
                                             () => _model.ratingBarValue5 =
@@ -908,10 +919,10 @@ class _MainWidgetState extends State<MainWidget> {
                                         ),
                                         direction: Axis.horizontal,
                                         initialRating:
-                                            _model.ratingBarValue5 ??= 3,
+                                            _model.ratingBarValue5 ??= 3.0,
                                         unratedColor: Color(0xFF9E9E9E),
                                         itemCount: 5,
-                                        itemSize: 14,
+                                        itemSize: 14.0,
                                         glowColor: FlutterFlowTheme.of(context)
                                             .primaryColor,
                                       ),
@@ -966,35 +977,36 @@ class _MainWidgetState extends State<MainWidget> {
                         ),
                       ),
                       Divider(
-                        thickness: 1,
+                        thickness: 1.0,
                         color: Color(0xFFF2F2F2),
                       ),
                     ],
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 14, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 14.0, 0.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 14),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 14.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Container(
-                              width: 64,
-                              height: 64,
+                              width: 64.0,
+                              height: 64.0,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .primaryBackground,
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(8.0),
                               ),
                             ),
                             Expanded(
                               child: Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(14, 0, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    14.0, 0.0, 0.0, 0.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -1007,13 +1019,14 @@ class _MainWidgetState extends State<MainWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 0, 6),
+                                                  0.0, 0.0, 0.0, 6.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(0, 0, 4, 0),
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 4.0, 0.0),
                                                 child: Text(
                                                   'AVTOБАНЯ',
                                                   style: FlutterFlowTheme.of(
@@ -1024,7 +1037,7 @@ class _MainWidgetState extends State<MainWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .bodyText1Family,
-                                                        fontSize: 16,
+                                                        fontSize: 16.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                         useGoogleFonts: GoogleFonts
@@ -1037,8 +1050,8 @@ class _MainWidgetState extends State<MainWidget> {
                                                 ),
                                               ),
                                               Container(
-                                                width: 6,
-                                                height: 6,
+                                                width: 6.0,
+                                                height: 6.0,
                                                 decoration: BoxDecoration(
                                                   color: Color(0xFF178C23),
                                                   shape: BoxShape.circle,
@@ -1050,19 +1063,19 @@ class _MainWidgetState extends State<MainWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 5, 0),
+                                                  0.0, 0.0, 5.0, 0.0),
                                           child: Icon(
                                             Icons.bookmark_rounded,
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryColor,
-                                            size: 17,
+                                            size: 17.0,
                                           ),
                                         ),
                                       ],
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 0, 4),
+                                          0.0, 0.0, 0.0, 4.0),
                                       child: RatingBar.builder(
                                         onRatingUpdate: (newValue) => setState(
                                             () => _model.ratingBarValue6 =
@@ -1074,10 +1087,10 @@ class _MainWidgetState extends State<MainWidget> {
                                         ),
                                         direction: Axis.horizontal,
                                         initialRating:
-                                            _model.ratingBarValue6 ??= 3,
+                                            _model.ratingBarValue6 ??= 3.0,
                                         unratedColor: Color(0xFF9E9E9E),
                                         itemCount: 5,
-                                        itemSize: 14,
+                                        itemSize: 14.0,
                                         glowColor: FlutterFlowTheme.of(context)
                                             .primaryColor,
                                       ),
@@ -1132,7 +1145,7 @@ class _MainWidgetState extends State<MainWidget> {
                         ),
                       ),
                       Divider(
-                        thickness: 1,
+                        thickness: 1.0,
                         color: Color(0xFFF2F2F2),
                       ),
                     ],

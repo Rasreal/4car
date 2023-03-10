@@ -205,24 +205,6 @@
       ]
     },
     {
-      "collectionGroup": "comments",
-      "queryScope": "COLLECTION_GROUP",
-      "fields": [
-        {
-          "fieldPath": "booked_comment",
-          "order": "ASCENDING"
-        },
-        {
-          "fieldPath": "obrobotanFilter",
-          "order": "ASCENDING"
-        },
-        {
-          "fieldPath": "created_at",
-          "order": "ASCENDING"
-        }
-      ]
-    },
-    {
       "collectionGroup": "bookings",
       "queryScope": "COLLECTION",
       "fields": [
@@ -272,6 +254,24 @@
         },
         {
           "fieldPath": "cancel_time_date",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "comments",
+      "queryScope": "COLLECTION_GROUP",
+      "fields": [
+        {
+          "fieldPath": "booked_comment",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "obrobotanFilter",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "created_at",
           "order": "ASCENDING"
         }
       ]

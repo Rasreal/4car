@@ -45,15 +45,15 @@ class _SuperAdminSelectCityWidgetState
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0, 0),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Container(
-        width: 672,
+        width: 672.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(8.0),
         ),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(32, 32, 32, 32),
+          padding: EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 32.0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -68,7 +68,7 @@ class _SuperAdminSelectCityWidgetState
                       style: FlutterFlowTheme.of(context).bodyText1.override(
                             fontFamily:
                                 FlutterFlowTheme.of(context).bodyText1Family,
-                            fontSize: 24,
+                            fontSize: 24.0,
                             fontWeight: FontWeight.w500,
                             useGoogleFonts: GoogleFonts.asMap().containsKey(
                                 FlutterFlowTheme.of(context).bodyText1Family),
@@ -82,13 +82,13 @@ class _SuperAdminSelectCityWidgetState
                     child: Icon(
                       FFIcons.kicClose,
                       color: FlutterFlowTheme.of(context).gray2,
-                      size: 20,
+                      size: 20.0,
                     ),
                   ),
                 ],
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                 child: StreamBuilder<List<CityesRecord>>(
                   stream: queryCityesRecord(),
                   builder: (context, snapshot) {
@@ -96,8 +96,8 @@ class _SuperAdminSelectCityWidgetState
                     if (!snapshot.hasData) {
                       return Center(
                         child: SizedBox(
-                          width: 50,
-                          height: 50,
+                          width: 50.0,
+                          height: 50.0,
                           child: CircularProgressIndicator(
                             color: FlutterFlowTheme.of(context).primaryColor,
                           ),
@@ -115,7 +115,8 @@ class _SuperAdminSelectCityWidgetState
                         final listViewCityesRecord =
                             listViewCityesRecordList[listViewIndex];
                         return Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 8.0),
                           child: InkWell(
                             onTap: () async {
                               FFAppState().update(() {

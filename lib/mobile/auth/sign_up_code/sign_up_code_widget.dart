@@ -58,26 +58,26 @@ class _SignUpCodeWidgetState extends State<SignUpCodeWidget> {
         child: GestureDetector(
           onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Spacer(flex: 2),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 36),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 36.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       FlutterFlowIconButton(
                         borderColor: Colors.transparent,
-                        borderRadius: 30,
-                        borderWidth: 1,
-                        buttonSize: 48,
+                        borderRadius: 30.0,
+                        borderWidth: 1.0,
+                        buttonSize: 48.0,
                         icon: Icon(
                           Icons.chevron_left_outlined,
                           color: FlutterFlowTheme.of(context).primaryColor,
-                          size: 24,
+                          size: 24.0,
                         ),
                         onPressed: () async {
                           context.goNamed('Sign_Up');
@@ -87,20 +87,20 @@ class _SignUpCodeWidgetState extends State<SignUpCodeWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
                   child: Text(
                     'Введите код',
                     style: FlutterFlowTheme.of(context).bodyText1.override(
                           fontFamily:
                               FlutterFlowTheme.of(context).bodyText1Family,
-                          fontSize: 24,
+                          fontSize: 24.0,
                           useGoogleFonts: GoogleFonts.asMap().containsKey(
                               FlutterFlowTheme.of(context).bodyText1Family),
                         ),
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 30),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 30.0),
                   child: Text(
                     'Мы отправим на ваш номер сообщение с 4х значным кодом, введите его',
                     style: FlutterFlowTheme.of(context).bodyText1.override(
@@ -130,10 +130,10 @@ class _SignUpCodeWidgetState extends State<SignUpCodeWidget> {
                   obscureText: false,
                   hintCharacter: '●',
                   pinTheme: PinTheme(
-                    fieldHeight: 48,
-                    fieldWidth: 40,
-                    borderWidth: 2,
-                    borderRadius: BorderRadius.circular(8),
+                    fieldHeight: 48.0,
+                    fieldWidth: 40.0,
+                    borderWidth: 2.0,
+                    borderRadius: BorderRadius.circular(8.0),
                     shape: PinCodeFieldShape.box,
                     activeColor: FlutterFlowTheme.of(context).secondaryText,
                     inactiveColor: FlutterFlowTheme.of(context).secondaryText,
@@ -149,7 +149,7 @@ class _SignUpCodeWidgetState extends State<SignUpCodeWidget> {
                 ),
                 Spacer(),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -166,7 +166,8 @@ class _SignUpCodeWidgetState extends State<SignUpCodeWidget> {
                             ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(4, 0, 0, 0),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
                         child: Text(
                           ' Отправить код заново',
                           style: FlutterFlowTheme.of(context)
@@ -176,7 +177,7 @@ class _SignUpCodeWidgetState extends State<SignUpCodeWidget> {
                                     .bodyText1Family,
                                 color:
                                     FlutterFlowTheme.of(context).primaryColor,
-                                fontSize: 12,
+                                fontSize: 12.0,
                                 fontWeight: FontWeight.w500,
                                 useGoogleFonts: GoogleFonts.asMap().containsKey(
                                     FlutterFlowTheme.of(context)
@@ -211,10 +212,11 @@ class _SignUpCodeWidgetState extends State<SignUpCodeWidget> {
                   },
                   text: 'Ввести код',
                   options: FFButtonOptions(
-                    width: 130,
-                    height: 48,
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                    iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                    width: 130.0,
+                    height: 48.0,
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    iconPadding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: valueOrDefault<Color>(
                       _model.pinCodeController!.text != null &&
                               _model.pinCodeController!.text != ''
@@ -231,9 +233,9 @@ class _SignUpCodeWidgetState extends State<SignUpCodeWidget> {
                         ),
                     borderSide: BorderSide(
                       color: Colors.transparent,
-                      width: 1,
+                      width: 1.0,
                     ),
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
                 ),
                 Spacer(flex: 4),

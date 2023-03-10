@@ -49,18 +49,18 @@ class _AdminAppBarWidgetState extends State<AdminAppBarWidget> {
     context.watch<FFAppState>();
 
     return Container(
-      width: MediaQuery.of(context).size.width,
-      height: 120,
+      width: MediaQuery.of(context).size.width * 1.0,
+      height: 120.0,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).primaryBackground,
       ),
       child: Stack(
         children: [
           Align(
-            alignment: AlignmentDirectional(0, 0),
+            alignment: AlignmentDirectional(0.0, 0.0),
             child: Container(
-              width: 1224,
-              height: 120,
+              width: 1224.0,
+              height: 120.0,
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).primaryBackground,
               ),
@@ -68,8 +68,8 @@ class _AdminAppBarWidgetState extends State<AdminAppBarWidget> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Container(
-                    width: 1224,
-                    height: 71,
+                    width: 1224.0,
+                    height: 71.0,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).primaryBackground,
                     ),
@@ -86,7 +86,7 @@ class _AdminAppBarWidgetState extends State<AdminAppBarWidget> {
                                       .bodyText1Family,
                                   color:
                                       FlutterFlowTheme.of(context).primaryColor,
-                                  fontSize: 25,
+                                  fontSize: 25.0,
                                   useGoogleFonts: GoogleFonts.asMap()
                                       .containsKey(FlutterFlowTheme.of(context)
                                           .bodyText1Family),
@@ -108,8 +108,8 @@ class _AdminAppBarWidgetState extends State<AdminAppBarWidget> {
                                 if (!snapshot.hasData) {
                                   return Center(
                                     child: SizedBox(
-                                      width: 50,
-                                      height: 50,
+                                      width: 50.0,
+                                      height: 50.0,
                                       child: CircularProgressIndicator(
                                         color: FlutterFlowTheme.of(context)
                                             .primaryColor,
@@ -133,7 +133,7 @@ class _AdminAppBarWidgetState extends State<AdminAppBarWidget> {
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 16, 0),
+                                          0.0, 0.0, 16.0, 0.0),
                                       child: FutureBuilder<int>(
                                         future:
                                             queryCompanyNotificationsRecordCount(
@@ -150,8 +150,8 @@ class _AdminAppBarWidgetState extends State<AdminAppBarWidget> {
                                           if (!snapshot.hasData) {
                                             return Center(
                                               child: SizedBox(
-                                                width: 50,
-                                                height: 50,
+                                                width: 50.0,
+                                                height: 50.0,
                                                 child:
                                                     CircularProgressIndicator(
                                                   color: FlutterFlowTheme.of(
@@ -163,19 +163,19 @@ class _AdminAppBarWidgetState extends State<AdminAppBarWidget> {
                                           }
                                           int stackCount = snapshot.data!;
                                           return Container(
-                                            width: 30,
-                                            height: 30,
+                                            width: 30.0,
+                                            height: 30.0,
                                             child: Stack(
                                               children: [
                                                 Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0, 0),
+                                                          0.0, 0.0),
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 16, 0),
+                                                            .fromSTEB(0.0, 0.0,
+                                                                16.0, 0.0),
                                                     child: InkWell(
                                                       onTap: () async {
                                                         if (FFAppState()
@@ -198,7 +198,7 @@ class _AdminAppBarWidgetState extends State<AdminAppBarWidget> {
                                                       child: Icon(
                                                         FFIcons.kicNotification,
                                                         color: Colors.black,
-                                                        size: 24,
+                                                        size: 24.0,
                                                       ),
                                                     ),
                                                   ),
@@ -207,10 +207,10 @@ class _AdminAppBarWidgetState extends State<AdminAppBarWidget> {
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            1, -1),
+                                                            1.0, -1.0),
                                                     child: Container(
-                                                      width: 10,
-                                                      height: 10,
+                                                      width: 10.0,
+                                                      height: 10.0,
                                                       decoration: BoxDecoration(
                                                         color:
                                                             FlutterFlowTheme.of(
@@ -247,11 +247,11 @@ class _AdminAppBarWidgetState extends State<AdminAppBarWidget> {
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 0, 8, 0),
+                                        0.0, 0.0, 8.0, 0.0),
                                     child: AuthUserStreamWidget(
                                       builder: (context) => Container(
-                                        width: 40,
-                                        height: 40,
+                                        width: 40.0,
+                                        height: 40.0,
                                         clipBehavior: Clip.antiAlias,
                                         decoration: BoxDecoration(
                                           shape: BoxShape.circle,
@@ -267,7 +267,7 @@ class _AdminAppBarWidgetState extends State<AdminAppBarWidget> {
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 0, 8, 0),
+                                        0.0, 0.0, 8.0, 0.0),
                                     child: AuthUserStreamWidget(
                                       builder: (context) => Text(
                                         valueOrDefault<String>(
@@ -278,7 +278,7 @@ class _AdminAppBarWidgetState extends State<AdminAppBarWidget> {
                                             .bodyText1
                                             .override(
                                               fontFamily: 'Inter',
-                                              fontSize: 16,
+                                              fontSize: 16.0,
                                               fontWeight: FontWeight.normal,
                                               useGoogleFonts:
                                                   GoogleFonts.asMap()
@@ -293,7 +293,7 @@ class _AdminAppBarWidgetState extends State<AdminAppBarWidget> {
                                   Icon(
                                     FFIcons.kicArrowsButtonDown,
                                     color: Colors.black,
-                                    size: 24,
+                                    size: 24.0,
                                   ),
                                 ],
                               ),
@@ -304,8 +304,8 @@ class _AdminAppBarWidgetState extends State<AdminAppBarWidget> {
                     ),
                   ),
                   Container(
-                    width: 1224,
-                    height: 47,
+                    width: 1224.0,
+                    height: 47.0,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).primaryBackground,
                     ),
@@ -313,7 +313,8 @@ class _AdminAppBarWidgetState extends State<AdminAppBarWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 48, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 48.0, 0.0),
                           child: InkWell(
                             onTap: () async {
                               context.pushNamed(
@@ -355,7 +356,7 @@ class _AdminAppBarWidgetState extends State<AdminAppBarWidget> {
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 48, 0),
+                                      0.0, 0.0, 48.0, 0.0),
                                   child: InkWell(
                                     onTap: () async {
                                       context.pushNamed(
@@ -392,7 +393,7 @@ class _AdminAppBarWidgetState extends State<AdminAppBarWidget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 48, 0),
+                                      0.0, 0.0, 48.0, 0.0),
                                   child: InkWell(
                                     onTap: () async {
                                       context.pushNamed(
@@ -432,7 +433,7 @@ class _AdminAppBarWidgetState extends State<AdminAppBarWidget> {
                                     'Администратор')
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 0, 48, 0),
+                                        0.0, 0.0, 48.0, 0.0),
                                     child: InkWell(
                                       onTap: () async {
                                         context.pushNamed(
@@ -473,7 +474,7 @@ class _AdminAppBarWidgetState extends State<AdminAppBarWidget> {
                                   ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 48, 0),
+                                      0.0, 0.0, 48.0, 0.0),
                                   child: InkWell(
                                     onTap: () async {
                                       context.pushNamed(
@@ -524,15 +525,15 @@ class _AdminAppBarWidgetState extends State<AdminAppBarWidget> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                width: 1,
-                height: 71,
+                width: 1.0,
+                height: 71.0,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).primaryBackground,
                 ),
               ),
               Divider(
-                height: 1,
-                thickness: 1,
+                height: 1.0,
+                thickness: 1.0,
                 color: FlutterFlowTheme.of(context).drawer,
               ),
             ],

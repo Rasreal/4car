@@ -43,15 +43,15 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
         FadeEffect(
           curve: Curves.easeInOut,
           delay: 2000.ms,
           duration: 600.ms,
-          begin: 1,
-          end: 0,
+          begin: 1.0,
+          end: 0.0,
         ),
       ],
     ),
@@ -96,7 +96,7 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
               key: _model.formKey,
               autovalidateMode: AutovalidateMode.disabled,
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                 child: SingleChildScrollView(
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
@@ -104,7 +104,8 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 80, 0, 8),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 80.0, 0.0, 8.0),
                         child: Text(
                           'Регистрация',
                           style: FlutterFlowTheme.of(context)
@@ -112,7 +113,7 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                               .override(
                                 fontFamily: FlutterFlowTheme.of(context)
                                     .bodyText1Family,
-                                fontSize: 24,
+                                fontSize: 24.0,
                                 useGoogleFonts: GoogleFonts.asMap().containsKey(
                                     FlutterFlowTheme.of(context)
                                         .bodyText1Family),
@@ -120,7 +121,8 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 3, 0, 0),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 3.0, 0.0, 0.0),
                         child: Text(
                           'Введите имя',
                           style: FlutterFlowTheme.of(context)
@@ -136,7 +138,8 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                         child: TextFormField(
                           controller: _model.textController,
                           obscureText: false,
@@ -147,7 +150,7 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                                 .override(
                                   fontFamily: FlutterFlowTheme.of(context)
                                       .bodyText2Family,
-                                  fontSize: 14,
+                                  fontSize: 14.0,
                                   useGoogleFonts: GoogleFonts.asMap()
                                       .containsKey(FlutterFlowTheme.of(context)
                                           .bodyText2Family),
@@ -155,31 +158,31 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).gray2,
-                                width: 1,
+                                width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(8.0),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color:
                                     FlutterFlowTheme.of(context).primaryColor,
-                                width: 1,
+                                width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(8.0),
                             ),
                             errorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).red1,
-                                width: 1,
+                                width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(8.0),
                             ),
                             focusedErrorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).red1,
-                                width: 1,
+                                width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(8.0),
                             ),
                           ),
                           style: FlutterFlowTheme.of(context).bodyText1,
@@ -188,7 +191,8 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                         child: Text(
                           'Выберите город',
                           style: FlutterFlowTheme.of(context)
@@ -204,7 +208,8 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                         child: InkWell(
                           onTap: () async {
                             await showModalBottomSheet(
@@ -224,18 +229,18 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                           },
                           child: Container(
                             width: double.infinity,
-                            height: 48,
+                            height: 48.0,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(8.0),
                               border: Border.all(
                                 color: FlutterFlowTheme.of(context).gray2,
                               ),
                             ),
                             child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 0.0, 10.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment:
@@ -256,7 +261,7 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                                   Icon(
                                     FFIcons.kicArrowsButtonDown,
                                     color: FlutterFlowTheme.of(context).gray2,
-                                    size: 24,
+                                    size: 24.0,
                                   ),
                                 ],
                               ),
@@ -276,8 +281,8 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                           if (!snapshot.hasData) {
                             return Center(
                               child: SizedBox(
-                                width: 50,
-                                height: 50,
+                                width: 50.0,
+                                height: 50.0,
                                 child: CircularProgressIndicator(
                                   color:
                                       FlutterFlowTheme.of(context).primaryColor,
@@ -294,8 +299,8 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                               final columnMyCarsRecord =
                                   columnMyCarsRecordList[columnIndex];
                               return Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 16.0, 0.0, 0.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.min,
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -368,7 +373,7 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 8, 0, 0),
+                                          0.0, 8.0, 0.0, 0.0),
                                       child: InkWell(
                                         onTap: () async {
                                           FFAppState().update(() {
@@ -391,12 +396,12 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                                         },
                                         child: Container(
                                           width: double.infinity,
-                                          height: 48,
+                                          height: 48.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                             border: Border.all(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -406,7 +411,7 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10, 0, 10, 0),
+                                                    10.0, 0.0, 10.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -446,7 +451,7 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primaryColor,
-                                                    size: 24,
+                                                    size: 24.0,
                                                   ),
                                                 ),
                                               ],
@@ -466,7 +471,8 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                               .toString() ==
                           '0')
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 16.0, 0.0, 0.0),
                           child: AuthUserStreamWidget(
                             builder: (context) => Text(
                               'Автомобиль 1',
@@ -488,7 +494,8 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                               .toString() ==
                           '1')
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 16.0, 0.0, 0.0),
                           child: AuthUserStreamWidget(
                             builder: (context) => Text(
                               'Автомобиль 2',
@@ -510,7 +517,8 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                               .toString() ==
                           '2')
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 16.0, 0.0, 0.0),
                           child: AuthUserStreamWidget(
                             builder: (context) => Text(
                               'Автомобиль 3',
@@ -532,7 +540,8 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                               .toString() !=
                           '3')
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 8.0, 0.0, 0.0),
                           child: AuthUserStreamWidget(
                             builder: (context) => InkWell(
                               onTap: () async {
@@ -553,18 +562,18 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                               },
                               child: Container(
                                 width: double.infinity,
-                                height: 48,
+                                height: 48.0,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                   border: Border.all(
                                     color: FlutterFlowTheme.of(context).gray2,
                                   ),
                                 ),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      10, 0, 10, 0),
+                                      10.0, 0.0, 10.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment:
@@ -593,7 +602,7 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                                         FFIcons.kicPlus,
                                         color: FlutterFlowTheme.of(context)
                                             .primaryColor,
-                                        size: 24,
+                                        size: 24.0,
                                       ),
                                     ],
                                   ),
@@ -607,11 +616,11 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 16.0),
                             child: Wrap(
-                              spacing: 0,
-                              runSpacing: 0,
+                              spacing: 0.0,
+                              runSpacing: 0.0,
                               alignment: WrapAlignment.start,
                               crossAxisAlignment: WrapCrossAlignment.center,
                               direction: Axis.horizontal,
@@ -628,7 +637,7 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                                             .bodyText1Family,
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
-                                        fontSize: 12,
+                                        fontSize: 12.0,
                                         fontWeight: FontWeight.normal,
                                         useGoogleFonts: GoogleFonts.asMap()
                                             .containsKey(
@@ -649,7 +658,7 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                                                     .bodyText1Family,
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryColor,
-                                            fontSize: 12,
+                                            fontSize: 12.0,
                                             fontWeight: FontWeight.normal,
                                             useGoogleFonts: GoogleFonts.asMap()
                                                 .containsKey(
@@ -667,7 +676,7 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                                                     .bodyText1Family,
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryText,
-                                            fontSize: 12,
+                                            fontSize: 12.0,
                                             fontWeight: FontWeight.normal,
                                             useGoogleFonts: GoogleFonts.asMap()
                                                 .containsKey(
@@ -677,7 +686,7 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          4, 0, 0, 0),
+                                          4.0, 0.0, 0.0, 0.0),
                                       child: Text(
                                         'политикой конфиденциальности',
                                         style: FlutterFlowTheme.of(context)
@@ -689,7 +698,7 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryColor,
-                                              fontSize: 12,
+                                              fontSize: 12.0,
                                               fontWeight: FontWeight.normal,
                                               useGoogleFonts:
                                                   GoogleFonts.asMap()
@@ -706,8 +715,8 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                             ),
                           ),
                           Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 20.0),
                             child: Stack(
                               children: [
                                 if (valueOrDefault(
@@ -740,12 +749,12 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                                       text: 'Зарегистрироваться',
                                       options: FFButtonOptions(
                                         width: double.infinity,
-                                        height: 48,
+                                        height: 48.0,
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 0, 0, 0),
+                                            0.0, 0.0, 0.0, 0.0),
                                         iconPadding:
                                             EdgeInsetsDirectional.fromSTEB(
-                                                0, 0, 0, 0),
+                                                0.0, 0.0, 0.0, 0.0),
                                         color: FlutterFlowTheme.of(context)
                                             .primaryColor,
                                         textStyle: FlutterFlowTheme.of(context)
@@ -764,9 +773,10 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                                             ),
                                         borderSide: BorderSide(
                                           color: Colors.transparent,
-                                          width: 1,
+                                          width: 1.0,
                                         ),
-                                        borderRadius: BorderRadius.circular(8),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
                                       ),
                                     ),
                                   ),
@@ -776,7 +786,7 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                                     '0')
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 0, 0, 24),
+                                        0.0, 0.0, 0.0, 24.0),
                                     child: AuthUserStreamWidget(
                                       builder: (context) => FFButtonWidget(
                                         onPressed: () {
@@ -785,13 +795,13 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                                         text: 'Зарегистрироваться',
                                         options: FFButtonOptions(
                                           width: double.infinity,
-                                          height: 48,
+                                          height: 48.0,
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 0, 0),
+                                                  0.0, 0.0, 0.0, 0.0),
                                           iconPadding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 0, 0),
+                                                  0.0, 0.0, 0.0, 0.0),
                                           color: FlutterFlowTheme.of(context)
                                               .starblue,
                                           textStyle: FlutterFlowTheme.of(
@@ -811,10 +821,10 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                                               ),
                                           borderSide: BorderSide(
                                             color: Colors.transparent,
-                                            width: 1,
+                                            width: 1.0,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(8),
+                                              BorderRadius.circular(8.0),
                                         ),
                                       ),
                                     ),
@@ -837,13 +847,13 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                   color: Color(0x65000000),
                 ),
                 child: Align(
-                  alignment: AlignmentDirectional(0, 0),
+                  alignment: AlignmentDirectional(0.0, 0.0),
                   child: Container(
-                    width: 200,
-                    height: 170,
+                    width: 200.0,
+                    height: 170.0,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(20.0),
                     ),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
@@ -851,20 +861,21 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                       children: [
                         FlutterFlowIconButton(
                           borderColor: Colors.transparent,
-                          borderRadius: 20,
-                          buttonSize: 60,
+                          borderRadius: 20.0,
+                          buttonSize: 60.0,
                           fillColor: FlutterFlowTheme.of(context).primaryColor,
                           icon: Icon(
                             Icons.check,
                             color: Colors.white,
-                            size: 30,
+                            size: 30.0,
                           ),
                           onPressed: () {
                             print('IconButton pressed ...');
                           },
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 20.0, 0.0, 0.0),
                           child: Text(
                             'Вы успешно зарегистрировались!',
                             textAlign: TextAlign.center,
@@ -873,7 +884,7 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                                 .override(
                                   fontFamily: FlutterFlowTheme.of(context)
                                       .bodyText1Family,
-                                  fontSize: 16,
+                                  fontSize: 16.0,
                                   fontWeight: FontWeight.w500,
                                   useGoogleFonts: GoogleFonts.asMap()
                                       .containsKey(FlutterFlowTheme.of(context)

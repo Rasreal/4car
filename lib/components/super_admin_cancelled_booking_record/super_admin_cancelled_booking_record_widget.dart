@@ -55,21 +55,21 @@ class _SuperAdminCancelledBookingRecordWidgetState
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0, 0),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Container(
-        width: 600,
+        width: 600.0,
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(8.0),
         ),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 24),
+          padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 24.0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 16),
+                padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 16.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -79,7 +79,7 @@ class _SuperAdminCancelledBookingRecordWidgetState
                       style: FlutterFlowTheme.of(context).bodyText1.override(
                             fontFamily:
                                 FlutterFlowTheme.of(context).bodyText1Family,
-                            fontSize: 18,
+                            fontSize: 18.0,
                             fontWeight: FontWeight.w500,
                             useGoogleFonts: GoogleFonts.asMap().containsKey(
                                 FlutterFlowTheme.of(context).bodyText1Family),
@@ -92,14 +92,14 @@ class _SuperAdminCancelledBookingRecordWidgetState
                       child: Icon(
                         FFIcons.kicClose,
                         color: Colors.black,
-                        size: 24,
+                        size: 24.0,
                       ),
                     ),
                   ],
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                 child: StreamBuilder<UserRecord>(
                   stream: UserRecord.getDocument(widget.booking!.bookedUser!),
                   builder: (context, snapshot) {
@@ -107,8 +107,8 @@ class _SuperAdminCancelledBookingRecordWidgetState
                     if (!snapshot.hasData) {
                       return Center(
                         child: SizedBox(
-                          width: 50,
-                          height: 50,
+                          width: 50.0,
+                          height: 50.0,
                           child: CircularProgressIndicator(
                             color: FlutterFlowTheme.of(context).primaryColor,
                           ),
@@ -120,16 +120,17 @@ class _SuperAdminCancelledBookingRecordWidgetState
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 16.0, 0.0),
                           child: ClipRRect(
-                            borderRadius: BorderRadius.circular(100),
+                            borderRadius: BorderRadius.circular(100.0),
                             child: Image.network(
                               valueOrDefault<String>(
                                 rowUserRecord.photoUrl,
                                 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/e4car-dch9vg/assets/39tzmh1sizl4/Group_668.png',
                               ),
-                              width: 40,
-                              height: 40,
+                              width: 40.0,
+                              height: 40.0,
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -145,7 +146,7 @@ class _SuperAdminCancelledBookingRecordWidgetState
                                     .bodyText1
                                     .override(
                                       fontFamily: 'Inter',
-                                      fontSize: 16,
+                                      fontSize: 16.0,
                                       fontWeight: FontWeight.normal,
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
@@ -154,8 +155,8 @@ class _SuperAdminCancelledBookingRecordWidgetState
                                     ),
                               ),
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 8.0, 0.0, 0.0),
                                 child: Text(
                                   rowUserRecord.phoneNumber!,
                                   style: FlutterFlowTheme.of(context)
@@ -181,30 +182,31 @@ class _SuperAdminCancelledBookingRecordWidgetState
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                 child: Container(
                   width: double.infinity,
-                  height: 38,
+                  height: 38.0,
                   child: Stack(
                     children: [
                       Align(
-                        alignment: AlignmentDirectional(0, 1),
+                        alignment: AlignmentDirectional(0.0, 1.0),
                         child: Container(
                           width: double.infinity,
-                          height: 1,
+                          height: 1.0,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context).gray4,
                           ),
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            24.0, 0.0, 24.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 24, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 24.0, 0.0),
                               child: InkWell(
                                 onTap: () async {
                                   FFAppState().update(() {
@@ -218,7 +220,7 @@ class _SuperAdminCancelledBookingRecordWidgetState
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 0, 17),
+                                          0.0, 0.0, 0.0, 17.0),
                                       child: Text(
                                         'Детали операции',
                                         style: FlutterFlowTheme.of(context)
@@ -232,7 +234,7 @@ class _SuperAdminCancelledBookingRecordWidgetState
                                                       .primaryColor
                                                   : FlutterFlowTheme.of(context)
                                                       .webUnselectedColor,
-                                              fontSize: 16,
+                                              fontSize: 16.0,
                                               fontWeight: FontWeight.normal,
                                               useGoogleFonts:
                                                   GoogleFonts.asMap()
@@ -244,8 +246,8 @@ class _SuperAdminCancelledBookingRecordWidgetState
                                       ),
                                     ),
                                     Container(
-                                      width: 138,
-                                      height: 1,
+                                      width: 138.0,
+                                      height: 1.0,
                                       decoration: BoxDecoration(
                                         color: FFAppState()
                                                     .adminClientsTypeReview ==
@@ -263,8 +265,8 @@ class _SuperAdminCancelledBookingRecordWidgetState
                             if (valueOrDefault(currentUserDocument?.role, '') ==
                                 'Супер Админ')
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 24, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 24.0, 0.0),
                                 child: AuthUserStreamWidget(
                                   builder: (context) => InkWell(
                                     onTap: () async {
@@ -281,7 +283,7 @@ class _SuperAdminCancelledBookingRecordWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 0, 17),
+                                                  0.0, 0.0, 0.0, 17.0),
                                           child: Text(
                                             'Детали компании',
                                             style: FlutterFlowTheme.of(context)
@@ -297,7 +299,7 @@ class _SuperAdminCancelledBookingRecordWidgetState
                                                       : FlutterFlowTheme.of(
                                                               context)
                                                           .webUnselectedColor,
-                                                  fontSize: 16,
+                                                  fontSize: 16.0,
                                                   fontWeight: FontWeight.normal,
                                                   useGoogleFonts: GoogleFonts
                                                           .asMap()
@@ -309,8 +311,8 @@ class _SuperAdminCancelledBookingRecordWidgetState
                                           ),
                                         ),
                                         Container(
-                                          width: 139,
-                                          height: 1,
+                                          width: 139.0,
+                                          height: 1.0,
                                           decoration: BoxDecoration(
                                             color: FFAppState()
                                                         .adminClientsTypeReview ==
@@ -335,12 +337,14 @@ class _SuperAdminCancelledBookingRecordWidgetState
               ),
               if (FFAppState().adminClientsTypeReview == 'Детали компании')
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(24, 32, 24, 0),
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(24.0, 32.0, 24.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -381,12 +385,13 @@ class _SuperAdminCancelledBookingRecordWidgetState
                         ),
                       ),
                       Divider(
-                        height: 1,
-                        thickness: 1,
+                        height: 1.0,
+                        thickness: 1.0,
                         color: FlutterFlowTheme.of(context).gray4,
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 16),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 16.0, 0.0, 16.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -427,12 +432,13 @@ class _SuperAdminCancelledBookingRecordWidgetState
                         ),
                       ),
                       Divider(
-                        height: 1,
-                        thickness: 1,
+                        height: 1.0,
+                        thickness: 1.0,
                         color: FlutterFlowTheme.of(context).gray4,
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 16),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 16.0, 0.0, 16.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -470,8 +476,8 @@ class _SuperAdminCancelledBookingRecordWidgetState
                         ),
                       ),
                       Divider(
-                        height: 1,
-                        thickness: 1,
+                        height: 1.0,
+                        thickness: 1.0,
                         color: FlutterFlowTheme.of(context).gray4,
                       ),
                       StreamBuilder<List<BookingsRecord>>(
@@ -485,8 +491,8 @@ class _SuperAdminCancelledBookingRecordWidgetState
                           if (!snapshot.hasData) {
                             return Center(
                               child: SizedBox(
-                                width: 50,
-                                height: 50,
+                                width: 50.0,
+                                height: 50.0,
                                 child: CircularProgressIndicator(
                                   color:
                                       FlutterFlowTheme.of(context).primaryColor,
@@ -503,7 +509,7 @@ class _SuperAdminCancelledBookingRecordWidgetState
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 16, 0, 16),
+                                      0.0, 16.0, 0.0, 16.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
@@ -550,13 +556,13 @@ class _SuperAdminCancelledBookingRecordWidgetState
                                   ),
                                 ),
                                 Divider(
-                                  height: 1,
-                                  thickness: 1,
+                                  height: 1.0,
+                                  thickness: 1.0,
                                   color: FlutterFlowTheme.of(context).gray4,
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 16, 0, 16),
+                                      0.0, 16.0, 0.0, 16.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
@@ -610,12 +616,13 @@ class _SuperAdminCancelledBookingRecordWidgetState
                         },
                       ),
                       Divider(
-                        height: 1,
-                        thickness: 1,
+                        height: 1.0,
+                        thickness: 1.0,
                         color: FlutterFlowTheme.of(context).gray4,
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 16),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 16.0, 0.0, 16.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -647,8 +654,8 @@ class _SuperAdminCancelledBookingRecordWidgetState
                                   if (!snapshot.hasData) {
                                     return Center(
                                       child: SizedBox(
-                                        width: 50,
-                                        height: 50,
+                                        width: 50.0,
+                                        height: 50.0,
                                         child: CircularProgressIndicator(
                                           color: FlutterFlowTheme.of(context)
                                               .primaryColor,
@@ -697,12 +704,14 @@ class _SuperAdminCancelledBookingRecordWidgetState
                 ),
               if (FFAppState().adminClientsTypeReview == 'Детали операции')
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(24, 32, 24, 0),
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(24.0, 32.0, 24.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -743,12 +752,13 @@ class _SuperAdminCancelledBookingRecordWidgetState
                         ),
                       ),
                       Divider(
-                        height: 1,
-                        thickness: 1,
+                        height: 1.0,
+                        thickness: 1.0,
                         color: FlutterFlowTheme.of(context).gray4,
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 16),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 16.0, 0.0, 16.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -797,12 +807,13 @@ class _SuperAdminCancelledBookingRecordWidgetState
                         ),
                       ),
                       Divider(
-                        height: 1,
-                        thickness: 1,
+                        height: 1.0,
+                        thickness: 1.0,
                         color: FlutterFlowTheme.of(context).gray4,
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 16),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 16.0, 0.0, 16.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -843,12 +854,13 @@ class _SuperAdminCancelledBookingRecordWidgetState
                         ),
                       ),
                       Divider(
-                        height: 1,
-                        thickness: 1,
+                        height: 1.0,
+                        thickness: 1.0,
                         color: FlutterFlowTheme.of(context).gray4,
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 16),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 16.0, 0.0, 16.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -892,12 +904,13 @@ class _SuperAdminCancelledBookingRecordWidgetState
                         ),
                       ),
                       Divider(
-                        height: 1,
-                        thickness: 1,
+                        height: 1.0,
+                        thickness: 1.0,
                         color: FlutterFlowTheme.of(context).gray4,
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 16),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 16.0, 0.0, 16.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -942,12 +955,13 @@ class _SuperAdminCancelledBookingRecordWidgetState
                         ),
                       ),
                       Divider(
-                        height: 1,
-                        thickness: 1,
+                        height: 1.0,
+                        thickness: 1.0,
                         color: FlutterFlowTheme.of(context).gray4,
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 16),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 16.0, 0.0, 16.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -988,12 +1002,13 @@ class _SuperAdminCancelledBookingRecordWidgetState
                         ),
                       ),
                       Divider(
-                        height: 1,
-                        thickness: 1,
+                        height: 1.0,
+                        thickness: 1.0,
                         color: FlutterFlowTheme.of(context).gray4,
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 16),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 16.0, 0.0, 16.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [

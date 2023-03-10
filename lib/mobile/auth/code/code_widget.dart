@@ -41,15 +41,15 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
           curve: Curves.easeInOut,
           delay: 90.ms,
           duration: 600.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
         FadeEffect(
           curve: Curves.easeInOut,
           delay: 2000.ms,
           duration: 600.ms,
-          begin: 1,
-          end: 0,
+          begin: 1.0,
+          end: 0.0,
         ),
       ],
     ),
@@ -97,26 +97,27 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
         child: Stack(
           children: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Spacer(flex: 2),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 36),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 36.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         FlutterFlowIconButton(
                           borderColor: Colors.transparent,
-                          borderRadius: 30,
-                          borderWidth: 1,
-                          buttonSize: 48,
+                          borderRadius: 30.0,
+                          borderWidth: 1.0,
+                          buttonSize: 48.0,
                           icon: Icon(
                             Icons.chevron_left_outlined,
                             color: FlutterFlowTheme.of(context).primaryColor,
-                            size: 24,
+                            size: 24.0,
                           ),
                           onPressed: () async {
                             context.goNamed('Sign_in');
@@ -126,20 +127,21 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
                     child: Text(
                       'Введите код',
                       style: FlutterFlowTheme.of(context).bodyText1.override(
                             fontFamily:
                                 FlutterFlowTheme.of(context).bodyText1Family,
-                            fontSize: 24,
+                            fontSize: 24.0,
                             useGoogleFonts: GoogleFonts.asMap().containsKey(
                                 FlutterFlowTheme.of(context).bodyText1Family),
                           ),
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 30),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 30.0),
                     child: Text(
                       'Мы отправим на ваш номер сообщение с 6-ти значным кодом, введите его',
                       style: FlutterFlowTheme.of(context).bodyText1.override(
@@ -169,10 +171,10 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
                     obscureText: false,
                     hintCharacter: '●',
                     pinTheme: PinTheme(
-                      fieldHeight: 48,
-                      fieldWidth: 40,
-                      borderWidth: 2,
-                      borderRadius: BorderRadius.circular(8),
+                      fieldHeight: 48.0,
+                      fieldWidth: 40.0,
+                      borderWidth: 2.0,
+                      borderRadius: BorderRadius.circular(8.0),
                       shape: PinCodeFieldShape.box,
                       activeColor: FlutterFlowTheme.of(context).secondaryText,
                       inactiveColor: FlutterFlowTheme.of(context).secondaryText,
@@ -189,7 +191,8 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
                   ),
                   Spacer(),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -210,7 +213,8 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
                               ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(4, 0, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              4.0, 0.0, 0.0, 0.0),
                           child: InkWell(
                             onTap: () async {
                               final phoneNumberVal = widget.phone;
@@ -252,7 +256,7 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
                                         .bodyText1Family,
                                     color: FlutterFlowTheme.of(context)
                                         .primaryColor,
-                                    fontSize: 12,
+                                    fontSize: 12.0,
                                     fontWeight: FontWeight.w500,
                                     useGoogleFonts: GoogleFonts.asMap()
                                         .containsKey(
@@ -291,19 +295,17 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
                             .controller
                             .forward(from: 0.0);
                       }
-                      if (currentUserDisplayName != null &&
-                          currentUserDisplayName != '') {
-                        context.goNamedAuth('HomePage', mounted);
-                      } else {
-                        context.goNamedAuth('Sign_Up_2', mounted);
-                      }
+
+                      context.goNamedAuth('HomePage', mounted);
                     },
                     text: 'Ввести код',
                     options: FFButtonOptions(
-                      width: 130,
-                      height: 48,
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                      iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                      width: 130.0,
+                      height: 48.0,
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      iconPadding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: valueOrDefault<Color>(
                         _model.pinCodeController!.text != null &&
                                 _model.pinCodeController!.text != ''
@@ -322,9 +324,9 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
                           ),
                       borderSide: BorderSide(
                         color: Colors.transparent,
-                        width: 1,
+                        width: 1.0,
                       ),
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(8.0),
                     ),
                   ),
                   Spacer(flex: 4),
@@ -336,18 +338,18 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
               children: [
                 Container(
                   width: double.infinity,
-                  height: MediaQuery.of(context).size.height * 1,
+                  height: MediaQuery.of(context).size.height * 1.0,
                   decoration: BoxDecoration(
                     color: Color(0x67000000),
                   ),
                   child: Align(
-                    alignment: AlignmentDirectional(0, 0),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     child: Container(
-                      width: 200,
-                      height: 160,
+                      width: 200.0,
+                      height: 160.0,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(20.0),
                       ),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -355,22 +357,22 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
                         children: [
                           FlutterFlowIconButton(
                             borderColor: Colors.transparent,
-                            borderRadius: 20,
-                            buttonSize: 60,
+                            borderRadius: 20.0,
+                            buttonSize: 60.0,
                             fillColor:
                                 FlutterFlowTheme.of(context).primaryColor,
                             icon: Icon(
                               Icons.check,
                               color: Colors.white,
-                              size: 30,
+                              size: 30.0,
                             ),
                             onPressed: () {
                               print('IconButton pressed ...');
                             },
                           ),
                           Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 20.0, 0.0, 0.0),
                             child: Text(
                               'Добро пожаловать!',
                               textAlign: TextAlign.center,
@@ -379,7 +381,7 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
                                   .override(
                                     fontFamily: FlutterFlowTheme.of(context)
                                         .bodyText1Family,
-                                    fontSize: 16,
+                                    fontSize: 16.0,
                                     fontWeight: FontWeight.w500,
                                     useGoogleFonts: GoogleFonts.asMap()
                                         .containsKey(

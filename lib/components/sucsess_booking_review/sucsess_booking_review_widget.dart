@@ -59,14 +59,14 @@ class _SucsessBookingReviewWidgetState
 
     return Container(
       width: double.infinity,
-      height: 540,
+      height: 540.0,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
         borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(0),
-          bottomRight: Radius.circular(0),
-          topLeft: Radius.circular(10),
-          topRight: Radius.circular(10),
+          bottomLeft: Radius.circular(0.0),
+          bottomRight: Radius.circular(0.0),
+          topLeft: Radius.circular(10.0),
+          topRight: Radius.circular(10.0),
         ),
       ),
       child: FutureBuilder<BookingsRecord>(
@@ -76,8 +76,8 @@ class _SucsessBookingReviewWidgetState
           if (!snapshot.hasData) {
             return Center(
               child: SizedBox(
-                width: 50,
-                height: 50,
+                width: 50.0,
+                height: 50.0,
                 child: CircularProgressIndicator(
                   color: FlutterFlowTheme.of(context).primaryColor,
                 ),
@@ -89,7 +89,7 @@ class _SucsessBookingReviewWidgetState
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                 child: StreamBuilder<CompaniesRecord>(
                   stream: CompaniesRecord.getDocument(
                       columnBookingsRecord.bookedCompany!),
@@ -98,8 +98,8 @@ class _SucsessBookingReviewWidgetState
                     if (!snapshot.hasData) {
                       return Center(
                         child: SizedBox(
-                          width: 50,
-                          height: 50,
+                          width: 50.0,
+                          height: 50.0,
                           child: CircularProgressIndicator(
                             color: FlutterFlowTheme.of(context).primaryColor,
                           ),
@@ -112,22 +112,23 @@ class _SucsessBookingReviewWidgetState
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         Align(
-                          alignment: AlignmentDirectional(0, 0),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 4, 0, 16),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 4.0, 0.0, 16.0),
                             child: Container(
-                              width: 40,
-                              height: 4,
+                              width: 40.0,
+                              height: 4.0,
                               decoration: BoxDecoration(
                                 color: Color(0xFFD9D9D9),
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(8.0),
                               ),
                             ),
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 10.0),
                           child: Text(
                             'Как прошла ваша мойка?',
                             style: FlutterFlowTheme.of(context)
@@ -135,7 +136,7 @@ class _SucsessBookingReviewWidgetState
                                 .override(
                                   fontFamily: FlutterFlowTheme.of(context)
                                       .bodyText1Family,
-                                  fontSize: 18,
+                                  fontSize: 18.0,
                                   fontWeight: FontWeight.w500,
                                   useGoogleFonts: GoogleFonts.asMap()
                                       .containsKey(FlutterFlowTheme.of(context)
@@ -144,11 +145,12 @@ class _SucsessBookingReviewWidgetState
                           ),
                         ),
                         Divider(
-                          thickness: 1,
+                          thickness: 1.0,
                           color: FlutterFlowTheme.of(context).gray3,
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 10.0, 0.0, 10.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -174,8 +176,8 @@ class _SucsessBookingReviewWidgetState
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Container(
-                                      width: 40,
-                                      height: 40,
+                                      width: 40.0,
+                                      height: 40.0,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .primaryBackground,
@@ -188,13 +190,14 @@ class _SucsessBookingReviewWidgetState
                                             ),
                                           ).image,
                                         ),
-                                        borderRadius: BorderRadius.circular(8),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
                                       ),
                                     ),
                                     Expanded(
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            14, 0, 0, 0),
+                                            14.0, 0.0, 0.0, 0.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           crossAxisAlignment:
@@ -202,15 +205,15 @@ class _SucsessBookingReviewWidgetState
                                           children: [
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 0, 6),
+                                                  .fromSTEB(0.0, 0.0, 0.0, 6.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 4, 0),
+                                                            .fromSTEB(0.0, 0.0,
+                                                                4.0, 0.0),
                                                     child: Text(
                                                       columnCompaniesRecord
                                                           .name!,
@@ -222,7 +225,7 @@ class _SucsessBookingReviewWidgetState
                                                                 fontFamily: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyText1Family,
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w500,
@@ -235,8 +238,8 @@ class _SucsessBookingReviewWidgetState
                                                     ),
                                                   ),
                                                   Container(
-                                                    width: 6,
-                                                    height: 6,
+                                                    width: 6.0,
+                                                    height: 6.0,
                                                     decoration: BoxDecoration(
                                                       color:
                                                           valueOrDefault<Color>(
@@ -263,7 +266,7 @@ class _SucsessBookingReviewWidgetState
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 0, 4),
+                                                  .fromSTEB(0.0, 0.0, 0.0, 4.0),
                                               child: RatingBarIndicator(
                                                 itemBuilder: (context, index) =>
                                                     Icon(
@@ -282,7 +285,7 @@ class _SucsessBookingReviewWidgetState
                                                 ),
                                                 unratedColor: Color(0xFF9E9E9E),
                                                 itemCount: 5,
-                                                itemSize: 14,
+                                                itemSize: 14.0,
                                               ),
                                             ),
                                           ],
@@ -293,14 +296,14 @@ class _SucsessBookingReviewWidgetState
                                       FFIcons.kicArrowsButtonLeft,
                                       color: FlutterFlowTheme.of(context)
                                           .primaryColor,
-                                      size: 24,
+                                      size: 24.0,
                                     ),
                                   ],
                                 ),
                               ),
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 16.0, 0.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -334,7 +337,8 @@ class _SucsessBookingReviewWidgetState
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(4, 0, 0, 0),
+                                                    .fromSTEB(
+                                                        4.0, 0.0, 0.0, 0.0),
                                                 child: Text(
                                                   valueOrDefault<String>(
                                                     '${columnBookingsRecord.duration?.toString()} мин',
@@ -394,7 +398,8 @@ class _SucsessBookingReviewWidgetState
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(4, 0, 0, 0),
+                                                    .fromSTEB(
+                                                        4.0, 0.0, 0.0, 0.0),
                                                 child: Text(
                                                   valueOrDefault<String>(
                                                     '${columnBookingsRecord.totalPrice?.toString()} ₸',
@@ -436,10 +441,10 @@ class _SucsessBookingReviewWidgetState
                           style: FlutterFlowTheme.of(context).bodyText1,
                         ),
                         Align(
-                          alignment: AlignmentDirectional(0, 0),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 20, 0, 16),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 20.0, 0.0, 16.0),
                             child: RatingBar.builder(
                               onRatingUpdate: (newValue) => setState(
                                   () => _model.ratingBarValue2 = newValue),
@@ -449,22 +454,23 @@ class _SucsessBookingReviewWidgetState
                                     FlutterFlowTheme.of(context).primaryColor,
                               ),
                               direction: Axis.horizontal,
-                              initialRating: _model.ratingBarValue2 ??= 0,
+                              initialRating: _model.ratingBarValue2 ??= 0.0,
                               unratedColor:
                                   FlutterFlowTheme.of(context).starblue,
                               itemCount: 5,
-                              itemSize: 30,
+                              itemSize: 30.0,
                               glowColor:
                                   FlutterFlowTheme.of(context).primaryColor,
                             ),
                           ),
                         ),
                         Divider(
-                          thickness: 1,
+                          thickness: 1.0,
                           color: FlutterFlowTheme.of(context).gray3,
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 14, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 14.0, 0.0, 0.0),
                           child: Text(
                             'Напишите нам',
                             style: FlutterFlowTheme.of(context)
@@ -483,7 +489,8 @@ class _SucsessBookingReviewWidgetState
                           key: _model.formKey,
                           autovalidateMode: AutovalidateMode.disabled,
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 8.0, 0.0, 0.0),
                             child: TextFormField(
                               controller: _model.textController,
                               onChanged: (_) => EasyDebounce.debounce(
@@ -499,31 +506,31 @@ class _SucsessBookingReviewWidgetState
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).gray2,
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context)
                                         .primaryColor,
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 errorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: Color(0x00000000),
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 focusedErrorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: Color(0x00000000),
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                               ),
                               style: FlutterFlowTheme.of(context).bodyText1,
@@ -535,7 +542,8 @@ class _SucsessBookingReviewWidgetState
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 20.0, 0.0, 0.0),
                           child: FFButtonWidget(
                             onPressed: () async {
                               if (_model.ratingBarValue2! >= 1.0) {
@@ -592,12 +600,12 @@ class _SucsessBookingReviewWidgetState
                             },
                             text: 'Готово',
                             options: FFButtonOptions(
-                              width: 130,
-                              height: 48,
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                              iconPadding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                              width: 130.0,
+                              height: 48.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
                               color: valueOrDefault<Color>(
                                 (_model.textController.text != null &&
                                             _model.textController.text != '') &&
@@ -612,18 +620,18 @@ class _SucsessBookingReviewWidgetState
                                     fontFamily: FlutterFlowTheme.of(context)
                                         .subtitle2Family,
                                     color: Colors.white,
-                                    fontSize: 16,
+                                    fontSize: 16.0,
                                     useGoogleFonts: GoogleFonts.asMap()
                                         .containsKey(
                                             FlutterFlowTheme.of(context)
                                                 .subtitle2Family),
                                   ),
-                              elevation: 0,
+                              elevation: 0.0,
                               borderSide: BorderSide(
                                 color: Colors.transparent,
-                                width: 1,
+                                width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(8.0),
                             ),
                           ),
                         ),

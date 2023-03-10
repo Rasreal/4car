@@ -38,7 +38,7 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      FFAppState().update(() {
+      setState(() {
         FFAppState().adminClentsType = 'Клиенты';
       });
     });
@@ -61,7 +61,7 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
 
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
@@ -81,7 +81,7 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                   Expanded(
                     child: Container(
                       width: double.infinity,
-                      height: 100,
+                      height: 100.0,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                       ),
@@ -90,10 +90,10 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 40),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 40.0),
                               child: Container(
-                                width: 1224,
+                                width: 1224.0,
                                 decoration: BoxDecoration(),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -101,14 +101,14 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 32, 0, 24),
+                                          0.0, 32.0, 0.0, 24.0),
                                       child: Text(
                                         'Пользователи',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyText1
                                             .override(
                                               fontFamily: 'Inter',
-                                              fontSize: 24,
+                                              fontSize: 24.0,
                                               useGoogleFonts:
                                                   GoogleFonts.asMap()
                                                       .containsKey(
@@ -124,7 +124,7 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 24, 0),
+                                                  0.0, 0.0, 24.0, 0.0),
                                           child: InkWell(
                                             onTap: () async {
                                               FFAppState().update(() {
@@ -139,7 +139,8 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                               children: [
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 0, 0, 17),
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 0.0, 17.0),
                                                   child: Text(
                                                     'Клиенты',
                                                     style:
@@ -158,7 +159,7 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                                   : FlutterFlowTheme.of(
                                                                           context)
                                                                       .webUnselectedColor,
-                                                              fontSize: 16,
+                                                              fontSize: 16.0,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .normal,
@@ -172,8 +173,8 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                   ),
                                                 ),
                                                 Container(
-                                                  width: 68,
-                                                  height: 1,
+                                                  width: 68.0,
+                                                  height: 1.0,
                                                   decoration: BoxDecoration(
                                                     color: FFAppState()
                                                                 .adminClentsType ==
@@ -193,7 +194,7 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 24, 0),
+                                                  0.0, 0.0, 24.0, 0.0),
                                           child: InkWell(
                                             onTap: () async {
                                               FFAppState().update(() {
@@ -208,7 +209,8 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                               children: [
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 0, 0, 17),
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 0.0, 17.0),
                                                   child: Text(
                                                     'Отзывы',
                                                     style:
@@ -227,7 +229,7 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                                   : FlutterFlowTheme.of(
                                                                           context)
                                                                       .webUnselectedColor,
-                                                              fontSize: 16,
+                                                              fontSize: 16.0,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .normal,
@@ -241,8 +243,8 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                   ),
                                                 ),
                                                 Container(
-                                                  width: 62,
-                                                  height: 1,
+                                                  width: 62.0,
+                                                  height: 1.0,
                                                   decoration: BoxDecoration(
                                                     color: FFAppState()
                                                                 .adminClentsType ==
@@ -262,13 +264,13 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                       ],
                                     ),
                                     Container(
-                                      width: 1224,
+                                      width: 1224.0,
                                       decoration: BoxDecoration(
                                         color: Colors.white,
                                       ),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            24, 0, 24, 0),
+                                            24.0, 0.0, 24.0, 0.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           crossAxisAlignment:
@@ -276,20 +278,21 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                           children: [
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 24, 0, 0),
+                                                  .fromSTEB(
+                                                      0.0, 24.0, 0.0, 0.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.min,
                                                 children: [
                                                   Container(
-                                                    width: 392,
-                                                    height: 40,
+                                                    width: 392.0,
+                                                    height: 40.0,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
                                                           .primaryBackground,
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              8),
+                                                              8.0),
                                                       border: Border.all(
                                                         color:
                                                             FlutterFlowTheme.of(
@@ -301,7 +304,10 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  16, 0, 16, 0),
+                                                                  16.0,
+                                                                  0.0,
+                                                                  16.0,
+                                                                  0.0),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -350,10 +356,10 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                                 contentPadding:
                                                                     EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0,
-                                                                            13,
-                                                                            0,
-                                                                            13),
+                                                                            0.0,
+                                                                            13.0,
+                                                                            0.0,
+                                                                            13.0),
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
@@ -382,7 +388,7 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .gray2,
-                                                            size: 24,
+                                                            size: 24.0,
                                                           ),
                                                         ],
                                                       ),
@@ -391,8 +397,8 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                24, 0, 0, 0),
+                                                            .fromSTEB(24.0, 0.0,
+                                                                0.0, 0.0),
                                                     child: InkWell(
                                                       onTap: () async {
                                                         await showModalBottomSheet(
@@ -416,8 +422,8 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                             setState(() {}));
                                                       },
                                                       child: Container(
-                                                        width: 212,
-                                                        height: 40,
+                                                        width: 212.0,
+                                                        height: 40.0,
                                                         decoration:
                                                             BoxDecoration(
                                                           color: FlutterFlowTheme
@@ -425,7 +431,8 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                               .primaryBackground,
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(8),
+                                                                  .circular(
+                                                                      8.0),
                                                           border: Border.all(
                                                             color: FlutterFlowTheme
                                                                     .of(context)
@@ -435,8 +442,11 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                         child: Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(16,
-                                                                      0, 16, 0),
+                                                                  .fromSTEB(
+                                                                      16.0,
+                                                                      0.0,
+                                                                      16.0,
+                                                                      0.0),
                                                           child: Row(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -471,7 +481,7 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .gray2,
-                                                                size: 24,
+                                                                size: 24.0,
                                                               ),
                                                             ],
                                                           ),
@@ -482,8 +492,8 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                24, 0, 0, 0),
+                                                            .fromSTEB(24.0, 0.0,
+                                                                0.0, 0.0),
                                                     child: InkWell(
                                                       onTap: () async {
                                                         await showModalBottomSheet(
@@ -507,8 +517,8 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                             setState(() {}));
                                                       },
                                                       child: Container(
-                                                        width: 212,
-                                                        height: 40,
+                                                        width: 212.0,
+                                                        height: 40.0,
                                                         decoration:
                                                             BoxDecoration(
                                                           color: FlutterFlowTheme
@@ -516,7 +526,8 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                               .primaryBackground,
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(8),
+                                                                  .circular(
+                                                                      8.0),
                                                           border: Border.all(
                                                             color: FlutterFlowTheme
                                                                     .of(context)
@@ -526,8 +537,11 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                         child: Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(16,
-                                                                      0, 16, 0),
+                                                                  .fromSTEB(
+                                                                      16.0,
+                                                                      0.0,
+                                                                      16.0,
+                                                                      0.0),
                                                           child: Row(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -562,7 +576,7 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .gray2,
-                                                                size: 24,
+                                                                size: 24.0,
                                                               ),
                                                             ],
                                                           ),
@@ -573,8 +587,8 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                24, 0, 0, 0),
+                                                            .fromSTEB(24.0, 0.0,
+                                                                0.0, 0.0),
                                                     child: InkWell(
                                                       onTap: () async {
                                                         await showModalBottomSheet(
@@ -598,8 +612,8 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                             setState(() {}));
                                                       },
                                                       child: Container(
-                                                        width: 212,
-                                                        height: 40,
+                                                        width: 212.0,
+                                                        height: 40.0,
                                                         decoration:
                                                             BoxDecoration(
                                                           color: FlutterFlowTheme
@@ -607,7 +621,8 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                               .primaryBackground,
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(8),
+                                                                  .circular(
+                                                                      8.0),
                                                           border: Border.all(
                                                             color: FlutterFlowTheme
                                                                     .of(context)
@@ -617,8 +632,11 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                         child: Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(16,
-                                                                      0, 16, 0),
+                                                                  .fromSTEB(
+                                                                      16.0,
+                                                                      0.0,
+                                                                      16.0,
+                                                                      0.0),
                                                           child: Row(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -653,7 +671,7 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .gray2,
-                                                                size: 24,
+                                                                size: 24.0,
                                                               ),
                                                             ],
                                                           ),
@@ -672,8 +690,8 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 32, 0, 16),
+                                                            .fromSTEB(0.0, 32.0,
+                                                                0.0, 16.0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -709,17 +727,17 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                                 padding:
                                                                     EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            4,
-                                                                            0,
-                                                                            0,
-                                                                            0),
+                                                                            4.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                 child: Icon(
                                                                   Icons
                                                                       .arrow_upward,
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .gray2,
-                                                                  size: 12,
+                                                                  size: 12.0,
                                                                 ),
                                                               ),
                                                             ],
@@ -756,17 +774,17 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                                 padding:
                                                                     EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            4,
-                                                                            0,
-                                                                            0,
-                                                                            0),
+                                                                            4.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                 child: Icon(
                                                                   Icons
                                                                       .arrow_upward,
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .gray2,
-                                                                  size: 12,
+                                                                  size: 12.0,
                                                                 ),
                                                               ),
                                                             ],
@@ -851,17 +869,17 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                                 padding:
                                                                     EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            4,
-                                                                            0,
-                                                                            0,
-                                                                            0),
+                                                                            4.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                 child: Icon(
                                                                   Icons
                                                                       .arrow_upward,
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .gray2,
-                                                                  size: 12,
+                                                                  size: 12.0,
                                                                 ),
                                                               ),
                                                             ],
@@ -943,8 +961,8 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                     ),
                                                   ),
                                                   Divider(
-                                                    height: 1,
-                                                    thickness: 1,
+                                                    height: 1.0,
+                                                    thickness: 1.0,
                                                     color: Color(0xFFEEEEEE),
                                                   ),
                                                   StreamBuilder<
@@ -977,8 +995,8 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                       if (!snapshot.hasData) {
                                                         return Center(
                                                           child: SizedBox(
-                                                            width: 50,
-                                                            height: 50,
+                                                            width: 50.0,
+                                                            height: 50.0,
                                                             child:
                                                                 CircularProgressIndicator(
                                                               color: FlutterFlowTheme
@@ -1023,8 +1041,9 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                                 return Center(
                                                                   child:
                                                                       SizedBox(
-                                                                    width: 50,
-                                                                    height: 50,
+                                                                    width: 50.0,
+                                                                    height:
+                                                                        50.0,
                                                                     child:
                                                                         CircularProgressIndicator(
                                                                       color: FlutterFlowTheme.of(
@@ -1045,10 +1064,10 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                                   Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0,
-                                                                            16,
-                                                                            0,
-                                                                            16),
+                                                                            0.0,
+                                                                            16.0,
+                                                                            0.0,
+                                                                            16.0),
                                                                     child: FutureBuilder<
                                                                         CompaniesRecord>(
                                                                       future: CompaniesRecord.getDocumentOnce(
@@ -1063,8 +1082,8 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                                           return Center(
                                                                             child:
                                                                                 SizedBox(
-                                                                              width: 50,
-                                                                              height: 50,
+                                                                              width: 50.0,
+                                                                              height: 50.0,
                                                                               child: CircularProgressIndicator(
                                                                                 color: FlutterFlowTheme.of(context).primaryColor,
                                                                               ),
@@ -1084,7 +1103,7 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                                                 crossAxisAlignment: CrossAxisAlignment.start,
                                                                                 children: [
                                                                                   Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 4),
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
                                                                                     child: Text(
                                                                                       columnBookingsRecord.timeName!,
                                                                                       style: FlutterFlowTheme.of(context).bodyText1.override(
@@ -1120,8 +1139,8 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                                                   if (!snapshot.hasData) {
                                                                                     return Center(
                                                                                       child: SizedBox(
-                                                                                        width: 50,
-                                                                                        height: 50,
+                                                                                        width: 50.0,
+                                                                                        height: 50.0,
                                                                                         child: CircularProgressIndicator(
                                                                                           color: FlutterFlowTheme.of(context).primaryColor,
                                                                                         ),
@@ -1134,7 +1153,7 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                                                     crossAxisAlignment: CrossAxisAlignment.start,
                                                                                     children: [
                                                                                       Padding(
-                                                                                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 4),
+                                                                                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
                                                                                         child: Text(
                                                                                           columnUserRecord.displayName!,
                                                                                           style: FlutterFlowTheme.of(context).bodyText1.override(
@@ -1222,8 +1241,8 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                 children: [
                                                                                   Container(
-                                                                                    width: 8,
-                                                                                    height: 8,
+                                                                                    width: 8.0,
+                                                                                    height: 8.0,
                                                                                     decoration: BoxDecoration(
                                                                                       color: () {
                                                                                         if (listViewCommentsRecord.obtobotan!) {
@@ -1238,7 +1257,7 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                                                     ),
                                                                                   ),
                                                                                   Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                                                                                     child: Text(
                                                                                       () {
                                                                                         if (listViewCommentsRecord.obtobotan!) {
@@ -1294,7 +1313,7 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                                                 child: Icon(
                                                                                   FFIcons.kicDots,
                                                                                   color: Colors.black,
-                                                                                  size: 24,
+                                                                                  size: 24.0,
                                                                                 ),
                                                                               ),
                                                                             ),
@@ -1304,9 +1323,9 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                                     ),
                                                                   ),
                                                                   Divider(
-                                                                    height: 1,
+                                                                    height: 1.0,
                                                                     thickness:
-                                                                        1,
+                                                                        1.0,
                                                                     color: Color(
                                                                         0xFFEEEEEE),
                                                                   ),
@@ -1328,8 +1347,8 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 32, 0, 16),
+                                                            .fromSTEB(0.0, 32.0,
+                                                                0.0, 16.0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -1365,17 +1384,17 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                                 padding:
                                                                     EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            4,
-                                                                            0,
-                                                                            0,
-                                                                            0),
+                                                                            4.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                 child: Icon(
                                                                   Icons
                                                                       .arrow_upward,
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .gray2,
-                                                                  size: 12,
+                                                                  size: 12.0,
                                                                 ),
                                                               ),
                                                             ],
@@ -1484,17 +1503,17 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                                 padding:
                                                                     EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            4,
-                                                                            0,
-                                                                            0,
-                                                                            0),
+                                                                            4.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                 child: Icon(
                                                                   Icons
                                                                       .arrow_upward,
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .gray2,
-                                                                  size: 12,
+                                                                  size: 12.0,
                                                                 ),
                                                               ),
                                                             ],
@@ -1531,17 +1550,17 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                                 padding:
                                                                     EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            4,
-                                                                            0,
-                                                                            0,
-                                                                            0),
+                                                                            4.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                 child: Icon(
                                                                   Icons
                                                                       .arrow_upward,
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .gray2,
-                                                                  size: 12,
+                                                                  size: 12.0,
                                                                 ),
                                                               ),
                                                             ],
@@ -1575,8 +1594,8 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                     ),
                                                   ),
                                                   Divider(
-                                                    height: 1,
-                                                    thickness: 1,
+                                                    height: 1.0,
+                                                    thickness: 1.0,
                                                     color: Color(0xFFEEEEEE),
                                                   ),
                                                   PagedListView<
@@ -1719,8 +1738,8 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                       firstPageProgressIndicatorBuilder:
                                                           (_) => Center(
                                                         child: SizedBox(
-                                                          width: 50,
-                                                          height: 50,
+                                                          width: 50.0,
+                                                          height: 50.0,
                                                           child:
                                                               CircularProgressIndicator(
                                                             color: FlutterFlowTheme
@@ -1746,10 +1765,10 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0,
-                                                                          16,
-                                                                          0,
-                                                                          16),
+                                                                          0.0,
+                                                                          16.0,
+                                                                          0.0,
+                                                                          16.0),
                                                               child: Row(
                                                                 mainAxisSize:
                                                                     MainAxisSize
@@ -1768,10 +1787,10 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                                       children: [
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0,
-                                                                              0,
-                                                                              0,
-                                                                              4),
+                                                                              0.0,
+                                                                              0.0,
+                                                                              0.0,
+                                                                              4.0),
                                                                           child:
                                                                               Text(
                                                                             valueOrDefault<String>(
@@ -1835,12 +1854,11 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                                     flex: 3,
                                                                     child:
                                                                         Padding(
-                                                                      padding: EdgeInsetsDirectional
-                                                                          .fromSTEB(
-                                                                              0,
-                                                                              0,
-                                                                              0,
-                                                                              4),
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          4.0),
                                                                       child: StreamBuilder<
                                                                           List<
                                                                               BookingsRecord>>(
@@ -1860,8 +1878,8 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                                               .hasData) {
                                                                             return Center(
                                                                               child: SizedBox(
-                                                                                width: 50,
-                                                                                height: 50,
+                                                                                width: 50.0,
+                                                                                height: 50.0,
                                                                                 child: CircularProgressIndicator(
                                                                                   color: FlutterFlowTheme.of(context).primaryColor,
                                                                                 ),
@@ -1904,12 +1922,11 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                                     flex: 4,
                                                                     child:
                                                                         Padding(
-                                                                      padding: EdgeInsetsDirectional
-                                                                          .fromSTEB(
-                                                                              0,
-                                                                              0,
-                                                                              0,
-                                                                              4),
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          4.0),
                                                                       child: StreamBuilder<
                                                                           List<
                                                                               BookingsRecord>>(
@@ -1929,8 +1946,8 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                                               .hasData) {
                                                                             return Center(
                                                                               child: SizedBox(
-                                                                                width: 50,
-                                                                                height: 50,
+                                                                                width: 50.0,
+                                                                                height: 50.0,
                                                                                 child: CircularProgressIndicator(
                                                                                   color: FlutterFlowTheme.of(context).primaryColor,
                                                                                 ),
@@ -1990,8 +2007,8 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                                           return Center(
                                                                             child:
                                                                                 SizedBox(
-                                                                              width: 50,
-                                                                              height: 50,
+                                                                              width: 50.0,
+                                                                              height: 50.0,
                                                                               child: CircularProgressIndicator(
                                                                                 color: FlutterFlowTheme.of(context).primaryColor,
                                                                               ),
@@ -2039,8 +2056,8 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                                           return Center(
                                                                             child:
                                                                                 SizedBox(
-                                                                              width: 50,
-                                                                              height: 50,
+                                                                              width: 50.0,
+                                                                              height: 50.0,
                                                                               child: CircularProgressIndicator(
                                                                                 color: FlutterFlowTheme.of(context).primaryColor,
                                                                               ),
@@ -2131,7 +2148,7 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).primaryText,
                                                                             size:
-                                                                                13,
+                                                                                13.0,
                                                                           ),
                                                                         ],
                                                                       ),
@@ -2141,8 +2158,8 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                                                               ),
                                                             ),
                                                             Divider(
-                                                              height: 1,
-                                                              thickness: 1,
+                                                              height: 1.0,
+                                                              thickness: 1.0,
                                                               color: Color(
                                                                   0xFFEEEEEE),
                                                             ),
@@ -2169,7 +2186,7 @@ class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
                 ],
               ),
               Align(
-                alignment: AlignmentDirectional(0, -1),
+                alignment: AlignmentDirectional(0.0, -1.0),
                 child: wrapWithModel(
                   model: _model.adminAppBarInfoModel,
                   updateCallback: () => setState(() {}),

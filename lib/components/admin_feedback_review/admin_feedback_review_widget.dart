@@ -55,21 +55,21 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0, 0),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Container(
-        width: 600,
+        width: 600.0,
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(8.0),
         ),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 24),
+          padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 24.0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                 child: FutureBuilder<UserRecord>(
                   future:
                       UserRecord.getDocumentOnce(widget.booking!.bookedUser!),
@@ -78,8 +78,8 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                     if (!snapshot.hasData) {
                       return Center(
                         child: SizedBox(
-                          width: 50,
-                          height: 50,
+                          width: 50.0,
+                          height: 50.0,
                           child: CircularProgressIndicator(
                             color: FlutterFlowTheme.of(context).primaryColor,
                           ),
@@ -91,16 +91,17 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 16.0, 0.0),
                           child: ClipRRect(
-                            borderRadius: BorderRadius.circular(100),
+                            borderRadius: BorderRadius.circular(100.0),
                             child: Image.network(
                               valueOrDefault<String>(
                                 rowUserRecord.photoUrl,
                                 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/e4car-dch9vg/assets/39tzmh1sizl4/Group_668.png',
                               ),
-                              width: 40,
-                              height: 40,
+                              width: 40.0,
+                              height: 40.0,
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -116,7 +117,7 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                     .bodyText1
                                     .override(
                                       fontFamily: 'Inter',
-                                      fontSize: 16,
+                                      fontSize: 16.0,
                                       fontWeight: FontWeight.normal,
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
@@ -125,8 +126,8 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                     ),
                               ),
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 8.0, 0.0, 0.0),
                                 child: Text(
                                   rowUserRecord.phoneNumber!,
                                   style: FlutterFlowTheme.of(context)
@@ -153,7 +154,7 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                           child: Icon(
                             FFIcons.kicClose,
                             color: Colors.black,
-                            size: 24,
+                            size: 24.0,
                           ),
                         ),
                       ],
@@ -162,30 +163,31 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                 child: Container(
                   width: double.infinity,
-                  height: 38,
+                  height: 38.0,
                   child: Stack(
                     children: [
                       Align(
-                        alignment: AlignmentDirectional(0, 1),
+                        alignment: AlignmentDirectional(0.0, 1.0),
                         child: Container(
                           width: double.infinity,
-                          height: 1,
+                          height: 1.0,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context).gray4,
                           ),
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            24.0, 0.0, 24.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 24, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 24.0, 0.0),
                               child: InkWell(
                                 onTap: () async {
                                   FFAppState().update(() {
@@ -199,7 +201,7 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 0, 17),
+                                          0.0, 0.0, 0.0, 17.0),
                                       child: Text(
                                         'Детали операции',
                                         style: FlutterFlowTheme.of(context)
@@ -213,7 +215,7 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                                       .primaryColor
                                                   : FlutterFlowTheme.of(context)
                                                       .webUnselectedColor,
-                                              fontSize: 16,
+                                              fontSize: 16.0,
                                               fontWeight: FontWeight.normal,
                                               useGoogleFonts:
                                                   GoogleFonts.asMap()
@@ -225,8 +227,8 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                       ),
                                     ),
                                     Container(
-                                      width: 138,
-                                      height: 1,
+                                      width: 138.0,
+                                      height: 1.0,
                                       decoration: BoxDecoration(
                                         color: FFAppState()
                                                     .adminClientsTypeReview ==
@@ -242,8 +244,8 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                               ),
                             ),
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 24, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 24.0, 0.0),
                               child: InkWell(
                                 onTap: () async {
                                   FFAppState().update(() {
@@ -257,7 +259,7 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 0, 17),
+                                          0.0, 0.0, 0.0, 17.0),
                                       child: Text(
                                         'Отзыв клиента',
                                         style: FlutterFlowTheme.of(context)
@@ -271,7 +273,7 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                                       .primaryColor
                                                   : FlutterFlowTheme.of(context)
                                                       .webUnselectedColor,
-                                              fontSize: 16,
+                                              fontSize: 16.0,
                                               fontWeight: FontWeight.normal,
                                               useGoogleFonts:
                                                   GoogleFonts.asMap()
@@ -283,8 +285,8 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                       ),
                                     ),
                                     Container(
-                                      width: 117,
-                                      height: 1,
+                                      width: 117.0,
+                                      height: 1.0,
                                       decoration: BoxDecoration(
                                         color: FFAppState()
                                                     .adminClientsTypeReview ==
@@ -302,8 +304,8 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                             if (valueOrDefault(currentUserDocument?.role, '') ==
                                 'Супер Админ')
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 24, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 24.0, 0.0),
                                 child: AuthUserStreamWidget(
                                   builder: (context) => InkWell(
                                     onTap: () async {
@@ -320,7 +322,7 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 0, 17),
+                                                  0.0, 0.0, 0.0, 17.0),
                                           child: Text(
                                             'Детали компании',
                                             style: FlutterFlowTheme.of(context)
@@ -336,7 +338,7 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                                       : FlutterFlowTheme.of(
                                                               context)
                                                           .webUnselectedColor,
-                                                  fontSize: 16,
+                                                  fontSize: 16.0,
                                                   fontWeight: FontWeight.normal,
                                                   useGoogleFonts: GoogleFonts
                                                           .asMap()
@@ -348,8 +350,8 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                           ),
                                         ),
                                         Container(
-                                          width: 139,
-                                          height: 1,
+                                          width: 139.0,
+                                          height: 1.0,
                                           decoration: BoxDecoration(
                                             color: FFAppState()
                                                         .adminClientsTypeReview ==
@@ -374,7 +376,8 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
               ),
               if (FFAppState().adminClientsTypeReview == 'Детали компании')
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(24, 32, 24, 0),
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(24.0, 32.0, 24.0, 0.0),
                   child: StreamBuilder<CompaniesRecord>(
                     stream: CompaniesRecord.getDocument(
                         widget.booking!.bookedCompany!),
@@ -383,8 +386,8 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                       if (!snapshot.hasData) {
                         return Center(
                           child: SizedBox(
-                            width: 50,
-                            height: 50,
+                            width: 50.0,
+                            height: 50.0,
                             child: CircularProgressIndicator(
                               color: FlutterFlowTheme.of(context).primaryColor,
                             ),
@@ -396,8 +399,8 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 16.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -438,13 +441,13 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                             ),
                           ),
                           Divider(
-                            height: 1,
-                            thickness: 1,
+                            height: 1.0,
+                            thickness: 1.0,
                             color: FlutterFlowTheme.of(context).gray4,
                           ),
                           Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 16, 0, 16),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 16.0, 0.0, 16.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -485,13 +488,13 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                             ),
                           ),
                           Divider(
-                            height: 1,
-                            thickness: 1,
+                            height: 1.0,
+                            thickness: 1.0,
                             color: FlutterFlowTheme.of(context).gray4,
                           ),
                           Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 16, 0, 16),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 16.0, 0.0, 16.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -529,8 +532,8 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                             ),
                           ),
                           Divider(
-                            height: 1,
-                            thickness: 1,
+                            height: 1.0,
+                            thickness: 1.0,
                             color: FlutterFlowTheme.of(context).gray4,
                           ),
                           StreamBuilder<List<BookingsRecord>>(
@@ -545,8 +548,8 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                               if (!snapshot.hasData) {
                                 return Center(
                                   child: SizedBox(
-                                    width: 50,
-                                    height: 50,
+                                    width: 50.0,
+                                    height: 50.0,
                                     child: CircularProgressIndicator(
                                       color: FlutterFlowTheme.of(context)
                                           .primaryColor,
@@ -563,7 +566,7 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 16, 0, 16),
+                                          0.0, 16.0, 0.0, 16.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
@@ -614,13 +617,13 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                       ),
                                     ),
                                     Divider(
-                                      height: 1,
-                                      thickness: 1,
+                                      height: 1.0,
+                                      thickness: 1.0,
                                       color: FlutterFlowTheme.of(context).gray4,
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 16, 0, 16),
+                                          0.0, 16.0, 0.0, 16.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
@@ -678,13 +681,13 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                             },
                           ),
                           Divider(
-                            height: 1,
-                            thickness: 1,
+                            height: 1.0,
+                            thickness: 1.0,
                             color: FlutterFlowTheme.of(context).gray4,
                           ),
                           Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 16, 0, 16),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 16.0, 0.0, 16.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -719,8 +722,8 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                       if (!snapshot.hasData) {
                                         return Center(
                                           child: SizedBox(
-                                            width: 50,
-                                            height: 50,
+                                            width: 50.0,
+                                            height: 50.0,
                                             child: CircularProgressIndicator(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -771,12 +774,14 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                 ),
               if (FFAppState().adminClientsTypeReview == 'Детали операции')
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(24, 32, 24, 0),
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(24.0, 32.0, 24.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -817,12 +822,13 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                         ),
                       ),
                       Divider(
-                        height: 1,
-                        thickness: 1,
+                        height: 1.0,
+                        thickness: 1.0,
                         color: FlutterFlowTheme.of(context).gray4,
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 16),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 16.0, 0.0, 16.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -871,12 +877,13 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                         ),
                       ),
                       Divider(
-                        height: 1,
-                        thickness: 1,
+                        height: 1.0,
+                        thickness: 1.0,
                         color: FlutterFlowTheme.of(context).gray4,
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 16),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 16.0, 0.0, 16.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -917,12 +924,13 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                         ),
                       ),
                       Divider(
-                        height: 1,
-                        thickness: 1,
+                        height: 1.0,
+                        thickness: 1.0,
                         color: FlutterFlowTheme.of(context).gray4,
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 16),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 16.0, 0.0, 16.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -963,12 +971,13 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                         ),
                       ),
                       Divider(
-                        height: 1,
-                        thickness: 1,
+                        height: 1.0,
+                        thickness: 1.0,
                         color: FlutterFlowTheme.of(context).gray4,
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 16),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 16.0, 0.0, 16.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -1012,12 +1021,13 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                         ),
                       ),
                       Divider(
-                        height: 1,
-                        thickness: 1,
+                        height: 1.0,
+                        thickness: 1.0,
                         color: FlutterFlowTheme.of(context).gray4,
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 16),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 16.0, 0.0, 16.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -1062,12 +1072,13 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                         ),
                       ),
                       Divider(
-                        height: 1,
-                        thickness: 1,
+                        height: 1.0,
+                        thickness: 1.0,
                         color: FlutterFlowTheme.of(context).gray4,
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 16),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 16.0, 0.0, 16.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -1112,7 +1123,8 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                 ),
               if (FFAppState().adminClientsTypeReview == 'Отзыв клиента')
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(24, 16, 24, 0),
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 0.0),
                   child: StreamBuilder<List<CommentsRecord>>(
                     stream: queryCommentsRecord(
                       parent: widget.booking!.bookedCompany,
@@ -1128,8 +1140,8 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                       if (!snapshot.hasData) {
                         return Center(
                           child: SizedBox(
-                            width: 50,
-                            height: 50,
+                            width: 50.0,
+                            height: 50.0,
                             child: CircularProgressIndicator(
                               color: FlutterFlowTheme.of(context).primaryColor,
                             ),
@@ -1163,8 +1175,8 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                 ),
                           ),
                           Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 14, 0, 24),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 14.0, 0.0, 24.0),
                             child: RatingBarIndicator(
                               itemBuilder: (context, index) => Icon(
                                 Icons.star_rounded,
@@ -1179,7 +1191,7 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                               unratedColor:
                                   FlutterFlowTheme.of(context).starblue,
                               itemCount: 5,
-                              itemSize: 20,
+                              itemSize: 20.0,
                             ),
                           ),
                           Text(
@@ -1195,17 +1207,17 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                 ),
                           ),
                           Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 12.0, 0.0, 0.0),
                             child: Container(
                               width: double.infinity,
                               decoration: BoxDecoration(
                                 color: Color(0xFFF5F5F5),
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(8.0),
                               ),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    16, 16, 16, 16),
+                                    16.0, 16.0, 16.0, 16.0),
                                 child: Text(
                                   valueOrDefault<String>(
                                     columnCommentsRecord!.comment,
@@ -1227,8 +1239,8 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                             ),
                           ),
                           Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 21, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 21.0, 0.0, 0.0),
                             child: Text(
                               'Ответить ',
                               style: FlutterFlowTheme.of(context)
@@ -1247,8 +1259,8 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                             key: _model.formKey,
                             autovalidateMode: AutovalidateMode.disabled,
                             child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 12.0, 0.0, 0.0),
                               child: TextFormField(
                                 controller: _model.textController,
                                 autofocus: true,
@@ -1268,30 +1280,30 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).gray3,
-                                      width: 1,
+                                      width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(8),
+                                    borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
-                                      width: 1,
+                                      width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(8),
+                                    borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   errorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
-                                      width: 1,
+                                      width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(8),
+                                    borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   focusedErrorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
-                                      width: 1,
+                                      width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(8),
+                                    borderRadius: BorderRadius.circular(8.0),
                                   ),
                                 ),
                                 style: FlutterFlowTheme.of(context)
@@ -1312,8 +1324,8 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                             ),
                           ),
                           Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 24.0, 0.0, 0.0),
                             child: FFButtonWidget(
                               onPressed: () async {
                                 if (_model.textController.text != null &&
@@ -1339,12 +1351,12 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                               },
                               text: 'Опубликовать',
                               options: FFButtonOptions(
-                                width: 142,
-                                height: 40,
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                iconPadding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                width: 142.0,
+                                height: 40.0,
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
                                 color:
                                     FlutterFlowTheme.of(context).primaryColor,
                                 textStyle: FlutterFlowTheme.of(context)
@@ -1352,7 +1364,7 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                     .override(
                                       fontFamily: 'Inter',
                                       color: Colors.white,
-                                      fontSize: 14,
+                                      fontSize: 14.0,
                                       fontWeight: FontWeight.normal,
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
@@ -1361,9 +1373,9 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                     ),
                                 borderSide: BorderSide(
                                   color: Colors.transparent,
-                                  width: 1,
+                                  width: 1.0,
                                 ),
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(8.0),
                               ),
                             ),
                           ),

@@ -43,7 +43,7 @@ class _EmptyBookedTimeSlotWidgetState extends State<EmptyBookedTimeSlotWidget> {
     context.watch<FFAppState>();
 
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+      padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
       child: Text(
         'Нет свободных времен',
         textAlign: TextAlign.center,

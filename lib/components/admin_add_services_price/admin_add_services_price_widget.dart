@@ -55,11 +55,11 @@ class _AdminAddServicesPriceWidgetState
     context.watch<FFAppState>();
 
     return Container(
-      width: 89,
-      height: 40,
+      width: 89.0,
+      height: 40.0,
       decoration: BoxDecoration(),
       child: Container(
-        width: 89,
+        width: 89.0,
         child: TextFormField(
           controller: _model.textController,
           onChanged: (_) => EasyDebounce.debounce(
@@ -89,30 +89,30 @@ class _AdminAddServicesPriceWidgetState
             enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(
                 color: FlutterFlowTheme.of(context).gray3,
-                width: 1,
+                width: 1.0,
               ),
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(8.0),
             ),
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(
                 color: FlutterFlowTheme.of(context).primaryColor,
-                width: 1,
+                width: 1.0,
               ),
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(8.0),
             ),
             errorBorder: OutlineInputBorder(
               borderSide: BorderSide(
                 color: FlutterFlowTheme.of(context).red1,
-                width: 1,
+                width: 1.0,
               ),
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(8.0),
             ),
             focusedErrorBorder: OutlineInputBorder(
               borderSide: BorderSide(
                 color: FlutterFlowTheme.of(context).red1,
-                width: 1,
+                width: 1.0,
               ),
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(8.0),
             ),
             filled: true,
             fillColor: FlutterFlowTheme.of(context).primaryBackground,

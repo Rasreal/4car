@@ -43,19 +43,19 @@ class _WEBFilterDateWidgetState extends State<WEBFilterDateWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0, 0),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Container(
-        width: 461,
+        width: 461.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).primaryBackground,
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(8.0),
         ),
         child: Container(
-          width: 500,
-          height: 400,
+          width: 500.0,
+          height: 400.0,
           child: custom_widgets.RangeCalendarContainer(
-            width: 500,
-            height: 400,
+            width: 500.0,
+            height: 400.0,
             widthCalendar: 250.0,
             heightCalendar: 300.0,
             bottomsheetClose: () async {

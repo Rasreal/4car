@@ -238,7 +238,6 @@ final parametersBuilderMap =
         },
       ),
   'super_admin_analytics': ParameterData.none(),
-  'super_admin_users': ParameterData.none(),
   'super_admin_current_user': (data) async => ParameterData(
         allParams: {
           'currentUser': await getDocumentParameter<UserRecord>(
@@ -256,6 +255,7 @@ final parametersBuilderMap =
   'super_admin_cancelled_bookings': ParameterData.none(),
   'super_admin_profile': ParameterData.none(),
   'manager_profile': ParameterData.none(),
+  'super_admin_users': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

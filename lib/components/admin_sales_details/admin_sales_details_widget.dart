@@ -55,24 +55,24 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0, 0),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Container(
-        width: 488,
+        width: 488.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).primaryBackground,
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(8.0),
         ),
         child: Form(
           key: _model.formKey,
           autovalidateMode: AutovalidateMode.disabled,
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(24, 24, 24, 24),
+            padding: EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 24.0),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -82,7 +82,7 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                         style: FlutterFlowTheme.of(context).bodyText1.override(
                               fontFamily:
                                   FlutterFlowTheme.of(context).bodyText1Family,
-                              fontSize: 20,
+                              fontSize: 20.0,
                               useGoogleFonts: GoogleFonts.asMap().containsKey(
                                   FlutterFlowTheme.of(context).bodyText1Family),
                             ),
@@ -94,26 +94,26 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                         child: Icon(
                           FFIcons.kicClose,
                           color: FlutterFlowTheme.of(context).gray2,
-                          size: 24,
+                          size: 24.0,
                         ),
                       ),
                     ],
                   ),
                 ),
                 ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(8.0),
                   child: Image.network(
                     valueOrDefault<String>(
                       widget.promotion!.img,
                       'https://picsum.photos/seed/73/600',
                     ),
-                    width: 440,
-                    height: 256,
+                    width: 440.0,
+                    height: 256.0,
                     fit: BoxFit.cover,
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                   child: Text(
                     valueOrDefault<String>(
                       widget.promotion!.title,
@@ -122,14 +122,14 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                     style: FlutterFlowTheme.of(context).bodyText1.override(
                           fontFamily:
                               FlutterFlowTheme.of(context).bodyText1Family,
-                          fontSize: 16,
+                          fontSize: 16.0,
                           useGoogleFonts: GoogleFonts.asMap().containsKey(
                               FlutterFlowTheme.of(context).bodyText1Family),
                         ),
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                   child: Text(
                     valueOrDefault<String>(
                       widget.promotion!.subtitle,
@@ -146,13 +146,15 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                 ),
                 if (!widget.promotion!.moderation!)
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              16.0, 0.0, 0.0, 0.0),
                           child: InkWell(
                             onTap: () async {
                               final promotionUpdateData =
@@ -202,18 +204,18 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 10.0, 0.0),
                                 child: Icon(
                                   FFIcons.kicEdit,
                                   color:
                                       FlutterFlowTheme.of(context).primaryColor,
-                                  size: 18,
+                                  size: 18.0,
                                 ),
                               ),
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 16.0, 0.0),
                                 child: Text(
                                   'Изменить',
                                   style: FlutterFlowTheme.of(context)
@@ -223,7 +225,7 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                                             .bodyText1Family,
                                         color: FlutterFlowTheme.of(context)
                                             .primaryColor,
-                                        fontSize: 12,
+                                        fontSize: 12.0,
                                         fontWeight: FontWeight.normal,
                                         useGoogleFonts: GoogleFonts.asMap()
                                             .containsKey(
@@ -240,15 +242,17 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                   ),
                 if (!widget.promotion!.moderation! || !widget.promotion!.top!)
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 28, 0, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 28.0, 0.0, 0.0),
                     child: Container(
-                      width: 440,
+                      width: 440.0,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
-                        borderRadius: BorderRadius.circular(8),
+                        borderRadius: BorderRadius.circular(8.0),
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 16),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            16.0, 16.0, 16.0, 16.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -260,7 +264,7 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 8, 0, 0),
+                                        0.0, 8.0, 0.0, 0.0),
                                     child: Text(
                                       'Продвижение акции в топ ',
                                       style: FlutterFlowTheme.of(context)
@@ -279,7 +283,7 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 16, 0, 0),
+                                        0.0, 16.0, 0.0, 0.0),
                                     child: Text(
                                       'Преимущества ',
                                       style: FlutterFlowTheme.of(context)
@@ -300,7 +304,7 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 8, 0, 0),
+                                        0.0, 8.0, 0.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       crossAxisAlignment:
@@ -309,10 +313,10 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  8, 6, 8, 0),
+                                                  8.0, 6.0, 8.0, 0.0),
                                           child: Container(
-                                            width: 4,
-                                            height: 4,
+                                            width: 4.0,
+                                            height: 4.0,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -324,7 +328,7 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 0, 4),
+                                                  0.0, 0.0, 0.0, 4.0),
                                           child: Text(
                                             'Ваша акция будет находиться на\nглавной странице приложения.',
                                             style: FlutterFlowTheme.of(context)
@@ -352,7 +356,7 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 8, 0, 0),
+                                        0.0, 8.0, 0.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       crossAxisAlignment:
@@ -361,10 +365,10 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  8, 6, 8, 0),
+                                                  8.0, 6.0, 8.0, 0.0),
                                           child: Container(
-                                            width: 4,
-                                            height: 4,
+                                            width: 4.0,
+                                            height: 4.0,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -376,7 +380,7 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 0, 4),
+                                                  0.0, 0.0, 0.0, 4.0),
                                           child: Text(
                                             'Ваша акция будет находиться на\nглавной странице приложения.',
                                             style: FlutterFlowTheme.of(context)
@@ -404,7 +408,7 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 16, 0, 0),
+                                        0.0, 16.0, 0.0, 0.0),
                                     child: Text(
                                       'Условия',
                                       style: FlutterFlowTheme.of(context)
@@ -425,7 +429,7 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 8, 0, 0),
+                                        0.0, 8.0, 0.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       crossAxisAlignment:
@@ -434,10 +438,10 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  8, 6, 8, 0),
+                                                  8.0, 6.0, 8.0, 0.0),
                                           child: Container(
-                                            width: 4,
-                                            height: 4,
+                                            width: 4.0,
+                                            height: 4.0,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -449,7 +453,7 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 0, 4),
+                                                  0.0, 0.0, 0.0, 4.0),
                                           child: Text(
                                             'Ваша акция отправится на\nрассмотрение модераторам.',
                                             style: FlutterFlowTheme.of(context)
@@ -482,10 +486,10 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            8, 6, 8, 0),
+                                            8.0, 6.0, 8.0, 0.0),
                                         child: Container(
-                                          width: 4,
-                                          height: 4,
+                                          width: 4.0,
+                                          height: 4.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .gray2,
@@ -530,12 +534,12 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                               },
                               text: 'Продвинуть ',
                               options: FFButtonOptions(
-                                width: 118,
-                                height: 40,
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                iconPadding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                width: 118.0,
+                                height: 40.0,
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
                                 color:
                                     FlutterFlowTheme.of(context).primaryColor,
                                 textStyle: FlutterFlowTheme.of(context)
@@ -544,19 +548,19 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                                       fontFamily: FlutterFlowTheme.of(context)
                                           .subtitle2Family,
                                       color: Colors.white,
-                                      fontSize: 14,
+                                      fontSize: 14.0,
                                       fontWeight: FontWeight.normal,
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
                                               FlutterFlowTheme.of(context)
                                                   .subtitle2Family),
                                     ),
-                                elevation: 0,
+                                elevation: 0.0,
                                 borderSide: BorderSide(
                                   color: Colors.transparent,
-                                  width: 1,
+                                  width: 1.0,
                                 ),
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(8.0),
                               ),
                             ),
                           ],
@@ -566,13 +570,15 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                   ),
                 if (widget.promotion!.moderation ?? true)
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 36, 0, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 36.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              16.0, 0.0, 0.0, 0.0),
                           child: InkWell(
                             onTap: () async {
                               final promotionUpdateData =

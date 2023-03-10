@@ -76,12 +76,12 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Align(
-                                alignment: AlignmentDirectional(0, 0),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 0, 120),
+                                      0.0, 0.0, 0.0, 120.0),
                                   child: Container(
-                                    width: 1224,
+                                    width: 1224.0,
                                     decoration: BoxDecoration(),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
@@ -91,7 +91,7 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 32, 0, 32),
+                                                  0.0, 32.0, 0.0, 32.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -104,7 +104,7 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                         .bodyText1
                                                         .override(
                                                           fontFamily: 'Inter',
-                                                          fontSize: 24,
+                                                          fontSize: 24.0,
                                                           useGoogleFonts: GoogleFonts
                                                                   .asMap()
                                                               .containsKey(
@@ -127,12 +127,15 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0, 1, 6, 0),
+                                                                  0.0,
+                                                                  1.0,
+                                                                  6.0,
+                                                                  0.0),
                                                       child: Icon(
                                                         FFIcons.kicClose,
                                                         color:
                                                             Color(0xFF1A1A1A),
-                                                        size: 16,
+                                                        size: 16.0,
                                                       ),
                                                     ),
                                                     Text(
@@ -168,11 +171,11 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                               CrossAxisAlignment.start,
                                           children: [
                                             Container(
-                                              width: 704,
+                                              width: 704.0,
                                               decoration: BoxDecoration(
                                                 color: Colors.white,
                                                 borderRadius:
-                                                    BorderRadius.circular(8),
+                                                    BorderRadius.circular(8.0),
                                               ),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
@@ -182,8 +185,8 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                24, 24, 0, 0),
+                                                            .fromSTEB(24.0,
+                                                                24.0, 0.0, 0.0),
                                                     child: Text(
                                                       'Услуги',
                                                       style:
@@ -193,7 +196,7 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Inter',
-                                                                fontSize: 20,
+                                                                fontSize: 20.0,
                                                                 useGoogleFonts: GoogleFonts
                                                                         .asMap()
                                                                     .containsKey(
@@ -206,7 +209,10 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                     padding:
                                                         EdgeInsetsDirectional
                                                             .fromSTEB(
-                                                                24, 16, 24, 12),
+                                                                24.0,
+                                                                16.0,
+                                                                24.0,
+                                                                12.0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -283,8 +289,8 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                     ),
                                                   ),
                                                   Divider(
-                                                    height: 1,
-                                                    thickness: 1,
+                                                    height: 1.0,
+                                                    thickness: 1.0,
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .gray4,
@@ -292,8 +298,8 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                24, 0, 24, 0),
+                                                            .fromSTEB(24.0, 0.0,
+                                                                24.0, 0.0),
                                                     child: Container(
                                                       width: double.infinity,
                                                       decoration: BoxDecoration(
@@ -309,10 +315,10 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0,
-                                                                        0,
-                                                                        0,
-                                                                        12),
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        12.0),
                                                             child:
                                                                 wrapWithModel(
                                                               model: _model
@@ -331,8 +337,8 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                             ),
                                                           ),
                                                           Divider(
-                                                            height: 1,
-                                                            thickness: 1,
+                                                            height: 1.0,
+                                                            thickness: 1.0,
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .gray4,
@@ -344,8 +350,8 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                24, 0, 24, 0),
+                                                            .fromSTEB(24.0, 0.0,
+                                                                24.0, 0.0),
                                                     child: Container(
                                                       width: double.infinity,
                                                       decoration: BoxDecoration(
@@ -361,10 +367,10 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0,
-                                                                        0,
-                                                                        0,
-                                                                        12),
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        12.0),
                                                             child:
                                                                 wrapWithModel(
                                                               model: _model
@@ -383,8 +389,8 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                             ),
                                                           ),
                                                           Divider(
-                                                            height: 1,
-                                                            thickness: 1,
+                                                            height: 1.0,
+                                                            thickness: 1.0,
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .gray4,
@@ -396,8 +402,8 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                24, 0, 24, 0),
+                                                            .fromSTEB(24.0, 0.0,
+                                                                24.0, 0.0),
                                                     child: Container(
                                                       width: double.infinity,
                                                       decoration: BoxDecoration(
@@ -413,10 +419,10 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0,
-                                                                        0,
-                                                                        0,
-                                                                        12),
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        12.0),
                                                             child:
                                                                 wrapWithModel(
                                                               model: _model
@@ -435,8 +441,8 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                             ),
                                                           ),
                                                           Divider(
-                                                            height: 1,
-                                                            thickness: 1,
+                                                            height: 1.0,
+                                                            thickness: 1.0,
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .gray4,
@@ -448,8 +454,8 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                24, 0, 24, 0),
+                                                            .fromSTEB(24.0, 0.0,
+                                                                24.0, 0.0),
                                                     child: Container(
                                                       width: double.infinity,
                                                       decoration: BoxDecoration(
@@ -465,10 +471,10 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0,
-                                                                        0,
-                                                                        0,
-                                                                        12),
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        12.0),
                                                             child:
                                                                 wrapWithModel(
                                                               model: _model
@@ -487,8 +493,8 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                             ),
                                                           ),
                                                           Divider(
-                                                            height: 1,
-                                                            thickness: 1,
+                                                            height: 1.0,
+                                                            thickness: 1.0,
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .gray4,
@@ -500,8 +506,8 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                24, 0, 24, 0),
+                                                            .fromSTEB(24.0, 0.0,
+                                                                24.0, 0.0),
                                                     child: Container(
                                                       width: double.infinity,
                                                       decoration: BoxDecoration(
@@ -517,10 +523,10 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0,
-                                                                        0,
-                                                                        0,
-                                                                        12),
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        12.0),
                                                             child:
                                                                 wrapWithModel(
                                                               model: _model
@@ -539,8 +545,8 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                             ),
                                                           ),
                                                           Divider(
-                                                            height: 1,
-                                                            thickness: 1,
+                                                            height: 1.0,
+                                                            thickness: 1.0,
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .gray4,
@@ -552,8 +558,8 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                24, 0, 24, 0),
+                                                            .fromSTEB(24.0, 0.0,
+                                                                24.0, 0.0),
                                                     child: Container(
                                                       width: double.infinity,
                                                       decoration: BoxDecoration(
@@ -569,10 +575,10 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0,
-                                                                        0,
-                                                                        0,
-                                                                        12),
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        12.0),
                                                             child:
                                                                 wrapWithModel(
                                                               model: _model
@@ -591,8 +597,8 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                             ),
                                                           ),
                                                           Divider(
-                                                            height: 1,
-                                                            thickness: 1,
+                                                            height: 1.0,
+                                                            thickness: 1.0,
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .gray4,
@@ -604,8 +610,8 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                24, 0, 24, 0),
+                                                            .fromSTEB(24.0, 0.0,
+                                                                24.0, 0.0),
                                                     child: Container(
                                                       width: double.infinity,
                                                       decoration: BoxDecoration(
@@ -621,10 +627,10 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0,
-                                                                        0,
-                                                                        0,
-                                                                        12),
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        12.0),
                                                             child:
                                                                 wrapWithModel(
                                                               model: _model
@@ -643,8 +649,8 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                             ),
                                                           ),
                                                           Divider(
-                                                            height: 1,
-                                                            thickness: 1,
+                                                            height: 1.0,
+                                                            thickness: 1.0,
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .gray4,
@@ -656,8 +662,8 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                24, 0, 24, 0),
+                                                            .fromSTEB(24.0, 0.0,
+                                                                24.0, 0.0),
                                                     child: Container(
                                                       width: double.infinity,
                                                       decoration: BoxDecoration(
@@ -673,10 +679,10 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0,
-                                                                        0,
-                                                                        0,
-                                                                        12),
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        12.0),
                                                             child:
                                                                 wrapWithModel(
                                                               model: _model
@@ -695,8 +701,8 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                             ),
                                                           ),
                                                           Divider(
-                                                            height: 1,
-                                                            thickness: 1,
+                                                            height: 1.0,
+                                                            thickness: 1.0,
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .gray4,
@@ -710,17 +716,20 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(24, 0, 0, 0),
+                                                  .fromSTEB(
+                                                      24.0, 0.0, 0.0, 0.0),
                                               child: Container(
-                                                width: 496,
+                                                width: 496.0,
                                                 decoration: BoxDecoration(
                                                   color: Colors.white,
                                                   borderRadius:
-                                                      BorderRadius.circular(8),
+                                                      BorderRadius.circular(
+                                                          8.0),
                                                 ),
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(24, 0, 24, 0),
+                                                      .fromSTEB(
+                                                          24.0, 0.0, 24.0, 0.0),
                                                   child: Column(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -731,8 +740,11 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(0, 24,
-                                                                    0, 0),
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    24.0,
+                                                                    0.0,
+                                                                    0.0),
                                                         child: Text(
                                                           'Введите данные об услугах',
                                                           style: FlutterFlowTheme
@@ -741,7 +753,7 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Inter',
-                                                                fontSize: 18,
+                                                                fontSize: 18.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w500,
@@ -756,8 +768,11 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(0, 16,
-                                                                    0, 24),
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    16.0,
+                                                                    0.0,
+                                                                    24.0),
                                                         child: Text(
                                                           '1. Выберите кузов машины и добавьте услуги, которые вы предоставляете\n\n2. Напишите цену, которая соответствует услуге и кузову\n\nС каждой операции будет сниматься 1,5 %',
                                                           style: FlutterFlowTheme
@@ -793,25 +808,25 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                           ),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(0, 1),
+                          alignment: AlignmentDirectional(0.0, 1.0),
                           child: Container(
                             width: double.infinity,
-                            height: 80,
+                            height: 80.0,
                             decoration: BoxDecoration(
                               color: Colors.white,
                               boxShadow: [
                                 BoxShadow(
-                                  blurRadius: 16,
+                                  blurRadius: 16.0,
                                   color: Color(0x24DEDEDE),
-                                  offset: Offset(0, -4),
+                                  offset: Offset(0.0, -4.0),
                                 )
                               ],
                             ),
                             child: Align(
-                              alignment: AlignmentDirectional(0, 0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Container(
-                                width: 1224,
-                                height: 80,
+                                width: 1224.0,
+                                height: 80.0,
                                 decoration: BoxDecoration(
                                   color: Colors.white,
                                 ),
@@ -827,8 +842,8 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Container(
-                                              width: 24,
-                                              height: 24,
+                                              width: 24.0,
+                                              height: 24.0,
                                               decoration: BoxDecoration(
                                                 color:
                                                     FlutterFlowTheme.of(context)
@@ -838,22 +853,22 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .green,
-                                                  width: 2,
+                                                  width: 2.0,
                                                 ),
                                               ),
                                               child: Align(
-                                                alignment:
-                                                    AlignmentDirectional(0, 0),
+                                                alignment: AlignmentDirectional(
+                                                    0.0, 0.0),
                                                 child: Icon(
                                                   FFIcons.kcheeek,
                                                   color: Colors.white,
-                                                  size: 20,
+                                                  size: 20.0,
                                                 ),
                                               ),
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(8, 0, 8, 0),
+                                                  .fromSTEB(8.0, 0.0, 8.0, 0.0),
                                               child: Text(
                                                 'Основная информация',
                                                 style:
@@ -879,8 +894,8 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                               ),
                                             ),
                                             Container(
-                                              width: 40,
-                                              height: 1,
+                                              width: 40.0,
+                                              height: 1.0,
                                               decoration: BoxDecoration(
                                                 color: Color(0xFFEDEDED),
                                               ),
@@ -890,13 +905,13 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  8, 0, 0, 0),
+                                                  8.0, 0.0, 0.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Container(
-                                                width: 24,
-                                                height: 24,
+                                                width: 24.0,
+                                                height: 24.0,
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
                                                           context)
@@ -906,13 +921,13 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primaryColor,
-                                                    width: 2,
+                                                    width: 2.0,
                                                   ),
                                                 ),
                                                 child: Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0, 0),
+                                                          0.0, 0.0),
                                                   child: Text(
                                                     '2',
                                                     style: FlutterFlowTheme.of(
@@ -940,7 +955,8 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(8, 0, 8, 0),
+                                                    .fromSTEB(
+                                                        8.0, 0.0, 8.0, 0.0),
                                                 child: Text(
                                                   'Услуги',
                                                   style: FlutterFlowTheme.of(
@@ -967,8 +983,8 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                 ),
                                               ),
                                               Container(
-                                                width: 40,
-                                                height: 1,
+                                                width: 40.0,
+                                                height: 1.0,
                                                 decoration: BoxDecoration(
                                                   color: Color(0xFFEDEDED),
                                                 ),
@@ -979,13 +995,13 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  8, 0, 0, 0),
+                                                  8.0, 0.0, 0.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Container(
-                                                width: 24,
-                                                height: 24,
+                                                width: 24.0,
+                                                height: 24.0,
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
                                                           context)
@@ -995,13 +1011,13 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .text3,
-                                                    width: 1,
+                                                    width: 1.0,
                                                   ),
                                                 ),
                                                 child: Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0, 0),
+                                                          0.0, 0.0),
                                                   child: Text(
                                                     '3',
                                                     style: FlutterFlowTheme.of(
@@ -1029,7 +1045,8 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(8, 0, 8, 0),
+                                                    .fromSTEB(
+                                                        8.0, 0.0, 8.0, 0.0),
                                                 child: Text(
                                                   'Удобства',
                                                   style: FlutterFlowTheme.of(
@@ -1054,8 +1071,8 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                 ),
                                               ),
                                               Container(
-                                                width: 40,
-                                                height: 1,
+                                                width: 40.0,
+                                                height: 1.0,
                                                 decoration: BoxDecoration(
                                                   color: Color(0xFFEDEDED),
                                                 ),
@@ -1066,13 +1083,13 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  8, 0, 0, 0),
+                                                  8.0, 0.0, 0.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Container(
-                                                width: 24,
-                                                height: 24,
+                                                width: 24.0,
+                                                height: 24.0,
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
                                                           context)
@@ -1082,13 +1099,13 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .text3,
-                                                    width: 1,
+                                                    width: 1.0,
                                                   ),
                                                 ),
                                                 child: Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0, 0),
+                                                          0.0, 0.0),
                                                   child: Text(
                                                     '4',
                                                     style: FlutterFlowTheme.of(
@@ -1116,7 +1133,8 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(8, 0, 8, 0),
+                                                    .fromSTEB(
+                                                        8.0, 0.0, 8.0, 0.0),
                                                 child: Text(
                                                   'Реквизиты',
                                                   style: FlutterFlowTheme.of(
@@ -1141,8 +1159,8 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                 ),
                                               ),
                                               Container(
-                                                width: 40,
-                                                height: 1,
+                                                width: 40.0,
+                                                height: 1.0,
                                                 decoration: BoxDecoration(
                                                   color: Color(0xFFEDEDED),
                                                 ),
@@ -1153,13 +1171,13 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  8, 0, 0, 0),
+                                                  8.0, 0.0, 0.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Container(
-                                                width: 24,
-                                                height: 24,
+                                                width: 24.0,
+                                                height: 24.0,
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
                                                           context)
@@ -1169,13 +1187,13 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .text3,
-                                                    width: 1,
+                                                    width: 1.0,
                                                   ),
                                                 ),
                                                 child: Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0, 0),
+                                                          0.0, 0.0),
                                                   child: Text(
                                                     '5',
                                                     style: FlutterFlowTheme.of(
@@ -1203,7 +1221,8 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(8, 0, 8, 0),
+                                                    .fromSTEB(
+                                                        8.0, 0.0, 8.0, 0.0),
                                                 child: Text(
                                                   'Подтверждение',
                                                   style: FlutterFlowTheme.of(
@@ -1228,8 +1247,8 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                 ),
                                               ),
                                               Container(
-                                                width: 40,
-                                                height: 1,
+                                                width: 40.0,
+                                                height: 1.0,
                                                 decoration: BoxDecoration(
                                                   color: Color(0xFFEDEDED),
                                                 ),
@@ -1267,13 +1286,13 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                       },
                                       text: 'Продолжить',
                                       options: FFButtonOptions(
-                                        width: 185,
-                                        height: 48,
+                                        width: 185.0,
+                                        height: 48.0,
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 0, 0, 0),
+                                            0.0, 0.0, 0.0, 0.0),
                                         iconPadding:
                                             EdgeInsetsDirectional.fromSTEB(
-                                                0, 0, 0, 0),
+                                                0.0, 0.0, 0.0, 0.0),
                                         color: FlutterFlowTheme.of(context)
                                             .primaryColor,
                                         textStyle: FlutterFlowTheme.of(context)
@@ -1289,12 +1308,13 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                                   context)
                                                               .subtitle2Family),
                                             ),
-                                        elevation: 0,
+                                        elevation: 0.0,
                                         borderSide: BorderSide(
                                           color: Colors.transparent,
-                                          width: 1,
+                                          width: 1.0,
                                         ),
-                                        borderRadius: BorderRadius.circular(8),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
                                       ),
                                     ),
                                   ],

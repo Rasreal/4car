@@ -71,9 +71,9 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(0, 0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Container(
-                              width: 1224,
+                              width: 1224.0,
                               decoration: BoxDecoration(),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -81,14 +81,14 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 32, 0, 0),
+                                        0.0, 32.0, 0.0, 0.0),
                                     child: Text(
                                       'Аналитика',
                                       style: FlutterFlowTheme.of(context)
                                           .bodyText1
                                           .override(
                                             fontFamily: 'Inter',
-                                            fontSize: 24,
+                                            fontSize: 24.0,
                                             useGoogleFonts: GoogleFonts.asMap()
                                                 .containsKey(
                                                     FlutterFlowTheme.of(context)
@@ -98,7 +98,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 24, 0, 0),
+                                        0.0, 24.0, 0.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
@@ -106,12 +106,12 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                           FFIcons.kicSettings,
                                           color: FlutterFlowTheme.of(context)
                                               .gray2,
-                                          size: 24,
+                                          size: 24.0,
                                         ),
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  8, 0, 0, 0),
+                                                  8.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             'Фильтр',
                                             style: FlutterFlowTheme.of(context)
@@ -134,7 +134,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  24, 0, 0, 0),
+                                                  24.0, 0.0, 0.0, 0.0),
                                           child: InkWell(
                                             onTap: () async {
                                               await showModalBottomSheet(
@@ -156,14 +156,14 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                   (value) => setState(() {}));
                                             },
                                             child: Container(
-                                              width: 184,
-                                              height: 40,
+                                              width: 184.0,
+                                              height: 40.0,
                                               decoration: BoxDecoration(
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryBackground,
                                                 borderRadius:
-                                                    BorderRadius.circular(8),
+                                                    BorderRadius.circular(8.0),
                                                 border: Border.all(
                                                   color: FlutterFlowTheme.of(
                                                           context)
@@ -172,7 +172,8 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                               ),
                                               child: Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(16, 0, 16, 0),
+                                                    .fromSTEB(
+                                                        16.0, 0.0, 16.0, 0.0),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -211,7 +212,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .gray2,
-                                                      size: 24,
+                                                      size: 24.0,
                                                     ),
                                                   ],
                                                 ),
@@ -222,16 +223,16 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  24, 0, 0, 0),
+                                                  24.0, 0.0, 0.0, 0.0),
                                           child: Container(
-                                            width: 184,
-                                            height: 40,
+                                            width: 184.0,
+                                            height: 40.0,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryBackground,
                                               borderRadius:
-                                                  BorderRadius.circular(8),
+                                                  BorderRadius.circular(8.0),
                                               border: Border.all(
                                                 color:
                                                     FlutterFlowTheme.of(context)
@@ -240,7 +241,8 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                             ),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(16, 0, 16, 0),
+                                                  .fromSTEB(
+                                                      16.0, 0.0, 16.0, 0.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
@@ -272,7 +274,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .gray2,
-                                                    size: 24,
+                                                    size: 24.0,
                                                   ),
                                                 ],
                                               ),
@@ -282,7 +284,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                         Expanded(
                                           child: Align(
                                             alignment:
-                                                AlignmentDirectional(1, 0),
+                                                AlignmentDirectional(1.0, 0.0),
                                             child: FFButtonWidget(
                                               onPressed: () {
                                                 print('Button pressed ...');
@@ -290,16 +292,18 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                               text: 'Скачать отчет в Excel',
                                               icon: Icon(
                                                 FFIcons.kicDownload,
-                                                size: 22,
+                                                size: 22.0,
                                               ),
                                               options: FFButtonOptions(
-                                                width: 207,
-                                                height: 40,
+                                                width: 207.0,
+                                                height: 40.0,
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(0, 0, 0, 0),
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 0.0, 0.0),
                                                 iconPadding:
                                                     EdgeInsetsDirectional
-                                                        .fromSTEB(0, 0, 0, 0),
+                                                        .fromSTEB(
+                                                            0.0, 0.0, 0.0, 0.0),
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryColor,
@@ -309,7 +313,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                         .override(
                                                           fontFamily: 'Inter',
                                                           color: Colors.white,
-                                                          fontSize: 14,
+                                                          fontSize: 14.0,
                                                           fontWeight:
                                                               FontWeight.normal,
                                                           useGoogleFonts: GoogleFonts
@@ -321,10 +325,10 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                         ),
                                                 borderSide: BorderSide(
                                                   color: Colors.transparent,
-                                                  width: 1,
+                                                  width: 1.0,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(8),
+                                                    BorderRadius.circular(8.0),
                                               ),
                                             ),
                                           ),
@@ -343,8 +347,8 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                       if (!snapshot.hasData) {
                                         return Center(
                                           child: SizedBox(
-                                            width: 50,
-                                            height: 50,
+                                            width: 50.0,
+                                            height: 50.0,
                                             child: CircularProgressIndicator(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -382,8 +386,8 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                             if (!snapshot.hasData) {
                                               return Center(
                                                 child: SizedBox(
-                                                  width: 50,
-                                                  height: 50,
+                                                  width: 50.0,
+                                                  height: 50.0,
                                                   child:
                                                       CircularProgressIndicator(
                                                     color: FlutterFlowTheme.of(
@@ -408,8 +412,8 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 24, 0, 24),
+                                                            .fromSTEB(0.0, 24.0,
+                                                                0.0, 24.0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -417,11 +421,14 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(0,
-                                                                      0, 24, 0),
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      24.0,
+                                                                      0.0),
                                                           child: Container(
-                                                            width: 392,
-                                                            height: 98,
+                                                            width: 392.0,
+                                                            height: 98.0,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color:
@@ -429,16 +436,16 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          8),
+                                                                          8.0),
                                                             ),
                                                             child: Padding(
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          24,
-                                                                          24,
-                                                                          24,
-                                                                          24),
+                                                                          24.0,
+                                                                          24.0,
+                                                                          24.0,
+                                                                          24.0),
                                                               child: Row(
                                                                 mainAxisSize:
                                                                     MainAxisSize
@@ -447,15 +454,16 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                   Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            16,
-                                                                            0),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            16.0,
+                                                                            0.0),
                                                                     child:
                                                                         Container(
-                                                                      width: 48,
+                                                                      width:
+                                                                          48.0,
                                                                       height:
-                                                                          48,
+                                                                          48.0,
                                                                       decoration:
                                                                           BoxDecoration(
                                                                         color: FlutterFlowTheme.of(context)
@@ -470,7 +478,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryColor,
                                                                         size:
-                                                                            24,
+                                                                            24.0,
                                                                       ),
                                                                     ),
                                                                   ),
@@ -500,16 +508,16 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                         children: [
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0,
-                                                                                8,
-                                                                                0,
-                                                                                0),
+                                                                                0.0,
+                                                                                8.0,
+                                                                                0.0,
+                                                                                0.0),
                                                                             child:
                                                                                 Text(
                                                                               functions.oborot(containerBookingsRecordList.toList()).toString(),
                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                     fontFamily: 'Inter',
-                                                                                    fontSize: 24,
+                                                                                    fontSize: 24.0,
                                                                                     fontWeight: FontWeight.w500,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                   ),
@@ -517,16 +525,16 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                           ),
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0,
-                                                                                8,
-                                                                                0,
-                                                                                2),
+                                                                                0.0,
+                                                                                8.0,
+                                                                                0.0,
+                                                                                2.0),
                                                                             child:
                                                                                 Text(
                                                                               functions.oborotName(containerBookingsRecordList.toList()),
                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                     fontFamily: 'Inter',
-                                                                                    fontSize: 16,
+                                                                                    fontSize: 16.0,
                                                                                     fontWeight: FontWeight.w500,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                   ),
@@ -544,11 +552,14 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(0,
-                                                                      0, 24, 0),
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      24.0,
+                                                                      0.0),
                                                           child: Container(
-                                                            width: 392,
-                                                            height: 98,
+                                                            width: 392.0,
+                                                            height: 98.0,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color:
@@ -556,16 +567,16 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          8),
+                                                                          8.0),
                                                             ),
                                                             child: Padding(
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          24,
-                                                                          24,
-                                                                          24,
-                                                                          24),
+                                                                          24.0,
+                                                                          24.0,
+                                                                          24.0,
+                                                                          24.0),
                                                               child: Row(
                                                                 mainAxisSize:
                                                                     MainAxisSize
@@ -574,15 +585,16 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                   Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            16,
-                                                                            0),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            16.0,
+                                                                            0.0),
                                                                     child:
                                                                         Container(
-                                                                      width: 48,
+                                                                      width:
+                                                                          48.0,
                                                                       height:
-                                                                          48,
+                                                                          48.0,
                                                                       decoration:
                                                                           BoxDecoration(
                                                                         color: FlutterFlowTheme.of(context)
@@ -597,7 +609,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryColor,
                                                                         size:
-                                                                            24,
+                                                                            24.0,
                                                                       ),
                                                                     ),
                                                                   ),
@@ -627,16 +639,16 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                         children: [
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0,
-                                                                                8,
-                                                                                0,
-                                                                                0),
+                                                                                0.0,
+                                                                                8.0,
+                                                                                0.0,
+                                                                                0.0),
                                                                             child:
                                                                                 Text(
                                                                               functions.oborotForCarPrecent(containerBookingsRecordList.toList()),
                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                     fontFamily: 'Inter',
-                                                                                    fontSize: 24,
+                                                                                    fontSize: 24.0,
                                                                                     fontWeight: FontWeight.w500,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                   ),
@@ -644,16 +656,16 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                           ),
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0,
-                                                                                8,
-                                                                                0,
-                                                                                2),
+                                                                                0.0,
+                                                                                8.0,
+                                                                                0.0,
+                                                                                2.0),
                                                                             child:
                                                                                 Text(
                                                                               functions.oborotForCarPrecentName(containerBookingsRecordList.toList()),
                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                     fontFamily: 'Inter',
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     fontWeight: FontWeight.w500,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                   ),
@@ -671,11 +683,14 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(0,
-                                                                      0, 24, 0),
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      24.0,
+                                                                      0.0),
                                                           child: Container(
-                                                            width: 392,
-                                                            height: 98,
+                                                            width: 392.0,
+                                                            height: 98.0,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color:
@@ -683,16 +698,16 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          8),
+                                                                          8.0),
                                                             ),
                                                             child: Padding(
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          24,
-                                                                          24,
-                                                                          24,
-                                                                          24),
+                                                                          24.0,
+                                                                          24.0,
+                                                                          24.0,
+                                                                          24.0),
                                                               child: Row(
                                                                 mainAxisSize:
                                                                     MainAxisSize
@@ -701,15 +716,16 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                   Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            16,
-                                                                            0),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            16.0,
+                                                                            0.0),
                                                                     child:
                                                                         Container(
-                                                                      width: 48,
+                                                                      width:
+                                                                          48.0,
                                                                       height:
-                                                                          48,
+                                                                          48.0,
                                                                       decoration:
                                                                           BoxDecoration(
                                                                         color: FlutterFlowTheme.of(context)
@@ -724,7 +740,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryColor,
                                                                         size:
-                                                                            24,
+                                                                            24.0,
                                                                       ),
                                                                     ),
                                                                   ),
@@ -754,16 +770,16 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                         children: [
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0,
-                                                                                8,
-                                                                                0,
-                                                                                0),
+                                                                                0.0,
+                                                                                8.0,
+                                                                                0.0,
+                                                                                0.0),
                                                                             child:
                                                                                 Text(
                                                                               functions.averageChequeForCompany(containerBookingsRecordList.toList(), containerCount),
                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                     fontFamily: 'Inter',
-                                                                                    fontSize: 24,
+                                                                                    fontSize: 24.0,
                                                                                     fontWeight: FontWeight.w500,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                   ),
@@ -771,10 +787,10 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                           ),
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0,
-                                                                                8,
-                                                                                0,
-                                                                                2),
+                                                                                0.0,
+                                                                                8.0,
+                                                                                0.0,
+                                                                                2.0),
                                                                             child:
                                                                                 Text(
                                                                               valueOrDefault<String>(
@@ -783,7 +799,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                               ),
                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                     fontFamily: 'Inter',
-                                                                                    fontSize: 16,
+                                                                                    fontSize: 16.0,
                                                                                     fontWeight: FontWeight.w500,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                   ),
@@ -809,18 +825,21 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                     desktop: false,
                                                   ))
                                                     Container(
-                                                      width: 1224,
+                                                      width: 1224.0,
                                                       decoration: BoxDecoration(
                                                         color: Colors.white,
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8),
+                                                                .circular(8.0),
                                                       ),
                                                       child: Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(24, 0,
-                                                                    24, 0),
+                                                                .fromSTEB(
+                                                                    24.0,
+                                                                    0.0,
+                                                                    24.0,
+                                                                    0.0),
                                                         child: Column(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
@@ -832,10 +851,10 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0,
-                                                                          14,
-                                                                          0,
-                                                                          24),
+                                                                          0.0,
+                                                                          14.0,
+                                                                          0.0,
+                                                                          24.0),
                                                               child: Text(
                                                                 'Оборот',
                                                                 style: FlutterFlowTheme.of(
@@ -845,7 +864,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                       fontFamily:
                                                                           'Inter',
                                                                       fontSize:
-                                                                          18,
+                                                                          18.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w500,
@@ -860,10 +879,10 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0,
-                                                                          0,
-                                                                          0,
-                                                                          20),
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          20.0),
                                                               child: Text(
                                                                 'Заработанная сумма',
                                                                 style: FlutterFlowTheme.of(
@@ -886,8 +905,8 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                               ),
                                                             ),
                                                             Container(
-                                                              width: 1130,
-                                                              height: 423,
+                                                              width: 1130.0,
+                                                              height: 423.0,
                                                               child:
                                                                   FlutterFlowLineChart(
                                                                 data: [
@@ -906,7 +925,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                               context)
                                                                           .primaryColor,
                                                                       barWidth:
-                                                                          1,
+                                                                          1.0,
                                                                       isCurved:
                                                                           true,
                                                                       preventCurveOverShooting:
@@ -947,14 +966,14 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                   showLabels:
                                                                       true,
                                                                   labelInterval:
-                                                                      10,
+                                                                      10.0,
                                                                 ),
                                                                 yAxisLabelInfo:
                                                                     AxisLabelInfo(
                                                                   showLabels:
                                                                       true,
                                                                   labelInterval:
-                                                                      10,
+                                                                      10.0,
                                                                 ),
                                                               ),
                                                             ),
@@ -965,8 +984,8 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 24, 0, 24),
+                                                            .fromSTEB(0.0, 24.0,
+                                                                0.0, 24.0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -974,11 +993,14 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(0,
-                                                                      0, 24, 0),
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      24.0,
+                                                                      0.0),
                                                           child: Container(
-                                                            width: 392,
-                                                            height: 98,
+                                                            width: 392.0,
+                                                            height: 98.0,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color:
@@ -986,16 +1008,16 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          8),
+                                                                          8.0),
                                                             ),
                                                             child: Padding(
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          24,
-                                                                          24,
-                                                                          24,
-                                                                          24),
+                                                                          24.0,
+                                                                          24.0,
+                                                                          24.0,
+                                                                          24.0),
                                                               child: Row(
                                                                 mainAxisSize:
                                                                     MainAxisSize
@@ -1004,15 +1026,16 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                   Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            16,
-                                                                            0),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            16.0,
+                                                                            0.0),
                                                                     child:
                                                                         Container(
-                                                                      width: 48,
+                                                                      width:
+                                                                          48.0,
                                                                       height:
-                                                                          48,
+                                                                          48.0,
                                                                       decoration:
                                                                           BoxDecoration(
                                                                         color: FlutterFlowTheme.of(context)
@@ -1027,7 +1050,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryColor,
                                                                         size:
-                                                                            24,
+                                                                            24.0,
                                                                       ),
                                                                     ),
                                                                   ),
@@ -1057,10 +1080,10 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                         children: [
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0,
-                                                                                8,
-                                                                                0,
-                                                                                0),
+                                                                                0.0,
+                                                                                8.0,
+                                                                                0.0,
+                                                                                0.0),
                                                                             child:
                                                                                 Text(
                                                                               valueOrDefault<String>(
@@ -1069,7 +1092,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                               ),
                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                     fontFamily: 'Inter',
-                                                                                    fontSize: 24,
+                                                                                    fontSize: 24.0,
                                                                                     fontWeight: FontWeight.w500,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                   ),
@@ -1087,11 +1110,14 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(0,
-                                                                      0, 24, 0),
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      24.0,
+                                                                      0.0),
                                                           child: Container(
-                                                            width: 392,
-                                                            height: 98,
+                                                            width: 392.0,
+                                                            height: 98.0,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color:
@@ -1099,16 +1125,16 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          8),
+                                                                          8.0),
                                                             ),
                                                             child: Padding(
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          24,
-                                                                          24,
-                                                                          24,
-                                                                          24),
+                                                                          24.0,
+                                                                          24.0,
+                                                                          24.0,
+                                                                          24.0),
                                                               child: Row(
                                                                 mainAxisSize:
                                                                     MainAxisSize
@@ -1117,15 +1143,16 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                   Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            16,
-                                                                            0),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            16.0,
+                                                                            0.0),
                                                                     child:
                                                                         Container(
-                                                                      width: 48,
+                                                                      width:
+                                                                          48.0,
                                                                       height:
-                                                                          48,
+                                                                          48.0,
                                                                       decoration:
                                                                           BoxDecoration(
                                                                         color: FlutterFlowTheme.of(context)
@@ -1140,7 +1167,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryColor,
                                                                         size:
-                                                                            24,
+                                                                            24.0,
                                                                       ),
                                                                     ),
                                                                   ),
@@ -1170,10 +1197,10 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                         children: [
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0,
-                                                                                8,
-                                                                                0,
-                                                                                0),
+                                                                                0.0,
+                                                                                8.0,
+                                                                                0.0,
+                                                                                0.0),
                                                                             child:
                                                                                 Text(
                                                                               valueOrDefault<String>(
@@ -1182,7 +1209,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                               ),
                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                     fontFamily: 'Inter',
-                                                                                    fontSize: 24,
+                                                                                    fontSize: 24.0,
                                                                                     fontWeight: FontWeight.w500,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                   ),
@@ -1190,10 +1217,10 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                           ),
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0,
-                                                                                8,
-                                                                                0,
-                                                                                2),
+                                                                                0.0,
+                                                                                8.0,
+                                                                                0.0,
+                                                                                2.0),
                                                                             child:
                                                                                 Text(
                                                                               '/${valueOrDefault<String>(
@@ -1202,7 +1229,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                               )}',
                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                     fontFamily: 'Inter',
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     fontWeight: FontWeight.w500,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                   ),
@@ -1236,8 +1263,8 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                         if (!snapshot.hasData) {
                                                           return Center(
                                                             child: SizedBox(
-                                                              width: 50,
-                                                              height: 50,
+                                                              width: 50.0,
+                                                              height: 50.0,
                                                               child:
                                                                   CircularProgressIndicator(
                                                                 color: FlutterFlowTheme.of(
@@ -1251,23 +1278,23 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                             containerUserRecordList =
                                                             snapshot.data!;
                                                         return Container(
-                                                          width: 1224,
+                                                          width: 1224.0,
                                                           decoration:
                                                               BoxDecoration(
                                                             color: Colors.white,
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        8),
+                                                                        8.0),
                                                           ),
                                                           child: Padding(
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        24,
-                                                                        0,
-                                                                        24,
-                                                                        0),
+                                                                        24.0,
+                                                                        0.0,
+                                                                        24.0,
+                                                                        0.0),
                                                             child: Column(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -1279,10 +1306,10 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                 Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0,
-                                                                          14,
-                                                                          0,
-                                                                          24),
+                                                                          0.0,
+                                                                          14.0,
+                                                                          0.0,
+                                                                          24.0),
                                                                   child: Text(
                                                                     'Пользователи',
                                                                     style: FlutterFlowTheme.of(
@@ -1292,7 +1319,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                           fontFamily:
                                                                               'Inter',
                                                                           fontSize:
-                                                                              18,
+                                                                              18.0,
                                                                           fontWeight:
                                                                               FontWeight.w500,
                                                                           useGoogleFonts:
@@ -1306,12 +1333,11 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                           .max,
                                                                   children: [
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional
-                                                                          .fromSTEB(
-                                                                              0,
-                                                                              0,
-                                                                              48,
-                                                                              0),
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          48.0,
+                                                                          0.0),
                                                                       child:
                                                                           Column(
                                                                         mainAxisSize:
@@ -1330,10 +1356,10 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                           ),
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0,
-                                                                                8,
-                                                                                0,
-                                                                                0),
+                                                                                0.0,
+                                                                                8.0,
+                                                                                0.0,
+                                                                                0.0),
                                                                             child:
                                                                                 Text(
                                                                               valueOrDefault<String>(
@@ -1342,7 +1368,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                               ),
                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                     fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
-                                                                                    fontSize: 24,
+                                                                                    fontSize: 24.0,
                                                                                     fontWeight: FontWeight.w500,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                   ),
@@ -1372,17 +1398,17 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                         ),
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0,
-                                                                              8,
-                                                                              0,
-                                                                              0),
+                                                                              0.0,
+                                                                              8.0,
+                                                                              0.0,
+                                                                              0.0),
                                                                           child:
                                                                               Text(
                                                                             '100%',
                                                                             style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                   fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
                                                                                   color: FlutterFlowTheme.of(context).green,
-                                                                                  fontSize: 24,
+                                                                                  fontSize: 24.0,
                                                                                   fontWeight: FontWeight.w500,
                                                                                   useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                 ),
@@ -1395,10 +1421,10 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                 Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0,
-                                                                          28,
-                                                                          0,
-                                                                          20),
+                                                                          0.0,
+                                                                          28.0,
+                                                                          0.0,
+                                                                          20.0),
                                                                   child: Text(
                                                                     'Колличество моек',
                                                                     style: FlutterFlowTheme.of(
@@ -1419,14 +1445,16 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                 Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0,
-                                                                          0,
-                                                                          0,
-                                                                          24),
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          24.0),
                                                                   child:
                                                                       Container(
-                                                                    width: 1130,
-                                                                    height: 423,
+                                                                    width:
+                                                                        1130.0,
+                                                                    height:
+                                                                        423.0,
                                                                     child:
                                                                         FlutterFlowLineChart(
                                                                       data: [
@@ -1442,7 +1470,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).primaryColor,
                                                                             barWidth:
-                                                                                1,
+                                                                                1.0,
                                                                             isCurved:
                                                                                 true,
                                                                             dotData:
@@ -1475,14 +1503,14 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                         showLabels:
                                                                             true,
                                                                         labelInterval:
-                                                                            10,
+                                                                            10.0,
                                                                       ),
                                                                       yAxisLabelInfo:
                                                                           AxisLabelInfo(
                                                                         showLabels:
                                                                             true,
                                                                         labelInterval:
-                                                                            10,
+                                                                            10.0,
                                                                       ),
                                                                     ),
                                                                   ),
@@ -1496,8 +1524,8 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 24, 0, 80),
+                                                            .fromSTEB(0.0, 24.0,
+                                                                0.0, 80.0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -1505,11 +1533,14 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(0,
-                                                                      0, 24, 0),
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      24.0,
+                                                                      0.0),
                                                           child: Container(
-                                                            width: 392,
-                                                            height: 98,
+                                                            width: 392.0,
+                                                            height: 98.0,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color:
@@ -1517,16 +1548,16 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          8),
+                                                                          8.0),
                                                             ),
                                                             child: Padding(
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          24,
-                                                                          24,
-                                                                          24,
-                                                                          24),
+                                                                          24.0,
+                                                                          24.0,
+                                                                          24.0,
+                                                                          24.0),
                                                               child: Row(
                                                                 mainAxisSize:
                                                                     MainAxisSize
@@ -1535,15 +1566,16 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                   Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            16,
-                                                                            0),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            16.0,
+                                                                            0.0),
                                                                     child:
                                                                         Container(
-                                                                      width: 48,
+                                                                      width:
+                                                                          48.0,
                                                                       height:
-                                                                          48,
+                                                                          48.0,
                                                                       decoration:
                                                                           BoxDecoration(
                                                                         color: FlutterFlowTheme.of(context)
@@ -1558,7 +1590,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryColor,
                                                                         size:
-                                                                            24,
+                                                                            24.0,
                                                                       ),
                                                                     ),
                                                                   ),
@@ -1588,10 +1620,10 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                         children: [
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0,
-                                                                                8,
-                                                                                0,
-                                                                                0),
+                                                                                0.0,
+                                                                                8.0,
+                                                                                0.0,
+                                                                                0.0),
                                                                             child:
                                                                                 Text(
                                                                               valueOrDefault<String>(
@@ -1600,7 +1632,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                               ),
                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                     fontFamily: 'Inter',
-                                                                                    fontSize: 24,
+                                                                                    fontSize: 24.0,
                                                                                     fontWeight: FontWeight.w500,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                   ),
@@ -1618,11 +1650,14 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(0,
-                                                                      0, 24, 0),
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      24.0,
+                                                                      0.0),
                                                           child: Container(
-                                                            width: 392,
-                                                            height: 98,
+                                                            width: 392.0,
+                                                            height: 98.0,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color:
@@ -1630,16 +1665,16 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          8),
+                                                                          8.0),
                                                             ),
                                                             child: Padding(
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          24,
-                                                                          24,
-                                                                          24,
-                                                                          24),
+                                                                          24.0,
+                                                                          24.0,
+                                                                          24.0,
+                                                                          24.0),
                                                               child: Row(
                                                                 mainAxisSize:
                                                                     MainAxisSize
@@ -1648,15 +1683,16 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                   Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            16,
-                                                                            0),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            16.0,
+                                                                            0.0),
                                                                     child:
                                                                         Container(
-                                                                      width: 48,
+                                                                      width:
+                                                                          48.0,
                                                                       height:
-                                                                          48,
+                                                                          48.0,
                                                                       decoration:
                                                                           BoxDecoration(
                                                                         color: FlutterFlowTheme.of(context)
@@ -1671,7 +1707,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryColor,
                                                                         size:
-                                                                            24,
+                                                                            24.0,
                                                                       ),
                                                                     ),
                                                                   ),
@@ -1701,10 +1737,10 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                         children: [
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0,
-                                                                                8,
-                                                                                0,
-                                                                                0),
+                                                                                0.0,
+                                                                                8.0,
+                                                                                0.0,
+                                                                                0.0),
                                                                             child:
                                                                                 Text(
                                                                               valueOrDefault<String>(
@@ -1713,7 +1749,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                               ),
                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                     fontFamily: 'Inter',
-                                                                                    fontSize: 24,
+                                                                                    fontSize: 24.0,
                                                                                     fontWeight: FontWeight.w500,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                                   ),
@@ -1750,7 +1786,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                 ],
               ),
               Align(
-                alignment: AlignmentDirectional(0, -1),
+                alignment: AlignmentDirectional(0.0, -1.0),
                 child: wrapWithModel(
                   model: _model.adminAppBarInfoModel,
                   updateCallback: () => setState(() {}),

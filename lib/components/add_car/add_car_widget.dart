@@ -51,10 +51,10 @@ class _AddCarWidgetState extends State<AddCarWidget> {
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
         borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(0),
-          bottomRight: Radius.circular(0),
-          topLeft: Radius.circular(30),
-          topRight: Radius.circular(30),
+          bottomLeft: Radius.circular(0.0),
+          bottomRight: Radius.circular(0.0),
+          topLeft: Radius.circular(30.0),
+          topRight: Radius.circular(30.0),
         ),
       ),
       child: Column(
@@ -63,21 +63,21 @@ class _AddCarWidgetState extends State<AddCarWidget> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Align(
-            alignment: AlignmentDirectional(0, 0),
+            alignment: AlignmentDirectional(0.0, 0.0),
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 16),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 16.0),
               child: Container(
-                width: 40,
-                height: 4,
+                width: 40.0,
+                height: 4.0,
                 decoration: BoxDecoration(
                   color: Color(0xFFD9D9D9),
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(8.0),
                 ),
               ),
             ),
           ),
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -88,21 +88,21 @@ class _AddCarWidgetState extends State<AddCarWidget> {
                         fontFamily:
                             FlutterFlowTheme.of(context).bodyText1Family,
                         color: FlutterFlowTheme.of(context).primaryText,
-                        fontSize: 18,
+                        fontSize: 18.0,
                         fontWeight: FontWeight.w500,
                         useGoogleFonts: GoogleFonts.asMap().containsKey(
                             FlutterFlowTheme.of(context).bodyText1Family),
                       ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                   child: Text(
                     'Кузов',
                     style: FlutterFlowTheme.of(context).bodyText1.override(
                           fontFamily:
                               FlutterFlowTheme.of(context).bodyText1Family,
                           color: FlutterFlowTheme.of(context).primaryText,
-                          fontSize: 14,
+                          fontSize: 14.0,
                           fontWeight: FontWeight.w500,
                           useGoogleFonts: GoogleFonts.asMap().containsKey(
                               FlutterFlowTheme.of(context).bodyText1Family),
@@ -113,15 +113,15 @@ class _AddCarWidgetState extends State<AddCarWidget> {
             ),
           ),
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
             child: Container(
               width: double.infinity,
-              height: 32,
+              height: 32.0,
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).secondaryBackground,
               ),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                 child: StreamBuilder<List<CarBodyRecord>>(
                   stream: queryCarBodyRecord(),
                   builder: (context, snapshot) {
@@ -129,8 +129,8 @@ class _AddCarWidgetState extends State<AddCarWidget> {
                     if (!snapshot.hasData) {
                       return Center(
                         child: SizedBox(
-                          width: 50,
-                          height: 50,
+                          width: 50.0,
+                          height: 50.0,
                           child: CircularProgressIndicator(
                             color: FlutterFlowTheme.of(context).primaryColor,
                           ),
@@ -148,7 +148,8 @@ class _AddCarWidgetState extends State<AddCarWidget> {
                         final listViewCarBodyRecord =
                             listViewCarBodyRecordList[listViewIndex];
                         return Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              8.0, 0.0, 0.0, 0.0),
                           child: Stack(
                             children: [
                               InkWell(
@@ -159,21 +160,21 @@ class _AddCarWidgetState extends State<AddCarWidget> {
                                   });
                                 },
                                 child: Container(
-                                  height: 32,
+                                  height: 32.0,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(8),
+                                    borderRadius: BorderRadius.circular(8.0),
                                     border: Border.all(
                                       color: FlutterFlowTheme.of(context)
                                           .primaryColor,
                                     ),
                                   ),
                                   child: Align(
-                                    alignment: AlignmentDirectional(0, 0),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          12, 0, 12, 0),
+                                          12.0, 0.0, 12.0, 0.0),
                                       child: Text(
                                         listViewCarBodyRecord.bodyName!,
                                         style: FlutterFlowTheme.of(context)
@@ -186,21 +187,21 @@ class _AddCarWidgetState extends State<AddCarWidget> {
                               if (listViewCarBodyRecord.bodyName ==
                                   FFAppState().addCarBody)
                                 Container(
-                                  height: 32,
+                                  height: 32.0,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .primaryColor,
-                                    borderRadius: BorderRadius.circular(8),
+                                    borderRadius: BorderRadius.circular(8.0),
                                     border: Border.all(
                                       color: FlutterFlowTheme.of(context)
                                           .primaryColor,
                                     ),
                                   ),
                                   child: Align(
-                                    alignment: AlignmentDirectional(0, 0),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          12, 0, 12, 0),
+                                          12.0, 0.0, 12.0, 0.0),
                                       child: Text(
                                         listViewCarBodyRecord.bodyName!,
                                         style: FlutterFlowTheme.of(context)
@@ -232,7 +233,7 @@ class _AddCarWidgetState extends State<AddCarWidget> {
             ),
           ),
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(16, 24, 16, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(16.0, 24.0, 16.0, 0.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -243,14 +244,14 @@ class _AddCarWidgetState extends State<AddCarWidget> {
                         fontFamily:
                             FlutterFlowTheme.of(context).bodyText1Family,
                         color: FlutterFlowTheme.of(context).primaryText,
-                        fontSize: 14,
+                        fontSize: 14.0,
                         fontWeight: FontWeight.w500,
                         useGoogleFonts: GoogleFonts.asMap().containsKey(
                             FlutterFlowTheme.of(context).bodyText1Family),
                       ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                   child: Form(
                     key: _model.formKey,
                     autovalidateMode: AutovalidateMode.disabled,
@@ -263,30 +264,30 @@ class _AddCarWidgetState extends State<AddCarWidget> {
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: FlutterFlowTheme.of(context).gray2,
-                            width: 1,
+                            width: 1.0,
                           ),
-                          borderRadius: BorderRadius.circular(8),
+                          borderRadius: BorderRadius.circular(8.0),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: Color(0x00000000),
-                            width: 1,
+                            width: 1.0,
                           ),
-                          borderRadius: BorderRadius.circular(8),
+                          borderRadius: BorderRadius.circular(8.0),
                         ),
                         errorBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: Color(0x00000000),
-                            width: 1,
+                            width: 1.0,
                           ),
-                          borderRadius: BorderRadius.circular(8),
+                          borderRadius: BorderRadius.circular(8.0),
                         ),
                         focusedErrorBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: Color(0x00000000),
-                            width: 1,
+                            width: 1.0,
                           ),
-                          borderRadius: BorderRadius.circular(8),
+                          borderRadius: BorderRadius.circular(8.0),
                         ),
                       ),
                       style: FlutterFlowTheme.of(context).bodyText1,
@@ -296,7 +297,7 @@ class _AddCarWidgetState extends State<AddCarWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 60),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 60.0),
                   child: Container(
                     width: double.infinity,
                     child: Stack(
@@ -395,10 +396,11 @@ class _AddCarWidgetState extends State<AddCarWidget> {
                           text: 'Сохранить',
                           options: FFButtonOptions(
                             width: double.infinity,
-                            height: 48,
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                            iconPadding:
-                                EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                            height: 48.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
                             color: FlutterFlowTheme.of(context).primaryColor,
                             textStyle: FlutterFlowTheme.of(context)
                                 .subtitle2
@@ -412,9 +414,9 @@ class _AddCarWidgetState extends State<AddCarWidget> {
                                 ),
                             borderSide: BorderSide(
                               color: Colors.transparent,
-                              width: 0,
+                              width: 0.0,
                             ),
-                            borderRadius: BorderRadius.circular(8),
+                            borderRadius: BorderRadius.circular(8.0),
                           ),
                         ),
                         if (FFAppState().addCarBody == null ||
@@ -426,11 +428,11 @@ class _AddCarWidgetState extends State<AddCarWidget> {
                             text: 'Сохранить',
                             options: FFButtonOptions(
                               width: double.infinity,
-                              height: 48,
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                              iconPadding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                              height: 48.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).starblue,
                               textStyle: FlutterFlowTheme.of(context)
                                   .subtitle2
@@ -446,7 +448,7 @@ class _AddCarWidgetState extends State<AddCarWidget> {
                               borderSide: BorderSide(
                                 color: Colors.transparent,
                               ),
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(8.0),
                             ),
                           ),
                       ],

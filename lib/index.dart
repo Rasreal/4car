@@ -71,8 +71,6 @@ export '/w_e_b_super_admin/w_e_b_super_admin_moderation_company/super_admin_curr
     show SuperAdminCurrentCompanyWidget;
 export '/w_e_b_super_admin/w_e_b_super_admin/super_admin_analytics/super_admin_analytics_widget.dart'
     show SuperAdminAnalyticsWidget;
-export '/w_e_b_super_admin/w_e_b_super_admin/super_admin_users/super_admin_users_widget.dart'
-    show SuperAdminUsersWidget;
 export '/w_e_b_super_admin/w_e_b_super_admin/super_admin_current_user/super_admin_current_user_widget.dart'
     show SuperAdminCurrentUserWidget;
 export '/w_e_b_super_admin/w_e_b_super_admin_moderation_promotions/super_admin_sales_moderation/super_admin_sales_moderation_widget.dart'
@@ -87,3 +85,5 @@ export '/w_e_b_super_admin/w_e_b_super_admin/super_admin_profile/super_admin_pro
     show SuperAdminProfileWidget;
 export '/w_e_b_admin/w_e_b_main/manager_profile/manager_profile_widget.dart'
     show ManagerProfileWidget;
+export '/super_admin_users/super_admin_users_widget.dart'
+    show SuperAdminUsersWidget;

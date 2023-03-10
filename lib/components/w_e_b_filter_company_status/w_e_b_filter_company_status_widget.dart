@@ -45,32 +45,32 @@ class _WEBFilterCompanyStatusWidgetState
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0, 0),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Container(
-        width: 461,
+        width: 461.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).primaryBackground,
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(8.0),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             Align(
-              alignment: AlignmentDirectional(1, 0),
+              alignment: AlignmentDirectional(1.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Align(
-                    alignment: AlignmentDirectional(1, 0),
+                    alignment: AlignmentDirectional(1.0, 0.0),
                     child: FlutterFlowIconButton(
                       borderColor: Colors.transparent,
-                      borderRadius: 30,
-                      borderWidth: 1,
-                      buttonSize: 60,
+                      borderRadius: 30.0,
+                      borderWidth: 1.0,
+                      buttonSize: 60.0,
                       icon: Icon(
                         FFIcons.kicClose,
                         color: FlutterFlowTheme.of(context).gray2,
-                        size: 24,
+                        size: 24.0,
                       ),
                       onPressed: () async {
                         Navigator.pop(context);
@@ -81,7 +81,7 @@ class _WEBFilterCompanyStatusWidgetState
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 16),
+              padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 16.0),
               child: InkWell(
                 onTap: () async {
                   if (FFAppState().WEBFilterCompanyStatus != null &&
@@ -99,25 +99,25 @@ class _WEBFilterCompanyStatusWidgetState
                         if (FFAppState().WEBFilterCompanyStatus == null ||
                             FFAppState().WEBFilterCompanyStatus == '')
                           Container(
-                            width: 16,
-                            height: 16,
+                            width: 16.0,
+                            height: 16.0,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context).primaryColor,
-                              borderRadius: BorderRadius.circular(2),
+                              borderRadius: BorderRadius.circular(2.0),
                             ),
                             child: Icon(
                               FFIcons.kcheeek,
                               color: Colors.white,
-                              size: 14,
+                              size: 14.0,
                             ),
                           ),
                         if (FFAppState().WEBFilterCompanyStatus != null &&
                             FFAppState().WEBFilterCompanyStatus != '')
                           Container(
-                            width: 16,
-                            height: 16,
+                            width: 16.0,
+                            height: 16.0,
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(2),
+                              borderRadius: BorderRadius.circular(2.0),
                               border: Border.all(
                                 color: Color(0xFFB1B1B1),
                               ),
@@ -126,7 +126,8 @@ class _WEBFilterCompanyStatusWidgetState
                       ],
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                       child: Text(
                         'Все',
                         style: FlutterFlowTheme.of(context).bodyText1.override(
@@ -143,7 +144,7 @@ class _WEBFilterCompanyStatusWidgetState
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 16),
+              padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 16.0),
               child: InkWell(
                 onTap: () async {
                   if (FFAppState().WEBFilterCompanyStatus == 'Активно') {
@@ -163,24 +164,24 @@ class _WEBFilterCompanyStatusWidgetState
                       children: [
                         if (FFAppState().WEBFilterCompanyStatus == 'Активно')
                           Container(
-                            width: 16,
-                            height: 16,
+                            width: 16.0,
+                            height: 16.0,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context).primaryColor,
-                              borderRadius: BorderRadius.circular(2),
+                              borderRadius: BorderRadius.circular(2.0),
                             ),
                             child: Icon(
                               FFIcons.kcheeek,
                               color: Colors.white,
-                              size: 14,
+                              size: 14.0,
                             ),
                           ),
                         if (FFAppState().WEBFilterCompanyStatus != 'Активно')
                           Container(
-                            width: 16,
-                            height: 16,
+                            width: 16.0,
+                            height: 16.0,
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(2),
+                              borderRadius: BorderRadius.circular(2.0),
                               border: Border.all(
                                 color: Color(0xFFB1B1B1),
                               ),
@@ -189,7 +190,8 @@ class _WEBFilterCompanyStatusWidgetState
                       ],
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                       child: Text(
                         'Активно',
                         style: FlutterFlowTheme.of(context).bodyText1.override(
@@ -206,7 +208,7 @@ class _WEBFilterCompanyStatusWidgetState
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 16),
+              padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 16.0),
               child: InkWell(
                 onTap: () async {
                   if (FFAppState().WEBFilterCompanyStatus == 'Не активно') {
@@ -226,24 +228,24 @@ class _WEBFilterCompanyStatusWidgetState
                       children: [
                         if (FFAppState().WEBFilterCompanyStatus == 'Не активно')
                           Container(
-                            width: 16,
-                            height: 16,
+                            width: 16.0,
+                            height: 16.0,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context).primaryColor,
-                              borderRadius: BorderRadius.circular(2),
+                              borderRadius: BorderRadius.circular(2.0),
                             ),
                             child: Icon(
                               FFIcons.kcheeek,
                               color: Colors.white,
-                              size: 14,
+                              size: 14.0,
                             ),
                           ),
                         if (FFAppState().WEBFilterCompanyStatus != 'Не активно')
                           Container(
-                            width: 16,
-                            height: 16,
+                            width: 16.0,
+                            height: 16.0,
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(2),
+                              borderRadius: BorderRadius.circular(2.0),
                               border: Border.all(
                                 color: Color(0xFFB1B1B1),
                               ),
@@ -252,7 +254,8 @@ class _WEBFilterCompanyStatusWidgetState
                       ],
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                       child: Text(
                         'Не активно',
                         style: FlutterFlowTheme.of(context).bodyText1.override(

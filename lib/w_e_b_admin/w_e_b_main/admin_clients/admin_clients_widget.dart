@@ -83,7 +83,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                   Expanded(
                     child: Container(
                       width: double.infinity,
-                      height: 100,
+                      height: 100.0,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                       ),
@@ -92,10 +92,10 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 40),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 40.0),
                               child: Container(
-                                width: 1224,
+                                width: 1224.0,
                                 decoration: BoxDecoration(),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -103,14 +103,14 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 32, 0, 24),
+                                          0.0, 32.0, 0.0, 24.0),
                                       child: Text(
                                         'Клиенты',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyText1
                                             .override(
                                               fontFamily: 'Inter',
-                                              fontSize: 24,
+                                              fontSize: 24.0,
                                               useGoogleFonts:
                                                   GoogleFonts.asMap()
                                                       .containsKey(
@@ -126,7 +126,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 24, 0),
+                                                  0.0, 0.0, 24.0, 0.0),
                                           child: InkWell(
                                             onTap: () async {
                                               FFAppState().update(() {
@@ -141,7 +141,8 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                               children: [
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 0, 0, 17),
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 0.0, 17.0),
                                                   child: Text(
                                                     'Клиенты',
                                                     style:
@@ -160,7 +161,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                   : FlutterFlowTheme.of(
                                                                           context)
                                                                       .webUnselectedColor,
-                                                              fontSize: 16,
+                                                              fontSize: 16.0,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .normal,
@@ -174,8 +175,8 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                   ),
                                                 ),
                                                 Container(
-                                                  width: 68,
-                                                  height: 1,
+                                                  width: 68.0,
+                                                  height: 1.0,
                                                   decoration: BoxDecoration(
                                                     color: FFAppState()
                                                                 .adminClentsType ==
@@ -195,7 +196,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 24, 0),
+                                                  0.0, 0.0, 24.0, 0.0),
                                           child: InkWell(
                                             onTap: () async {
                                               FFAppState().update(() {
@@ -210,7 +211,8 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                               children: [
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 0, 0, 17),
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 0.0, 17.0),
                                                   child: Text(
                                                     'Отзывы',
                                                     style:
@@ -229,7 +231,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                   : FlutterFlowTheme.of(
                                                                           context)
                                                                       .webUnselectedColor,
-                                                              fontSize: 16,
+                                                              fontSize: 16.0,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .normal,
@@ -243,8 +245,8 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                   ),
                                                 ),
                                                 Container(
-                                                  width: 62,
-                                                  height: 1,
+                                                  width: 62.0,
+                                                  height: 1.0,
                                                   decoration: BoxDecoration(
                                                     color: FFAppState()
                                                                 .adminClentsType ==
@@ -279,8 +281,8 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                         if (!snapshot.hasData) {
                                           return Center(
                                             child: SizedBox(
-                                              width: 50,
-                                              height: 50,
+                                              width: 50.0,
+                                              height: 50.0,
                                               child: CircularProgressIndicator(
                                                 color:
                                                     FlutterFlowTheme.of(context)
@@ -303,7 +305,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                     .first
                                                 : null;
                                         return Container(
-                                          width: 1224,
+                                          width: 1224.0,
                                           decoration: BoxDecoration(
                                             color: Colors.white,
                                           ),
@@ -314,7 +316,8 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                     'Модерация',
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(24, 0, 24, 0),
+                                                  .fromSTEB(
+                                                      24.0, 0.0, 24.0, 0.0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -323,15 +326,15 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 24, 0, 0),
+                                                            .fromSTEB(0.0, 24.0,
+                                                                0.0, 0.0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.min,
                                                       children: [
                                                         Container(
-                                                          width: 392,
-                                                          height: 40,
+                                                          width: 392.0,
+                                                          height: 40.0,
                                                           decoration:
                                                               BoxDecoration(
                                                             color: FlutterFlowTheme
@@ -340,7 +343,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        8),
+                                                                        8.0),
                                                             border: Border.all(
                                                               color: FlutterFlowTheme
                                                                       .of(context)
@@ -351,10 +354,10 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        16,
-                                                                        0,
-                                                                        16,
-                                                                        0),
+                                                                        16.0,
+                                                                        0.0,
+                                                                        16.0,
+                                                                        0.0),
                                                             child: Row(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -401,12 +404,11 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                       focusedErrorBorder:
                                                                           InputBorder
                                                                               .none,
-                                                                      contentPadding:
-                                                                          EdgeInsetsDirectional.fromSTEB(
-                                                                              0,
-                                                                              13,
-                                                                              0,
-                                                                              13),
+                                                                      contentPadding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          13.0,
+                                                                          0.0,
+                                                                          13.0),
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
@@ -433,7 +435,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .gray2,
-                                                                  size: 24,
+                                                                  size: 24.0,
                                                                 ),
                                                               ],
                                                             ),
@@ -442,8 +444,11 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(24,
-                                                                      0, 0, 0),
+                                                                  .fromSTEB(
+                                                                      24.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
                                                           child: InkWell(
                                                             onTap: () async {
                                                               await showModalBottomSheet(
@@ -471,8 +476,8 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                       () {}));
                                                             },
                                                             child: Container(
-                                                              width: 212,
-                                                              height: 40,
+                                                              width: 212.0,
+                                                              height: 40.0,
                                                               decoration:
                                                                   BoxDecoration(
                                                                 color: FlutterFlowTheme.of(
@@ -481,7 +486,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
-                                                                            8),
+                                                                            8.0),
                                                                 border:
                                                                     Border.all(
                                                                   color: FlutterFlowTheme.of(
@@ -490,13 +495,12 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                 ),
                                                               ),
                                                               child: Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            16,
-                                                                            0,
-                                                                            16,
-                                                                            0),
+                                                                padding: EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        16.0,
+                                                                        0.0,
+                                                                        16.0,
+                                                                        0.0),
                                                                 child: Row(
                                                                   mainAxisSize:
                                                                       MainAxisSize
@@ -527,7 +531,8 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .gray2,
-                                                                      size: 24,
+                                                                      size:
+                                                                          24.0,
                                                                     ),
                                                                   ],
                                                                 ),
@@ -538,8 +543,11 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(24,
-                                                                      0, 0, 0),
+                                                                  .fromSTEB(
+                                                                      24.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
                                                           child: InkWell(
                                                             onTap: () async {
                                                               await showModalBottomSheet(
@@ -567,8 +575,8 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                       () {}));
                                                             },
                                                             child: Container(
-                                                              width: 212,
-                                                              height: 40,
+                                                              width: 212.0,
+                                                              height: 40.0,
                                                               decoration:
                                                                   BoxDecoration(
                                                                 color: FlutterFlowTheme.of(
@@ -577,7 +585,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
-                                                                            8),
+                                                                            8.0),
                                                                 border:
                                                                     Border.all(
                                                                   color: FlutterFlowTheme.of(
@@ -586,13 +594,12 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                 ),
                                                               ),
                                                               child: Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            16,
-                                                                            0,
-                                                                            16,
-                                                                            0),
+                                                                padding: EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        16.0,
+                                                                        0.0,
+                                                                        16.0,
+                                                                        0.0),
                                                                 child: Row(
                                                                   mainAxisSize:
                                                                       MainAxisSize
@@ -623,7 +630,8 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .gray2,
-                                                                      size: 24,
+                                                                      size:
+                                                                          24.0,
                                                                     ),
                                                                   ],
                                                                 ),
@@ -634,8 +642,11 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(24,
-                                                                      0, 0, 0),
+                                                                  .fromSTEB(
+                                                                      24.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
                                                           child: InkWell(
                                                             onTap: () async {
                                                               await showModalBottomSheet(
@@ -663,8 +674,8 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                       () {}));
                                                             },
                                                             child: Container(
-                                                              width: 212,
-                                                              height: 40,
+                                                              width: 212.0,
+                                                              height: 40.0,
                                                               decoration:
                                                                   BoxDecoration(
                                                                 color: FlutterFlowTheme.of(
@@ -673,7 +684,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
-                                                                            8),
+                                                                            8.0),
                                                                 border:
                                                                     Border.all(
                                                                   color: FlutterFlowTheme.of(
@@ -682,13 +693,12 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                 ),
                                                               ),
                                                               child: Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            16,
-                                                                            0,
-                                                                            16,
-                                                                            0),
+                                                                padding: EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        16.0,
+                                                                        0.0,
+                                                                        16.0,
+                                                                        0.0),
                                                                 child: Row(
                                                                   mainAxisSize:
                                                                       MainAxisSize
@@ -719,7 +729,8 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .gray2,
-                                                                      size: 24,
+                                                                      size:
+                                                                          24.0,
                                                                     ),
                                                                   ],
                                                                 ),
@@ -741,10 +752,10 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                           padding:
                                                               EdgeInsetsDirectional
                                                                   .fromSTEB(
-                                                                      0,
-                                                                      32,
-                                                                      0,
-                                                                      16),
+                                                                      0.0,
+                                                                      32.0,
+                                                                      0.0,
+                                                                      16.0),
                                                           child: Row(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -774,12 +785,11 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                           ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional
-                                                                          .fromSTEB(
-                                                                              4,
-                                                                              0,
-                                                                              0,
-                                                                              0),
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          4.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
                                                                       child:
                                                                           Icon(
                                                                         Icons
@@ -787,7 +797,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .gray2,
                                                                         size:
-                                                                            12,
+                                                                            12.0,
                                                                       ),
                                                                     ),
                                                                   ],
@@ -817,12 +827,11 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                           ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional
-                                                                          .fromSTEB(
-                                                                              4,
-                                                                              0,
-                                                                              0,
-                                                                              0),
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          4.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
                                                                       child:
                                                                           Icon(
                                                                         Icons
@@ -830,7 +839,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .gray2,
                                                                         size:
-                                                                            12,
+                                                                            12.0,
                                                                       ),
                                                                     ),
                                                                   ],
@@ -898,12 +907,11 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                           ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional
-                                                                          .fromSTEB(
-                                                                              4,
-                                                                              0,
-                                                                              0,
-                                                                              0),
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          4.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
                                                                       child:
                                                                           Icon(
                                                                         Icons
@@ -911,7 +919,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .gray2,
                                                                         size:
-                                                                            12,
+                                                                            12.0,
                                                                       ),
                                                                     ),
                                                                   ],
@@ -978,8 +986,8 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                           ),
                                                         ),
                                                         Divider(
-                                                          height: 1,
-                                                          thickness: 1,
+                                                          height: 1.0,
+                                                          thickness: 1.0,
                                                           color:
                                                               Color(0xFFEEEEEE),
                                                         ),
@@ -1021,8 +1029,8 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                 .hasData) {
                                                               return Center(
                                                                 child: SizedBox(
-                                                                  width: 50,
-                                                                  height: 50,
+                                                                  width: 50.0,
+                                                                  height: 50.0,
                                                                   child:
                                                                       CircularProgressIndicator(
                                                                     color: FlutterFlowTheme.of(
@@ -1070,9 +1078,9 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                         child:
                                                                             SizedBox(
                                                                           width:
-                                                                              50,
+                                                                              50.0,
                                                                           height:
-                                                                              50,
+                                                                              50.0,
                                                                           child:
                                                                               CircularProgressIndicator(
                                                                             color:
@@ -1091,10 +1099,10 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                       children: [
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0,
-                                                                              16,
-                                                                              0,
-                                                                              16),
+                                                                              0.0,
+                                                                              16.0,
+                                                                              0.0,
+                                                                              16.0),
                                                                           child:
                                                                               Row(
                                                                             mainAxisSize:
@@ -1107,7 +1115,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                                   crossAxisAlignment: CrossAxisAlignment.start,
                                                                                   children: [
                                                                                     Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 4),
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
                                                                                       child: Text(
                                                                                         columnBookingsRecord.timeName!,
                                                                                         style: FlutterFlowTheme.of(context).bodyText1.override(
@@ -1143,8 +1151,8 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                                     if (!snapshot.hasData) {
                                                                                       return Center(
                                                                                         child: SizedBox(
-                                                                                          width: 50,
-                                                                                          height: 50,
+                                                                                          width: 50.0,
+                                                                                          height: 50.0,
                                                                                           child: CircularProgressIndicator(
                                                                                             color: FlutterFlowTheme.of(context).primaryColor,
                                                                                           ),
@@ -1157,7 +1165,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                                       crossAxisAlignment: CrossAxisAlignment.start,
                                                                                       children: [
                                                                                         Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 4),
+                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
                                                                                           child: Text(
                                                                                             columnUserRecord.displayName!,
                                                                                             style: FlutterFlowTheme.of(context).bodyText1.override(
@@ -1245,8 +1253,8 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                   children: [
                                                                                     Container(
-                                                                                      width: 8,
-                                                                                      height: 8,
+                                                                                      width: 8.0,
+                                                                                      height: 8.0,
                                                                                       decoration: BoxDecoration(
                                                                                         color: () {
                                                                                           if (listViewCommentsRecord.obtobotan!) {
@@ -1261,7 +1269,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                                       ),
                                                                                     ),
                                                                                     Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                                                                                       child: Text(
                                                                                         () {
                                                                                           if (listViewCommentsRecord.obtobotan!) {
@@ -1317,7 +1325,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                                   child: Icon(
                                                                                     FFIcons.kicDots,
                                                                                     color: Colors.black,
-                                                                                    size: 24,
+                                                                                    size: 24.0,
                                                                                   ),
                                                                                 ),
                                                                               ),
@@ -1326,9 +1334,9 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                         ),
                                                                         Divider(
                                                                           height:
-                                                                              1,
+                                                                              1.0,
                                                                           thickness:
-                                                                              1,
+                                                                              1.0,
                                                                           color:
                                                                               Color(0xFFEEEEEE),
                                                                         ),
@@ -1353,10 +1361,10 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                           padding:
                                                               EdgeInsetsDirectional
                                                                   .fromSTEB(
-                                                                      0,
-                                                                      32,
-                                                                      0,
-                                                                      16),
+                                                                      0.0,
+                                                                      32.0,
+                                                                      0.0,
+                                                                      16.0),
                                                           child: Row(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -1386,12 +1394,11 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                           ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional
-                                                                          .fromSTEB(
-                                                                              4,
-                                                                              0,
-                                                                              0,
-                                                                              0),
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          4.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
                                                                       child:
                                                                           Icon(
                                                                         Icons
@@ -1399,7 +1406,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .gray2,
                                                                         size:
-                                                                            12,
+                                                                            12.0,
                                                                       ),
                                                                     ),
                                                                   ],
@@ -1486,12 +1493,11 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                           ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional
-                                                                          .fromSTEB(
-                                                                              4,
-                                                                              0,
-                                                                              0,
-                                                                              0),
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          4.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
                                                                       child:
                                                                           Icon(
                                                                         Icons
@@ -1499,7 +1505,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .gray2,
                                                                         size:
-                                                                            12,
+                                                                            12.0,
                                                                       ),
                                                                     ),
                                                                   ],
@@ -1529,12 +1535,11 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                           ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional
-                                                                          .fromSTEB(
-                                                                              4,
-                                                                              0,
-                                                                              0,
-                                                                              0),
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          4.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
                                                                       child:
                                                                           Icon(
                                                                         Icons
@@ -1542,7 +1547,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .gray2,
                                                                         size:
-                                                                            12,
+                                                                            12.0,
                                                                       ),
                                                                     ),
                                                                   ],
@@ -1571,8 +1576,8 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                           ),
                                                         ),
                                                         Divider(
-                                                          height: 1,
-                                                          thickness: 1,
+                                                          height: 1.0,
+                                                          thickness: 1.0,
                                                           color:
                                                               Color(0xFFEEEEEE),
                                                         ),
@@ -1599,8 +1604,8 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                 .hasData) {
                                                               return Center(
                                                                 child: SizedBox(
-                                                                  width: 50,
-                                                                  height: 50,
+                                                                  width: 50.0,
+                                                                  height: 50.0,
                                                                   child:
                                                                       CircularProgressIndicator(
                                                                     color: FlutterFlowTheme.of(
@@ -1639,12 +1644,11 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                           .max,
                                                                   children: [
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional
-                                                                          .fromSTEB(
-                                                                              0,
-                                                                              16,
-                                                                              0,
-                                                                              16),
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          16.0,
+                                                                          0.0,
+                                                                          16.0),
                                                                       child:
                                                                           Row(
                                                                         mainAxisSize:
@@ -1659,7 +1663,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                               crossAxisAlignment: CrossAxisAlignment.start,
                                                                               children: [
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 4),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
                                                                                   child: Text(
                                                                                     valueOrDefault<String>(
                                                                                       listViewUserRecord.displayName,
@@ -1713,7 +1717,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                                 3,
                                                                             child:
                                                                                 Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 4),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
                                                                               child: StreamBuilder<List<BookingsRecord>>(
                                                                                 stream: queryBookingsRecord(
                                                                                   queryBuilder: (bookingsRecord) => bookingsRecord.where('booked_user', isEqualTo: listViewUserRecord.reference).orderBy('booked_date'),
@@ -1724,8 +1728,8 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                                   if (!snapshot.hasData) {
                                                                                     return Center(
                                                                                       child: SizedBox(
-                                                                                        width: 50,
-                                                                                        height: 50,
+                                                                                        width: 50.0,
+                                                                                        height: 50.0,
                                                                                         child: CircularProgressIndicator(
                                                                                           color: FlutterFlowTheme.of(context).primaryColor,
                                                                                         ),
@@ -1763,7 +1767,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                                 4,
                                                                             child:
                                                                                 Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 4),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
                                                                               child: StreamBuilder<List<BookingsRecord>>(
                                                                                 stream: queryBookingsRecord(
                                                                                   queryBuilder: (bookingsRecord) => bookingsRecord.where('booked_user', isEqualTo: listViewUserRecord.reference).orderBy('booked_date', descending: true),
@@ -1774,8 +1778,8 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                                   if (!snapshot.hasData) {
                                                                                     return Center(
                                                                                       child: SizedBox(
-                                                                                        width: 50,
-                                                                                        height: 50,
+                                                                                        width: 50.0,
+                                                                                        height: 50.0,
                                                                                         child: CircularProgressIndicator(
                                                                                           color: FlutterFlowTheme.of(context).primaryColor,
                                                                                         ),
@@ -1821,8 +1825,8 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                                 if (!snapshot.hasData) {
                                                                                   return Center(
                                                                                     child: SizedBox(
-                                                                                      width: 50,
-                                                                                      height: 50,
+                                                                                      width: 50.0,
+                                                                                      height: 50.0,
                                                                                       child: CircularProgressIndicator(
                                                                                         color: FlutterFlowTheme.of(context).primaryColor,
                                                                                       ),
@@ -1858,8 +1862,8 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                                 if (!snapshot.hasData) {
                                                                                   return Center(
                                                                                     child: SizedBox(
-                                                                                      width: 50,
-                                                                                      height: 50,
+                                                                                      width: 50.0,
+                                                                                      height: 50.0,
                                                                                       child: CircularProgressIndicator(
                                                                                         color: FlutterFlowTheme.of(context).primaryColor,
                                                                                       ),
@@ -1903,7 +1907,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                                 Icon(
                                                                                   FFIcons.kicArrowsButtonLeft,
                                                                                   color: FlutterFlowTheme.of(context).primaryText,
-                                                                                  size: 13,
+                                                                                  size: 13.0,
                                                                                 ),
                                                                               ],
                                                                             ),
@@ -1912,9 +1916,10 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                       ),
                                                                     ),
                                                                     Divider(
-                                                                      height: 1,
+                                                                      height:
+                                                                          1.0,
                                                                       thickness:
-                                                                          1,
+                                                                          1.0,
                                                                       color: Color(
                                                                           0xFFEEEEEE),
                                                                     ),
@@ -1945,7 +1950,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                 ],
               ),
               Align(
-                alignment: AlignmentDirectional(0, -1),
+                alignment: AlignmentDirectional(0.0, -1.0),
                 child: wrapWithModel(
                   model: _model.adminAppBarInfoModel,
                   updateCallback: () => setState(() {}),

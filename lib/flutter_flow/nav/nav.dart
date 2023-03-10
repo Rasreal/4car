@@ -366,11 +366,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => SuperAdminAnalyticsWidget(),
             ),
             FFRoute(
-              name: 'super_admin_users',
-              path: 'superAdminUsers',
-              builder: (context, params) => SuperAdminUsersWidget(),
-            ),
-            FFRoute(
               name: 'super_admin_current_user',
               path: 'superAdminCurrentUser',
               asyncParams: {
@@ -414,10 +409,15 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'manager_profile',
               path: 'managerProfile',
               builder: (context, params) => ManagerProfileWidget(),
+            ),
+            FFRoute(
+              name: 'super_admin_users',
+              path: 'superAdminUsers',
+              builder: (context, params) => SuperAdminUsersWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
-        ).toRoute(appStateNotifier),
-      ],
+        ),
+      ].map((r) => r.toRoute(appStateNotifier)).toList(),
       urlPathStrategy: UrlPathStrategy.path,
     );
 
@@ -463,6 +463,16 @@ extension NavigationExtensions on BuildContext {
               queryParams: queryParams,
               extra: extra,
             );
+
+  void safePop() {
+    // If there is only one route on the stack, navigate to the initial
+    // page instead of popping.
+    if (GoRouter.of(this).routerDelegate.matches.length <= 1) {
+      go('/');
+    } else {
+      pop();
+    }
+  }
 }
 
 extension GoRouterExtensions on GoRouter {

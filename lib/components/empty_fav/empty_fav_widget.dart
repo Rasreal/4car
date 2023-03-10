@@ -54,12 +54,12 @@ class _EmptyFavWidgetState extends State<EmptyFavWidget> {
           children: [
             SvgPicture.asset(
               'assets/images/img_empty_save.svg',
-              width: 156,
-              height: 156,
+              width: 156.0,
+              height: 156.0,
               fit: BoxFit.contain,
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
               child: Text(
                 'У вас пока нет\nизбранных автомоек',
                 textAlign: TextAlign.center,
@@ -75,9 +75,9 @@ class _EmptyFavWidgetState extends State<EmptyFavWidget> {
         ),
         Spacer(),
         Align(
-          alignment: AlignmentDirectional(0, 1),
+          alignment: AlignmentDirectional(0.0, 1.0),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
             child: FFButtonWidget(
               onPressed: () async {
                 context.goNamed('HomePage');
@@ -85,9 +85,9 @@ class _EmptyFavWidgetState extends State<EmptyFavWidget> {
               text: 'Найти автомойку',
               options: FFButtonOptions(
                 width: double.infinity,
-                height: 48,
-                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                height: 48.0,
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                 color: FlutterFlowTheme.of(context).primaryColor,
                 textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                       fontFamily: FlutterFlowTheme.of(context).subtitle2Family,
@@ -98,9 +98,9 @@ class _EmptyFavWidgetState extends State<EmptyFavWidget> {
                     ),
                 borderSide: BorderSide(
                   color: Colors.transparent,
-                  width: 1,
+                  width: 1.0,
                 ),
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(8.0),
               ),
             ),
           ),

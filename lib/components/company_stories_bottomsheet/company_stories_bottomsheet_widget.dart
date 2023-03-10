@@ -66,7 +66,7 @@ class _CompanyStoriesBottomsheetWidgetState
       child: Stack(
         children: [
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
@@ -85,8 +85,8 @@ class _CompanyStoriesBottomsheetWidgetState
                         if (!snapshot.hasData) {
                           return Center(
                             child: SizedBox(
-                              width: 50,
-                              height: 50,
+                              width: 50.0,
+                              height: 50.0,
                               child: CircularProgressIndicator(
                                 color:
                                     FlutterFlowTheme.of(context).primaryColor,
@@ -98,7 +98,7 @@ class _CompanyStoriesBottomsheetWidgetState
                             snapshot.data!;
                         return Container(
                           width: double.infinity,
-                          height: 500,
+                          height: 500.0,
                           child: Stack(
                             children: [
                               PageView.builder(
@@ -132,7 +132,8 @@ class _CompanyStoriesBottomsheetWidgetState
                                           fit: BoxFit.cover,
                                         ),
                                         Align(
-                                          alignment: AlignmentDirectional(0, 1),
+                                          alignment:
+                                              AlignmentDirectional(0.0, 1.0),
                                           child: Container(
                                             width: double.infinity,
                                             height: MediaQuery.of(context)
@@ -145,11 +146,11 @@ class _CompanyStoriesBottomsheetWidgetState
                                                   Colors.transparent,
                                                   Colors.black
                                                 ],
-                                                stops: [0, 0.2],
+                                                stops: [0.0, 0.2],
                                                 begin: AlignmentDirectional(
-                                                    0.03, -1),
+                                                    0.03, -1.0),
                                                 end: AlignmentDirectional(
-                                                    -0.03, 1),
+                                                    -0.03, 1.0),
                                               ),
                                             ),
                                           ),
@@ -157,7 +158,7 @@ class _CompanyStoriesBottomsheetWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  16, 28, 16, 16),
+                                                  16.0, 28.0, 16.0, 16.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -165,7 +166,8 @@ class _CompanyStoriesBottomsheetWidgetState
                                                 flex: 2,
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 12, 0, 0),
+                                                      .fromSTEB(
+                                                          0.0, 12.0, 0.0, 0.0),
                                                   child: Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -189,8 +191,8 @@ class _CompanyStoriesBottomsheetWidgetState
                                                               .hasData) {
                                                             return Center(
                                                               child: SizedBox(
-                                                                width: 50,
-                                                                height: 50,
+                                                                width: 50.0,
+                                                                height: 50.0,
                                                                 child:
                                                                     CircularProgressIndicator(
                                                                   color: FlutterFlowTheme.of(
@@ -211,7 +213,7 @@ class _CompanyStoriesBottomsheetWidgetState
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
-                                                                            8),
+                                                                            8.0),
                                                                 child: Image
                                                                     .network(
                                                                   valueOrDefault<
@@ -220,8 +222,8 @@ class _CompanyStoriesBottomsheetWidgetState
                                                                         .logo,
                                                                     'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/e4car-dch9vg/assets/mq76tomaqbk1/4car.png',
                                                                   ),
-                                                                  width: 32,
-                                                                  height: 32,
+                                                                  width: 32.0,
+                                                                  height: 32.0,
                                                                   fit: BoxFit
                                                                       .cover,
                                                                 ),
@@ -230,10 +232,10 @@ class _CompanyStoriesBottomsheetWidgetState
                                                                 padding:
                                                                     EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            8,
-                                                                            0,
-                                                                            0,
-                                                                            0),
+                                                                            8.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                 child: Text(
                                                                   rowCompaniesRecord
                                                                       .name!,
@@ -246,7 +248,7 @@ class _CompanyStoriesBottomsheetWidgetState
                                                                         color: Colors
                                                                             .white,
                                                                         fontSize:
-                                                                            16,
+                                                                            16.0,
                                                                         useGoogleFonts:
                                                                             GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                       ),
@@ -282,7 +284,7 @@ class _CompanyStoriesBottomsheetWidgetState
                                                                     .bodyText1Family,
                                                                 color: Colors
                                                                     .white,
-                                                                fontSize: 24,
+                                                                fontSize: 24.0,
                                                                 useGoogleFonts: GoogleFonts
                                                                         .asMap()
                                                                     .containsKey(
@@ -294,7 +296,10 @@ class _CompanyStoriesBottomsheetWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0, 16, 0, 0),
+                                                                  0.0,
+                                                                  16.0,
+                                                                  0.0,
+                                                                  0.0),
                                                       child: Text(
                                                         pageViewPromotionRecord
                                                             .subtitle!,
@@ -320,11 +325,12 @@ class _CompanyStoriesBottomsheetWidgetState
                                                 ),
                                               ),
                                               Align(
-                                                alignment:
-                                                    AlignmentDirectional(0, 1),
+                                                alignment: AlignmentDirectional(
+                                                    0.0, 1.0),
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 0, 0, 40),
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 0.0, 40.0),
                                                   child: FFButtonWidget(
                                                     onPressed: () async {
                                                       await showModalBottomSheet(
@@ -360,15 +366,21 @@ class _CompanyStoriesBottomsheetWidgetState
                                                     text: 'Перейти',
                                                     options: FFButtonOptions(
                                                       width: double.infinity,
-                                                      height: 48,
+                                                      height: 48.0,
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0, 0, 0, 0),
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
                                                       iconPadding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0, 0, 0, 0),
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -383,7 +395,7 @@ class _CompanyStoriesBottomsheetWidgetState
                                                                     .subtitle2Family,
                                                                 color: Colors
                                                                     .white,
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                                 useGoogleFonts: GoogleFonts
                                                                         .asMap()
                                                                     .containsKey(
@@ -393,11 +405,11 @@ class _CompanyStoriesBottomsheetWidgetState
                                                       borderSide: BorderSide(
                                                         color:
                                                             Colors.transparent,
-                                                        width: 1,
+                                                        width: 1.0,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              8),
+                                                              8.0),
                                                     ),
                                                   ),
                                                 ),
@@ -411,10 +423,10 @@ class _CompanyStoriesBottomsheetWidgetState
                                 },
                               ),
                               Align(
-                                alignment: AlignmentDirectional(0, -0.97),
+                                alignment: AlignmentDirectional(0.0, -0.97),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 0, 10),
+                                      0.0, 0.0, 0.0, 10.0),
                                   child:
                                       smooth_page_indicator.SmoothPageIndicator(
                                     controller: _model.pageViewController ??=
@@ -438,11 +450,11 @@ class _CompanyStoriesBottomsheetWidgetState
                                     },
                                     effect: smooth_page_indicator
                                         .ExpandingDotsEffect(
-                                      expansionFactor: 2,
-                                      spacing: 8,
-                                      radius: 16,
-                                      dotWidth: 40,
-                                      dotHeight: 4,
+                                      expansionFactor: 2.0,
+                                      spacing: 8.0,
+                                      radius: 16.0,
+                                      dotWidth: 40.0,
+                                      dotHeight: 4.0,
                                       dotColor: Color(0xFFD2D2D2),
                                       activeDotColor: Colors.white,
                                       paintStyle: PaintingStyle.fill,
@@ -461,12 +473,12 @@ class _CompanyStoriesBottomsheetWidgetState
             ),
           ),
           Align(
-            alignment: AlignmentDirectional(1, -1),
+            alignment: AlignmentDirectional(1.0, -1.0),
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 80, 16, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 80.0, 16.0, 0.0),
               child: Container(
-                width: 24,
-                height: 24,
+                width: 24.0,
+                height: 24.0,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).secondaryBackground,
                   shape: BoxShape.circle,
@@ -478,7 +490,7 @@ class _CompanyStoriesBottomsheetWidgetState
                   child: Icon(
                     Icons.close,
                     color: FlutterFlowTheme.of(context).gray1,
-                    size: 20,
+                    size: 20.0,
                   ),
                 ),
               ),
