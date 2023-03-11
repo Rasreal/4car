@@ -31,7 +31,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       if (FFAppState().signINcode) {
-        context.pushNamed('code');
+        context.goNamed('code');
       }
       if (FFAppState().singUPcode) {
         context.pushNamed('sign_up_code');

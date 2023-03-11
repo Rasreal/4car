@@ -466,6 +466,48 @@ class FFAppState extends ChangeNotifier {
   set addStuffuserRef(DocumentReference? _value) {
     _addStuffuserRef = _value;
   }
+
+  int _excOborot = 0;
+  int get excOborot => _excOborot;
+  set excOborot(int _value) {
+    _excOborot = _value;
+  }
+
+  String _excOborotName = '';
+  String get excOborotName => _excOborotName;
+  set excOborotName(String _value) {
+    _excOborotName = _value;
+  }
+
+  int _excCarWashed = 0;
+  int get excCarWashed => _excCarWashed;
+  set excCarWashed(int _value) {
+    _excCarWashed = _value;
+  }
+
+  double _excAvgCheque = 0.0;
+  double get excAvgCheque => _excAvgCheque;
+  set excAvgCheque(double _value) {
+    _excAvgCheque = _value;
+  }
+
+  String _excAvgChequeName = '';
+  String get excAvgChequeName => _excAvgChequeName;
+  set excAvgChequeName(String _value) {
+    _excAvgChequeName = _value;
+  }
+
+  double _excOborotForCarPercent = 0.0;
+  double get excOborotForCarPercent => _excOborotForCarPercent;
+  set excOborotForCarPercent(double _value) {
+    _excOborotForCarPercent = _value;
+  }
+
+  String _excOborotForCarPercentName = '';
+  String get excOborotForCarPercentName => _excOborotForCarPercentName;
+  set excOborotForCarPercentName(String _value) {
+    _excOborotForCarPercentName = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {

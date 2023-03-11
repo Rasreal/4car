@@ -7,15 +7,13 @@ import '/components/w_e_b_filter_date/w_e_b_filter_date_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'admin_reports_model.dart';
 export 'admin_reports_model.dart';
-import 'package:excel/excel.dart';
-import 'dart:io';
-import 'package:path/path.dart';
 
 class AdminReportsWidget extends StatefulWidget {
   const AdminReportsWidget({Key? key}) : super(key: key);
@@ -47,27 +45,6 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
     super.dispose();
   }
 
-  List<BookingsRecord>?
-  listViewBookingsRecordList2;
-
-  String listStringToString(
-      List<String> listString,
-      int countSymbol,
-      ) {
-    String answer = "";
-
-    for (int i = 0; i < listString.length; i++) {
-      if (answer.length >= countSymbol) {
-        answer = answer.substring(0, countSymbol) + "...";
-        break;
-      } else if (i == listString.length - 1) {
-        answer += listString[i];
-      } else
-        answer += listString[i] + ", ";
-    }
-
-    return answer;
-  }
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
@@ -368,137 +345,112 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                               child: Align(
                                                 alignment: AlignmentDirectional(
                                                     1.0, 0.0),
-                                                child: FFButtonWidget(
-                                                  onPressed: () {
-                                                    print('Button pressed ...');
-
-                                                    var excel = Excel.createExcel();
-
-                                                    /*
-      * sheetObject.updateCell(cell, value, { CellStyle (Optional)});
-      * sheetObject created by calling - // Sheet sheetObject = excel['SheetName'];
-      * cell can be identified with Cell Address or by 2D array having row and column Index;
-      * Cell Style options are optional
-      */
-
-                                                    Sheet sheetObject = excel['SheetName'];
-sheetObject.isRTL = true;
-
-
-                                                    CellStyle cellStyle = CellStyle(backgroundColorHex: "#1AFF1A", fontFamily : getFontFamily(FontFamily.Calibri));
-
-                                                    cellStyle.underline = Underline.Single; // or Underline.Double
-
-
-                                                    var cell = sheetObject.cell(CellIndex.indexByString("A1"));
-                                                    cell.value = 8; // dynamic values support provided;
-                                                    cell.cellStyle = cellStyle;
-
-                                                    // printing cell-type
-                                                    print("CellType: "+ cell.cellType.toString());
-
-                                                    ///
-                                                    /// Inserting and removing column and rows
-                                                    for(int i = 0; i<listViewBookingsRecordList2!.length; i++){
-                                                      var listViewBookingsRecord =
-                                                      listViewBookingsRecordList2![i];
-
-                                                      var cell2 = sheetObject.cell(CellIndex.indexByColumnRow(columnIndex: 2, rowIndex: i+2));
-
-                                                      cell2.value = listViewBookingsRecord.id;
-
-                                                      var cell3 = sheetObject.cell(CellIndex.indexByColumnRow(columnIndex: 3, rowIndex: i+2));
-
-                                                      cell3.value = listViewBookingsRecord.timeName;
-
-                                                      var cell4 = sheetObject.cell(CellIndex.indexByColumnRow(columnIndex: 4, rowIndex: i+2));
-
-                                                      cell4.value = listViewBookingsRecord.boxName;
-
-                                                      var cell5 = sheetObject.cell(CellIndex.indexByColumnRow(columnIndex: 5, rowIndex: i+2));
-                                                      String carBody = listViewBookingsRecord.carBody.toString() + ", " +  listViewBookingsRecord.carName.toString();
-                                                      cell5.value = carBody;
-
-                                                      var cell6 = sheetObject.cell(CellIndex.indexByColumnRow(columnIndex: 6, rowIndex: i+2));
- String ab = listStringToString(listViewBookingsRecord.selectedCompanyServicesName!.toList(), 12);
-                                                      cell6.value = ab;
-
-                                                      var cell7 = sheetObject.cell(CellIndex.indexByColumnRow(columnIndex: 7, rowIndex: i+2));
-String price = listViewBookingsRecord.totalPrice.toString() + " тг";
-                                                      cell7.value = price;
-
-                                                      var cell8 = sheetObject.cell(CellIndex.indexByColumnRow(columnIndex: 8, rowIndex: i+2));
-                                                      String status;
-                                                      if (!listViewBookingsRecord.cancelled! &&
-                                                          (listViewBookingsRecord.status ==
-                                                              'Закончено')) {
-                                                        status = 'Оплачен';
-                                                      } else if (listViewBookingsRecord.cancelled! &&
-                                                          (listViewBookingsRecord.status ==
-                                                              'Отменено')) {
-                                                        status = 'Отменено';
-                                                      } else {
-                                                        status = 'Забронировано';
-                                                      }
-                                                      cell8.value = status;
-
-                                                    }
-                                                    // insert column at index = 8
-                                                    sheetObject.insertColumn(8);
-
-                                                    // remove column at index = 18
-                                                    sheetObject.removeColumn(18);
-
-                                                    // insert row at index = 82
-                                                    sheetObject.insertRow(82);
-
-                                                    // remove row at index = 80
-                                                    sheetObject.removeRow(80);
-                                                  },
-                                                  text: 'Скачать отчет в Excel',
-                                                  icon: Icon(
-                                                    FFIcons.kicDownload,
-                                                    size: 22.0,
+                                                child: StreamBuilder<
+                                                    List<BookingsRecord>>(
+                                                  stream: queryBookingsRecord(
+                                                    queryBuilder: (bookingsRecord) => bookingsRecord
+                                                        .where('status',
+                                                            isEqualTo:
+                                                                'Закончено')
+                                                        .where('booked_company',
+                                                            isEqualTo:
+                                                                containerContentCompaniesRecord!
+                                                                    .reference)
+                                                        .where('booked_date',
+                                                            isGreaterThanOrEqualTo:
+                                                                FFAppState()
+                                                                    .WEBFilterStartDate)
+                                                        .where('booked_date',
+                                                            isLessThanOrEqualTo:
+                                                                FFAppState()
+                                                                    .WEBFilterEndDate),
                                                   ),
-                                                  options: FFButtonOptions(
-                                                    width: 207.0,
-                                                    height: 40.0,
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 0.0),
-                                                    iconPadding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 0.0),
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryColor,
-                                                    textStyle: FlutterFlowTheme
-                                                            .of(context)
-                                                        .subtitle2
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          color: Colors.white,
-                                                          fontSize: 14.0,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .subtitle2Family),
+                                                  builder: (context, snapshot) {
+                                                    // Customize what your widget looks like when it's loading.
+                                                    if (!snapshot.hasData) {
+                                                      return Center(
+                                                        child: SizedBox(
+                                                          width: 50.0,
+                                                          height: 50.0,
+                                                          child:
+                                                              CircularProgressIndicator(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryColor,
+                                                          ),
                                                         ),
-                                                    elevation: 0.0,
-                                                    borderSide: BorderSide(
-                                                      color: Colors.transparent,
-                                                      width: 1.0,
-                                                    ),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            8.0),
-                                                  ),
+                                                      );
+                                                    }
+                                                    List<BookingsRecord>
+                                                        buttonBookingsRecordList =
+                                                        snapshot.data!;
+                                                    return FFButtonWidget(
+                                                      onPressed: () async {
+                                                        await actions
+                                                            .excellOutput(
+                                                          buttonBookingsRecordList
+                                                              .toList(),
+                                                        );
+                                                      },
+                                                      text:
+                                                          'Скачать отчет в Excel',
+                                                      icon: Icon(
+                                                        FFIcons.kicDownload,
+                                                        size: 22.0,
+                                                      ),
+                                                      options: FFButtonOptions(
+                                                        width: 207.0,
+                                                        height: 40.0,
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        iconPadding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryColor,
+                                                        textStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .subtitle2
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  color: Colors
+                                                                      .white,
+                                                                  fontSize:
+                                                                      14.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .normal,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .subtitle2Family),
+                                                                ),
+                                                        elevation: 0.0,
+                                                        borderSide: BorderSide(
+                                                          color: Colors
+                                                              .transparent,
+                                                          width: 1.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                      ),
+                                                    );
+                                                  },
                                                 ),
                                               ),
                                             ),
@@ -838,7 +790,6 @@ String price = listViewBookingsRecord.totalPrice.toString() + " тг";
                                                           List<BookingsRecord>
                                                               listViewBookingsRecordList =
                                                               snapshot.data!;
-                                                          listViewBookingsRecordList2 = listViewBookingsRecordList;
                                                           if (listViewBookingsRecordList
                                                               .isEmpty) {
                                                             return AdminClientEmptyClientWidget();

@@ -18,7 +18,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+5
 
 environment:
-  sdk: ">=2.17.6 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -29,15 +29,16 @@ dependencies:
   built_collection: 5.1.1
   built_value: 8.4.0
   cached_network_image: 3.2.1
-  calendar_date_picker2: ^0.4.5
+  calendar_date_picker2: ^0.3.7
   cloud_firestore: 4.2.0
   cloud_firestore_platform_interface: 5.9.1
   cloud_firestore_web: 3.1.1
   cloud_functions: 4.0.6
   cloud_functions_platform_interface: 5.1.25
   cloud_functions_web: 4.3.14
-  collection: 1.16.0
+  collection: 1.17.0
   easy_debounce: 2.0.1
+  excel: ^2.0.1
   expandable: 5.0.1
   file_picker: 4.5.1
   firebase_auth: ^4.2.9
@@ -113,7 +114,6 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.0
-  excel: ^2.0.1
 
 dependency_overrides:
   provider: 6.0.0

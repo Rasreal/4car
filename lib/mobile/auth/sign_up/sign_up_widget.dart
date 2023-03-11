@@ -53,7 +53,6 @@ class _SignUpWidgetState extends State<SignUpWidget> {
           child: Visibility(
             visible: responsiveVisibility(
               context: context,
-              tablet: false,
               tabletLandscape: false,
               desktop: false,
             ),

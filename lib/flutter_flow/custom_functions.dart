@@ -16,6 +16,7 @@ String idGenerator(int randomNumber) {
   final now = DateTime.now();
   double result = now.microsecondsSinceEpoch / randomNumber;
   return result.round().toString();
+  //
 }
 
 double averageRating(List<double>? ratingAmount) {
@@ -465,6 +466,10 @@ int oborot(List<BookingsRecord> bookingRecord) {
   for (int i = 0; i < a; i++) {
     div *= 10;
   }
+
+  //FFAppState().excOborot = sum ~/ div;
+
+  //FFAppState().excOborot = sum ~/ div;
 
   return sum ~/ div;
 
