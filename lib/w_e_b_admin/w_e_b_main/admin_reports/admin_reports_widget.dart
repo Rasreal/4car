@@ -14,6 +14,8 @@ import 'package:provider/provider.dart';
 import 'admin_reports_model.dart';
 export 'admin_reports_model.dart';
 import 'package:excel/excel.dart';
+import 'dart:io';
+import 'package:path/path.dart';
 
 class AdminReportsWidget extends StatefulWidget {
   const AdminReportsWidget({Key? key}) : super(key: key);
@@ -380,6 +382,8 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
       */
 
                                                     Sheet sheetObject = excel['SheetName'];
+sheetObject.isRTL = true;
+
 
                                                     CellStyle cellStyle = CellStyle(backgroundColorHex: "#1AFF1A", fontFamily : getFontFamily(FontFamily.Calibri));
 
