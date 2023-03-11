@@ -1,17 +1,16 @@
-import 'dart:math';
-
-import '../auth/auth_util.dart';
-import '../flutter_flow/flutter_flow_animations.dart';
-import '../flutter_flow/flutter_flow_icon_button.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/flutter_flow_widgets.dart';
+import '/auth/auth_util.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+
 
 
 class CodeWidget extends StatefulWidget {
@@ -29,7 +28,6 @@ class CodeWidget extends StatefulWidget {
 class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
 
   TextEditingController? pinCodeController;
-  String b = '';
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final _unfocusNode = FocusNode();
@@ -61,6 +59,9 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
+    pinCodeController = TextEditingController();
+
+    // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       FFAppState().update(() {
         FFAppState().signINcode = false;
@@ -184,9 +185,7 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
                       FlutterFlowTheme.of(context).secondaryText,
                     ),
                     controller: pinCodeController,
-                    onChanged: (a) => {
-                      b = a
-                    },
+                    onChanged: (_) => {},
                   ),
                   Spacer(),
                   Padding(
@@ -269,8 +268,8 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
                   FFButtonWidget(
                     onPressed: () async {
                       GoRouter.of(context).prepareAuthEvent();
-                      final smsCodeVal = b;
-                      if (smsCodeVal == null || smsCodeVal.isEmpty || smsCodeVal.length != 6) {
+                      final smsCodeVal = pinCodeController!.text;
+                      if (smsCodeVal == null || smsCodeVal.isEmpty) {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             content: Text('Enter SMS verification code.'),
@@ -292,19 +291,17 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
                             .controller
                             .forward(from: 0.0);
                       }
-                      if (currentUserDisplayName != null &&
-                          currentUserDisplayName != '') {
-                        context.goNamedAuth('HomePage', mounted);
-                      } else {
-                        context.goNamedAuth('Sign_Up_2', mounted);
-                      }
+
+                      context.goNamedAuth('HomePage', mounted);
                     },
                     text: 'Ввести код',
                     options: FFButtonOptions(
                       width: 130,
                       height: 48,
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                      iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                       color: valueOrDefault<Color>(
-                       pinCodeController?.text != null &&
+                        pinCodeController!.text != null &&
                             pinCodeController!.text != ''
                             ? FlutterFlowTheme.of(context).primaryColor
                             : FlutterFlowTheme.of(context).starblue,

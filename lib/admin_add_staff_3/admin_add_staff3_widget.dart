@@ -2180,111 +2180,13 @@ class _AdminAddStaff3WidgetState extends State<AdminAddStaff3Widget> {
                                   width: 40,
                                   height: 1,
                                   decoration: BoxDecoration(
-                                    color: Color(0xFFEDEDED),
+                                    color: Color(0xFFDB1616),
                                   ),
                                 ),
                               ],
                             ),
                           ),
-                          FFButtonWidget(
-                            onPressed: () async {
-                              try {
 
-                                UserCredential result = await FirebaseAuth.instance.createUserWithEmailAndPassword(email: _email, password: _password);
-                                User user = result.user!;
-
-                                await FirebaseFirestore.instance.collection('users')
-                                    .doc(user.uid).set({ 'firstName': "q"});
-
-                                DocumentReference? returnCode;
-                                try {
-                                  returnCode = FirebaseFirestore.instance
-                                      .collection('users')
-                                      .doc(user.uid);
-
-                                  return returnCode;
-                                }
-                                catch (e) {
-                                  print("Error: ");
-                                  return null;
-                                }
-
-
-                                CollectionReference users =
-                                FirebaseFirestore.instance.collection('user');
-                                // Call the user's CollectionReference to add a new user
-                                await users.doc().set({
-                                  'full_name': fullName,
-                                  'age': age,
-                                });
-                                return 'success';
-                              } catch (e) {
-                                return 'Error adding user';
-                              }
-                              if (formKey.currentState == null ||
-                                  !formKey.currentState!.validate()) {
-                                return;
-                              }
-
-                              GoRouter.of(context).prepareAuthEvent();
-                              if (passwordController?.text !=
-                                  password1Controller?.text) {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    content: Text(
-                                      'Passwords don\'t match!',
-                                    ),
-                                  ),
-                                );
-                                return;
-                              }
-
-                              final user = await createAccountWithEmail(
-                                context,
-                                emailController!.text,
-                                passwordController!.text,
-                              );
-                              if (user == null) {
-                                return;
-                              }
-
-                              final userCreateData = createUserRecordData(
-                                displayName: FFAppState().adminAddStaffFIO,
-                                phoneNumber: FFAppState().adminAddStaffPhone,
-                                role: FFAppState().adminAddStaff,
-                                signUpDate: getCurrentTimestamp,
-                              );
-                              await UserRecord.collection
-                                  .doc(user.uid)
-                                  .update(userCreateData);
-                              var b = user.uid;
-
-                              context.goNamedAuth('HomePage', mounted);
-                            },
-                            text: 'Продолжить',
-                            options: FFButtonOptions(
-                              width: 185,
-                              height: 48,
-                              color: FlutterFlowTheme.of(context).primaryColor,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .subtitle2
-                                  .override(
-                                    fontFamily: 'Inter',
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w500,
-                                    useGoogleFonts: GoogleFonts.asMap()
-                                        .containsKey(
-                                            FlutterFlowTheme.of(context)
-                                                .subtitle2Family),
-                                  ),
-                              elevation: 0,
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                                width: 1,
-                              ),
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                          ),
                         ],
                       ),
                     ),
