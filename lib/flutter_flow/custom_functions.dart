@@ -4,6 +4,7 @@ import 'dart:math' as math;
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import '../app_state.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:timeago/timeago.dart' as timeago;
@@ -421,6 +422,7 @@ int durationToInt(String duration) {
   } // для n час
 
   if (duration.length == 6 && duration.contains('часа')) {
+    FFAppState().
     return int.parse(duration.substring(0, 1)) * 60;
   } // для n часа
 
