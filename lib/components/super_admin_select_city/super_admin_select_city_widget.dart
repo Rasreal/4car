@@ -54,107 +54,110 @@ class _SuperAdminSelectCityWidgetState
         ),
         child: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 32.0),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: Text(
-                      'Выберите Ваш город',
-                      textAlign: TextAlign.center,
-                      style: FlutterFlowTheme.of(context).bodyText1.override(
-                            fontFamily:
-                                FlutterFlowTheme.of(context).bodyText1Family,
-                            fontSize: 24.0,
-                            fontWeight: FontWeight.w500,
-                            useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                FlutterFlowTheme.of(context).bodyText1Family),
-                          ),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: Text(
+                        'Выберите Ваш город',
+                        textAlign: TextAlign.center,
+                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                              fontFamily:
+                                  FlutterFlowTheme.of(context).bodyText1Family,
+                              fontSize: 24.0,
+                              fontWeight: FontWeight.w500,
+                              useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                  FlutterFlowTheme.of(context).bodyText1Family),
+                            ),
+                      ),
                     ),
-                  ),
-                  InkWell(
-                    onTap: () async {
-                      Navigator.pop(context);
-                    },
-                    child: Icon(
-                      FFIcons.kicClose,
-                      color: FlutterFlowTheme.of(context).gray2,
-                      size: 20.0,
+                    InkWell(
+                      onTap: () async {
+                        Navigator.pop(context);
+                      },
+                      child: Icon(
+                        FFIcons.kicClose,
+                        color: FlutterFlowTheme.of(context).gray2,
+                        size: 20.0,
+                      ),
                     ),
-                  ),
-                ],
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
-                child: StreamBuilder<List<CityesRecord>>(
-                  stream: queryCityesRecord(),
-                  builder: (context, snapshot) {
-                    // Customize what your widget looks like when it's loading.
-                    if (!snapshot.hasData) {
-                      return Center(
-                        child: SizedBox(
-                          width: 50.0,
-                          height: 50.0,
-                          child: CircularProgressIndicator(
-                            color: FlutterFlowTheme.of(context).primaryColor,
-                          ),
-                        ),
-                      );
-                    }
-                    List<CityesRecord> listViewCityesRecordList =
-                        snapshot.data!;
-                    return ListView.builder(
-                      padding: EdgeInsets.zero,
-                      shrinkWrap: true,
-                      scrollDirection: Axis.vertical,
-                      itemCount: listViewCityesRecordList.length,
-                      itemBuilder: (context, listViewIndex) {
-                        final listViewCityesRecord =
-                            listViewCityesRecordList[listViewIndex];
-                        return Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 8.0),
-                          child: InkWell(
-                            onTap: () async {
-                              FFAppState().update(() {
-                                FFAppState().superAdminSelectedCityName =
-                                    listViewCityesRecord.name!;
-                                FFAppState().superAdminSelectedCity =
-                                    listViewCityesRecord.reference;
-                              });
-                            },
-                            child: Text(
-                              listViewCityesRecord.name!,
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: FlutterFlowTheme.of(context)
-                                        .bodyText1Family,
-                                    color:
-                                        FFAppState().superAdminSelectedCity ==
-                                                listViewCityesRecord.reference
-                                            ? FlutterFlowTheme.of(context)
-                                                .primaryColor
-                                            : FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                    fontWeight: FontWeight.normal,
-                                    useGoogleFonts: GoogleFonts.asMap()
-                                        .containsKey(
-                                            FlutterFlowTheme.of(context)
-                                                .bodyText1Family),
-                                  ),
+                  ],
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                  child: StreamBuilder<List<CityesRecord>>(
+                    stream: queryCityesRecord(),
+                    builder: (context, snapshot) {
+                      // Customize what your widget looks like when it's loading.
+                      if (!snapshot.hasData) {
+                        return Center(
+                          child: SizedBox(
+                            width: 50.0,
+                            height: 50.0,
+                            child: CircularProgressIndicator(
+                              color: FlutterFlowTheme.of(context).primaryColor,
                             ),
                           ),
                         );
-                      },
-                    );
-                  },
+                      }
+                      List<CityesRecord> listViewCityesRecordList =
+                          snapshot.data!;
+                      return ListView.builder(
+                        padding: EdgeInsets.zero,
+                        primary: false,
+                        shrinkWrap: true,
+                        scrollDirection: Axis.vertical,
+                        itemCount: listViewCityesRecordList.length,
+                        itemBuilder: (context, listViewIndex) {
+                          final listViewCityesRecord =
+                              listViewCityesRecordList[listViewIndex];
+                          return Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 8.0),
+                            child: InkWell(
+                              onTap: () async {
+                                FFAppState().update(() {
+                                  FFAppState().superAdminSelectedCityName =
+                                      listViewCityesRecord.name!;
+                                  FFAppState().superAdminSelectedCity =
+                                      listViewCityesRecord.reference;
+                                });
+                              },
+                              child: Text(
+                                listViewCityesRecord.name!,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyText1
+                                    .override(
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .bodyText1Family,
+                                      color:
+                                          FFAppState().superAdminSelectedCity ==
+                                                  listViewCityesRecord.reference
+                                              ? FlutterFlowTheme.of(context)
+                                                  .primaryColor
+                                              : FlutterFlowTheme.of(context)
+                                                  .primaryText,
+                                      fontWeight: FontWeight.normal,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey(
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyText1Family),
+                                    ),
+                              ),
+                            ),
+                          );
+                        },
+                      );
+                    },
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

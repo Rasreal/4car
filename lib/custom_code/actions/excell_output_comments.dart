@@ -10,19 +10,14 @@ import 'package:flutter/material.dart';
 
 import 'package:excel/excel.dart';
 
-Future excellOutputAnalytics(
-  String oborot,
-  String carWashed,
-  String averageCheque,
-  String oborotForCarPercent,
-  String? oborotName,
-  String? averageChequeName,
-  String? oborotForCarPercentName,
+Future excellOutputComments(
+  String averageRating,
+  String numRating,
+  String numReview,
+  String goodReview,
+  String? badReview,
+  String? processedReview,
 ) async {
-  oborot = oborot + " " + oborotName!;
-  averageCheque = averageCheque + averageChequeName!;
-  oborotForCarPercent = oborotForCarPercent + oborotForCarPercentName!;
-
   // Add your function code here!
   var excel = Excel.createExcel();
 
@@ -33,7 +28,7 @@ Future excellOutputAnalytics(
       * Cell Style options are optional
       */
 
-  Sheet sheetObject = excel['Аналитика'];
+  Sheet sheetObject = excel['Комментарии'];
   sheetObject.isRTL = true;
   excel.delete('Sheet1');
   excel.delete('Лист1');
@@ -44,6 +39,24 @@ Future excellOutputAnalytics(
       bold: true,
       fontFamily: getFontFamily(FontFamily.Microsoft_Sans_Serif));
   CellStyle cellStyleB2 = CellStyle(
+      fontSize: 17,
+      bold: true,
+      fontFamily: getFontFamily(FontFamily.Microsoft_Sans_Serif));
+
+  CellStyle cellStyleB2Green = CellStyle(
+      fontColorHex: "FF34E156",
+      fontSize: 17,
+      bold: true,
+      fontFamily: getFontFamily(FontFamily.Microsoft_Sans_Serif));
+
+  CellStyle cellStyleB2Red = CellStyle(
+      fontColorHex: "FFDB1616",
+      fontSize: 17,
+      bold: true,
+      fontFamily: getFontFamily(FontFamily.Microsoft_Sans_Serif));
+
+  CellStyle cellStyleB2Blue = CellStyle(
+      fontColorHex: "FF2196F3",
       fontSize: 17,
       bold: true,
       fontFamily: getFontFamily(FontFamily.Microsoft_Sans_Serif));
@@ -60,60 +73,84 @@ Future excellOutputAnalytics(
       bold: true,
       fontFamily: getFontFamily(FontFamily.Microsoft_Sans_Serif));
 
+  CellStyle cellStyleBlue = CellStyle(
+      fontColorHex: "FF2196F3",
+      fontSize: 14,
+      bold: true,
+      fontFamily: getFontFamily(FontFamily.Microsoft_Sans_Serif));
+
   //cellStyle.underline = Underline.Single; // or Underline.Double
 
   ///
 
   /// Inserting and removing column and rows
-  List<String> rowList = [
-    '№Записи',
-    'Время',
-    '№Бокса',
-    'Автомобиль',
-    'Услуги',
-    'Стоимость',
-    'Статус'
-  ];
+
   //sheetObject.insertRowIterables(rowList, 1, startingColumn: 2);
   var cell =
       sheetObject.cell(CellIndex.indexByColumnRow(columnIndex: 1, rowIndex: 1));
-  cell.value = 'Оборот';
+  cell.value = 'Средняя оценка';
   cell.cellStyle = cellStyleB2;
 
   cell =
       sheetObject.cell(CellIndex.indexByColumnRow(columnIndex: 2, rowIndex: 1));
-  cell.value = 'Машин Помыто';
+  cell.value = 'Количество оценок';
   cell.cellStyle = cellStyleB2;
 
   cell =
       sheetObject.cell(CellIndex.indexByColumnRow(columnIndex: 3, rowIndex: 1));
-  cell.value = 'Cредний чек';
+  cell.value = 'Общее количество отзывов';
   cell.cellStyle = cellStyleB2;
 
   cell =
       sheetObject.cell(CellIndex.indexByColumnRow(columnIndex: 4, rowIndex: 1));
-  cell.value = 'К выплате ForCar';
-  cell.cellStyle = cellStyleB2;
+  cell.value = 'Положительные отзывы';
+  cell.cellStyle = cellStyleB2Green;
+
+  cell =
+      sheetObject.cell(CellIndex.indexByColumnRow(columnIndex: 5, rowIndex: 1));
+  cell.value = 'Негативные отзывы';
+  cell.cellStyle = cellStyleB2Red;
+
+  cell =
+      sheetObject.cell(CellIndex.indexByColumnRow(columnIndex: 6, rowIndex: 1));
+  cell.value = 'Проработанные отзывы';
+  cell.cellStyle = cellStyleB2Blue;
+  // sheetObject.merge(
+  //     CellIndex.indexByString("B2"), CellIndex.indexByString("C2"));
+  // sheetObject.merge(
+  //     CellIndex.indexByString("D2"), CellIndex.indexByString("E2"));
+  // sheetObject.merge(
+  //     CellIndex.indexByString("F2"), CellIndex.indexByString("J2"));
 
   var cell2 =
       sheetObject.cell(CellIndex.indexByColumnRow(columnIndex: 1, rowIndex: 2));
-  cell2.value = oborot;
+  cell2.value = averageRating;
   cell2.cellStyle = cellStyle;
 
   cell2 =
       sheetObject.cell(CellIndex.indexByColumnRow(columnIndex: 2, rowIndex: 2));
-  cell2.value = carWashed;
+  cell2.value = numRating;
   cell2.cellStyle = cellStyle;
 
   cell2 =
       sheetObject.cell(CellIndex.indexByColumnRow(columnIndex: 3, rowIndex: 2));
-  cell2.value = averageCheque;
+  cell2.value = numReview;
   cell2.cellStyle = cellStyle;
 
   cell2 =
       sheetObject.cell(CellIndex.indexByColumnRow(columnIndex: 4, rowIndex: 2));
-  cell2.value = oborotForCarPercent;
-  cell2.cellStyle = cellStyle;
+  cell2.value = goodReview;
+  cell2.cellStyle = cellStyleGreen;
+
+  cell2 =
+      sheetObject.cell(CellIndex.indexByColumnRow(columnIndex: 5, rowIndex: 2));
+  cell2.value = badReview;
+  cell2.cellStyle = cellStyleRed;
+
+  cell2 =
+      sheetObject.cell(CellIndex.indexByColumnRow(columnIndex: 6, rowIndex: 2));
+  cell2.value = processedReview;
+  cell2.cellStyle = cellStyleBlue;
 
   // cell =
   //     sheetObject.cell(CellIndex.indexByColumnRow(columnIndex: 6, rowIndex: 1));
@@ -198,5 +235,5 @@ Future excellOutputAnalytics(
   //   }
   // }
 
-  var fileBytes = excel.save(fileName: "Отчет_Аналитика.xlsx");
+  var fileBytes = excel.save(fileName: "Отчет_Комментарии.xlsx");
 }

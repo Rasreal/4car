@@ -20,16 +20,29 @@ Future<DocumentReference?> createUserNewFucn(
   // Add your function code here!
 
   UserCredential result = await FirebaseAuth.instance
-      .createUserWithEmailAndPassword(email: email, password: password);
+      .createUserWithEmailAndPassword(email: email.trim(), password: password);
   User user = result.user!;
+
+  // DocumentReference currentRegion =
+  //     Firestore.instance.collection("users").document(user.uid);
+
+  await FirebaseFirestore.instance.collection('user').doc(user.uid).set({
+    'uid': user.uid,
+    'email': email.trim(),
+  });
 
   DocumentReference? returnCode;
   try {
-    returnCode = FirebaseFirestore.instance.collection('user').doc(user.uid);
+    returnCode =
+        await FirebaseFirestore.instance.collection("user").doc(user.uid);
+
+    //return user.uid;
 
     return returnCode;
   } catch (e) {
     print("Error: ");
+    // returnCode = FirebaseFirestore.instance.collection('user').doc(user.uid);
+    // return returnCode;
     return null;
   }
 

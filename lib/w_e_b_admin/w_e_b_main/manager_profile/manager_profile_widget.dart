@@ -410,8 +410,8 @@ class _ManagerProfileWidgetState extends State<ManagerProfileWidget> {
                                                                   currentUserPhoto,
                                                                   'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/e4car-dch9vg/assets/39tzmh1sizl4/Group_668.png',
                                                                 ),
-                                                                fit: BoxFit
-                                                                    .contain,
+                                                                fit:
+                                                                    BoxFit.fill,
                                                               ),
                                                             ),
                                                           ),

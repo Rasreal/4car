@@ -85,5 +85,5 @@ export '/w_e_b_super_admin/w_e_b_super_admin/super_admin_profile/super_admin_pro
     show SuperAdminProfileWidget;
 export '/w_e_b_admin/w_e_b_main/manager_profile/manager_profile_widget.dart'
     show ManagerProfileWidget;
-export '/super_admin_users/super_admin_users_widget.dart'
+export '/w_e_b_super_admin/w_e_b_super_admin/super_admin_users/super_admin_users_widget.dart'
     show SuperAdminUsersWidget;

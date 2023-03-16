@@ -340,6 +340,16 @@
     },
     {
       "collectionGroup": "promotion",
+      "fieldPath": "top",
+      "indexes": [
+        {
+          "order": "ASCENDING",
+          "queryScope": "COLLECTION_GROUP"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "promotion",
       "fieldPath": "moderation",
       "indexes": [
         {

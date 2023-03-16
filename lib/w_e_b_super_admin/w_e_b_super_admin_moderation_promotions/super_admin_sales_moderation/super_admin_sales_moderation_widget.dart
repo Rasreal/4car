@@ -688,7 +688,7 @@ class _SuperAdminSalesModerationWidgetState
                                                                             return Padding(
                                                                               padding: MediaQuery.of(context).viewInsets,
                                                                               child: SuperAdminSalesDetailsWidget(
-                                                                                promotion: listViewPromotionRecord,
+                                                                                promotion: listViewPromotionRecord.reference,
                                                                                 company: columnCompaniesRecord.reference,
                                                                               ),
                                                                             );
@@ -953,7 +953,7 @@ class _SuperAdminSalesModerationWidgetState
                                                                             return Padding(
                                                                               padding: MediaQuery.of(context).viewInsets,
                                                                               child: SuperAdminSalesDetailsWidget(
-                                                                                promotion: listViewPromotionRecord,
+                                                                                promotion: listViewPromotionRecord.reference,
                                                                                 company: columnCompaniesRecord.reference,
                                                                               ),
                                                                             );

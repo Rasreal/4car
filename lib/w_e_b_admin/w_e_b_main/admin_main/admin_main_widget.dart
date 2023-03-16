@@ -1098,6 +1098,7 @@ class _AdminMainWidgetState extends State<AdminMainWidget> {
                                                               'company_users',
                                                               arrayContains:
                                                                   currentUserReference),
+                                                      singleRecord: true,
                                                     ),
                                                     builder:
                                                         (context, snapshot) {
@@ -1119,21 +1120,24 @@ class _AdminMainWidgetState extends State<AdminMainWidget> {
                                                       List<CompaniesRecord>
                                                           columnCompaniesRecordList =
                                                           snapshot.data!;
+                                                      // Return an empty Container when the item does not exist.
+                                                      if (snapshot
+                                                          .data!.isEmpty) {
+                                                        return Container();
+                                                      }
+                                                      final columnCompaniesRecord =
+                                                          columnCompaniesRecordList
+                                                                  .isNotEmpty
+                                                              ? columnCompaniesRecordList
+                                                                  .first
+                                                              : null;
                                                       return Column(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
-                                                        children: List.generate(
-                                                            columnCompaniesRecordList
-                                                                .length,
-                                                            (columnIndex) {
-                                                          final columnCompaniesRecord =
-                                                              columnCompaniesRecordList[
-                                                                  columnIndex];
-                                                          return Visibility(
-                                                            visible:
-                                                                columnCompaniesRecord !=
-                                                                    null,
-                                                            child: StreamBuilder<
+                                                        children: [
+                                                          if (columnCompaniesRecord !=
+                                                              null)
+                                                            StreamBuilder<
                                                                 List<
                                                                     ForcarTimesRecord>>(
                                                               stream:
@@ -1200,8 +1204,7 @@ class _AdminMainWidgetState extends State<AdminMainWidget> {
                                                                 );
                                                               },
                                                             ),
-                                                          );
-                                                        }),
+                                                        ],
                                                       );
                                                     },
                                                   ),

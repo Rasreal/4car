@@ -17,7 +17,7 @@ class SuperAdminSalesDetailsWidget extends StatefulWidget {
     this.company,
   }) : super(key: key);
 
-  final PromotionRecord? promotion;
+  final DocumentReference? promotion;
   final DocumentReference? company;
 
   @override
@@ -67,111 +67,191 @@ class _SuperAdminSalesDetailsWidgetState
           autovalidateMode: AutovalidateMode.disabled,
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 24.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Детали акции',
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
-                              fontFamily:
-                                  FlutterFlowTheme.of(context).bodyText1Family,
-                              fontSize: 20.0,
-                              useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                  FlutterFlowTheme.of(context).bodyText1Family),
-                            ),
+            child: StreamBuilder<PromotionRecord>(
+              stream: PromotionRecord.getDocument(widget.promotion!),
+              builder: (context, snapshot) {
+                // Customize what your widget looks like when it's loading.
+                if (!snapshot.hasData) {
+                  return Center(
+                    child: SizedBox(
+                      width: 50.0,
+                      height: 50.0,
+                      child: CircularProgressIndicator(
+                        color: FlutterFlowTheme.of(context).primaryColor,
                       ),
-                      InkWell(
-                        onTap: () async {
-                          Navigator.pop(context);
-                        },
-                        child: Icon(
-                          FFIcons.kicClose,
-                          color: FlutterFlowTheme.of(context).gray2,
-                          size: 24.0,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                FutureBuilder<CompaniesRecord>(
-                  future: CompaniesRecord.getDocumentOnce(widget.company!),
-                  builder: (context, snapshot) {
-                    // Customize what your widget looks like when it's loading.
-                    if (!snapshot.hasData) {
-                      return Center(
-                        child: SizedBox(
-                          width: 50.0,
-                          height: 50.0,
-                          child: CircularProgressIndicator(
-                            color: FlutterFlowTheme.of(context).primaryColor,
-                          ),
-                        ),
-                      );
-                    }
-                    final columnCompaniesRecord = snapshot.data!;
-                    return Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Divider(
-                          height: 1.0,
-                          thickness: 1.0,
-                          color: FlutterFlowTheme.of(context).gray4,
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 12.0, 0.0, 12.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Container(
-                                width: 40.0,
-                                height: 40.0,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .primaryBackground,
-                                  image: DecorationImage(
-                                    fit: BoxFit.cover,
-                                    image: Image.network(
-                                      valueOrDefault<String>(
-                                        columnCompaniesRecord.logo,
-                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/e4car-dch9vg/assets/39tzmh1sizl4/Group_668.png',
-                                      ),
-                                    ).image,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  border: Border.all(
-                                    color:
-                                        FlutterFlowTheme.of(context).starblue,
-                                  ),
+                    ),
+                  );
+                }
+                final columnPromotionRecord = snapshot.data!;
+                return Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Детали акции',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyText1
+                                .override(
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .bodyText1Family,
+                                  fontSize: 20.0,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .bodyText1Family),
                                 ),
+                          ),
+                          InkWell(
+                            onTap: () async {
+                              Navigator.pop(context);
+                            },
+                            child: Icon(
+                              FFIcons.kicClose,
+                              color: FlutterFlowTheme.of(context).gray2,
+                              size: 24.0,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    FutureBuilder<CompaniesRecord>(
+                      future: CompaniesRecord.getDocumentOnce(widget.company!),
+                      builder: (context, snapshot) {
+                        // Customize what your widget looks like when it's loading.
+                        if (!snapshot.hasData) {
+                          return Center(
+                            child: SizedBox(
+                              width: 50.0,
+                              height: 50.0,
+                              child: CircularProgressIndicator(
+                                color:
+                                    FlutterFlowTheme.of(context).primaryColor,
                               ),
-                              Expanded(
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      12.0, 0.0, 40.0, 0.0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        valueOrDefault<String>(
-                                          columnCompaniesRecord.name,
-                                          'null',
-                                        ),
+                            ),
+                          );
+                        }
+                        final columnCompaniesRecord = snapshot.data!;
+                        return Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Divider(
+                              height: 1.0,
+                              thickness: 1.0,
+                              color: FlutterFlowTheme.of(context).gray4,
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 12.0, 0.0, 12.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Container(
+                                    width: 40.0,
+                                    height: 40.0,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
+                                      image: DecorationImage(
+                                        fit: BoxFit.cover,
+                                        image: Image.network(
+                                          valueOrDefault<String>(
+                                            columnCompaniesRecord.logo,
+                                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/e4car-dch9vg/assets/39tzmh1sizl4/Group_668.png',
+                                          ),
+                                        ).image,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                      border: Border.all(
+                                        color: FlutterFlowTheme.of(context)
+                                            .starblue,
+                                      ),
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          12.0, 0.0, 40.0, 0.0),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            valueOrDefault<String>(
+                                              columnCompaniesRecord.name,
+                                              'null',
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  fontSize: 16.0,
+                                                  fontWeight: FontWeight.w500,
+                                                  useGoogleFonts: GoogleFonts
+                                                          .asMap()
+                                                      .containsKey(
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyText1Family),
+                                                ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 4.0, 0.0, 0.0),
+                                            child: Text(
+                                              columnCompaniesRecord.street!,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .gray1,
+                                                        fontSize: 12.0,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyText1Family),
+                                                      ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 24.0, 0.0),
+                                    child: InkWell(
+                                      onTap: () async {
+                                        context.pushNamed(
+                                            'super_admin_current_company');
+                                      },
+                                      child: Text(
+                                        'Перейти',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyText1
                                             .override(
-                                              fontFamily: 'Inter',
-                                              fontSize: 16.0,
-                                              fontWeight: FontWeight.w500,
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1Family,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryColor,
+                                              fontWeight: FontWeight.normal,
                                               useGoogleFonts:
                                                   GoogleFonts.asMap()
                                                       .containsKey(
@@ -180,248 +260,283 @@ class _SuperAdminSalesDetailsWidgetState
                                                               .bodyText1Family),
                                             ),
                                       ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 4.0, 0.0, 0.0),
-                                        child: Text(
-                                          columnCompaniesRecord.street!,
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyText1
-                                              .override(
-                                                fontFamily: 'Inter',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .gray1,
-                                                fontSize: 12.0,
-                                                fontWeight: FontWeight.normal,
-                                                useGoogleFonts: GoogleFonts
-                                                        .asMap()
-                                                    .containsKey(
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyText1Family),
-                                              ),
-                                        ),
-                                      ),
-                                    ],
+                                    ),
                                   ),
+                                ],
+                              ),
+                            ),
+                            Divider(
+                              height: 1.0,
+                              thickness: 1.0,
+                              color: FlutterFlowTheme.of(context).gray4,
+                            ),
+                          ],
+                        );
+                      },
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(8.0),
+                        child: Image.network(
+                          valueOrDefault<String>(
+                            columnPromotionRecord.img,
+                            'https://picsum.photos/seed/73/600',
+                          ),
+                          width: 440.0,
+                          height: 256.0,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                      child: Text(
+                        valueOrDefault<String>(
+                          columnPromotionRecord.title,
+                          'null',
+                        ),
+                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                              fontFamily:
+                                  FlutterFlowTheme.of(context).bodyText1Family,
+                              fontSize: 16.0,
+                              useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                  FlutterFlowTheme.of(context).bodyText1Family),
+                            ),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                      child: Text(
+                        valueOrDefault<String>(
+                          columnPromotionRecord.subtitle,
+                          'null',
+                        ),
+                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                              fontFamily:
+                                  FlutterFlowTheme.of(context).bodyText1Family,
+                              fontWeight: FontWeight.normal,
+                              useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                  FlutterFlowTheme.of(context).bodyText1Family),
+                            ),
+                      ),
+                    ),
+                    if (columnPromotionRecord.moderation ?? true)
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 0.0, 0.0, 0.0),
+                              child: InkWell(
+                                onTap: () async {
+                                  final promotionUpdateData =
+                                      createPromotionRecordData(
+                                    moderation: false,
+                                    top: false,
+                                  );
+                                  await widget.promotion!
+                                      .update(promotionUpdateData);
+                                  Navigator.pop(context);
+                                },
+                                child: Text(
+                                  'Отклонить',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyText1
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryColor,
+                                        fontWeight: FontWeight.normal,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey(
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyText1Family),
+                                      ),
                                 ),
                               ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 24.0, 0.0),
-                                child: InkWell(
-                                  onTap: () async {
-                                    context.pushNamed(
-                                        'super_admin_current_company');
+                            ),
+                            FutureBuilder<int>(
+                              future: queryPromotionRecordCount(
+                                queryBuilder: (promotionRecord) =>
+                                    promotionRecord
+                                        .where('top', isEqualTo: true)
+                                        .where('city_link',
+                                            isEqualTo: FFAppState()
+                                                .superAdminSelectedCity),
+                              ),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 50.0,
+                                      height: 50.0,
+                                      child: CircularProgressIndicator(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryColor,
+                                      ),
+                                    ),
+                                  );
+                                }
+                                int buttonCount = snapshot.data!;
+                                return FFButtonWidget(
+                                  onPressed: () async {
+                                    if (buttonCount < 3) {
+                                      final promotionUpdateData =
+                                          createPromotionRecordData(
+                                        moderation: false,
+                                        top: true,
+                                      );
+                                      await widget.promotion!
+                                          .update(promotionUpdateData);
+                                      Navigator.pop(context);
+                                    } else {
+                                      await showDialog(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return AlertDialog(
+                                            title: Text(
+                                                'нельзя добавить больше 3 акции'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          );
+                                        },
+                                      );
+                                    }
                                   },
-                                  child: Text(
-                                    'Перейти',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
+                                  text: 'Продвинуть ',
+                                  options: FFButtonOptions(
+                                    width: 118.0,
+                                    height: 40.0,
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryColor,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .subtitle2
                                         .override(
                                           fontFamily:
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText1Family,
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryColor,
+                                                  .subtitle2Family,
+                                          color: Colors.white,
+                                          fontSize: 14.0,
                                           fontWeight: FontWeight.normal,
                                           useGoogleFonts: GoogleFonts.asMap()
                                               .containsKey(
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText1Family),
+                                                      .subtitle2Family),
                                         ),
+                                    elevation: 0.0,
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
                                   ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Divider(
-                          height: 1.0,
-                          thickness: 1.0,
-                          color: FlutterFlowTheme.of(context).gray4,
-                        ),
-                      ],
-                    );
-                  },
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(8.0),
-                    child: Image.network(
-                      valueOrDefault<String>(
-                        widget.promotion!.img,
-                        'https://picsum.photos/seed/73/600',
-                      ),
-                      width: 440.0,
-                      height: 256.0,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
-                  child: Text(
-                    valueOrDefault<String>(
-                      widget.promotion!.title,
-                      'null',
-                    ),
-                    style: FlutterFlowTheme.of(context).bodyText1.override(
-                          fontFamily:
-                              FlutterFlowTheme.of(context).bodyText1Family,
-                          fontSize: 16.0,
-                          useGoogleFonts: GoogleFonts.asMap().containsKey(
-                              FlutterFlowTheme.of(context).bodyText1Family),
-                        ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
-                  child: Text(
-                    valueOrDefault<String>(
-                      widget.promotion!.subtitle,
-                      'null',
-                    ),
-                    style: FlutterFlowTheme.of(context).bodyText1.override(
-                          fontFamily:
-                              FlutterFlowTheme.of(context).bodyText1Family,
-                          fontWeight: FontWeight.normal,
-                          useGoogleFonts: GoogleFonts.asMap().containsKey(
-                              FlutterFlowTheme.of(context).bodyText1Family),
-                        ),
-                  ),
-                ),
-                if (widget.promotion!.moderation ?? true)
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 0.0, 0.0, 0.0),
-                          child: InkWell(
-                            onTap: () async {
-                              final promotionUpdateData =
-                                  createPromotionRecordData(
-                                moderation: false,
-                                top: false,
-                              );
-                              await widget.promotion!.reference
-                                  .update(promotionUpdateData);
-                              Navigator.pop(context);
-                            },
-                            child: Text(
-                              'Отклонить',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Inter',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryColor,
-                                    fontWeight: FontWeight.normal,
-                                    useGoogleFonts: GoogleFonts.asMap()
-                                        .containsKey(
-                                            FlutterFlowTheme.of(context)
-                                                .bodyText1Family),
-                                  ),
+                                );
+                              },
                             ),
-                          ),
+                          ],
                         ),
-                        FutureBuilder<int>(
-                          future: queryPromotionRecordCount(
-                            queryBuilder: (promotionRecord) => promotionRecord
-                                .where('top', isEqualTo: true)
-                                .where('city_link',
-                                    isEqualTo:
-                                        FFAppState().superAdminSelectedCity),
-                          ),
-                          builder: (context, snapshot) {
-                            // Customize what your widget looks like when it's loading.
-                            if (!snapshot.hasData) {
-                              return Center(
-                                child: SizedBox(
-                                  width: 50.0,
-                                  height: 50.0,
-                                  child: CircularProgressIndicator(
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryColor,
-                                  ),
-                                ),
-                              );
-                            }
-                            int buttonCount = snapshot.data!;
-                            return FFButtonWidget(
-                              onPressed: () async {
-                                if (buttonCount < 3) {
-                                  final promotionUpdateData =
-                                      createPromotionRecordData(
-                                    moderation: false,
-                                    top: true,
-                                  );
-                                  await widget.promotion!.reference
-                                      .update(promotionUpdateData);
-                                  Navigator.pop(context);
-                                } else {
-                                  await showDialog(
-                                    context: context,
-                                    builder: (alertDialogContext) {
-                                      return AlertDialog(
-                                        title: Text(
-                                            'нельзя добавить больше 3 акции'),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      );
-                                    },
+                      ),
+                    if (columnPromotionRecord.top ?? true)
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            FutureBuilder<int>(
+                              future: queryPromotionRecordCount(
+                                queryBuilder: (promotionRecord) =>
+                                    promotionRecord
+                                        .where('top', isEqualTo: true)
+                                        .where('city_link',
+                                            isEqualTo: FFAppState()
+                                                .superAdminSelectedCity),
+                              ),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 50.0,
+                                      height: 50.0,
+                                      child: CircularProgressIndicator(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryColor,
+                                      ),
+                                    ),
                                   );
                                 }
-                              },
-                              text: 'Продвинуть ',
-                              options: FFButtonOptions(
-                                width: 118.0,
-                                height: 40.0,
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                color:
-                                    FlutterFlowTheme.of(context).primaryColor,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .subtitle2
-                                    .override(
-                                      fontFamily: FlutterFlowTheme.of(context)
-                                          .subtitle2Family,
-                                      color: Colors.white,
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.normal,
-                                      useGoogleFonts: GoogleFonts.asMap()
-                                          .containsKey(
+                                int buttonCount = snapshot.data!;
+                                return FFButtonWidget(
+                                  onPressed: () async {
+                                    final promotionUpdateData =
+                                        createPromotionRecordData(
+                                      moderation: false,
+                                      top: false,
+                                    );
+                                    await widget.promotion!
+                                        .update(promotionUpdateData);
+                                  },
+                                  text: 'Убрать из топа',
+                                  options: FFButtonOptions(
+                                    width: 118.0,
+                                    height: 40.0,
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .subtitle2
+                                        .override(
+                                          fontFamily:
                                               FlutterFlowTheme.of(context)
-                                                  .subtitle2Family),
+                                                  .subtitle2Family,
+                                          color:
+                                              FlutterFlowTheme.of(context).red1,
+                                          fontSize: 14.0,
+                                          fontWeight: FontWeight.normal,
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey(
+                                                  FlutterFlowTheme.of(context)
+                                                      .subtitle2Family),
+                                        ),
+                                    elevation: 0.0,
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context).red1,
+                                      width: 1.0,
                                     ),
-                                elevation: 0.0,
-                                borderSide: BorderSide(
-                                  color: Colors.transparent,
-                                  width: 1.0,
-                                ),
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                            );
-                          },
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                );
+                              },
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
-                  ),
-              ],
+                      ),
+                  ],
+                );
+              },
             ),
           ),
         ),

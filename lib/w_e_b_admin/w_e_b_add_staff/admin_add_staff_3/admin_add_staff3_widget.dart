@@ -1893,13 +1893,8 @@ class _AdminAddStaff3WidgetState extends State<AdminAddStaff3Widget> {
                                         widget.email!,
                                         widget.password!,
                                       );
-
-                                      final companyDocumentUpdateData = {
-                                        'company_users': FieldValue.arrayUnion(
-                                            [_model.newUser]),
-                                      };
-                                      await widget.companyDocument!.reference
-                                          .update(companyDocumentUpdateData);
+                                      await Future.delayed(
+                                          const Duration(milliseconds: 1000));
 
                                       final userUpdateData =
                                           createUserRecordData(
@@ -1912,6 +1907,13 @@ class _AdminAddStaff3WidgetState extends State<AdminAddStaff3Widget> {
                                       );
                                       await _model.newUser!
                                           .update(userUpdateData);
+
+                                      final companyDocumentUpdateData = {
+                                        'company_users': FieldValue.arrayUnion(
+                                            [_model.newUser]),
+                                      };
+                                      await widget.companyDocument!.reference
+                                          .update(companyDocumentUpdateData);
 
                                       context.goNamed(
                                         'admin_office',

@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_charts.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -282,55 +283,200 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                           ),
                                         ),
                                         Expanded(
-                                          child: Align(
-                                            alignment:
-                                                AlignmentDirectional(1.0, 0.0),
-                                            child: FFButtonWidget(
-                                              onPressed: () {
-                                                print('Button pressed ...');
-                                              },
-                                              text: 'Скачать отчет в Excel',
-                                              icon: Icon(
-                                                FFIcons.kicDownload,
-                                                size: 22.0,
-                                              ),
-                                              options: FFButtonOptions(
-                                                width: 207.0,
-                                                height: 40.0,
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 0.0, 0.0, 0.0),
-                                                iconPadding:
-                                                    EdgeInsetsDirectional
-                                                        .fromSTEB(
-                                                            0.0, 0.0, 0.0, 0.0),
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryColor,
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .subtitle2
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          color: Colors.white,
-                                                          fontSize: 14.0,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .subtitle2Family),
-                                                        ),
-                                                borderSide: BorderSide(
-                                                  color: Colors.transparent,
-                                                  width: 1.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                              ),
+                                          child: FutureBuilder<int>(
+                                            future: queryCompaniesRecordCount(
+                                              queryBuilder: (companiesRecord) =>
+                                                  companiesRecord.where(
+                                                      'status',
+                                                      isNotEqualTo:
+                                                          'Модерация'),
                                             ),
+                                            builder: (context, snapshot) {
+                                              // Customize what your widget looks like when it's loading.
+                                              if (!snapshot.hasData) {
+                                                return Center(
+                                                  child: SizedBox(
+                                                    width: 50.0,
+                                                    height: 50.0,
+                                                    child:
+                                                        CircularProgressIndicator(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryColor,
+                                                    ),
+                                                  ),
+                                                );
+                                              }
+                                              int containerCount =
+                                                  snapshot.data!;
+                                              return Container(
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                ),
+                                                child: StreamBuilder<
+                                                    List<BookingsRecord>>(
+                                                  stream: queryBookingsRecord(
+                                                    queryBuilder: (bookingsRecord) => bookingsRecord
+                                                        .where('booked_date',
+                                                            isGreaterThanOrEqualTo:
+                                                                FFAppState()
+                                                                    .WEBFilterStartDate)
+                                                        .where('booked_date',
+                                                            isLessThanOrEqualTo:
+                                                                FFAppState()
+                                                                    .WEBFilterEndDate)
+                                                        .where('status',
+                                                            isEqualTo:
+                                                                'Закончено'),
+                                                  ),
+                                                  builder: (context, snapshot) {
+                                                    // Customize what your widget looks like when it's loading.
+                                                    if (!snapshot.hasData) {
+                                                      return Center(
+                                                        child: SizedBox(
+                                                          width: 50.0,
+                                                          height: 50.0,
+                                                          child:
+                                                              CircularProgressIndicator(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryColor,
+                                                          ),
+                                                        ),
+                                                      );
+                                                    }
+                                                    List<BookingsRecord>
+                                                        containerBookingsRecordList =
+                                                        snapshot.data!;
+                                                    return Container(
+                                                      decoration: BoxDecoration(
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                      ),
+                                                      child: Align(
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                1.0, 0.0),
+                                                        child: FFButtonWidget(
+                                                          onPressed: () async {
+                                                            await actions
+                                                                .excellOutputAnalytics(
+                                                              valueOrDefault<
+                                                                  String>(
+                                                                functions
+                                                                    .oborot(containerBookingsRecordList
+                                                                        .toList())
+                                                                    .toString(),
+                                                                '0',
+                                                              ),
+                                                              containerBookingsRecordList
+                                                                  .length
+                                                                  .toString(),
+                                                              valueOrDefault<
+                                                                  String>(
+                                                                functions.averageCheque(
+                                                                    containerBookingsRecordList
+                                                                        .toList()),
+                                                                '0',
+                                                              ),
+                                                              valueOrDefault<
+                                                                  String>(
+                                                                functions.oborotForCarPrecent(
+                                                                    containerBookingsRecordList
+                                                                        .toList()),
+                                                                '0',
+                                                              ),
+                                                              valueOrDefault<
+                                                                  String>(
+                                                                functions.oborotName(
+                                                                    containerBookingsRecordList
+                                                                        .toList()),
+                                                                ' ₸',
+                                                              ),
+                                                              valueOrDefault<
+                                                                  String>(
+                                                                functions.averageChequeName(
+                                                                    containerBookingsRecordList
+                                                                        .toList()),
+                                                                ' ₸',
+                                                              ),
+                                                              valueOrDefault<
+                                                                  String>(
+                                                                functions.oborotForCarPrecentName(
+                                                                    containerBookingsRecordList
+                                                                        .toList()),
+                                                                ' ₸',
+                                                              ),
+                                                            );
+                                                          },
+                                                          text:
+                                                              'Скачать отчет в Excel',
+                                                          icon: Icon(
+                                                            FFIcons.kicDownload,
+                                                            size: 22.0,
+                                                          ),
+                                                          options:
+                                                              FFButtonOptions(
+                                                            width: 207.0,
+                                                            height: 40.0,
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            iconPadding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryColor,
+                                                            textStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .subtitle2
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Inter',
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontSize:
+                                                                          14.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .normal,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              FlutterFlowTheme.of(context).subtitle2Family),
+                                                                    ),
+                                                            borderSide:
+                                                                BorderSide(
+                                                              color: Colors
+                                                                  .transparent,
+                                                              width: 1.0,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    );
+                                                  },
+                                                ),
+                                              );
+                                            },
                                           ),
                                         ),
                                       ],

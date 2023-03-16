@@ -2407,7 +2407,10 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                             Padding(
                                                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                                                                                                               child: Text(
-                                                                                                                wrapPromotionRecord.subtitle!,
+                                                                                                                wrapPromotionRecord.subtitle!.maybeHandleOverflow(
+                                                                                                                  maxChars: 50,
+                                                                                                                  replacement: '…',
+                                                                                                                ),
                                                                                                                 style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                                       fontFamily: 'Inter',
                                                                                                                       fontWeight: FontWeight.normal,
@@ -2450,7 +2453,7 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                                           return Padding(
                                                                                                                             padding: MediaQuery.of(context).viewInsets,
                                                                                                                             child: AdminSalesDetailsWidget(
-                                                                                                                              promotion: wrapPromotionRecord,
+                                                                                                                              promotion: wrapPromotionRecord.reference,
                                                                                                                               company: containerCompanyDocumentRecord!.reference,
                                                                                                                             ),
                                                                                                                           );
@@ -2657,7 +2660,10 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                             Padding(
                                                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                                                                                                               child: Text(
-                                                                                                                wrapPromotionRecord.subtitle!,
+                                                                                                                wrapPromotionRecord.subtitle!.maybeHandleOverflow(
+                                                                                                                  maxChars: 50,
+                                                                                                                  replacement: '…',
+                                                                                                                ),
                                                                                                                 style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                                       fontFamily: 'Inter',
                                                                                                                       fontWeight: FontWeight.normal,
@@ -2698,7 +2704,7 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                                           return Padding(
                                                                                                                             padding: MediaQuery.of(context).viewInsets,
                                                                                                                             child: AdminSalesDetailsWidget(
-                                                                                                                              promotion: wrapPromotionRecord,
+                                                                                                                              promotion: wrapPromotionRecord.reference,
                                                                                                                               company: containerCompanyDocumentRecord!.reference,
                                                                                                                             ),
                                                                                                                           );
@@ -2891,7 +2897,10 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                             Padding(
                                                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                                                                                                               child: Text(
-                                                                                                                wrapPromotionRecord.subtitle!,
+                                                                                                                wrapPromotionRecord.subtitle!.maybeHandleOverflow(
+                                                                                                                  maxChars: 50,
+                                                                                                                  replacement: '…',
+                                                                                                                ),
                                                                                                                 style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                                       fontFamily: 'Inter',
                                                                                                                       fontWeight: FontWeight.normal,
@@ -2933,7 +2942,7 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                                           return Padding(
                                                                                                                             padding: MediaQuery.of(context).viewInsets,
                                                                                                                             child: AdminSalesDetailsWidget(
-                                                                                                                              promotion: wrapPromotionRecord,
+                                                                                                                              promotion: wrapPromotionRecord.reference,
                                                                                                                               company: containerCompanyDocumentRecord!.reference,
                                                                                                                             ),
                                                                                                                           );

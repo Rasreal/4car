@@ -11,7 +11,6 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
 import 'super_admin_main_model.dart';
 export 'super_admin_main_model.dart';
@@ -492,33 +491,58 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                             MainAxisAlignment
                                                                 .spaceBetween,
                                                         children: [
-                                                          Text(
-                                                            '${valueOrDefault<String>(
-                                                              containerCancelBookingCount
-                                                                  .toString(),
-                                                              '0',
-                                                            )} отменых записи',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyText1
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Open Sans',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .red1,
-                                                                  fontSize:
-                                                                      16.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyText1Family),
-                                                                ),
-                                                          ),
+                                                          if (containerCancelBookingCount ==
+                                                              0)
+                                                            Text(
+                                                              'Нет отмененных записей',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyText1
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Open Sans',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .red1,
+                                                                    fontSize:
+                                                                        16.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .normal,
+                                                                    useGoogleFonts: GoogleFonts
+                                                                            .asMap()
+                                                                        .containsKey(
+                                                                            FlutterFlowTheme.of(context).bodyText1Family),
+                                                                  ),
+                                                            ),
+                                                          if (containerCancelBookingCount !=
+                                                              0)
+                                                            Text(
+                                                              '${valueOrDefault<String>(
+                                                                containerCancelBookingCount
+                                                                    .toString(),
+                                                                '0',
+                                                              )}Отмененные записи',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyText1
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Open Sans',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .red1,
+                                                                    fontSize:
+                                                                        16.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .normal,
+                                                                    useGoogleFonts: GoogleFonts
+                                                                            .asMap()
+                                                                        .containsKey(
+                                                                            FlutterFlowTheme.of(context).bodyText1Family),
+                                                                  ),
+                                                            ),
                                                           InkWell(
                                                             onTap: () async {
                                                               context.pushNamed(
@@ -1787,404 +1811,231 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                   thickness: 1.0,
                                                   color: Color(0xFFEEEEEE),
                                                 ),
-                                                PagedListView<
-                                                    DocumentSnapshot<Object?>?,
-                                                    CompaniesRecord>(
-                                                  pagingController: () {
-                                                    final Query<Object?> Function(
-                                                            Query<Object?>)
-                                                        queryBuilder =
-                                                        (companiesRecord) => companiesRecord
-                                                            .where('status',
-                                                                isNotEqualTo:
-                                                                    'new')
-                                                            .where('link_city',
-                                                                isEqualTo:
-                                                                    FFAppState()
-                                                                        .WEBfilterSelectCity)
-                                                            .where('status',
-                                                                isEqualTo: FFAppState()
-                                                                            .WEBFilterCompanyStatus !=
-                                                                        ''
-                                                                    ? FFAppState()
-                                                                        .WEBFilterCompanyStatus
-                                                                    : null);
-                                                    if (_model
-                                                            .pagingController !=
-                                                        null) {
-                                                      final query =
-                                                          queryBuilder(
-                                                              CompaniesRecord
-                                                                  .collection);
-                                                      if (query !=
-                                                          _model.pagingQuery) {
-                                                        // The query has changed
-                                                        _model.pagingQuery =
-                                                            query;
-                                                        _model
-                                                            .streamSubscriptions
-                                                            .forEach((s) =>
-                                                                s?.cancel());
-                                                        _model
-                                                            .streamSubscriptions
-                                                            .clear();
-                                                        _model.pagingController!
-                                                            .refresh();
-                                                      }
-                                                      return _model
-                                                          .pagingController!;
-                                                    }
-
-                                                    _model.pagingController =
-                                                        PagingController(
-                                                            firstPageKey: null);
-                                                    _model.pagingQuery =
-                                                        queryBuilder(
-                                                            CompaniesRecord
-                                                                .collection);
-                                                    _model.pagingController!
-                                                        .addPageRequestListener(
-                                                            (nextPageMarker) {
-                                                      queryCompaniesRecordPage(
-                                                        queryBuilder: (companiesRecord) => companiesRecord
-                                                            .where('status',
-                                                                isNotEqualTo:
-                                                                    'new')
-                                                            .where('link_city',
-                                                                isEqualTo:
-                                                                    FFAppState()
-                                                                        .WEBfilterSelectCity)
-                                                            .where('status',
-                                                                isEqualTo: FFAppState()
-                                                                            .WEBFilterCompanyStatus !=
-                                                                        ''
-                                                                    ? FFAppState()
-                                                                        .WEBFilterCompanyStatus
-                                                                    : null),
-                                                        nextPageMarker:
-                                                            nextPageMarker,
-                                                        pageSize: 25,
-                                                        isStream: true,
-                                                      ).then((page) {
-                                                        _model.pagingController!
-                                                            .appendPage(
-                                                          page.data,
-                                                          page.nextPageMarker,
-                                                        );
-                                                        final streamSubscription =
-                                                            page.dataStream
-                                                                ?.listen(
-                                                                    (data) {
-                                                          data.forEach((item) {
-                                                            final itemIndexes = _model
-                                                                .pagingController!
-                                                                .itemList!
-                                                                .asMap()
-                                                                .map((k, v) =>
-                                                                    MapEntry(
-                                                                        v.reference
-                                                                            .id,
-                                                                        k));
-                                                            final index =
-                                                                itemIndexes[item
-                                                                    .reference
-                                                                    .id];
-                                                            final items = _model
-                                                                .pagingController!
-                                                                .itemList!;
-                                                            if (index != null) {
-                                                              items
-                                                                  .replaceRange(
-                                                                      index,
-                                                                      index + 1,
-                                                                      [item]);
-                                                              _model
-                                                                  .pagingController!
-                                                                  .itemList = {
-                                                                for (var item
-                                                                    in items)
-                                                                  item.reference:
-                                                                      item
-                                                              }.values.toList();
-                                                            }
-                                                          });
-                                                          setState(() {});
-                                                        });
-                                                        _model
-                                                            .streamSubscriptions
-                                                            .add(
-                                                                streamSubscription);
-                                                      });
-                                                    });
-                                                    return _model
-                                                        .pagingController!;
-                                                  }(),
-                                                  padding: EdgeInsets.zero,
-                                                  shrinkWrap: true,
-                                                  scrollDirection:
-                                                      Axis.vertical,
-                                                  builderDelegate:
-                                                      PagedChildBuilderDelegate<
-                                                          CompaniesRecord>(
-                                                    // Customize what your widget looks like when it's loading the first page.
-                                                    firstPageProgressIndicatorBuilder:
-                                                        (_) => Center(
-                                                      child: SizedBox(
-                                                        width: 40.0,
-                                                        height: 40.0,
-                                                        child:
-                                                            CircularProgressIndicator(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryBackground,
+                                                FutureBuilder<
+                                                    List<CompaniesRecord>>(
+                                                  future:
+                                                      queryCompaniesRecordOnce(
+                                                    queryBuilder: (companiesRecord) => companiesRecord
+                                                        .where('status',
+                                                            isNotEqualTo: 'new')
+                                                        .where('link_city',
+                                                            isEqualTo: FFAppState()
+                                                                .WEBfilterSelectCity)
+                                                        .where('status',
+                                                            isEqualTo: FFAppState()
+                                                                        .WEBFilterCompanyStatus !=
+                                                                    ''
+                                                                ? FFAppState()
+                                                                    .WEBFilterCompanyStatus
+                                                                : null),
+                                                  ),
+                                                  builder: (context, snapshot) {
+                                                    // Customize what your widget looks like when it's loading.
+                                                    if (!snapshot.hasData) {
+                                                      return Center(
+                                                        child: SizedBox(
+                                                          width: 40.0,
+                                                          height: 40.0,
+                                                          child:
+                                                              CircularProgressIndicator(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryBackground,
+                                                          ),
                                                         ),
-                                                      ),
-                                                    ),
-
-                                                    itemBuilder: (context, _,
-                                                        listViewIndex) {
-                                                      final listViewCompaniesRecord =
-                                                          _model.pagingController!
-                                                                  .itemList![
-                                                              listViewIndex];
-                                                      return Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        16.0,
-                                                                        0.0,
-                                                                        16.0),
-                                                            child: Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                Expanded(
-                                                                  flex: 5,
-                                                                  child: Text(
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                      listViewCompaniesRecord
-                                                                          .numDogovor,
-                                                                      'null',
-                                                                    ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyText1
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Inter',
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).gray2,
-                                                                          fontWeight:
-                                                                              FontWeight.normal,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
-                                                                        ),
-                                                                  ),
-                                                                ),
-                                                                Expanded(
-                                                                  flex: 10,
-                                                                  child: Text(
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                      listViewCompaniesRecord
-                                                                          .name,
-                                                                      'null',
-                                                                    ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyText1
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Inter',
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primaryText,
-                                                                          fontWeight:
-                                                                              FontWeight.normal,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
-                                                                        ),
-                                                                  ),
-                                                                ),
-                                                                Expanded(
-                                                                  flex: 6,
-                                                                  child: Text(
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                      listViewCompaniesRecord
-                                                                          .city,
-                                                                      'Нет информации',
-                                                                    ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyText1
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Inter',
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primaryText,
-                                                                          fontWeight:
-                                                                              FontWeight.normal,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
-                                                                        ),
-                                                                  ),
-                                                                ),
-                                                                Expanded(
-                                                                  flex: 11,
-                                                                  child: Text(
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                      listViewCompaniesRecord
-                                                                          .street,
-                                                                      'Нет информации',
-                                                                    ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyText1
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Inter',
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primaryText,
-                                                                          fontWeight:
-                                                                              FontWeight.normal,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
-                                                                        ),
-                                                                  ),
-                                                                ),
-                                                                Expanded(
-                                                                  flex: 6,
-                                                                  child: Text(
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                      listViewCompaniesRecord
-                                                                          .countBox
-                                                                          ?.toString(),
-                                                                      'Нет информации',
-                                                                    ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyText1
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Inter',
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primaryText,
-                                                                          fontWeight:
-                                                                              FontWeight.normal,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
-                                                                        ),
-                                                                  ),
-                                                                ),
-                                                                Expanded(
-                                                                  flex: 6,
-                                                                  child:
-                                                                      FutureBuilder<
-                                                                          int>(
-                                                                    future:
-                                                                        queryBookingsRecordCount(
-                                                                      queryBuilder: (bookingsRecord) => bookingsRecord
-                                                                          .where(
-                                                                              'booked_company',
-                                                                              isEqualTo: listViewCompaniesRecord
-                                                                                  .reference)
-                                                                          .where(
-                                                                              'status',
-                                                                              isEqualTo: 'Закончено'),
-                                                                    ),
-                                                                    builder:
-                                                                        (context,
-                                                                            snapshot) {
-                                                                      // Customize what your widget looks like when it's loading.
-                                                                      if (!snapshot
-                                                                          .hasData) {
-                                                                        return Center(
-                                                                          child:
-                                                                              SizedBox(
-                                                                            width:
-                                                                                50.0,
-                                                                            height:
-                                                                                50.0,
-                                                                            child:
-                                                                                CircularProgressIndicator(
-                                                                              color: FlutterFlowTheme.of(context).primaryColor,
-                                                                            ),
-                                                                          ),
-                                                                        );
-                                                                      }
-                                                                      int textCount =
-                                                                          snapshot
-                                                                              .data!;
-                                                                      return Text(
-                                                                        valueOrDefault<
-                                                                            String>(
-                                                                          textCount
-                                                                              .toString(),
-                                                                          '0',
-                                                                        ),
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyText1
-                                                                            .override(
-                                                                              fontFamily: 'Inter',
-                                                                              color: FlutterFlowTheme.of(context).primaryText,
-                                                                              fontWeight: FontWeight.normal,
-                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
-                                                                            ),
-                                                                      );
-                                                                    },
-                                                                  ),
-                                                                ),
-                                                                Expanded(
-                                                                  flex: 6,
-                                                                  child: Row(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    children: [
-                                                                      Container(
-                                                                        width:
-                                                                            8.0,
-                                                                        height:
-                                                                            8.0,
-                                                                        decoration:
-                                                                            BoxDecoration(
-                                                                          color:
-                                                                              () {
-                                                                            if (listViewCompaniesRecord.status ==
-                                                                                'Активно') {
-                                                                              return FlutterFlowTheme.of(context).green;
-                                                                            } else if (listViewCompaniesRecord.status ==
-                                                                                'Неактивна') {
-                                                                              return FlutterFlowTheme.of(context).red1;
-                                                                            } else {
-                                                                              return FlutterFlowTheme.of(context).primaryText;
-                                                                            }
-                                                                          }(),
-                                                                          shape:
-                                                                              BoxShape.circle,
-                                                                        ),
+                                                      );
+                                                    }
+                                                    List<CompaniesRecord>
+                                                        listViewCompaniesRecordList =
+                                                        snapshot.data!;
+                                                    return ListView.builder(
+                                                      padding: EdgeInsets.zero,
+                                                      primary: false,
+                                                      shrinkWrap: true,
+                                                      scrollDirection:
+                                                          Axis.vertical,
+                                                      itemCount:
+                                                          listViewCompaniesRecordList
+                                                              .length,
+                                                      itemBuilder: (context,
+                                                          listViewIndex) {
+                                                        final listViewCompaniesRecord =
+                                                            listViewCompaniesRecordList[
+                                                                listViewIndex];
+                                                        return Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          16.0,
+                                                                          0.0,
+                                                                          16.0),
+                                                              child: Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  Expanded(
+                                                                    flex: 5,
+                                                                    child: Text(
+                                                                      valueOrDefault<
+                                                                          String>(
+                                                                        listViewCompaniesRecord
+                                                                            .numDogovor,
+                                                                        'null',
                                                                       ),
-                                                                      Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            8.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            Text(
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyText1
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Inter',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).gray2,
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                            useGoogleFonts:
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                          ),
+                                                                    ),
+                                                                  ),
+                                                                  Expanded(
+                                                                    flex: 10,
+                                                                    child: Text(
+                                                                      valueOrDefault<
+                                                                          String>(
+                                                                        listViewCompaniesRecord
+                                                                            .name,
+                                                                        'null',
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyText1
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Inter',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primaryText,
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                            useGoogleFonts:
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                          ),
+                                                                    ),
+                                                                  ),
+                                                                  Expanded(
+                                                                    flex: 6,
+                                                                    child: Text(
+                                                                      valueOrDefault<
+                                                                          String>(
+                                                                        listViewCompaniesRecord
+                                                                            .city,
+                                                                        'Нет информации',
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyText1
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Inter',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primaryText,
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                            useGoogleFonts:
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                          ),
+                                                                    ),
+                                                                  ),
+                                                                  Expanded(
+                                                                    flex: 11,
+                                                                    child: Text(
+                                                                      valueOrDefault<
+                                                                          String>(
+                                                                        listViewCompaniesRecord
+                                                                            .street,
+                                                                        'Нет информации',
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyText1
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Inter',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primaryText,
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                            useGoogleFonts:
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                          ),
+                                                                    ),
+                                                                  ),
+                                                                  Expanded(
+                                                                    flex: 6,
+                                                                    child: Text(
+                                                                      valueOrDefault<
+                                                                          String>(
+                                                                        listViewCompaniesRecord
+                                                                            .countBox
+                                                                            ?.toString(),
+                                                                        'Нет информации',
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyText1
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Inter',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primaryText,
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                            useGoogleFonts:
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                          ),
+                                                                    ),
+                                                                  ),
+                                                                  Expanded(
+                                                                    flex: 6,
+                                                                    child:
+                                                                        FutureBuilder<
+                                                                            int>(
+                                                                      future:
+                                                                          queryBookingsRecordCount(
+                                                                        queryBuilder: (bookingsRecord) => bookingsRecord.where('booked_company', isEqualTo: listViewCompaniesRecord.reference).where(
+                                                                            'status',
+                                                                            isEqualTo:
+                                                                                'Закончено'),
+                                                                      ),
+                                                                      builder:
+                                                                          (context,
+                                                                              snapshot) {
+                                                                        // Customize what your widget looks like when it's loading.
+                                                                        if (!snapshot
+                                                                            .hasData) {
+                                                                          return Center(
+                                                                            child:
+                                                                                SizedBox(
+                                                                              width: 50.0,
+                                                                              height: 50.0,
+                                                                              child: CircularProgressIndicator(
+                                                                                color: FlutterFlowTheme.of(context).primaryColor,
+                                                                              ),
+                                                                            ),
+                                                                          );
+                                                                        }
+                                                                        int textCount =
+                                                                            snapshot.data!;
+                                                                        return Text(
                                                                           valueOrDefault<
                                                                               String>(
-                                                                            listViewCompaniesRecord.status,
-                                                                            'null',
+                                                                            textCount.toString(),
+                                                                            '0',
                                                                           ),
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyText1
@@ -2194,92 +2045,139 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                                 fontWeight: FontWeight.normal,
                                                                                 useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                               ),
-                                                                        ),
-                                                                      ),
-                                                                    ],
-                                                                  ),
-                                                                ),
-                                                                FFButtonWidget(
-                                                                  onPressed:
-                                                                      () async {
-                                                                    context
-                                                                        .pushNamed(
-                                                                      'super_admin_current_company',
-                                                                      queryParams:
-                                                                          {
-                                                                        'currentCompany':
-                                                                            serializeParam(
-                                                                          listViewCompaniesRecord
-                                                                              .reference,
-                                                                          ParamType
-                                                                              .DocumentReference,
-                                                                        ),
-                                                                      }.withoutNulls,
-                                                                    );
-                                                                  },
-                                                                  text:
-                                                                      'Подробнее',
-                                                                  options:
-                                                                      FFButtonOptions(
-                                                                    width:
-                                                                        130.0,
-                                                                    height:
-                                                                        40.0,
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                    iconPadding:
-                                                                        EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .starblue,
-                                                                    textStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .subtitle2
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).subtitle2Family,
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primaryText,
-                                                                          fontSize:
-                                                                              14.0,
-                                                                          fontWeight:
-                                                                              FontWeight.w500,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
-                                                                        ),
-                                                                    elevation:
-                                                                        0.0,
-                                                                    borderSide:
-                                                                        BorderSide(
-                                                                      color: Colors
-                                                                          .transparent,
+                                                                        );
+                                                                      },
                                                                     ),
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            8.0),
                                                                   ),
-                                                                ),
-                                                              ],
+                                                                  Expanded(
+                                                                    flex: 6,
+                                                                    child: Row(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      children: [
+                                                                        Container(
+                                                                          width:
+                                                                              8.0,
+                                                                          height:
+                                                                              8.0,
+                                                                          decoration:
+                                                                              BoxDecoration(
+                                                                            color:
+                                                                                () {
+                                                                              if (listViewCompaniesRecord.status == 'Активно') {
+                                                                                return FlutterFlowTheme.of(context).green;
+                                                                              } else if (listViewCompaniesRecord.status == 'Неактивна') {
+                                                                                return FlutterFlowTheme.of(context).red1;
+                                                                              } else {
+                                                                                return FlutterFlowTheme.of(context).primaryText;
+                                                                              }
+                                                                            }(),
+                                                                            shape:
+                                                                                BoxShape.circle,
+                                                                          ),
+                                                                        ),
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              8.0,
+                                                                              0.0,
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Text(
+                                                                            valueOrDefault<String>(
+                                                                              listViewCompaniesRecord.status,
+                                                                              'null',
+                                                                            ),
+                                                                            style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                  fontFamily: 'Inter',
+                                                                                  color: FlutterFlowTheme.of(context).primaryText,
+                                                                                  fontWeight: FontWeight.normal,
+                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                ),
+                                                                          ),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  ),
+                                                                  FFButtonWidget(
+                                                                    onPressed:
+                                                                        () async {
+                                                                      context
+                                                                          .pushNamed(
+                                                                        'super_admin_current_company',
+                                                                        queryParams:
+                                                                            {
+                                                                          'currentCompany':
+                                                                              serializeParam(
+                                                                            listViewCompaniesRecord.reference,
+                                                                            ParamType.DocumentReference,
+                                                                          ),
+                                                                        }.withoutNulls,
+                                                                      );
+                                                                    },
+                                                                    text:
+                                                                        'Подробнее',
+                                                                    options:
+                                                                        FFButtonOptions(
+                                                                      width:
+                                                                          130.0,
+                                                                      height:
+                                                                          40.0,
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                      iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .starblue,
+                                                                      textStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .subtitle2
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                FlutterFlowTheme.of(context).subtitle2Family,
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primaryText,
+                                                                            fontSize:
+                                                                                14.0,
+                                                                            fontWeight:
+                                                                                FontWeight.w500,
+                                                                            useGoogleFonts:
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
+                                                                          ),
+                                                                      elevation:
+                                                                          0.0,
+                                                                      borderSide:
+                                                                          BorderSide(
+                                                                        color: Colors
+                                                                            .transparent,
+                                                                      ),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              8.0),
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
                                                             ),
-                                                          ),
-                                                          Divider(
-                                                            height: 1.0,
-                                                            thickness: 1.0,
-                                                            color: Color(
-                                                                0xFFEEEEEE),
-                                                          ),
-                                                        ],
-                                                      );
-                                                    },
-                                                  ),
+                                                            Divider(
+                                                              height: 1.0,
+                                                              thickness: 1.0,
+                                                              color: Color(
+                                                                  0xFFEEEEEE),
+                                                            ),
+                                                          ],
+                                                        );
+                                                      },
+                                                    );
+                                                  },
                                                 ),
                                               ],
                                             ),
