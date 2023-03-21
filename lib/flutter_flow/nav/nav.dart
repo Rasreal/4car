@@ -418,7 +418,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
-      urlPathStrategy: UrlPathStrategy.path,
+      //urlPathStrategy: UrlPathStrategy.path,
+
     );
 
 extension NavParamExtensions on Map<String, String?> {
@@ -467,7 +468,7 @@ extension NavigationExtensions on BuildContext {
   void safePop() {
     // If there is only one route on the stack, navigate to the initial
     // page instead of popping.
-    if (GoRouter.of(this).routerDelegate.matches.length <= 1) {
+    if (GoRouter.of(this).routerDelegate.matches.isEmpty) {
       go('/');
     } else {
       pop();
@@ -477,7 +478,7 @@ extension NavigationExtensions on BuildContext {
 
 extension GoRouterExtensions on GoRouter {
   AppStateNotifier get appState =>
-      (routerDelegate.refreshListenable as AppStateNotifier);
+      (routerDelegate as AppStateNotifier);
   void prepareAuthEvent([bool ignoreRedirect = false]) =>
       appState.hasRedirect() && !ignoreRedirect
           ? null
@@ -485,7 +486,7 @@ extension GoRouterExtensions on GoRouter {
   bool shouldRedirect(bool ignoreRedirect) =>
       !ignoreRedirect && appState.hasRedirect();
   void setRedirectLocationIfUnset(String location) =>
-      (routerDelegate.refreshListenable as AppStateNotifier)
+      (routerDelegate as AppStateNotifier)
           .updateNotifyOnAuthChange(false);
 }
 
@@ -574,15 +575,15 @@ class FFRoute {
   GoRoute toRoute(AppStateNotifier appStateNotifier) => GoRoute(
         name: name,
         path: path,
-        redirect: (state) {
+        redirect: (state,context) async {
           if (appStateNotifier.shouldRedirect) {
-            final redirectLocation = appStateNotifier.getRedirectLocation();
+            final redirectLocation = await appStateNotifier.getRedirectLocation();
             appStateNotifier.clearRedirectLocation();
             return redirectLocation;
           }
 
           if (requireAuth && !appStateNotifier.loggedIn) {
-            appStateNotifier.setRedirectLocationIfUnset(state.location);
+            appStateNotifier.setRedirectLocationIfUnset(state.namedLocation(name));
             return '/adminSignInEmail';
           }
           return null;
