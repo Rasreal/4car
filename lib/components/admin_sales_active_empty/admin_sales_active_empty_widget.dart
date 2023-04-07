@@ -67,7 +67,7 @@ class _AdminSalesActiveEmptyWidgetState
                 ),
                 child: Icon(
                   FFIcons.kicPromotions,
-                  color: FlutterFlowTheme.of(context).primaryColor,
+                  color: FlutterFlowTheme.of(context).primary,
                   size: 24.0,
                 ),
               ),
@@ -76,23 +76,23 @@ class _AdminSalesActiveEmptyWidgetState
               padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
               child: Text(
                 'Нет активных акций',
-                style: FlutterFlowTheme.of(context).bodyText1.override(
+                style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Inter',
                       fontWeight: FontWeight.w500,
                       useGoogleFonts: GoogleFonts.asMap().containsKey(
-                          FlutterFlowTheme.of(context).bodyText1Family),
+                          FlutterFlowTheme.of(context).bodyMediumFamily),
                     ),
               ),
             ),
             Text(
               'Чтобы добавить новую акцию\n нажмите на кнопку “Добавить”',
               textAlign: TextAlign.center,
-              style: FlutterFlowTheme.of(context).bodyText1.override(
+              style: FlutterFlowTheme.of(context).bodyMedium.override(
                     fontFamily: 'Inter',
                     color: FlutterFlowTheme.of(context).gray2,
                     fontWeight: FontWeight.normal,
                     useGoogleFonts: GoogleFonts.asMap().containsKey(
-                        FlutterFlowTheme.of(context).bodyText1Family),
+                        FlutterFlowTheme.of(context).bodyMediumFamily),
                   ),
             ),
           ],

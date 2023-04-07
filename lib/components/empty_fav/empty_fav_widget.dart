@@ -63,11 +63,11 @@ class _EmptyFavWidgetState extends State<EmptyFavWidget> {
               child: Text(
                 'У вас пока нет\nизбранных автомоек',
                 textAlign: TextAlign.center,
-                style: FlutterFlowTheme.of(context).bodyText1.override(
-                      fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                      fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                       fontWeight: FontWeight.w500,
                       useGoogleFonts: GoogleFonts.asMap().containsKey(
-                          FlutterFlowTheme.of(context).bodyText1Family),
+                          FlutterFlowTheme.of(context).bodyMediumFamily),
                     ),
               ),
             ),
@@ -88,14 +88,15 @@ class _EmptyFavWidgetState extends State<EmptyFavWidget> {
                 height: 48.0,
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                 iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                color: FlutterFlowTheme.of(context).primaryColor,
-                textStyle: FlutterFlowTheme.of(context).subtitle2.override(
-                      fontFamily: FlutterFlowTheme.of(context).subtitle2Family,
+                color: FlutterFlowTheme.of(context).primary,
+                textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                      fontFamily: FlutterFlowTheme.of(context).titleSmallFamily,
                       color: Colors.white,
                       fontWeight: FontWeight.w500,
                       useGoogleFonts: GoogleFonts.asMap().containsKey(
-                          FlutterFlowTheme.of(context).subtitle2Family),
+                          FlutterFlowTheme.of(context).titleSmallFamily),
                     ),
+                elevation: 2.0,
                 borderSide: BorderSide(
                   color: Colors.transparent,
                   width: 1.0,

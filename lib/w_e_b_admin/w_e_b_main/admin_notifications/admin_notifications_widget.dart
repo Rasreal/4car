@@ -46,12 +46,12 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+        body: SafeArea(
           child: Stack(
             children: [
               Column(
@@ -115,7 +115,7 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Inter',
@@ -124,7 +124,7 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                     ),
                                                     InkWell(
@@ -158,7 +158,7 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                             'Отменить',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .bodyText1
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Inter',
@@ -171,7 +171,7 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                           .asMap()
                                                                       .containsKey(
                                                                           FlutterFlowTheme.of(context)
-                                                                              .bodyText1Family),
+                                                                              .bodyMediumFamily),
                                                                 ),
                                                           ),
                                                         ],
@@ -201,7 +201,7 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                             CircularProgressIndicator(
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .primaryColor,
+                                                              .primary,
                                                         ),
                                                       ),
                                                     );
@@ -268,7 +268,7 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                         CircularProgressIndicator(
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .primaryColor,
+                                                                          .primary,
                                                                     ),
                                                                   ),
                                                                 );
@@ -355,10 +355,10 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                         listViewCompanyNotificationsRecord.message,
                                                                                         'null',
                                                                                       ),
-                                                                                      style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                            fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                             fontWeight: FontWeight.normal,
-                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                           ),
                                                                                     ),
                                                                                   ),
@@ -379,11 +379,11 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                       listViewCompanyNotificationsRecord.date!,
                                                                                       locale: FFLocalizations.of(context).languageCode,
                                                                                     ),
-                                                                                    style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                          fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                          fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                           color: FlutterFlowTheme.of(context).gray2,
                                                                                           fontWeight: FontWeight.normal,
-                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                         ),
                                                                                   ),
                                                                                 if (dateTimeFormat(
@@ -402,11 +402,11 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                       listViewCompanyNotificationsRecord.date!,
                                                                                       locale: FFLocalizations.of(context).languageCode,
                                                                                     ),
-                                                                                    style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                          fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                          fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                           color: FlutterFlowTheme.of(context).gray2,
                                                                                           fontWeight: FontWeight.normal,
-                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                         ),
                                                                                   ),
                                                                               ],
@@ -462,7 +462,7 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                         CircularProgressIndicator(
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .primaryColor,
+                                                                          .primary,
                                                                     ),
                                                                   ),
                                                                 );
@@ -510,7 +510,7 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                   width: 50.0,
                                                                                   height: 50.0,
                                                                                   child: CircularProgressIndicator(
-                                                                                    color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                    color: FlutterFlowTheme.of(context).primary,
                                                                                   ),
                                                                                 ),
                                                                               );
@@ -531,11 +531,11 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                         containerCompanyNotificationsRecord.date!,
                                                                                         locale: FFLocalizations.of(context).languageCode,
                                                                                       ),
-                                                                                      style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                            fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                             color: Color(0xFFB1B1B1),
                                                                                             fontWeight: FontWeight.normal,
-                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                           ),
                                                                                     ),
                                                                                     Text(
@@ -544,11 +544,11 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                         containerCompanyNotificationsRecord.date!,
                                                                                         locale: FFLocalizations.of(context).languageCode,
                                                                                       ),
-                                                                                      style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                            fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                             color: Color(0xFFB1B1B1),
                                                                                             fontWeight: FontWeight.normal,
-                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                           ),
                                                                                     ),
                                                                                   ],
@@ -557,11 +557,11 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 24.0),
                                                                                   child: Text(
                                                                                     containerCompanyNotificationsRecord.message!,
-                                                                                    style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                          fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                          fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                           fontSize: 16.0,
                                                                                           fontWeight: FontWeight.w500,
-                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                         ),
                                                                                   ),
                                                                                 ),
@@ -578,12 +578,12 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                             padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                                                                                             child: Text(
                                                                                               '№Заказа',
-                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                                     color: FlutterFlowTheme.of(context).gray2,
                                                                                                     fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
@@ -591,12 +591,12 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                             padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                                                                                             child: Text(
                                                                                               'Время',
-                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                                     color: FlutterFlowTheme.of(context).gray2,
                                                                                                     fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
@@ -604,12 +604,12 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                             padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                                                                                             child: Text(
                                                                                               '№ Бокса ',
-                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                                     color: FlutterFlowTheme.of(context).gray2,
                                                                                                     fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
@@ -617,12 +617,12 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                             padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                                                                                             child: Text(
                                                                                               'Автомобиль',
-                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                                     color: FlutterFlowTheme.of(context).gray2,
                                                                                                     fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
@@ -630,12 +630,12 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                             padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                                                                                             child: Text(
                                                                                               'Услуги ',
-                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                                     color: FlutterFlowTheme.of(context).gray2,
                                                                                                     fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
@@ -643,12 +643,12 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                             padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                                                                                             child: Text(
                                                                                               'Стоимость',
-                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                                     color: FlutterFlowTheme.of(context).gray2,
                                                                                                     fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
@@ -656,12 +656,12 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                             padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                                                                                             child: Text(
                                                                                               'Комментарий',
-                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                                     color: FlutterFlowTheme.of(context).gray2,
                                                                                                     fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
@@ -681,11 +681,11 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                                 cancelBookingBookingsRecord.id,
                                                                                                 'null',
                                                                                               ),
-                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                                     fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
@@ -696,11 +696,11 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                                 cancelBookingBookingsRecord.timeName,
                                                                                                 'null',
                                                                                               ),
-                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                                     fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
@@ -711,11 +711,11 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                                 cancelBookingBookingsRecord.boxName,
                                                                                                 'null',
                                                                                               ),
-                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                                     fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
@@ -729,11 +729,11 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                                 cancelBookingBookingsRecord.carName,
                                                                                                 'null',
                                                                                               )}',
-                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                                     fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
@@ -741,11 +741,11 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                             padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                                                                                             child: Text(
                                                                                               functions.listStringToString(cancelBookingBookingsRecord.selectedCompanyServicesName!.toList(), 50),
-                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                                     fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
@@ -756,11 +756,11 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                                 cancelBookingBookingsRecord.totalPrice?.toString(),
                                                                                                 'null',
                                                                                               )} тг',
-                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                                     fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
@@ -771,11 +771,11 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                                 cancelBookingBookingsRecord.cancelComment,
                                                                                                 'null',
                                                                                               ),
-                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                                     fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
@@ -804,7 +804,7 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                   width: 50.0,
                                                                                   height: 50.0,
                                                                                   child: CircularProgressIndicator(
-                                                                                    color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                    color: FlutterFlowTheme.of(context).primary,
                                                                                   ),
                                                                                 ),
                                                                               );
@@ -825,11 +825,11 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                         containerCompanyNotificationsRecord.date!,
                                                                                         locale: FFLocalizations.of(context).languageCode,
                                                                                       ),
-                                                                                      style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                            fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                             color: Color(0xFFB1B1B1),
                                                                                             fontWeight: FontWeight.normal,
-                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                           ),
                                                                                     ),
                                                                                     Text(
@@ -838,11 +838,11 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                         containerCompanyNotificationsRecord.date!,
                                                                                         locale: FFLocalizations.of(context).languageCode,
                                                                                       ),
-                                                                                      style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                            fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                             color: Color(0xFFB1B1B1),
                                                                                             fontWeight: FontWeight.normal,
-                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                           ),
                                                                                     ),
                                                                                   ],
@@ -851,11 +851,11 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 24.0),
                                                                                   child: Text(
                                                                                     containerCompanyNotificationsRecord.message!,
-                                                                                    style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                          fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                          fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                           fontSize: 16.0,
                                                                                           fontWeight: FontWeight.w500,
-                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                         ),
                                                                                   ),
                                                                                 ),
@@ -872,12 +872,12 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                             padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                                                                                             child: Text(
                                                                                               '№Заказа',
-                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                                     color: FlutterFlowTheme.of(context).gray2,
                                                                                                     fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
@@ -885,12 +885,12 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                             padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                                                                                             child: Text(
                                                                                               'Время',
-                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                                     color: FlutterFlowTheme.of(context).gray2,
                                                                                                     fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
@@ -898,12 +898,12 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                             padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                                                                                             child: Text(
                                                                                               '№Бокса ',
-                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                                     color: FlutterFlowTheme.of(context).gray2,
                                                                                                     fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
@@ -911,12 +911,12 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                             padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                                                                                             child: Text(
                                                                                               'Автомобиль',
-                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                                     color: FlutterFlowTheme.of(context).gray2,
                                                                                                     fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
@@ -924,12 +924,12 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                             padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                                                                                             child: Text(
                                                                                               'Услуги ',
-                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                                     color: FlutterFlowTheme.of(context).gray2,
                                                                                                     fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
@@ -937,12 +937,12 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                             padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                                                                                             child: Text(
                                                                                               'Стоимость',
-                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                                     color: FlutterFlowTheme.of(context).gray2,
                                                                                                     fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
@@ -962,11 +962,11 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                                 newlBookingBookingsRecord.id,
                                                                                                 'null',
                                                                                               ),
-                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                                     fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
@@ -977,11 +977,11 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                                 newlBookingBookingsRecord.timeName,
                                                                                                 'null',
                                                                                               ),
-                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                                     fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
@@ -992,11 +992,11 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                                 newlBookingBookingsRecord.boxName,
                                                                                                 'null',
                                                                                               ),
-                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                                     fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
@@ -1010,11 +1010,11 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                                 newlBookingBookingsRecord.carName,
                                                                                                 'null',
                                                                                               )}',
-                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                                     fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
@@ -1022,11 +1022,11 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                             padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                                                                                             child: Text(
                                                                                               functions.listStringToString(newlBookingBookingsRecord.selectedCompanyServicesName!.toList(), 50),
-                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                                     fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
@@ -1037,11 +1037,11 @@ class _AdminNotificationsWidgetState extends State<AdminNotificationsWidget> {
                                                                                                 newlBookingBookingsRecord.totalPrice?.toString(),
                                                                                                 'null',
                                                                                               )} тг',
-                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                                     fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                   ),
                                                                                             ),
                                                                                           ),

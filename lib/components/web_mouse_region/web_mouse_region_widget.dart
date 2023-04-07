@@ -71,11 +71,11 @@ class _WebMouseRegionWidgetState extends State<WebMouseRegionWidget> {
               padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
               child: Text(
                 widget.message!,
-                style: FlutterFlowTheme.of(context).bodyText1.override(
-                      fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                      fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                       fontWeight: FontWeight.normal,
                       useGoogleFonts: GoogleFonts.asMap().containsKey(
-                          FlutterFlowTheme.of(context).bodyText1Family),
+                          FlutterFlowTheme.of(context).bodyMediumFamily),
                     ),
               ),
             ),

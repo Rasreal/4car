@@ -43,12 +43,12 @@ class _AdminForgetPasswordWidgetState extends State<AdminForgetPasswordWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+        body: SafeArea(
           child: Visibility(
             visible: responsiveVisibility(
               context: context,
@@ -76,16 +76,15 @@ class _AdminForgetPasswordWidgetState extends State<AdminForgetPasswordWidget> {
                           child: Text(
                             '4 Car',
                             style: FlutterFlowTheme.of(context)
-                                .bodyText1
+                                .bodyMedium
                                 .override(
                                   fontFamily: FlutterFlowTheme.of(context)
-                                      .bodyText1Family,
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryColor,
+                                      .bodyMediumFamily,
+                                  color: FlutterFlowTheme.of(context).primary,
                                   fontSize: 30.0,
                                   useGoogleFonts: GoogleFonts.asMap()
                                       .containsKey(FlutterFlowTheme.of(context)
-                                          .bodyText1Family),
+                                          .bodyMediumFamily),
                                 ),
                           ),
                         ),
@@ -96,13 +95,13 @@ class _AdminForgetPasswordWidgetState extends State<AdminForgetPasswordWidget> {
                         child: Text(
                           'Забыли пароль?',
                           style: FlutterFlowTheme.of(context)
-                              .bodyText1
+                              .bodyMedium
                               .override(
                                 fontFamily: 'Inter',
                                 fontSize: 22.0,
                                 useGoogleFonts: GoogleFonts.asMap().containsKey(
                                     FlutterFlowTheme.of(context)
-                                        .bodyText1Family),
+                                        .bodyMediumFamily),
                               ),
                         ),
                       ),
@@ -112,13 +111,13 @@ class _AdminForgetPasswordWidgetState extends State<AdminForgetPasswordWidget> {
                         child: Text(
                           'Введите Email, на который зарегистрирована учетная запись. Ссылка для смены пароля будет выслана на почту.',
                           style: FlutterFlowTheme.of(context)
-                              .bodyText1
+                              .bodyMedium
                               .override(
                                 fontFamily: 'Inter',
                                 fontWeight: FontWeight.normal,
                                 useGoogleFonts: GoogleFonts.asMap().containsKey(
                                     FlutterFlowTheme.of(context)
-                                        .bodyText1Family),
+                                        .bodyMediumFamily),
                               ),
                         ),
                       ),
@@ -136,15 +135,15 @@ class _AdminForgetPasswordWidgetState extends State<AdminForgetPasswordWidget> {
                               decoration: InputDecoration(
                                 hintText: 'Email',
                                 hintStyle: FlutterFlowTheme.of(context)
-                                    .bodyText2
+                                    .bodySmall
                                     .override(
                                       fontFamily: FlutterFlowTheme.of(context)
-                                          .bodyText2Family,
+                                          .bodySmallFamily,
                                       fontWeight: FontWeight.normal,
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText2Family),
+                                                  .bodySmallFamily),
                                     ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
@@ -155,8 +154,7 @@ class _AdminForgetPasswordWidgetState extends State<AdminForgetPasswordWidget> {
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryColor,
+                                    color: FlutterFlowTheme.of(context).primary,
                                     width: 1.0,
                                   ),
                                   borderRadius: BorderRadius.circular(8.0),
@@ -176,7 +174,7 @@ class _AdminForgetPasswordWidgetState extends State<AdminForgetPasswordWidget> {
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
                               ),
-                              style: FlutterFlowTheme.of(context).bodyText1,
+                              style: FlutterFlowTheme.of(context).bodyMedium,
                               validator: _model.emailTextControllerValidator
                                   .asValidator(context),
                             ),
@@ -231,16 +229,17 @@ class _AdminForgetPasswordWidgetState extends State<AdminForgetPasswordWidget> {
                                 0.0, 0.0, 0.0, 0.0),
                             iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            color: FlutterFlowTheme.of(context).primaryColor,
+                            color: FlutterFlowTheme.of(context).primary,
                             textStyle: FlutterFlowTheme.of(context)
-                                .subtitle2
+                                .titleSmall
                                 .override(
                                   fontFamily: 'Inter',
                                   color: Colors.white,
                                   useGoogleFonts: GoogleFonts.asMap()
                                       .containsKey(FlutterFlowTheme.of(context)
-                                          .subtitle2Family),
+                                          .titleSmallFamily),
                                 ),
+                            elevation: 2.0,
                             borderSide: BorderSide(
                               color: Colors.transparent,
                               width: 1.0,

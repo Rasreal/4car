@@ -5,17 +5,17 @@ import '/backend/firebase_storage/storage.dart';
 import '/components/admin_add_sales/admin_add_sales_widget.dart';
 import '/components/admin_app_bar/admin_app_bar_widget.dart';
 import '/components/admin_app_bar_info/admin_app_bar_info_widget.dart';
+import '/components/admin_edit_stuff_status_widget.dart';
 import '/components/admin_reset_password/admin_reset_password_widget.dart';
 import '/components/admin_sales_active_empty/admin_sales_active_empty_widget.dart';
 import '/components/admin_sales_archive_empty/admin_sales_archive_empty_widget.dart';
 import '/components/admin_sales_details/admin_sales_details_widget.dart';
 import '/components/admin_sales_moderation_empty/admin_sales_moderation_empty_widget.dart';
 import '/components/success/success_widget.dart';
-import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/upload_media.dart';
+import '/flutter_flow/upload_data.dart';
 import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expandable/expandable.dart';
@@ -69,13 +69,17 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
         await showModalBottomSheet(
           isScrollControlled: true,
           backgroundColor: Colors.transparent,
+          barrierColor: Color(0x00000000),
           enableDrag: false,
           context: context,
-          builder: (context) {
-            return Padding(
-              padding: MediaQuery.of(context).viewInsets,
-              child: SuccessWidget(
-                message: 'Сотрудник успешно добавлен',
+          builder: (bottomSheetContext) {
+            return GestureDetector(
+              onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+              child: Padding(
+                padding: MediaQuery.of(bottomSheetContext).viewInsets,
+                child: SuccessWidget(
+                  message: 'Сотрудник успешно добавлен',
+                ),
               ),
             );
           },
@@ -105,12 +109,12 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        body: SafeArea(
           child: Stack(
             children: [
               Column(
@@ -139,8 +143,7 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                               width: 50.0,
                               height: 50.0,
                               child: CircularProgressIndicator(
-                                color:
-                                    FlutterFlowTheme.of(context).primaryColor,
+                                color: FlutterFlowTheme.of(context).primary,
                               ),
                             ),
                           );
@@ -173,8 +176,8 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                     width: 50.0,
                                     height: 50.0,
                                     child: CircularProgressIndicator(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryColor,
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
                                     ),
                                   ),
                                 );
@@ -242,7 +245,7 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                               'Компания на модерации',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyText1
+                                                                  .bodyMedium
                                                                   .override(
                                                                     fontFamily:
                                                                         'Inter',
@@ -251,7 +254,7 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                     useGoogleFonts: GoogleFonts
                                                                             .asMap()
                                                                         .containsKey(
-                                                                            FlutterFlowTheme.of(context).bodyText1Family),
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                   ),
                                                             ),
                                                           ),
@@ -270,7 +273,7 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                       .center,
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyText1
+                                                                  .bodyMedium
                                                                   .override(
                                                                     fontFamily:
                                                                         'Inter',
@@ -280,7 +283,7 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                     useGoogleFonts: GoogleFonts
                                                                             .asMap()
                                                                         .containsKey(
-                                                                            FlutterFlowTheme.of(context).bodyText1Family),
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                   ),
                                                             ),
                                                           ),
@@ -321,10 +324,10 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                             0.0),
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .primaryColor,
+                                                                    .primary,
                                                                 textStyle: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .subtitle2
+                                                                    .titleSmall
                                                                     .override(
                                                                       fontFamily:
                                                                           'Inter',
@@ -336,7 +339,7 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                       useGoogleFonts: GoogleFonts
                                                                               .asMap()
                                                                           .containsKey(
-                                                                              FlutterFlowTheme.of(context).subtitle2Family),
+                                                                              FlutterFlowTheme.of(context).titleSmallFamily),
                                                                     ),
                                                                 elevation: 0.0,
                                                                 borderSide:
@@ -381,7 +384,7 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                           'Кабинет',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Inter',
@@ -390,7 +393,7 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                         ),
                                                       ),
@@ -434,19 +437,19 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                       'Личные данные',
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyText1
+                                                                          .bodyMedium
                                                                           .override(
                                                                             fontFamily:
-                                                                                FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                             color: FFAppState().adminOfficeType == 'Личные данные'
-                                                                                ? FlutterFlowTheme.of(context).primaryColor
+                                                                                ? FlutterFlowTheme.of(context).primary
                                                                                 : FlutterFlowTheme.of(context).webUnselectedColor,
                                                                             fontSize:
                                                                                 16.0,
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                             useGoogleFonts:
-                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                           ),
                                                                     ),
                                                                   ),
@@ -459,7 +462,7 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                       color: FFAppState().adminOfficeType ==
                                                                               'Личные данные'
                                                                           ? FlutterFlowTheme.of(context)
-                                                                              .primaryColor
+                                                                              .primary
                                                                           : FlutterFlowTheme.of(context)
                                                                               .secondaryBackground,
                                                                     ),
@@ -514,13 +517,13 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                             Text(
                                                                           'Автомойки',
                                                                           style: FlutterFlowTheme.of(context)
-                                                                              .bodyText1
+                                                                              .bodyMedium
                                                                               .override(
-                                                                                fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
-                                                                                color: FFAppState().adminOfficeType == 'Автомойки' ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).webUnselectedColor,
+                                                                                fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                color: FFAppState().adminOfficeType == 'Автомойки' ? FlutterFlowTheme.of(context).primary : FlutterFlowTheme.of(context).webUnselectedColor,
                                                                                 fontSize: 16.0,
                                                                                 fontWeight: FontWeight.normal,
-                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                               ),
                                                                         ),
                                                                       ),
@@ -532,7 +535,7 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                         decoration:
                                                                             BoxDecoration(
                                                                           color: FFAppState().adminOfficeType == 'Автомойки'
-                                                                              ? FlutterFlowTheme.of(context).primaryColor
+                                                                              ? FlutterFlowTheme.of(context).primary
                                                                               : FlutterFlowTheme.of(context).secondaryBackground,
                                                                         ),
                                                                       ),
@@ -577,19 +580,19 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                       'Акции',
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyText1
+                                                                          .bodyMedium
                                                                           .override(
                                                                             fontFamily:
-                                                                                FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                             color: FFAppState().adminOfficeType == 'Акции'
-                                                                                ? FlutterFlowTheme.of(context).primaryColor
+                                                                                ? FlutterFlowTheme.of(context).primary
                                                                                 : FlutterFlowTheme.of(context).webUnselectedColor,
                                                                             fontSize:
                                                                                 16.0,
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                             useGoogleFonts:
-                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                           ),
                                                                     ),
                                                                   ),
@@ -601,7 +604,7 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                       color: FFAppState().adminOfficeType ==
                                                                               'Акции'
                                                                           ? FlutterFlowTheme.of(context)
-                                                                              .primaryColor
+                                                                              .primary
                                                                           : FlutterFlowTheme.of(context)
                                                                               .secondaryBackground,
                                                                     ),
@@ -656,13 +659,13 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                             Text(
                                                                           'Сотрудники',
                                                                           style: FlutterFlowTheme.of(context)
-                                                                              .bodyText1
+                                                                              .bodyMedium
                                                                               .override(
-                                                                                fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
-                                                                                color: FFAppState().adminOfficeType == 'Сотрудники' ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).webUnselectedColor,
+                                                                                fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                color: FFAppState().adminOfficeType == 'Сотрудники' ? FlutterFlowTheme.of(context).primary : FlutterFlowTheme.of(context).webUnselectedColor,
                                                                                 fontSize: 16.0,
                                                                                 fontWeight: FontWeight.normal,
-                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                               ),
                                                                         ),
                                                                       ),
@@ -674,7 +677,7 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                         decoration:
                                                                             BoxDecoration(
                                                                           color: FFAppState().adminOfficeType == 'Сотрудники'
-                                                                              ? FlutterFlowTheme.of(context).primaryColor
+                                                                              ? FlutterFlowTheme.of(context).primary
                                                                               : FlutterFlowTheme.of(context).secondaryBackground,
                                                                         ),
                                                                       ),
@@ -755,11 +758,11 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                               Expanded(
                                                                                 child: Text(
                                                                                   'Основная информация',
-                                                                                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Inter',
                                                                                         fontSize: 18.0,
                                                                                         fontWeight: FontWeight.w500,
-                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                       ),
                                                                                 ),
                                                                               ),
@@ -776,17 +779,17 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                       padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 6.0, 0.0),
                                                                                       child: Icon(
                                                                                         FFIcons.kicEdit,
-                                                                                        color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                        color: FlutterFlowTheme.of(context).primary,
                                                                                         size: 24.0,
                                                                                       ),
                                                                                     ),
                                                                                     Text(
                                                                                       'Редактировать',
-                                                                                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Inter',
-                                                                                            color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                            color: FlutterFlowTheme.of(context).primary,
                                                                                             fontWeight: FontWeight.w500,
-                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                           ),
                                                                                     ),
                                                                                   ],
@@ -813,13 +816,17 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                     await showModalBottomSheet(
                                                                                       isScrollControlled: true,
                                                                                       backgroundColor: Colors.transparent,
+                                                                                      barrierColor: Color(0x00000000),
                                                                                       enableDrag: false,
                                                                                       context: context,
-                                                                                      builder: (context) {
-                                                                                        return Padding(
-                                                                                          padding: MediaQuery.of(context).viewInsets,
-                                                                                          child: AdminResetPasswordWidget(
-                                                                                            emaill: currentUserEmail,
+                                                                                      builder: (bottomSheetContext) {
+                                                                                        return GestureDetector(
+                                                                                          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+                                                                                          child: Padding(
+                                                                                            padding: MediaQuery.of(bottomSheetContext).viewInsets,
+                                                                                            child: AdminResetPasswordWidget(
+                                                                                              emaill: currentUserEmail,
+                                                                                            ),
                                                                                           ),
                                                                                         );
                                                                                       },
@@ -832,17 +839,17 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                         padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 6.0, 0.0),
                                                                                         child: Icon(
                                                                                           FFIcons.kicRefresh,
-                                                                                          color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                          color: FlutterFlowTheme.of(context).primary,
                                                                                           size: 22.0,
                                                                                         ),
                                                                                       ),
                                                                                       Text(
                                                                                         'Изменить пароль',
-                                                                                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                               fontFamily: 'Inter',
-                                                                                              color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                              color: FlutterFlowTheme.of(context).primary,
                                                                                               fontWeight: FontWeight.w500,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                             ),
                                                                                       ),
                                                                                     ],
@@ -884,11 +891,11 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                     child: AuthUserStreamWidget(
                                                                                       builder: (context) => Text(
                                                                                         '${currentUserDisplayName} null',
-                                                                                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                               fontFamily: 'Inter',
                                                                                               fontSize: 18.0,
                                                                                               fontWeight: FontWeight.w500,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                             ),
                                                                                       ),
                                                                                     ),
@@ -898,11 +905,11 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                       currentUserEmail,
                                                                                       'null',
                                                                                     ),
-                                                                                    style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                          fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                          fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                           color: FlutterFlowTheme.of(context).gray2,
                                                                                           fontWeight: FontWeight.normal,
-                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                         ),
                                                                                   ),
                                                                                 ],
@@ -956,10 +963,10 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                     ),
                                                                                   ),
                                                                                 ),
-                                                                                style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                      fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                       color: Color(0x00FFFFFF),
-                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                     ),
                                                                                 validator: _model.emailControllerValidator.asValidator(context),
                                                                               ),
@@ -984,12 +991,12 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                   children: [
                                                                                     Text(
                                                                                       'Номер телефона',
-                                                                                      style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                            fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                             color: FlutterFlowTheme.of(context).gray2,
                                                                                             fontSize: 12.0,
                                                                                             fontWeight: FontWeight.normal,
-                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                           ),
                                                                                     ),
                                                                                     Padding(
@@ -997,11 +1004,11 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                       child: AuthUserStreamWidget(
                                                                                         builder: (context) => Text(
                                                                                           currentPhoneNumber,
-                                                                                          style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                 fontFamily: 'Inter',
                                                                                                 fontSize: 16.0,
                                                                                                 fontWeight: FontWeight.w500,
-                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                               ),
                                                                                         ),
                                                                                       ),
@@ -1016,12 +1023,12 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                   children: [
                                                                                     Text(
                                                                                       'Дата регистрации',
-                                                                                      style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                            fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                             color: FlutterFlowTheme.of(context).gray2,
                                                                                             fontSize: 12.0,
                                                                                             fontWeight: FontWeight.normal,
-                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                           ),
                                                                                     ),
                                                                                     Padding(
@@ -1036,11 +1043,11 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                             ),
                                                                                             '0.0.0000',
                                                                                           ),
-                                                                                          style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                 fontFamily: 'Inter',
                                                                                                 fontSize: 16.0,
                                                                                                 fontWeight: FontWeight.w500,
-                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                               ),
                                                                                         ),
                                                                                       ),
@@ -1055,23 +1062,23 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                   children: [
                                                                                     Text(
                                                                                       'Должность',
-                                                                                      style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                            fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                             color: FlutterFlowTheme.of(context).gray2,
                                                                                             fontSize: 12.0,
                                                                                             fontWeight: FontWeight.normal,
-                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                           ),
                                                                                     ),
                                                                                     Padding(
                                                                                       padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                                                                                       child: Text(
                                                                                         'Руководитель',
-                                                                                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                               fontFamily: 'Inter',
                                                                                               fontSize: 16.0,
                                                                                               fontWeight: FontWeight.w500,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                             ),
                                                                                       ),
                                                                                     ),
@@ -1085,23 +1092,23 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                   children: [
                                                                                     Text(
                                                                                       'Компания',
-                                                                                      style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                            fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                             color: FlutterFlowTheme.of(context).gray2,
                                                                                             fontSize: 12.0,
                                                                                             fontWeight: FontWeight.normal,
-                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                           ),
                                                                                     ),
                                                                                     Padding(
                                                                                       padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                                                                                       child: Text(
                                                                                         containerCompanyDocumentRecord!.companyName!,
-                                                                                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                               fontFamily: 'Inter',
                                                                                               fontSize: 16.0,
                                                                                               fontWeight: FontWeight.w500,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                             ),
                                                                                       ),
                                                                                     ),
@@ -1149,11 +1156,11 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                               Expanded(
                                                                                 child: Text(
                                                                                   'Основная информация',
-                                                                                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Inter',
                                                                                         fontSize: 18.0,
                                                                                         fontWeight: FontWeight.w500,
-                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                       ),
                                                                                 ),
                                                                               ),
@@ -1177,11 +1184,11 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                     ),
                                                                                     Text(
                                                                                       'Отменить',
-                                                                                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Inter',
                                                                                             color: Color(0xFF1A1A1A),
                                                                                             fontWeight: FontWeight.w500,
-                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                           ),
                                                                                     ),
                                                                                   ],
@@ -1209,7 +1216,7 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                     allowPhoto: true,
                                                                                   );
                                                                                   if (selectedMedia != null && selectedMedia.every((m) => validateFileFormat(m.storagePath, context))) {
-                                                                                    setState(() => _model.isMediaUploading = true);
+                                                                                    setState(() => _model.isDataUploading = true);
                                                                                     var selectedUploadedFiles = <FFUploadedFile>[];
                                                                                     var downloadUrls = <String>[];
                                                                                     try {
@@ -1231,7 +1238,7 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                           .map((u) => u!)
                                                                                           .toList();
                                                                                     } finally {
-                                                                                      _model.isMediaUploading = false;
+                                                                                      _model.isDataUploading = false;
                                                                                     }
                                                                                     if (selectedUploadedFiles.length == selectedMedia.length && downloadUrls.length == selectedMedia.length) {
                                                                                       setState(() {
@@ -1260,7 +1267,7 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                               ? _model.uploadedFileUrl
                                                                                               : valueOrDefault<String>(
                                                                                                   currentUserPhoto,
-                                                                                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/e4car-dch9vg/assets/tsybuq71uj0t/Avatars_48x48.png',
+                                                                                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/e4car-dch9vg/assets/39tzmh1sizl4/Group_668.png',
                                                                                                 ),
                                                                                           fit: BoxFit.contain,
                                                                                         ),
@@ -1270,12 +1277,12 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                       padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                                                                                       child: Text(
                                                                                         'Заменить фото',
-                                                                                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                               fontFamily: 'Inter',
-                                                                                              color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                              color: FlutterFlowTheme.of(context).primary,
                                                                                               fontSize: 14.0,
                                                                                               fontWeight: FontWeight.w500,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                             ),
                                                                                       ),
                                                                                     ),
@@ -1292,19 +1299,19 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                       obscureText: false,
                                                                                       decoration: InputDecoration(
                                                                                         labelText: 'ФИО',
-                                                                                        labelStyle: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                        labelStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                               fontFamily: 'Inter',
                                                                                               color: FlutterFlowTheme.of(context).secondaryText,
                                                                                               fontSize: 12.0,
                                                                                               fontWeight: FontWeight.normal,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                             ),
-                                                                                        hintStyle: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                        hintStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                               fontFamily: 'Inter',
                                                                                               color: FlutterFlowTheme.of(context).secondaryText,
                                                                                               fontSize: 12.0,
                                                                                               fontWeight: FontWeight.normal,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                             ),
                                                                                         enabledBorder: OutlineInputBorder(
                                                                                           borderSide: BorderSide(
@@ -1336,12 +1343,12 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                         ),
                                                                                         contentPadding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                                                                                       ),
-                                                                                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Inter',
                                                                                             color: FlutterFlowTheme.of(context).primaryText,
                                                                                             fontSize: 16.0,
                                                                                             fontWeight: FontWeight.normal,
-                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                           ),
                                                                                       validator: _model.editFIOControllerValidator.asValidator(context),
                                                                                     ),
@@ -1358,19 +1365,19 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                       obscureText: false,
                                                                                       decoration: InputDecoration(
                                                                                         labelText: 'Номер телефона',
-                                                                                        labelStyle: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                        labelStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                               fontFamily: 'Inter',
                                                                                               color: FlutterFlowTheme.of(context).secondaryText,
                                                                                               fontSize: 12.0,
                                                                                               fontWeight: FontWeight.normal,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                             ),
-                                                                                        hintStyle: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                        hintStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                               fontFamily: 'Inter',
                                                                                               color: FlutterFlowTheme.of(context).secondaryText,
                                                                                               fontSize: 12.0,
                                                                                               fontWeight: FontWeight.normal,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                             ),
                                                                                         enabledBorder: OutlineInputBorder(
                                                                                           borderSide: BorderSide(
@@ -1402,12 +1409,12 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                         ),
                                                                                         contentPadding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                                                                                       ),
-                                                                                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Inter',
                                                                                             color: FlutterFlowTheme.of(context).primaryText,
                                                                                             fontSize: 16.0,
                                                                                             fontWeight: FontWeight.normal,
-                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                           ),
                                                                                       validator: _model.editPhoneControllerValidator.asValidator(context),
                                                                                       inputFormatters: [
@@ -1468,11 +1475,11 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                         decoration: InputDecoration(
                                                                                           isDense: true,
                                                                                           hintText: 'Поиск',
-                                                                                          hintStyle: FlutterFlowTheme.of(context).bodyText2.override(
+                                                                                          hintStyle: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                                 fontFamily: 'Inter',
                                                                                                 color: Color(0xFF8E8E8E),
                                                                                                 fontWeight: FontWeight.normal,
-                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText2Family),
+                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodySmallFamily),
                                                                                               ),
                                                                                           enabledBorder: InputBorder.none,
                                                                                           focusedBorder: InputBorder.none,
@@ -1480,11 +1487,11 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                           focusedErrorBorder: InputBorder.none,
                                                                                           contentPadding: EdgeInsetsDirectional.fromSTEB(0.0, 13.0, 0.0, 13.0),
                                                                                         ),
-                                                                                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                               fontFamily: 'Inter',
                                                                                               color: Color(0xFF8E8E8E),
                                                                                               fontWeight: FontWeight.normal,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                             ),
                                                                                         validator: _model.textController3Validator.asValidator(context),
                                                                                       ),
@@ -1512,6 +1519,10 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                     'companyDocument': containerCompanyDocumentRecord,
                                                                                   },
                                                                                 );
+
+                                                                                setState(() {
+                                                                                  FFAppState().addStuffuserRef = null;
+                                                                                });
                                                                               },
                                                                               text: 'Добавить',
                                                                               icon: Icon(
@@ -1523,12 +1534,12 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                 height: 40.0,
                                                                                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                 iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                                                                                color: FlutterFlowTheme.of(context).primary,
+                                                                                textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                       fontFamily: 'Inter',
                                                                                       color: Colors.white,
                                                                                       fontWeight: FontWeight.w500,
-                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
+                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleSmallFamily),
                                                                                     ),
                                                                                 elevation: 0.0,
                                                                                 borderSide: BorderSide(
@@ -1556,11 +1567,11 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                       children: [
                                                                                         Text(
                                                                                           'ФИО',
-                                                                                          style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                 fontFamily: 'Inter',
                                                                                                 color: FlutterFlowTheme.of(context).gray2,
                                                                                                 fontWeight: FontWeight.w500,
-                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                               ),
                                                                                         ),
                                                                                         Padding(
@@ -1583,11 +1594,11 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                           flex: 3,
                                                                                           child: Text(
                                                                                             'Контакты',
-                                                                                            style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                   fontFamily: 'Inter',
                                                                                                   color: FlutterFlowTheme.of(context).gray2,
                                                                                                   fontWeight: FontWeight.w500,
-                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                 ),
                                                                                           ),
                                                                                         ),
@@ -1598,11 +1609,11 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                     flex: 5,
                                                                                     child: Text(
                                                                                       'Email',
-                                                                                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Inter',
                                                                                             color: FlutterFlowTheme.of(context).gray2,
                                                                                             fontWeight: FontWeight.w500,
-                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                           ),
                                                                                     ),
                                                                                   ),
@@ -1610,11 +1621,11 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                     flex: 3,
                                                                                     child: Text(
                                                                                       'Должность',
-                                                                                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Inter',
                                                                                             color: FlutterFlowTheme.of(context).gray2,
                                                                                             fontWeight: FontWeight.w500,
-                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                           ),
                                                                                     ),
                                                                                   ),
@@ -1625,11 +1636,11 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                       children: [
                                                                                         Text(
                                                                                           'Статус',
-                                                                                          style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                 fontFamily: 'Inter',
                                                                                                 color: FlutterFlowTheme.of(context).gray2,
                                                                                                 fontWeight: FontWeight.w500,
-                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                               ),
                                                                                         ),
                                                                                       ],
@@ -1639,11 +1650,11 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                     flex: 2,
                                                                                     child: Text(
                                                                                       'Действие',
-                                                                                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Inter',
                                                                                             color: FlutterFlowTheme.of(context).gray2,
                                                                                             fontWeight: FontWeight.w500,
-                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                           ),
                                                                                     ),
                                                                                   ),
@@ -1675,7 +1686,7 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                               width: 50.0,
                                                                                               height: 50.0,
                                                                                               child: CircularProgressIndicator(
-                                                                                                color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                                color: FlutterFlowTheme.of(context).primary,
                                                                                               ),
                                                                                             ),
                                                                                           );
@@ -1696,11 +1707,11 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                         columnUserRecord.displayName,
                                                                                                         'null',
                                                                                                       ),
-                                                                                                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                             fontFamily: 'Roboto',
                                                                                                             color: FlutterFlowTheme.of(context).primaryText,
                                                                                                             fontWeight: FontWeight.normal,
-                                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                           ),
                                                                                                     ),
                                                                                                   ),
@@ -1711,11 +1722,11 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                         columnUserRecord.phoneNumber,
                                                                                                         'null',
                                                                                                       ),
-                                                                                                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                             fontFamily: 'Roboto',
                                                                                                             color: FlutterFlowTheme.of(context).primaryText,
                                                                                                             fontWeight: FontWeight.normal,
-                                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                           ),
                                                                                                     ),
                                                                                                   ),
@@ -1726,11 +1737,11 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                         columnUserRecord.email,
                                                                                                         'null',
                                                                                                       ),
-                                                                                                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                             fontFamily: 'Roboto',
                                                                                                             color: FlutterFlowTheme.of(context).primaryText,
                                                                                                             fontWeight: FontWeight.normal,
-                                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                           ),
                                                                                                     ),
                                                                                                   ),
@@ -1741,11 +1752,11 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                         columnUserRecord.role,
                                                                                                         'null',
                                                                                                       ),
-                                                                                                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                             fontFamily: 'Roboto',
                                                                                                             color: FlutterFlowTheme.of(context).primaryText,
                                                                                                             fontWeight: FontWeight.normal,
-                                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                           ),
                                                                                                     ),
                                                                                                   ),
@@ -1755,59 +1766,73 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                       mainAxisSize: MainAxisSize.max,
                                                                                                       crossAxisAlignment: CrossAxisAlignment.start,
                                                                                                       children: [
-                                                                                                        if (currentUserEmail != columnUserRecord.email)
-                                                                                                          FlutterFlowDropDown<String>(
-                                                                                                            initialOption: _model.dropDown667ValueMap[usersItem] ??= valueOrDefault<String>(
-                                                                                                              columnUserRecord.adminStatus,
-                                                                                                              'Активен',
+                                                                                                        if (columnUserRecord.reference != currentUserReference)
+                                                                                                          AdminEditStuffStatusWidget(
+                                                                                                            key: Key('Keygb1_${usersIndex}_of_${users.length}'),
+                                                                                                            user: columnUserRecord,
+                                                                                                          ),
+                                                                                                        if (columnUserRecord.reference == currentUserReference)
+                                                                                                          Container(
+                                                                                                            width: 100.0,
+                                                                                                            height: 20.0,
+                                                                                                            decoration: BoxDecoration(
+                                                                                                              color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                                             ),
-                                                                                                            options: ['Активен', 'Не активен'],
-                                                                                                            onChanged: (val) async {
-                                                                                                              setState(() => _model.dropDown667ValueMap[usersItem] = val!);
-                                                                                                              final userUpdateData = createUserRecordData(
-                                                                                                                adminStatus: _model.dropDown667ValueMap[usersItem],
-                                                                                                              );
-                                                                                                              await columnUserRecord.reference.update(userUpdateData);
-                                                                                                            },
-                                                                                                            width: 180.0,
-                                                                                                            height: 50.0,
-                                                                                                            textStyle: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                                                  fontFamily: 'Roboto',
-                                                                                                                  color: () {
-                                                                                                                    if (columnUserRecord.adminStatus == 'Не активен') {
-                                                                                                                      return Color(0xFFE20000);
-                                                                                                                    } else if (columnUserRecord.adminStatus == 'Активен') {
-                                                                                                                      return FlutterFlowTheme.of(context).green;
-                                                                                                                    } else {
-                                                                                                                      return FlutterFlowTheme.of(context).primaryText;
-                                                                                                                    }
-                                                                                                                  }(),
-                                                                                                                  fontWeight: FontWeight.normal,
-                                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
-                                                                                                                ),
-                                                                                                            icon: Icon(
-                                                                                                              FFIcons.kicArrowsButtonDown,
-                                                                                                              size: 15.0,
-                                                                                                            ),
-                                                                                                            fillColor: Colors.white,
-                                                                                                            elevation: 2.0,
-                                                                                                            borderColor: Colors.transparent,
-                                                                                                            borderWidth: 0.0,
-                                                                                                            borderRadius: 0.0,
-                                                                                                            margin: EdgeInsetsDirectional.fromSTEB(12.0, 4.0, 12.0, 4.0),
-                                                                                                            hidesUnderline: true,
                                                                                                           ),
                                                                                                       ],
                                                                                                     ),
                                                                                                   ),
-                                                                                                  Expanded(
-                                                                                                    flex: 2,
-                                                                                                    child: Icon(
-                                                                                                      FFIcons.kicDelete,
-                                                                                                      color: FlutterFlowTheme.of(context).gray2,
-                                                                                                      size: 24.0,
+                                                                                                  if (columnUserRecord.reference != currentUserReference)
+                                                                                                    Expanded(
+                                                                                                      flex: 2,
+                                                                                                      child: InkWell(
+                                                                                                        onTap: () async {
+                                                                                                          final userUpdateData = {
+                                                                                                            ...createUserRecordData(
+                                                                                                              addedCompany: false,
+                                                                                                            ),
+                                                                                                            'role': FieldValue.delete(),
+                                                                                                            'admin_status': FieldValue.delete(),
+                                                                                                            'merchan_document': FieldValue.delete(),
+                                                                                                          };
+                                                                                                          await columnUserRecord.reference.update(userUpdateData);
+
+                                                                                                          final companiesUpdateData = {
+                                                                                                            'company_users': FieldValue.arrayRemove([columnUserRecord.reference]),
+                                                                                                          };
+                                                                                                          await scrollCompaniesRecord!.reference.update(companiesUpdateData);
+
+                                                                                                          final companyDocumentUpdateData = {
+                                                                                                            'company_users': FieldValue.arrayRemove([columnUserRecord.reference]),
+                                                                                                          };
+                                                                                                          await containerCompanyDocumentRecord!.reference.update(companyDocumentUpdateData);
+
+                                                                                                          context.goNamed(
+                                                                                                            'admin_office',
+                                                                                                            queryParams: {
+                                                                                                              'success': serializeParam(
+                                                                                                                true,
+                                                                                                                ParamType.bool,
+                                                                                                              ),
+                                                                                                            }.withoutNulls,
+                                                                                                          );
+                                                                                                        },
+                                                                                                        child: Icon(
+                                                                                                          FFIcons.kicDelete,
+                                                                                                          color: FlutterFlowTheme.of(context).gray2,
+                                                                                                          size: 24.0,
+                                                                                                        ),
+                                                                                                      ),
                                                                                                     ),
-                                                                                                  ),
+                                                                                                  if (columnUserRecord.reference == currentUserReference)
+                                                                                                    Expanded(
+                                                                                                      flex: 2,
+                                                                                                      child: Icon(
+                                                                                                        FFIcons.kicDelete,
+                                                                                                        color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                        size: 24.0,
+                                                                                                      ),
+                                                                                                    ),
                                                                                                 ],
                                                                                               ),
                                                                                             ),
@@ -1863,7 +1888,7 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                     width: 50.0,
                                                                                     height: 50.0,
                                                                                     child: CircularProgressIndicator(
-                                                                                      color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                      color: FlutterFlowTheme.of(context).primary,
                                                                                     ),
                                                                                   ),
                                                                                 );
@@ -1937,11 +1962,11 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                           wrapCompaniesRecord.name,
                                                                                                           'null',
                                                                                                         ),
-                                                                                                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                               fontFamily: 'Inter',
                                                                                                               fontSize: 18.0,
                                                                                                               fontWeight: FontWeight.w500,
-                                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                             ),
                                                                                                       ),
                                                                                                       Padding(
@@ -1951,11 +1976,11 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                             wrapCompaniesRecord.street,
                                                                                                             'null',
                                                                                                           ),
-                                                                                                          style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                 fontFamily: 'Inter',
                                                                                                                 color: FlutterFlowTheme.of(context).gray1,
                                                                                                                 fontWeight: FontWeight.normal,
-                                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                               ),
                                                                                                         ),
                                                                                                       ),
@@ -1984,11 +2009,11 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                           padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
                                                                                                           child: Text(
                                                                                                             'Город:',
-                                                                                                            style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                   fontFamily: 'Inter',
                                                                                                                   color: FlutterFlowTheme.of(context).gray1,
                                                                                                                   fontWeight: FontWeight.normal,
-                                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                                 ),
                                                                                                           ),
                                                                                                         ),
@@ -1997,10 +2022,10 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                             wrapCompaniesRecord.city,
                                                                                                             'null',
                                                                                                           ),
-                                                                                                          style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                 fontFamily: 'Inter',
                                                                                                                 fontWeight: FontWeight.normal,
-                                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                               ),
                                                                                                         ),
                                                                                                       ],
@@ -2015,17 +2040,17 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                           padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 8.0, 0.0),
                                                                                                           child: Text(
                                                                                                             'Статус:',
-                                                                                                            style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                   fontFamily: 'Inter',
                                                                                                                   color: FlutterFlowTheme.of(context).gray1,
                                                                                                                   fontWeight: FontWeight.normal,
-                                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                                 ),
                                                                                                           ),
                                                                                                         ),
                                                                                                         Text(
                                                                                                           wrapCompaniesRecord.status!,
-                                                                                                          style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                 fontFamily: 'Inter',
                                                                                                                 color: () {
                                                                                                                   if (wrapCompaniesRecord.status == 'Активная') {
@@ -2039,7 +2064,7 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                                   }
                                                                                                                 }(),
                                                                                                                 fontWeight: FontWeight.normal,
-                                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                               ),
                                                                                                         ),
                                                                                                       ],
@@ -2096,12 +2121,12 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                 0.0,
                                                                                 0.0),
                                                                             color:
-                                                                                FlutterFlowTheme.of(context).primaryColor,
-                                                                            textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                                                                                FlutterFlowTheme.of(context).primary,
+                                                                            textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                   fontFamily: 'Inter',
                                                                                   color: Colors.white,
                                                                                   fontWeight: FontWeight.w500,
-                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
+                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleSmallFamily),
                                                                                 ),
                                                                             elevation:
                                                                                 0.0,
@@ -2162,11 +2187,11 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                         decoration: InputDecoration(
                                                                                           isDense: true,
                                                                                           hintText: 'Поиск',
-                                                                                          hintStyle: FlutterFlowTheme.of(context).bodyText2.override(
+                                                                                          hintStyle: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                                 fontFamily: 'Inter',
                                                                                                 color: Color(0xFF8E8E8E),
                                                                                                 fontWeight: FontWeight.normal,
-                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText2Family),
+                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodySmallFamily),
                                                                                               ),
                                                                                           enabledBorder: InputBorder.none,
                                                                                           focusedBorder: InputBorder.none,
@@ -2174,11 +2199,11 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                           focusedErrorBorder: InputBorder.none,
                                                                                           contentPadding: EdgeInsetsDirectional.fromSTEB(0.0, 13.0, 0.0, 13.0),
                                                                                         ),
-                                                                                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                               fontFamily: 'Inter',
                                                                                               color: Color(0xFF8E8E8E),
                                                                                               fontWeight: FontWeight.normal,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                             ),
                                                                                         validator: _model.textController4Validator.asValidator(context),
                                                                                       ),
@@ -2197,13 +2222,17 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                 await showModalBottomSheet(
                                                                                   isScrollControlled: true,
                                                                                   backgroundColor: Colors.transparent,
+                                                                                  barrierColor: Color(0x00000000),
                                                                                   enableDrag: false,
                                                                                   context: context,
-                                                                                  builder: (context) {
-                                                                                    return Padding(
-                                                                                      padding: MediaQuery.of(context).viewInsets,
-                                                                                      child: AdminAddSalesWidget(
-                                                                                        company: scrollCompaniesRecord,
+                                                                                  builder: (bottomSheetContext) {
+                                                                                    return GestureDetector(
+                                                                                      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+                                                                                      child: Padding(
+                                                                                        padding: MediaQuery.of(bottomSheetContext).viewInsets,
+                                                                                        child: AdminAddSalesWidget(
+                                                                                          company: scrollCompaniesRecord,
+                                                                                        ),
                                                                                       ),
                                                                                     );
                                                                                   },
@@ -2219,12 +2248,12 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                 height: 40.0,
                                                                                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                 iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                                                                                color: FlutterFlowTheme.of(context).primary,
+                                                                                textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                       fontFamily: 'Inter',
                                                                                       color: Colors.white,
                                                                                       fontWeight: FontWeight.w500,
-                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
+                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleSmallFamily),
                                                                                     ),
                                                                                 elevation: 0.0,
                                                                                 borderSide: BorderSide(
@@ -2265,12 +2294,12 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                             padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 14.0),
                                                                                             child: Text(
                                                                                               'Активные',
-                                                                                              style: FlutterFlowTheme.of(context).title1.override(
+                                                                                              style: FlutterFlowTheme.of(context).displaySmall.override(
                                                                                                     fontFamily: 'Inter',
                                                                                                     color: Colors.black,
                                                                                                     fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).title1Family),
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).displaySmallFamily),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
@@ -2297,7 +2326,7 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                   width: 50.0,
                                                                                                   height: 50.0,
                                                                                                   child: CircularProgressIndicator(
-                                                                                                    color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                                    color: FlutterFlowTheme.of(context).primary,
                                                                                                   ),
                                                                                                 ),
                                                                                               );
@@ -2374,11 +2403,11 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                                           ),
                                                                                                                           Text(
                                                                                                                             'Топ',
-                                                                                                                            style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                                                                  fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                                  fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                                                                   color: FlutterFlowTheme.of(context).green,
                                                                                                                                   fontWeight: FontWeight.normal,
-                                                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                                                 ),
                                                                                                                           ),
                                                                                                                         ],
@@ -2398,10 +2427,10 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                           children: [
                                                                                                             Text(
                                                                                                               wrapPromotionRecord.title!,
-                                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                     fontFamily: 'Inter',
                                                                                                                     fontSize: 16.0,
-                                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                                   ),
                                                                                                             ),
                                                                                                             Padding(
@@ -2411,10 +2440,10 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                                   maxChars: 50,
                                                                                                                   replacement: '…',
                                                                                                                 ),
-                                                                                                                style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                       fontFamily: 'Inter',
                                                                                                                       fontWeight: FontWeight.normal,
-                                                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                                     ),
                                                                                                               ),
                                                                                                             ),
@@ -2435,10 +2464,10 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                                     },
                                                                                                                     child: Text(
                                                                                                                       'Архивировать',
-                                                                                                                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                             fontFamily: 'Inter',
                                                                                                                             fontWeight: FontWeight.normal,
-                                                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                                           ),
                                                                                                                     ),
                                                                                                                   ),
@@ -2447,14 +2476,18 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                                       await showModalBottomSheet(
                                                                                                                         isScrollControlled: true,
                                                                                                                         backgroundColor: Colors.transparent,
+                                                                                                                        barrierColor: Color(0x00000000),
                                                                                                                         enableDrag: false,
                                                                                                                         context: context,
-                                                                                                                        builder: (context) {
-                                                                                                                          return Padding(
-                                                                                                                            padding: MediaQuery.of(context).viewInsets,
-                                                                                                                            child: AdminSalesDetailsWidget(
-                                                                                                                              promotion: wrapPromotionRecord.reference,
-                                                                                                                              company: containerCompanyDocumentRecord!.reference,
+                                                                                                                        builder: (bottomSheetContext) {
+                                                                                                                          return GestureDetector(
+                                                                                                                            onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+                                                                                                                            child: Padding(
+                                                                                                                              padding: MediaQuery.of(bottomSheetContext).viewInsets,
+                                                                                                                              child: AdminSalesDetailsWidget(
+                                                                                                                                promotion: wrapPromotionRecord.reference,
+                                                                                                                                company: containerCompanyDocumentRecord!.reference,
+                                                                                                                              ),
                                                                                                                             ),
                                                                                                                           );
                                                                                                                         },
@@ -2466,13 +2499,13 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                                       height: 40.0,
                                                                                                                       padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                                                       iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                                                      color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                                                      textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                                                                                                                      color: FlutterFlowTheme.of(context).primary,
+                                                                                                                      textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                                                             fontFamily: 'Inter',
                                                                                                                             color: Colors.white,
                                                                                                                             fontSize: 14.0,
                                                                                                                             fontWeight: FontWeight.w500,
-                                                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
+                                                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleSmallFamily),
                                                                                                                           ),
                                                                                                                       elevation: 0.0,
                                                                                                                       borderSide: BorderSide(
@@ -2540,12 +2573,12 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                             padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 14.0),
                                                                                             child: Text(
                                                                                               'Архивированные',
-                                                                                              style: FlutterFlowTheme.of(context).title1.override(
+                                                                                              style: FlutterFlowTheme.of(context).displaySmall.override(
                                                                                                     fontFamily: 'Inter',
                                                                                                     color: Colors.black,
                                                                                                     fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).title1Family),
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).displaySmallFamily),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
@@ -2572,7 +2605,7 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                   width: 50.0,
                                                                                                   height: 50.0,
                                                                                                   child: CircularProgressIndicator(
-                                                                                                    color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                                    color: FlutterFlowTheme.of(context).primary,
                                                                                                   ),
                                                                                                 ),
                                                                                               );
@@ -2651,10 +2684,10 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                           children: [
                                                                                                             Text(
                                                                                                               wrapPromotionRecord.title!,
-                                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                     fontFamily: 'Inter',
                                                                                                                     fontSize: 16.0,
-                                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                                   ),
                                                                                                             ),
                                                                                                             Padding(
@@ -2664,10 +2697,10 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                                   maxChars: 50,
                                                                                                                   replacement: '…',
                                                                                                                 ),
-                                                                                                                style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                       fontFamily: 'Inter',
                                                                                                                       fontWeight: FontWeight.normal,
-                                                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                                     ),
                                                                                                               ),
                                                                                                             ),
@@ -2686,10 +2719,10 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                                     },
                                                                                                                     child: Text(
                                                                                                                       'Активировать',
-                                                                                                                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                             fontFamily: 'Inter',
                                                                                                                             fontWeight: FontWeight.normal,
-                                                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                                           ),
                                                                                                                     ),
                                                                                                                   ),
@@ -2698,14 +2731,18 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                                       await showModalBottomSheet(
                                                                                                                         isScrollControlled: true,
                                                                                                                         backgroundColor: Colors.transparent,
+                                                                                                                        barrierColor: Color(0x00000000),
                                                                                                                         enableDrag: false,
                                                                                                                         context: context,
-                                                                                                                        builder: (context) {
-                                                                                                                          return Padding(
-                                                                                                                            padding: MediaQuery.of(context).viewInsets,
-                                                                                                                            child: AdminSalesDetailsWidget(
-                                                                                                                              promotion: wrapPromotionRecord.reference,
-                                                                                                                              company: containerCompanyDocumentRecord!.reference,
+                                                                                                                        builder: (bottomSheetContext) {
+                                                                                                                          return GestureDetector(
+                                                                                                                            onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+                                                                                                                            child: Padding(
+                                                                                                                              padding: MediaQuery.of(bottomSheetContext).viewInsets,
+                                                                                                                              child: AdminSalesDetailsWidget(
+                                                                                                                                promotion: wrapPromotionRecord.reference,
+                                                                                                                                company: containerCompanyDocumentRecord!.reference,
+                                                                                                                              ),
                                                                                                                             ),
                                                                                                                           );
                                                                                                                         },
@@ -2717,14 +2754,15 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                                       height: 40.0,
                                                                                                                       padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                                                       iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                                                      color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                                                      textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                                                                                                                      color: FlutterFlowTheme.of(context).primary,
+                                                                                                                      textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                                                             fontFamily: 'Inter',
                                                                                                                             color: Colors.white,
                                                                                                                             fontSize: 14.0,
                                                                                                                             fontWeight: FontWeight.w500,
-                                                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
+                                                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleSmallFamily),
                                                                                                                           ),
+                                                                                                                      elevation: 2.0,
                                                                                                                       borderSide: BorderSide(
                                                                                                                         color: Colors.transparent,
                                                                                                                         width: 1.0,
@@ -2790,12 +2828,12 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                             padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 14.0),
                                                                                             child: Text(
                                                                                               'Очередь в топ',
-                                                                                              style: FlutterFlowTheme.of(context).title1.override(
+                                                                                              style: FlutterFlowTheme.of(context).displaySmall.override(
                                                                                                     fontFamily: 'Inter',
                                                                                                     color: Colors.black,
                                                                                                     fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.normal,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).title1Family),
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).displaySmallFamily),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
@@ -2822,7 +2860,7 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                   width: 50.0,
                                                                                                   height: 50.0,
                                                                                                   child: CircularProgressIndicator(
-                                                                                                    color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                                    color: FlutterFlowTheme.of(context).primary,
                                                                                                   ),
                                                                                                 ),
                                                                                               );
@@ -2888,10 +2926,10 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                           children: [
                                                                                                             Text(
                                                                                                               wrapPromotionRecord.title!,
-                                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                     fontFamily: 'Inter',
                                                                                                                     fontSize: 16.0,
-                                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                                   ),
                                                                                                             ),
                                                                                                             Padding(
@@ -2901,10 +2939,10 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                                   maxChars: 50,
                                                                                                                   replacement: '…',
                                                                                                                 ),
-                                                                                                                style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                       fontFamily: 'Inter',
                                                                                                                       fontWeight: FontWeight.normal,
-                                                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                                     ),
                                                                                                               ),
                                                                                                             ),
@@ -2923,11 +2961,11 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                                     },
                                                                                                                     child: Text(
                                                                                                                       'Отмена',
-                                                                                                                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                             fontFamily: 'Inter',
                                                                                                                             color: FlutterFlowTheme.of(context).red1,
                                                                                                                             fontWeight: FontWeight.normal,
-                                                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                                           ),
                                                                                                                     ),
                                                                                                                   ),
@@ -2936,14 +2974,18 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                                       await showModalBottomSheet(
                                                                                                                         isScrollControlled: true,
                                                                                                                         backgroundColor: Colors.transparent,
+                                                                                                                        barrierColor: Color(0x00000000),
                                                                                                                         enableDrag: false,
                                                                                                                         context: context,
-                                                                                                                        builder: (context) {
-                                                                                                                          return Padding(
-                                                                                                                            padding: MediaQuery.of(context).viewInsets,
-                                                                                                                            child: AdminSalesDetailsWidget(
-                                                                                                                              promotion: wrapPromotionRecord.reference,
-                                                                                                                              company: containerCompanyDocumentRecord!.reference,
+                                                                                                                        builder: (bottomSheetContext) {
+                                                                                                                          return GestureDetector(
+                                                                                                                            onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+                                                                                                                            child: Padding(
+                                                                                                                              padding: MediaQuery.of(bottomSheetContext).viewInsets,
+                                                                                                                              child: AdminSalesDetailsWidget(
+                                                                                                                                promotion: wrapPromotionRecord.reference,
+                                                                                                                                company: containerCompanyDocumentRecord!.reference,
+                                                                                                                              ),
                                                                                                                             ),
                                                                                                                           );
                                                                                                                         },
@@ -2955,14 +2997,15 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                                       height: 40.0,
                                                                                                                       padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                                                       iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                                                      color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                                                      textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                                                                                                                      color: FlutterFlowTheme.of(context).primary,
+                                                                                                                      textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                                                             fontFamily: 'Inter',
                                                                                                                             color: Colors.white,
                                                                                                                             fontSize: 14.0,
                                                                                                                             fontWeight: FontWeight.w500,
-                                                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
+                                                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleSmallFamily),
                                                                                                                           ),
+                                                                                                                      elevation: 2.0,
                                                                                                                       borderSide: BorderSide(
                                                                                                                         color: Colors.transparent,
                                                                                                                         width: 1.0,
@@ -3029,7 +3072,7 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                       CircularProgressIndicator(
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .primaryColor,
+                                                                        .primary,
                                                                   ),
                                                                 ),
                                                               );
@@ -3107,11 +3150,11 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                             currentCompanyCompaniesRecord.name,
                                                                                             'null',
                                                                                           ),
-                                                                                          style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                 fontFamily: 'Inter',
                                                                                                 fontSize: 18.0,
                                                                                                 fontWeight: FontWeight.w500,
-                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                               ),
                                                                                         ),
                                                                                         Padding(
@@ -3121,11 +3164,11 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                               currentCompanyCompaniesRecord.street,
                                                                                               'null',
                                                                                             ),
-                                                                                            style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                   fontFamily: 'Inter',
                                                                                                   color: FlutterFlowTheme.of(context).gray1,
                                                                                                   fontWeight: FontWeight.normal,
-                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                 ),
                                                                                           ),
                                                                                         ),
@@ -3158,22 +3201,22 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                           children: [
                                                                                             Text(
                                                                                               'Основная информация',
-                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                     fontFamily: 'Inter',
                                                                                                     fontSize: 18.0,
                                                                                                     fontWeight: FontWeight.w500,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                   ),
                                                                                             ),
                                                                                             Padding(
                                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 8.0),
                                                                                               child: Text(
                                                                                                 'Наименование автомойки',
-                                                                                                style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                       fontFamily: 'Inter',
                                                                                                       fontSize: 14.0,
                                                                                                       fontWeight: FontWeight.w500,
-                                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                     ),
                                                                                               ),
                                                                                             ),
@@ -3182,22 +3225,22 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                 currentCompanyCompaniesRecord.tooName,
                                                                                                 'null',
                                                                                               ),
-                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                     fontFamily: 'Inter',
                                                                                                     fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.w500,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                   ),
                                                                                             ),
                                                                                             Padding(
                                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 8.0),
                                                                                               child: Text(
                                                                                                 'ФИО руководителя',
-                                                                                                style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                       fontFamily: 'Inter',
                                                                                                       fontSize: 14.0,
                                                                                                       fontWeight: FontWeight.w500,
-                                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                     ),
                                                                                               ),
                                                                                             ),
@@ -3206,46 +3249,46 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                 currentCompanyCompaniesRecord.fioAdmin,
                                                                                                 'null',
                                                                                               ),
-                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                     fontFamily: 'Inter',
                                                                                                     fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.w500,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                   ),
                                                                                             ),
                                                                                             Padding(
                                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 8.0),
                                                                                               child: Text(
                                                                                                 'Номер договора',
-                                                                                                style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                       fontFamily: 'Inter',
                                                                                                       fontSize: 14.0,
                                                                                                       fontWeight: FontWeight.w500,
-                                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                     ),
                                                                                               ),
                                                                                             ),
                                                                                             Text(
-                                                                                              '№${valueOrDefault<String>(
+                                                                                              valueOrDefault<String>(
                                                                                                 currentCompanyCompaniesRecord.numDogovor,
                                                                                                 'null',
-                                                                                              )}',
-                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                              ),
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                     fontFamily: 'Inter',
                                                                                                     fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.w500,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                   ),
                                                                                             ),
                                                                                             Padding(
                                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 8.0),
                                                                                               child: Text(
                                                                                                 'Дата заключения договора',
-                                                                                                style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                       fontFamily: 'Inter',
                                                                                                       fontSize: 14.0,
                                                                                                       fontWeight: FontWeight.w500,
-                                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                     ),
                                                                                               ),
                                                                                             ),
@@ -3258,11 +3301,11 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                 ),
                                                                                                 'null',
                                                                                               ),
-                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                     fontFamily: 'Inter',
                                                                                                     fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.w500,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                   ),
                                                                                             ),
                                                                                           ],
@@ -3292,11 +3335,11 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                 children: [
                                                                                                   Text(
                                                                                                     'Основная информация',
-                                                                                                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                           fontFamily: 'Inter',
                                                                                                           fontSize: 18.0,
                                                                                                           fontWeight: FontWeight.w500,
-                                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                         ),
                                                                                                   ),
                                                                                                   Padding(
@@ -3319,19 +3362,19 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                               obscureText: false,
                                                                                                               decoration: InputDecoration(
                                                                                                                 labelText: 'БИН',
-                                                                                                                labelStyle: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                                labelStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                       fontFamily: 'Inter',
                                                                                                                       color: FlutterFlowTheme.of(context).secondaryText,
                                                                                                                       fontSize: 12.0,
                                                                                                                       fontWeight: FontWeight.normal,
-                                                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                                     ),
-                                                                                                                hintStyle: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                                hintStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                       fontFamily: 'Inter',
                                                                                                                       color: FlutterFlowTheme.of(context).secondaryText,
                                                                                                                       fontSize: 12.0,
                                                                                                                       fontWeight: FontWeight.normal,
-                                                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                                     ),
                                                                                                                 enabledBorder: OutlineInputBorder(
                                                                                                                   borderSide: BorderSide(
@@ -3363,12 +3406,12 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                                 ),
                                                                                                                 contentPadding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                                                                                                               ),
-                                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                     fontFamily: 'Inter',
                                                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                                                     fontSize: 16.0,
                                                                                                                     fontWeight: FontWeight.normal,
-                                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                                   ),
                                                                                                               validator: _model.textController5Validator.asValidator(context),
                                                                                                             ),
@@ -3387,19 +3430,19 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                             obscureText: false,
                                                                                                             decoration: InputDecoration(
                                                                                                               labelText: 'IBAN',
-                                                                                                              labelStyle: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                              labelStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                     fontFamily: 'Inter',
                                                                                                                     color: FlutterFlowTheme.of(context).secondaryText,
                                                                                                                     fontSize: 12.0,
                                                                                                                     fontWeight: FontWeight.normal,
-                                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                                   ),
-                                                                                                              hintStyle: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                              hintStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                     fontFamily: 'Inter',
                                                                                                                     color: FlutterFlowTheme.of(context).secondaryText,
                                                                                                                     fontSize: 12.0,
                                                                                                                     fontWeight: FontWeight.normal,
-                                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                                   ),
                                                                                                               enabledBorder: OutlineInputBorder(
                                                                                                                 borderSide: BorderSide(
@@ -3431,12 +3474,12 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                               ),
                                                                                                               contentPadding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                                                                                                             ),
-                                                                                                            style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                   fontFamily: 'Inter',
                                                                                                                   color: FlutterFlowTheme.of(context).primaryText,
                                                                                                                   fontSize: 16.0,
                                                                                                                   fontWeight: FontWeight.normal,
-                                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                                 ),
                                                                                                             validator: _model.textController6Validator.asValidator(context),
                                                                                                           ),
@@ -3468,11 +3511,11 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                   children: [
                                                                                                     Text(
                                                                                                       'Местоположение',
-                                                                                                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                             fontFamily: 'Inter',
                                                                                                             fontSize: 18.0,
                                                                                                             fontWeight: FontWeight.w500,
-                                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                           ),
                                                                                                     ),
                                                                                                     Padding(
@@ -3495,19 +3538,19 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                                 obscureText: false,
                                                                                                                 decoration: InputDecoration(
                                                                                                                   labelText: 'Город',
-                                                                                                                  labelStyle: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                                  labelStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                         fontFamily: 'Inter',
                                                                                                                         color: FlutterFlowTheme.of(context).secondaryText,
                                                                                                                         fontSize: 12.0,
                                                                                                                         fontWeight: FontWeight.normal,
-                                                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                                       ),
-                                                                                                                  hintStyle: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                                  hintStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                         fontFamily: 'Inter',
                                                                                                                         color: FlutterFlowTheme.of(context).secondaryText,
                                                                                                                         fontSize: 12.0,
                                                                                                                         fontWeight: FontWeight.normal,
-                                                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                                       ),
                                                                                                                   enabledBorder: OutlineInputBorder(
                                                                                                                     borderSide: BorderSide(
@@ -3539,12 +3582,12 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                                   ),
                                                                                                                   contentPadding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                                                                                                                 ),
-                                                                                                                style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                       fontFamily: 'Inter',
                                                                                                                       color: FlutterFlowTheme.of(context).primaryText,
                                                                                                                       fontSize: 16.0,
                                                                                                                       fontWeight: FontWeight.normal,
-                                                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                                     ),
                                                                                                                 validator: _model.textController7Validator.asValidator(context),
                                                                                                               ),
@@ -3563,19 +3606,19 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                               obscureText: false,
                                                                                                               decoration: InputDecoration(
                                                                                                                 labelText: 'Адрес',
-                                                                                                                labelStyle: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                                labelStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                       fontFamily: 'Inter',
                                                                                                                       color: FlutterFlowTheme.of(context).secondaryText,
                                                                                                                       fontSize: 12.0,
                                                                                                                       fontWeight: FontWeight.normal,
-                                                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                                     ),
-                                                                                                                hintStyle: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                                hintStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                       fontFamily: 'Inter',
                                                                                                                       color: FlutterFlowTheme.of(context).secondaryText,
                                                                                                                       fontSize: 12.0,
                                                                                                                       fontWeight: FontWeight.normal,
-                                                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                                     ),
                                                                                                                 enabledBorder: OutlineInputBorder(
                                                                                                                   borderSide: BorderSide(
@@ -3607,12 +3650,12 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                                 ),
                                                                                                                 contentPadding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                                                                                                               ),
-                                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                     fontFamily: 'Inter',
                                                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                                                     fontSize: 16.0,
                                                                                                                     fontWeight: FontWeight.normal,
-                                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                                   ),
                                                                                                               validator: _model.textController8Validator.asValidator(context),
                                                                                                             ),
@@ -3671,11 +3714,11 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                 children: [
                                                                                   Text(
                                                                                     'Детали',
-                                                                                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Inter',
                                                                                           fontSize: 18.0,
                                                                                           fontWeight: FontWeight.w500,
-                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                         ),
                                                                                   ),
                                                                                   Row(
@@ -3685,17 +3728,17 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                         padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
                                                                                         child: Icon(
                                                                                           FFIcons.kicEdit,
-                                                                                          color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                          color: FlutterFlowTheme.of(context).primary,
                                                                                           size: 24.0,
                                                                                         ),
                                                                                       ),
                                                                                       Text(
                                                                                         'Изменить',
-                                                                                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                               fontFamily: 'Inter',
-                                                                                              color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                              color: FlutterFlowTheme.of(context).primary,
                                                                                               fontWeight: FontWeight.normal,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                             ),
                                                                                       ),
                                                                                     ],
@@ -3725,11 +3768,11 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                           children: [
                                                                                             Text(
                                                                                               'Количество боксов',
-                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                     fontFamily: 'Inter',
                                                                                                     fontSize: 18.0,
                                                                                                     fontWeight: FontWeight.w500,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                   ),
                                                                                             ),
                                                                                             Padding(
@@ -3746,19 +3789,19 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                   readOnly: true,
                                                                                                   obscureText: false,
                                                                                                   decoration: InputDecoration(
-                                                                                                    labelStyle: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                    labelStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                           fontFamily: 'Inter',
                                                                                                           color: FlutterFlowTheme.of(context).secondaryText,
                                                                                                           fontSize: 12.0,
                                                                                                           fontWeight: FontWeight.normal,
-                                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                         ),
-                                                                                                    hintStyle: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                    hintStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                           fontFamily: 'Inter',
                                                                                                           color: FlutterFlowTheme.of(context).secondaryText,
                                                                                                           fontSize: 12.0,
                                                                                                           fontWeight: FontWeight.normal,
-                                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                         ),
                                                                                                     enabledBorder: OutlineInputBorder(
                                                                                                       borderSide: BorderSide(
@@ -3790,12 +3833,12 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                     ),
                                                                                                     contentPadding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                                                                                                   ),
-                                                                                                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                         fontFamily: 'Inter',
                                                                                                         color: FlutterFlowTheme.of(context).primaryText,
                                                                                                         fontSize: 16.0,
                                                                                                         fontWeight: FontWeight.normal,
-                                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                       ),
                                                                                                   validator: _model.textController9Validator.asValidator(context),
                                                                                                 ),
@@ -3826,11 +3869,11 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                           children: [
                                                                                             Text(
                                                                                               'Номер телефона',
-                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                     fontFamily: 'Inter',
                                                                                                     fontSize: 18.0,
                                                                                                     fontWeight: FontWeight.w500,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                   ),
                                                                                             ),
                                                                                             Padding(
@@ -3847,19 +3890,19 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                   readOnly: true,
                                                                                                   obscureText: false,
                                                                                                   decoration: InputDecoration(
-                                                                                                    labelStyle: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                    labelStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                           fontFamily: 'Inter',
                                                                                                           color: FlutterFlowTheme.of(context).secondaryText,
                                                                                                           fontSize: 12.0,
                                                                                                           fontWeight: FontWeight.normal,
-                                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                         ),
-                                                                                                    hintStyle: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                    hintStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                           fontFamily: 'Inter',
                                                                                                           color: FlutterFlowTheme.of(context).secondaryText,
                                                                                                           fontSize: 12.0,
                                                                                                           fontWeight: FontWeight.normal,
-                                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                         ),
                                                                                                     enabledBorder: OutlineInputBorder(
                                                                                                       borderSide: BorderSide(
@@ -3891,12 +3934,12 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                     ),
                                                                                                     contentPadding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                                                                                                   ),
-                                                                                                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                         fontFamily: 'Inter',
                                                                                                         color: FlutterFlowTheme.of(context).primaryText,
                                                                                                         fontSize: 16.0,
                                                                                                         fontWeight: FontWeight.normal,
-                                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                       ),
                                                                                                   keyboardType: TextInputType.phone,
                                                                                                   validator: _model.textController10Validator.asValidator(context),
@@ -3931,11 +3974,11 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                           children: [
                                                                                             Text(
                                                                                               'График работы',
-                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                     fontFamily: 'Inter',
                                                                                                     fontSize: 18.0,
                                                                                                     fontWeight: FontWeight.w500,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                   ),
                                                                                             ),
                                                                                             Row(
@@ -3956,19 +3999,19 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                       obscureText: false,
                                                                                                       decoration: InputDecoration(
                                                                                                         labelText: 'Начало работы',
-                                                                                                        labelStyle: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                        labelStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                               fontFamily: 'Inter',
                                                                                                               color: FlutterFlowTheme.of(context).secondaryText,
                                                                                                               fontSize: 12.0,
                                                                                                               fontWeight: FontWeight.normal,
-                                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                             ),
-                                                                                                        hintStyle: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                        hintStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                               fontFamily: 'Inter',
                                                                                                               color: FlutterFlowTheme.of(context).secondaryText,
                                                                                                               fontSize: 12.0,
                                                                                                               fontWeight: FontWeight.normal,
-                                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                             ),
                                                                                                         enabledBorder: OutlineInputBorder(
                                                                                                           borderSide: BorderSide(
@@ -4000,12 +4043,12 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                         ),
                                                                                                         contentPadding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                                                                                                       ),
-                                                                                                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                             fontFamily: 'Inter',
                                                                                                             color: FlutterFlowTheme.of(context).primaryText,
                                                                                                             fontSize: 16.0,
                                                                                                             fontWeight: FontWeight.normal,
-                                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                           ),
                                                                                                       validator: _model.textController11Validator.asValidator(context),
                                                                                                     ),
@@ -4027,19 +4070,19 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                         obscureText: false,
                                                                                                         decoration: InputDecoration(
                                                                                                           labelText: 'Конец работы',
-                                                                                                          labelStyle: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                          labelStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                 fontFamily: 'Inter',
                                                                                                                 color: FlutterFlowTheme.of(context).secondaryText,
                                                                                                                 fontSize: 12.0,
                                                                                                                 fontWeight: FontWeight.normal,
-                                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                               ),
-                                                                                                          hintStyle: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                          hintStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                 fontFamily: 'Inter',
                                                                                                                 color: FlutterFlowTheme.of(context).secondaryText,
                                                                                                                 fontSize: 12.0,
                                                                                                                 fontWeight: FontWeight.normal,
-                                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                               ),
                                                                                                           enabledBorder: OutlineInputBorder(
                                                                                                             borderSide: BorderSide(
@@ -4071,12 +4114,12 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                           ),
                                                                                                           contentPadding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                                                                                                         ),
-                                                                                                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                               fontFamily: 'Inter',
                                                                                                               color: FlutterFlowTheme.of(context).primaryText,
                                                                                                               fontSize: 16.0,
                                                                                                               fontWeight: FontWeight.normal,
-                                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                             ),
                                                                                                         validator: _model.textController12Validator.asValidator(context),
                                                                                                       ),
@@ -4135,34 +4178,50 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                       children: [
                                                                                         Text(
                                                                                           'Услуги',
-                                                                                          style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                 fontFamily: 'Inter',
                                                                                                 fontSize: 18.0,
                                                                                                 fontWeight: FontWeight.w500,
-                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                               ),
                                                                                         ),
-                                                                                        Row(
-                                                                                          mainAxisSize: MainAxisSize.max,
-                                                                                          children: [
-                                                                                            Padding(
-                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
-                                                                                              child: Icon(
-                                                                                                FFIcons.kicEdit,
-                                                                                                color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                                size: 24.0,
+                                                                                        InkWell(
+                                                                                          onTap: () async {
+                                                                                            context.pushNamed(
+                                                                                              'admin_edit_company_services',
+                                                                                              queryParams: {
+                                                                                                'company': serializeParam(
+                                                                                                  currentCompanyCompaniesRecord,
+                                                                                                  ParamType.Document,
+                                                                                                ),
+                                                                                              }.withoutNulls,
+                                                                                              extra: <String, dynamic>{
+                                                                                                'company': currentCompanyCompaniesRecord,
+                                                                                              },
+                                                                                            );
+                                                                                          },
+                                                                                          child: Row(
+                                                                                            mainAxisSize: MainAxisSize.max,
+                                                                                            children: [
+                                                                                              Padding(
+                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
+                                                                                                child: Icon(
+                                                                                                  FFIcons.kicEdit,
+                                                                                                  color: FlutterFlowTheme.of(context).primary,
+                                                                                                  size: 24.0,
+                                                                                                ),
                                                                                               ),
-                                                                                            ),
-                                                                                            Text(
-                                                                                              'Изменить',
-                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                                    fontFamily: 'Inter',
-                                                                                                    color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                                    fontWeight: FontWeight.normal,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
-                                                                                                  ),
-                                                                                            ),
-                                                                                          ],
+                                                                                              Text(
+                                                                                                'Изменить',
+                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                      fontFamily: 'Inter',
+                                                                                                      color: FlutterFlowTheme.of(context).primary,
+                                                                                                      fontWeight: FontWeight.normal,
+                                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                                    ),
+                                                                                              ),
+                                                                                            ],
+                                                                                          ),
                                                                                         ),
                                                                                       ],
                                                                                     ),
@@ -4203,14 +4262,14 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                       padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
                                                                                                       child: Text(
                                                                                                         'Седан',
-                                                                                                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                               fontFamily: 'Inter',
                                                                                                               color: valueOrDefault<Color>(
                                                                                                                 FFAppState().adminSelectServicesBody == 'Седан' ? FlutterFlowTheme.of(context).primaryText : FlutterFlowTheme.of(context).secondaryText,
                                                                                                                 FlutterFlowTheme.of(context).secondaryText,
                                                                                                               ),
                                                                                                               fontWeight: FontWeight.w500,
-                                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                             ),
                                                                                                       ),
                                                                                                     ),
@@ -4245,14 +4304,14 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                       padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
                                                                                                       child: Text(
                                                                                                         'Хетчбэк',
-                                                                                                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                               fontFamily: 'Inter',
                                                                                                               color: valueOrDefault<Color>(
                                                                                                                 FFAppState().adminSelectServicesBody == 'Хетчбэк' ? FlutterFlowTheme.of(context).primaryText : FlutterFlowTheme.of(context).secondaryText,
                                                                                                                 FlutterFlowTheme.of(context).secondaryText,
                                                                                                               ),
                                                                                                               fontWeight: FontWeight.w500,
-                                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                             ),
                                                                                                       ),
                                                                                                     ),
@@ -4287,14 +4346,14 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                       padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
                                                                                                       child: Text(
                                                                                                         'Кроссовер',
-                                                                                                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                               fontFamily: 'Inter',
                                                                                                               color: valueOrDefault<Color>(
                                                                                                                 FFAppState().adminSelectServicesBody == 'Кроссовер' ? FlutterFlowTheme.of(context).primaryText : FlutterFlowTheme.of(context).secondaryText,
                                                                                                                 FlutterFlowTheme.of(context).secondaryText,
                                                                                                               ),
                                                                                                               fontWeight: FontWeight.w500,
-                                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                             ),
                                                                                                       ),
                                                                                                     ),
@@ -4329,14 +4388,14 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                       padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
                                                                                                       child: Text(
                                                                                                         'Внедорожник',
-                                                                                                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                               fontFamily: 'Inter',
                                                                                                               color: valueOrDefault<Color>(
                                                                                                                 FFAppState().adminSelectServicesBody == 'Внедорожник' ? FlutterFlowTheme.of(context).primaryText : FlutterFlowTheme.of(context).secondaryText,
                                                                                                                 FlutterFlowTheme.of(context).secondaryText,
                                                                                                               ),
                                                                                                               fontWeight: FontWeight.w500,
-                                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                             ),
                                                                                                       ),
                                                                                                     ),
@@ -4371,14 +4430,14 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                       padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
                                                                                                       child: Text(
                                                                                                         'Пикап',
-                                                                                                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                               fontFamily: 'Inter',
                                                                                                               color: valueOrDefault<Color>(
                                                                                                                 FFAppState().adminSelectServicesBody == 'Пикап' ? FlutterFlowTheme.of(context).primaryText : FlutterFlowTheme.of(context).secondaryText,
                                                                                                                 FlutterFlowTheme.of(context).secondaryText,
                                                                                                               ),
                                                                                                               fontWeight: FontWeight.w500,
-                                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                             ),
                                                                                                       ),
                                                                                                     ),
@@ -4413,14 +4472,14 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                       padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
                                                                                                       child: Text(
                                                                                                         'Минивен',
-                                                                                                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                               fontFamily: 'Inter',
                                                                                                               color: valueOrDefault<Color>(
                                                                                                                 FFAppState().adminSelectServicesBody == 'Минивен' ? FlutterFlowTheme.of(context).primaryText : FlutterFlowTheme.of(context).secondaryText,
                                                                                                                 FlutterFlowTheme.of(context).secondaryText,
                                                                                                               ),
                                                                                                               fontWeight: FontWeight.w500,
-                                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                             ),
                                                                                                       ),
                                                                                                     ),
@@ -4455,14 +4514,14 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                       padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
                                                                                                       child: Text(
                                                                                                         'Купе',
-                                                                                                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                               fontFamily: 'Inter',
                                                                                                               color: valueOrDefault<Color>(
                                                                                                                 FFAppState().adminSelectServicesBody == 'Купе' ? FlutterFlowTheme.of(context).primaryText : FlutterFlowTheme.of(context).secondaryText,
                                                                                                                 FlutterFlowTheme.of(context).secondaryText,
                                                                                                               ),
                                                                                                               fontWeight: FontWeight.w500,
-                                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                             ),
                                                                                                       ),
                                                                                                     ),
@@ -4503,7 +4562,7 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                         width: 50.0,
                                                                                                         height: 50.0,
                                                                                                         child: CircularProgressIndicator(
-                                                                                                          color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                                          color: FlutterFlowTheme.of(context).primary,
                                                                                                         ),
                                                                                                       ),
                                                                                                     );
@@ -4512,7 +4571,7 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                   return RefreshIndicator(
                                                                                                     onRefresh: () async {
                                                                                                       setState(() => _model.firestoreRequestCompleter = null);
-                                                                                                      await _model.waitForFirestoreRequestCompleter();
+                                                                                                      await _model.waitForFirestoreRequestCompleted();
                                                                                                     },
                                                                                                     child: ListView.builder(
                                                                                                       padding: EdgeInsets.zero,
@@ -4530,20 +4589,20 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                                 flex: 4,
                                                                                                                 child: Text(
                                                                                                                   listViewCompanyServicesRecord.name!,
-                                                                                                                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                         fontFamily: 'Inter',
                                                                                                                         fontWeight: FontWeight.w500,
-                                                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                                       ),
                                                                                                                 ),
                                                                                                               ),
                                                                                                               Expanded(
                                                                                                                 child: Text(
                                                                                                                   '${listViewCompanyServicesRecord.price?.toString()}₸',
-                                                                                                                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                         fontFamily: 'Inter',
                                                                                                                         fontWeight: FontWeight.w500,
-                                                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                                       ),
                                                                                                                 ),
                                                                                                               ),
@@ -4590,11 +4649,11 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                           children: [
                                                                                             Text(
                                                                                               'Удобства',
-                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                     fontFamily: 'Inter',
                                                                                                     fontSize: 18.0,
                                                                                                     fontWeight: FontWeight.w500,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                   ),
                                                                                             ),
                                                                                             Row(
@@ -4604,17 +4663,17 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
                                                                                                   child: Icon(
                                                                                                     FFIcons.kicEdit,
-                                                                                                    color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                                    color: FlutterFlowTheme.of(context).primary,
                                                                                                     size: 24.0,
                                                                                                   ),
                                                                                                 ),
                                                                                                 Text(
                                                                                                   'Изменить',
-                                                                                                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                         fontFamily: 'Inter',
-                                                                                                        color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                                        color: FlutterFlowTheme.of(context).primary,
                                                                                                         fontWeight: FontWeight.normal,
-                                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                       ),
                                                                                                 ),
                                                                                               ],
@@ -4640,11 +4699,11 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                                                   currentCompanyCompaniesRecord.conveniences,
                                                                                                   'null',
                                                                                                 ),
-                                                                                                style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                                      fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                      fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                                       fontSize: 16.0,
                                                                                                       fontWeight: FontWeight.normal,
-                                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                     ),
                                                                                               ),
                                                                                             ),
@@ -4692,7 +4751,7 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Inter',
@@ -4701,7 +4760,7 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                     ),
                                                   ),
@@ -4744,7 +4803,7 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                   .kicVisitors,
                                                               color: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .primaryColor,
+                                                                  .primary,
                                                               size: 24.0,
                                                             ),
                                                           ),
@@ -4761,7 +4820,7 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                             'Регистрация компании',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .bodyText1
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Inter',
@@ -4774,7 +4833,7 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                           .asMap()
                                                                       .containsKey(
                                                                           FlutterFlowTheme.of(context)
-                                                                              .bodyText1Family),
+                                                                              .bodyMediumFamily),
                                                                 ),
                                                           ),
                                                         ),
@@ -4792,7 +4851,7 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                 .center,
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .bodyText1
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Inter',
@@ -4806,7 +4865,7 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                           .asMap()
                                                                       .containsKey(
                                                                           FlutterFlowTheme.of(context)
-                                                                              .bodyText1Family),
+                                                                              .bodyMediumFamily),
                                                                 ),
                                                           ),
                                                         ),
@@ -4850,7 +4909,7 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                         CircularProgressIndicator(
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .primaryColor,
+                                                                          .primary,
                                                                     ),
                                                                   ),
                                                                 );
@@ -4909,12 +4968,12 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                           children: [
                                                                             Text(
                                                                               'Зарегестрировать кампанию',
-                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Inter',
-                                                                                    color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                    color: FlutterFlowTheme.of(context).primary,
                                                                                     fontSize: 16.0,
                                                                                     fontWeight: FontWeight.normal,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                   ),
                                                                             ),
                                                                           ],
@@ -4963,12 +5022,12 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                                                           children: [
                                                                             Text(
                                                                               'Зарегестрировать кампанию',
-                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Inter',
-                                                                                    color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                    color: FlutterFlowTheme.of(context).primary,
                                                                                     fontSize: 16.0,
                                                                                     fontWeight: FontWeight.normal,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                   ),
                                                                             ),
                                                                           ],
@@ -5067,8 +5126,7 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                       ),
                                       duration: Duration(milliseconds: 4000),
                                       backgroundColor:
-                                          FlutterFlowTheme.of(context)
-                                              .primaryColor,
+                                          FlutterFlowTheme.of(context).primary,
                                     ),
                                   );
                                 },
@@ -5080,10 +5138,9 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                       0.0, 0.0, 0.0, 0.0),
                                   iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryColor,
+                                  color: FlutterFlowTheme.of(context).primary,
                                   textStyle: FlutterFlowTheme.of(context)
-                                      .subtitle2
+                                      .titleSmall
                                       .override(
                                         fontFamily: 'Inter',
                                         color: Colors.white,
@@ -5091,7 +5148,7 @@ class _AdminOfficeWidgetState extends State<AdminOfficeWidget> {
                                         useGoogleFonts: GoogleFonts.asMap()
                                             .containsKey(
                                                 FlutterFlowTheme.of(context)
-                                                    .subtitle2Family),
+                                                    .titleSmallFamily),
                                       ),
                                   elevation: 0.0,
                                   borderSide: BorderSide(

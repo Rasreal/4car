@@ -64,236 +64,277 @@ class _SelectServicesWidgetState extends State<SelectServicesWidget> {
           topRight: Radius.circular(10.0),
         ),
       ),
-      child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Align(
-                alignment: AlignmentDirectional(0.0, 0.0),
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 16.0),
-                  child: Container(
-                    width: 40.0,
-                    height: 4.0,
-                    decoration: BoxDecoration(
-                      color: Color(0xFFD9D9D9),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Align(
+            alignment: AlignmentDirectional(0.0, 0.0),
+            child: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 16.0),
+              child: Container(
+                width: 40.0,
+                height: 4.0,
+                decoration: BoxDecoration(
+                  color: Color(0xFFD9D9D9),
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 22.0),
+            child: Text(
+              'Выберите услугу',
+              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.w500,
+                    useGoogleFonts: GoogleFonts.asMap().containsKey(
+                        FlutterFlowTheme.of(context).bodyMediumFamily),
+                  ),
+            ),
+          ),
+          SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                  child: FutureBuilder<List<CompanyServicesRecord>>(
+                    future: queryCompanyServicesRecordOnce(
+                      parent: widget.company,
+                      queryBuilder: (companyServicesRecord) =>
+                          companyServicesRecord.where('car_body',
+                              isEqualTo: widget.carBody),
+                    ),
+                    builder: (context, snapshot) {
+                      // Customize what your widget looks like when it's loading.
+                      if (!snapshot.hasData) {
+                        return Center(
+                          child: SizedBox(
+                            width: 50.0,
+                            height: 50.0,
+                            child: CircularProgressIndicator(
+                              color: FlutterFlowTheme.of(context).primary,
+                            ),
+                          ),
+                        );
+                      }
+                      List<CompanyServicesRecord>
+                          columnCompanyServicesRecordList = snapshot.data!;
+                      if (columnCompanyServicesRecordList.isEmpty) {
+                        return EmptyServicesWidget();
+                      }
+                      return Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: List.generate(
+                            columnCompanyServicesRecordList.length,
+                            (columnIndex) {
+                          final columnCompanyServicesRecord =
+                              columnCompanyServicesRecordList[columnIndex];
+                          return Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 8.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 10.0),
+                                  child: InkWell(
+                                    onTap: () async {
+                                      if (FFAppState()
+                                          .selectedServices
+                                          .contains(columnCompanyServicesRecord
+                                              .reference)) {
+                                        FFAppState().update(() {
+                                          FFAppState()
+                                              .removeFromSelectedServices(
+                                                  columnCompanyServicesRecord
+                                                      .reference);
+                                          FFAppState().price =
+                                              functions.priceMinus(
+                                                  FFAppState().price.toDouble(),
+                                                  columnCompanyServicesRecord
+                                                      .price);
+                                          FFAppState()
+                                              .removeFromBookingSelectedServicesName(
+                                                  columnCompanyServicesRecord
+                                                      .name!);
+                                          FFAppState()
+                                                  .selectedServicesDuration =
+                                              FFAppState()
+                                                      .selectedServicesDuration +
+                                                  0 -
+                                                  FFAppState()
+                                                      .selectedServicesDuration;
+                                        });
+                                      } else {
+                                        FFAppState().update(() {
+                                          FFAppState().addToSelectedServices(
+                                              columnCompanyServicesRecord
+                                                  .reference);
+                                          FFAppState().price =
+                                              functions.pricePlus(
+                                                  FFAppState().price.toDouble(),
+                                                  columnCompanyServicesRecord
+                                                      .price);
+                                          FFAppState()
+                                              .addToBookingSelectedServicesName(
+                                                  columnCompanyServicesRecord
+                                                      .name!);
+                                          FFAppState()
+                                                  .selectedServicesDuration =
+                                              FFAppState()
+                                                      .selectedServicesDuration +
+                                                  valueOrDefault<int>(
+                                                    columnCompanyServicesRecord
+                                                        .duration,
+                                                    0,
+                                                  );
+                                        });
+                                      }
+                                    },
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        if (FFAppState()
+                                            .selectedServices
+                                            .contains(
+                                                columnCompanyServicesRecord
+                                                    .reference))
+                                          Container(
+                                            width: 20.0,
+                                            height: 20.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              borderRadius:
+                                                  BorderRadius.circular(4.0),
+                                              shape: BoxShape.rectangle,
+                                            ),
+                                            child: Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.0, 0.0),
+                                              child: Icon(
+                                                Icons.check,
+                                                color: Colors.white,
+                                                size: 12.0,
+                                              ),
+                                            ),
+                                          ),
+                                        if (!FFAppState()
+                                            .selectedServices
+                                            .contains(
+                                                columnCompanyServicesRecord
+                                                    .reference))
+                                          Container(
+                                            width: 20.0,
+                                            height: 20.0,
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(4.0),
+                                              shape: BoxShape.rectangle,
+                                              border: Border.all(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .gray1,
+                                              ),
+                                            ),
+                                          ),
+                                        Expanded(
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    16.0, 0.0, 0.0, 0.0),
+                                            child: Text(
+                                              columnCompanyServicesRecord.name!,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 4.0, 0.0, 0.0),
+                                          child: Text(
+                                            '${columnCompanyServicesRecord.price?.toString()} тг',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily,
+                                                  fontWeight: FontWeight.w500,
+                                                  useGoogleFonts: GoogleFonts
+                                                          .asMap()
+                                                      .containsKey(
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMediumFamily),
+                                                ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Divider(
+                                  thickness: 1.0,
+                                  color: FlutterFlowTheme.of(context).gray3,
+                                ),
+                              ],
+                            ),
+                          );
+                        }),
+                      );
+                    },
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(16.0, 20.0, 16.0, 60.0),
+                  child: FFButtonWidget(
+                    onPressed: () async {
+                      Navigator.pop(context);
+                    },
+                    text: 'Сохранить',
+                    options: FFButtonOptions(
+                      width: double.infinity,
+                      height: 48.0,
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      iconPadding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      color: FlutterFlowTheme.of(context).primary,
+                      textStyle: FlutterFlowTheme.of(context)
+                          .titleSmall
+                          .override(
+                            fontFamily:
+                                FlutterFlowTheme.of(context).titleSmallFamily,
+                            color: Colors.white,
+                            fontSize: 16.0,
+                            useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                FlutterFlowTheme.of(context).titleSmallFamily),
+                          ),
+                      elevation: 2.0,
+                      borderSide: BorderSide(
+                        color: Colors.transparent,
+                        width: 1.0,
+                      ),
                       borderRadius: BorderRadius.circular(8.0),
                     ),
                   ),
                 ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 22.0),
-                child: Text(
-                  'Выберете услугу',
-                  style: FlutterFlowTheme.of(context).bodyText1.override(
-                        fontFamily:
-                            FlutterFlowTheme.of(context).bodyText1Family,
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.w500,
-                        useGoogleFonts: GoogleFonts.asMap().containsKey(
-                            FlutterFlowTheme.of(context).bodyText1Family),
-                      ),
-                ),
-              ),
-              FutureBuilder<List<CompanyServicesRecord>>(
-                future: queryCompanyServicesRecordOnce(
-                  parent: widget.company,
-                  queryBuilder: (companyServicesRecord) => companyServicesRecord
-                      .where('car_body', isEqualTo: widget.carBody),
-                ),
-                builder: (context, snapshot) {
-                  // Customize what your widget looks like when it's loading.
-                  if (!snapshot.hasData) {
-                    return Center(
-                      child: SizedBox(
-                        width: 50.0,
-                        height: 50.0,
-                        child: CircularProgressIndicator(
-                          color: FlutterFlowTheme.of(context).primaryColor,
-                        ),
-                      ),
-                    );
-                  }
-                  List<CompanyServicesRecord>
-                      listViewCompanyServicesRecordList = snapshot.data!;
-                  if (listViewCompanyServicesRecordList.isEmpty) {
-                    return EmptyServicesWidget();
-                  }
-                  return ListView.builder(
-                    padding: EdgeInsets.zero,
-                    shrinkWrap: true,
-                    scrollDirection: Axis.vertical,
-                    itemCount: listViewCompanyServicesRecordList.length,
-                    itemBuilder: (context, listViewIndex) {
-                      final listViewCompanyServicesRecord =
-                          listViewCompanyServicesRecordList[listViewIndex];
-                      return Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 10.0),
-                              child: InkWell(
-                                onTap: () async {
-                                  if (FFAppState().selectedServices.contains(
-                                      listViewCompanyServicesRecord
-                                          .reference)) {
-                                    FFAppState().update(() {
-                                      FFAppState().removeFromSelectedServices(
-                                          listViewCompanyServicesRecord
-                                              .reference);
-                                      FFAppState().price = functions.priceMinus(
-                                          FFAppState().price.toDouble(),
-                                          listViewCompanyServicesRecord.price);
-                                      FFAppState()
-                                          .removeFromBookingSelectedServicesName(
-                                              listViewCompanyServicesRecord
-                                                  .name!);
-                                    });
-                                  } else {
-                                    FFAppState().update(() {
-                                      FFAppState().addToSelectedServices(
-                                          listViewCompanyServicesRecord
-                                              .reference);
-                                      FFAppState().price = functions.pricePlus(
-                                          FFAppState().price.toDouble(),
-                                          listViewCompanyServicesRecord.price);
-                                      FFAppState()
-                                          .addToBookingSelectedServicesName(
-                                              listViewCompanyServicesRecord
-                                                  .name!);
-                                    });
-                                  }
-                                },
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    if (FFAppState().selectedServices.contains(
-                                        listViewCompanyServicesRecord
-                                            .reference))
-                                      Container(
-                                        width: 20.0,
-                                        height: 20.0,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryColor,
-                                          borderRadius:
-                                              BorderRadius.circular(4.0),
-                                          shape: BoxShape.rectangle,
-                                        ),
-                                        child: Align(
-                                          alignment:
-                                              AlignmentDirectional(0.0, 0.0),
-                                          child: Icon(
-                                            Icons.check,
-                                            color: Colors.white,
-                                            size: 12.0,
-                                          ),
-                                        ),
-                                      ),
-                                    if (!FFAppState().selectedServices.contains(
-                                        listViewCompanyServicesRecord
-                                            .reference))
-                                      Container(
-                                        width: 20.0,
-                                        height: 20.0,
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(4.0),
-                                          shape: BoxShape.rectangle,
-                                          border: Border.all(
-                                            color: FlutterFlowTheme.of(context)
-                                                .gray1,
-                                          ),
-                                        ),
-                                      ),
-                                    Expanded(
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 0.0, 0.0, 0.0),
-                                        child: Text(
-                                          listViewCompanyServicesRecord.name!,
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyText1,
-                                        ),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 4.0, 0.0, 0.0),
-                                      child: Text(
-                                        '${listViewCompanyServicesRecord.price?.toString()} тг',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyText1Family,
-                                              fontWeight: FontWeight.w500,
-                                              useGoogleFonts:
-                                                  GoogleFonts.asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyText1Family),
-                                            ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Divider(
-                              thickness: 1.0,
-                              color: FlutterFlowTheme.of(context).gray3,
-                            ),
-                          ],
-                        ),
-                      );
-                    },
-                  );
-                },
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 60.0),
-                child: FFButtonWidget(
-                  onPressed: () async {
-                    Navigator.pop(context);
-                  },
-                  text: 'Сохранить',
-                  options: FFButtonOptions(
-                    width: 130.0,
-                    height: 48.0,
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    iconPadding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: FlutterFlowTheme.of(context).primaryColor,
-                    textStyle: FlutterFlowTheme.of(context).subtitle2.override(
-                          fontFamily:
-                              FlutterFlowTheme.of(context).subtitle2Family,
-                          color: Colors.white,
-                          fontSize: 16.0,
-                          useGoogleFonts: GoogleFonts.asMap().containsKey(
-                              FlutterFlowTheme.of(context).subtitle2Family),
-                        ),
-                    borderSide: BorderSide(
-                      color: Colors.transparent,
-                      width: 1.0,
-                    ),
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }

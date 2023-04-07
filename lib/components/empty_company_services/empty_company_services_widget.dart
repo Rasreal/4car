@@ -93,10 +93,10 @@ class _EmptyCompanyServicesWidgetState
                         EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 10.0, 0.0),
                     child: Text(
                       widget.name!,
-                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Inter',
                             useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                FlutterFlowTheme.of(context).bodyText1Family),
+                                FlutterFlowTheme.of(context).bodyMediumFamily),
                           ),
                     ),
                   ),

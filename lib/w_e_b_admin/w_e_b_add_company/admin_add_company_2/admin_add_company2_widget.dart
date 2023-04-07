@@ -49,12 +49,12 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+        body: SafeArea(
           child: Stack(
             children: [
               Column(
@@ -101,7 +101,7 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                 'Создание кампании',
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText1
+                                                        .bodyMedium
                                                         .override(
                                                           fontFamily: 'Inter',
                                                           fontSize: 24.0,
@@ -110,7 +110,7 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                               .containsKey(
                                                                   FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1Family),
+                                                                      .bodyMediumFamily),
                                                         ),
                                               ),
                                               InkWell(
@@ -143,7 +143,7 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Inter',
@@ -156,7 +156,7 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                     ),
                                                   ],
@@ -192,7 +192,7 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Inter',
@@ -201,7 +201,7 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                     ),
                                                   ),
@@ -223,7 +223,7 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                             'Кузов',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .bodyText1
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Inter',
@@ -236,7 +236,7 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                                           .asMap()
                                                                       .containsKey(
                                                                           FlutterFlowTheme.of(context)
-                                                                              .bodyText1Family),
+                                                                              .bodyMediumFamily),
                                                                 ),
                                                           ),
                                                         ),
@@ -246,7 +246,7 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                             'Продолжительность',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .bodyText1
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Inter',
@@ -259,7 +259,7 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                                           .asMap()
                                                                       .containsKey(
                                                                           FlutterFlowTheme.of(context)
-                                                                              .bodyText1Family),
+                                                                              .bodyMediumFamily),
                                                                 ),
                                                           ),
                                                         ),
@@ -268,7 +268,7 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                             'Цена',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .bodyText1
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Inter',
@@ -281,7 +281,7 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                                           .asMap()
                                                                       .containsKey(
                                                                           FlutterFlowTheme.of(context)
-                                                                              .bodyText1Family),
+                                                                              .bodyMediumFamily),
                                                                 ),
                                                           ),
                                                         ),
@@ -749,7 +749,7 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                           'Введите данные об услугах',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Inter',
@@ -761,7 +761,7 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                         ),
                                                       ),
@@ -777,7 +777,7 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                           '1. Выберите кузов машины и добавьте услуги, которые вы предоставляете\n\n2. Напишите цену, которая соответствует услуге и кузову\n\nС каждой операции будет сниматься 1,5 %',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Inter',
@@ -788,7 +788,7 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                         ),
                                                       ),
@@ -873,12 +873,12 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                 'Основная информация',
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText1
+                                                        .bodyMedium
                                                         .override(
                                                           fontFamily:
                                                               FlutterFlowTheme.of(
                                                                       context)
-                                                                  .bodyText1Family,
+                                                                  .bodyMediumFamily,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .text3,
@@ -889,7 +889,7 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                               .containsKey(
                                                                   FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1Family),
+                                                                      .bodyMediumFamily),
                                                         ),
                                               ),
                                             ),
@@ -920,7 +920,7 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                   border: Border.all(
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .primaryColor,
+                                                        .primary,
                                                     width: 2.0,
                                                   ),
                                                 ),
@@ -932,15 +932,15 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                     '2',
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyText1
+                                                        .bodyMedium
                                                         .override(
                                                           fontFamily:
                                                               FlutterFlowTheme.of(
                                                                       context)
-                                                                  .bodyText1Family,
+                                                                  .bodyMediumFamily,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .primaryColor,
+                                                              .primary,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                           useGoogleFonts: GoogleFonts
@@ -948,7 +948,7 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                               .containsKey(
                                                                   FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1Family),
+                                                                      .bodyMediumFamily),
                                                         ),
                                                   ),
                                                 ),
@@ -961,16 +961,16 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                   'Услуги',
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyText1
+                                                      .bodyMedium
                                                       .override(
                                                         fontFamily:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1Family,
+                                                                .bodyMediumFamily,
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .primaryColor,
+                                                                .primary,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                         useGoogleFonts: GoogleFonts
@@ -978,7 +978,7 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                             .containsKey(
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1Family),
+                                                                    .bodyMediumFamily),
                                                       ),
                                                 ),
                                               ),
@@ -1022,12 +1022,12 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                     '3',
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyText1
+                                                        .bodyMedium
                                                         .override(
                                                           fontFamily:
                                                               FlutterFlowTheme.of(
                                                                       context)
-                                                                  .bodyText1Family,
+                                                                  .bodyMediumFamily,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .text3,
@@ -1038,7 +1038,7 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                               .containsKey(
                                                                   FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1Family),
+                                                                      .bodyMediumFamily),
                                                         ),
                                                   ),
                                                 ),
@@ -1051,12 +1051,12 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                   'Удобства',
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyText1
+                                                      .bodyMedium
                                                       .override(
                                                         fontFamily:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1Family,
+                                                                .bodyMediumFamily,
                                                         color:
                                                             Color(0xFF515151),
                                                         fontWeight:
@@ -1066,7 +1066,7 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                             .containsKey(
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1Family),
+                                                                    .bodyMediumFamily),
                                                       ),
                                                 ),
                                               ),
@@ -1110,12 +1110,12 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                     '4',
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyText1
+                                                        .bodyMedium
                                                         .override(
                                                           fontFamily:
                                                               FlutterFlowTheme.of(
                                                                       context)
-                                                                  .bodyText1Family,
+                                                                  .bodyMediumFamily,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .text3,
@@ -1126,7 +1126,7 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                               .containsKey(
                                                                   FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1Family),
+                                                                      .bodyMediumFamily),
                                                         ),
                                                   ),
                                                 ),
@@ -1139,12 +1139,12 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                   'Реквизиты',
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyText1
+                                                      .bodyMedium
                                                       .override(
                                                         fontFamily:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1Family,
+                                                                .bodyMediumFamily,
                                                         color:
                                                             Color(0xFF515151),
                                                         fontWeight:
@@ -1154,7 +1154,7 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                             .containsKey(
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1Family),
+                                                                    .bodyMediumFamily),
                                                       ),
                                                 ),
                                               ),
@@ -1198,12 +1198,12 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                     '5',
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyText1
+                                                        .bodyMedium
                                                         .override(
                                                           fontFamily:
                                                               FlutterFlowTheme.of(
                                                                       context)
-                                                                  .bodyText1Family,
+                                                                  .bodyMediumFamily,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .text3,
@@ -1214,7 +1214,7 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                               .containsKey(
                                                                   FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1Family),
+                                                                      .bodyMediumFamily),
                                                         ),
                                                   ),
                                                 ),
@@ -1227,12 +1227,12 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                   'Подтверждение',
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyText1
+                                                      .bodyMedium
                                                       .override(
                                                         fontFamily:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1Family,
+                                                                .bodyMediumFamily,
                                                         color:
                                                             Color(0xFF515151),
                                                         fontWeight:
@@ -1242,7 +1242,7 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                                             .containsKey(
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1Family),
+                                                                    .bodyMediumFamily),
                                                       ),
                                                 ),
                                               ),
@@ -1294,19 +1294,19 @@ class _AdminAddCompany2WidgetState extends State<AdminAddCompany2Widget> {
                                             EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
                                         color: FlutterFlowTheme.of(context)
-                                            .primaryColor,
+                                            .primary,
                                         textStyle: FlutterFlowTheme.of(context)
-                                            .subtitle2
+                                            .titleSmall
                                             .override(
                                               fontFamily: 'Inter',
                                               color: Colors.white,
                                               fontWeight: FontWeight.w500,
-                                              useGoogleFonts:
-                                                  GoogleFonts.asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .subtitle2Family),
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleSmallFamily),
                                             ),
                                         elevation: 0.0,
                                         borderSide: BorderSide(

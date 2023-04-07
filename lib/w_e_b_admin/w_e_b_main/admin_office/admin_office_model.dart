@@ -5,17 +5,17 @@ import '/backend/firebase_storage/storage.dart';
 import '/components/admin_add_sales/admin_add_sales_widget.dart';
 import '/components/admin_app_bar/admin_app_bar_widget.dart';
 import '/components/admin_app_bar_info/admin_app_bar_info_widget.dart';
+import '/components/admin_edit_stuff_status_widget.dart';
 import '/components/admin_reset_password/admin_reset_password_widget.dart';
 import '/components/admin_sales_active_empty/admin_sales_active_empty_widget.dart';
 import '/components/admin_sales_archive_empty/admin_sales_archive_empty_widget.dart';
 import '/components/admin_sales_details/admin_sales_details_widget.dart';
 import '/components/admin_sales_moderation_empty/admin_sales_moderation_empty_widget.dart';
 import '/components/success/success_widget.dart';
-import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/upload_media.dart';
+import '/flutter_flow/upload_data.dart';
 import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expandable/expandable.dart';
@@ -34,7 +34,7 @@ class AdminOfficeModel extends FlutterFlowModel {
   // State field(s) for Email widget.
   TextEditingController? emailController;
   String? Function(BuildContext, String?)? emailControllerValidator;
-  bool isMediaUploading = false;
+  bool isDataUploading = false;
   FFUploadedFile uploadedLocalFile =
       FFUploadedFile(bytes: Uint8List.fromList([]));
   String uploadedFileUrl = '';
@@ -68,8 +68,6 @@ class AdminOfficeModel extends FlutterFlowModel {
   // State field(s) for TextField widget.
   TextEditingController? textController3;
   String? Function(BuildContext, String?)? textController3Validator;
-  // State field(s) for DropDown667 widget.
-  Map<DocumentReference?, String> dropDown667ValueMap = {};
   // State field(s) for TextField widget.
   TextEditingController? textController4;
   String? Function(BuildContext, String?)? textController4Validator;
@@ -133,7 +131,7 @@ class AdminOfficeModel extends FlutterFlowModel {
 
   /// Additional helper methods are added here.
 
-  Future waitForFirestoreRequestCompleter({
+  Future waitForFirestoreRequestCompleted({
     double minWait = 0,
     double maxWait = double.infinity,
   }) async {

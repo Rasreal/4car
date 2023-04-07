@@ -68,12 +68,12 @@ class _EmptyBookedActiveWidgetState extends State<EmptyBookedActiveWidget> {
                   child: Text(
                     'У вас пока нет \nактивных записей',
                     textAlign: TextAlign.center,
-                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily:
-                              FlutterFlowTheme.of(context).bodyText1Family,
+                              FlutterFlowTheme.of(context).bodyMediumFamily,
                           fontWeight: FontWeight.w500,
                           useGoogleFonts: GoogleFonts.asMap().containsKey(
-                              FlutterFlowTheme.of(context).bodyText1Family),
+                              FlutterFlowTheme.of(context).bodyMediumFamily),
                         ),
                   ),
                 ),
@@ -95,15 +95,16 @@ class _EmptyBookedActiveWidgetState extends State<EmptyBookedActiveWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   iconPadding:
                       EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                  color: FlutterFlowTheme.of(context).primaryColor,
-                  textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                  color: FlutterFlowTheme.of(context).primary,
+                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                         fontFamily:
-                            FlutterFlowTheme.of(context).subtitle2Family,
+                            FlutterFlowTheme.of(context).titleSmallFamily,
                         color: Colors.white,
                         fontWeight: FontWeight.w500,
                         useGoogleFonts: GoogleFonts.asMap().containsKey(
-                            FlutterFlowTheme.of(context).subtitle2Family),
+                            FlutterFlowTheme.of(context).titleSmallFamily),
                       ),
+                  elevation: 2.0,
                   borderSide: BorderSide(
                     color: Colors.transparent,
                     width: 1.0,

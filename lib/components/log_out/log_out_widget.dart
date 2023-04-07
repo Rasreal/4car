@@ -58,12 +58,12 @@ class _LogOutWidgetState extends State<LogOutWidget> {
               padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 2.0),
               child: Text(
                 'Выйти с аккаунта?',
-                style: FlutterFlowTheme.of(context).bodyText1.override(
-                      fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                      fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                       fontSize: 17.0,
                       fontWeight: FontWeight.w600,
                       useGoogleFonts: GoogleFonts.asMap().containsKey(
-                          FlutterFlowTheme.of(context).bodyText1Family),
+                          FlutterFlowTheme.of(context).bodyMediumFamily),
                     ),
               ),
             ),
@@ -71,11 +71,11 @@ class _LogOutWidgetState extends State<LogOutWidget> {
               padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
               child: Text(
                 'Вы точно хотите выйти из аккаунта?',
-                style: FlutterFlowTheme.of(context).bodyText1.override(
-                      fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                      fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                       fontSize: 13.0,
                       useGoogleFonts: GoogleFonts.asMap().containsKey(
-                          FlutterFlowTheme.of(context).bodyText1Family),
+                          FlutterFlowTheme.of(context).bodyMediumFamily),
                     ),
               ),
             ),
@@ -101,6 +101,7 @@ class _LogOutWidgetState extends State<LogOutWidget> {
                         onTap: () async {
                           GoRouter.of(context).prepareAuthEvent();
                           await signOut();
+                          GoRouter.of(context).clearRedirectLocation();
 
                           context.goNamedAuth('admin_sign_in_email', mounted);
                         },
@@ -111,17 +112,17 @@ class _LogOutWidgetState extends State<LogOutWidget> {
                             Text(
                               'Выйти',
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText1
+                                  .bodyMedium
                                   .override(
                                     fontFamily: FlutterFlowTheme.of(context)
-                                        .bodyText1Family,
+                                        .bodyMediumFamily,
                                     color: FlutterFlowTheme.of(context).red1,
                                     fontSize: 17.0,
                                     fontWeight: FontWeight.w500,
                                     useGoogleFonts: GoogleFonts.asMap()
                                         .containsKey(
                                             FlutterFlowTheme.of(context)
-                                                .bodyText1Family),
+                                                .bodyMediumFamily),
                                   ),
                             ),
                           ],
@@ -147,18 +148,17 @@ class _LogOutWidgetState extends State<LogOutWidget> {
                             Text(
                               'Отмена',
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText1
+                                  .bodyMedium
                                   .override(
                                     fontFamily: FlutterFlowTheme.of(context)
-                                        .bodyText1Family,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryColor,
+                                        .bodyMediumFamily,
+                                    color: FlutterFlowTheme.of(context).primary,
                                     fontSize: 17.0,
                                     fontWeight: FontWeight.w500,
                                     useGoogleFonts: GoogleFonts.asMap()
                                         .containsKey(
                                             FlutterFlowTheme.of(context)
-                                                .bodyText1Family),
+                                                .bodyMediumFamily),
                                   ),
                             ),
                           ],

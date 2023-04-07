@@ -7,7 +7,7 @@ import '/components/super_admin_app_bar/super_admin_app_bar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/upload_media.dart';
+import '/flutter_flow/upload_data.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -65,12 +65,12 @@ class _ManagerProfileWidgetState extends State<ManagerProfileWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        body: SafeArea(
           child: Stack(
             children: [
               Column(
@@ -125,7 +125,7 @@ class _ManagerProfileWidgetState extends State<ManagerProfileWidget> {
                                                   'Назад',
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyText1
+                                                      .bodyMedium
                                                       .override(
                                                         fontFamily: 'Inter',
                                                         fontWeight:
@@ -135,7 +135,7 @@ class _ManagerProfileWidgetState extends State<ManagerProfileWidget> {
                                                             .containsKey(
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1Family),
+                                                                    .bodyMediumFamily),
                                                       ),
                                                 ),
                                               ],
@@ -150,16 +150,16 @@ class _ManagerProfileWidgetState extends State<ManagerProfileWidget> {
                                       child: Text(
                                         'Кабинет',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Inter',
                                               fontSize: 24.0,
-                                              useGoogleFonts:
-                                                  GoogleFonts.asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyText1Family),
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily),
                                             ),
                                       ),
                                     ),
@@ -216,7 +216,7 @@ class _ManagerProfileWidgetState extends State<ManagerProfileWidget> {
                                                                 'Основная информация',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1
+                                                                    .bodyMedium
                                                                     .override(
                                                                       fontFamily:
                                                                           'Inter',
@@ -228,7 +228,7 @@ class _ManagerProfileWidgetState extends State<ManagerProfileWidget> {
                                                                       useGoogleFonts: GoogleFonts
                                                                               .asMap()
                                                                           .containsKey(
-                                                                              FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                     ),
                                                               ),
                                                             ),
@@ -258,7 +258,7 @@ class _ManagerProfileWidgetState extends State<ManagerProfileWidget> {
                                                                           .kicEdit,
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .primaryColor,
+                                                                          .primary,
                                                                       size:
                                                                           24.0,
                                                                     ),
@@ -267,16 +267,16 @@ class _ManagerProfileWidgetState extends State<ManagerProfileWidget> {
                                                                     'Редактировать',
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyText1
+                                                                        .bodyMedium
                                                                         .override(
                                                                           fontFamily:
                                                                               'Inter',
                                                                           color:
-                                                                              FlutterFlowTheme.of(context).primaryColor,
+                                                                              FlutterFlowTheme.of(context).primary,
                                                                           fontWeight:
                                                                               FontWeight.w500,
                                                                           useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                         ),
                                                                   ),
                                                                 ],
@@ -322,19 +322,27 @@ class _ManagerProfileWidgetState extends State<ManagerProfileWidget> {
                                                                     backgroundColor:
                                                                         Colors
                                                                             .transparent,
+                                                                    barrierColor:
+                                                                        Color(
+                                                                            0x00000000),
                                                                     enableDrag:
                                                                         false,
                                                                     context:
                                                                         context,
                                                                     builder:
-                                                                        (context) {
-                                                                      return Padding(
-                                                                        padding:
-                                                                            MediaQuery.of(context).viewInsets,
+                                                                        (bottomSheetContext) {
+                                                                      return GestureDetector(
+                                                                        onTap: () =>
+                                                                            FocusScope.of(context).requestFocus(_unfocusNode),
                                                                         child:
-                                                                            AdminResetPasswordWidget(
-                                                                          emaill:
-                                                                              currentUserEmail,
+                                                                            Padding(
+                                                                          padding:
+                                                                              MediaQuery.of(bottomSheetContext).viewInsets,
+                                                                          child:
+                                                                              AdminResetPasswordWidget(
+                                                                            emaill:
+                                                                                currentUserEmail,
+                                                                          ),
                                                                         ),
                                                                       );
                                                                     },
@@ -358,7 +366,7 @@ class _ManagerProfileWidgetState extends State<ManagerProfileWidget> {
                                                                         FFIcons
                                                                             .kicRefresh,
                                                                         color: FlutterFlowTheme.of(context)
-                                                                            .primaryColor,
+                                                                            .primary,
                                                                         size:
                                                                             22.0,
                                                                       ),
@@ -367,16 +375,16 @@ class _ManagerProfileWidgetState extends State<ManagerProfileWidget> {
                                                                       'Изменить пароль',
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyText1
+                                                                          .bodyMedium
                                                                           .override(
                                                                             fontFamily:
                                                                                 'Inter',
                                                                             color:
-                                                                                FlutterFlowTheme.of(context).primaryColor,
+                                                                                FlutterFlowTheme.of(context).primary,
                                                                             fontWeight:
                                                                                 FontWeight.w500,
                                                                             useGoogleFonts:
-                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                           ),
                                                                     ),
                                                                   ],
@@ -446,7 +454,7 @@ class _ManagerProfileWidgetState extends State<ManagerProfileWidget> {
                                                                       '${currentUserDisplayName} null',
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyText1
+                                                                          .bodyMedium
                                                                           .override(
                                                                             fontFamily:
                                                                                 'Inter',
@@ -455,7 +463,7 @@ class _ManagerProfileWidgetState extends State<ManagerProfileWidget> {
                                                                             fontWeight:
                                                                                 FontWeight.w500,
                                                                             useGoogleFonts:
-                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                           ),
                                                                     ),
                                                                   ),
@@ -468,16 +476,16 @@ class _ManagerProfileWidgetState extends State<ManagerProfileWidget> {
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1
+                                                                      .bodyMedium
                                                                       .override(
                                                                         fontFamily:
-                                                                            FlutterFlowTheme.of(context).bodyText1Family,
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .gray2,
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                         useGoogleFonts:
-                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                       ),
                                                                 ),
                                                               ],
@@ -574,17 +582,17 @@ class _ManagerProfileWidgetState extends State<ManagerProfileWidget> {
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyText1
+                                                                  .bodyMedium
                                                                   .override(
                                                                     fontFamily:
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family,
+                                                                            .bodyMediumFamily,
                                                                     color: Color(
                                                                         0x00FFFFFF),
                                                                     useGoogleFonts: GoogleFonts
                                                                             .asMap()
                                                                         .containsKey(
-                                                                            FlutterFlowTheme.of(context).bodyText1Family),
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                   ),
                                                               validator: _model
                                                                   .emailControllerValidator
@@ -619,10 +627,10 @@ class _ManagerProfileWidgetState extends State<ManagerProfileWidget> {
                                                                     'Номер телефона',
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyText1
+                                                                        .bodyMedium
                                                                         .override(
                                                                           fontFamily:
-                                                                              FlutterFlowTheme.of(context).bodyText1Family,
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                           color:
                                                                               FlutterFlowTheme.of(context).gray2,
                                                                           fontSize:
@@ -630,7 +638,7 @@ class _ManagerProfileWidgetState extends State<ManagerProfileWidget> {
                                                                           fontWeight:
                                                                               FontWeight.normal,
                                                                           useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                         ),
                                                                   ),
                                                                   Padding(
@@ -647,12 +655,12 @@ class _ManagerProfileWidgetState extends State<ManagerProfileWidget> {
                                                                               Text(
                                                                         currentPhoneNumber,
                                                                         style: FlutterFlowTheme.of(context)
-                                                                            .bodyText1
+                                                                            .bodyMedium
                                                                             .override(
                                                                               fontFamily: 'Inter',
                                                                               fontSize: 16.0,
                                                                               fontWeight: FontWeight.w500,
-                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                             ),
                                                                       ),
                                                                     ),
@@ -700,7 +708,7 @@ class _ManagerProfileWidgetState extends State<ManagerProfileWidget> {
                                                                 'Основная информация',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1
+                                                                    .bodyMedium
                                                                     .override(
                                                                       fontFamily:
                                                                           'Inter',
@@ -712,7 +720,7 @@ class _ManagerProfileWidgetState extends State<ManagerProfileWidget> {
                                                                       useGoogleFonts: GoogleFonts
                                                                               .asMap()
                                                                           .containsKey(
-                                                                              FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                     ),
                                                               ),
                                                             ),
@@ -753,7 +761,7 @@ class _ManagerProfileWidgetState extends State<ManagerProfileWidget> {
                                                                     'Отменить',
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyText1
+                                                                        .bodyMedium
                                                                         .override(
                                                                           fontFamily:
                                                                               'Inter',
@@ -762,7 +770,7 @@ class _ManagerProfileWidgetState extends State<ManagerProfileWidget> {
                                                                           fontWeight:
                                                                               FontWeight.w500,
                                                                           useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                         ),
                                                                   ),
                                                                 ],
@@ -799,7 +807,7 @@ class _ManagerProfileWidgetState extends State<ManagerProfileWidget> {
                                                                             m.storagePath,
                                                                             context))) {
                                                                   setState(() =>
-                                                                      _model.isMediaUploading =
+                                                                      _model.isDataUploading =
                                                                           true);
                                                                   var selectedUploadedFiles =
                                                                       <FFUploadedFile>[];
@@ -831,7 +839,7 @@ class _ManagerProfileWidgetState extends State<ManagerProfileWidget> {
                                                                             u!)
                                                                         .toList();
                                                                   } finally {
-                                                                    _model.isMediaUploading =
+                                                                    _model.isDataUploading =
                                                                         false;
                                                                   }
                                                                   if (selectedUploadedFiles
@@ -903,18 +911,18 @@ class _ManagerProfileWidgetState extends State<ManagerProfileWidget> {
                                                                       'Заменить фото',
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyText1
+                                                                          .bodyMedium
                                                                           .override(
                                                                             fontFamily:
                                                                                 'Inter',
                                                                             color:
-                                                                                FlutterFlowTheme.of(context).primaryColor,
+                                                                                FlutterFlowTheme.of(context).primary,
                                                                             fontSize:
                                                                                 14.0,
                                                                             fontWeight:
                                                                                 FontWeight.w500,
                                                                             useGoogleFonts:
-                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                           ),
                                                                     ),
                                                                   ),
@@ -948,7 +956,7 @@ class _ManagerProfileWidgetState extends State<ManagerProfileWidget> {
                                                                           'ФИО',
                                                                       labelStyle: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyText1
+                                                                          .bodyMedium
                                                                           .override(
                                                                             fontFamily:
                                                                                 'Inter',
@@ -959,11 +967,11 @@ class _ManagerProfileWidgetState extends State<ManagerProfileWidget> {
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                             useGoogleFonts:
-                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                           ),
                                                                       hintStyle: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyText1
+                                                                          .bodyMedium
                                                                           .override(
                                                                             fontFamily:
                                                                                 'Inter',
@@ -974,7 +982,7 @@ class _ManagerProfileWidgetState extends State<ManagerProfileWidget> {
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                             useGoogleFonts:
-                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                           ),
                                                                       enabledBorder:
                                                                           OutlineInputBorder(
@@ -1032,7 +1040,7 @@ class _ManagerProfileWidgetState extends State<ManagerProfileWidget> {
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyText1
+                                                                        .bodyMedium
                                                                         .override(
                                                                           fontFamily:
                                                                               'Inter',
@@ -1043,7 +1051,7 @@ class _ManagerProfileWidgetState extends State<ManagerProfileWidget> {
                                                                           fontWeight:
                                                                               FontWeight.normal,
                                                                           useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                         ),
                                                                     validator: _model
                                                                         .editFIOControllerValidator
@@ -1080,7 +1088,7 @@ class _ManagerProfileWidgetState extends State<ManagerProfileWidget> {
                                                                           'Номер телефона',
                                                                       labelStyle: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyText1
+                                                                          .bodyMedium
                                                                           .override(
                                                                             fontFamily:
                                                                                 'Inter',
@@ -1091,11 +1099,11 @@ class _ManagerProfileWidgetState extends State<ManagerProfileWidget> {
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                             useGoogleFonts:
-                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                           ),
                                                                       hintStyle: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyText1
+                                                                          .bodyMedium
                                                                           .override(
                                                                             fontFamily:
                                                                                 'Inter',
@@ -1106,7 +1114,7 @@ class _ManagerProfileWidgetState extends State<ManagerProfileWidget> {
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                             useGoogleFonts:
-                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                           ),
                                                                       enabledBorder:
                                                                           OutlineInputBorder(
@@ -1164,7 +1172,7 @@ class _ManagerProfileWidgetState extends State<ManagerProfileWidget> {
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyText1
+                                                                        .bodyMedium
                                                                         .override(
                                                                           fontFamily:
                                                                               'Inter',
@@ -1175,7 +1183,7 @@ class _ManagerProfileWidgetState extends State<ManagerProfileWidget> {
                                                                           fontWeight:
                                                                               FontWeight.normal,
                                                                           useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                         ),
                                                                     validator: _model
                                                                         .editPhoneControllerValidator
@@ -1278,8 +1286,7 @@ class _ManagerProfileWidgetState extends State<ManagerProfileWidget> {
                                       ),
                                       duration: Duration(milliseconds: 4000),
                                       backgroundColor:
-                                          FlutterFlowTheme.of(context)
-                                              .primaryColor,
+                                          FlutterFlowTheme.of(context).primary,
                                     ),
                                   );
                                 },
@@ -1291,10 +1298,9 @@ class _ManagerProfileWidgetState extends State<ManagerProfileWidget> {
                                       0.0, 0.0, 0.0, 0.0),
                                   iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryColor,
+                                  color: FlutterFlowTheme.of(context).primary,
                                   textStyle: FlutterFlowTheme.of(context)
-                                      .subtitle2
+                                      .titleSmall
                                       .override(
                                         fontFamily: 'Inter',
                                         color: Colors.white,
@@ -1302,7 +1308,7 @@ class _ManagerProfileWidgetState extends State<ManagerProfileWidget> {
                                         useGoogleFonts: GoogleFonts.asMap()
                                             .containsKey(
                                                 FlutterFlowTheme.of(context)
-                                                    .subtitle2Family),
+                                                    .titleSmallFamily),
                                       ),
                                   elevation: 0.0,
                                   borderSide: BorderSide(

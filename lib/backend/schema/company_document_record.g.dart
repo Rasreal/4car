@@ -336,42 +336,25 @@ class _$CompanyDocumentRecord extends CompanyDocumentRecord {
 
   @override
   int get hashCode {
-    return $jf($jc(
-        $jc(
-            $jc(
-                $jc(
-                    $jc(
-                        $jc(
-                            $jc(
-                                $jc(
-                                    $jc(
-                                        $jc(
-                                            $jc(
-                                                $jc(
-                                                    $jc(
-                                                        $jc(
-                                                            $jc(
-                                                                $jc(
-                                                                    0,
-                                                                    companyName
-                                                                        .hashCode),
-                                                                tooName
-                                                                    .hashCode),
-                                                            fioRukovoditel
-                                                                .hashCode),
-                                                        numDogovor.hashCode),
-                                                    dateDogovor.hashCode),
-                                                dogovor.hashCode),
-                                            bin.hashCode),
-                                        iban.hashCode),
-                                    status.hashCode),
-                                logo.hashCode),
-                            companyBranches.hashCode),
-                        companyUsers.hashCode),
-                    companyAdmin.hashCode),
-                boxesName.hashCode),
-            forCarProcent.hashCode),
-        ffRef.hashCode));
+    var _$hash = 0;
+    _$hash = $jc(_$hash, companyName.hashCode);
+    _$hash = $jc(_$hash, tooName.hashCode);
+    _$hash = $jc(_$hash, fioRukovoditel.hashCode);
+    _$hash = $jc(_$hash, numDogovor.hashCode);
+    _$hash = $jc(_$hash, dateDogovor.hashCode);
+    _$hash = $jc(_$hash, dogovor.hashCode);
+    _$hash = $jc(_$hash, bin.hashCode);
+    _$hash = $jc(_$hash, iban.hashCode);
+    _$hash = $jc(_$hash, status.hashCode);
+    _$hash = $jc(_$hash, logo.hashCode);
+    _$hash = $jc(_$hash, companyBranches.hashCode);
+    _$hash = $jc(_$hash, companyUsers.hashCode);
+    _$hash = $jc(_$hash, companyAdmin.hashCode);
+    _$hash = $jc(_$hash, boxesName.hashCode);
+    _$hash = $jc(_$hash, forCarProcent.hashCode);
+    _$hash = $jc(_$hash, ffRef.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
   }
 
   @override
@@ -561,4 +544,4 @@ class CompanyDocumentRecordBuilder
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas
+// ignore_for_file: deprecated_member_use_from_same_package,type=lint

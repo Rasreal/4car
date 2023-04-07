@@ -77,7 +77,7 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                       width: 50.0,
                       height: 50.0,
                       child: CircularProgressIndicator(
-                        color: FlutterFlowTheme.of(context).primaryColor,
+                        color: FlutterFlowTheme.of(context).primary,
                       ),
                     ),
                   );
@@ -97,14 +97,14 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                           Text(
                             'Детали акции',
                             style: FlutterFlowTheme.of(context)
-                                .bodyText1
+                                .bodyMedium
                                 .override(
                                   fontFamily: FlutterFlowTheme.of(context)
-                                      .bodyText1Family,
+                                      .bodyMediumFamily,
                                   fontSize: 20.0,
                                   useGoogleFonts: GoogleFonts.asMap()
                                       .containsKey(FlutterFlowTheme.of(context)
-                                          .bodyText1Family),
+                                          .bodyMediumFamily),
                                 ),
                           ),
                           InkWell(
@@ -140,12 +140,13 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                           columnPromotionRecord.title,
                           'null',
                         ),
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily:
-                                  FlutterFlowTheme.of(context).bodyText1Family,
+                                  FlutterFlowTheme.of(context).bodyMediumFamily,
                               fontSize: 16.0,
                               useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                  FlutterFlowTheme.of(context).bodyText1Family),
+                                  FlutterFlowTheme.of(context)
+                                      .bodyMediumFamily),
                             ),
                       ),
                     ),
@@ -157,12 +158,13 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                           columnPromotionRecord.subtitle,
                           'null',
                         ),
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily:
-                                  FlutterFlowTheme.of(context).bodyText1Family,
+                                  FlutterFlowTheme.of(context).bodyMediumFamily,
                               fontWeight: FontWeight.normal,
                               useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                  FlutterFlowTheme.of(context).bodyText1Family),
+                                  FlutterFlowTheme.of(context)
+                                      .bodyMediumFamily),
                             ),
                       ),
                     ),
@@ -191,16 +193,16 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                                 child: Text(
                                   'Архивировать',
                                   style: FlutterFlowTheme.of(context)
-                                      .bodyText1
+                                      .bodyMedium
                                       .override(
                                         fontFamily: 'Inter',
                                         color: FlutterFlowTheme.of(context)
-                                            .primaryColor,
+                                            .primary,
                                         fontWeight: FontWeight.normal,
                                         useGoogleFonts: GoogleFonts.asMap()
                                             .containsKey(
                                                 FlutterFlowTheme.of(context)
-                                                    .bodyText1Family),
+                                                    .bodyMediumFamily),
                                       ),
                                 ),
                               ),
@@ -210,12 +212,13 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                                 await showModalBottomSheet(
                                   isScrollControlled: true,
                                   backgroundColor: Colors.transparent,
+                                  barrierColor: Color(0x00000000),
                                   enableDrag: false,
                                   context: context,
-                                  builder: (context) {
+                                  builder: (bottomSheetContext) {
                                     return Padding(
-                                      padding:
-                                          MediaQuery.of(context).viewInsets,
+                                      padding: MediaQuery.of(bottomSheetContext)
+                                          .viewInsets,
                                       child: AdminEditSalesWidget(
                                         promotion: columnPromotionRecord,
                                       ),
@@ -231,8 +234,8 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                                         0.0, 0.0, 10.0, 0.0),
                                     child: Icon(
                                       FFIcons.kicEdit,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryColor,
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
                                       size: 18.0,
                                     ),
                                   ),
@@ -242,19 +245,19 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                                     child: Text(
                                       'Изменить',
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyText1
+                                          .bodyMedium
                                           .override(
                                             fontFamily:
                                                 FlutterFlowTheme.of(context)
-                                                    .bodyText1Family,
+                                                    .bodyMediumFamily,
                                             color: FlutterFlowTheme.of(context)
-                                                .primaryColor,
+                                                .primary,
                                             fontSize: 12.0,
                                             fontWeight: FontWeight.normal,
                                             useGoogleFonts: GoogleFonts.asMap()
                                                 .containsKey(
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText1Family),
+                                                        .bodyMediumFamily),
                                           ),
                                     ),
                                   ),
@@ -295,18 +298,18 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                                         child: Text(
                                           'Продвижение акции в топ ',
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1
+                                              .bodyMedium
                                               .override(
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText1Family,
+                                                        .bodyMediumFamily,
                                                 fontWeight: FontWeight.w500,
                                                 useGoogleFonts: GoogleFonts
                                                         .asMap()
                                                     .containsKey(
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .bodyText1Family),
+                                                            .bodyMediumFamily),
                                               ),
                                         ),
                                       ),
@@ -316,11 +319,11 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                                         child: Text(
                                           'Преимущества ',
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1
+                                              .bodyMedium
                                               .override(
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText1Family,
+                                                        .bodyMediumFamily,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .gray2,
@@ -330,7 +333,7 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                                                     .containsKey(
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .bodyText1Family),
+                                                            .bodyMediumFamily),
                                               ),
                                         ),
                                       ),
@@ -363,12 +366,12 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                                                 'Ваша акция будет находиться на\nглавной странице приложения.',
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText1
+                                                        .bodyMedium
                                                         .override(
                                                           fontFamily:
                                                               FlutterFlowTheme.of(
                                                                       context)
-                                                                  .bodyText1Family,
+                                                                  .bodyMediumFamily,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .gray2,
@@ -379,7 +382,7 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                                                               .containsKey(
                                                                   FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1Family),
+                                                                      .bodyMediumFamily),
                                                         ),
                                               ),
                                             ),
@@ -415,12 +418,12 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                                                 'Ваша акция будет находиться на\nглавной странице приложения.',
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText1
+                                                        .bodyMedium
                                                         .override(
                                                           fontFamily:
                                                               FlutterFlowTheme.of(
                                                                       context)
-                                                                  .bodyText1Family,
+                                                                  .bodyMediumFamily,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .gray2,
@@ -431,7 +434,7 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                                                               .containsKey(
                                                                   FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1Family),
+                                                                      .bodyMediumFamily),
                                                         ),
                                               ),
                                             ),
@@ -444,11 +447,11 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                                         child: Text(
                                           'Условия',
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1
+                                              .bodyMedium
                                               .override(
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText1Family,
+                                                        .bodyMediumFamily,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .gray2,
@@ -458,7 +461,7 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                                                     .containsKey(
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .bodyText1Family),
+                                                            .bodyMediumFamily),
                                               ),
                                         ),
                                       ),
@@ -491,12 +494,12 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                                                 'Ваша акция отправится на\nрассмотрение модераторам.',
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText1
+                                                        .bodyMedium
                                                         .override(
                                                           fontFamily:
                                                               FlutterFlowTheme.of(
                                                                       context)
-                                                                  .bodyText1Family,
+                                                                  .bodyMediumFamily,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .gray2,
@@ -507,7 +510,7 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                                                               .containsKey(
                                                                   FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1Family),
+                                                                      .bodyMediumFamily),
                                                         ),
                                               ),
                                             ),
@@ -537,12 +540,12 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                                           Text(
                                             'Менеджер ForCar свяжется с\nвами и обговорит все детали\nоплаты.',
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyText1
+                                                .bodyMedium
                                                 .override(
                                                   fontFamily:
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .bodyText1Family,
+                                                          .bodyMediumFamily,
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .gray2,
@@ -552,7 +555,7 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                                                       .containsKey(
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyText1Family),
+                                                              .bodyMediumFamily),
                                                 ),
                                           ),
                                         ],
@@ -578,21 +581,20 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                                         0.0, 0.0, 0.0, 0.0),
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryColor,
+                                    color: FlutterFlowTheme.of(context).primary,
                                     textStyle: FlutterFlowTheme.of(context)
-                                        .subtitle2
+                                        .titleSmall
                                         .override(
                                           fontFamily:
                                               FlutterFlowTheme.of(context)
-                                                  .subtitle2Family,
+                                                  .titleSmallFamily,
                                           color: Colors.white,
                                           fontSize: 14.0,
                                           fontWeight: FontWeight.normal,
                                           useGoogleFonts: GoogleFonts.asMap()
                                               .containsKey(
                                                   FlutterFlowTheme.of(context)
-                                                      .subtitle2Family),
+                                                      .titleSmallFamily),
                                         ),
                                     elevation: 0.0,
                                     borderSide: BorderSide(
@@ -630,7 +632,7 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                                 child: Text(
                                   'Отмена',
                                   style: FlutterFlowTheme.of(context)
-                                      .bodyText1
+                                      .bodyMedium
                                       .override(
                                         fontFamily: 'Inter',
                                         color:
@@ -639,7 +641,7 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                                         useGoogleFonts: GoogleFonts.asMap()
                                             .containsKey(
                                                 FlutterFlowTheme.of(context)
-                                                    .bodyText1Family),
+                                                    .bodyMediumFamily),
                                       ),
                                 ),
                               ),
@@ -647,16 +649,16 @@ class _AdminSalesDetailsWidgetState extends State<AdminSalesDetailsWidget> {
                             Text(
                               'На проверке у модератора. Ожидайте…',
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText1
+                                  .bodyMedium
                                   .override(
                                     fontFamily: FlutterFlowTheme.of(context)
-                                        .bodyText1Family,
+                                        .bodyMediumFamily,
                                     color: FlutterFlowTheme.of(context).gray2,
                                     fontWeight: FontWeight.normal,
                                     useGoogleFonts: GoogleFonts.asMap()
                                         .containsKey(
                                             FlutterFlowTheme.of(context)
-                                                .bodyText1Family),
+                                                .bodyMediumFamily),
                                   ),
                             ),
                           ],

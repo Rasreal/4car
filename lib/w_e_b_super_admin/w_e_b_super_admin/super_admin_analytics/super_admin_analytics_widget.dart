@@ -48,12 +48,12 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+        body: SafeArea(
           child: Stack(
             children: [
               Column(
@@ -86,14 +86,14 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                     child: Text(
                                       'Аналитика',
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyText1
+                                          .bodyMedium
                                           .override(
                                             fontFamily: 'Inter',
                                             fontSize: 24.0,
                                             useGoogleFonts: GoogleFonts.asMap()
                                                 .containsKey(
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText1Family),
+                                                        .bodyMediumFamily),
                                           ),
                                     ),
                                   ),
@@ -116,7 +116,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                           child: Text(
                                             'Фильтр',
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyText1
+                                                .bodyMedium
                                                 .override(
                                                   fontFamily: 'Inter',
                                                   color: FlutterFlowTheme.of(
@@ -128,7 +128,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                       .containsKey(
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyText1Family),
+                                                              .bodyMediumFamily),
                                                 ),
                                           ),
                                         ),
@@ -142,15 +142,22 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                 isScrollControlled: true,
                                                 backgroundColor:
                                                     Colors.transparent,
+                                                barrierColor: Color(0x00000000),
                                                 enableDrag: false,
                                                 context: context,
-                                                builder: (context) {
-                                                  return Padding(
-                                                    padding:
-                                                        MediaQuery.of(context)
-                                                            .viewInsets,
-                                                    child:
-                                                        WEBFilterDateWidget(),
+                                                builder: (bottomSheetContext) {
+                                                  return GestureDetector(
+                                                    onTap: () =>
+                                                        FocusScope.of(context)
+                                                            .requestFocus(
+                                                                _unfocusNode),
+                                                    child: Padding(
+                                                      padding: MediaQuery.of(
+                                                              bottomSheetContext)
+                                                          .viewInsets,
+                                                      child:
+                                                          WEBFilterDateWidget(),
+                                                    ),
                                                   );
                                                 },
                                               ).then(
@@ -189,7 +196,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Inter',
@@ -202,7 +209,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                           .asMap()
                                                                       .containsKey(
                                                                           FlutterFlowTheme.of(context)
-                                                                              .bodyText1Family),
+                                                                              .bodyMediumFamily),
                                                                 ),
                                                       ),
                                                     ),
@@ -253,7 +260,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Inter',
@@ -266,7 +273,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                     ),
                                                   ),
@@ -303,7 +310,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .primaryColor,
+                                                              .primary,
                                                     ),
                                                   ),
                                                 );
@@ -343,7 +350,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                               CircularProgressIndicator(
                                                             color: FlutterFlowTheme
                                                                     .of(context)
-                                                                .primaryColor,
+                                                                .primary,
                                                           ),
                                                         ),
                                                       );
@@ -439,11 +446,11 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                         0.0),
                                                             color: FlutterFlowTheme
                                                                     .of(context)
-                                                                .primaryColor,
+                                                                .primary,
                                                             textStyle:
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .subtitle2
+                                                                    .titleSmall
                                                                     .override(
                                                                       fontFamily:
                                                                           'Inter',
@@ -457,8 +464,9 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                       useGoogleFonts: GoogleFonts
                                                                               .asMap()
                                                                           .containsKey(
-                                                                              FlutterFlowTheme.of(context).subtitle2Family),
+                                                                              FlutterFlowTheme.of(context).titleSmallFamily),
                                                                     ),
+                                                            elevation: 2.0,
                                                             borderSide:
                                                                 BorderSide(
                                                               color: Colors
@@ -498,7 +506,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                             child: CircularProgressIndicator(
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .primaryColor,
+                                                      .primary,
                                             ),
                                           ),
                                         );
@@ -538,7 +546,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                       CircularProgressIndicator(
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .primaryColor,
+                                                        .primary,
                                                   ),
                                                 ),
                                               );
@@ -622,7 +630,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                         FFIcons
                                                                             .kicMoney,
                                                                         color: FlutterFlowTheme.of(context)
-                                                                            .primaryColor,
+                                                                            .primary,
                                                                         size:
                                                                             24.0,
                                                                       ),
@@ -639,11 +647,11 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                       Text(
                                                                         'Общий оборот',
                                                                         style: FlutterFlowTheme.of(context)
-                                                                            .bodyText1
+                                                                            .bodyMedium
                                                                             .override(
                                                                               fontFamily: 'Inter',
                                                                               fontWeight: FontWeight.normal,
-                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                             ),
                                                                       ),
                                                                       Row(
@@ -661,11 +669,11 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                             child:
                                                                                 Text(
                                                                               functions.oborot(containerBookingsRecordList.toList()).toString(),
-                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Inter',
                                                                                     fontSize: 24.0,
                                                                                     fontWeight: FontWeight.w500,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                   ),
                                                                             ),
                                                                           ),
@@ -678,11 +686,11 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                             child:
                                                                                 Text(
                                                                               functions.oborotName(containerBookingsRecordList.toList()),
-                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Inter',
                                                                                     fontSize: 16.0,
                                                                                     fontWeight: FontWeight.w500,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                   ),
                                                                             ),
                                                                           ),
@@ -753,7 +761,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                         FFIcons
                                                                             .kicCar,
                                                                         color: FlutterFlowTheme.of(context)
-                                                                            .primaryColor,
+                                                                            .primary,
                                                                         size:
                                                                             24.0,
                                                                       ),
@@ -770,11 +778,11 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                       Text(
                                                                         'Выруска 4 Car',
                                                                         style: FlutterFlowTheme.of(context)
-                                                                            .bodyText1
+                                                                            .bodyMedium
                                                                             .override(
                                                                               fontFamily: 'Inter',
                                                                               fontWeight: FontWeight.normal,
-                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                             ),
                                                                       ),
                                                                       Row(
@@ -792,11 +800,11 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                             child:
                                                                                 Text(
                                                                               functions.oborotForCarPrecent(containerBookingsRecordList.toList()),
-                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Inter',
                                                                                     fontSize: 24.0,
                                                                                     fontWeight: FontWeight.w500,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                   ),
                                                                             ),
                                                                           ),
@@ -809,11 +817,11 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                             child:
                                                                                 Text(
                                                                               functions.oborotForCarPrecentName(containerBookingsRecordList.toList()),
-                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Inter',
                                                                                     fontSize: 14.0,
                                                                                     fontWeight: FontWeight.w500,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                   ),
                                                                             ),
                                                                           ),
@@ -884,7 +892,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                         FFIcons
                                                                             .kicCheck,
                                                                         color: FlutterFlowTheme.of(context)
-                                                                            .primaryColor,
+                                                                            .primary,
                                                                         size:
                                                                             24.0,
                                                                       ),
@@ -901,11 +909,11 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                       Text(
                                                                         'Средний заработок на партнера',
                                                                         style: FlutterFlowTheme.of(context)
-                                                                            .bodyText1
+                                                                            .bodyMedium
                                                                             .override(
                                                                               fontFamily: 'Inter',
                                                                               fontWeight: FontWeight.normal,
-                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                             ),
                                                                       ),
                                                                       Row(
@@ -923,11 +931,11 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                             child:
                                                                                 Text(
                                                                               functions.averageChequeForCompany(containerBookingsRecordList.toList(), containerCount),
-                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Inter',
                                                                                     fontSize: 24.0,
                                                                                     fontWeight: FontWeight.w500,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                   ),
                                                                             ),
                                                                           ),
@@ -943,11 +951,11 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                                 functions.averageChequeForCompanyName(containerBookingsRecordList.toList(), containerCount),
                                                                                 '0',
                                                                               ),
-                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Inter',
                                                                                     fontSize: 16.0,
                                                                                     fontWeight: FontWeight.w500,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                   ),
                                                                             ),
                                                                           ),
@@ -1005,7 +1013,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                 'Оборот',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1
+                                                                    .bodyMedium
                                                                     .override(
                                                                       fontFamily:
                                                                           'Inter',
@@ -1017,7 +1025,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                       useGoogleFonts: GoogleFonts
                                                                               .asMap()
                                                                           .containsKey(
-                                                                              FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                     ),
                                                               ),
                                                             ),
@@ -1033,7 +1041,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                 'Заработанная сумма',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1
+                                                                    .bodyMedium
                                                                     .override(
                                                                       fontFamily:
                                                                           'Inter',
@@ -1046,7 +1054,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                       useGoogleFonts: GoogleFonts
                                                                               .asMap()
                                                                           .containsKey(
-                                                                              FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                     ),
                                                               ),
                                                             ),
@@ -1069,7 +1077,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                         LineChartBarData(
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .primaryColor,
+                                                                          .primary,
                                                                       barWidth:
                                                                           1.0,
                                                                       isCurved:
@@ -1194,7 +1202,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                         FFIcons
                                                                             .kframe48095571,
                                                                         color: FlutterFlowTheme.of(context)
-                                                                            .primaryColor,
+                                                                            .primary,
                                                                         size:
                                                                             24.0,
                                                                       ),
@@ -1211,11 +1219,11 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                       Text(
                                                                         'Завершенные операции',
                                                                         style: FlutterFlowTheme.of(context)
-                                                                            .bodyText1
+                                                                            .bodyMedium
                                                                             .override(
                                                                               fontFamily: 'Inter',
                                                                               fontWeight: FontWeight.normal,
-                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                             ),
                                                                       ),
                                                                       Row(
@@ -1236,11 +1244,11 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                                 containerBookingsRecordList.length.toString(),
                                                                                 '0',
                                                                               ),
-                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Inter',
                                                                                     fontSize: 24.0,
                                                                                     fontWeight: FontWeight.w500,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                   ),
                                                                             ),
                                                                           ),
@@ -1311,7 +1319,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                         FFIcons
                                                                             .kicBank,
                                                                         color: FlutterFlowTheme.of(context)
-                                                                            .primaryColor,
+                                                                            .primary,
                                                                         size:
                                                                             24.0,
                                                                       ),
@@ -1328,11 +1336,11 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                       Text(
                                                                         'Отмененные операции',
                                                                         style: FlutterFlowTheme.of(context)
-                                                                            .bodyText1
+                                                                            .bodyMedium
                                                                             .override(
                                                                               fontFamily: 'Inter',
                                                                               fontWeight: FontWeight.normal,
-                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                             ),
                                                                       ),
                                                                       Row(
@@ -1353,11 +1361,11 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                                 containerBookingsRecordList.where((e) => e.cancelled!).toList().length.toString(),
                                                                                 '0',
                                                                               ),
-                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Inter',
                                                                                     fontSize: 24.0,
                                                                                     fontWeight: FontWeight.w500,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                   ),
                                                                             ),
                                                                           ),
@@ -1373,11 +1381,11 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                                 containerBookingsRecordList.length.toString(),
                                                                                 '0',
                                                                               )}',
-                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Inter',
                                                                                     fontSize: 14.0,
                                                                                     fontWeight: FontWeight.w500,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                   ),
                                                                             ),
                                                                           ),
@@ -1415,7 +1423,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                   CircularProgressIndicator(
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .primaryColor,
+                                                                    .primary,
                                                               ),
                                                             ),
                                                           );
@@ -1460,7 +1468,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                     'Пользователи',
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyText1
+                                                                        .bodyMedium
                                                                         .override(
                                                                           fontFamily:
                                                                               'Inter',
@@ -1469,7 +1477,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                           fontWeight:
                                                                               FontWeight.w500,
                                                                           useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                         ),
                                                                   ),
                                                                 ),
@@ -1493,11 +1501,11 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                         children: [
                                                                           Text(
                                                                             'Общее кол. пользователей',
-                                                                            style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                  fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                   color: Color(0xFF1A1A1A),
                                                                                   fontWeight: FontWeight.normal,
-                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                 ),
                                                                           ),
                                                                           Padding(
@@ -1512,11 +1520,11 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                                 containerUserRecordList.length.toString(),
                                                                                 '0',
                                                                               ),
-                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                     fontSize: 24.0,
                                                                                     fontWeight: FontWeight.w500,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                   ),
                                                                             ),
                                                                           ),
@@ -1534,12 +1542,12 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                         Text(
                                                                           'Новые пользователи',
                                                                           style: FlutterFlowTheme.of(context)
-                                                                              .bodyText1
+                                                                              .bodyMedium
                                                                               .override(
-                                                                                fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                 color: Color(0xFF1A1A1A),
                                                                                 fontWeight: FontWeight.normal,
-                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                               ),
                                                                         ),
                                                                         Padding(
@@ -1551,12 +1559,12 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                           child:
                                                                               Text(
                                                                             '100%',
-                                                                            style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                  fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                   color: FlutterFlowTheme.of(context).green,
                                                                                   fontSize: 24.0,
                                                                                   fontWeight: FontWeight.w500,
-                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -1575,7 +1583,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                     'Колличество моек',
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyText1
+                                                                        .bodyMedium
                                                                         .override(
                                                                           fontFamily:
                                                                               'Inter',
@@ -1584,7 +1592,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                           fontWeight:
                                                                               FontWeight.normal,
                                                                           useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                         ),
                                                                   ),
                                                                 ),
@@ -1614,7 +1622,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                           settings:
                                                                               LineChartBarData(
                                                                             color:
-                                                                                FlutterFlowTheme.of(context).primaryColor,
+                                                                                FlutterFlowTheme.of(context).primary,
                                                                             barWidth:
                                                                                 1.0,
                                                                             isCurved:
@@ -1734,7 +1742,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                         FFIcons
                                                                             .kframe48095571,
                                                                         color: FlutterFlowTheme.of(context)
-                                                                            .primaryColor,
+                                                                            .primary,
                                                                         size:
                                                                             24.0,
                                                                       ),
@@ -1751,11 +1759,11 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                       Text(
                                                                         'Записи через приложение',
                                                                         style: FlutterFlowTheme.of(context)
-                                                                            .bodyText1
+                                                                            .bodyMedium
                                                                             .override(
                                                                               fontFamily: 'Inter',
                                                                               fontWeight: FontWeight.normal,
-                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                             ),
                                                                       ),
                                                                       Row(
@@ -1776,11 +1784,11 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                                 containerBookingsRecordList.where((e) => e.createdByUser!).toList().length.toString(),
                                                                                 '0',
                                                                               ),
-                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Inter',
                                                                                     fontSize: 24.0,
                                                                                     fontWeight: FontWeight.w500,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                   ),
                                                                             ),
                                                                           ),
@@ -1851,7 +1859,7 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                         FFIcons
                                                                             .kicBank,
                                                                         color: FlutterFlowTheme.of(context)
-                                                                            .primaryColor,
+                                                                            .primary,
                                                                         size:
                                                                             24.0,
                                                                       ),
@@ -1868,11 +1876,11 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                       Text(
                                                                         'Записи через админ панель',
                                                                         style: FlutterFlowTheme.of(context)
-                                                                            .bodyText1
+                                                                            .bodyMedium
                                                                             .override(
                                                                               fontFamily: 'Inter',
                                                                               fontWeight: FontWeight.normal,
-                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                             ),
                                                                       ),
                                                                       Row(
@@ -1893,11 +1901,11 @@ class _SuperAdminAnalyticsWidgetState extends State<SuperAdminAnalyticsWidget> {
                                                                                 containerBookingsRecordList.where((e) => e.createdByAdmin!).toList().length.toString(),
                                                                                 '0',
                                                                               ),
-                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Inter',
                                                                                     fontSize: 24.0,
                                                                                     fontWeight: FontWeight.w500,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                   ),
                                                                             ),
                                                                           ),

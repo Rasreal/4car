@@ -81,7 +81,7 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                           width: 50.0,
                           height: 50.0,
                           child: CircularProgressIndicator(
-                            color: FlutterFlowTheme.of(context).primaryColor,
+                            color: FlutterFlowTheme.of(context).primary,
                           ),
                         ),
                       );
@@ -114,7 +114,7 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                               Text(
                                 rowUserRecord.displayName!,
                                 style: FlutterFlowTheme.of(context)
-                                    .bodyText1
+                                    .bodyMedium
                                     .override(
                                       fontFamily: 'Inter',
                                       fontSize: 16.0,
@@ -122,7 +122,7 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText1Family),
+                                                  .bodyMediumFamily),
                                     ),
                               ),
                               Padding(
@@ -131,7 +131,7 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                 child: Text(
                                   rowUserRecord.phoneNumber!,
                                   style: FlutterFlowTheme.of(context)
-                                      .bodyText1
+                                      .bodyMedium
                                       .override(
                                         fontFamily: 'Inter',
                                         color:
@@ -140,7 +140,7 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                         useGoogleFonts: GoogleFonts.asMap()
                                             .containsKey(
                                                 FlutterFlowTheme.of(context)
-                                                    .bodyText1Family),
+                                                    .bodyMediumFamily),
                                       ),
                                 ),
                               ),
@@ -205,24 +205,24 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                       child: Text(
                                         'Детали операции',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Inter',
                                               color: FFAppState()
                                                           .adminClientsTypeReview ==
                                                       'Детали операции'
                                                   ? FlutterFlowTheme.of(context)
-                                                      .primaryColor
+                                                      .primary
                                                   : FlutterFlowTheme.of(context)
                                                       .webUnselectedColor,
                                               fontSize: 16.0,
                                               fontWeight: FontWeight.normal,
-                                              useGoogleFonts:
-                                                  GoogleFonts.asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyText1Family),
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily),
                                             ),
                                       ),
                                     ),
@@ -234,7 +234,7 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                                     .adminClientsTypeReview ==
                                                 'Детали операции'
                                             ? FlutterFlowTheme.of(context)
-                                                .primaryColor
+                                                .primary
                                             : FlutterFlowTheme.of(context)
                                                 .primaryBackground,
                                       ),
@@ -263,24 +263,24 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                       child: Text(
                                         'Отзыв клиента',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Inter',
                                               color: FFAppState()
                                                           .adminClientsTypeReview ==
                                                       'Отзыв клиента'
                                                   ? FlutterFlowTheme.of(context)
-                                                      .primaryColor
+                                                      .primary
                                                   : FlutterFlowTheme.of(context)
                                                       .webUnselectedColor,
                                               fontSize: 16.0,
                                               fontWeight: FontWeight.normal,
-                                              useGoogleFonts:
-                                                  GoogleFonts.asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyText1Family),
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily),
                                             ),
                                       ),
                                     ),
@@ -292,7 +292,7 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                                     .adminClientsTypeReview ==
                                                 'Отзыв клиента'
                                             ? FlutterFlowTheme.of(context)
-                                                .primaryColor
+                                                .primary
                                             : FlutterFlowTheme.of(context)
                                                 .primaryBackground,
                                       ),
@@ -326,7 +326,7 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                           child: Text(
                                             'Детали компании',
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyText1
+                                                .bodyMedium
                                                 .override(
                                                   fontFamily: 'Inter',
                                                   color: FFAppState()
@@ -334,7 +334,7 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                                           'Детали компании'
                                                       ? FlutterFlowTheme.of(
                                                               context)
-                                                          .primaryColor
+                                                          .primary
                                                       : FlutterFlowTheme.of(
                                                               context)
                                                           .webUnselectedColor,
@@ -345,7 +345,7 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                                       .containsKey(
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyText1Family),
+                                                              .bodyMediumFamily),
                                                 ),
                                           ),
                                         ),
@@ -357,7 +357,7 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                                         .adminClientsTypeReview ==
                                                     'Детали компании'
                                                 ? FlutterFlowTheme.of(context)
-                                                    .primaryColor
+                                                    .primary
                                                 : FlutterFlowTheme.of(context)
                                                     .primaryBackground,
                                           ),
@@ -389,7 +389,7 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                             width: 50.0,
                             height: 50.0,
                             child: CircularProgressIndicator(
-                              color: FlutterFlowTheme.of(context).primaryColor,
+                              color: FlutterFlowTheme.of(context).primary,
                             ),
                           ),
                         );
@@ -408,14 +408,14 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                   child: Text(
                                     '№Компании',
                                     style: FlutterFlowTheme.of(context)
-                                        .bodyText1
+                                        .bodyMedium
                                         .override(
                                           fontFamily: 'Inter',
                                           fontWeight: FontWeight.w500,
                                           useGoogleFonts: GoogleFonts.asMap()
                                               .containsKey(
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText1Family),
+                                                      .bodyMediumFamily),
                                         ),
                                   ),
                                 ),
@@ -426,14 +426,14 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                       'null',
                                     )}',
                                     style: FlutterFlowTheme.of(context)
-                                        .bodyText1
+                                        .bodyMedium
                                         .override(
                                           fontFamily: 'Inter',
                                           fontWeight: FontWeight.w500,
                                           useGoogleFonts: GoogleFonts.asMap()
                                               .containsKey(
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText1Family),
+                                                      .bodyMediumFamily),
                                         ),
                                   ),
                                 ),
@@ -455,14 +455,14 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                   child: Text(
                                     'Название компании',
                                     style: FlutterFlowTheme.of(context)
-                                        .bodyText1
+                                        .bodyMedium
                                         .override(
                                           fontFamily: 'Inter',
                                           fontWeight: FontWeight.w500,
                                           useGoogleFonts: GoogleFonts.asMap()
                                               .containsKey(
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText1Family),
+                                                      .bodyMediumFamily),
                                         ),
                                   ),
                                 ),
@@ -473,14 +473,14 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                       'null',
                                     ),
                                     style: FlutterFlowTheme.of(context)
-                                        .bodyText1
+                                        .bodyMedium
                                         .override(
                                           fontFamily: 'Inter',
                                           fontWeight: FontWeight.w500,
                                           useGoogleFonts: GoogleFonts.asMap()
                                               .containsKey(
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText1Family),
+                                                      .bodyMediumFamily),
                                         ),
                                   ),
                                 ),
@@ -502,14 +502,14 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                   child: Text(
                                     'Всего точек',
                                     style: FlutterFlowTheme.of(context)
-                                        .bodyText1
+                                        .bodyMedium
                                         .override(
                                           fontFamily: 'Inter',
                                           fontWeight: FontWeight.w500,
                                           useGoogleFonts: GoogleFonts.asMap()
                                               .containsKey(
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText1Family),
+                                                      .bodyMediumFamily),
                                         ),
                                   ),
                                 ),
@@ -517,14 +517,14 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                   child: Text(
                                     '1',
                                     style: FlutterFlowTheme.of(context)
-                                        .bodyText1
+                                        .bodyMedium
                                         .override(
                                           fontFamily: 'Inter',
                                           fontWeight: FontWeight.w500,
                                           useGoogleFonts: GoogleFonts.asMap()
                                               .containsKey(
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText1Family),
+                                                      .bodyMediumFamily),
                                         ),
                                   ),
                                 ),
@@ -551,8 +551,8 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                     width: 50.0,
                                     height: 50.0,
                                     child: CircularProgressIndicator(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryColor,
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
                                     ),
                                   ),
                                 );
@@ -575,7 +575,7 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                               'Средний чек',
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText1
+                                                      .bodyMedium
                                                       .override(
                                                         fontFamily: 'Inter',
                                                         fontWeight:
@@ -585,7 +585,7 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                                             .containsKey(
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1Family),
+                                                                    .bodyMediumFamily),
                                                       ),
                                             ),
                                           ),
@@ -599,7 +599,7 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText1
+                                                      .bodyMedium
                                                       .override(
                                                         fontFamily: 'Inter',
                                                         fontWeight:
@@ -609,7 +609,7 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                                             .containsKey(
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1Family),
+                                                                    .bodyMediumFamily),
                                                       ),
                                             ),
                                           ),
@@ -632,7 +632,7 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                               'Оборот',
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText1
+                                                      .bodyMedium
                                                       .override(
                                                         fontFamily: 'Inter',
                                                         fontWeight:
@@ -642,7 +642,7 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                                             .containsKey(
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1Family),
+                                                                    .bodyMediumFamily),
                                                       ),
                                             ),
                                           ),
@@ -658,7 +658,7 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText1
+                                                      .bodyMedium
                                                       .override(
                                                         fontFamily: 'Inter',
                                                         fontWeight:
@@ -668,7 +668,7 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                                             .containsKey(
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1Family),
+                                                                    .bodyMediumFamily),
                                                       ),
                                             ),
                                           ),
@@ -695,14 +695,14 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                   child: Text(
                                     'Услуги',
                                     style: FlutterFlowTheme.of(context)
-                                        .bodyText1
+                                        .bodyMedium
                                         .override(
                                           fontFamily: 'Inter',
                                           fontWeight: FontWeight.w500,
                                           useGoogleFonts: GoogleFonts.asMap()
                                               .containsKey(
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText1Family),
+                                                      .bodyMediumFamily),
                                         ),
                                   ),
                                 ),
@@ -727,7 +727,7 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                             child: CircularProgressIndicator(
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .primaryColor,
+                                                      .primary,
                                             ),
                                           ),
                                         );
@@ -748,7 +748,7 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                             '0',
                                           ),
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1
+                                              .bodyMedium
                                               .override(
                                                 fontFamily: 'Inter',
                                                 fontWeight: FontWeight.w500,
@@ -757,7 +757,7 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                                     .containsKey(
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .bodyText1Family),
+                                                            .bodyMediumFamily),
                                               ),
                                         ),
                                       );
@@ -789,14 +789,14 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                               child: Text(
                                 '№Заказа',
                                 style: FlutterFlowTheme.of(context)
-                                    .bodyText1
+                                    .bodyMedium
                                     .override(
                                       fontFamily: 'Inter',
                                       fontWeight: FontWeight.w500,
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText1Family),
+                                                  .bodyMediumFamily),
                                     ),
                               ),
                             ),
@@ -807,14 +807,14 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                   'null',
                                 )}',
                                 style: FlutterFlowTheme.of(context)
-                                    .bodyText1
+                                    .bodyMedium
                                     .override(
                                       fontFamily: 'Inter',
                                       fontWeight: FontWeight.w500,
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText1Family),
+                                                  .bodyMediumFamily),
                                     ),
                               ),
                             ),
@@ -836,14 +836,14 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                               child: Text(
                                 'Время записи',
                                 style: FlutterFlowTheme.of(context)
-                                    .bodyText1
+                                    .bodyMedium
                                     .override(
                                       fontFamily: 'Inter',
                                       fontWeight: FontWeight.w500,
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText1Family),
+                                                  .bodyMediumFamily),
                                     ),
                               ),
                             ),
@@ -862,14 +862,14 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                   'null',
                                 )}',
                                 style: FlutterFlowTheme.of(context)
-                                    .bodyText1
+                                    .bodyMedium
                                     .override(
                                       fontFamily: 'Inter',
                                       fontWeight: FontWeight.w500,
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText1Family),
+                                                  .bodyMediumFamily),
                                     ),
                               ),
                             ),
@@ -891,14 +891,14 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                               child: Text(
                                 'Продолжительность',
                                 style: FlutterFlowTheme.of(context)
-                                    .bodyText1
+                                    .bodyMedium
                                     .override(
                                       fontFamily: 'Inter',
                                       fontWeight: FontWeight.w500,
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText1Family),
+                                                  .bodyMediumFamily),
                                     ),
                               ),
                             ),
@@ -909,14 +909,14 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                   'null',
                                 )} минут',
                                 style: FlutterFlowTheme.of(context)
-                                    .bodyText1
+                                    .bodyMedium
                                     .override(
                                       fontFamily: 'Inter',
                                       fontWeight: FontWeight.w500,
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText1Family),
+                                                  .bodyMediumFamily),
                                     ),
                               ),
                             ),
@@ -938,14 +938,14 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                               child: Text(
                                 '№Бокса',
                                 style: FlutterFlowTheme.of(context)
-                                    .bodyText1
+                                    .bodyMedium
                                     .override(
                                       fontFamily: 'Inter',
                                       fontWeight: FontWeight.w500,
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText1Family),
+                                                  .bodyMediumFamily),
                                     ),
                               ),
                             ),
@@ -956,14 +956,14 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                   'null',
                                 )}',
                                 style: FlutterFlowTheme.of(context)
-                                    .bodyText1
+                                    .bodyMedium
                                     .override(
                                       fontFamily: 'Inter',
                                       fontWeight: FontWeight.w500,
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText1Family),
+                                                  .bodyMediumFamily),
                                     ),
                               ),
                             ),
@@ -985,14 +985,14 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                               child: Text(
                                 'Автомобиль',
                                 style: FlutterFlowTheme.of(context)
-                                    .bodyText1
+                                    .bodyMedium
                                     .override(
                                       fontFamily: 'Inter',
                                       fontWeight: FontWeight.w500,
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText1Family),
+                                                  .bodyMediumFamily),
                                     ),
                               ),
                             ),
@@ -1006,14 +1006,14 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                   'null',
                                 )}',
                                 style: FlutterFlowTheme.of(context)
-                                    .bodyText1
+                                    .bodyMedium
                                     .override(
                                       fontFamily: 'Inter',
                                       fontWeight: FontWeight.w500,
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText1Family),
+                                                  .bodyMediumFamily),
                                     ),
                               ),
                             ),
@@ -1035,14 +1035,14 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                               child: Text(
                                 'Услуги',
                                 style: FlutterFlowTheme.of(context)
-                                    .bodyText1
+                                    .bodyMedium
                                     .override(
                                       fontFamily: 'Inter',
                                       fontWeight: FontWeight.w500,
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText1Family),
+                                                  .bodyMediumFamily),
                                     ),
                               ),
                             ),
@@ -1057,14 +1057,14 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                   '0',
                                 ),
                                 style: FlutterFlowTheme.of(context)
-                                    .bodyText1
+                                    .bodyMedium
                                     .override(
                                       fontFamily: 'Inter',
                                       fontWeight: FontWeight.w500,
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText1Family),
+                                                  .bodyMediumFamily),
                                     ),
                               ),
                             ),
@@ -1086,14 +1086,14 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                               child: Text(
                                 'Стоимость',
                                 style: FlutterFlowTheme.of(context)
-                                    .bodyText1
+                                    .bodyMedium
                                     .override(
                                       fontFamily: 'Inter',
                                       fontWeight: FontWeight.w500,
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText1Family),
+                                                  .bodyMediumFamily),
                                     ),
                               ),
                             ),
@@ -1104,14 +1104,14 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                   'null',
                                 )} тг',
                                 style: FlutterFlowTheme.of(context)
-                                    .bodyText1
+                                    .bodyMedium
                                     .override(
                                       fontFamily: 'Inter',
                                       fontWeight: FontWeight.w500,
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText1Family),
+                                                  .bodyMediumFamily),
                                     ),
                               ),
                             ),
@@ -1143,7 +1143,7 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                             width: 50.0,
                             height: 50.0,
                             child: CircularProgressIndicator(
-                              color: FlutterFlowTheme.of(context).primaryColor,
+                              color: FlutterFlowTheme.of(context).primary,
                             ),
                           ),
                         );
@@ -1165,13 +1165,13 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                           Text(
                             'Оценка',
                             style: FlutterFlowTheme.of(context)
-                                .bodyText1
+                                .bodyMedium
                                 .override(
                                   fontFamily: 'Inter',
                                   fontWeight: FontWeight.w500,
                                   useGoogleFonts: GoogleFonts.asMap()
                                       .containsKey(FlutterFlowTheme.of(context)
-                                          .bodyText1Family),
+                                          .bodyMediumFamily),
                                 ),
                           ),
                           Padding(
@@ -1180,8 +1180,7 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                             child: RatingBarIndicator(
                               itemBuilder: (context, index) => Icon(
                                 Icons.star_rounded,
-                                color:
-                                    FlutterFlowTheme.of(context).primaryColor,
+                                color: FlutterFlowTheme.of(context).primary,
                               ),
                               direction: Axis.horizontal,
                               rating: valueOrDefault<double>(
@@ -1197,13 +1196,13 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                           Text(
                             'Отзыв',
                             style: FlutterFlowTheme.of(context)
-                                .bodyText1
+                                .bodyMedium
                                 .override(
                                   fontFamily: 'Inter',
                                   fontWeight: FontWeight.w500,
                                   useGoogleFonts: GoogleFonts.asMap()
                                       .containsKey(FlutterFlowTheme.of(context)
-                                          .bodyText1Family),
+                                          .bodyMediumFamily),
                                 ),
                           ),
                           Padding(
@@ -1224,15 +1223,15 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                     'null',
                                   ),
                                   style: FlutterFlowTheme.of(context)
-                                      .bodyText1
+                                      .bodyMedium
                                       .override(
                                         fontFamily: FlutterFlowTheme.of(context)
-                                            .bodyText1Family,
+                                            .bodyMediumFamily,
                                         fontWeight: FontWeight.normal,
                                         useGoogleFonts: GoogleFonts.asMap()
                                             .containsKey(
                                                 FlutterFlowTheme.of(context)
-                                                    .bodyText1Family),
+                                                    .bodyMediumFamily),
                                       ),
                                 ),
                               ),
@@ -1244,14 +1243,14 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                             child: Text(
                               'Ответить ',
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText1
+                                  .bodyMedium
                                   .override(
                                     fontFamily: 'Inter',
                                     fontWeight: FontWeight.w500,
                                     useGoogleFonts: GoogleFonts.asMap()
                                         .containsKey(
                                             FlutterFlowTheme.of(context)
-                                                .bodyText1Family),
+                                                .bodyMediumFamily),
                                   ),
                             ),
                           ),
@@ -1268,14 +1267,14 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                 decoration: InputDecoration(
                                   hintText: 'Написать ответ...',
                                   hintStyle: FlutterFlowTheme.of(context)
-                                      .bodyText2
+                                      .bodySmall
                                       .override(
                                         fontFamily: 'Inter',
                                         fontWeight: FontWeight.normal,
                                         useGoogleFonts: GoogleFonts.asMap()
                                             .containsKey(
                                                 FlutterFlowTheme.of(context)
-                                                    .bodyText2Family),
+                                                    .bodySmallFamily),
                                       ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
@@ -1307,15 +1306,15 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                   ),
                                 ),
                                 style: FlutterFlowTheme.of(context)
-                                    .bodyText1
+                                    .bodyMedium
                                     .override(
                                       fontFamily: FlutterFlowTheme.of(context)
-                                          .bodyText1Family,
+                                          .bodyMediumFamily,
                                       fontWeight: FontWeight.normal,
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText1Family),
+                                                  .bodyMediumFamily),
                                     ),
                                 maxLines: 2,
                                 validator: _model.textControllerValidator
@@ -1357,10 +1356,9 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                     0.0, 0.0, 0.0, 0.0),
                                 iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
-                                color:
-                                    FlutterFlowTheme.of(context).primaryColor,
+                                color: FlutterFlowTheme.of(context).primary,
                                 textStyle: FlutterFlowTheme.of(context)
-                                    .subtitle2
+                                    .titleSmall
                                     .override(
                                       fontFamily: 'Inter',
                                       color: Colors.white,
@@ -1369,8 +1367,9 @@ class _AdminFeedbackReviewWidgetState extends State<AdminFeedbackReviewWidget> {
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
                                               FlutterFlowTheme.of(context)
-                                                  .subtitle2Family),
+                                                  .titleSmallFamily),
                                     ),
+                                elevation: 2.0,
                                 borderSide: BorderSide(
                                   color: Colors.transparent,
                                   width: 1.0,

@@ -98,12 +98,12 @@ class _CurrentBookingRecordWidgetState extends State<CurrentBookingRecordWidget>
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: Colors.white,
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: Colors.white,
+        body: SafeArea(
           child: FutureBuilder<BookingsRecord>(
             future: BookingsRecord.getDocumentOnce(widget.booking!),
             builder: (context, snapshot) {
@@ -114,7 +114,7 @@ class _CurrentBookingRecordWidgetState extends State<CurrentBookingRecordWidget>
                     width: 50.0,
                     height: 50.0,
                     child: CircularProgressIndicator(
-                      color: FlutterFlowTheme.of(context).primaryColor,
+                      color: FlutterFlowTheme.of(context).primary,
                     ),
                   ),
                 );
@@ -139,8 +139,7 @@ class _CurrentBookingRecordWidgetState extends State<CurrentBookingRecordWidget>
                               buttonSize: 60.0,
                               icon: Icon(
                                 FFIcons.kicBack,
-                                color:
-                                    FlutterFlowTheme.of(context).primaryColor,
+                                color: FlutterFlowTheme.of(context).primary,
                                 size: 30.0,
                               ),
                               onPressed: () async {
@@ -150,16 +149,16 @@ class _CurrentBookingRecordWidgetState extends State<CurrentBookingRecordWidget>
                             Text(
                               'Данные о записи',
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText1
+                                  .bodyMedium
                                   .override(
                                     fontFamily: FlutterFlowTheme.of(context)
-                                        .bodyText1Family,
+                                        .bodyMediumFamily,
                                     fontSize: 18.0,
                                     fontWeight: FontWeight.w500,
                                     useGoogleFonts: GoogleFonts.asMap()
                                         .containsKey(
                                             FlutterFlowTheme.of(context)
-                                                .bodyText1Family),
+                                                .bodyMediumFamily),
                                   ),
                             ),
                             FlutterFlowIconButton(
@@ -195,18 +194,18 @@ class _CurrentBookingRecordWidgetState extends State<CurrentBookingRecordWidget>
                                     Text(
                                       'Запись №${stackBookingsRecord.id}',
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyText1
+                                          .bodyMedium
                                           .override(
                                             fontFamily:
                                                 FlutterFlowTheme.of(context)
-                                                    .bodyText1Family,
+                                                    .bodyMediumFamily,
                                             color: Color(0xFF9CA3AF),
                                             fontSize: 10.0,
                                             fontWeight: FontWeight.normal,
                                             useGoogleFonts: GoogleFonts.asMap()
                                                 .containsKey(
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText1Family),
+                                                        .bodyMediumFamily),
                                           ),
                                     ),
                                     Text(
@@ -220,18 +219,18 @@ class _CurrentBookingRecordWidgetState extends State<CurrentBookingRecordWidget>
                                         '-',
                                       ),
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyText1
+                                          .bodyMedium
                                           .override(
                                             fontFamily:
                                                 FlutterFlowTheme.of(context)
-                                                    .bodyText1Family,
+                                                    .bodyMediumFamily,
                                             color: Color(0xFF9CA3AF),
                                             fontSize: 10.0,
                                             fontWeight: FontWeight.normal,
                                             useGoogleFonts: GoogleFonts.asMap()
                                                 .containsKey(
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText1Family),
+                                                        .bodyMediumFamily),
                                           ),
                                     ),
                                   ],
@@ -260,7 +259,7 @@ class _CurrentBookingRecordWidgetState extends State<CurrentBookingRecordWidget>
                                               child: CircularProgressIndicator(
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .primaryColor,
+                                                        .primary,
                                               ),
                                             ),
                                           );
@@ -284,16 +283,16 @@ class _CurrentBookingRecordWidgetState extends State<CurrentBookingRecordWidget>
                                   child: Text(
                                     'Детали',
                                     style: FlutterFlowTheme.of(context)
-                                        .bodyText1
+                                        .bodyMedium
                                         .override(
                                           fontFamily:
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText1Family,
+                                                  .bodyMediumFamily,
                                           fontWeight: FontWeight.w500,
                                           useGoogleFonts: GoogleFonts.asMap()
                                               .containsKey(
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText1Family),
+                                                      .bodyMediumFamily),
                                         ),
                                   ),
                                 ),
@@ -308,20 +307,20 @@ class _CurrentBookingRecordWidgetState extends State<CurrentBookingRecordWidget>
                                       Text(
                                         'Время записи',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText1Family,
+                                                      .bodyMediumFamily,
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .gray2,
-                                              useGoogleFonts:
-                                                  GoogleFonts.asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyText1Family),
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily),
                                             ),
                                       ),
                                       Text(
@@ -330,18 +329,18 @@ class _CurrentBookingRecordWidgetState extends State<CurrentBookingRecordWidget>
                                           '-',
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText1Family,
+                                                      .bodyMediumFamily,
                                               fontWeight: FontWeight.w500,
-                                              useGoogleFonts:
-                                                  GoogleFonts.asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyText1Family),
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily),
                                             ),
                                       ),
                                     ],
@@ -353,7 +352,8 @@ class _CurrentBookingRecordWidgetState extends State<CurrentBookingRecordWidget>
                                 ),
                                 Text(
                                   'Услуги',
-                                  style: FlutterFlowTheme.of(context).bodyText1,
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
                                 ),
                                 Builder(
                                   builder: (context) {
@@ -388,7 +388,7 @@ class _CurrentBookingRecordWidgetState extends State<CurrentBookingRecordWidget>
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .primaryColor,
+                                                              .primary,
                                                     ),
                                                   ),
                                                 );
@@ -406,12 +406,12 @@ class _CurrentBookingRecordWidgetState extends State<CurrentBookingRecordWidget>
                                                         .name!,
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyText1
+                                                        .bodyMedium
                                                         .override(
                                                           fontFamily:
                                                               FlutterFlowTheme.of(
                                                                       context)
-                                                                  .bodyText1Family,
+                                                                  .bodyMediumFamily,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .gray2,
@@ -420,7 +420,7 @@ class _CurrentBookingRecordWidgetState extends State<CurrentBookingRecordWidget>
                                                               .containsKey(
                                                                   FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1Family),
+                                                                      .bodyMediumFamily),
                                                         ),
                                                   ),
                                                   Text(
@@ -430,12 +430,12 @@ class _CurrentBookingRecordWidgetState extends State<CurrentBookingRecordWidget>
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyText1
+                                                        .bodyMedium
                                                         .override(
                                                           fontFamily:
                                                               FlutterFlowTheme.of(
                                                                       context)
-                                                                  .bodyText1Family,
+                                                                  .bodyMediumFamily,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                           useGoogleFonts: GoogleFonts
@@ -443,7 +443,7 @@ class _CurrentBookingRecordWidgetState extends State<CurrentBookingRecordWidget>
                                                               .containsKey(
                                                                   FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1Family),
+                                                                      .bodyMediumFamily),
                                                         ),
                                                   ),
                                                 ],
@@ -466,7 +466,7 @@ class _CurrentBookingRecordWidgetState extends State<CurrentBookingRecordWidget>
                                       Text(
                                         'Общая стоимость',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1,
+                                            .bodyMedium,
                                       ),
                                       Text(
                                         '${valueOrDefault<String>(
@@ -475,18 +475,18 @@ class _CurrentBookingRecordWidgetState extends State<CurrentBookingRecordWidget>
                                           '-',
                                         )} ₸',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText1Family,
+                                                      .bodyMediumFamily,
                                               fontWeight: FontWeight.w500,
-                                              useGoogleFonts:
-                                                  GoogleFonts.asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyText1Family),
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily),
                                             ),
                                       ),
                                     ],
@@ -500,15 +500,15 @@ class _CurrentBookingRecordWidgetState extends State<CurrentBookingRecordWidget>
                                 Text(
                                   'Автомобиль',
                                   style: FlutterFlowTheme.of(context)
-                                      .bodyText1
+                                      .bodyMedium
                                       .override(
                                         fontFamily: FlutterFlowTheme.of(context)
-                                            .bodyText1Family,
+                                            .bodyMediumFamily,
                                         fontWeight: FontWeight.w500,
                                         useGoogleFonts: GoogleFonts.asMap()
                                             .containsKey(
                                                 FlutterFlowTheme.of(context)
-                                                    .bodyText1Family),
+                                                    .bodyMediumFamily),
                                       ),
                                 ),
                                 Padding(
@@ -526,7 +526,7 @@ class _CurrentBookingRecordWidgetState extends State<CurrentBookingRecordWidget>
                                           '-',
                                         )}',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1,
+                                            .bodyMedium,
                                       ),
                                       Text(
                                         valueOrDefault<String>(
@@ -534,18 +534,18 @@ class _CurrentBookingRecordWidgetState extends State<CurrentBookingRecordWidget>
                                           '-',
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText1Family,
+                                                      .bodyMediumFamily,
                                               fontWeight: FontWeight.w500,
-                                              useGoogleFonts:
-                                                  GoogleFonts.asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyText1Family),
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily),
                                             ),
                                       ),
                                     ],
@@ -564,15 +564,22 @@ class _CurrentBookingRecordWidgetState extends State<CurrentBookingRecordWidget>
                                               isScrollControlled: true,
                                               backgroundColor:
                                                   Colors.transparent,
+                                              barrierColor: Color(0x00000000),
                                               context: context,
-                                              builder: (context) {
-                                                return Padding(
-                                                  padding:
-                                                      MediaQuery.of(context)
-                                                          .viewInsets,
-                                                  child:
-                                                      SucsessBookingReviewWidget(
-                                                    booking: widget.booking,
+                                              builder: (bottomSheetContext) {
+                                                return GestureDetector(
+                                                  onTap: () =>
+                                                      FocusScope.of(context)
+                                                          .requestFocus(
+                                                              _unfocusNode),
+                                                  child: Padding(
+                                                    padding: MediaQuery.of(
+                                                            bottomSheetContext)
+                                                        .viewInsets,
+                                                    child:
+                                                        SucsessBookingReviewWidget(
+                                                      booking: widget.booking,
+                                                    ),
                                                   ),
                                                 );
                                               },
@@ -592,12 +599,12 @@ class _CurrentBookingRecordWidgetState extends State<CurrentBookingRecordWidget>
                                                 .primaryBackground,
                                             textStyle:
                                                 FlutterFlowTheme.of(context)
-                                                    .subtitle2
+                                                    .titleSmall
                                                     .override(
                                                       fontFamily:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .subtitle2Family,
+                                                              .titleSmallFamily,
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -607,13 +614,13 @@ class _CurrentBookingRecordWidgetState extends State<CurrentBookingRecordWidget>
                                                           .containsKey(
                                                               FlutterFlowTheme.of(
                                                                       context)
-                                                                  .subtitle2Family),
+                                                                  .titleSmallFamily),
                                                     ),
                                             elevation: 0.0,
                                             borderSide: BorderSide(
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .primaryColor,
+                                                      .primary,
                                               width: 1.0,
                                             ),
                                             borderRadius:
@@ -638,16 +645,23 @@ class _CurrentBookingRecordWidgetState extends State<CurrentBookingRecordWidget>
                                               isScrollControlled: true,
                                               backgroundColor:
                                                   Colors.transparent,
+                                              barrierColor: Color(0x00000000),
                                               context: context,
-                                              builder: (context) {
-                                                return Padding(
-                                                  padding:
-                                                      MediaQuery.of(context)
-                                                          .viewInsets,
-                                                  child:
-                                                      BookingCancellationWidget(
-                                                    booking:
-                                                        stackBookingsRecord,
+                                              builder: (bottomSheetContext) {
+                                                return GestureDetector(
+                                                  onTap: () =>
+                                                      FocusScope.of(context)
+                                                          .requestFocus(
+                                                              _unfocusNode),
+                                                  child: Padding(
+                                                    padding: MediaQuery.of(
+                                                            bottomSheetContext)
+                                                        .viewInsets,
+                                                    child:
+                                                        BookingCancellationWidget(
+                                                      booking:
+                                                          stackBookingsRecord,
+                                                    ),
                                                   ),
                                                 );
                                               },
@@ -670,12 +684,12 @@ class _CurrentBookingRecordWidgetState extends State<CurrentBookingRecordWidget>
                                                 .primaryBackground,
                                             textStyle:
                                                 FlutterFlowTheme.of(context)
-                                                    .subtitle2
+                                                    .titleSmall
                                                     .override(
                                                       fontFamily:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .subtitle2Family,
+                                                              .titleSmallFamily,
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -685,13 +699,13 @@ class _CurrentBookingRecordWidgetState extends State<CurrentBookingRecordWidget>
                                                           .containsKey(
                                                               FlutterFlowTheme.of(
                                                                       context)
-                                                                  .subtitle2Family),
+                                                                  .titleSmallFamily),
                                                     ),
                                             elevation: 0.0,
                                             borderSide: BorderSide(
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .primaryColor,
+                                                      .primary,
                                               width: 1.0,
                                             ),
                                             borderRadius:
@@ -738,8 +752,7 @@ class _CurrentBookingRecordWidgetState extends State<CurrentBookingRecordWidget>
                                 borderColor: Colors.transparent,
                                 borderRadius: 20.0,
                                 buttonSize: 60.0,
-                                fillColor:
-                                    FlutterFlowTheme.of(context).primaryColor,
+                                fillColor: FlutterFlowTheme.of(context).primary,
                                 icon: Icon(
                                   Icons.check,
                                   color: Colors.white,
@@ -756,16 +769,16 @@ class _CurrentBookingRecordWidgetState extends State<CurrentBookingRecordWidget>
                                   'Ваша запись\nотменена!',
                                   textAlign: TextAlign.center,
                                   style: FlutterFlowTheme.of(context)
-                                      .bodyText1
+                                      .bodyMedium
                                       .override(
                                         fontFamily: FlutterFlowTheme.of(context)
-                                            .bodyText1Family,
+                                            .bodyMediumFamily,
                                         fontSize: 16.0,
                                         fontWeight: FontWeight.w600,
                                         useGoogleFonts: GoogleFonts.asMap()
                                             .containsKey(
                                                 FlutterFlowTheme.of(context)
-                                                    .bodyText1Family),
+                                                    .bodyMediumFamily),
                                       ),
                                 ),
                               ),

@@ -68,6 +68,12 @@ abstract class UserRecord implements Built<UserRecord, UserRecordBuilder> {
 
   DocumentReference? get createdByAdminCompanyRef;
 
+  @BuiltValueField(wireName: 'StuffID')
+  String? get stuffID;
+
+  @BuiltValueField(wireName: 'Added_company')
+  bool? get addedCompany;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -89,7 +95,9 @@ abstract class UserRecord implements Built<UserRecord, UserRecordBuilder> {
     ..bookingCompanies = ListBuilder()
     ..firstCarBody = ''
     ..firstCarName = ''
-    ..adminStatus = '';
+    ..adminStatus = ''
+    ..stuffID = ''
+    ..addedCompany = false;
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('user');
@@ -133,6 +141,8 @@ Map<String, dynamic> createUserRecordData({
   String? firstCarName,
   String? adminStatus,
   DocumentReference? createdByAdminCompanyRef,
+  String? stuffID,
+  bool? addedCompany,
 }) {
   final firestoreData = serializers.toFirestore(
     UserRecord.serializer,
@@ -161,7 +171,9 @@ Map<String, dynamic> createUserRecordData({
         ..firstCarBody = firstCarBody
         ..firstCarName = firstCarName
         ..adminStatus = adminStatus
-        ..createdByAdminCompanyRef = createdByAdminCompanyRef,
+        ..createdByAdminCompanyRef = createdByAdminCompanyRef
+        ..stuffID = stuffID
+        ..addedCompany = addedCompany,
     ),
   );
 

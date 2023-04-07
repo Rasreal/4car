@@ -5,7 +5,6 @@ import '/components/admin_app_bar_info/admin_app_bar_info_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/custom_code/actions/index.dart' as actions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
@@ -53,16 +52,6 @@ class AdminAddStaff3Model extends FlutterFlowModel {
     return null;
   }
 
-  // State field(s) for password widget.
-  TextEditingController? passwordController;
-  late bool passwordVisibility;
-  String? Function(BuildContext, String?)? passwordControllerValidator;
-  // State field(s) for password1 widget.
-  TextEditingController? password1Controller;
-  late bool password1Visibility;
-  String? Function(BuildContext, String?)? password1ControllerValidator;
-  // Stores action output result for [Custom Action - createUserNewFucn] action in Button widget.
-  DocumentReference? newUser;
   // Model for adminAppBarInfo component.
   late AdminAppBarInfoModel adminAppBarInfoModel;
 
@@ -73,8 +62,6 @@ class AdminAddStaff3Model extends FlutterFlowModel {
     fioControllerValidator = _fioControllerValidator;
     emailControllerValidator = _emailControllerValidator;
     phoneControllerValidator = _phoneControllerValidator;
-    passwordVisibility = false;
-    password1Visibility = false;
     adminAppBarInfoModel = createModel(context, () => AdminAppBarInfoModel());
   }
 
@@ -83,8 +70,6 @@ class AdminAddStaff3Model extends FlutterFlowModel {
     fioController?.dispose();
     emailController?.dispose();
     phoneController?.dispose();
-    passwordController?.dispose();
-    password1Controller?.dispose();
     adminAppBarInfoModel.dispose();
   }
 

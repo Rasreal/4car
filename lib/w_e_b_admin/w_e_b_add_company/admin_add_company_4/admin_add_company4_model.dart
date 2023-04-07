@@ -6,7 +6,7 @@ import '/components/admin_app_bar_info/admin_app_bar_info_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/upload_media.dart';
+import '/flutter_flow/upload_data.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -43,7 +43,7 @@ class AdminAddCompany4Model extends FlutterFlowModel {
   final phoneNumMask = MaskTextInputFormatter(mask: '+# (###) ###-##-##');
   String? Function(BuildContext, String?)? phoneNumControllerValidator;
   DateTime? datePicked;
-  bool isMediaUploading = false;
+  bool isDataUploading = false;
   FFUploadedFile uploadedLocalFile =
       FFUploadedFile(bytes: Uint8List.fromList([]));
   String uploadedFileUrl = '';

@@ -47,11 +47,11 @@ class _EmptyBookedTimeSlotWidgetState extends State<EmptyBookedTimeSlotWidget> {
       child: Text(
         'Нет свободных времен',
         textAlign: TextAlign.center,
-        style: FlutterFlowTheme.of(context).bodyText1.override(
-              fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+        style: FlutterFlowTheme.of(context).bodyMedium.override(
+              fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
               fontWeight: FontWeight.w500,
               useGoogleFonts: GoogleFonts.asMap()
-                  .containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                  .containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
             ),
       ),
     );

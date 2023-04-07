@@ -78,12 +78,12 @@ class _SelectNotificationWidgetState extends State<SelectNotificationWidget> {
               padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 22.0),
               child: Text(
                 'Напомнить',
-                style: FlutterFlowTheme.of(context).bodyText1.override(
-                      fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                      fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                       fontSize: 18.0,
                       fontWeight: FontWeight.w500,
                       useGoogleFonts: GoogleFonts.asMap().containsKey(
-                          FlutterFlowTheme.of(context).bodyText1Family),
+                          FlutterFlowTheme.of(context).bodyMediumFamily),
                     ),
               ),
             ),
@@ -108,7 +108,7 @@ class _SelectNotificationWidgetState extends State<SelectNotificationWidget> {
                           decoration: BoxDecoration(
                             color: valueOrDefault<Color>(
                               FFAppState().selectPush == 30
-                                  ? FlutterFlowTheme.of(context).primaryColor
+                                  ? FlutterFlowTheme.of(context).primary
                                   : FlutterFlowTheme.of(context)
                                       .primaryBackground,
                               FlutterFlowTheme.of(context).primaryBackground,
@@ -117,7 +117,7 @@ class _SelectNotificationWidgetState extends State<SelectNotificationWidget> {
                             border: Border.all(
                               color: valueOrDefault<Color>(
                                 FFAppState().selectPush == 30
-                                    ? FlutterFlowTheme.of(context).primaryColor
+                                    ? FlutterFlowTheme.of(context).primary
                                     : FlutterFlowTheme.of(context).primaryText,
                                 FlutterFlowTheme.of(context).primaryText,
                               ),
@@ -138,7 +138,7 @@ class _SelectNotificationWidgetState extends State<SelectNotificationWidget> {
                                 16.0, 0.0, 0.0, 0.0),
                             child: Text(
                               'За пол часа до записи',
-                              style: FlutterFlowTheme.of(context).bodyText1,
+                              style: FlutterFlowTheme.of(context).bodyMedium,
                             ),
                           ),
                         ),
@@ -174,7 +174,7 @@ class _SelectNotificationWidgetState extends State<SelectNotificationWidget> {
                           decoration: BoxDecoration(
                             color: valueOrDefault<Color>(
                               FFAppState().selectPush == 60
-                                  ? FlutterFlowTheme.of(context).primaryColor
+                                  ? FlutterFlowTheme.of(context).primary
                                   : FlutterFlowTheme.of(context)
                                       .primaryBackground,
                               FlutterFlowTheme.of(context).primaryBackground,
@@ -183,7 +183,7 @@ class _SelectNotificationWidgetState extends State<SelectNotificationWidget> {
                             border: Border.all(
                               color: valueOrDefault<Color>(
                                 FFAppState().selectPush == 60
-                                    ? FlutterFlowTheme.of(context).primaryColor
+                                    ? FlutterFlowTheme.of(context).primary
                                     : FlutterFlowTheme.of(context).primaryText,
                                 FlutterFlowTheme.of(context).primaryText,
                               ),
@@ -204,7 +204,7 @@ class _SelectNotificationWidgetState extends State<SelectNotificationWidget> {
                                 16.0, 0.0, 0.0, 0.0),
                             child: Text(
                               'За 1 час до записи',
-                              style: FlutterFlowTheme.of(context).bodyText1,
+                              style: FlutterFlowTheme.of(context).bodyMedium,
                             ),
                           ),
                         ),
@@ -240,7 +240,7 @@ class _SelectNotificationWidgetState extends State<SelectNotificationWidget> {
                           decoration: BoxDecoration(
                             color: valueOrDefault<Color>(
                               FFAppState().selectPush == 120
-                                  ? FlutterFlowTheme.of(context).primaryColor
+                                  ? FlutterFlowTheme.of(context).primary
                                   : FlutterFlowTheme.of(context)
                                       .primaryBackground,
                               FlutterFlowTheme.of(context).primaryBackground,
@@ -249,7 +249,7 @@ class _SelectNotificationWidgetState extends State<SelectNotificationWidget> {
                             border: Border.all(
                               color: valueOrDefault<Color>(
                                 FFAppState().selectPush == 120
-                                    ? FlutterFlowTheme.of(context).primaryColor
+                                    ? FlutterFlowTheme.of(context).primary
                                     : FlutterFlowTheme.of(context).primaryText,
                                 FlutterFlowTheme.of(context).primaryText,
                               ),
@@ -270,7 +270,7 @@ class _SelectNotificationWidgetState extends State<SelectNotificationWidget> {
                                 16.0, 0.0, 0.0, 0.0),
                             child: Text(
                               'За 2 часа до записи',
-                              style: FlutterFlowTheme.of(context).bodyText1,
+                              style: FlutterFlowTheme.of(context).bodyMedium,
                             ),
                           ),
                         ),
@@ -306,7 +306,7 @@ class _SelectNotificationWidgetState extends State<SelectNotificationWidget> {
                           decoration: BoxDecoration(
                             color: valueOrDefault<Color>(
                               FFAppState().selectPush == 1000
-                                  ? FlutterFlowTheme.of(context).primaryColor
+                                  ? FlutterFlowTheme.of(context).primary
                                   : FlutterFlowTheme.of(context)
                                       .primaryBackground,
                               FlutterFlowTheme.of(context).primaryBackground,
@@ -315,7 +315,7 @@ class _SelectNotificationWidgetState extends State<SelectNotificationWidget> {
                             border: Border.all(
                               color: valueOrDefault<Color>(
                                 FFAppState().selectPush == 1000
-                                    ? FlutterFlowTheme.of(context).primaryColor
+                                    ? FlutterFlowTheme.of(context).primary
                                     : FlutterFlowTheme.of(context).primaryText,
                                 FlutterFlowTheme.of(context).primaryText,
                               ),
@@ -337,15 +337,15 @@ class _SelectNotificationWidgetState extends State<SelectNotificationWidget> {
                             child: Text(
                               'Не напоминать',
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText1
+                                  .bodyMedium
                                   .override(
                                     fontFamily: FlutterFlowTheme.of(context)
-                                        .bodyText1Family,
+                                        .bodyMediumFamily,
                                     color: FlutterFlowTheme.of(context).red1,
                                     useGoogleFonts: GoogleFonts.asMap()
                                         .containsKey(
                                             FlutterFlowTheme.of(context)
-                                                .bodyText1Family),
+                                                .bodyMediumFamily),
                                   ),
                             ),
                           ),
@@ -374,15 +374,16 @@ class _SelectNotificationWidgetState extends State<SelectNotificationWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   iconPadding:
                       EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                  color: FlutterFlowTheme.of(context).primaryColor,
-                  textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                  color: FlutterFlowTheme.of(context).primary,
+                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                         fontFamily:
-                            FlutterFlowTheme.of(context).subtitle2Family,
+                            FlutterFlowTheme.of(context).titleSmallFamily,
                         color: Colors.white,
                         fontSize: 16.0,
                         useGoogleFonts: GoogleFonts.asMap().containsKey(
-                            FlutterFlowTheme.of(context).subtitle2Family),
+                            FlutterFlowTheme.of(context).titleSmallFamily),
                       ),
+                  elevation: 2.0,
                   borderSide: BorderSide(
                     color: Colors.transparent,
                     width: 1.0,

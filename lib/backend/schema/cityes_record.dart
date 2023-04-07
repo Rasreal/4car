@@ -14,12 +14,15 @@ abstract class CityesRecord
 
   LatLng? get location;
 
+  String? get first;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
 
-  static void _initializeBuilder(CityesRecordBuilder builder) =>
-      builder..name = '';
+  static void _initializeBuilder(CityesRecordBuilder builder) => builder
+    ..name = ''
+    ..first = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('cityes');
@@ -45,13 +48,15 @@ abstract class CityesRecord
 Map<String, dynamic> createCityesRecordData({
   String? name,
   LatLng? location,
+  String? first,
 }) {
   final firestoreData = serializers.toFirestore(
     CityesRecord.serializer,
     CityesRecord(
       (c) => c
         ..name = name
-        ..location = location,
+        ..location = location
+        ..first = first,
     ),
   );
 

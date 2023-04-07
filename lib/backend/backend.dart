@@ -18,6 +18,8 @@ import 'schema/bookings_record.dart';
 import 'schema/company_document_record.dart';
 import 'schema/forcar_times_record.dart';
 import 'schema/company_notifications_record.dart';
+import 'schema/analytics_record.dart';
+import 'schema/analytics_forcar_record.dart';
 import 'schema/serializers.dart';
 
 export 'dart:async' show StreamSubscription;
@@ -38,6 +40,8 @@ export 'schema/bookings_record.dart';
 export 'schema/company_document_record.dart';
 export 'schema/forcar_times_record.dart';
 export 'schema/company_notifications_record.dart';
+export 'schema/analytics_record.dart';
+export 'schema/analytics_forcar_record.dart';
 
 /// Functions to query UserRecords (as a Stream and as a Future).
 Future<int> queryUserRecordCount({
@@ -743,6 +747,114 @@ Future<FFFirestorePage<CompanyNotificationsRecord>>
           pageSize: pageSize,
           isStream: isStream,
         );
+
+/// Functions to query AnalyticsRecords (as a Stream and as a Future).
+Future<int> queryAnalyticsRecordCount({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      AnalyticsRecord.collection(parent),
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<AnalyticsRecord>> queryAnalyticsRecord({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      AnalyticsRecord.collection(parent),
+      AnalyticsRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<AnalyticsRecord>> queryAnalyticsRecordOnce({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      AnalyticsRecord.collection(parent),
+      AnalyticsRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<AnalyticsRecord>> queryAnalyticsRecordPage({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+    queryCollectionPage(
+      AnalyticsRecord.collection(parent),
+      AnalyticsRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query AnalyticsForcarRecords (as a Stream and as a Future).
+Future<int> queryAnalyticsForcarRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      AnalyticsForcarRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<AnalyticsForcarRecord>> queryAnalyticsForcarRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      AnalyticsForcarRecord.collection,
+      AnalyticsForcarRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<AnalyticsForcarRecord>> queryAnalyticsForcarRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      AnalyticsForcarRecord.collection,
+      AnalyticsForcarRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<AnalyticsForcarRecord>> queryAnalyticsForcarRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+    queryCollectionPage(
+      AnalyticsForcarRecord.collection,
+      AnalyticsForcarRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
 
 Future<int> queryCollectionCount(
   Query collection, {

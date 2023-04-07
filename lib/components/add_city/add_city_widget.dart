@@ -58,7 +58,7 @@ class _AddCityWidgetState extends State<AddCityWidget> {
             width: 50.0,
             height: 50.0,
             child: CircularProgressIndicator(
-              color: FlutterFlowTheme.of(context).primaryColor,
+              color: FlutterFlowTheme.of(context).primary,
             ),
           ),
         ),
@@ -100,13 +100,13 @@ class _AddCityWidgetState extends State<AddCityWidget> {
               children: [
                 Text(
                   'Выберите ваш город',
-                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily:
-                            FlutterFlowTheme.of(context).bodyText1Family,
+                            FlutterFlowTheme.of(context).bodyMediumFamily,
                         fontSize: 18.0,
                         fontWeight: FontWeight.w500,
                         useGoogleFonts: GoogleFonts.asMap().containsKey(
-                            FlutterFlowTheme.of(context).bodyText1Family),
+                            FlutterFlowTheme.of(context).bodyMediumFamily),
                       ),
                 ),
               ],
@@ -157,7 +157,7 @@ class _AddCityWidgetState extends State<AddCityWidget> {
                     size: 24.0,
                   ),
                 ),
-                style: FlutterFlowTheme.of(context).bodyText1,
+                style: FlutterFlowTheme.of(context).bodyMedium,
                 maxLines: null,
                 validator: _model.textControllerValidator.asValidator(context),
               ),
@@ -185,8 +185,7 @@ class _AddCityWidgetState extends State<AddCityWidget> {
                                   width: 50.0,
                                   height: 50.0,
                                   child: CircularProgressIndicator(
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryColor,
+                                    color: FlutterFlowTheme.of(context).primary,
                                   ),
                                 ),
                               );
@@ -230,7 +229,7 @@ class _AddCityWidgetState extends State<AddCityWidget> {
                                                 columnCityesRecord.name!,
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText1,
+                                                        .bodyMedium,
                                               ),
                                               if (functions
                                                       .returnDistanceBetweenTwoPointsCopy(
@@ -247,7 +246,7 @@ class _AddCityWidgetState extends State<AddCityWidget> {
                                                     FFIcons.kicNavigation,
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .primaryColor,
+                                                        .primary,
                                                     size: 24.0,
                                                   ),
                                                 ),
@@ -269,96 +268,203 @@ class _AddCityWidgetState extends State<AddCityWidget> {
                       ),
                     if (_model.textController.text == null ||
                         _model.textController.text == '')
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
-                        child: StreamBuilder<List<CityesRecord>>(
-                          stream: queryCityesRecord(
-                            queryBuilder: (cityesRecord) =>
-                                cityesRecord.orderBy('location'),
-                          ),
-                          builder: (context, snapshot) {
-                            // Customize what your widget looks like when it's loading.
-                            if (!snapshot.hasData) {
-                              return Center(
-                                child: SizedBox(
-                                  width: 50.0,
-                                  height: 50.0,
-                                  child: CircularProgressIndicator(
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryColor,
-                                  ),
-                                ),
-                              );
-                            }
-                            List<CityesRecord> columnCityesRecordList =
-                                snapshot.data!;
-                            return Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: List.generate(
-                                  columnCityesRecordList.length, (columnIndex) {
-                                final columnCityesRecord =
-                                    columnCityesRecordList[columnIndex];
-                                return InkWell(
-                                  onTap: () async {
-                                    final userUpdateData = createUserRecordData(
-                                      country: columnCityesRecord.reference,
-                                      countryText: columnCityesRecord.name,
-                                    );
-                                    await currentUserReference!
-                                        .update(userUpdateData);
-                                    Navigator.pop(context);
-                                  },
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.stretch,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 10.0, 0.0, 10.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Text(
-                                              columnCityesRecord.name!,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyText1,
-                                            ),
-                                            if (functions
-                                                    .returnDistanceBetweenTwoPointsCopy(
-                                                        columnCityesRecord
-                                                            .location,
-                                                        currentUserLocationValue)
-                                                    .toString() ==
-                                                '5')
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        5.0, 0.0, 0.0, 0.0),
-                                                child: Icon(
-                                                  FFIcons.kicNavigation,
-                                                  color: FlutterFlowTheme.of(
+                      Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 8.0, 0.0, 0.0),
+                            child: StreamBuilder<List<CityesRecord>>(
+                              stream: queryCityesRecord(
+                                queryBuilder: (cityesRecord) => cityesRecord
+                                    .where('first', isEqualTo: '1')
+                                    .orderBy('name'),
+                              ),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 50.0,
+                                      height: 50.0,
+                                      child: CircularProgressIndicator(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                      ),
+                                    ),
+                                  );
+                                }
+                                List<CityesRecord> columnCityesRecordList =
+                                    snapshot.data!;
+                                return Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: List.generate(
+                                      columnCityesRecordList.length,
+                                      (columnIndex) {
+                                    final columnCityesRecord =
+                                        columnCityesRecordList[columnIndex];
+                                    return InkWell(
+                                      onTap: () async {
+                                        final userUpdateData =
+                                            createUserRecordData(
+                                          country: columnCityesRecord.reference,
+                                          countryText: columnCityesRecord.name,
+                                        );
+                                        await currentUserReference!
+                                            .update(userUpdateData);
+                                        Navigator.pop(context);
+                                      },
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.stretch,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 10.0, 0.0, 10.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Text(
+                                                  columnCityesRecord.name!,
+                                                  style: FlutterFlowTheme.of(
                                                           context)
-                                                      .primaryColor,
-                                                  size: 24.0,
+                                                      .bodyMedium,
                                                 ),
-                                              ),
-                                          ],
-                                        ),
+                                                if (functions
+                                                        .returnDistanceBetweenTwoPointsCopy(
+                                                            columnCityesRecord
+                                                                .location,
+                                                            currentUserLocationValue)
+                                                        .toString() ==
+                                                    '5')
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(5.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Icon(
+                                                      FFIcons.kicNavigation,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                      size: 24.0,
+                                                    ),
+                                                  ),
+                                              ],
+                                            ),
+                                          ),
+                                          Divider(
+                                            thickness: 1.0,
+                                            color: Color(0xFFEBEBEB),
+                                          ),
+                                        ],
                                       ),
-                                      Divider(
-                                        thickness: 1.0,
-                                        color: Color(0xFFEBEBEB),
-                                      ),
-                                    ],
-                                  ),
+                                    );
+                                  }),
                                 );
-                              }),
-                            );
-                          },
-                        ),
+                              },
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 8.0, 0.0, 0.0),
+                            child: StreamBuilder<List<CityesRecord>>(
+                              stream: queryCityesRecord(
+                                queryBuilder: (cityesRecord) =>
+                                    cityesRecord.orderBy('name'),
+                              ),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 50.0,
+                                      height: 50.0,
+                                      child: CircularProgressIndicator(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                      ),
+                                    ),
+                                  );
+                                }
+                                List<CityesRecord> columnCityesRecordList =
+                                    snapshot.data!;
+                                return Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: List.generate(
+                                      columnCityesRecordList.length,
+                                      (columnIndex) {
+                                    final columnCityesRecord =
+                                        columnCityesRecordList[columnIndex];
+                                    return InkWell(
+                                      onTap: () async {
+                                        final userUpdateData =
+                                            createUserRecordData(
+                                          country: columnCityesRecord.reference,
+                                          countryText: columnCityesRecord.name,
+                                        );
+                                        await currentUserReference!
+                                            .update(userUpdateData);
+                                        Navigator.pop(context);
+                                      },
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.stretch,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 10.0, 0.0, 10.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Text(
+                                                  columnCityesRecord.name!,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium,
+                                                ),
+                                                if (functions
+                                                        .returnDistanceBetweenTwoPointsCopy(
+                                                            columnCityesRecord
+                                                                .location,
+                                                            currentUserLocationValue)
+                                                        .toString() ==
+                                                    '5')
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(5.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Icon(
+                                                      FFIcons.kicNavigation,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                      size: 24.0,
+                                                    ),
+                                                  ),
+                                              ],
+                                            ),
+                                          ),
+                                          Divider(
+                                            thickness: 1.0,
+                                            color: Color(0xFFEBEBEB),
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  }),
+                                );
+                              },
+                            ),
+                          ),
+                        ],
                       ),
                   ],
                 ),

@@ -88,8 +88,7 @@ class _CompanyStoriesBottomsheetWidgetState
                               width: 50.0,
                               height: 50.0,
                               child: CircularProgressIndicator(
-                                color:
-                                    FlutterFlowTheme.of(context).primaryColor,
+                                color: FlutterFlowTheme.of(context).primary,
                               ),
                             ),
                           );
@@ -197,7 +196,7 @@ class _CompanyStoriesBottomsheetWidgetState
                                                                     CircularProgressIndicator(
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .primaryColor,
+                                                                      .primary,
                                                                 ),
                                                               ),
                                                             );
@@ -241,16 +240,16 @@ class _CompanyStoriesBottomsheetWidgetState
                                                                       .name!,
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1
+                                                                      .bodyMedium
                                                                       .override(
                                                                         fontFamily:
-                                                                            FlutterFlowTheme.of(context).bodyText1Family,
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                         color: Colors
                                                                             .white,
                                                                         fontSize:
                                                                             16.0,
                                                                         useGoogleFonts:
-                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                       ),
                                                                 ),
                                                               ),
@@ -277,11 +276,11 @@ class _CompanyStoriesBottomsheetWidgetState
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1Family,
+                                                                    .bodyMediumFamily,
                                                                 color: Colors
                                                                     .white,
                                                                 fontSize: 24.0,
@@ -289,7 +288,7 @@ class _CompanyStoriesBottomsheetWidgetState
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                     ),
                                                     Padding(
@@ -306,18 +305,18 @@ class _CompanyStoriesBottomsheetWidgetState
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1Family,
+                                                                      .bodyMediumFamily,
                                                                   color: Colors
                                                                       .white,
                                                                   useGoogleFonts: GoogleFonts
                                                                           .asMap()
                                                                       .containsKey(
                                                                           FlutterFlowTheme.of(context)
-                                                                              .bodyText1Family),
+                                                                              .bodyMediumFamily),
                                                                 ),
                                                       ),
                                                     ),
@@ -338,13 +337,15 @@ class _CompanyStoriesBottomsheetWidgetState
                                                             true,
                                                         backgroundColor:
                                                             Colors.transparent,
+                                                        barrierColor:
+                                                            Color(0x00000000),
                                                         context: context,
-                                                        builder: (context) {
+                                                        builder:
+                                                            (bottomSheetContext) {
                                                           return Padding(
-                                                            padding:
-                                                                MediaQuery.of(
-                                                                        context)
-                                                                    .viewInsets,
+                                                            padding: MediaQuery.of(
+                                                                    bottomSheetContext)
+                                                                .viewInsets,
                                                             child: Container(
                                                               height: MediaQuery.of(
                                                                           context)
@@ -384,15 +385,15 @@ class _CompanyStoriesBottomsheetWidgetState
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .primaryColor,
+                                                              .primary,
                                                       textStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .subtitle2
+                                                              .titleSmall
                                                               .override(
                                                                 fontFamily: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .subtitle2Family,
+                                                                    .titleSmallFamily,
                                                                 color: Colors
                                                                     .white,
                                                                 fontSize: 16.0,
@@ -400,8 +401,9 @@ class _CompanyStoriesBottomsheetWidgetState
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .subtitle2Family),
+                                                                            .titleSmallFamily),
                                                               ),
+                                                      elevation: 2.0,
                                                       borderSide: BorderSide(
                                                         color:
                                                             Colors.transparent,

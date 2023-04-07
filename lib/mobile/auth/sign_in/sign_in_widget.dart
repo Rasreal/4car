@@ -43,12 +43,12 @@ class _SignInWidgetState extends State<SignInWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        body: SafeArea(
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
@@ -66,16 +66,15 @@ class _SignInWidgetState extends State<SignInWidget> {
                         child: Text(
                           '4 Car',
                           style: FlutterFlowTheme.of(context)
-                              .bodyText1
+                              .bodyMedium
                               .override(
                                 fontFamily: FlutterFlowTheme.of(context)
-                                    .bodyText1Family,
-                                color:
-                                    FlutterFlowTheme.of(context).primaryColor,
+                                    .bodyMediumFamily,
+                                color: FlutterFlowTheme.of(context).primary,
                                 fontSize: 20.0,
                                 useGoogleFonts: GoogleFonts.asMap().containsKey(
                                     FlutterFlowTheme.of(context)
-                                        .bodyText1Family),
+                                        .bodyMediumFamily),
                               ),
                         ),
                       ),
@@ -85,14 +84,14 @@ class _SignInWidgetState extends State<SignInWidget> {
                         child: Text(
                           'Вход',
                           style: FlutterFlowTheme.of(context)
-                              .bodyText1
+                              .bodyMedium
                               .override(
                                 fontFamily: FlutterFlowTheme.of(context)
-                                    .bodyText1Family,
+                                    .bodyMediumFamily,
                                 fontSize: 24.0,
                                 useGoogleFonts: GoogleFonts.asMap().containsKey(
                                     FlutterFlowTheme.of(context)
-                                        .bodyText1Family),
+                                        .bodyMediumFamily),
                               ),
                         ),
                       ),
@@ -102,14 +101,14 @@ class _SignInWidgetState extends State<SignInWidget> {
                         child: Text(
                           'Номер телефона',
                           style: FlutterFlowTheme.of(context)
-                              .bodyText1
+                              .bodyMedium
                               .override(
                                 fontFamily: FlutterFlowTheme.of(context)
-                                    .bodyText1Family,
+                                    .bodyMediumFamily,
                                 fontWeight: FontWeight.w500,
                                 useGoogleFonts: GoogleFonts.asMap().containsKey(
                                     FlutterFlowTheme.of(context)
-                                        .bodyText1Family),
+                                        .bodyMediumFamily),
                               ),
                         ),
                       ),
@@ -127,7 +126,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                               color: valueOrDefault<Color>(
                                 _model.textController.text != null &&
                                         _model.textController.text != ''
-                                    ? FlutterFlowTheme.of(context).primaryColor
+                                    ? FlutterFlowTheme.of(context).primary
                                     : FlutterFlowTheme.of(context).primaryText,
                                 FlutterFlowTheme.of(context).primaryText,
                               ),
@@ -149,16 +148,16 @@ class _SignInWidgetState extends State<SignInWidget> {
                                   decoration: InputDecoration(
                                     hintText: '+7 (000) 00 00 00',
                                     hintStyle: FlutterFlowTheme.of(context)
-                                        .bodyText2
+                                        .bodySmall
                                         .override(
                                           fontFamily:
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText2Family,
+                                                  .bodySmallFamily,
                                           color: Color(0xFFD0D0D0),
                                           useGoogleFonts: GoogleFonts.asMap()
                                               .containsKey(
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText2Family),
+                                                      .bodySmallFamily),
                                         ),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
@@ -204,7 +203,8 @@ class _SignInWidgetState extends State<SignInWidget> {
                                         EdgeInsetsDirectional.fromSTEB(
                                             10.0, 0.0, 0.0, 0.0),
                                   ),
-                                  style: FlutterFlowTheme.of(context).bodyText1,
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
                                   keyboardType: TextInputType.phone,
                                   validator: _model.textControllerValidator
                                       .asValidator(context),
@@ -264,20 +264,21 @@ class _SignInWidgetState extends State<SignInWidget> {
                             color: valueOrDefault<Color>(
                               _model.textController.text != null &&
                                       _model.textController.text != ''
-                                  ? FlutterFlowTheme.of(context).primaryColor
+                                  ? FlutterFlowTheme.of(context).primary
                                   : FlutterFlowTheme.of(context).starblue,
                               FlutterFlowTheme.of(context).starblue,
                             ),
                             textStyle: FlutterFlowTheme.of(context)
-                                .subtitle2
+                                .titleSmall
                                 .override(
                                   fontFamily: FlutterFlowTheme.of(context)
-                                      .subtitle2Family,
+                                      .titleSmallFamily,
                                   color: Colors.white,
                                   useGoogleFonts: GoogleFonts.asMap()
                                       .containsKey(FlutterFlowTheme.of(context)
-                                          .subtitle2Family),
+                                          .titleSmallFamily),
                                 ),
+                            elevation: 2.0,
                             borderSide: BorderSide(
                               color: Colors.transparent,
                               width: 1.0,
@@ -299,13 +300,13 @@ class _SignInWidgetState extends State<SignInWidget> {
                   children: [
                     Text(
                       'У вас еще нет аккаунта?',
-                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily:
-                                FlutterFlowTheme.of(context).bodyText1Family,
+                                FlutterFlowTheme.of(context).bodyMediumFamily,
                             color: FlutterFlowTheme.of(context).secondaryText,
                             fontWeight: FontWeight.normal,
                             useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                FlutterFlowTheme.of(context).bodyText1Family),
+                                FlutterFlowTheme.of(context).bodyMediumFamily),
                           ),
                     ),
                     Padding(
@@ -318,17 +319,16 @@ class _SignInWidgetState extends State<SignInWidget> {
                         child: Text(
                           'Зарегистрироваться',
                           style: FlutterFlowTheme.of(context)
-                              .bodyText1
+                              .bodyMedium
                               .override(
                                 fontFamily: FlutterFlowTheme.of(context)
-                                    .bodyText1Family,
-                                color:
-                                    FlutterFlowTheme.of(context).primaryColor,
+                                    .bodyMediumFamily,
+                                color: FlutterFlowTheme.of(context).primary,
                                 fontSize: 12.0,
                                 fontWeight: FontWeight.w500,
                                 useGoogleFonts: GoogleFonts.asMap().containsKey(
                                     FlutterFlowTheme.of(context)
-                                        .bodyText1Family),
+                                        .bodyMediumFamily),
                               ),
                         ),
                       ),

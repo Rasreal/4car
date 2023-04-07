@@ -34,6 +34,13 @@ class _$CityesRecordSerializer implements StructuredSerializer<CityesRecord> {
         ..add(serializers.serialize(value,
             specifiedType: const FullType(LatLng)));
     }
+    value = object.first;
+    if (value != null) {
+      result
+        ..add('first')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -65,6 +72,10 @@ class _$CityesRecordSerializer implements StructuredSerializer<CityesRecord> {
           result.location = serializers.deserialize(value,
               specifiedType: const FullType(LatLng)) as LatLng?;
           break;
+        case 'first':
+          result.first = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -84,12 +95,15 @@ class _$CityesRecord extends CityesRecord {
   @override
   final LatLng? location;
   @override
+  final String? first;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$CityesRecord([void Function(CityesRecordBuilder)? updates]) =>
       (new CityesRecordBuilder()..update(updates))._build();
 
-  _$CityesRecord._({this.name, this.location, this.ffRef}) : super._();
+  _$CityesRecord._({this.name, this.location, this.first, this.ffRef})
+      : super._();
 
   @override
   CityesRecord rebuild(void Function(CityesRecordBuilder) updates) =>
@@ -104,13 +118,19 @@ class _$CityesRecord extends CityesRecord {
     return other is CityesRecord &&
         name == other.name &&
         location == other.location &&
+        first == other.first &&
         ffRef == other.ffRef;
   }
 
   @override
   int get hashCode {
-    return $jf(
-        $jc($jc($jc(0, name.hashCode), location.hashCode), ffRef.hashCode));
+    var _$hash = 0;
+    _$hash = $jc(_$hash, name.hashCode);
+    _$hash = $jc(_$hash, location.hashCode);
+    _$hash = $jc(_$hash, first.hashCode);
+    _$hash = $jc(_$hash, ffRef.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
   }
 
   @override
@@ -118,6 +138,7 @@ class _$CityesRecord extends CityesRecord {
     return (newBuiltValueToStringHelper(r'CityesRecord')
           ..add('name', name)
           ..add('location', location)
+          ..add('first', first)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -135,6 +156,10 @@ class CityesRecordBuilder
   LatLng? get location => _$this._location;
   set location(LatLng? location) => _$this._location = location;
 
+  String? _first;
+  String? get first => _$this._first;
+  set first(String? first) => _$this._first = first;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -148,6 +173,7 @@ class CityesRecordBuilder
     if ($v != null) {
       _name = $v.name;
       _location = $v.location;
+      _first = $v.first;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -170,10 +196,11 @@ class CityesRecordBuilder
 
   _$CityesRecord _build() {
     final _$result = _$v ??
-        new _$CityesRecord._(name: name, location: location, ffRef: ffRef);
+        new _$CityesRecord._(
+            name: name, location: location, first: first, ffRef: ffRef);
     replace(_$result);
     return _$result;
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas
+// ignore_for_file: deprecated_member_use_from_same_package,type=lint

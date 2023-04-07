@@ -59,12 +59,12 @@ class _SuperAdminCancelledBookingsWidgetState
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+        body: SafeArea(
           child: Stack(
             children: [
               Column(
@@ -105,16 +105,16 @@ class _SuperAdminCancelledBookingsWidgetState
                                       child: Text(
                                         'Пользователи',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Inter',
                                               fontSize: 24.0,
-                                              useGoogleFonts:
-                                                  GoogleFonts.asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyText1Family),
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily),
                                             ),
                                       ),
                                     ),
@@ -182,7 +182,7 @@ class _SuperAdminCancelledBookingsWidgetState
                                                                     'Поиск',
                                                                 hintStyle: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText2
+                                                                    .bodySmall
                                                                     .override(
                                                                       fontFamily:
                                                                           'Inter',
@@ -194,7 +194,7 @@ class _SuperAdminCancelledBookingsWidgetState
                                                                       useGoogleFonts: GoogleFonts
                                                                               .asMap()
                                                                           .containsKey(
-                                                                              FlutterFlowTheme.of(context).bodyText2Family),
+                                                                              FlutterFlowTheme.of(context).bodySmallFamily),
                                                                     ),
                                                                 enabledBorder:
                                                                     InputBorder
@@ -218,7 +218,7 @@ class _SuperAdminCancelledBookingsWidgetState
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyText1
+                                                                  .bodyMedium
                                                                   .override(
                                                                     fontFamily:
                                                                         'Inter',
@@ -230,7 +230,7 @@ class _SuperAdminCancelledBookingsWidgetState
                                                                     useGoogleFonts: GoogleFonts
                                                                             .asMap()
                                                                         .containsKey(
-                                                                            FlutterFlowTheme.of(context).bodyText1Family),
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                   ),
                                                               validator: _model
                                                                   .textControllerValidator
@@ -262,15 +262,25 @@ class _SuperAdminCancelledBookingsWidgetState
                                                           backgroundColor:
                                                               Colors
                                                                   .transparent,
+                                                          barrierColor:
+                                                              Color(0x00000000),
                                                           enableDrag: false,
                                                           context: context,
-                                                          builder: (context) {
-                                                            return Padding(
-                                                              padding: MediaQuery
-                                                                      .of(context)
-                                                                  .viewInsets,
-                                                              child:
-                                                                  WEBFilterDateWidget(),
+                                                          builder:
+                                                              (bottomSheetContext) {
+                                                            return GestureDetector(
+                                                              onTap: () => FocusScope
+                                                                      .of(
+                                                                          context)
+                                                                  .requestFocus(
+                                                                      _unfocusNode),
+                                                              child: Padding(
+                                                                padding: MediaQuery.of(
+                                                                        bottomSheetContext)
+                                                                    .viewInsets,
+                                                                child:
+                                                                    WEBFilterDateWidget(),
+                                                              ),
                                                             );
                                                           },
                                                         ).then((value) =>
@@ -317,7 +327,7 @@ class _SuperAdminCancelledBookingsWidgetState
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1
+                                                                      .bodyMedium
                                                                       .override(
                                                                         fontFamily:
                                                                             'Inter',
@@ -326,7 +336,7 @@ class _SuperAdminCancelledBookingsWidgetState
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                         useGoogleFonts:
-                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                       ),
                                                                 ),
                                                               ),
@@ -382,7 +392,7 @@ class _SuperAdminCancelledBookingsWidgetState
                                                                 'Статус',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1
+                                                                    .bodyMedium
                                                                     .override(
                                                                       fontFamily:
                                                                           'Inter',
@@ -394,7 +404,7 @@ class _SuperAdminCancelledBookingsWidgetState
                                                                       useGoogleFonts: GoogleFonts
                                                                               .asMap()
                                                                           .containsKey(
-                                                                              FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                     ),
                                                               ),
                                                             ),
@@ -433,7 +443,7 @@ class _SuperAdminCancelledBookingsWidgetState
                                                           'Компания',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Inter',
@@ -447,7 +457,7 @@ class _SuperAdminCancelledBookingsWidgetState
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                         ),
                                                       ),
@@ -459,7 +469,7 @@ class _SuperAdminCancelledBookingsWidgetState
                                                           '№Записи',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Inter',
@@ -473,7 +483,7 @@ class _SuperAdminCancelledBookingsWidgetState
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                         ),
                                                       ),
@@ -485,7 +495,7 @@ class _SuperAdminCancelledBookingsWidgetState
                                                           'Время ',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Inter',
@@ -499,7 +509,7 @@ class _SuperAdminCancelledBookingsWidgetState
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                         ),
                                                       ),
@@ -511,7 +521,7 @@ class _SuperAdminCancelledBookingsWidgetState
                                                           '№Бокса',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Inter',
@@ -525,7 +535,7 @@ class _SuperAdminCancelledBookingsWidgetState
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                         ),
                                                       ),
@@ -537,7 +547,7 @@ class _SuperAdminCancelledBookingsWidgetState
                                                           'Автомобиль',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Inter',
@@ -551,7 +561,7 @@ class _SuperAdminCancelledBookingsWidgetState
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                         ),
                                                       ),
@@ -563,7 +573,7 @@ class _SuperAdminCancelledBookingsWidgetState
                                                           'Услуги',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Inter',
@@ -577,7 +587,7 @@ class _SuperAdminCancelledBookingsWidgetState
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                         ),
                                                       ),
@@ -589,7 +599,7 @@ class _SuperAdminCancelledBookingsWidgetState
                                                           'Комментарий',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Inter',
@@ -603,7 +613,7 @@ class _SuperAdminCancelledBookingsWidgetState
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                         ),
                                                       ),
@@ -615,7 +625,7 @@ class _SuperAdminCancelledBookingsWidgetState
                                                           'Статус ',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Inter',
@@ -629,7 +639,7 @@ class _SuperAdminCancelledBookingsWidgetState
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                         ),
                                                       ),
@@ -669,7 +679,7 @@ class _SuperAdminCancelledBookingsWidgetState
                                                               CircularProgressIndicator(
                                                             color: FlutterFlowTheme
                                                                     .of(context)
-                                                                .primaryColor,
+                                                                .primary,
                                                           ),
                                                         ),
                                                       );
@@ -713,7 +723,7 @@ class _SuperAdminCancelledBookingsWidgetState
                                                                       CircularProgressIndicator(
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .primaryColor,
+                                                                        .primary,
                                                                   ),
                                                                 ),
                                                               );
@@ -746,22 +756,31 @@ class _SuperAdminCancelledBookingsWidgetState
                                                                   backgroundColor:
                                                                       Colors
                                                                           .transparent,
+                                                                  barrierColor:
+                                                                      Color(
+                                                                          0x00000000),
                                                                   enableDrag:
                                                                       false,
                                                                   context:
                                                                       context,
                                                                   builder:
-                                                                      (context) {
-                                                                    return Padding(
-                                                                      padding: MediaQuery.of(
+                                                                      (bottomSheetContext) {
+                                                                    return GestureDetector(
+                                                                      onTap: () => FocusScope.of(
                                                                               context)
-                                                                          .viewInsets,
+                                                                          .requestFocus(
+                                                                              _unfocusNode),
                                                                       child:
-                                                                          SuperAdminCancelledBookingRecordWidget(
-                                                                        booking:
-                                                                            listViewBookingsRecord,
-                                                                        company:
-                                                                            containerCompaniesRecord,
+                                                                          Padding(
+                                                                        padding:
+                                                                            MediaQuery.of(bottomSheetContext).viewInsets,
+                                                                        child:
+                                                                            SuperAdminCancelledBookingRecordWidget(
+                                                                          booking:
+                                                                              listViewBookingsRecord,
+                                                                          company:
+                                                                              containerCompaniesRecord,
+                                                                        ),
                                                                       ),
                                                                     );
                                                                   },
@@ -804,10 +823,10 @@ class _SuperAdminCancelledBookingsWidgetState
                                                                             child:
                                                                                 Text(
                                                                               containerCompaniesRecord.name!,
-                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                     fontWeight: FontWeight.normal,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                   ),
                                                                             ),
                                                                           ),
@@ -822,10 +841,10 @@ class _SuperAdminCancelledBookingsWidgetState
                                                                                 listViewBookingsRecord.id,
                                                                                 'null',
                                                                               ),
-                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                     fontWeight: FontWeight.normal,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                   ),
                                                                             ),
                                                                           ),
@@ -843,10 +862,10 @@ class _SuperAdminCancelledBookingsWidgetState
                                                                                     listViewBookingsRecord.timeName,
                                                                                     'null',
                                                                                   ),
-                                                                                  style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                        fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                        fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                         fontWeight: FontWeight.normal,
-                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                       ),
                                                                                 ),
                                                                                 Text(
@@ -855,11 +874,11 @@ class _SuperAdminCancelledBookingsWidgetState
                                                                                     listViewBookingsRecord.bookedDate!,
                                                                                     locale: FFLocalizations.of(context).languageCode,
                                                                                   ),
-                                                                                  style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                        fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                        fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                         color: FlutterFlowTheme.of(context).gray2,
                                                                                         fontWeight: FontWeight.normal,
-                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                       ),
                                                                                 ),
                                                                               ],
@@ -876,10 +895,10 @@ class _SuperAdminCancelledBookingsWidgetState
                                                                                 listViewBookingsRecord.boxName,
                                                                                 'null',
                                                                               ),
-                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                     fontWeight: FontWeight.normal,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                   ),
                                                                             ),
                                                                           ),
@@ -897,10 +916,10 @@ class _SuperAdminCancelledBookingsWidgetState
                                                                                 listViewBookingsRecord.carBody,
                                                                                 'null',
                                                                               )}',
-                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                     fontWeight: FontWeight.normal,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                   ),
                                                                             ),
                                                                           ),
@@ -912,10 +931,10 @@ class _SuperAdminCancelledBookingsWidgetState
                                                                             child:
                                                                                 Text(
                                                                               functions.listStringToString(listViewBookingsRecord.selectedCompanyServicesName!.toList(), 20),
-                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                     fontWeight: FontWeight.normal,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                   ),
                                                                             ),
                                                                           ),
@@ -930,10 +949,10 @@ class _SuperAdminCancelledBookingsWidgetState
                                                                                 listViewBookingsRecord.cancelComment,
                                                                                 'Нет информации',
                                                                               ),
-                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                     fontWeight: FontWeight.normal,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                   ),
                                                                             ),
                                                                           ),
@@ -959,11 +978,11 @@ class _SuperAdminCancelledBookingsWidgetState
                                                                                 ),
                                                                                 Text(
                                                                                   'Отменен',
-                                                                                  style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                        fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                        fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                         color: FlutterFlowTheme.of(context).red1,
                                                                                         fontWeight: FontWeight.normal,
-                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                       ),
                                                                                 ),
                                                                               ],

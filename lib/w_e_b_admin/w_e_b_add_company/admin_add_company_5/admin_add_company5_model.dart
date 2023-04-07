@@ -73,7 +73,7 @@ class AdminAddCompany5Model extends FlutterFlowModel {
 
   /// Additional helper methods are added here.
 
-  Future waitForFirestoreRequestCompleter({
+  Future waitForFirestoreRequestCompleted({
     double minWait = 0,
     double maxWait = double.infinity,
   }) async {

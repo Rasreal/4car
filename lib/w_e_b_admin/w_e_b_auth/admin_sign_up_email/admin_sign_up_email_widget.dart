@@ -3,6 +3,8 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
+import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -57,12 +59,12 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+        body: SafeArea(
           child: Visibility(
             visible: responsiveVisibility(
               context: context,
@@ -94,17 +96,16 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                             child: Text(
                               '4 Car',
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText1
+                                  .bodyMedium
                                   .override(
                                     fontFamily: FlutterFlowTheme.of(context)
-                                        .bodyText1Family,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryColor,
+                                        .bodyMediumFamily,
+                                    color: FlutterFlowTheme.of(context).primary,
                                     fontSize: 30.0,
                                     useGoogleFonts: GoogleFonts.asMap()
                                         .containsKey(
                                             FlutterFlowTheme.of(context)
-                                                .bodyText1Family),
+                                                .bodyMediumFamily),
                                   ),
                             ),
                           ),
@@ -115,13 +116,13 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                           child: Text(
                             'Регистрация',
                             style: FlutterFlowTheme.of(context)
-                                .bodyText1
+                                .bodyMedium
                                 .override(
                                   fontFamily: 'Inter',
                                   fontSize: 22.0,
                                   useGoogleFonts: GoogleFonts.asMap()
                                       .containsKey(FlutterFlowTheme.of(context)
-                                          .bodyText1Family),
+                                          .bodyMediumFamily),
                                 ),
                           ),
                         ),
@@ -152,15 +153,15 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                               decoration: InputDecoration(
                                 hintText: 'ФИО',
                                 hintStyle: FlutterFlowTheme.of(context)
-                                    .bodyText2
+                                    .bodySmall
                                     .override(
                                       fontFamily: FlutterFlowTheme.of(context)
-                                          .bodyText2Family,
+                                          .bodySmallFamily,
                                       fontWeight: FontWeight.normal,
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText2Family),
+                                                  .bodySmallFamily),
                                     ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
@@ -171,8 +172,7 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryColor,
+                                    color: FlutterFlowTheme.of(context).primary,
                                     width: 1.0,
                                   ),
                                   borderRadius: BorderRadius.circular(8.0),
@@ -192,7 +192,7 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
                               ),
-                              style: FlutterFlowTheme.of(context).bodyText1,
+                              style: FlutterFlowTheme.of(context).bodyMedium,
                               validator: _model.fioControllerValidator
                                   .asValidator(context),
                             ),
@@ -225,15 +225,15 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                               decoration: InputDecoration(
                                 hintText: 'Номер телефона',
                                 hintStyle: FlutterFlowTheme.of(context)
-                                    .bodyText2
+                                    .bodySmall
                                     .override(
                                       fontFamily: FlutterFlowTheme.of(context)
-                                          .bodyText2Family,
+                                          .bodySmallFamily,
                                       fontWeight: FontWeight.normal,
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText2Family),
+                                                  .bodySmallFamily),
                                     ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
@@ -244,8 +244,7 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryColor,
+                                    color: FlutterFlowTheme.of(context).primary,
                                     width: 1.0,
                                   ),
                                   borderRadius: BorderRadius.circular(8.0),
@@ -265,7 +264,7 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
                               ),
-                              style: FlutterFlowTheme.of(context).bodyText1,
+                              style: FlutterFlowTheme.of(context).bodyMedium,
                               keyboardType: TextInputType.phone,
                               validator: _model.phoneControllerValidator
                                   .asValidator(context),
@@ -284,15 +283,15 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                               decoration: InputDecoration(
                                 hintText: 'Email',
                                 hintStyle: FlutterFlowTheme.of(context)
-                                    .bodyText2
+                                    .bodySmall
                                     .override(
                                       fontFamily: FlutterFlowTheme.of(context)
-                                          .bodyText2Family,
+                                          .bodySmallFamily,
                                       fontWeight: FontWeight.normal,
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText2Family),
+                                                  .bodySmallFamily),
                                     ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
@@ -303,8 +302,7 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryColor,
+                                    color: FlutterFlowTheme.of(context).primary,
                                     width: 1.0,
                                   ),
                                   borderRadius: BorderRadius.circular(8.0),
@@ -324,7 +322,7 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
                               ),
-                              style: FlutterFlowTheme.of(context).bodyText1,
+                              style: FlutterFlowTheme.of(context).bodyMedium,
                               validator: _model.emailControllerValidator
                                   .asValidator(context),
                             ),
@@ -341,15 +339,15 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                               decoration: InputDecoration(
                                 hintText: 'Пароль',
                                 hintStyle: FlutterFlowTheme.of(context)
-                                    .bodyText2
+                                    .bodySmall
                                     .override(
                                       fontFamily: FlutterFlowTheme.of(context)
-                                          .bodyText2Family,
+                                          .bodySmallFamily,
                                       fontWeight: FontWeight.normal,
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText2Family),
+                                                  .bodySmallFamily),
                                     ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
@@ -360,8 +358,7 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryColor,
+                                    color: FlutterFlowTheme.of(context).primary,
                                     width: 1.0,
                                   ),
                                   borderRadius: BorderRadius.circular(8.0),
@@ -395,7 +392,7 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                                   ),
                                 ),
                               ),
-                              style: FlutterFlowTheme.of(context).bodyText1,
+                              style: FlutterFlowTheme.of(context).bodyMedium,
                               validator: _model.textField111ControllerValidator
                                   .asValidator(context),
                             ),
@@ -412,15 +409,15 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                               decoration: InputDecoration(
                                 hintText: 'Пароль',
                                 hintStyle: FlutterFlowTheme.of(context)
-                                    .bodyText2
+                                    .bodySmall
                                     .override(
                                       fontFamily: FlutterFlowTheme.of(context)
-                                          .bodyText2Family,
+                                          .bodySmallFamily,
                                       fontWeight: FontWeight.normal,
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText2Family),
+                                                  .bodySmallFamily),
                                     ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
@@ -431,8 +428,7 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryColor,
+                                    color: FlutterFlowTheme.of(context).primary,
                                     width: 1.0,
                                   ),
                                   borderRadius: BorderRadius.circular(8.0),
@@ -466,7 +462,7 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                                   ),
                                 ),
                               ),
-                              style: FlutterFlowTheme.of(context).bodyText1,
+                              style: FlutterFlowTheme.of(context).bodyMedium,
                               validator: _model.textField222ControllerValidator
                                   .asValidator(context),
                             ),
@@ -508,6 +504,14 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                                 phoneNumber: FFAppState().adminAddStaffPhone,
                                 role: FFAppState().adminAddStaff,
                                 signUpDate: getCurrentTimestamp,
+                                stuffID: valueOrDefault<String>(
+                                  functions.idGenerator(valueOrDefault<int>(
+                                    random_data.randomInteger(1000000, 9999999),
+                                    0,
+                                  )),
+                                  '0',
+                                ),
+                                addedCompany: false,
                               );
                               await UserRecord.collection
                                   .doc(user.uid)
@@ -523,16 +527,16 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                                   0.0, 0.0, 0.0, 0.0),
                               iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).primaryColor,
+                              color: FlutterFlowTheme.of(context).primary,
                               textStyle: FlutterFlowTheme.of(context)
-                                  .subtitle2
+                                  .titleSmall
                                   .override(
                                     fontFamily: 'Inter',
                                     color: Colors.white,
                                     useGoogleFonts: GoogleFonts.asMap()
                                         .containsKey(
                                             FlutterFlowTheme.of(context)
-                                                .subtitle2Family),
+                                                .titleSmallFamily),
                                   ),
                               elevation: 0.0,
                               borderSide: BorderSide(
@@ -553,7 +557,7 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                               Text(
                                 'Есть аккаунт? ',
                                 style: FlutterFlowTheme.of(context)
-                                    .bodyText1
+                                    .bodyMedium
                                     .override(
                                       fontFamily: 'Inter',
                                       color: FlutterFlowTheme.of(context).gray2,
@@ -561,7 +565,7 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText1Family),
+                                                  .bodyMediumFamily),
                                     ),
                               ),
                               InkWell(
@@ -571,16 +575,16 @@ class _AdminSignUpEmailWidgetState extends State<AdminSignUpEmailWidget> {
                                 child: Text(
                                   'Войти',
                                   style: FlutterFlowTheme.of(context)
-                                      .bodyText1
+                                      .bodyMedium
                                       .override(
                                         fontFamily: 'Inter',
                                         color: FlutterFlowTheme.of(context)
-                                            .primaryColor,
+                                            .primary,
                                         fontWeight: FontWeight.w500,
                                         useGoogleFonts: GoogleFonts.asMap()
                                             .containsKey(
                                                 FlutterFlowTheme.of(context)
-                                                    .bodyText1Family),
+                                                    .bodyMediumFamily),
                                       ),
                                 ),
                               ),

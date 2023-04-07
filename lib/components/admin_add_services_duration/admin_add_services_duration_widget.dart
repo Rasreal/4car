@@ -3,6 +3,7 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -64,7 +65,9 @@ class _AdminAddServicesDurationWidgetState
         ),
       ),
       child: FlutterFlowDropDown<String>(
-        initialOption: _model.dropDownValue ??= '15 мин',
+        controller: _model.dropDownController ??= FormFieldController<String>(
+          _model.dropDownValue ??= '15 мин',
+        ),
         options: FFAppState().adminForCarServicesDuration.toList(),
         onChanged: (val) async {
           setState(() => _model.dropDownValue = val);
@@ -75,12 +78,12 @@ class _AdminAddServicesDurationWidgetState
         },
         width: 40.0,
         height: 50.0,
-        textStyle: FlutterFlowTheme.of(context).bodyText1.override(
+        textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
               fontFamily: 'Inter',
               color: FlutterFlowTheme.of(context).text3,
               fontWeight: FontWeight.normal,
               useGoogleFonts: GoogleFonts.asMap()
-                  .containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                  .containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
             ),
         fillColor: Colors.white,
         elevation: 0.0,
@@ -89,6 +92,7 @@ class _AdminAddServicesDurationWidgetState
         borderRadius: 8.0,
         margin: EdgeInsetsDirectional.fromSTEB(12.0, 4.0, 12.0, 4.0),
         hidesUnderline: true,
+        isSearchable: false,
       ),
     );
   }

@@ -59,7 +59,7 @@ class _CanceledBookingWidgetState extends State<CanceledBookingWidget> {
               borderColor: Colors.transparent,
               borderRadius: 20.0,
               buttonSize: 60.0,
-              fillColor: FlutterFlowTheme.of(context).primaryColor,
+              fillColor: FlutterFlowTheme.of(context).primary,
               icon: Icon(
                 Icons.check,
                 color: Colors.white,
@@ -74,12 +74,12 @@ class _CanceledBookingWidgetState extends State<CanceledBookingWidget> {
               child: Text(
                 'Ваша запись\nотменена!',
                 textAlign: TextAlign.center,
-                style: FlutterFlowTheme.of(context).bodyText1.override(
-                      fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                      fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                       fontSize: 16.0,
                       fontWeight: FontWeight.w600,
                       useGoogleFonts: GoogleFonts.asMap().containsKey(
-                          FlutterFlowTheme.of(context).bodyText1Family),
+                          FlutterFlowTheme.of(context).bodyMediumFamily),
                     ),
               ),
             ),

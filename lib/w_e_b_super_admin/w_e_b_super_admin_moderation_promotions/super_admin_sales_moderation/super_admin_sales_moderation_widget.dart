@@ -48,12 +48,12 @@ class _SuperAdminSalesModerationWidgetState
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+        body: SafeArea(
           child: Stack(
             children: [
               Column(
@@ -119,7 +119,7 @@ class _SuperAdminSalesModerationWidgetState
                                           Text(
                                             'Назад',
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyText1
+                                                .bodyMedium
                                                 .override(
                                                   fontFamily: 'Inter',
                                                   fontWeight: FontWeight.w500,
@@ -128,7 +128,7 @@ class _SuperAdminSalesModerationWidgetState
                                                       .containsKey(
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyText1Family),
+                                                              .bodyMediumFamily),
                                                 ),
                                           ),
                                         ],
@@ -141,14 +141,14 @@ class _SuperAdminSalesModerationWidgetState
                                     child: Text(
                                       'Акции в топ',
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyText1
+                                          .bodyMedium
                                           .override(
                                             fontFamily: 'Inter',
                                             fontSize: 24.0,
                                             useGoogleFonts: GoogleFonts.asMap()
                                                 .containsKey(
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText1Family),
+                                                        .bodyMediumFamily),
                                           ),
                                     ),
                                   ),
@@ -233,7 +233,7 @@ class _SuperAdminSalesModerationWidgetState
                                                                         'Поиск',
                                                                     hintStyle: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyText2
+                                                                        .bodySmall
                                                                         .override(
                                                                           fontFamily:
                                                                               'Inter',
@@ -242,7 +242,7 @@ class _SuperAdminSalesModerationWidgetState
                                                                           fontWeight:
                                                                               FontWeight.normal,
                                                                           useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText2Family),
+                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodySmallFamily),
                                                                         ),
                                                                     enabledBorder:
                                                                         InputBorder
@@ -265,7 +265,7 @@ class _SuperAdminSalesModerationWidgetState
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1
+                                                                      .bodyMedium
                                                                       .override(
                                                                         fontFamily:
                                                                             'Inter',
@@ -274,7 +274,7 @@ class _SuperAdminSalesModerationWidgetState
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                         useGoogleFonts:
-                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                       ),
                                                                   validator: _model
                                                                       .textControllerValidator
@@ -300,11 +300,11 @@ class _SuperAdminSalesModerationWidgetState
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1Family,
+                                                                    .bodyMediumFamily,
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .gray2,
@@ -315,7 +315,7 @@ class _SuperAdminSalesModerationWidgetState
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                     ),
                                                     Padding(
@@ -334,15 +334,24 @@ class _SuperAdminSalesModerationWidgetState
                                                             backgroundColor:
                                                                 Colors
                                                                     .transparent,
+                                                            barrierColor: Color(
+                                                                0x00000000),
                                                             enableDrag: false,
                                                             context: context,
-                                                            builder: (context) {
-                                                              return Padding(
-                                                                padding: MediaQuery.of(
+                                                            builder:
+                                                                (bottomSheetContext) {
+                                                              return GestureDetector(
+                                                                onTap: () => FocusScope.of(
                                                                         context)
-                                                                    .viewInsets,
-                                                                child:
-                                                                    SuperAdminSelectCityWidget(),
+                                                                    .requestFocus(
+                                                                        _unfocusNode),
+                                                                child: Padding(
+                                                                  padding: MediaQuery.of(
+                                                                          bottomSheetContext)
+                                                                      .viewInsets,
+                                                                  child:
+                                                                      SuperAdminSelectCityWidget(),
+                                                                ),
                                                               );
                                                             },
                                                           ).then((value) =>
@@ -357,14 +366,14 @@ class _SuperAdminSalesModerationWidgetState
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1Family,
+                                                                    .bodyMediumFamily,
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .primaryColor,
+                                                                    .primary,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w500,
@@ -375,7 +384,7 @@ class _SuperAdminSalesModerationWidgetState
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                         ),
                                                       ),
@@ -401,7 +410,7 @@ class _SuperAdminSalesModerationWidgetState
                                                             '№Договора',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .bodyText1
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Inter',
@@ -415,7 +424,7 @@ class _SuperAdminSalesModerationWidgetState
                                                                           .asMap()
                                                                       .containsKey(
                                                                           FlutterFlowTheme.of(context)
-                                                                              .bodyText1Family),
+                                                                              .bodyMediumFamily),
                                                                 ),
                                                           ),
                                                         ],
@@ -431,7 +440,7 @@ class _SuperAdminSalesModerationWidgetState
                                                             'Компания',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .bodyText1
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Inter',
@@ -445,7 +454,7 @@ class _SuperAdminSalesModerationWidgetState
                                                                           .asMap()
                                                                       .containsKey(
                                                                           FlutterFlowTheme.of(context)
-                                                                              .bodyText1Family),
+                                                                              .bodyMediumFamily),
                                                                 ),
                                                           ),
                                                         ],
@@ -458,7 +467,7 @@ class _SuperAdminSalesModerationWidgetState
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Inter',
@@ -472,7 +481,7 @@ class _SuperAdminSalesModerationWidgetState
                                                                           .asMap()
                                                                       .containsKey(
                                                                           FlutterFlowTheme.of(context)
-                                                                              .bodyText1Family),
+                                                                              .bodyMediumFamily),
                                                                 ),
                                                       ),
                                                     ),
@@ -483,7 +492,7 @@ class _SuperAdminSalesModerationWidgetState
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Inter',
@@ -497,7 +506,7 @@ class _SuperAdminSalesModerationWidgetState
                                                                           .asMap()
                                                                       .containsKey(
                                                                           FlutterFlowTheme.of(context)
-                                                                              .bodyText1Family),
+                                                                              .bodyMediumFamily),
                                                                 ),
                                                       ),
                                                     ),
@@ -508,7 +517,7 @@ class _SuperAdminSalesModerationWidgetState
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Inter',
@@ -522,7 +531,7 @@ class _SuperAdminSalesModerationWidgetState
                                                                           .asMap()
                                                                       .containsKey(
                                                                           FlutterFlowTheme.of(context)
-                                                                              .bodyText1Family),
+                                                                              .bodyMediumFamily),
                                                                 ),
                                                       ),
                                                     ),
@@ -533,7 +542,7 @@ class _SuperAdminSalesModerationWidgetState
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Inter',
@@ -547,7 +556,7 @@ class _SuperAdminSalesModerationWidgetState
                                                                           .asMap()
                                                                       .containsKey(
                                                                           FlutterFlowTheme.of(context)
-                                                                              .bodyText1Family),
+                                                                              .bodyMediumFamily),
                                                                 ),
                                                       ),
                                                     ),
@@ -583,7 +592,7 @@ class _SuperAdminSalesModerationWidgetState
                                                             CircularProgressIndicator(
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .primaryColor,
+                                                              .primary,
                                                         ),
                                                       ),
                                                     );
@@ -623,7 +632,7 @@ class _SuperAdminSalesModerationWidgetState
                                                                     CircularProgressIndicator(
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .primaryColor,
+                                                                      .primary,
                                                                 ),
                                                               ),
                                                             );
@@ -663,7 +672,7 @@ class _SuperAdminSalesModerationWidgetState
                                                                           child:
                                                                               CircularProgressIndicator(
                                                                             color:
-                                                                                FlutterFlowTheme.of(context).primaryColor,
+                                                                                FlutterFlowTheme.of(context).primary,
                                                                           ),
                                                                         ),
                                                                       );
@@ -679,17 +688,22 @@ class _SuperAdminSalesModerationWidgetState
                                                                               true,
                                                                           backgroundColor:
                                                                               Colors.transparent,
+                                                                          barrierColor:
+                                                                              Color(0x00000000),
                                                                           enableDrag:
                                                                               false,
                                                                           context:
                                                                               context,
                                                                           builder:
-                                                                              (context) {
-                                                                            return Padding(
-                                                                              padding: MediaQuery.of(context).viewInsets,
-                                                                              child: SuperAdminSalesDetailsWidget(
-                                                                                promotion: listViewPromotionRecord.reference,
-                                                                                company: columnCompaniesRecord.reference,
+                                                                              (bottomSheetContext) {
+                                                                            return GestureDetector(
+                                                                              onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+                                                                              child: Padding(
+                                                                                padding: MediaQuery.of(bottomSheetContext).viewInsets,
+                                                                                child: SuperAdminSalesDetailsWidget(
+                                                                                  promotion: listViewPromotionRecord.reference,
+                                                                                  company: columnCompaniesRecord.reference,
+                                                                                ),
                                                                               ),
                                                                             );
                                                                           },
@@ -710,11 +724,11 @@ class _SuperAdminSalesModerationWidgetState
                                                                                 rowCompanyDocumentRecord.numDogovor,
                                                                                 'null',
                                                                               ),
-                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Roboto',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                     fontWeight: FontWeight.normal,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                   ),
                                                                             ),
                                                                           ),
@@ -727,11 +741,11 @@ class _SuperAdminSalesModerationWidgetState
                                                                                 rowCompanyDocumentRecord.companyName,
                                                                                 'null',
                                                                               ),
-                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Roboto',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                     fontWeight: FontWeight.normal,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                   ),
                                                                             ),
                                                                           ),
@@ -763,11 +777,11 @@ class _SuperAdminSalesModerationWidgetState
                                                                                 listViewPromotionRecord.title,
                                                                                 'null',
                                                                               ),
-                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Roboto',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                     fontWeight: FontWeight.normal,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                   ),
                                                                             ),
                                                                           ),
@@ -780,11 +794,11 @@ class _SuperAdminSalesModerationWidgetState
                                                                                 listViewPromotionRecord.subtitle,
                                                                                 'null',
                                                                               ),
-                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Roboto',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                     fontWeight: FontWeight.normal,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                   ),
                                                                             ),
                                                                           ),
@@ -797,11 +811,11 @@ class _SuperAdminSalesModerationWidgetState
                                                                                 functions.indexIncrement(listViewIndex).toString(),
                                                                                 '0',
                                                                               )}',
-                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Roboto',
                                                                                     color: FlutterFlowTheme.of(context).green,
                                                                                     fontWeight: FontWeight.normal,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                   ),
                                                                             ),
                                                                           ),
@@ -848,7 +862,7 @@ class _SuperAdminSalesModerationWidgetState
                                                             CircularProgressIndicator(
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .primaryColor,
+                                                              .primary,
                                                         ),
                                                       ),
                                                     );
@@ -888,7 +902,7 @@ class _SuperAdminSalesModerationWidgetState
                                                                     CircularProgressIndicator(
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .primaryColor,
+                                                                      .primary,
                                                                 ),
                                                               ),
                                                             );
@@ -928,7 +942,7 @@ class _SuperAdminSalesModerationWidgetState
                                                                           child:
                                                                               CircularProgressIndicator(
                                                                             color:
-                                                                                FlutterFlowTheme.of(context).primaryColor,
+                                                                                FlutterFlowTheme.of(context).primary,
                                                                           ),
                                                                         ),
                                                                       );
@@ -944,17 +958,22 @@ class _SuperAdminSalesModerationWidgetState
                                                                               true,
                                                                           backgroundColor:
                                                                               Colors.transparent,
+                                                                          barrierColor:
+                                                                              Color(0x00000000),
                                                                           enableDrag:
                                                                               false,
                                                                           context:
                                                                               context,
                                                                           builder:
-                                                                              (context) {
-                                                                            return Padding(
-                                                                              padding: MediaQuery.of(context).viewInsets,
-                                                                              child: SuperAdminSalesDetailsWidget(
-                                                                                promotion: listViewPromotionRecord.reference,
-                                                                                company: columnCompaniesRecord.reference,
+                                                                              (bottomSheetContext) {
+                                                                            return GestureDetector(
+                                                                              onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+                                                                              child: Padding(
+                                                                                padding: MediaQuery.of(bottomSheetContext).viewInsets,
+                                                                                child: SuperAdminSalesDetailsWidget(
+                                                                                  promotion: listViewPromotionRecord.reference,
+                                                                                  company: columnCompaniesRecord.reference,
+                                                                                ),
                                                                               ),
                                                                             );
                                                                           },
@@ -975,11 +994,11 @@ class _SuperAdminSalesModerationWidgetState
                                                                                 rowCompanyDocumentRecord.numDogovor,
                                                                                 'null',
                                                                               ),
-                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Roboto',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                     fontWeight: FontWeight.normal,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                   ),
                                                                             ),
                                                                           ),
@@ -992,11 +1011,11 @@ class _SuperAdminSalesModerationWidgetState
                                                                                 rowCompanyDocumentRecord.companyName,
                                                                                 'null',
                                                                               ),
-                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Roboto',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                     fontWeight: FontWeight.normal,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                   ),
                                                                             ),
                                                                           ),
@@ -1028,11 +1047,11 @@ class _SuperAdminSalesModerationWidgetState
                                                                                 listViewPromotionRecord.title,
                                                                                 'null',
                                                                               ),
-                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Roboto',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                     fontWeight: FontWeight.normal,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                   ),
                                                                             ),
                                                                           ),
@@ -1045,11 +1064,11 @@ class _SuperAdminSalesModerationWidgetState
                                                                                 listViewPromotionRecord.subtitle,
                                                                                 'null',
                                                                               ),
-                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Roboto',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                     fontWeight: FontWeight.normal,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                   ),
                                                                             ),
                                                                           ),
@@ -1059,11 +1078,11 @@ class _SuperAdminSalesModerationWidgetState
                                                                             child:
                                                                                 Text(
                                                                               'Ожидает',
-                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Roboto',
                                                                                     color: FlutterFlowTheme.of(context).gray2,
                                                                                     fontWeight: FontWeight.normal,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                   ),
                                                                             ),
                                                                           ),

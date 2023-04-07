@@ -58,12 +58,12 @@ class _DeleteAccWidgetState extends State<DeleteAccWidget> {
               padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 2.0),
               child: Text(
                 'Удалить аккаунта?',
-                style: FlutterFlowTheme.of(context).bodyText1.override(
-                      fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                      fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                       fontSize: 17.0,
                       fontWeight: FontWeight.w600,
                       useGoogleFonts: GoogleFonts.asMap().containsKey(
-                          FlutterFlowTheme.of(context).bodyText1Family),
+                          FlutterFlowTheme.of(context).bodyMediumFamily),
                     ),
               ),
             ),
@@ -72,11 +72,11 @@ class _DeleteAccWidgetState extends State<DeleteAccWidget> {
               child: Text(
                 'Удалив аккаунт вы потеряете\nизбранные и историю поиска.',
                 textAlign: TextAlign.center,
-                style: FlutterFlowTheme.of(context).bodyText1.override(
-                      fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                      fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                       fontSize: 13.0,
                       useGoogleFonts: GoogleFonts.asMap().containsKey(
-                          FlutterFlowTheme.of(context).bodyText1Family),
+                          FlutterFlowTheme.of(context).bodyMediumFamily),
                     ),
               ),
             ),
@@ -114,17 +114,17 @@ class _DeleteAccWidgetState extends State<DeleteAccWidget> {
                               child: Text(
                                 'Удалить',
                                 style: FlutterFlowTheme.of(context)
-                                    .bodyText1
+                                    .bodyMedium
                                     .override(
                                       fontFamily: FlutterFlowTheme.of(context)
-                                          .bodyText1Family,
+                                          .bodyMediumFamily,
                                       color: FlutterFlowTheme.of(context).red1,
                                       fontSize: 17.0,
                                       fontWeight: FontWeight.w500,
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText1Family),
+                                                  .bodyMediumFamily),
                                     ),
                               ),
                             ),
@@ -154,18 +154,18 @@ class _DeleteAccWidgetState extends State<DeleteAccWidget> {
                               child: Text(
                                 'Отмена',
                                 style: FlutterFlowTheme.of(context)
-                                    .bodyText1
+                                    .bodyMedium
                                     .override(
                                       fontFamily: FlutterFlowTheme.of(context)
-                                          .bodyText1Family,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryColor,
+                                          .bodyMediumFamily,
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
                                       fontSize: 17.0,
                                       fontWeight: FontWeight.w500,
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText1Family),
+                                                  .bodyMediumFamily),
                                     ),
                               ),
                             ),

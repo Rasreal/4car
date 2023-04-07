@@ -1,10 +1,9 @@
 import '/auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/admin_add_services_price/admin_add_services_price_widget.dart';
-import '/flutter_flow/flutter_flow_drop_down.dart';
+import '/components/duration_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
@@ -66,13 +65,13 @@ class _AdminAddServicesWidgetState extends State<AdminAddServicesWidget> {
           child: ExpandablePanel(
             header: Text(
               widget.bodyName!,
-              style: FlutterFlowTheme.of(context).title1.override(
-                    fontFamily: FlutterFlowTheme.of(context).title1Family,
+              style: FlutterFlowTheme.of(context).displaySmall.override(
+                    fontFamily: FlutterFlowTheme.of(context).displaySmallFamily,
                     color: Colors.black,
                     fontSize: 14.0,
                     fontWeight: FontWeight.normal,
-                    useGoogleFonts: GoogleFonts.asMap()
-                        .containsKey(FlutterFlowTheme.of(context).title1Family),
+                    useGoogleFonts: GoogleFonts.asMap().containsKey(
+                        FlutterFlowTheme.of(context).displaySmallFamily),
                   ),
             ),
             collapsed: Container(
@@ -115,8 +114,8 @@ class _AdminAddServicesWidgetState extends State<AdminAddServicesWidget> {
                                     width: 50.0,
                                     height: 50.0,
                                     child: CircularProgressIndicator(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryColor,
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
                                     ),
                                   ),
                                 );
@@ -185,7 +184,7 @@ class _AdminAddServicesWidgetState extends State<AdminAddServicesWidget> {
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Inter',
@@ -196,7 +195,7 @@ class _AdminAddServicesWidgetState extends State<AdminAddServicesWidget> {
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                     ),
                                                   ),
@@ -241,7 +240,7 @@ class _AdminAddServicesWidgetState extends State<AdminAddServicesWidget> {
                                                               BoxDecoration(
                                                             color: FlutterFlowTheme
                                                                     .of(context)
-                                                                .primaryColor,
+                                                                .primary,
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
@@ -269,7 +268,7 @@ class _AdminAddServicesWidgetState extends State<AdminAddServicesWidget> {
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Inter',
@@ -280,7 +279,7 @@ class _AdminAddServicesWidgetState extends State<AdminAddServicesWidget> {
                                                                           .asMap()
                                                                       .containsKey(
                                                                           FlutterFlowTheme.of(context)
-                                                                              .bodyText1Family),
+                                                                              .bodyMediumFamily),
                                                                 ),
                                                       ),
                                                     ),
@@ -288,78 +287,11 @@ class _AdminAddServicesWidgetState extends State<AdminAddServicesWidget> {
                                                 ),
                                               ),
                                             ),
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 0.0, 55.0, 0.0),
-                                              child:
-                                                  FlutterFlowDropDown<String>(
-                                                initialOption:
-                                                    _model.dropDownValueMap[
-                                                            servicesItem] ??=
-                                                        valueOrDefault<String>(
-                                                  container1CompanyServicesRecord!
-                                                      .durationName,
-                                                  '0 мин',
-                                                ),
-                                                options: FFAppState()
-                                                    .adminForCarServicesDuration
-                                                    .toList(),
-                                                onChanged: (val) async {
-                                                  setState(() =>
-                                                      _model.dropDownValueMap[
-                                                          servicesItem] = val!);
-                                                  final companyServicesUpdateData =
-                                                      createCompanyServicesRecordData(
-                                                    duration:
-                                                        valueOrDefault<int>(
-                                                      functions.durationToInt(
-                                                          valueOrDefault<
-                                                              String>(
-                                                        _model.dropDownValueMap[
-                                                            servicesItem],
-                                                        '0',
-                                                      )),
-                                                      0,
-                                                    ),
-                                                  );
-                                                  await container1CompanyServicesRecord!
-                                                      .reference
-                                                      .update(
-                                                          companyServicesUpdateData);
-                                                },
-                                                width: 124.0,
-                                                height: 40.0,
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyText1
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .text3,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyText1Family),
-                                                        ),
-                                                hintText: '0 мин',
-                                                fillColor: Colors.white,
-                                                elevation: 0.0,
-                                                borderColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .gray3,
-                                                borderWidth: 0.0,
-                                                borderRadius: 8.0,
-                                                margin: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        12.0, 4.0, 12.0, 4.0),
-                                                hidesUnderline: true,
-                                              ),
+                                            DurationWidget(
+                                              key: Key(
+                                                  'Keynb3_${servicesIndex}_of_${services.length}'),
+                                              services:
+                                                  container1CompanyServicesRecord,
                                             ),
                                             AdminAddServicesPriceWidget(
                                               key: Key(
@@ -395,21 +327,20 @@ class _AdminAddServicesWidgetState extends State<AdminAddServicesWidget> {
                             decoration: InputDecoration(
                               hintText: 'Введите название услуги',
                               hintStyle: FlutterFlowTheme.of(context)
-                                  .bodyText2
+                                  .bodySmall
                                   .override(
                                     fontFamily: FlutterFlowTheme.of(context)
-                                        .bodyText2Family,
+                                        .bodySmallFamily,
                                     color: FlutterFlowTheme.of(context).gray2,
                                     fontWeight: FontWeight.normal,
                                     useGoogleFonts: GoogleFonts.asMap()
                                         .containsKey(
                                             FlutterFlowTheme.of(context)
-                                                .bodyText2Family),
+                                                .bodySmallFamily),
                                   ),
                               enabledBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryColor,
+                                  color: FlutterFlowTheme.of(context).primary,
                                   width: 0.0,
                                 ),
                                 borderRadius: BorderRadius.circular(8.0),
@@ -442,13 +373,13 @@ class _AdminAddServicesWidgetState extends State<AdminAddServicesWidget> {
                                   16.0, 0.0, 0.0, 0.0),
                             ),
                             style: FlutterFlowTheme.of(context)
-                                .bodyText1
+                                .bodyMedium
                                 .override(
                                   fontFamily: 'Inter',
                                   fontWeight: FontWeight.normal,
                                   useGoogleFonts: GoogleFonts.asMap()
                                       .containsKey(FlutterFlowTheme.of(context)
-                                          .bodyText1Family),
+                                          .bodyMediumFamily),
                                 ),
                             validator: _model.new1ControllerValidator
                                 .asValidator(context),
@@ -473,8 +404,7 @@ class _AdminAddServicesWidgetState extends State<AdminAddServicesWidget> {
                                   16.0, 0.0, 0.0, 0.0),
                               child: Icon(
                                 FFIcons.kicPlus,
-                                color:
-                                    FlutterFlowTheme.of(context).primaryColor,
+                                color: FlutterFlowTheme.of(context).primary,
                                 size: 24.0,
                               ),
                             ),
@@ -484,17 +414,17 @@ class _AdminAddServicesWidgetState extends State<AdminAddServicesWidget> {
                               child: Text(
                                 'Добавить услугу ',
                                 style: FlutterFlowTheme.of(context)
-                                    .bodyText1
+                                    .bodyMedium
                                     .override(
                                       fontFamily: FlutterFlowTheme.of(context)
-                                          .bodyText1Family,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryColor,
+                                          .bodyMediumFamily,
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
                                       fontWeight: FontWeight.normal,
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText1Family),
+                                                  .bodyMediumFamily),
                                     ),
                               ),
                             ),

@@ -62,7 +62,7 @@ class _CompanyCardWidgetState extends State<CompanyCardWidget> {
             width: 50.0,
             height: 50.0,
             child: CircularProgressIndicator(
-              color: FlutterFlowTheme.of(context).primaryColor,
+              color: FlutterFlowTheme.of(context).primary,
             ),
           ),
         ),
@@ -125,19 +125,19 @@ class _CompanyCardWidgetState extends State<CompanyCardWidget> {
                                           '---',
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText1Family,
+                                                      .bodyMediumFamily,
                                               fontSize: 16.0,
                                               fontWeight: FontWeight.w500,
-                                              useGoogleFonts:
-                                                  GoogleFonts.asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyText1Family),
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily),
                                             ),
                                       ),
                                     ),
@@ -166,7 +166,7 @@ class _CompanyCardWidgetState extends State<CompanyCardWidget> {
                                                         )) ==
                                                     true
                                                 ? FlutterFlowTheme.of(context)
-                                                    .primaryColor
+                                                    .primary
                                                 : FlutterFlowTheme.of(context)
                                                     .red1,
                                             Colors.white,
@@ -183,8 +183,7 @@ class _CompanyCardWidgetState extends State<CompanyCardWidget> {
                                 child: RatingBarIndicator(
                                   itemBuilder: (context, index) => Icon(
                                     Icons.star_rounded,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryColor,
+                                    color: FlutterFlowTheme.of(context).primary,
                                   ),
                                   direction: Axis.horizontal,
                                   rating: valueOrDefault<double>(
@@ -211,8 +210,8 @@ class _CompanyCardWidgetState extends State<CompanyCardWidget> {
                                     width: 50.0,
                                     height: 50.0,
                                     child: CircularProgressIndicator(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryColor,
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
                                     ),
                                   ),
                                 );
@@ -241,14 +240,12 @@ class _CompanyCardWidgetState extends State<CompanyCardWidget> {
                                     .contains(widget.company!.reference),
                                 onIcon: Icon(
                                   FFIcons.kicSaveee,
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryColor,
+                                  color: FlutterFlowTheme.of(context).primary,
                                   size: 24.0,
                                 ),
                                 offIcon: Icon(
                                   FFIcons.kproperty1unsaved,
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryColor,
+                                  color: FlutterFlowTheme.of(context).primary,
                                   size: 24.0,
                                 ),
                               );
@@ -266,14 +263,14 @@ class _CompanyCardWidgetState extends State<CompanyCardWidget> {
                               '---',
                             ),
                             style: FlutterFlowTheme.of(context)
-                                .bodyText1
+                                .bodyMedium
                                 .override(
                                   fontFamily: FlutterFlowTheme.of(context)
-                                      .bodyText1Family,
+                                      .bodyMediumFamily,
                                   fontWeight: FontWeight.normal,
                                   useGoogleFonts: GoogleFonts.asMap()
                                       .containsKey(FlutterFlowTheme.of(context)
-                                          .bodyText1Family),
+                                          .bodyMediumFamily),
                                 ),
                           ),
                           Text(
@@ -289,15 +286,15 @@ class _CompanyCardWidgetState extends State<CompanyCardWidget> {
                               '----',
                             ),
                             style: FlutterFlowTheme.of(context)
-                                .bodyText1
+                                .bodyMedium
                                 .override(
                                   fontFamily: FlutterFlowTheme.of(context)
-                                      .bodyText1Family,
+                                      .bodyMediumFamily,
                                   color: Color(0xFF9CA3AF),
                                   fontWeight: FontWeight.w500,
                                   useGoogleFonts: GoogleFonts.asMap()
                                       .containsKey(FlutterFlowTheme.of(context)
-                                          .bodyText1Family),
+                                          .bodyMediumFamily),
                                 ),
                           ),
                         ],

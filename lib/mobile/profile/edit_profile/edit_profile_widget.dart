@@ -8,7 +8,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/upload_media.dart';
+import '/flutter_flow/upload_data.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -80,12 +80,12 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        body: SafeArea(
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
@@ -102,7 +102,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                       buttonSize: 48.0,
                       icon: Icon(
                         FFIcons.kicBack,
-                        color: FlutterFlowTheme.of(context).primaryColor,
+                        color: FlutterFlowTheme.of(context).primary,
                         size: 24.0,
                       ),
                       onPressed: () async {
@@ -111,13 +111,13 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                     ),
                     Text(
                       'Редактирование профиля',
-                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily:
-                                FlutterFlowTheme.of(context).bodyText1Family,
+                                FlutterFlowTheme.of(context).bodyMediumFamily,
                             fontSize: 18.0,
                             fontWeight: FontWeight.w500,
                             useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                FlutterFlowTheme.of(context).bodyText1Family),
+                                FlutterFlowTheme.of(context).bodyMediumFamily),
                           ),
                     ),
                     FlutterFlowIconButton(
@@ -134,11 +134,17 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                         await showModalBottomSheet(
                           isScrollControlled: true,
                           backgroundColor: Colors.transparent,
+                          barrierColor: Color(0x00000000),
                           context: context,
-                          builder: (context) {
-                            return Padding(
-                              padding: MediaQuery.of(context).viewInsets,
-                              child: DeleteAccWidget(),
+                          builder: (bottomSheetContext) {
+                            return GestureDetector(
+                              onTap: () => FocusScope.of(context)
+                                  .requestFocus(_unfocusNode),
+                              child: Padding(
+                                padding: MediaQuery.of(bottomSheetContext)
+                                    .viewInsets,
+                                child: DeleteAccWidget(),
+                              ),
                             );
                           },
                         ).then((value) => setState(() {}));
@@ -198,8 +204,8 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                     child: FlutterFlowIconButton(
                                       borderRadius: 30.0,
                                       buttonSize: 32.0,
-                                      fillColor: FlutterFlowTheme.of(context)
-                                          .primaryColor,
+                                      fillColor:
+                                          FlutterFlowTheme.of(context).primary,
                                       icon: Icon(
                                         FFIcons.kicEdit,
                                         color: Colors.white,
@@ -216,7 +222,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
                                           setState(() =>
-                                              _model.isMediaUploading = true);
+                                              _model.isDataUploading = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
                                           var downloadUrls = <String>[];
@@ -252,7 +258,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                           } finally {
                                             ScaffoldMessenger.of(context)
                                                 .hideCurrentSnackBar();
-                                            _model.isMediaUploading = false;
+                                            _model.isDataUploading = false;
                                           }
                                           if (selectedUploadedFiles.length ==
                                                   selectedMedia.length &&
@@ -269,7 +275,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                           } else {
                                             setState(() {});
                                             showUploadMessage(context,
-                                                'Failed to upload media');
+                                                'Failed to upload data');
                                             return;
                                           }
                                         }
@@ -287,14 +293,14 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                           child: Text(
                             'Введите имя',
                             style: FlutterFlowTheme.of(context)
-                                .bodyText1
+                                .bodyMedium
                                 .override(
                                   fontFamily: FlutterFlowTheme.of(context)
-                                      .bodyText1Family,
+                                      .bodyMediumFamily,
                                   fontWeight: FontWeight.w500,
                                   useGoogleFonts: GoogleFonts.asMap()
                                       .containsKey(FlutterFlowTheme.of(context)
-                                          .bodyText1Family),
+                                          .bodyMediumFamily),
                                 ),
                           ),
                         ),
@@ -308,7 +314,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                               decoration: InputDecoration(
                                 hintText: 'Добавить имя',
                                 hintStyle:
-                                    FlutterFlowTheme.of(context).bodyText2,
+                                    FlutterFlowTheme.of(context).bodySmall,
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).gray2,
@@ -338,7 +344,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
                               ),
-                              style: FlutterFlowTheme.of(context).bodyText1,
+                              style: FlutterFlowTheme.of(context).bodyMedium,
                               validator: _model.textController1Validator
                                   .asValidator(context),
                             ),
@@ -350,14 +356,14 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                           child: Text(
                             'Номер телефона',
                             style: FlutterFlowTheme.of(context)
-                                .bodyText1
+                                .bodyMedium
                                 .override(
                                   fontFamily: FlutterFlowTheme.of(context)
-                                      .bodyText1Family,
+                                      .bodyMediumFamily,
                                   fontWeight: FontWeight.w500,
                                   useGoogleFonts: GoogleFonts.asMap()
                                       .containsKey(FlutterFlowTheme.of(context)
-                                          .bodyText1Family),
+                                          .bodyMediumFamily),
                                 ),
                           ),
                         ),
@@ -371,7 +377,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                               decoration: InputDecoration(
                                 hintText: '+7 (000) 000 00 00',
                                 hintStyle:
-                                    FlutterFlowTheme.of(context).bodyText2,
+                                    FlutterFlowTheme.of(context).bodySmall,
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).gray2,
@@ -401,7 +407,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
                               ),
-                              style: FlutterFlowTheme.of(context).bodyText1,
+                              style: FlutterFlowTheme.of(context).bodyMedium,
                               validator: _model.textController2Validator
                                   .asValidator(context),
                             ),
@@ -422,8 +428,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                   width: 50.0,
                                   height: 50.0,
                                   child: CircularProgressIndicator(
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryColor,
+                                    color: FlutterFlowTheme.of(context).primary,
                                   ),
                                 ),
                               );
@@ -452,19 +457,19 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                           Text(
                                             'Автомобиль ${functions.indexIncrement(columnIndex).toString()}',
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyText2
+                                                .bodySmall
                                                 .override(
                                                   fontFamily:
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .bodyText2Family,
+                                                          .bodySmallFamily,
                                                   fontWeight: FontWeight.w500,
                                                   useGoogleFonts: GoogleFonts
                                                           .asMap()
                                                       .containsKey(
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyText2Family),
+                                                              .bodySmallFamily),
                                                 ),
                                           ),
                                           InkWell(
@@ -494,12 +499,12 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                               'Удалить',
                                               style: FlutterFlowTheme.of(
                                                       context)
-                                                  .bodyText2
+                                                  .bodySmall
                                                   .override(
                                                     fontFamily:
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .bodyText2Family,
+                                                            .bodySmallFamily,
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .red1,
@@ -509,7 +514,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                                         .containsKey(
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText2Family),
+                                                                .bodySmallFamily),
                                                   ),
                                             ),
                                           ),
@@ -526,14 +531,23 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                             });
                                             await showModalBottomSheet(
                                               isScrollControlled: true,
+                                              backgroundColor:
+                                                  Color(0x00000000),
+                                              barrierColor: Color(0x00000000),
                                               context: context,
-                                              builder: (context) {
-                                                return Padding(
-                                                  padding:
-                                                      MediaQuery.of(context)
-                                                          .viewInsets,
-                                                  child: EditCarWidget(
-                                                    myCar: columnMyCarsRecord,
+                                              builder: (bottomSheetContext) {
+                                                return GestureDetector(
+                                                  onTap: () =>
+                                                      FocusScope.of(context)
+                                                          .requestFocus(
+                                                              _unfocusNode),
+                                                  child: Padding(
+                                                    padding: MediaQuery.of(
+                                                            bottomSheetContext)
+                                                        .viewInsets,
+                                                    child: EditCarWidget(
+                                                      myCar: columnMyCarsRecord,
+                                                    ),
                                                   ),
                                                 );
                                               },
@@ -568,7 +582,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                                     '${columnMyCarsRecord.carBody}, ${columnMyCarsRecord.carNum}',
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyText1,
+                                                        .bodyMedium,
                                                   ),
                                                   InkWell(
                                                     onTap: () async {
@@ -583,17 +597,25 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                                             true,
                                                         backgroundColor:
                                                             Colors.transparent,
+                                                        barrierColor:
+                                                            Color(0x00000000),
                                                         context: context,
-                                                        builder: (context) {
-                                                          return Padding(
-                                                            padding:
-                                                                MediaQuery.of(
-                                                                        context)
-                                                                    .viewInsets,
-                                                            child:
-                                                                EditCarWidget(
-                                                              myCar:
-                                                                  columnMyCarsRecord,
+                                                        builder:
+                                                            (bottomSheetContext) {
+                                                          return GestureDetector(
+                                                            onTap: () => FocusScope
+                                                                    .of(context)
+                                                                .requestFocus(
+                                                                    _unfocusNode),
+                                                            child: Padding(
+                                                              padding: MediaQuery.of(
+                                                                      bottomSheetContext)
+                                                                  .viewInsets,
+                                                              child:
+                                                                  EditCarWidget(
+                                                                myCar:
+                                                                    columnMyCarsRecord,
+                                                              ),
                                                             ),
                                                           );
                                                         },
@@ -605,7 +627,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .primaryColor,
+                                                              .primary,
                                                       size: 24.0,
                                                     ),
                                                   ),
@@ -632,15 +654,15 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                               builder: (context) => Text(
                                 'Автомобиль 1',
                                 style: FlutterFlowTheme.of(context)
-                                    .bodyText2
+                                    .bodySmall
                                     .override(
                                       fontFamily: FlutterFlowTheme.of(context)
-                                          .bodyText2Family,
+                                          .bodySmallFamily,
                                       fontWeight: FontWeight.w500,
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText2Family),
+                                                  .bodySmallFamily),
                                     ),
                               ),
                             ),
@@ -654,15 +676,15 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                               builder: (context) => Text(
                                 'Автомобиль 2',
                                 style: FlutterFlowTheme.of(context)
-                                    .bodyText2
+                                    .bodySmall
                                     .override(
                                       fontFamily: FlutterFlowTheme.of(context)
-                                          .bodyText2Family,
+                                          .bodySmallFamily,
                                       fontWeight: FontWeight.w500,
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText2Family),
+                                                  .bodySmallFamily),
                                     ),
                               ),
                             ),
@@ -677,15 +699,15 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                               builder: (context) => Text(
                                 'Автомобиль 3',
                                 style: FlutterFlowTheme.of(context)
-                                    .bodyText2
+                                    .bodySmall
                                     .override(
                                       fontFamily: FlutterFlowTheme.of(context)
-                                          .bodyText2Family,
+                                          .bodySmallFamily,
                                       fontWeight: FontWeight.w500,
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText2Family),
+                                                  .bodySmallFamily),
                                     ),
                               ),
                             ),
@@ -704,12 +726,19 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                   });
                                   await showModalBottomSheet(
                                     isScrollControlled: true,
+                                    backgroundColor: Color(0x00000000),
+                                    barrierColor: Color(0x00000000),
                                     context: context,
-                                    builder: (context) {
-                                      return Padding(
-                                        padding:
-                                            MediaQuery.of(context).viewInsets,
-                                        child: AddCarWidget(),
+                                    builder: (bottomSheetContext) {
+                                      return GestureDetector(
+                                        onTap: () => FocusScope.of(context)
+                                            .requestFocus(_unfocusNode),
+                                        child: Padding(
+                                          padding:
+                                              MediaQuery.of(bottomSheetContext)
+                                                  .viewInsets,
+                                          child: AddCarWidget(),
+                                        ),
                                       );
                                     },
                                   ).then((value) => setState(() {}));
@@ -736,11 +765,11 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                         Text(
                                           'Добавить авто',
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1
+                                              .bodyMedium
                                               .override(
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText1Family,
+                                                        .bodyMediumFamily,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .gray2,
@@ -749,13 +778,13 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                                     .containsKey(
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .bodyText1Family),
+                                                            .bodyMediumFamily),
                                               ),
                                         ),
                                         Icon(
                                           FFIcons.kicPlus,
                                           color: FlutterFlowTheme.of(context)
-                                              .primaryColor,
+                                              .primary,
                                           size: 24.0,
                                         ),
                                       ],
@@ -788,11 +817,11 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                     Text(
                                       'Нажимая кнопку “Сохранить”, я сошлашаюсь',
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyText1
+                                          .bodyMedium
                                           .override(
                                             fontFamily:
                                                 FlutterFlowTheme.of(context)
-                                                    .bodyText1Family,
+                                                    .bodyMediumFamily,
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryText,
                                             fontSize: 12.0,
@@ -800,7 +829,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                             useGoogleFonts: GoogleFonts.asMap()
                                                 .containsKey(
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText1Family),
+                                                        .bodyMediumFamily),
                                           ),
                                     ),
                                     Row(
@@ -813,15 +842,15 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                           child: Text(
                                             'политикой конфиденциальности',
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyText1
+                                                .bodyMedium
                                                 .override(
                                                   fontFamily:
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .bodyText1Family,
+                                                          .bodyMediumFamily,
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .primaryColor,
+                                                      .primary,
                                                   fontSize: 12.0,
                                                   fontWeight: FontWeight.normal,
                                                   useGoogleFonts: GoogleFonts
@@ -829,7 +858,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                                       .containsKey(
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyText1Family),
+                                                              .bodyMediumFamily),
                                                 ),
                                           ),
                                         ),
@@ -881,20 +910,20 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                         0.0, 0.0, 0.0, 0.0),
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryColor,
+                                    color: FlutterFlowTheme.of(context).primary,
                                     textStyle: FlutterFlowTheme.of(context)
-                                        .subtitle2
+                                        .titleSmall
                                         .override(
                                           fontFamily:
                                               FlutterFlowTheme.of(context)
-                                                  .subtitle2Family,
+                                                  .titleSmallFamily,
                                           color: Colors.white,
                                           useGoogleFonts: GoogleFonts.asMap()
                                               .containsKey(
                                                   FlutterFlowTheme.of(context)
-                                                      .subtitle2Family),
+                                                      .titleSmallFamily),
                                         ),
+                                    elevation: 2.0,
                                     borderSide: BorderSide(
                                       color: Colors.transparent,
                                       width: 1.0,

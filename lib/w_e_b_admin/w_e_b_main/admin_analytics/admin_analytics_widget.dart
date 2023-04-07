@@ -130,12 +130,12 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+        body: SafeArea(
           child: Stack(
             children: [
               Column(
@@ -173,7 +173,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                       height: 50.0,
                                       child: CircularProgressIndicator(
                                         color: FlutterFlowTheme.of(context)
-                                            .primaryColor,
+                                            .primary,
                                       ),
                                     ),
                                   );
@@ -215,7 +215,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                   'Аналитика',
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyText1
+                                                      .bodyMedium
                                                       .override(
                                                         fontFamily: 'Inter',
                                                         fontSize: 24.0,
@@ -224,7 +224,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                             .containsKey(
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1Family),
+                                                                    .bodyMediumFamily),
                                                       ),
                                                 ),
                                               ),
@@ -263,15 +263,15 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                               'Финансовые показатели',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyText1
+                                                                  .bodyMedium
                                                                   .override(
                                                                     fontFamily:
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family,
+                                                                            .bodyMediumFamily,
                                                                     color: FFAppState().adminAnalyticsType ==
                                                                             'Финансовые показатели'
                                                                         ? FlutterFlowTheme.of(context)
-                                                                            .primaryColor
+                                                                            .primary
                                                                         : FlutterFlowTheme.of(context)
                                                                             .webUnselectedColor,
                                                                     fontSize:
@@ -282,7 +282,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                     useGoogleFonts: GoogleFonts
                                                                             .asMap()
                                                                         .containsKey(
-                                                                            FlutterFlowTheme.of(context).bodyText1Family),
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                   ),
                                                             ),
                                                           ),
@@ -296,7 +296,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                       'Финансовые показатели'
                                                                   ? FlutterFlowTheme.of(
                                                                           context)
-                                                                      .primaryColor
+                                                                      .primary
                                                                   : FlutterFlowTheme.of(
                                                                           context)
                                                                       .secondaryBackground,
@@ -338,15 +338,15 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                               'Отзывы',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyText1
+                                                                  .bodyMedium
                                                                   .override(
                                                                     fontFamily:
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family,
+                                                                            .bodyMediumFamily,
                                                                     color: FFAppState().adminAnalyticsType ==
                                                                             'Отзывы'
                                                                         ? FlutterFlowTheme.of(context)
-                                                                            .primaryColor
+                                                                            .primary
                                                                         : FlutterFlowTheme.of(context)
                                                                             .webUnselectedColor,
                                                                     fontSize:
@@ -357,7 +357,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                     useGoogleFonts: GoogleFonts
                                                                             .asMap()
                                                                         .containsKey(
-                                                                            FlutterFlowTheme.of(context).bodyText1Family),
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                   ),
                                                             ),
                                                           ),
@@ -371,7 +371,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                       'Отзывы'
                                                                   ? FlutterFlowTheme.of(
                                                                           context)
-                                                                      .primaryColor
+                                                                      .primary
                                                                   : FlutterFlowTheme.of(
                                                                           context)
                                                                       .secondaryBackground,
@@ -412,7 +412,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Inter',
@@ -426,7 +426,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                           .asMap()
                                                                       .containsKey(
                                                                           FlutterFlowTheme.of(context)
-                                                                              .bodyText1Family),
+                                                                              .bodyMediumFamily),
                                                                 ),
                                                       ),
                                                     ),
@@ -446,15 +446,24 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                             backgroundColor:
                                                                 Colors
                                                                     .transparent,
+                                                            barrierColor: Color(
+                                                                0x00000000),
                                                             enableDrag: false,
                                                             context: context,
-                                                            builder: (context) {
-                                                              return Padding(
-                                                                padding: MediaQuery.of(
+                                                            builder:
+                                                                (bottomSheetContext) {
+                                                              return GestureDetector(
+                                                                onTap: () => FocusScope.of(
                                                                         context)
-                                                                    .viewInsets,
-                                                                child:
-                                                                    WEBFilterDateWidget(),
+                                                                    .requestFocus(
+                                                                        _unfocusNode),
+                                                                child: Padding(
+                                                                  padding: MediaQuery.of(
+                                                                          bottomSheetContext)
+                                                                      .viewInsets,
+                                                                  child:
+                                                                      WEBFilterDateWidget(),
+                                                                ),
                                                               );
                                                             },
                                                           ).then((value) =>
@@ -501,7 +510,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyText1
+                                                                        .bodyMedium
                                                                         .override(
                                                                           fontFamily:
                                                                               'Inter',
@@ -510,7 +519,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                           fontWeight:
                                                                               FontWeight.normal,
                                                                           useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                         ),
                                                                   ),
                                                                 ),
@@ -572,7 +581,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                   'Все компании',
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1
+                                                                      .bodyMedium
                                                                       .override(
                                                                         fontFamily:
                                                                             'Inter',
@@ -581,7 +590,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                         useGoogleFonts:
-                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                       ),
                                                                 ),
                                                               ),
@@ -639,7 +648,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                       CircularProgressIndicator(
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .primaryColor,
+                                                                        .primary,
                                                                   ),
                                                                 ),
                                                               );
@@ -699,7 +708,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                 50.0,
                                                                             child:
                                                                                 CircularProgressIndicator(
-                                                                              color: FlutterFlowTheme.of(context).primaryColor,
+                                                                              color: FlutterFlowTheme.of(context).primary,
                                                                             ),
                                                                           ),
                                                                         );
@@ -769,15 +778,15 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                               0.0,
                                                                               0.0),
                                                                           color:
-                                                                              FlutterFlowTheme.of(context).primaryColor,
+                                                                              FlutterFlowTheme.of(context).primary,
                                                                           textStyle: FlutterFlowTheme.of(context)
-                                                                              .subtitle2
+                                                                              .titleSmall
                                                                               .override(
                                                                                 fontFamily: 'Inter',
                                                                                 color: Colors.white,
                                                                                 fontSize: 14.0,
                                                                                 fontWeight: FontWeight.normal,
-                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
+                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleSmallFamily),
                                                                               ),
                                                                           elevation:
                                                                               0.0,
@@ -847,7 +856,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                         CircularProgressIndicator(
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .primaryColor,
+                                                                          .primary,
                                                                     ),
                                                                   ),
                                                                 );
@@ -946,10 +955,10 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                           0.0),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .primaryColor,
+                                                                      .primary,
                                                                   textStyle: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .subtitle2
+                                                                      .titleSmall
                                                                       .override(
                                                                         fontFamily:
                                                                             'Inter',
@@ -960,7 +969,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                         useGoogleFonts:
-                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleSmallFamily),
                                                                       ),
                                                                   elevation:
                                                                       0.0,
@@ -1016,7 +1025,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                               CircularProgressIndicator(
                                                             color: FlutterFlowTheme
                                                                     .of(context)
-                                                                .primaryColor,
+                                                                .primary,
                                                           ),
                                                         ),
                                                       );
@@ -1069,7 +1078,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                         CircularProgressIndicator(
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .primaryColor,
+                                                                          .primary,
                                                                     ),
                                                                   ),
                                                                 );
@@ -1132,7 +1141,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                         ),
                                                                                         child: Icon(
                                                                                           FFIcons.kicMoney,
-                                                                                          color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                          color: FlutterFlowTheme.of(context).primary,
                                                                                           size: 24.0,
                                                                                         ),
                                                                                       ),
@@ -1144,10 +1153,10 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                         children: [
                                                                                           Text(
                                                                                             'Оборот',
-                                                                                            style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                   fontFamily: 'Inter',
                                                                                                   fontWeight: FontWeight.normal,
-                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                 ),
                                                                                           ),
                                                                                           Row(
@@ -1161,11 +1170,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                                     functions.oborot(containerBookingsRecordList.toList()).toString(),
                                                                                                     '0',
                                                                                                   ),
-                                                                                                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                         fontFamily: 'Inter',
                                                                                                         fontSize: 24.0,
                                                                                                         fontWeight: FontWeight.w500,
-                                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                       ),
                                                                                                 ),
                                                                                               ),
@@ -1176,11 +1185,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                                     functions.oborotName(containerBookingsRecordList.toList()),
                                                                                                     ' ₸',
                                                                                                   ),
-                                                                                                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                         fontFamily: 'Inter',
                                                                                                         fontSize: 16.0,
                                                                                                         fontWeight: FontWeight.w500,
-                                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                       ),
                                                                                                 ),
                                                                                               ),
@@ -1206,11 +1215,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                           alignment: AlignmentDirectional(0.0, 0.0),
                                                                                           child: Text(
                                                                                             '?',
-                                                                                            style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                                  fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                  fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                                   fontSize: 12.0,
                                                                                                   fontWeight: FontWeight.normal,
-                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                 ),
                                                                                           ),
                                                                                         ),
@@ -1264,7 +1273,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                         ),
                                                                                         child: Icon(
                                                                                           FFIcons.kicCar,
-                                                                                          color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                          color: FlutterFlowTheme.of(context).primary,
                                                                                           size: 24.0,
                                                                                         ),
                                                                                       ),
@@ -1276,10 +1285,10 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                         children: [
                                                                                           Text(
                                                                                             'Машин помыто',
-                                                                                            style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                   fontFamily: 'Inter',
                                                                                                   fontWeight: FontWeight.normal,
-                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                 ),
                                                                                           ),
                                                                                           Row(
@@ -1293,11 +1302,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                                     containerBookingsRecordList.length.toString(),
                                                                                                     '0',
                                                                                                   ),
-                                                                                                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                         fontFamily: 'Inter',
                                                                                                         fontSize: 24.0,
                                                                                                         fontWeight: FontWeight.w500,
-                                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                       ),
                                                                                                 ),
                                                                                               ),
@@ -1323,11 +1332,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                           alignment: AlignmentDirectional(0.0, 0.0),
                                                                                           child: Text(
                                                                                             '?',
-                                                                                            style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                                  fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                  fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                                   fontSize: 12.0,
                                                                                                   fontWeight: FontWeight.normal,
-                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                 ),
                                                                                           ),
                                                                                         ),
@@ -1380,7 +1389,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                         ),
                                                                                         child: Icon(
                                                                                           FFIcons.kicCheck,
-                                                                                          color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                          color: FlutterFlowTheme.of(context).primary,
                                                                                           size: 24.0,
                                                                                         ),
                                                                                       ),
@@ -1391,10 +1400,10 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                       children: [
                                                                                         Text(
                                                                                           'Средний чек',
-                                                                                          style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                 fontFamily: 'Inter',
                                                                                                 fontWeight: FontWeight.normal,
-                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                               ),
                                                                                         ),
                                                                                         Row(
@@ -1408,11 +1417,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                                   functions.averageCheque(containerBookingsRecordList.toList()),
                                                                                                   '0',
                                                                                                 ),
-                                                                                                style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                       fontFamily: 'Inter',
                                                                                                       fontSize: 24.0,
                                                                                                       fontWeight: FontWeight.w500,
-                                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                     ),
                                                                                               ),
                                                                                             ),
@@ -1423,11 +1432,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                                   functions.averageChequeName(containerBookingsRecordList.toList()),
                                                                                                   ' ₸',
                                                                                                 ),
-                                                                                                style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                       fontFamily: 'Inter',
                                                                                                       fontSize: 16.0,
                                                                                                       fontWeight: FontWeight.w500,
-                                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                     ),
                                                                                               ),
                                                                                             ),
@@ -1481,11 +1490,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 14.0, 0.0, 24.0),
                                                                                 child: Text(
                                                                                   'Оборот',
-                                                                                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Inter',
                                                                                         fontSize: 18.0,
                                                                                         fontWeight: FontWeight.w500,
-                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                       ),
                                                                                 ),
                                                                               ),
@@ -1493,11 +1502,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
                                                                                 child: Text(
                                                                                   'Заработанная сумма',
-                                                                                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Inter',
                                                                                         color: FlutterFlowTheme.of(context).gray2,
                                                                                         fontWeight: FontWeight.normal,
-                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                       ),
                                                                                 ),
                                                                               ),
@@ -1507,44 +1516,67 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                 tablet: false,
                                                                                 tabletLandscape: false,
                                                                               ))
-                                                                                Container(
-                                                                                  width: 1130.0,
-                                                                                  height: 423.0,
-                                                                                  child: FlutterFlowLineChart(
-                                                                                    data: [
-                                                                                      FFLineChartData(
-                                                                                        xData: containerBookingsRecordList.map((d) => d.bookedDate).toList(),
-                                                                                        yData: containerBookingsRecordList.map((d) => d.totalPrice).toList(),
-                                                                                        settings: LineChartBarData(
-                                                                                          color: FlutterFlowTheme.of(context).primaryColor,
-                                                                                          barWidth: 1.0,
-                                                                                          isCurved: true,
-                                                                                          preventCurveOverShooting: true,
-                                                                                          dotData: FlDotData(show: false),
-                                                                                          belowBarData: BarAreaData(
-                                                                                            show: true,
-                                                                                            color: Color(0x262B3FF2),
+                                                                                StreamBuilder<List<AnalyticsRecord>>(
+                                                                                  stream: queryAnalyticsRecord(
+                                                                                    parent: containerContentCompaniesRecord!.reference,
+                                                                                    queryBuilder: (analyticsRecord) => analyticsRecord.where('date', isLessThanOrEqualTo: FFAppState().WEBFilterEndDate).where('date', isGreaterThanOrEqualTo: FFAppState().WEBFilterStartDate),
+                                                                                  ),
+                                                                                  builder: (context, snapshot) {
+                                                                                    // Customize what your widget looks like when it's loading.
+                                                                                    if (!snapshot.hasData) {
+                                                                                      return Center(
+                                                                                        child: SizedBox(
+                                                                                          width: 50.0,
+                                                                                          height: 50.0,
+                                                                                          child: CircularProgressIndicator(
+                                                                                            color: FlutterFlowTheme.of(context).primary,
                                                                                           ),
                                                                                         ),
-                                                                                      )
-                                                                                    ],
-                                                                                    chartStylingInfo: ChartStylingInfo(
-                                                                                      enableTooltip: true,
-                                                                                      tooltipBackgroundColor: Color(0xFFFF0202),
-                                                                                      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                      showGrid: true,
-                                                                                      showBorder: false,
-                                                                                    ),
-                                                                                    axisBounds: AxisBounds(),
-                                                                                    xAxisLabelInfo: AxisLabelInfo(
-                                                                                      showLabels: true,
-                                                                                      labelInterval: 10.0,
-                                                                                    ),
-                                                                                    yAxisLabelInfo: AxisLabelInfo(
-                                                                                      showLabels: true,
-                                                                                      labelInterval: 10.0,
-                                                                                    ),
-                                                                                  ),
+                                                                                      );
+                                                                                    }
+                                                                                    List<AnalyticsRecord> chartAnalyticsRecordList = snapshot.data!;
+                                                                                    return Container(
+                                                                                      width: 1130.0,
+                                                                                      height: 423.0,
+                                                                                      child: FlutterFlowLineChart(
+                                                                                        data: [
+                                                                                          FFLineChartData(
+                                                                                            xData: chartAnalyticsRecordList.map((d) => d.dateSum).toList(),
+                                                                                            yData: chartAnalyticsRecordList.map((d) => d.price).toList(),
+                                                                                            settings: LineChartBarData(
+                                                                                              color: FlutterFlowTheme.of(context).primary,
+                                                                                              barWidth: 1.0,
+                                                                                              isCurved: true,
+                                                                                              preventCurveOverShooting: true,
+                                                                                              belowBarData: BarAreaData(
+                                                                                                show: true,
+                                                                                                color: Color(0x262B3FF2),
+                                                                                              ),
+                                                                                            ),
+                                                                                          )
+                                                                                        ],
+                                                                                        chartStylingInfo: ChartStylingInfo(
+                                                                                          enableTooltip: true,
+                                                                                          tooltipBackgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                          showGrid: true,
+                                                                                          showBorder: false,
+                                                                                        ),
+                                                                                        axisBounds: AxisBounds(),
+                                                                                        xAxisLabelInfo: AxisLabelInfo(
+                                                                                          showLabels: true,
+                                                                                          labelInterval: 1.0,
+                                                                                        ),
+                                                                                        yAxisLabelInfo: AxisLabelInfo(
+                                                                                          showLabels: true,
+                                                                                          labelTextStyle: TextStyle(
+                                                                                            fontSize: 10.0,
+                                                                                          ),
+                                                                                          labelInterval: 10.0,
+                                                                                        ),
+                                                                                      ),
+                                                                                    );
+                                                                                  },
                                                                                 ),
                                                                             ],
                                                                           ),
@@ -1592,7 +1624,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                         ),
                                                                                         child: Icon(
                                                                                           FFIcons.kframe48095571,
-                                                                                          color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                          color: FlutterFlowTheme.of(context).primary,
                                                                                           size: 24.0,
                                                                                         ),
                                                                                       ),
@@ -1604,10 +1636,10 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                         children: [
                                                                                           Text(
                                                                                             'Лучшая услуга',
-                                                                                            style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                   fontFamily: 'Inter',
                                                                                                   fontWeight: FontWeight.normal,
-                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                 ),
                                                                                           ),
                                                                                           Row(
@@ -1618,11 +1650,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                                                                                                 child: Text(
                                                                                                   '0 ',
-                                                                                                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                         fontFamily: 'Inter',
                                                                                                         fontSize: 24.0,
                                                                                                         fontWeight: FontWeight.w500,
-                                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                       ),
                                                                                                 ),
                                                                                               ),
@@ -1630,11 +1662,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 2.0),
                                                                                                 child: Text(
                                                                                                   '₸',
-                                                                                                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                         fontFamily: 'Inter',
                                                                                                         fontSize: 16.0,
                                                                                                         fontWeight: FontWeight.w500,
-                                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                       ),
                                                                                                 ),
                                                                                               ),
@@ -1660,11 +1692,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                           alignment: AlignmentDirectional(0.0, 0.0),
                                                                                           child: Text(
                                                                                             '?',
-                                                                                            style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                                  fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                  fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                                   fontSize: 12.0,
                                                                                                   fontWeight: FontWeight.normal,
-                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                 ),
                                                                                           ),
                                                                                         ),
@@ -1718,7 +1750,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                         ),
                                                                                         child: Icon(
                                                                                           FFIcons.kicBank,
-                                                                                          color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                          color: FlutterFlowTheme.of(context).primary,
                                                                                           size: 24.0,
                                                                                         ),
                                                                                       ),
@@ -1730,10 +1762,10 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                         children: [
                                                                                           Text(
                                                                                             'Доход на гостя',
-                                                                                            style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                   fontFamily: 'Inter',
                                                                                                   fontWeight: FontWeight.normal,
-                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                 ),
                                                                                           ),
                                                                                           Row(
@@ -1744,11 +1776,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                                                                                                 child: Text(
                                                                                                   '0 ',
-                                                                                                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                         fontFamily: 'Inter',
                                                                                                         fontSize: 24.0,
                                                                                                         fontWeight: FontWeight.w500,
-                                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                       ),
                                                                                                 ),
                                                                                               ),
@@ -1756,11 +1788,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 2.0),
                                                                                                 child: Text(
                                                                                                   '₸',
-                                                                                                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                         fontFamily: 'Inter',
                                                                                                         fontSize: 14.0,
                                                                                                         fontWeight: FontWeight.w500,
-                                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                       ),
                                                                                                 ),
                                                                                               ),
@@ -1786,11 +1818,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                           alignment: AlignmentDirectional(0.0, 0.0),
                                                                                           child: Text(
                                                                                             '?',
-                                                                                            style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                                  fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                  fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                                   fontSize: 12.0,
                                                                                                   fontWeight: FontWeight.normal,
-                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                 ),
                                                                                           ),
                                                                                         ),
@@ -1843,7 +1875,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                         ),
                                                                                         child: Icon(
                                                                                           FFIcons.kicVisitors,
-                                                                                          color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                          color: FlutterFlowTheme.of(context).primary,
                                                                                           size: 24.0,
                                                                                         ),
                                                                                       ),
@@ -1854,10 +1886,10 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                       children: [
                                                                                         Text(
                                                                                           'К выплате ForCar',
-                                                                                          style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                 fontFamily: 'Inter',
                                                                                                 fontWeight: FontWeight.normal,
-                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                               ),
                                                                                         ),
                                                                                         Row(
@@ -1871,11 +1903,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                                   functions.oborotForCarPrecent(containerBookingsRecordList.toList()),
                                                                                                   '0',
                                                                                                 ),
-                                                                                                style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                       fontFamily: 'Inter',
                                                                                                       fontSize: 24.0,
                                                                                                       fontWeight: FontWeight.w500,
-                                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                     ),
                                                                                               ),
                                                                                             ),
@@ -1886,11 +1918,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                                   functions.oborotForCarPrecentName(containerBookingsRecordList.toList()),
                                                                                                   ' ₸',
                                                                                                 ),
-                                                                                                style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                       fontFamily: 'Inter',
                                                                                                       fontSize: 16.0,
                                                                                                       fontWeight: FontWeight.w500,
-                                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                     ),
                                                                                               ),
                                                                                             ),
@@ -1951,11 +1983,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 14.0, 0.0, 24.0),
                                                                                   child: Text(
                                                                                     'Посещаемость',
-                                                                                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Inter',
                                                                                           fontSize: 18.0,
                                                                                           fontWeight: FontWeight.w500,
-                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                         ),
                                                                                   ),
                                                                                 ),
@@ -1963,11 +1995,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
                                                                                   child: Text(
                                                                                     'Колличество моек',
-                                                                                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Inter',
                                                                                           color: FlutterFlowTheme.of(context).gray2,
                                                                                           fontWeight: FontWeight.normal,
-                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                         ),
                                                                                   ),
                                                                                 ),
@@ -1981,7 +2013,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                           xData: (currentUserDocument?.favCompany?.toList() ?? []),
                                                                                           yData: (currentUserDocument?.favCompany?.toList() ?? []),
                                                                                           settings: LineChartBarData(
-                                                                                            color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                            color: FlutterFlowTheme.of(context).primary,
                                                                                             barWidth: 1.0,
                                                                                             isCurved: true,
                                                                                             dotData: FlDotData(show: false),
@@ -2088,7 +2120,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                     ),
                                                                                     child: Icon(
                                                                                       FFIcons.kicMoney,
-                                                                                      color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                      color: FlutterFlowTheme.of(context).primary,
                                                                                       size: 24.0,
                                                                                     ),
                                                                                   ),
@@ -2100,10 +2132,10 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                     children: [
                                                                                       Text(
                                                                                         'Оборот',
-                                                                                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                               fontFamily: 'Inter',
                                                                                               fontWeight: FontWeight.normal,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                             ),
                                                                                       ),
                                                                                       Row(
@@ -2114,11 +2146,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                             padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                                                                                             child: Text(
                                                                                               '0 ',
-                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                     fontFamily: 'Inter',
                                                                                                     fontSize: 24.0,
                                                                                                     fontWeight: FontWeight.w500,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
@@ -2126,11 +2158,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                             padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 2.0),
                                                                                             child: Text(
                                                                                               '₸',
-                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                     fontFamily: 'Inter',
                                                                                                     fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.w500,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
@@ -2156,11 +2188,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                       alignment: AlignmentDirectional(0.0, 0.0),
                                                                                       child: Text(
                                                                                         '?',
-                                                                                        style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                              fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                              fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                               fontSize: 12.0,
                                                                                               fontWeight: FontWeight.normal,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                             ),
                                                                                       ),
                                                                                     ),
@@ -2225,7 +2257,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                     ),
                                                                                     child: Icon(
                                                                                       FFIcons.kicCar,
-                                                                                      color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                      color: FlutterFlowTheme.of(context).primary,
                                                                                       size: 24.0,
                                                                                     ),
                                                                                   ),
@@ -2237,10 +2269,10 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                     children: [
                                                                                       Text(
                                                                                         'Машин помыто',
-                                                                                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                               fontFamily: 'Inter',
                                                                                               fontWeight: FontWeight.normal,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                             ),
                                                                                       ),
                                                                                       Row(
@@ -2251,11 +2283,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                             padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                                                                                             child: Text(
                                                                                               '0 ',
-                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                     fontFamily: 'Inter',
                                                                                                     fontSize: 24.0,
                                                                                                     fontWeight: FontWeight.w500,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
@@ -2281,11 +2313,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                       alignment: AlignmentDirectional(0.0, 0.0),
                                                                                       child: Text(
                                                                                         '?',
-                                                                                        style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                              fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                              fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                               fontSize: 12.0,
                                                                                               fontWeight: FontWeight.normal,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                             ),
                                                                                       ),
                                                                                     ),
@@ -2349,7 +2381,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                     ),
                                                                                     child: Icon(
                                                                                       FFIcons.kicCheck,
-                                                                                      color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                      color: FlutterFlowTheme.of(context).primary,
                                                                                       size: 24.0,
                                                                                     ),
                                                                                   ),
@@ -2360,10 +2392,10 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                   children: [
                                                                                     Text(
                                                                                       'Средний чек',
-                                                                                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Inter',
                                                                                             fontWeight: FontWeight.normal,
-                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                           ),
                                                                                     ),
                                                                                     Row(
@@ -2374,11 +2406,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                           padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                                                                                           child: Text(
                                                                                             '0 ',
-                                                                                            style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                   fontFamily: 'Inter',
                                                                                                   fontSize: 24.0,
                                                                                                   fontWeight: FontWeight.w500,
-                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                 ),
                                                                                           ),
                                                                                         ),
@@ -2386,11 +2418,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                           padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 2.0),
                                                                                           child: Text(
                                                                                             '₸',
-                                                                                            style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                   fontFamily: 'Inter',
                                                                                                   fontSize: 16.0,
                                                                                                   fontWeight: FontWeight.w500,
-                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                 ),
                                                                                           ),
                                                                                         ),
@@ -2460,7 +2492,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                     ),
                                                                                     child: Icon(
                                                                                       FFIcons.kframe48095571,
-                                                                                      color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                      color: FlutterFlowTheme.of(context).primary,
                                                                                       size: 24.0,
                                                                                     ),
                                                                                   ),
@@ -2472,10 +2504,10 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                     children: [
                                                                                       Text(
                                                                                         'Лучшая услуга',
-                                                                                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                               fontFamily: 'Inter',
                                                                                               fontWeight: FontWeight.normal,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                             ),
                                                                                       ),
                                                                                       Row(
@@ -2486,11 +2518,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                             padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                                                                                             child: Text(
                                                                                               '0 ',
-                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                     fontFamily: 'Inter',
                                                                                                     fontSize: 24.0,
                                                                                                     fontWeight: FontWeight.w500,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
@@ -2498,11 +2530,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                             padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 2.0),
                                                                                             child: Text(
                                                                                               '₸',
-                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                     fontFamily: 'Inter',
                                                                                                     fontSize: 16.0,
                                                                                                     fontWeight: FontWeight.w500,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
@@ -2528,11 +2560,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                       alignment: AlignmentDirectional(0.0, 0.0),
                                                                                       child: Text(
                                                                                         '?',
-                                                                                        style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                              fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                              fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                               fontSize: 12.0,
                                                                                               fontWeight: FontWeight.normal,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                             ),
                                                                                       ),
                                                                                     ),
@@ -2597,7 +2629,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                     ),
                                                                                     child: Icon(
                                                                                       FFIcons.kicBank,
-                                                                                      color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                      color: FlutterFlowTheme.of(context).primary,
                                                                                       size: 24.0,
                                                                                     ),
                                                                                   ),
@@ -2609,10 +2641,10 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                     children: [
                                                                                       Text(
                                                                                         'Доход на гостя',
-                                                                                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                               fontFamily: 'Inter',
                                                                                               fontWeight: FontWeight.normal,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                             ),
                                                                                       ),
                                                                                       Row(
@@ -2623,11 +2655,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                             padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                                                                                             child: Text(
                                                                                               '0 ',
-                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                     fontFamily: 'Inter',
                                                                                                     fontSize: 24.0,
                                                                                                     fontWeight: FontWeight.w500,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
@@ -2635,11 +2667,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                             padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 2.0),
                                                                                             child: Text(
                                                                                               '₸',
-                                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                     fontFamily: 'Inter',
                                                                                                     fontSize: 14.0,
                                                                                                     fontWeight: FontWeight.w500,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                   ),
                                                                                             ),
                                                                                           ),
@@ -2665,11 +2697,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                       alignment: AlignmentDirectional(0.0, 0.0),
                                                                                       child: Text(
                                                                                         '?',
-                                                                                        style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                              fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                              fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                               fontSize: 12.0,
                                                                                               fontWeight: FontWeight.normal,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                             ),
                                                                                       ),
                                                                                     ),
@@ -2733,7 +2765,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                     ),
                                                                                     child: Icon(
                                                                                       FFIcons.kicVisitors,
-                                                                                      color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                      color: FlutterFlowTheme.of(context).primary,
                                                                                       size: 24.0,
                                                                                     ),
                                                                                   ),
@@ -2744,10 +2776,10 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                   children: [
                                                                                     Text(
                                                                                       'К выплате ForCar',
-                                                                                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Inter',
                                                                                             fontWeight: FontWeight.normal,
-                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                           ),
                                                                                     ),
                                                                                     Row(
@@ -2758,11 +2790,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                           padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                                                                                           child: Text(
                                                                                             '0 ',
-                                                                                            style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                   fontFamily: 'Inter',
                                                                                                   fontSize: 24.0,
                                                                                                   fontWeight: FontWeight.w500,
-                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                 ),
                                                                                           ),
                                                                                         ),
@@ -2770,11 +2802,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                           padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 2.0),
                                                                                           child: Text(
                                                                                             '₸',
-                                                                                            style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                   fontFamily: 'Inter',
                                                                                                   fontSize: 16.0,
                                                                                                   fontWeight: FontWeight.w500,
-                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                 ),
                                                                                           ),
                                                                                         ),
@@ -2836,11 +2868,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 14.0, 0.0, 24.0),
                                                                               child: Text(
                                                                                 'Посещаемость',
-                                                                                style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                       fontFamily: 'Inter',
                                                                                       fontSize: 18.0,
                                                                                       fontWeight: FontWeight.w500,
-                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                     ),
                                                                               ),
                                                                             ),
@@ -2848,11 +2880,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
                                                                               child: Text(
                                                                                 'Колличество моек',
-                                                                                style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                       fontFamily: 'Inter',
                                                                                       color: FlutterFlowTheme.of(context).gray2,
                                                                                       fontWeight: FontWeight.normal,
-                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                     ),
                                                                               ),
                                                                             ),
@@ -2866,7 +2898,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                       xData: (currentUserDocument?.favCompany?.toList() ?? []),
                                                                                       yData: (currentUserDocument?.favCompany?.toList() ?? []),
                                                                                       settings: LineChartBarData(
-                                                                                        color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                        color: FlutterFlowTheme.of(context).primary,
                                                                                         barWidth: 1.0,
                                                                                         isCurved: true,
                                                                                         dotData: FlDotData(show: false),
@@ -2939,7 +2971,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                             CircularProgressIndicator(
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .primaryColor,
+                                                              .primary,
                                                         ),
                                                       ),
                                                     );
@@ -3009,12 +3041,12 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                           Text(
                                                                         'Рейтинг',
                                                                         style: FlutterFlowTheme.of(context)
-                                                                            .bodyText1
+                                                                            .bodyMedium
                                                                             .override(
                                                                               fontFamily: 'Inter',
                                                                               fontSize: 18.0,
                                                                               fontWeight: FontWeight.w500,
-                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                             ),
                                                                       ),
                                                                     ),
@@ -3028,12 +3060,12 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                           Text(
                                                                         'от 22.08.2022 до 22.09.2022',
                                                                         style: FlutterFlowTheme.of(context)
-                                                                            .bodyText1
+                                                                            .bodyMedium
                                                                             .override(
-                                                                              fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                              fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                               color: FlutterFlowTheme.of(context).gray3,
                                                                               fontWeight: FontWeight.normal,
-                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                             ),
                                                                       ),
                                                                     ),
@@ -3063,7 +3095,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                   ),
                                                                                   child: Icon(
                                                                                     Icons.star_outline_rounded,
-                                                                                    color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                    color: FlutterFlowTheme.of(context).primary,
                                                                                     size: 24.0,
                                                                                   ),
                                                                                 ),
@@ -3074,10 +3106,10 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                 children: [
                                                                                   Text(
                                                                                     'Средняя оценка',
-                                                                                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Inter',
                                                                                           fontWeight: FontWeight.normal,
-                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                         ),
                                                                                   ),
                                                                                   Padding(
@@ -3087,11 +3119,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                         functions.averageRating(containerCommentsRecordList.map((e) => e.rating).withoutNulls.toList()).toString(),
                                                                                         '0',
                                                                                       ),
-                                                                                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Inter',
                                                                                             fontSize: 24.0,
                                                                                             fontWeight: FontWeight.w500,
-                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                           ),
                                                                                     ),
                                                                                   ),
@@ -3120,7 +3152,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                     ),
                                                                                     child: Icon(
                                                                                       FFIcons.kicCheck,
-                                                                                      color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                      color: FlutterFlowTheme.of(context).primary,
                                                                                       size: 24.0,
                                                                                     ),
                                                                                   ),
@@ -3131,10 +3163,10 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                   children: [
                                                                                     Text(
                                                                                       'Количество оценок',
-                                                                                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Inter',
                                                                                             fontWeight: FontWeight.normal,
-                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                           ),
                                                                                     ),
                                                                                     Padding(
@@ -3144,11 +3176,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                           containerCommentsRecordList.length.toString(),
                                                                                           '0',
                                                                                         ),
-                                                                                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                               fontFamily: 'Inter',
                                                                                               fontSize: 24.0,
                                                                                               fontWeight: FontWeight.w500,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                             ),
                                                                                       ),
                                                                                     ),
@@ -3183,15 +3215,15 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                               children: [
                                                                                 Text(
                                                                                   '5',
-                                                                                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Inter',
                                                                                         fontWeight: FontWeight.w500,
-                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                       ),
                                                                                 ),
                                                                                 Icon(
                                                                                   Icons.star_rounded,
-                                                                                  color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                  color: FlutterFlowTheme.of(context).primary,
                                                                                   size: 18.0,
                                                                                 ),
                                                                                 Padding(
@@ -3212,7 +3244,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                     width: 541.0,
                                                                                     lineHeight: 8.0,
                                                                                     animation: true,
-                                                                                    progressColor: FlutterFlowTheme.of(context).primaryColor,
+                                                                                    progressColor: FlutterFlowTheme.of(context).primary,
                                                                                     backgroundColor: Color(0xFFEEEEEE),
                                                                                     barRadius: Radius.circular(4.0),
                                                                                     padding: EdgeInsets.zero,
@@ -3222,10 +3254,10 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 24.0, 0.0),
                                                                                   child: Text(
                                                                                     '0',
-                                                                                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Inter',
                                                                                           fontWeight: FontWeight.w500,
-                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                         ),
                                                                                   ),
                                                                                 ),
@@ -3247,11 +3279,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                     )}%',
                                                                                     '0%',
                                                                                   ),
-                                                                                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Inter',
                                                                                         color: FlutterFlowTheme.of(context).gray2,
                                                                                         fontWeight: FontWeight.w500,
-                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                       ),
                                                                                 ),
                                                                               ],
@@ -3269,15 +3301,15 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                               children: [
                                                                                 Text(
                                                                                   '4',
-                                                                                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Inter',
                                                                                         fontWeight: FontWeight.w500,
-                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                       ),
                                                                                 ),
                                                                                 Icon(
                                                                                   Icons.star_rounded,
-                                                                                  color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                  color: FlutterFlowTheme.of(context).primary,
                                                                                   size: 18.0,
                                                                                 ),
                                                                                 Padding(
@@ -3298,7 +3330,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                     width: 541.0,
                                                                                     lineHeight: 8.0,
                                                                                     animation: true,
-                                                                                    progressColor: FlutterFlowTheme.of(context).primaryColor,
+                                                                                    progressColor: FlutterFlowTheme.of(context).primary,
                                                                                     backgroundColor: Color(0xFFEEEEEE),
                                                                                     barRadius: Radius.circular(4.0),
                                                                                     padding: EdgeInsets.zero,
@@ -3308,10 +3340,10 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 24.0, 0.0),
                                                                                   child: Text(
                                                                                     '0',
-                                                                                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Inter',
                                                                                           fontWeight: FontWeight.w500,
-                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                         ),
                                                                                   ),
                                                                                 ),
@@ -3333,11 +3365,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                     )}%',
                                                                                     '0%',
                                                                                   ),
-                                                                                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Inter',
                                                                                         color: FlutterFlowTheme.of(context).gray2,
                                                                                         fontWeight: FontWeight.w500,
-                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                       ),
                                                                                 ),
                                                                               ],
@@ -3355,15 +3387,15 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                               children: [
                                                                                 Text(
                                                                                   '3',
-                                                                                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Inter',
                                                                                         fontWeight: FontWeight.w500,
-                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                       ),
                                                                                 ),
                                                                                 Icon(
                                                                                   Icons.star_rounded,
-                                                                                  color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                  color: FlutterFlowTheme.of(context).primary,
                                                                                   size: 18.0,
                                                                                 ),
                                                                                 Padding(
@@ -3384,7 +3416,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                     width: 541.0,
                                                                                     lineHeight: 8.0,
                                                                                     animation: true,
-                                                                                    progressColor: FlutterFlowTheme.of(context).primaryColor,
+                                                                                    progressColor: FlutterFlowTheme.of(context).primary,
                                                                                     backgroundColor: Color(0xFFEEEEEE),
                                                                                     barRadius: Radius.circular(4.0),
                                                                                     padding: EdgeInsets.zero,
@@ -3394,10 +3426,10 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 24.0, 0.0),
                                                                                   child: Text(
                                                                                     '0',
-                                                                                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Inter',
                                                                                           fontWeight: FontWeight.w500,
-                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                         ),
                                                                                   ),
                                                                                 ),
@@ -3419,11 +3451,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                     )}%',
                                                                                     '0%',
                                                                                   ),
-                                                                                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Inter',
                                                                                         color: FlutterFlowTheme.of(context).gray2,
                                                                                         fontWeight: FontWeight.w500,
-                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                       ),
                                                                                 ),
                                                                               ],
@@ -3441,15 +3473,15 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                               children: [
                                                                                 Text(
                                                                                   '2',
-                                                                                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Inter',
                                                                                         fontWeight: FontWeight.w500,
-                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                       ),
                                                                                 ),
                                                                                 Icon(
                                                                                   Icons.star_rounded,
-                                                                                  color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                  color: FlutterFlowTheme.of(context).primary,
                                                                                   size: 18.0,
                                                                                 ),
                                                                                 Padding(
@@ -3470,7 +3502,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                     width: 541.0,
                                                                                     lineHeight: 8.0,
                                                                                     animation: true,
-                                                                                    progressColor: FlutterFlowTheme.of(context).primaryColor,
+                                                                                    progressColor: FlutterFlowTheme.of(context).primary,
                                                                                     backgroundColor: Color(0xFFEEEEEE),
                                                                                     barRadius: Radius.circular(4.0),
                                                                                     padding: EdgeInsets.zero,
@@ -3480,10 +3512,10 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 24.0, 0.0),
                                                                                   child: Text(
                                                                                     '0',
-                                                                                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Inter',
                                                                                           fontWeight: FontWeight.w500,
-                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                         ),
                                                                                   ),
                                                                                 ),
@@ -3505,11 +3537,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                     )}%',
                                                                                     '0%',
                                                                                   ),
-                                                                                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Inter',
                                                                                         color: FlutterFlowTheme.of(context).gray2,
                                                                                         fontWeight: FontWeight.w500,
-                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                       ),
                                                                                 ),
                                                                               ],
@@ -3521,15 +3553,15 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                             children: [
                                                                               Text(
                                                                                 '1',
-                                                                                style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                       fontFamily: 'Inter',
                                                                                       fontWeight: FontWeight.w500,
-                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                     ),
                                                                               ),
                                                                               Icon(
                                                                                 Icons.star_rounded,
-                                                                                color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                color: FlutterFlowTheme.of(context).primary,
                                                                                 size: 18.0,
                                                                               ),
                                                                               Padding(
@@ -3550,7 +3582,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                   width: 541.0,
                                                                                   lineHeight: 8.0,
                                                                                   animation: true,
-                                                                                  progressColor: FlutterFlowTheme.of(context).primaryColor,
+                                                                                  progressColor: FlutterFlowTheme.of(context).primary,
                                                                                   backgroundColor: Color(0xFFEEEEEE),
                                                                                   barRadius: Radius.circular(4.0),
                                                                                   padding: EdgeInsets.zero,
@@ -3560,10 +3592,10 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 24.0, 0.0),
                                                                                 child: Text(
                                                                                   '0',
-                                                                                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Inter',
                                                                                         fontWeight: FontWeight.w500,
-                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                       ),
                                                                                 ),
                                                                               ),
@@ -3585,11 +3617,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                   )}%',
                                                                                   '0%',
                                                                                 ),
-                                                                                style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                       fontFamily: 'Inter',
                                                                                       color: FlutterFlowTheme.of(context).gray2,
                                                                                       fontWeight: FontWeight.w500,
-                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                     ),
                                                                               ),
                                                                             ],
@@ -3658,7 +3690,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                     ),
                                                                                     child: Icon(
                                                                                       FFIcons.kframe48095574,
-                                                                                      color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                      color: FlutterFlowTheme.of(context).primary,
                                                                                       size: 24.0,
                                                                                     ),
                                                                                   ),
@@ -3669,10 +3701,10 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                   children: [
                                                                                     Text(
                                                                                       'Общее количество отзывов',
-                                                                                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Inter',
                                                                                             fontWeight: FontWeight.normal,
-                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                           ),
                                                                                     ),
                                                                                     Row(
@@ -3686,11 +3718,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                               containerCommentsRecordList.length.toString(),
                                                                                               '0',
                                                                                             ),
-                                                                                            style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                   fontFamily: 'Inter',
                                                                                                   fontSize: 24.0,
                                                                                                   fontWeight: FontWeight.w500,
-                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                 ),
                                                                                           ),
                                                                                         ),
@@ -3733,10 +3765,10 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                   children: [
                                                                                     Text(
                                                                                       'Хороших',
-                                                                                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Inter',
                                                                                             fontWeight: FontWeight.normal,
-                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                           ),
                                                                                     ),
                                                                                     Row(
@@ -3750,11 +3782,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                               containerCommentsRecordList.where((e) => e.rating! >= 4.0).toList().length.toString(),
                                                                                               '0',
                                                                                             ),
-                                                                                            style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                   fontFamily: 'Inter',
                                                                                                   fontSize: 24.0,
                                                                                                   fontWeight: FontWeight.w500,
-                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                 ),
                                                                                           ),
                                                                                         ),
@@ -3791,10 +3823,10 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                 children: [
                                                                                   Text(
                                                                                     'Плохих',
-                                                                                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Inter',
                                                                                           fontWeight: FontWeight.normal,
-                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                         ),
                                                                                   ),
                                                                                   Row(
@@ -3808,11 +3840,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                             containerCommentsRecordList.where((e) => e.rating! <= 3.0).toList().length.toString(),
                                                                                             '0',
                                                                                           ),
-                                                                                          style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                 fontFamily: 'Inter',
                                                                                                 fontSize: 24.0,
                                                                                                 fontWeight: FontWeight.w500,
-                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                               ),
                                                                                         ),
                                                                                       ),
@@ -3873,7 +3905,7 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                   ),
                                                                                   child: Icon(
                                                                                     FFIcons.kframe48095575,
-                                                                                    color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                    color: FlutterFlowTheme.of(context).primary,
                                                                                     size: 24.0,
                                                                                   ),
                                                                                 ),
@@ -3884,10 +3916,10 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                 children: [
                                                                                   Text(
                                                                                     'Проработка отзывов',
-                                                                                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Inter',
                                                                                           fontWeight: FontWeight.normal,
-                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                         ),
                                                                                   ),
                                                                                   Row(
@@ -3901,11 +3933,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                             containerCommentsRecordList.where((e) => e.obtobotan!).toList().length.toString(),
                                                                                             '0',
                                                                                           ),
-                                                                                          style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                 fontFamily: 'Inter',
                                                                                                 fontSize: 24.0,
                                                                                                 fontWeight: FontWeight.w500,
-                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                               ),
                                                                                         ),
                                                                                       ),
@@ -3915,11 +3947,11 @@ class _AdminAnalyticsWidgetState extends State<AdminAnalyticsWidget>
                                                                                     padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                                                                                     child: Text(
                                                                                       'Обработанные плохие отзывы',
-                                                                                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Inter',
                                                                                             color: FlutterFlowTheme.of(context).secondaryText,
                                                                                             fontWeight: FontWeight.normal,
-                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                           ),
                                                                                     ),
                                                                                   ),

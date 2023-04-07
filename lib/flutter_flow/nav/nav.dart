@@ -284,11 +284,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                     CompanyDocumentRecord.serializer),
               },
               builder: (context, params) => AdminAddStaff2Widget(
-                email: params.getParam('email', ParamType.String),
-                password: params.getParam('password', ParamType.String),
-                password2: params.getParam('password2', ParamType.String),
                 companyDocument:
                     params.getParam('companyDocument', ParamType.Document),
+                stuffRef: params.getParam(
+                    'stuffRef', ParamType.DocumentReference, false, ['user']),
               ),
             ),
             FFRoute(
@@ -299,11 +298,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                     CompanyDocumentRecord.serializer),
               },
               builder: (context, params) => AdminAddStaff3Widget(
-                email: params.getParam('email', ParamType.String),
-                password: params.getParam('password', ParamType.String),
-                password1: params.getParam('password1', ParamType.String),
                 companyDocument:
                     params.getParam('companyDocument', ParamType.Document),
+                stuffRef: params.getParam(
+                    'stuffRef', ParamType.DocumentReference, false, ['user']),
               ),
             ),
             FFRoute(
@@ -414,12 +412,26 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'super_admin_users',
               path: 'superAdminUsers',
               builder: (context, params) => SuperAdminUsersWidget(),
+            ),
+            FFRoute(
+              name: 'admin_user_not_active',
+              path: 'adminUserNotActive',
+              builder: (context, params) => AdminUserNotActiveWidget(),
+            ),
+            FFRoute(
+              name: 'admin_edit_company_services',
+              path: 'adminEditCompanyServices',
+              asyncParams: {
+                'company': getDoc(['companies'], CompaniesRecord.serializer),
+              },
+              builder: (context, params) => AdminEditCompanyServicesWidget(
+                company: params.getParam('company', ParamType.Document),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
-      //urlPathStrategy: UrlPathStrategy.path,
-
+      urlPathStrategy: UrlPathStrategy.path,
     );
 
 extension NavParamExtensions on Map<String, String?> {
@@ -468,7 +480,7 @@ extension NavigationExtensions on BuildContext {
   void safePop() {
     // If there is only one route on the stack, navigate to the initial
     // page instead of popping.
-    if (GoRouter.of(this).routerDelegate.matches.isEmpty) {
+    if (GoRouter.of(this).routerDelegate.matches.length <= 1) {
       go('/');
     } else {
       pop();
@@ -478,15 +490,16 @@ extension NavigationExtensions on BuildContext {
 
 extension GoRouterExtensions on GoRouter {
   AppStateNotifier get appState =>
-      (routerDelegate as AppStateNotifier);
+      (routerDelegate.refreshListenable as AppStateNotifier);
   void prepareAuthEvent([bool ignoreRedirect = false]) =>
       appState.hasRedirect() && !ignoreRedirect
           ? null
           : appState.updateNotifyOnAuthChange(false);
   bool shouldRedirect(bool ignoreRedirect) =>
       !ignoreRedirect && appState.hasRedirect();
+  void clearRedirectLocation() => appState.clearRedirectLocation();
   void setRedirectLocationIfUnset(String location) =>
-      (routerDelegate as AppStateNotifier)
+      (routerDelegate.refreshListenable as AppStateNotifier)
           .updateNotifyOnAuthChange(false);
 }
 
@@ -575,15 +588,15 @@ class FFRoute {
   GoRoute toRoute(AppStateNotifier appStateNotifier) => GoRoute(
         name: name,
         path: path,
-        redirect: (state,context) async {
+        redirect: (state) {
           if (appStateNotifier.shouldRedirect) {
-            final redirectLocation = await appStateNotifier.getRedirectLocation();
+            final redirectLocation = appStateNotifier.getRedirectLocation();
             appStateNotifier.clearRedirectLocation();
             return redirectLocation;
           }
 
           if (requireAuth && !appStateNotifier.loggedIn) {
-            appStateNotifier.setRedirectLocationIfUnset(state.namedLocation(name));
+            appStateNotifier.setRedirectLocationIfUnset(state.location);
             return '/adminSignInEmail';
           }
           return null;

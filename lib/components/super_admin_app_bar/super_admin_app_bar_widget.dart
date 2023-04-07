@@ -79,16 +79,15 @@ class _SuperAdminAppBarWidgetState extends State<SuperAdminAppBarWidget> {
                           child: Text(
                             '4 Car',
                             style: FlutterFlowTheme.of(context)
-                                .bodyText1
+                                .bodyMedium
                                 .override(
                                   fontFamily: FlutterFlowTheme.of(context)
-                                      .bodyText1Family,
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryColor,
+                                      .bodyMediumFamily,
+                                  color: FlutterFlowTheme.of(context).primary,
                                   fontSize: 25.0,
                                   useGoogleFonts: GoogleFonts.asMap()
                                       .containsKey(FlutterFlowTheme.of(context)
-                                          .bodyText1Family),
+                                          .bodyMediumFamily),
                                 ),
                           ),
                         ),
@@ -163,17 +162,17 @@ class _SuperAdminAppBarWidgetState extends State<SuperAdminAppBarWidget> {
                                           'Имя не указано',
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Inter',
                                               fontSize: 16.0,
                                               fontWeight: FontWeight.normal,
-                                              useGoogleFonts:
-                                                  GoogleFonts.asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyText1Family),
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily),
                                             ),
                                       ),
                                     ),
@@ -219,13 +218,12 @@ class _SuperAdminAppBarWidgetState extends State<SuperAdminAppBarWidget> {
                             child: Text(
                               'Главная',
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText1
+                                  .bodyMedium
                                   .override(
                                     fontFamily: 'Inter',
                                     color: valueOrDefault<Color>(
                                       widget.page == 'Главная'
-                                          ? FlutterFlowTheme.of(context)
-                                              .primaryColor
+                                          ? FlutterFlowTheme.of(context).primary
                                           : FlutterFlowTheme.of(context)
                                               .primaryText,
                                       FlutterFlowTheme.of(context).primaryText,
@@ -234,7 +232,7 @@ class _SuperAdminAppBarWidgetState extends State<SuperAdminAppBarWidget> {
                                     useGoogleFonts: GoogleFonts.asMap()
                                         .containsKey(
                                             FlutterFlowTheme.of(context)
-                                                .bodyText1Family),
+                                                .bodyMediumFamily),
                                   ),
                             ),
                           ),
@@ -258,13 +256,12 @@ class _SuperAdminAppBarWidgetState extends State<SuperAdminAppBarWidget> {
                             child: Text(
                               'Аналитика',
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText1
+                                  .bodyMedium
                                   .override(
                                     fontFamily: 'Inter',
                                     color: valueOrDefault<Color>(
                                       widget.page == 'Аналитика'
-                                          ? FlutterFlowTheme.of(context)
-                                              .primaryColor
+                                          ? FlutterFlowTheme.of(context).primary
                                           : FlutterFlowTheme.of(context)
                                               .primaryText,
                                       FlutterFlowTheme.of(context).primaryText,
@@ -273,7 +270,7 @@ class _SuperAdminAppBarWidgetState extends State<SuperAdminAppBarWidget> {
                                     useGoogleFonts: GoogleFonts.asMap()
                                         .containsKey(
                                             FlutterFlowTheme.of(context)
-                                                .bodyText1Family),
+                                                .bodyMediumFamily),
                                   ),
                             ),
                           ),
@@ -297,13 +294,12 @@ class _SuperAdminAppBarWidgetState extends State<SuperAdminAppBarWidget> {
                             child: Text(
                               'Пользователи',
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText1
+                                  .bodyMedium
                                   .override(
                                     fontFamily: 'Inter',
                                     color: valueOrDefault<Color>(
                                       widget.page == 'Пользователи'
-                                          ? FlutterFlowTheme.of(context)
-                                              .primaryColor
+                                          ? FlutterFlowTheme.of(context).primary
                                           : FlutterFlowTheme.of(context)
                                               .primaryText,
                                       FlutterFlowTheme.of(context).primaryText,
@@ -312,7 +308,7 @@ class _SuperAdminAppBarWidgetState extends State<SuperAdminAppBarWidget> {
                                     useGoogleFonts: GoogleFonts.asMap()
                                         .containsKey(
                                             FlutterFlowTheme.of(context)
-                                                .bodyText1Family),
+                                                .bodyMediumFamily),
                                   ),
                             ),
                           ),

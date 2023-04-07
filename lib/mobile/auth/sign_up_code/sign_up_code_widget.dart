@@ -51,12 +51,12 @@ class _SignUpCodeWidgetState extends State<SignUpCodeWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        body: SafeArea(
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
             child: Column(
@@ -76,7 +76,7 @@ class _SignUpCodeWidgetState extends State<SignUpCodeWidget> {
                         buttonSize: 48.0,
                         icon: Icon(
                           Icons.chevron_left_outlined,
-                          color: FlutterFlowTheme.of(context).primaryColor,
+                          color: FlutterFlowTheme.of(context).primary,
                           size: 24.0,
                         ),
                         onPressed: () async {
@@ -90,43 +90,43 @@ class _SignUpCodeWidgetState extends State<SignUpCodeWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
                   child: Text(
                     'Введите код',
-                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily:
-                              FlutterFlowTheme.of(context).bodyText1Family,
+                              FlutterFlowTheme.of(context).bodyMediumFamily,
                           fontSize: 24.0,
                           useGoogleFonts: GoogleFonts.asMap().containsKey(
-                              FlutterFlowTheme.of(context).bodyText1Family),
+                              FlutterFlowTheme.of(context).bodyMediumFamily),
                         ),
                   ),
                 ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 30.0),
                   child: Text(
-                    'Мы отправим на ваш номер сообщение с 4х значным кодом, введите его',
-                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                    'Мы отправим на ваш номер сообщение с 6 ти значным кодом, введите его',
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily:
-                              FlutterFlowTheme.of(context).bodyText1Family,
+                              FlutterFlowTheme.of(context).bodyMediumFamily,
                           fontWeight: FontWeight.w500,
                           useGoogleFonts: GoogleFonts.asMap().containsKey(
-                              FlutterFlowTheme.of(context).bodyText1Family),
+                              FlutterFlowTheme.of(context).bodyMediumFamily),
                         ),
                   ),
                 ),
                 PinCodeTextField(
                   appContext: context,
                   length: 6,
-                  textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                         fontFamily:
-                            FlutterFlowTheme.of(context).subtitle2Family,
+                            FlutterFlowTheme.of(context).titleSmallFamily,
                         color: FlutterFlowTheme.of(context).primaryText,
                         useGoogleFonts: GoogleFonts.asMap().containsKey(
-                            FlutterFlowTheme.of(context).subtitle2Family),
+                            FlutterFlowTheme.of(context).titleSmallFamily),
                       ),
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   enableActiveFill: false,
                   autoFocus: true,
                   showCursor: true,
-                  cursorColor: FlutterFlowTheme.of(context).primaryColor,
+                  cursorColor: FlutterFlowTheme.of(context).primary,
                   obscureText: false,
                   hintCharacter: '●',
                   pinTheme: PinTheme(
@@ -156,13 +156,14 @@ class _SignUpCodeWidgetState extends State<SignUpCodeWidget> {
                     children: [
                       Text(
                         'Не получили код?',
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily:
-                                  FlutterFlowTheme.of(context).bodyText1Family,
+                                  FlutterFlowTheme.of(context).bodyMediumFamily,
                               color: FlutterFlowTheme.of(context).secondaryText,
                               fontWeight: FontWeight.normal,
                               useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                  FlutterFlowTheme.of(context).bodyText1Family),
+                                  FlutterFlowTheme.of(context)
+                                      .bodyMediumFamily),
                             ),
                       ),
                       Padding(
@@ -171,17 +172,16 @@ class _SignUpCodeWidgetState extends State<SignUpCodeWidget> {
                         child: Text(
                           ' Отправить код заново',
                           style: FlutterFlowTheme.of(context)
-                              .bodyText1
+                              .bodyMedium
                               .override(
                                 fontFamily: FlutterFlowTheme.of(context)
-                                    .bodyText1Family,
-                                color:
-                                    FlutterFlowTheme.of(context).primaryColor,
+                                    .bodyMediumFamily,
+                                color: FlutterFlowTheme.of(context).primary,
                                 fontSize: 12.0,
                                 fontWeight: FontWeight.w500,
                                 useGoogleFonts: GoogleFonts.asMap().containsKey(
                                     FlutterFlowTheme.of(context)
-                                        .bodyText1Family),
+                                        .bodyMediumFamily),
                               ),
                         ),
                       ),
@@ -220,17 +220,18 @@ class _SignUpCodeWidgetState extends State<SignUpCodeWidget> {
                     color: valueOrDefault<Color>(
                       _model.pinCodeController!.text != null &&
                               _model.pinCodeController!.text != ''
-                          ? FlutterFlowTheme.of(context).primaryColor
+                          ? FlutterFlowTheme.of(context).primary
                           : FlutterFlowTheme.of(context).starblue,
                       FlutterFlowTheme.of(context).starblue,
                     ),
-                    textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily:
-                              FlutterFlowTheme.of(context).subtitle2Family,
+                              FlutterFlowTheme.of(context).titleSmallFamily,
                           color: Colors.white,
                           useGoogleFonts: GoogleFonts.asMap().containsKey(
-                              FlutterFlowTheme.of(context).subtitle2Family),
+                              FlutterFlowTheme.of(context).titleSmallFamily),
                         ),
+                    elevation: 2.0,
                     borderSide: BorderSide(
                       color: Colors.transparent,
                       width: 1.0,

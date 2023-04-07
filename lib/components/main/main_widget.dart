@@ -58,13 +58,13 @@ class _MainWidgetState extends State<MainWidget> {
                 obscureText: false,
                 decoration: InputDecoration(
                   hintText: 'Поиск',
-                  hintStyle: FlutterFlowTheme.of(context).bodyText2.override(
+                  hintStyle: FlutterFlowTheme.of(context).bodySmall.override(
                         fontFamily:
-                            FlutterFlowTheme.of(context).bodyText2Family,
+                            FlutterFlowTheme.of(context).bodySmallFamily,
                         color: Color(0xFFC4C4C4),
                         fontWeight: FontWeight.w500,
                         useGoogleFonts: GoogleFonts.asMap().containsKey(
-                            FlutterFlowTheme.of(context).bodyText2Family),
+                            FlutterFlowTheme.of(context).bodySmallFamily),
                       ),
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
@@ -100,11 +100,11 @@ class _MainWidgetState extends State<MainWidget> {
                     size: 20.0,
                   ),
                 ),
-                style: FlutterFlowTheme.of(context).bodyText1.override(
-                      fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                      fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                       fontWeight: FontWeight.w500,
                       useGoogleFonts: GoogleFonts.asMap().containsKey(
-                          FlutterFlowTheme.of(context).bodyText1Family),
+                          FlutterFlowTheme.of(context).bodyMediumFamily),
                     ),
                 validator: _model.textControllerValidator.asValidator(context),
               ),
@@ -193,12 +193,12 @@ class _MainWidgetState extends State<MainWidget> {
                                                 'Pro Auto',
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText1
+                                                        .bodyMedium
                                                         .override(
                                                           fontFamily:
                                                               FlutterFlowTheme.of(
                                                                       context)
-                                                                  .bodyText1Family,
+                                                                  .bodyMediumFamily,
                                                           fontSize: 16.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -207,7 +207,7 @@ class _MainWidgetState extends State<MainWidget> {
                                                               .containsKey(
                                                                   FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1Family),
+                                                                      .bodyMediumFamily),
                                                         ),
                                               ),
                                             ),
@@ -228,7 +228,7 @@ class _MainWidgetState extends State<MainWidget> {
                                         child: Icon(
                                           Icons.bookmark_border,
                                           color: FlutterFlowTheme.of(context)
-                                              .primaryColor,
+                                              .primary,
                                           size: 17.0,
                                         ),
                                       ),
@@ -244,7 +244,7 @@ class _MainWidgetState extends State<MainWidget> {
                                       itemBuilder: (context, index) => Icon(
                                         Icons.star_rounded,
                                         color: FlutterFlowTheme.of(context)
-                                            .primaryColor,
+                                            .primary,
                                       ),
                                       direction: Axis.horizontal,
                                       initialRating: _model.ratingBarValue1 ??=
@@ -252,8 +252,8 @@ class _MainWidgetState extends State<MainWidget> {
                                       unratedColor: Color(0xFF9E9E9E),
                                       itemCount: 5,
                                       itemSize: 14.0,
-                                      glowColor: FlutterFlowTheme.of(context)
-                                          .primaryColor,
+                                      glowColor:
+                                          FlutterFlowTheme.of(context).primary,
                                     ),
                                   ),
                                   Row(
@@ -264,36 +264,36 @@ class _MainWidgetState extends State<MainWidget> {
                                       Text(
                                         'Улица Розыбакиева, 166Б',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText1Family,
+                                                      .bodyMediumFamily,
                                               fontWeight: FontWeight.normal,
-                                              useGoogleFonts:
-                                                  GoogleFonts.asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyText1Family),
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily),
                                             ),
                                       ),
                                       Text(
                                         '3 км',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText1Family,
+                                                      .bodyMediumFamily,
                                               color: Color(0xFF9CA3AF),
                                               fontWeight: FontWeight.w500,
-                                              useGoogleFonts:
-                                                  GoogleFonts.asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyText1Family),
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily),
                                             ),
                                       ),
                                     ],
@@ -359,12 +359,12 @@ class _MainWidgetState extends State<MainWidget> {
                                                   'AVTOБАНЯ',
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyText1
+                                                      .bodyMedium
                                                       .override(
                                                         fontFamily:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1Family,
+                                                                .bodyMediumFamily,
                                                         fontSize: 16.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -373,7 +373,7 @@ class _MainWidgetState extends State<MainWidget> {
                                                             .containsKey(
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1Family),
+                                                                    .bodyMediumFamily),
                                                       ),
                                                 ),
                                               ),
@@ -395,7 +395,7 @@ class _MainWidgetState extends State<MainWidget> {
                                           child: Icon(
                                             Icons.bookmark_rounded,
                                             color: FlutterFlowTheme.of(context)
-                                                .primaryColor,
+                                                .primary,
                                             size: 17.0,
                                           ),
                                         ),
@@ -411,7 +411,7 @@ class _MainWidgetState extends State<MainWidget> {
                                         itemBuilder: (context, index) => Icon(
                                           Icons.star_rounded,
                                           color: FlutterFlowTheme.of(context)
-                                              .primaryColor,
+                                              .primary,
                                         ),
                                         direction: Axis.horizontal,
                                         initialRating:
@@ -420,7 +420,7 @@ class _MainWidgetState extends State<MainWidget> {
                                         itemCount: 5,
                                         itemSize: 14.0,
                                         glowColor: FlutterFlowTheme.of(context)
-                                            .primaryColor,
+                                            .primary,
                                       ),
                                     ),
                                     Row(
@@ -431,28 +431,28 @@ class _MainWidgetState extends State<MainWidget> {
                                         Text(
                                           'Улица Жарокова, 286а, 1 этаж',
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1
+                                              .bodyMedium
                                               .override(
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText1Family,
+                                                        .bodyMediumFamily,
                                                 fontWeight: FontWeight.normal,
                                                 useGoogleFonts: GoogleFonts
                                                         .asMap()
                                                     .containsKey(
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .bodyText1Family),
+                                                            .bodyMediumFamily),
                                               ),
                                         ),
                                         Text(
                                           '3 км',
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1
+                                              .bodyMedium
                                               .override(
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText1Family,
+                                                        .bodyMediumFamily,
                                                 color: Color(0xFF9CA3AF),
                                                 fontWeight: FontWeight.w500,
                                                 useGoogleFonts: GoogleFonts
@@ -460,7 +460,7 @@ class _MainWidgetState extends State<MainWidget> {
                                                     .containsKey(
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .bodyText1Family),
+                                                            .bodyMediumFamily),
                                               ),
                                         ),
                                       ],
@@ -527,12 +527,12 @@ class _MainWidgetState extends State<MainWidget> {
                                                   'Pro Auto',
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyText1
+                                                      .bodyMedium
                                                       .override(
                                                         fontFamily:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1Family,
+                                                                .bodyMediumFamily,
                                                         fontSize: 16.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -541,7 +541,7 @@ class _MainWidgetState extends State<MainWidget> {
                                                             .containsKey(
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1Family),
+                                                                    .bodyMediumFamily),
                                                       ),
                                                 ),
                                               ),
@@ -563,7 +563,7 @@ class _MainWidgetState extends State<MainWidget> {
                                           child: Icon(
                                             Icons.bookmark_border,
                                             color: FlutterFlowTheme.of(context)
-                                                .primaryColor,
+                                                .primary,
                                             size: 17.0,
                                           ),
                                         ),
@@ -579,7 +579,7 @@ class _MainWidgetState extends State<MainWidget> {
                                         itemBuilder: (context, index) => Icon(
                                           Icons.star_rounded,
                                           color: FlutterFlowTheme.of(context)
-                                              .primaryColor,
+                                              .primary,
                                         ),
                                         direction: Axis.horizontal,
                                         initialRating:
@@ -588,7 +588,7 @@ class _MainWidgetState extends State<MainWidget> {
                                         itemCount: 5,
                                         itemSize: 14.0,
                                         glowColor: FlutterFlowTheme.of(context)
-                                            .primaryColor,
+                                            .primary,
                                       ),
                                     ),
                                     Row(
@@ -599,28 +599,28 @@ class _MainWidgetState extends State<MainWidget> {
                                         Text(
                                           'Улица Розыбакиева, 166Б',
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1
+                                              .bodyMedium
                                               .override(
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText1Family,
+                                                        .bodyMediumFamily,
                                                 fontWeight: FontWeight.normal,
                                                 useGoogleFonts: GoogleFonts
                                                         .asMap()
                                                     .containsKey(
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .bodyText1Family),
+                                                            .bodyMediumFamily),
                                               ),
                                         ),
                                         Text(
                                           '3 км',
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1
+                                              .bodyMedium
                                               .override(
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText1Family,
+                                                        .bodyMediumFamily,
                                                 color: Color(0xFF9CA3AF),
                                                 fontWeight: FontWeight.w500,
                                                 useGoogleFonts: GoogleFonts
@@ -628,7 +628,7 @@ class _MainWidgetState extends State<MainWidget> {
                                                     .containsKey(
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .bodyText1Family),
+                                                            .bodyMediumFamily),
                                               ),
                                         ),
                                       ],
@@ -695,12 +695,12 @@ class _MainWidgetState extends State<MainWidget> {
                                                   'AVTOБАНЯ',
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyText1
+                                                      .bodyMedium
                                                       .override(
                                                         fontFamily:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1Family,
+                                                                .bodyMediumFamily,
                                                         fontSize: 16.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -709,7 +709,7 @@ class _MainWidgetState extends State<MainWidget> {
                                                             .containsKey(
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1Family),
+                                                                    .bodyMediumFamily),
                                                       ),
                                                 ),
                                               ),
@@ -731,7 +731,7 @@ class _MainWidgetState extends State<MainWidget> {
                                           child: Icon(
                                             Icons.bookmark_rounded,
                                             color: FlutterFlowTheme.of(context)
-                                                .primaryColor,
+                                                .primary,
                                             size: 17.0,
                                           ),
                                         ),
@@ -747,7 +747,7 @@ class _MainWidgetState extends State<MainWidget> {
                                         itemBuilder: (context, index) => Icon(
                                           Icons.star_rounded,
                                           color: FlutterFlowTheme.of(context)
-                                              .primaryColor,
+                                              .primary,
                                         ),
                                         direction: Axis.horizontal,
                                         initialRating:
@@ -756,7 +756,7 @@ class _MainWidgetState extends State<MainWidget> {
                                         itemCount: 5,
                                         itemSize: 14.0,
                                         glowColor: FlutterFlowTheme.of(context)
-                                            .primaryColor,
+                                            .primary,
                                       ),
                                     ),
                                     Row(
@@ -767,28 +767,28 @@ class _MainWidgetState extends State<MainWidget> {
                                         Text(
                                           'Улица Жарокова, 286а, 1 этаж',
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1
+                                              .bodyMedium
                                               .override(
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText1Family,
+                                                        .bodyMediumFamily,
                                                 fontWeight: FontWeight.normal,
                                                 useGoogleFonts: GoogleFonts
                                                         .asMap()
                                                     .containsKey(
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .bodyText1Family),
+                                                            .bodyMediumFamily),
                                               ),
                                         ),
                                         Text(
                                           '3 км',
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1
+                                              .bodyMedium
                                               .override(
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText1Family,
+                                                        .bodyMediumFamily,
                                                 color: Color(0xFF9CA3AF),
                                                 fontWeight: FontWeight.w500,
                                                 useGoogleFonts: GoogleFonts
@@ -796,7 +796,7 @@ class _MainWidgetState extends State<MainWidget> {
                                                     .containsKey(
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .bodyText1Family),
+                                                            .bodyMediumFamily),
                                               ),
                                         ),
                                       ],
@@ -863,12 +863,12 @@ class _MainWidgetState extends State<MainWidget> {
                                                   'Pro Auto',
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyText1
+                                                      .bodyMedium
                                                       .override(
                                                         fontFamily:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1Family,
+                                                                .bodyMediumFamily,
                                                         fontSize: 16.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -877,7 +877,7 @@ class _MainWidgetState extends State<MainWidget> {
                                                             .containsKey(
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1Family),
+                                                                    .bodyMediumFamily),
                                                       ),
                                                 ),
                                               ),
@@ -899,7 +899,7 @@ class _MainWidgetState extends State<MainWidget> {
                                           child: Icon(
                                             Icons.bookmark_border,
                                             color: FlutterFlowTheme.of(context)
-                                                .primaryColor,
+                                                .primary,
                                             size: 17.0,
                                           ),
                                         ),
@@ -915,7 +915,7 @@ class _MainWidgetState extends State<MainWidget> {
                                         itemBuilder: (context, index) => Icon(
                                           Icons.star_rounded,
                                           color: FlutterFlowTheme.of(context)
-                                              .primaryColor,
+                                              .primary,
                                         ),
                                         direction: Axis.horizontal,
                                         initialRating:
@@ -924,7 +924,7 @@ class _MainWidgetState extends State<MainWidget> {
                                         itemCount: 5,
                                         itemSize: 14.0,
                                         glowColor: FlutterFlowTheme.of(context)
-                                            .primaryColor,
+                                            .primary,
                                       ),
                                     ),
                                     Row(
@@ -935,28 +935,28 @@ class _MainWidgetState extends State<MainWidget> {
                                         Text(
                                           'Улица Розыбакиева, 166Б',
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1
+                                              .bodyMedium
                                               .override(
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText1Family,
+                                                        .bodyMediumFamily,
                                                 fontWeight: FontWeight.normal,
                                                 useGoogleFonts: GoogleFonts
                                                         .asMap()
                                                     .containsKey(
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .bodyText1Family),
+                                                            .bodyMediumFamily),
                                               ),
                                         ),
                                         Text(
                                           '3 км',
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1
+                                              .bodyMedium
                                               .override(
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText1Family,
+                                                        .bodyMediumFamily,
                                                 color: Color(0xFF9CA3AF),
                                                 fontWeight: FontWeight.w500,
                                                 useGoogleFonts: GoogleFonts
@@ -964,7 +964,7 @@ class _MainWidgetState extends State<MainWidget> {
                                                     .containsKey(
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .bodyText1Family),
+                                                            .bodyMediumFamily),
                                               ),
                                         ),
                                       ],
@@ -1031,12 +1031,12 @@ class _MainWidgetState extends State<MainWidget> {
                                                   'AVTOБАНЯ',
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyText1
+                                                      .bodyMedium
                                                       .override(
                                                         fontFamily:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1Family,
+                                                                .bodyMediumFamily,
                                                         fontSize: 16.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -1045,7 +1045,7 @@ class _MainWidgetState extends State<MainWidget> {
                                                             .containsKey(
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1Family),
+                                                                    .bodyMediumFamily),
                                                       ),
                                                 ),
                                               ),
@@ -1067,7 +1067,7 @@ class _MainWidgetState extends State<MainWidget> {
                                           child: Icon(
                                             Icons.bookmark_rounded,
                                             color: FlutterFlowTheme.of(context)
-                                                .primaryColor,
+                                                .primary,
                                             size: 17.0,
                                           ),
                                         ),
@@ -1083,7 +1083,7 @@ class _MainWidgetState extends State<MainWidget> {
                                         itemBuilder: (context, index) => Icon(
                                           Icons.star_rounded,
                                           color: FlutterFlowTheme.of(context)
-                                              .primaryColor,
+                                              .primary,
                                         ),
                                         direction: Axis.horizontal,
                                         initialRating:
@@ -1092,7 +1092,7 @@ class _MainWidgetState extends State<MainWidget> {
                                         itemCount: 5,
                                         itemSize: 14.0,
                                         glowColor: FlutterFlowTheme.of(context)
-                                            .primaryColor,
+                                            .primary,
                                       ),
                                     ),
                                     Row(
@@ -1103,28 +1103,28 @@ class _MainWidgetState extends State<MainWidget> {
                                         Text(
                                           'Улица Жарокова, 286а, 1 этаж',
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1
+                                              .bodyMedium
                                               .override(
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText1Family,
+                                                        .bodyMediumFamily,
                                                 fontWeight: FontWeight.normal,
                                                 useGoogleFonts: GoogleFonts
                                                         .asMap()
                                                     .containsKey(
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .bodyText1Family),
+                                                            .bodyMediumFamily),
                                               ),
                                         ),
                                         Text(
                                           '3 км',
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1
+                                              .bodyMedium
                                               .override(
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText1Family,
+                                                        .bodyMediumFamily,
                                                 color: Color(0xFF9CA3AF),
                                                 fontWeight: FontWeight.w500,
                                                 useGoogleFonts: GoogleFonts
@@ -1132,7 +1132,7 @@ class _MainWidgetState extends State<MainWidget> {
                                                     .containsKey(
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .bodyText1Family),
+                                                            .bodyMediumFamily),
                                               ),
                                         ),
                                       ],

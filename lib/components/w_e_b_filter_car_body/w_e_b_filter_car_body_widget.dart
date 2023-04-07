@@ -100,7 +100,7 @@ class _WEBFilterCarBodyWidgetState extends State<WEBFilterCarBodyWidget> {
                             width: 16.0,
                             height: 16.0,
                             decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context).primaryColor,
+                              color: FlutterFlowTheme.of(context).primary,
                               borderRadius: BorderRadius.circular(2.0),
                             ),
                             child: Icon(
@@ -128,12 +128,13 @@ class _WEBFilterCarBodyWidgetState extends State<WEBFilterCarBodyWidget> {
                           EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                       child: Text(
                         'Все авто',
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily:
-                                  FlutterFlowTheme.of(context).bodyText1Family,
+                                  FlutterFlowTheme.of(context).bodyMediumFamily,
                               fontWeight: FontWeight.normal,
                               useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                  FlutterFlowTheme.of(context).bodyText1Family),
+                                  FlutterFlowTheme.of(context)
+                                      .bodyMediumFamily),
                             ),
                       ),
                     ),
@@ -153,7 +154,7 @@ class _WEBFilterCarBodyWidgetState extends State<WEBFilterCarBodyWidget> {
                         width: 50.0,
                         height: 50.0,
                         child: CircularProgressIndicator(
-                          color: FlutterFlowTheme.of(context).primaryColor,
+                          color: FlutterFlowTheme.of(context).primary,
                         ),
                       ),
                     );
@@ -194,7 +195,7 @@ class _WEBFilterCarBodyWidgetState extends State<WEBFilterCarBodyWidget> {
                                       height: 16.0,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
-                                            .primaryColor,
+                                            .primary,
                                         borderRadius:
                                             BorderRadius.circular(2.0),
                                       ),
@@ -225,15 +226,15 @@ class _WEBFilterCarBodyWidgetState extends State<WEBFilterCarBodyWidget> {
                                 child: Text(
                                   columnCarBodyRecord.bodyName!,
                                   style: FlutterFlowTheme.of(context)
-                                      .bodyText1
+                                      .bodyMedium
                                       .override(
                                         fontFamily: FlutterFlowTheme.of(context)
-                                            .bodyText1Family,
+                                            .bodyMediumFamily,
                                         fontWeight: FontWeight.normal,
                                         useGoogleFonts: GoogleFonts.asMap()
                                             .containsKey(
                                                 FlutterFlowTheme.of(context)
-                                                    .bodyText1Family),
+                                                    .bodyMediumFamily),
                                       ),
                                 ),
                               ),

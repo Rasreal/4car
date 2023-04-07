@@ -38,8 +38,10 @@ class _AdminAddServicesPriceWidgetState
     super.initState();
     _model = createModel(context, () => AdminAddServicesPriceModel());
 
-    _model.textController ??=
-        TextEditingController(text: widget.service!.price?.toString());
+    _model.textController ??= TextEditingController(
+        text: widget.service!.price != null
+            ? widget.service!.price?.toString()
+            : ' ');
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -72,19 +74,18 @@ class _AdminAddServicesPriceWidgetState
               await widget.service!.reference.update(companyServicesUpdateData);
             },
           ),
-          autofocus: true,
           obscureText: false,
           decoration: InputDecoration(
-            labelStyle: FlutterFlowTheme.of(context).bodyText1.override(
+            labelStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                   fontFamily: 'Inter',
                   useGoogleFonts: GoogleFonts.asMap().containsKey(
-                      FlutterFlowTheme.of(context).bodyText1Family),
+                      FlutterFlowTheme.of(context).bodyMediumFamily),
                 ),
             hintText: '0 тг',
-            hintStyle: FlutterFlowTheme.of(context).bodyText2.override(
+            hintStyle: FlutterFlowTheme.of(context).bodySmall.override(
                   fontFamily: 'Inter',
                   useGoogleFonts: GoogleFonts.asMap().containsKey(
-                      FlutterFlowTheme.of(context).bodyText2Family),
+                      FlutterFlowTheme.of(context).bodySmallFamily),
                 ),
             enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(
@@ -95,7 +96,7 @@ class _AdminAddServicesPriceWidgetState
             ),
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(
-                color: FlutterFlowTheme.of(context).primaryColor,
+                color: FlutterFlowTheme.of(context).primary,
                 width: 1.0,
               ),
               borderRadius: BorderRadius.circular(8.0),
@@ -117,10 +118,10 @@ class _AdminAddServicesPriceWidgetState
             filled: true,
             fillColor: FlutterFlowTheme.of(context).primaryBackground,
           ),
-          style: FlutterFlowTheme.of(context).bodyText1.override(
+          style: FlutterFlowTheme.of(context).bodyMedium.override(
                 fontFamily: 'Inter',
                 useGoogleFonts: GoogleFonts.asMap()
-                    .containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                    .containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
               ),
           validator: _model.textControllerValidator.asValidator(context),
         ),

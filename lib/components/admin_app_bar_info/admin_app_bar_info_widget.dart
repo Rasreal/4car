@@ -97,14 +97,43 @@ class _AdminAppBarInfoWidgetState extends State<AdminAppBarInfoWidget> {
                                 if (valueOrDefault(
                                         currentUserDocument?.role, '') ==
                                     'Супер Админ') {
-                                  context.pushNamed('super_admin_profile');
+                                  context.pushNamed(
+                                    'super_admin_profile',
+                                    extra: <String, dynamic>{
+                                      kTransitionInfoKey: TransitionInfo(
+                                        hasTransition: true,
+                                        transitionType: PageTransitionType.fade,
+                                        duration: Duration(milliseconds: 0),
+                                      ),
+                                    },
+                                  );
                                 } else {
                                   if (valueOrDefault(
                                           currentUserDocument?.role, '') ==
                                       'Менеджер') {
-                                    context.pushNamed('manager_profile');
+                                    context.pushNamed(
+                                      'manager_profile',
+                                      extra: <String, dynamic>{
+                                        kTransitionInfoKey: TransitionInfo(
+                                          hasTransition: true,
+                                          transitionType:
+                                              PageTransitionType.fade,
+                                          duration: Duration(milliseconds: 0),
+                                        ),
+                                      },
+                                    );
                                   } else {
-                                    context.pushNamed('admin_office');
+                                    context.pushNamed(
+                                      'admin_office',
+                                      extra: <String, dynamic>{
+                                        kTransitionInfoKey: TransitionInfo(
+                                          hasTransition: true,
+                                          transitionType:
+                                              PageTransitionType.fade,
+                                          duration: Duration(milliseconds: 0),
+                                        ),
+                                      },
+                                    );
                                   }
                                 }
                               },
@@ -123,14 +152,14 @@ class _AdminAppBarInfoWidgetState extends State<AdminAppBarInfoWidget> {
                                     child: Text(
                                       'Профиль',
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyText1
+                                          .bodyMedium
                                           .override(
                                             fontFamily: 'Inter',
                                             fontWeight: FontWeight.normal,
                                             useGoogleFonts: GoogleFonts.asMap()
                                                 .containsKey(
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText1Family),
+                                                        .bodyMediumFamily),
                                           ),
                                     ),
                                   ),
@@ -141,6 +170,7 @@ class _AdminAppBarInfoWidgetState extends State<AdminAppBarInfoWidget> {
                               onTap: () async {
                                 GoRouter.of(context).prepareAuthEvent();
                                 await signOut();
+                                GoRouter.of(context).clearRedirectLocation();
 
                                 context.goNamedAuth(
                                     'admin_sign_in_email', mounted);
@@ -160,14 +190,14 @@ class _AdminAppBarInfoWidgetState extends State<AdminAppBarInfoWidget> {
                                     child: Text(
                                       'Выйти',
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyText1
+                                          .bodyMedium
                                           .override(
                                             fontFamily: 'Inter',
                                             fontWeight: FontWeight.normal,
                                             useGoogleFonts: GoogleFonts.asMap()
                                                 .containsKey(
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText1Family),
+                                                        .bodyMediumFamily),
                                           ),
                                     ),
                                   ),
@@ -195,7 +225,7 @@ class _AdminAppBarInfoWidgetState extends State<AdminAppBarInfoWidget> {
                             width: 50.0,
                             height: 50.0,
                             child: CircularProgressIndicator(
-                              color: FlutterFlowTheme.of(context).primaryColor,
+                              color: FlutterFlowTheme.of(context).primary,
                             ),
                           ),
                         );
@@ -262,7 +292,7 @@ class _AdminAppBarInfoWidgetState extends State<AdminAppBarInfoWidget> {
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Inter',
@@ -274,7 +304,7 @@ class _AdminAppBarInfoWidgetState extends State<AdminAppBarInfoWidget> {
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                     ),
                                                     InkWell(
@@ -287,7 +317,7 @@ class _AdminAppBarInfoWidgetState extends State<AdminAppBarInfoWidget> {
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Inter',
@@ -300,7 +330,7 @@ class _AdminAppBarInfoWidgetState extends State<AdminAppBarInfoWidget> {
                                                                           .asMap()
                                                                       .containsKey(
                                                                           FlutterFlowTheme.of(context)
-                                                                              .bodyText1Family),
+                                                                              .bodyMediumFamily),
                                                                 ),
                                                       ),
                                                     ),
@@ -341,7 +371,7 @@ class _AdminAppBarInfoWidgetState extends State<AdminAppBarInfoWidget> {
                                                                 CircularProgressIndicator(
                                                               color: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .primaryColor,
+                                                                  .primary,
                                                             ),
                                                           ),
                                                         );
@@ -412,10 +442,10 @@ class _AdminAppBarInfoWidgetState extends State<AdminAppBarInfoWidget> {
                                                                               columnCompanyNotificationsRecord.message,
                                                                               'Null',
                                                                             ),
-                                                                            style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Inter',
                                                                                   fontWeight: FontWeight.normal,
-                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                 ),
                                                                           ),
                                                                           Padding(
@@ -441,11 +471,11 @@ class _AdminAppBarInfoWidgetState extends State<AdminAppBarInfoWidget> {
                                                                                 ),
                                                                                 'null',
                                                                               )}',
-                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Inter',
                                                                                     color: FlutterFlowTheme.of(context).gray2,
                                                                                     fontWeight: FontWeight.normal,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                   ),
                                                                             ),
                                                                           ),

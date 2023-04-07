@@ -83,12 +83,12 @@ class _AdminNewBookingRecordWidgetState
                 children: [
                   Text(
                     'Новая запись',
-                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily:
-                              FlutterFlowTheme.of(context).bodyText1Family,
+                              FlutterFlowTheme.of(context).bodyMediumFamily,
                           fontSize: 20.0,
                           useGoogleFonts: GoogleFonts.asMap().containsKey(
-                              FlutterFlowTheme.of(context).bodyText1Family),
+                              FlutterFlowTheme.of(context).bodyMediumFamily),
                         ),
                   ),
                   InkWell(
@@ -107,12 +107,12 @@ class _AdminNewBookingRecordWidgetState
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                 child: Text(
                   'Имя гостя',
-                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily:
-                            FlutterFlowTheme.of(context).bodyText1Family,
+                            FlutterFlowTheme.of(context).bodyMediumFamily,
                         fontWeight: FontWeight.w500,
                         useGoogleFonts: GoogleFonts.asMap().containsKey(
-                            FlutterFlowTheme.of(context).bodyText1Family),
+                            FlutterFlowTheme.of(context).bodyMediumFamily),
                       ),
                 ),
               ),
@@ -123,12 +123,12 @@ class _AdminNewBookingRecordWidgetState
                   obscureText: false,
                   decoration: InputDecoration(
                     hintText: 'Имя',
-                    hintStyle: FlutterFlowTheme.of(context).bodyText2.override(
+                    hintStyle: FlutterFlowTheme.of(context).bodySmall.override(
                           fontFamily:
-                              FlutterFlowTheme.of(context).bodyText2Family,
+                              FlutterFlowTheme.of(context).bodySmallFamily,
                           fontWeight: FontWeight.normal,
                           useGoogleFonts: GoogleFonts.asMap().containsKey(
-                              FlutterFlowTheme.of(context).bodyText2Family),
+                              FlutterFlowTheme.of(context).bodySmallFamily),
                         ),
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
@@ -161,12 +161,12 @@ class _AdminNewBookingRecordWidgetState
                     contentPadding:
                         EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                   ),
-                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily:
-                            FlutterFlowTheme.of(context).bodyText1Family,
+                            FlutterFlowTheme.of(context).bodyMediumFamily,
                         fontWeight: FontWeight.normal,
                         useGoogleFonts: GoogleFonts.asMap().containsKey(
-                            FlutterFlowTheme.of(context).bodyText1Family),
+                            FlutterFlowTheme.of(context).bodyMediumFamily),
                       ),
                   validator:
                       _model.textController1Validator.asValidator(context),
@@ -176,12 +176,12 @@ class _AdminNewBookingRecordWidgetState
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                 child: Text(
                   'Дата записи',
-                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily:
-                            FlutterFlowTheme.of(context).bodyText1Family,
+                            FlutterFlowTheme.of(context).bodyMediumFamily,
                         fontWeight: FontWeight.w500,
                         useGoogleFonts: GoogleFonts.asMap().containsKey(
-                            FlutterFlowTheme.of(context).bodyText1Family),
+                            FlutterFlowTheme.of(context).bodyMediumFamily),
                       ),
                 ),
               ),
@@ -237,15 +237,15 @@ class _AdminNewBookingRecordWidgetState
                                 'Выбрать',
                               ),
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText1
+                                  .bodyMedium
                                   .override(
                                     fontFamily: FlutterFlowTheme.of(context)
-                                        .bodyText1Family,
+                                        .bodyMediumFamily,
                                     fontWeight: FontWeight.normal,
                                     useGoogleFonts: GoogleFonts.asMap()
                                         .containsKey(
                                             FlutterFlowTheme.of(context)
-                                                .bodyText1Family),
+                                                .bodyMediumFamily),
                                   ),
                             ),
                           ),
@@ -264,12 +264,12 @@ class _AdminNewBookingRecordWidgetState
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                 child: Text(
                   'Время',
-                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily:
-                            FlutterFlowTheme.of(context).bodyText1Family,
+                            FlutterFlowTheme.of(context).bodyMediumFamily,
                         fontWeight: FontWeight.w500,
                         useGoogleFonts: GoogleFonts.asMap().containsKey(
-                            FlutterFlowTheme.of(context).bodyText1Family),
+                            FlutterFlowTheme.of(context).bodyMediumFamily),
                       ),
                 ),
               ),
@@ -288,7 +288,7 @@ class _AdminNewBookingRecordWidgetState
                           width: 50.0,
                           height: 50.0,
                           child: CircularProgressIndicator(
-                            color: FlutterFlowTheme.of(context).primaryColor,
+                            color: FlutterFlowTheme.of(context).primary,
                           ),
                         ),
                       );
@@ -353,7 +353,7 @@ class _AdminNewBookingRecordWidgetState
                                       height: 50.0,
                                       child: CircularProgressIndicator(
                                         color: FlutterFlowTheme.of(context)
-                                            .primaryColor,
+                                            .primary,
                                       ),
                                     ),
                                   );
@@ -403,7 +403,7 @@ class _AdminNewBookingRecordWidgetState
                                                 .selectedTimeSlot ==
                                             wrapForcarTimesRecord.reference) {
                                           return FlutterFlowTheme.of(context)
-                                              .primaryColor;
+                                              .primary;
                                         } else {
                                           return FlutterFlowTheme.of(context)
                                               .primaryBackground;
@@ -421,10 +421,10 @@ class _AdminNewBookingRecordWidgetState
                                                   .selectedTimeSlot ==
                                               wrapForcarTimesRecord.reference) {
                                             return FlutterFlowTheme.of(context)
-                                                .primaryColor;
+                                                .primary;
                                           } else {
                                             return FlutterFlowTheme.of(context)
-                                                .primaryColor;
+                                                .primary;
                                           }
                                         }(),
                                       ),
@@ -438,11 +438,11 @@ class _AdminNewBookingRecordWidgetState
                                         ),
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText1Family,
+                                                      .bodyMediumFamily,
                                               color: () {
                                                 if (containerBookingsRecordList
                                                         .length >=
@@ -460,15 +460,15 @@ class _AdminNewBookingRecordWidgetState
                                                 } else {
                                                   return FlutterFlowTheme.of(
                                                           context)
-                                                      .primaryColor;
+                                                      .primary;
                                                 }
                                               }(),
-                                              useGoogleFonts:
-                                                  GoogleFonts.asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyText1Family),
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily),
                                             ),
                                       ),
                                     ),
@@ -487,12 +487,12 @@ class _AdminNewBookingRecordWidgetState
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                 child: Text(
                   'Кузов и номер машины',
-                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily:
-                            FlutterFlowTheme.of(context).bodyText1Family,
+                            FlutterFlowTheme.of(context).bodyMediumFamily,
                         fontWeight: FontWeight.w500,
                         useGoogleFonts: GoogleFonts.asMap().containsKey(
-                            FlutterFlowTheme.of(context).bodyText1Family),
+                            FlutterFlowTheme.of(context).bodyMediumFamily),
                       ),
                 ),
               ),
@@ -532,7 +532,8 @@ class _AdminNewBookingRecordWidgetState
                               textController: _model.textController2!,
                               options: options.toList(),
                               onSelected: onSelected,
-                              textStyle: FlutterFlowTheme.of(context).bodyText1,
+                              textStyle:
+                                  FlutterFlowTheme.of(context).bodyMedium,
                               textHighlightStyle: TextStyle(),
                               elevation: 4.0,
                               optionBackgroundColor:
@@ -583,15 +584,15 @@ class _AdminNewBookingRecordWidgetState
                               decoration: InputDecoration(
                                 hintText: 'Седан',
                                 hintStyle: FlutterFlowTheme.of(context)
-                                    .bodyText2
+                                    .bodySmall
                                     .override(
                                       fontFamily: FlutterFlowTheme.of(context)
-                                          .bodyText2Family,
+                                          .bodySmallFamily,
                                       fontWeight: FontWeight.normal,
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText2Family),
+                                                  .bodySmallFamily),
                                     ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
@@ -625,15 +626,15 @@ class _AdminNewBookingRecordWidgetState
                                     16.0, 0.0, 16.0, 0.0),
                               ),
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText1
+                                  .bodyMedium
                                   .override(
                                     fontFamily: FlutterFlowTheme.of(context)
-                                        .bodyText1Family,
+                                        .bodyMediumFamily,
                                     fontWeight: FontWeight.normal,
                                     useGoogleFonts: GoogleFonts.asMap()
                                         .containsKey(
                                             FlutterFlowTheme.of(context)
-                                                .bodyText1Family),
+                                                .bodyMediumFamily),
                                   ),
                               validator: _model.textController2Validator
                                   .asValidator(context),
@@ -649,14 +650,14 @@ class _AdminNewBookingRecordWidgetState
                         decoration: InputDecoration(
                           hintText: '345YDS02',
                           hintStyle: FlutterFlowTheme.of(context)
-                              .bodyText2
+                              .bodySmall
                               .override(
                                 fontFamily: FlutterFlowTheme.of(context)
-                                    .bodyText2Family,
+                                    .bodySmallFamily,
                                 fontWeight: FontWeight.normal,
                                 useGoogleFonts: GoogleFonts.asMap().containsKey(
                                     FlutterFlowTheme.of(context)
-                                        .bodyText2Family),
+                                        .bodySmallFamily),
                               ),
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
@@ -689,12 +690,13 @@ class _AdminNewBookingRecordWidgetState
                           contentPadding: EdgeInsetsDirectional.fromSTEB(
                               16.0, 0.0, 16.0, 0.0),
                         ),
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily:
-                                  FlutterFlowTheme.of(context).bodyText1Family,
+                                  FlutterFlowTheme.of(context).bodyMediumFamily,
                               fontWeight: FontWeight.normal,
                               useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                  FlutterFlowTheme.of(context).bodyText1Family),
+                                  FlutterFlowTheme.of(context)
+                                      .bodyMediumFamily),
                             ),
                         validator: _model.textController3Validator
                             .asValidator(context),
@@ -707,12 +709,12 @@ class _AdminNewBookingRecordWidgetState
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                 child: Text(
                   'Услуги',
-                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily:
-                            FlutterFlowTheme.of(context).bodyText1Family,
+                            FlutterFlowTheme.of(context).bodyMediumFamily,
                         fontWeight: FontWeight.w500,
                         useGoogleFonts: GoogleFonts.asMap().containsKey(
-                            FlutterFlowTheme.of(context).bodyText1Family),
+                            FlutterFlowTheme.of(context).bodyMediumFamily),
                       ),
                 ),
               ),
@@ -724,10 +726,12 @@ class _AdminNewBookingRecordWidgetState
                       await showModalBottomSheet(
                         isScrollControlled: true,
                         backgroundColor: Colors.transparent,
+                        barrierColor: Color(0x00000000),
                         context: context,
-                        builder: (context) {
+                        builder: (bottomSheetContext) {
                           return Padding(
-                            padding: MediaQuery.of(context).viewInsets,
+                            padding:
+                                MediaQuery.of(bottomSheetContext).viewInsets,
                             child: AdminSelectServicesWidget(
                               company: widget.company!.reference,
                               carBody: _model.textController2.text,
@@ -774,16 +778,16 @@ class _AdminNewBookingRecordWidgetState
                             Text(
                               'Комплексная мойка',
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText1
+                                  .bodyMedium
                                   .override(
                                     fontFamily: FlutterFlowTheme.of(context)
-                                        .bodyText1Family,
+                                        .bodyMediumFamily,
                                     color: FlutterFlowTheme.of(context).gray2,
                                     fontWeight: FontWeight.w500,
                                     useGoogleFonts: GoogleFonts.asMap()
                                         .containsKey(
                                             FlutterFlowTheme.of(context)
-                                                .bodyText1Family),
+                                                .bodyMediumFamily),
                                   ),
                             ),
                           if (FFAppState().selectedServices.length != null)
@@ -801,7 +805,7 @@ class _AdminNewBookingRecordWidgetState
                                       '0',
                                     ).maybeHandleOverflow(maxChars: 80),
                                     style:
-                                        FlutterFlowTheme.of(context).bodyText1,
+                                        FlutterFlowTheme.of(context).bodyMedium,
                                   ),
                                 ],
                               ),
@@ -829,7 +833,7 @@ class _AdminNewBookingRecordWidgetState
                           width: 50.0,
                           height: 50.0,
                           child: CircularProgressIndicator(
-                            color: FlutterFlowTheme.of(context).primaryColor,
+                            color: FlutterFlowTheme.of(context).primary,
                           ),
                         ),
                       );
@@ -851,16 +855,16 @@ class _AdminNewBookingRecordWidgetState
                                     '0',
                                   )}тг',
                                   style: FlutterFlowTheme.of(context)
-                                      .bodyText1
+                                      .bodyMedium
                                       .override(
                                         fontFamily: FlutterFlowTheme.of(context)
-                                            .bodyText1Family,
+                                            .bodyMediumFamily,
                                         fontSize: 16.0,
                                         fontWeight: FontWeight.w500,
                                         useGoogleFonts: GoogleFonts.asMap()
                                             .containsKey(
                                                 FlutterFlowTheme.of(context)
-                                                    .bodyText1Family),
+                                                    .bodyMediumFamily),
                                       ),
                                 ),
                               ),
@@ -887,11 +891,11 @@ class _AdminNewBookingRecordWidgetState
                                           '0',
                                         )}:00',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText2
+                                            .bodySmall
                                             .override(
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText2Family,
+                                                      .bodySmallFamily,
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryText,
@@ -901,7 +905,7 @@ class _AdminNewBookingRecordWidgetState
                                                       .containsKey(
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyText2Family),
+                                                              .bodySmallFamily),
                                             ),
                                       ),
                                     ),
@@ -929,11 +933,11 @@ class _AdminNewBookingRecordWidgetState
                                           '0',
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText2
+                                            .bodySmall
                                             .override(
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText2Family,
+                                                      .bodySmallFamily,
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryText,
@@ -943,7 +947,7 @@ class _AdminNewBookingRecordWidgetState
                                                       .containsKey(
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyText2Family),
+                                                              .bodySmallFamily),
                                             ),
                                       ),
                                     ),
@@ -968,11 +972,11 @@ class _AdminNewBookingRecordWidgetState
                                           '0',
                                         )}:00',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText2
+                                            .bodySmall
                                             .override(
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText2Family,
+                                                      .bodySmallFamily,
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryText,
@@ -982,7 +986,7 @@ class _AdminNewBookingRecordWidgetState
                                                       .containsKey(
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyText2Family),
+                                                              .bodySmallFamily),
                                             ),
                                       ),
                                     ),
@@ -1007,11 +1011,11 @@ class _AdminNewBookingRecordWidgetState
                                           '0',
                                         )}:00',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText2
+                                            .bodySmall
                                             .override(
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText2Family,
+                                                      .bodySmallFamily,
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryText,
@@ -1021,7 +1025,7 @@ class _AdminNewBookingRecordWidgetState
                                                       .containsKey(
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyText2Family),
+                                                              .bodySmallFamily),
                                             ),
                                       ),
                                     ),
@@ -1096,12 +1100,13 @@ class _AdminNewBookingRecordWidgetState
                                 await showModalBottomSheet(
                                   isScrollControlled: true,
                                   backgroundColor: Colors.transparent,
+                                  barrierColor: Color(0x00000000),
                                   enableDrag: false,
                                   context: context,
-                                  builder: (context) {
+                                  builder: (bottomSheetContext) {
                                     return Padding(
-                                      padding:
-                                          MediaQuery.of(context).viewInsets,
+                                      padding: MediaQuery.of(bottomSheetContext)
+                                          .viewInsets,
                                       child: SuccessWidget(
                                         message: 'Запись добавлена',
                                       ),
@@ -1124,18 +1129,18 @@ class _AdminNewBookingRecordWidgetState
                                   0.0, 0.0, 0.0, 0.0),
                               iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).primaryColor,
+                              color: FlutterFlowTheme.of(context).primary,
                               textStyle: FlutterFlowTheme.of(context)
-                                  .subtitle2
+                                  .titleSmall
                                   .override(
                                     fontFamily: FlutterFlowTheme.of(context)
-                                        .subtitle2Family,
+                                        .titleSmallFamily,
                                     color: Colors.white,
                                     fontSize: 16.0,
                                     useGoogleFonts: GoogleFonts.asMap()
                                         .containsKey(
                                             FlutterFlowTheme.of(context)
-                                                .subtitle2Family),
+                                                .titleSmallFamily),
                                   ),
                               elevation: 0.0,
                               borderSide: BorderSide(

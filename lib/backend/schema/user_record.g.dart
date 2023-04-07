@@ -196,6 +196,20 @@ class _$UserRecordSerializer implements StructuredSerializer<UserRecord> {
             specifiedType: const FullType(
                 DocumentReference, const [const FullType.nullable(Object)])));
     }
+    value = object.stuffID;
+    if (value != null) {
+      result
+        ..add('StuffID')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.addedCompany;
+    if (value != null) {
+      result
+        ..add('Added_company')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -334,6 +348,14 @@ class _$UserRecordSerializer implements StructuredSerializer<UserRecord> {
                 const FullType.nullable(Object)
               ])) as DocumentReference<Object?>?;
           break;
+        case 'StuffID':
+          result.stuffID = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'Added_company':
+          result.addedCompany = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -397,6 +419,10 @@ class _$UserRecord extends UserRecord {
   @override
   final DocumentReference<Object?>? createdByAdminCompanyRef;
   @override
+  final String? stuffID;
+  @override
+  final bool? addedCompany;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$UserRecord([void Function(UserRecordBuilder)? updates]) =>
@@ -427,6 +453,8 @@ class _$UserRecord extends UserRecord {
       this.firstCarName,
       this.adminStatus,
       this.createdByAdminCompanyRef,
+      this.stuffID,
+      this.addedCompany,
       this.ffRef})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
@@ -468,49 +496,43 @@ class _$UserRecord extends UserRecord {
         firstCarName == other.firstCarName &&
         adminStatus == other.adminStatus &&
         createdByAdminCompanyRef == other.createdByAdminCompanyRef &&
+        stuffID == other.stuffID &&
+        addedCompany == other.addedCompany &&
         ffRef == other.ffRef;
   }
 
   @override
   int get hashCode {
-    return $jf($jc(
-        $jc(
-            $jc(
-                $jc(
-                    $jc(
-                        $jc(
-                            $jc(
-                                $jc(
-                                    $jc(
-                                        $jc(
-                                            $jc(
-                                                $jc(
-                                                    $jc(
-                                                        $jc(
-                                                            $jc(
-                                                                $jc(
-                                                                    $jc(
-                                                                        $jc(
-                                                                            $jc($jc($jc($jc($jc($jc($jc(0, email.hashCode), displayName.hashCode), photoUrl.hashCode), uid.hashCode), createdTime.hashCode), role.hashCode),
-                                                                                permissions.hashCode),
-                                                                            favCompany.hashCode),
-                                                                        searchHistory.hashCode),
-                                                                    carscount.hashCode),
-                                                                phoneNumber.hashCode),
-                                                            text.hashCode),
-                                                        country.hashCode),
-                                                    countryText.hashCode),
-                                                linkLastBooking.hashCode),
-                                            lastBookingBoolean.hashCode),
-                                        merchanDocument.hashCode),
-                                    firstCar.hashCode),
-                                signUpDate.hashCode),
-                            bookingCompanies.hashCode),
-                        firstCarBody.hashCode),
-                    firstCarName.hashCode),
-                adminStatus.hashCode),
-            createdByAdminCompanyRef.hashCode),
-        ffRef.hashCode));
+    var _$hash = 0;
+    _$hash = $jc(_$hash, email.hashCode);
+    _$hash = $jc(_$hash, displayName.hashCode);
+    _$hash = $jc(_$hash, photoUrl.hashCode);
+    _$hash = $jc(_$hash, uid.hashCode);
+    _$hash = $jc(_$hash, createdTime.hashCode);
+    _$hash = $jc(_$hash, role.hashCode);
+    _$hash = $jc(_$hash, permissions.hashCode);
+    _$hash = $jc(_$hash, favCompany.hashCode);
+    _$hash = $jc(_$hash, searchHistory.hashCode);
+    _$hash = $jc(_$hash, carscount.hashCode);
+    _$hash = $jc(_$hash, phoneNumber.hashCode);
+    _$hash = $jc(_$hash, text.hashCode);
+    _$hash = $jc(_$hash, country.hashCode);
+    _$hash = $jc(_$hash, countryText.hashCode);
+    _$hash = $jc(_$hash, linkLastBooking.hashCode);
+    _$hash = $jc(_$hash, lastBookingBoolean.hashCode);
+    _$hash = $jc(_$hash, merchanDocument.hashCode);
+    _$hash = $jc(_$hash, firstCar.hashCode);
+    _$hash = $jc(_$hash, signUpDate.hashCode);
+    _$hash = $jc(_$hash, bookingCompanies.hashCode);
+    _$hash = $jc(_$hash, firstCarBody.hashCode);
+    _$hash = $jc(_$hash, firstCarName.hashCode);
+    _$hash = $jc(_$hash, adminStatus.hashCode);
+    _$hash = $jc(_$hash, createdByAdminCompanyRef.hashCode);
+    _$hash = $jc(_$hash, stuffID.hashCode);
+    _$hash = $jc(_$hash, addedCompany.hashCode);
+    _$hash = $jc(_$hash, ffRef.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
   }
 
   @override
@@ -540,6 +562,8 @@ class _$UserRecord extends UserRecord {
           ..add('firstCarName', firstCarName)
           ..add('adminStatus', adminStatus)
           ..add('createdByAdminCompanyRef', createdByAdminCompanyRef)
+          ..add('stuffID', stuffID)
+          ..add('addedCompany', addedCompany)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -661,6 +685,14 @@ class UserRecordBuilder implements Builder<UserRecord, UserRecordBuilder> {
           DocumentReference<Object?>? createdByAdminCompanyRef) =>
       _$this._createdByAdminCompanyRef = createdByAdminCompanyRef;
 
+  String? _stuffID;
+  String? get stuffID => _$this._stuffID;
+  set stuffID(String? stuffID) => _$this._stuffID = stuffID;
+
+  bool? _addedCompany;
+  bool? get addedCompany => _$this._addedCompany;
+  set addedCompany(bool? addedCompany) => _$this._addedCompany = addedCompany;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -696,6 +728,8 @@ class UserRecordBuilder implements Builder<UserRecord, UserRecordBuilder> {
       _firstCarName = $v.firstCarName;
       _adminStatus = $v.adminStatus;
       _createdByAdminCompanyRef = $v.createdByAdminCompanyRef;
+      _stuffID = $v.stuffID;
+      _addedCompany = $v.addedCompany;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -745,6 +779,8 @@ class UserRecordBuilder implements Builder<UserRecord, UserRecordBuilder> {
               firstCarName: firstCarName,
               adminStatus: adminStatus,
               createdByAdminCompanyRef: createdByAdminCompanyRef,
+              stuffID: stuffID,
+              addedCompany: addedCompany,
               ffRef: ffRef);
     } catch (_) {
       late String _$failedField;
@@ -769,4 +805,4 @@ class UserRecordBuilder implements Builder<UserRecord, UserRecordBuilder> {
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas
+// ignore_for_file: deprecated_member_use_from_same_package,type=lint

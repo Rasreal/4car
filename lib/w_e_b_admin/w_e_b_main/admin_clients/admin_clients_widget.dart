@@ -62,12 +62,12 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        body: SafeArea(
           child: Stack(
             children: [
               Column(
@@ -107,16 +107,16 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                       child: Text(
                                         'Клиенты',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Inter',
                                               fontSize: 24.0,
-                                              useGoogleFonts:
-                                                  GoogleFonts.asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyText1Family),
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily),
                                             ),
                                       ),
                                     ),
@@ -148,7 +148,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                     style:
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .bodyText1
+                                                            .bodyMedium
                                                             .override(
                                                               fontFamily:
                                                                   'Inter',
@@ -157,7 +157,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                       'Клиенты'
                                                                   ? FlutterFlowTheme.of(
                                                                           context)
-                                                                      .primaryColor
+                                                                      .primary
                                                                   : FlutterFlowTheme.of(
                                                                           context)
                                                                       .webUnselectedColor,
@@ -170,7 +170,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                   .containsKey(
                                                                       FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyText1Family),
+                                                                          .bodyMediumFamily),
                                                             ),
                                                   ),
                                                 ),
@@ -183,7 +183,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                             'Клиенты'
                                                         ? FlutterFlowTheme.of(
                                                                 context)
-                                                            .primaryColor
+                                                            .primary
                                                         : FlutterFlowTheme.of(
                                                                 context)
                                                             .primaryBackground,
@@ -218,7 +218,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                     style:
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .bodyText1
+                                                            .bodyMedium
                                                             .override(
                                                               fontFamily:
                                                                   'Inter',
@@ -227,7 +227,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                       'Отзывы'
                                                                   ? FlutterFlowTheme.of(
                                                                           context)
-                                                                      .primaryColor
+                                                                      .primary
                                                                   : FlutterFlowTheme.of(
                                                                           context)
                                                                       .webUnselectedColor,
@@ -240,7 +240,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                   .containsKey(
                                                                       FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyText1Family),
+                                                                          .bodyMediumFamily),
                                                             ),
                                                   ),
                                                 ),
@@ -253,7 +253,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                             'Отзывы'
                                                         ? FlutterFlowTheme.of(
                                                                 context)
-                                                            .primaryColor
+                                                            .primary
                                                         : FlutterFlowTheme.of(
                                                                 context)
                                                             .primaryBackground,
@@ -286,7 +286,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                               child: CircularProgressIndicator(
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .primaryColor,
+                                                        .primary,
                                               ),
                                             ),
                                           );
@@ -381,7 +381,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                           'Поиск',
                                                                       hintStyle: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyText2
+                                                                          .bodySmall
                                                                           .override(
                                                                             fontFamily:
                                                                                 'Inter',
@@ -390,7 +390,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                             useGoogleFonts:
-                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText2Family),
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodySmallFamily),
                                                                           ),
                                                                       enabledBorder:
                                                                           InputBorder
@@ -412,7 +412,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyText1
+                                                                        .bodyMedium
                                                                         .override(
                                                                           fontFamily:
                                                                               'Inter',
@@ -421,7 +421,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                           fontWeight:
                                                                               FontWeight.normal,
                                                                           useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                         ),
                                                                     validator: _model
                                                                         .textControllerValidator
@@ -457,18 +457,27 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                 backgroundColor:
                                                                     Colors
                                                                         .transparent,
+                                                                barrierColor: Color(
+                                                                    0x00000000),
                                                                 enableDrag:
                                                                     false,
                                                                 context:
                                                                     context,
                                                                 builder:
-                                                                    (context) {
-                                                                  return Padding(
-                                                                    padding: MediaQuery.of(
+                                                                    (bottomSheetContext) {
+                                                                  return GestureDetector(
+                                                                    onTap: () => FocusScope.of(
                                                                             context)
-                                                                        .viewInsets,
+                                                                        .requestFocus(
+                                                                            _unfocusNode),
                                                                     child:
-                                                                        WEBFilterDateWidget(),
+                                                                        Padding(
+                                                                      padding: MediaQuery.of(
+                                                                              bottomSheetContext)
+                                                                          .viewInsets,
+                                                                      child:
+                                                                          WEBFilterDateWidget(),
+                                                                    ),
                                                                   );
                                                                 },
                                                               ).then((value) =>
@@ -516,12 +525,12 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                           'За всё время',
                                                                         ),
                                                                         style: FlutterFlowTheme.of(context)
-                                                                            .bodyText1
+                                                                            .bodyMedium
                                                                             .override(
                                                                               fontFamily: 'Inter',
                                                                               color: Color(0xFF8E8E8E),
                                                                               fontWeight: FontWeight.normal,
-                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                             ),
                                                                       ),
                                                                     ),
@@ -556,18 +565,27 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                 backgroundColor:
                                                                     Colors
                                                                         .transparent,
+                                                                barrierColor: Color(
+                                                                    0x00000000),
                                                                 enableDrag:
                                                                     false,
                                                                 context:
                                                                     context,
                                                                 builder:
-                                                                    (context) {
-                                                                  return Padding(
-                                                                    padding: MediaQuery.of(
+                                                                    (bottomSheetContext) {
+                                                                  return GestureDetector(
+                                                                    onTap: () => FocusScope.of(
                                                                             context)
-                                                                        .viewInsets,
+                                                                        .requestFocus(
+                                                                            _unfocusNode),
                                                                     child:
-                                                                        WEBFilterCarBodyWidget(),
+                                                                        Padding(
+                                                                      padding: MediaQuery.of(
+                                                                              bottomSheetContext)
+                                                                          .viewInsets,
+                                                                      child:
+                                                                          WEBFilterCarBodyWidget(),
+                                                                    ),
                                                                   );
                                                                 },
                                                               ).then((value) =>
@@ -615,12 +633,12 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                           'Все авто',
                                                                         ),
                                                                         style: FlutterFlowTheme.of(context)
-                                                                            .bodyText1
+                                                                            .bodyMedium
                                                                             .override(
                                                                               fontFamily: 'Inter',
                                                                               color: Color(0xFF8E8E8E),
                                                                               fontWeight: FontWeight.normal,
-                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                             ),
                                                                       ),
                                                                     ),
@@ -655,18 +673,27 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                 backgroundColor:
                                                                     Colors
                                                                         .transparent,
+                                                                barrierColor: Color(
+                                                                    0x00000000),
                                                                 enableDrag:
                                                                     false,
                                                                 context:
                                                                     context,
                                                                 builder:
-                                                                    (context) {
-                                                                  return Padding(
-                                                                    padding: MediaQuery.of(
+                                                                    (bottomSheetContext) {
+                                                                  return GestureDetector(
+                                                                    onTap: () => FocusScope.of(
                                                                             context)
-                                                                        .viewInsets,
+                                                                        .requestFocus(
+                                                                            _unfocusNode),
                                                                     child:
-                                                                        WEBFilterReviewStatusWidget(),
+                                                                        Padding(
+                                                                      padding: MediaQuery.of(
+                                                                              bottomSheetContext)
+                                                                          .viewInsets,
+                                                                      child:
+                                                                          WEBFilterReviewStatusWidget(),
+                                                                    ),
                                                                   );
                                                                 },
                                                               ).then((value) =>
@@ -714,12 +741,12 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                           'Все',
                                                                         ),
                                                                         style: FlutterFlowTheme.of(context)
-                                                                            .bodyText1
+                                                                            .bodyMedium
                                                                             .override(
                                                                               fontFamily: 'Inter',
                                                                               color: Color(0xFF8E8E8E),
                                                                               fontWeight: FontWeight.normal,
-                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                             ),
                                                                       ),
                                                                     ),
@@ -772,7 +799,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                       'Дата',
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyText1
+                                                                          .bodyMedium
                                                                           .override(
                                                                             fontFamily:
                                                                                 'Inter',
@@ -781,7 +808,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                             fontWeight:
                                                                                 FontWeight.w500,
                                                                             useGoogleFonts:
-                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                           ),
                                                                     ),
                                                                     Padding(
@@ -814,7 +841,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                       'Автор',
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyText1
+                                                                          .bodyMedium
                                                                           .override(
                                                                             fontFamily:
                                                                                 'Inter',
@@ -823,7 +850,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                             fontWeight:
                                                                                 FontWeight.w500,
                                                                             useGoogleFonts:
-                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                           ),
                                                                     ),
                                                                     Padding(
@@ -851,7 +878,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                   'Автомобиль',
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1
+                                                                      .bodyMedium
                                                                       .override(
                                                                         fontFamily:
                                                                             'Inter',
@@ -860,7 +887,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                         fontWeight:
                                                                             FontWeight.w500,
                                                                         useGoogleFonts:
-                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                       ),
                                                                 ),
                                                               ),
@@ -870,7 +897,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                   'Услуги',
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1
+                                                                      .bodyMedium
                                                                       .override(
                                                                         fontFamily:
                                                                             'Inter',
@@ -879,7 +906,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                         fontWeight:
                                                                             FontWeight.w500,
                                                                         useGoogleFonts:
-                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                       ),
                                                                 ),
                                                               ),
@@ -894,7 +921,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                       'Оценка',
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyText1
+                                                                          .bodyMedium
                                                                           .override(
                                                                             fontFamily:
                                                                                 'Inter',
@@ -903,7 +930,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                             fontWeight:
                                                                                 FontWeight.w500,
                                                                             useGoogleFonts:
-                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                           ),
                                                                     ),
                                                                     Padding(
@@ -931,7 +958,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                   'Комментарий',
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1
+                                                                      .bodyMedium
                                                                       .override(
                                                                         fontFamily:
                                                                             'Inter',
@@ -940,7 +967,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                         fontWeight:
                                                                             FontWeight.w500,
                                                                         useGoogleFonts:
-                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                       ),
                                                                 ),
                                                               ),
@@ -950,7 +977,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                   'Статус',
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1
+                                                                      .bodyMedium
                                                                       .override(
                                                                         fontFamily:
                                                                             'Inter',
@@ -959,7 +986,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                         fontWeight:
                                                                             FontWeight.w500,
                                                                         useGoogleFonts:
-                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                       ),
                                                                 ),
                                                               ),
@@ -969,7 +996,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                   'Действие',
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1
+                                                                      .bodyMedium
                                                                       .override(
                                                                         fontFamily:
                                                                             'Inter',
@@ -978,7 +1005,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                         fontWeight:
                                                                             FontWeight.w500,
                                                                         useGoogleFonts:
-                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                       ),
                                                                 ),
                                                               ),
@@ -1035,7 +1062,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                       CircularProgressIndicator(
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .primaryColor,
+                                                                        .primary,
                                                                   ),
                                                                 ),
                                                               );
@@ -1084,7 +1111,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                           child:
                                                                               CircularProgressIndicator(
                                                                             color:
-                                                                                FlutterFlowTheme.of(context).primaryColor,
+                                                                                FlutterFlowTheme.of(context).primary,
                                                                           ),
                                                                         ),
                                                                       );
@@ -1118,11 +1145,11 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                                       padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
                                                                                       child: Text(
                                                                                         columnBookingsRecord.timeName!,
-                                                                                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                               fontFamily: 'Inter',
                                                                                               color: FlutterFlowTheme.of(context).primaryText,
                                                                                               fontWeight: FontWeight.normal,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                             ),
                                                                                       ),
                                                                                     ),
@@ -1132,11 +1159,11 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                                         columnBookingsRecord.bookedDate!,
                                                                                         locale: FFLocalizations.of(context).languageCode,
                                                                                       ),
-                                                                                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Inter',
                                                                                             color: FlutterFlowTheme.of(context).gray2,
                                                                                             fontWeight: FontWeight.normal,
-                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                           ),
                                                                                     ),
                                                                                   ],
@@ -1154,7 +1181,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                                           width: 50.0,
                                                                                           height: 50.0,
                                                                                           child: CircularProgressIndicator(
-                                                                                            color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                            color: FlutterFlowTheme.of(context).primary,
                                                                                           ),
                                                                                         ),
                                                                                       );
@@ -1168,21 +1195,21 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                                           padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
                                                                                           child: Text(
                                                                                             columnUserRecord.displayName!,
-                                                                                            style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                   fontFamily: 'Inter',
                                                                                                   color: FlutterFlowTheme.of(context).primaryText,
                                                                                                   fontWeight: FontWeight.normal,
-                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                 ),
                                                                                           ),
                                                                                         ),
                                                                                         Text(
                                                                                           columnUserRecord.phoneNumber!,
-                                                                                          style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                 fontFamily: 'Inter',
                                                                                                 color: FlutterFlowTheme.of(context).gray2,
                                                                                                 fontWeight: FontWeight.normal,
-                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                               ),
                                                                                         ),
                                                                                       ],
@@ -1194,11 +1221,11 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                                 flex: 5,
                                                                                 child: Text(
                                                                                   '${columnBookingsRecord.carBody}, ${columnBookingsRecord.carName}',
-                                                                                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Roboto',
                                                                                         color: FlutterFlowTheme.of(context).primaryText,
                                                                                         fontWeight: FontWeight.normal,
-                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                       ),
                                                                                 ),
                                                                               ),
@@ -1209,11 +1236,11 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                                     functions.listStringToString(columnBookingsRecord.selectedCompanyServicesName!.toList(), 20),
                                                                                     '0',
                                                                                   ),
-                                                                                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Roboto',
                                                                                         color: FlutterFlowTheme.of(context).primaryText,
                                                                                         fontWeight: FontWeight.normal,
-                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                       ),
                                                                                 ),
                                                                               ),
@@ -1224,11 +1251,11 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                                     listViewCommentsRecord.rating?.toString(),
                                                                                     '0',
                                                                                   ),
-                                                                                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Roboto',
                                                                                         color: FlutterFlowTheme.of(context).primaryText,
                                                                                         fontWeight: FontWeight.normal,
-                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                       ),
                                                                                 ),
                                                                               ),
@@ -1239,11 +1266,11 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                                     maxChars: 25,
                                                                                     replacement: '…',
                                                                                   ),
-                                                                                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Inter',
                                                                                         color: FlutterFlowTheme.of(context).gray2,
                                                                                         fontWeight: FontWeight.w500,
-                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                       ),
                                                                                 ),
                                                                               ),
@@ -1281,7 +1308,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                                           }
                                                                                         }()
                                                                                             .maybeHandleOverflow(maxChars: 15),
-                                                                                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                               fontFamily: 'Roboto',
                                                                                               color: () {
                                                                                                 if (listViewCommentsRecord.obtobotan!) {
@@ -1293,7 +1320,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                                                 }
                                                                                               }(),
                                                                                               fontWeight: FontWeight.normal,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                             ),
                                                                                       ),
                                                                                     ),
@@ -1310,13 +1337,17 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                                     await showModalBottomSheet(
                                                                                       isScrollControlled: true,
                                                                                       backgroundColor: Colors.transparent,
+                                                                                      barrierColor: Color(0x00000000),
                                                                                       enableDrag: false,
                                                                                       context: context,
-                                                                                      builder: (context) {
-                                                                                        return Padding(
-                                                                                          padding: MediaQuery.of(context).viewInsets,
-                                                                                          child: AdminFeedbackReviewWidget(
-                                                                                            booking: columnBookingsRecord,
+                                                                                      builder: (bottomSheetContext) {
+                                                                                        return GestureDetector(
+                                                                                          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+                                                                                          child: Padding(
+                                                                                            padding: MediaQuery.of(bottomSheetContext).viewInsets,
+                                                                                            child: AdminFeedbackReviewWidget(
+                                                                                              booking: columnBookingsRecord,
+                                                                                            ),
                                                                                           ),
                                                                                         );
                                                                                       },
@@ -1381,7 +1412,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                       'Автор',
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyText1
+                                                                          .bodyMedium
                                                                           .override(
                                                                             fontFamily:
                                                                                 'Inter',
@@ -1390,7 +1421,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                             fontWeight:
                                                                                 FontWeight.w500,
                                                                             useGoogleFonts:
-                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                           ),
                                                                     ),
                                                                     Padding(
@@ -1418,7 +1449,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                   'Автомобиль',
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1
+                                                                      .bodyMedium
                                                                       .override(
                                                                         fontFamily:
                                                                             'Inter',
@@ -1427,7 +1458,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                         fontWeight:
                                                                             FontWeight.w500,
                                                                         useGoogleFonts:
-                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                       ),
                                                                 ),
                                                               ),
@@ -1437,7 +1468,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                   'Первая мойка',
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1
+                                                                      .bodyMedium
                                                                       .override(
                                                                         fontFamily:
                                                                             'Inter',
@@ -1446,7 +1477,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                         fontWeight:
                                                                             FontWeight.w500,
                                                                         useGoogleFonts:
-                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                       ),
                                                                 ),
                                                               ),
@@ -1456,7 +1487,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                   'Последняя мойка',
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1
+                                                                      .bodyMedium
                                                                       .override(
                                                                         fontFamily:
                                                                             'Inter',
@@ -1465,7 +1496,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                         fontWeight:
                                                                             FontWeight.w500,
                                                                         useGoogleFonts:
-                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                       ),
                                                                 ),
                                                               ),
@@ -1480,7 +1511,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                       'Всего моек',
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyText1
+                                                                          .bodyMedium
                                                                           .override(
                                                                             fontFamily:
                                                                                 'Inter',
@@ -1489,7 +1520,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                             fontWeight:
                                                                                 FontWeight.w500,
                                                                             useGoogleFonts:
-                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                           ),
                                                                     ),
                                                                     Padding(
@@ -1522,7 +1553,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                       'Общая сумма',
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyText1
+                                                                          .bodyMedium
                                                                           .override(
                                                                             fontFamily:
                                                                                 'Inter',
@@ -1531,7 +1562,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                             fontWeight:
                                                                                 FontWeight.w500,
                                                                             useGoogleFonts:
-                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                           ),
                                                                     ),
                                                                     Padding(
@@ -1559,7 +1590,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                   'Действие',
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1
+                                                                      .bodyMedium
                                                                       .override(
                                                                         fontFamily:
                                                                             'Inter',
@@ -1568,7 +1599,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                         fontWeight:
                                                                             FontWeight.w500,
                                                                         useGoogleFonts:
-                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                       ),
                                                                 ),
                                                               ),
@@ -1610,7 +1641,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                       CircularProgressIndicator(
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .primaryColor,
+                                                                        .primary,
                                                                   ),
                                                                 ),
                                                               );
@@ -1669,11 +1700,11 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                                       listViewUserRecord.displayName,
                                                                                       'null',
                                                                                     ),
-                                                                                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Inter',
                                                                                           color: FlutterFlowTheme.of(context).primaryText,
                                                                                           fontWeight: FontWeight.normal,
-                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                         ),
                                                                                   ),
                                                                                 ),
@@ -1682,11 +1713,11 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                                     listViewUserRecord.phoneNumber,
                                                                                     'null',
                                                                                   ),
-                                                                                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Inter',
                                                                                         color: FlutterFlowTheme.of(context).gray2,
                                                                                         fontWeight: FontWeight.normal,
-                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                       ),
                                                                                 ),
                                                                               ],
@@ -1704,11 +1735,11 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                                 listViewUserRecord.firstCarName,
                                                                                 'null',
                                                                               )}',
-                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Roboto',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                     fontWeight: FontWeight.normal,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                   ),
                                                                             ),
                                                                           ),
@@ -1731,7 +1762,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                                         width: 50.0,
                                                                                         height: 50.0,
                                                                                         child: CircularProgressIndicator(
-                                                                                          color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                          color: FlutterFlowTheme.of(context).primary,
                                                                                         ),
                                                                                       ),
                                                                                     );
@@ -1751,11 +1782,11 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                                       ),
                                                                                       'null',
                                                                                     ),
-                                                                                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Inter',
                                                                                           color: FlutterFlowTheme.of(context).primaryText,
                                                                                           fontWeight: FontWeight.normal,
-                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                         ),
                                                                                   );
                                                                                 },
@@ -1781,7 +1812,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                                         width: 50.0,
                                                                                         height: 50.0,
                                                                                         child: CircularProgressIndicator(
-                                                                                          color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                          color: FlutterFlowTheme.of(context).primary,
                                                                                         ),
                                                                                       ),
                                                                                     );
@@ -1801,11 +1832,11 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                                       ),
                                                                                       'null',
                                                                                     ),
-                                                                                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Inter',
                                                                                           color: FlutterFlowTheme.of(context).primaryText,
                                                                                           fontWeight: FontWeight.normal,
-                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                         ),
                                                                                   );
                                                                                 },
@@ -1828,7 +1859,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                                       width: 50.0,
                                                                                       height: 50.0,
                                                                                       child: CircularProgressIndicator(
-                                                                                        color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                        color: FlutterFlowTheme.of(context).primary,
                                                                                       ),
                                                                                     ),
                                                                                   );
@@ -1839,11 +1870,11 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                                     textCount.toString(),
                                                                                     '0',
                                                                                   ),
-                                                                                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Roboto',
                                                                                         color: FlutterFlowTheme.of(context).primaryText,
                                                                                         fontWeight: FontWeight.normal,
-                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                       ),
                                                                                 );
                                                                               },
@@ -1865,7 +1896,7 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                                       width: 50.0,
                                                                                       height: 50.0,
                                                                                       child: CircularProgressIndicator(
-                                                                                        color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                        color: FlutterFlowTheme.of(context).primary,
                                                                                       ),
                                                                                     ),
                                                                                   );
@@ -1879,11 +1910,11 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                                     )}',
                                                                                     '0',
                                                                                   ),
-                                                                                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Roboto',
                                                                                         color: FlutterFlowTheme.of(context).primaryText,
                                                                                         fontWeight: FontWeight.normal,
-                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                       ),
                                                                                 );
                                                                               },
@@ -1898,10 +1929,10 @@ class _AdminClientsWidgetState extends State<AdminClientsWidget> {
                                                                               children: [
                                                                                 Text(
                                                                                   'Подробнее',
-                                                                                  style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                        fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                        fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                         fontWeight: FontWeight.normal,
-                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                       ),
                                                                                 ),
                                                                                 Icon(

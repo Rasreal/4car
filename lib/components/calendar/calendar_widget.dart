@@ -71,24 +71,24 @@ class _CalendarWidgetState extends State<CalendarWidget> {
               children: [
                 Text(
                   'Календарь',
-                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily:
-                            FlutterFlowTheme.of(context).bodyText1Family,
+                            FlutterFlowTheme.of(context).bodyMediumFamily,
                         fontSize: 18.0,
                         fontWeight: FontWeight.w500,
                         useGoogleFonts: GoogleFonts.asMap().containsKey(
-                            FlutterFlowTheme.of(context).bodyText1Family),
+                            FlutterFlowTheme.of(context).bodyMediumFamily),
                       ),
                 ),
                 Text(
                   'Готово',
-                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily:
-                            FlutterFlowTheme.of(context).bodyText1Family,
-                        color: FlutterFlowTheme.of(context).primaryColor,
+                            FlutterFlowTheme.of(context).bodyMediumFamily,
+                        color: FlutterFlowTheme.of(context).primary,
                         fontSize: 12.0,
                         useGoogleFonts: GoogleFonts.asMap().containsKey(
-                            FlutterFlowTheme.of(context).bodyText1Family),
+                            FlutterFlowTheme.of(context).bodyMediumFamily),
                       ),
                 ),
               ],
@@ -96,7 +96,7 @@ class _CalendarWidgetState extends State<CalendarWidget> {
           ),
           Divider(),
           FlutterFlowCalendar(
-            color: FlutterFlowTheme.of(context).primaryColor,
+            color: FlutterFlowTheme.of(context).primary,
             weekFormat: false,
             weekStartsMonday: false,
             onChange: (DateTimeRange? newSelectedDate) {
@@ -121,14 +121,15 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                 height: 48.0,
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                 iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                color: FlutterFlowTheme.of(context).primaryColor,
-                textStyle: FlutterFlowTheme.of(context).subtitle2.override(
-                      fontFamily: FlutterFlowTheme.of(context).subtitle2Family,
+                color: FlutterFlowTheme.of(context).primary,
+                textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                      fontFamily: FlutterFlowTheme.of(context).titleSmallFamily,
                       color: Colors.white,
                       fontSize: 16.0,
                       useGoogleFonts: GoogleFonts.asMap().containsKey(
-                          FlutterFlowTheme.of(context).subtitle2Family),
+                          FlutterFlowTheme.of(context).titleSmallFamily),
                     ),
+                elevation: 2.0,
                 borderSide: BorderSide(
                   color: Colors.transparent,
                   width: 1.0,

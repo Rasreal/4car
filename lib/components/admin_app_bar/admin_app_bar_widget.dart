@@ -80,22 +80,50 @@ class _AdminAppBarWidgetState extends State<AdminAppBarWidget> {
                           child: Text(
                             '4 Car',
                             style: FlutterFlowTheme.of(context)
-                                .bodyText1
+                                .bodyMedium
                                 .override(
                                   fontFamily: FlutterFlowTheme.of(context)
-                                      .bodyText1Family,
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryColor,
+                                      .bodyMediumFamily,
+                                  color: FlutterFlowTheme.of(context).primary,
                                   fontSize: 25.0,
                                   useGoogleFonts: GoogleFonts.asMap()
                                       .containsKey(FlutterFlowTheme.of(context)
-                                          .bodyText1Family),
+                                          .bodyMediumFamily),
                                 ),
                           ),
                         ),
                         Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
+                            if (!valueOrDefault<bool>(
+                                currentUserDocument?.addedCompany, false))
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 16.0, 0.0),
+                                child: AuthUserStreamWidget(
+                                  builder: (context) => SelectionArea(
+                                      child: Text(
+                                    'ID: ${valueOrDefault<String>(
+                                      valueOrDefault(
+                                          currentUserDocument?.stuffID, ''),
+                                      '0',
+                                    )}',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMediumFamily,
+                                          fontSize: 16.0,
+                                          fontWeight: FontWeight.normal,
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey(
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMediumFamily),
+                                        ),
+                                  )),
+                                ),
+                              ),
                             StreamBuilder<List<CompaniesRecord>>(
                               stream: queryCompaniesRecord(
                                 queryBuilder: (companiesRecord) =>
@@ -112,7 +140,7 @@ class _AdminAppBarWidgetState extends State<AdminAppBarWidget> {
                                       height: 50.0,
                                       child: CircularProgressIndicator(
                                         color: FlutterFlowTheme.of(context)
-                                            .primaryColor,
+                                            .primary,
                                       ),
                                     ),
                                   );
@@ -156,7 +184,7 @@ class _AdminAppBarWidgetState extends State<AdminAppBarWidget> {
                                                     CircularProgressIndicator(
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .primaryColor,
+                                                      .primary,
                                                 ),
                                               ),
                                             );
@@ -275,17 +303,17 @@ class _AdminAppBarWidgetState extends State<AdminAppBarWidget> {
                                           'Имя не указано',
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Inter',
                                               fontSize: 16.0,
                                               fontWeight: FontWeight.normal,
-                                              useGoogleFonts:
-                                                  GoogleFonts.asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyText1Family),
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily),
                                             ),
                                       ),
                                     ),
@@ -331,19 +359,18 @@ class _AdminAppBarWidgetState extends State<AdminAppBarWidget> {
                             child: Text(
                               'Главная',
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText1
+                                  .bodyMedium
                                   .override(
                                     fontFamily: 'Inter',
                                     color: widget.pageName == 'Главная'
-                                        ? FlutterFlowTheme.of(context)
-                                            .primaryColor
+                                        ? FlutterFlowTheme.of(context).primary
                                         : FlutterFlowTheme.of(context)
                                             .primaryText,
                                     fontWeight: FontWeight.normal,
                                     useGoogleFonts: GoogleFonts.asMap()
                                         .containsKey(
                                             FlutterFlowTheme.of(context)
-                                                .bodyText1Family),
+                                                .bodyMediumFamily),
                                   ),
                             ),
                           ),
@@ -374,19 +401,19 @@ class _AdminAppBarWidgetState extends State<AdminAppBarWidget> {
                                     child: Text(
                                       'Отчеты',
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyText1
+                                          .bodyMedium
                                           .override(
                                             fontFamily: 'Inter',
                                             color: widget.pageName == 'Отчеты'
                                                 ? FlutterFlowTheme.of(context)
-                                                    .primaryColor
+                                                    .primary
                                                 : FlutterFlowTheme.of(context)
                                                     .primaryText,
                                             fontWeight: FontWeight.normal,
                                             useGoogleFonts: GoogleFonts.asMap()
                                                 .containsKey(
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText1Family),
+                                                        .bodyMediumFamily),
                                           ),
                                     ),
                                   ),
@@ -411,19 +438,19 @@ class _AdminAppBarWidgetState extends State<AdminAppBarWidget> {
                                     child: Text(
                                       'Клиенты',
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyText1
+                                          .bodyMedium
                                           .override(
                                             fontFamily: 'Inter',
                                             color: widget.pageName == 'Клиенты'
                                                 ? FlutterFlowTheme.of(context)
-                                                    .primaryColor
+                                                    .primary
                                                 : FlutterFlowTheme.of(context)
                                                     .primaryText,
                                             fontWeight: FontWeight.normal,
                                             useGoogleFonts: GoogleFonts.asMap()
                                                 .containsKey(
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText1Family),
+                                                        .bodyMediumFamily),
                                           ),
                                     ),
                                   ),
@@ -452,22 +479,22 @@ class _AdminAppBarWidgetState extends State<AdminAppBarWidget> {
                                       child: Text(
                                         'Аналитика',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Inter',
                                               color: widget.pageName ==
                                                       'Аналитика'
                                                   ? FlutterFlowTheme.of(context)
-                                                      .primaryColor
+                                                      .primary
                                                   : FlutterFlowTheme.of(context)
                                                       .primaryText,
                                               fontWeight: FontWeight.normal,
-                                              useGoogleFonts:
-                                                  GoogleFonts.asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyText1Family),
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily),
                                             ),
                                       ),
                                     ),
@@ -492,19 +519,19 @@ class _AdminAppBarWidgetState extends State<AdminAppBarWidget> {
                                     child: Text(
                                       'Кабинет',
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyText1
+                                          .bodyMedium
                                           .override(
                                             fontFamily: 'Inter',
                                             color: widget.pageName == 'Кабинет'
                                                 ? FlutterFlowTheme.of(context)
-                                                    .primaryColor
+                                                    .primary
                                                 : FlutterFlowTheme.of(context)
                                                     .primaryText,
                                             fontWeight: FontWeight.normal,
                                             useGoogleFonts: GoogleFonts.asMap()
                                                 .containsKey(
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText1Family),
+                                                        .bodyMediumFamily),
                                           ),
                                     ),
                                   ),

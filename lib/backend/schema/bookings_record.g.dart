@@ -524,44 +524,38 @@ class _$BookingsRecord extends BookingsRecord {
 
   @override
   int get hashCode {
-    return $jf($jc(
-        $jc(
-            $jc(
-                $jc(
-                    $jc(
-                        $jc(
-                            $jc(
-                                $jc(
-                                    $jc(
-                                        $jc(
-                                            $jc(
-                                                $jc(
-                                                    $jc(
-                                                        $jc(
-                                                            $jc(
-                                                                $jc(
-                                                                    $jc(
-                                                                        $jc(
-                                                                            $jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc(0, bookedUser.hashCode), bookedCompany.hashCode), timeName.hashCode), timeOrder.hashCode), status.hashCode), bookedDate.hashCode), selectedCompanyServices.hashCode), carBody.hashCode), carName.hashCode), carOrder.hashCode),
-                                                                                cancelWhy.hashCode),
-                                                                            cancelComment.hashCode),
-                                                                        cancelTimeDate.hashCode),
-                                                                    id.hashCode),
-                                                                duration.hashCode),
-                                                            totalPrice.hashCode),
-                                                        notifyTimeName.hashCode),
-                                                    selectedTimesOrder.hashCode),
-                                                cancelled.hashCode),
-                                            bookedCompanyDocument.hashCode),
-                                        selectedCompanyServicesName.hashCode),
-                                    bookedDateString.hashCode),
-                                boxName.hashCode),
-                            forCarPay.hashCode),
-                        createdByUser.hashCode),
-                    createdByAdmin.hashCode),
-                createdAdminUserName.hashCode),
-            openedSuperAdmin.hashCode),
-        ffRef.hashCode));
+    var _$hash = 0;
+    _$hash = $jc(_$hash, bookedUser.hashCode);
+    _$hash = $jc(_$hash, bookedCompany.hashCode);
+    _$hash = $jc(_$hash, timeName.hashCode);
+    _$hash = $jc(_$hash, timeOrder.hashCode);
+    _$hash = $jc(_$hash, status.hashCode);
+    _$hash = $jc(_$hash, bookedDate.hashCode);
+    _$hash = $jc(_$hash, selectedCompanyServices.hashCode);
+    _$hash = $jc(_$hash, carBody.hashCode);
+    _$hash = $jc(_$hash, carName.hashCode);
+    _$hash = $jc(_$hash, carOrder.hashCode);
+    _$hash = $jc(_$hash, cancelWhy.hashCode);
+    _$hash = $jc(_$hash, cancelComment.hashCode);
+    _$hash = $jc(_$hash, cancelTimeDate.hashCode);
+    _$hash = $jc(_$hash, id.hashCode);
+    _$hash = $jc(_$hash, duration.hashCode);
+    _$hash = $jc(_$hash, totalPrice.hashCode);
+    _$hash = $jc(_$hash, notifyTimeName.hashCode);
+    _$hash = $jc(_$hash, selectedTimesOrder.hashCode);
+    _$hash = $jc(_$hash, cancelled.hashCode);
+    _$hash = $jc(_$hash, bookedCompanyDocument.hashCode);
+    _$hash = $jc(_$hash, selectedCompanyServicesName.hashCode);
+    _$hash = $jc(_$hash, bookedDateString.hashCode);
+    _$hash = $jc(_$hash, boxName.hashCode);
+    _$hash = $jc(_$hash, forCarPay.hashCode);
+    _$hash = $jc(_$hash, createdByUser.hashCode);
+    _$hash = $jc(_$hash, createdByAdmin.hashCode);
+    _$hash = $jc(_$hash, createdAdminUserName.hashCode);
+    _$hash = $jc(_$hash, openedSuperAdmin.hashCode);
+    _$hash = $jc(_$hash, ffRef.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
   }
 
   @override
@@ -855,4 +849,4 @@ class BookingsRecordBuilder
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas
+// ignore_for_file: deprecated_member_use_from_same_package,type=lint

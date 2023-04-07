@@ -14,6 +14,8 @@ import 'bookings_record.dart';
 import 'company_document_record.dart';
 import 'forcar_times_record.dart';
 import 'company_notifications_record.dart';
+import 'analytics_record.dart';
+import 'analytics_forcar_record.dart';
 
 import 'index.dart';
 
@@ -37,6 +39,8 @@ const kDocumentReferenceField = 'Document__Reference__Field';
   CompanyDocumentRecord,
   ForcarTimesRecord,
   CompanyNotificationsRecord,
+  AnalyticsRecord,
+  AnalyticsForcarRecord,
   UserPermissionsStruct,
 ])
 final Serializers serializers = (_$serializers.toBuilder()

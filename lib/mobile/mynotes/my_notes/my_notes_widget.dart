@@ -7,12 +7,12 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_toggle_icon.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
 import 'my_notes_model.dart';
 export 'my_notes_model.dart';
@@ -35,12 +35,6 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => MyNotesModel());
-
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      setState(() => _model.firestoreRequestCompleter = null);
-      setState(() => _model.documentRequestCompleter = null);
-    });
 
     getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
         .then((loc) => setState(() => currentUserLocationValue = loc));
@@ -66,19 +60,19 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
             width: 50.0,
             height: 50.0,
             child: CircularProgressIndicator(
-              color: FlutterFlowTheme.of(context).primaryColor,
+              color: FlutterFlowTheme.of(context).primary,
             ),
           ),
         ),
       );
     }
 
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: Colors.white,
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: Colors.white,
+        body: SafeArea(
           child: Container(
             width: double.infinity,
             height: double.infinity,
@@ -100,23 +94,21 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                       padding:
                           EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
                       child: FlutterFlowChoiceChips(
-                        initiallySelected: ['Мои записи'],
                         options: [ChipData('Мои записи'), ChipData('История')],
                         onChanged: (val) => setState(
                             () => _model.choiceChipsValue = val?.first),
                         selectedChipStyle: ChipStyle(
                           backgroundColor: Colors.white,
                           textStyle: FlutterFlowTheme.of(context)
-                              .bodyText1
+                              .bodyMedium
                               .override(
                                 fontFamily: FlutterFlowTheme.of(context)
-                                    .bodyText1Family,
-                                color:
-                                    FlutterFlowTheme.of(context).primaryColor,
+                                    .bodyMediumFamily,
+                                color: FlutterFlowTheme.of(context).primary,
                                 fontWeight: FontWeight.w500,
                                 useGoogleFonts: GoogleFonts.asMap().containsKey(
                                     FlutterFlowTheme.of(context)
-                                        .bodyText1Family),
+                                        .bodyMediumFamily),
                               ),
                           iconColor: Color(0x00000000),
                           iconSize: 0.0,
@@ -127,15 +119,15 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                         unselectedChipStyle: ChipStyle(
                           backgroundColor: Color(0xFFF0F0F0),
                           textStyle: FlutterFlowTheme.of(context)
-                              .bodyText2
+                              .bodySmall
                               .override(
                                 fontFamily: FlutterFlowTheme.of(context)
-                                    .bodyText2Family,
+                                    .bodySmallFamily,
                                 color: Color(0xFF323B45),
                                 fontWeight: FontWeight.w500,
                                 useGoogleFonts: GoogleFonts.asMap().containsKey(
                                     FlutterFlowTheme.of(context)
-                                        .bodyText2Family),
+                                        .bodySmallFamily),
                               ),
                           iconColor: Color(0x00000000),
                           iconSize: 0.0,
@@ -147,6 +139,10 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                         multiselect: false,
                         initialized: _model.choiceChipsValue != null,
                         alignment: WrapAlignment.spaceEvenly,
+                        controller: _model.choiceChipsController ??=
+                            FormFieldController<List<String>>(
+                          ['Мои записи'],
+                        ),
                       ),
                     ),
                   ),
@@ -172,8 +168,8 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                     width: 50.0,
                                     height: 50.0,
                                     child: CircularProgressIndicator(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryColor,
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
                                     ),
                                   ),
                                 );
@@ -212,7 +208,7 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                               child: CircularProgressIndicator(
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .primaryColor,
+                                                        .primary,
                                               ),
                                             ),
                                           );
@@ -339,11 +335,11 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                                                     padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 4.0, 0.0),
                                                                                     child: Text(
                                                                                       containerCompaniesRecord.name!,
-                                                                                      style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                            fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                             fontSize: 16.0,
                                                                                             fontWeight: FontWeight.w500,
-                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                           ),
                                                                                     ),
                                                                                   ),
@@ -352,7 +348,7 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                                                     height: 6.0,
                                                                                     decoration: BoxDecoration(
                                                                                       color: valueOrDefault<Color>(
-                                                                                        functions.closedOpened(getCurrentTimestamp, containerCompaniesRecord.openTimeOrder!, containerCompaniesRecord.closedTimeOrder!) == true ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).red1,
+                                                                                        functions.closedOpened(getCurrentTimestamp, containerCompaniesRecord.openTimeOrder!, containerCompaniesRecord.closedTimeOrder!) == true ? FlutterFlowTheme.of(context).primary : FlutterFlowTheme.of(context).red1,
                                                                                         Colors.white,
                                                                                       ),
                                                                                       shape: BoxShape.circle,
@@ -366,7 +362,7 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                                               child: RatingBarIndicator(
                                                                                 itemBuilder: (context, index) => Icon(
                                                                                   Icons.star_rounded,
-                                                                                  color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                  color: FlutterFlowTheme.of(context).primary,
                                                                                 ),
                                                                                 direction: Axis.horizontal,
                                                                                 rating: valueOrDefault<double>(
@@ -393,7 +389,7 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                                                   width: 50.0,
                                                                                   height: 50.0,
                                                                                   child: CircularProgressIndicator(
-                                                                                    color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                    color: FlutterFlowTheme.of(context).primary,
                                                                                   ),
                                                                                 ),
                                                                               );
@@ -418,12 +414,12 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                                               value: toggleIconUserRecord.favCompany!.toList().contains(containerCompaniesRecord.reference),
                                                                               onIcon: Icon(
                                                                                 FFIcons.kicSaveee,
-                                                                                color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                color: FlutterFlowTheme.of(context).primary,
                                                                                 size: 24.0,
                                                                               ),
                                                                               offIcon: Icon(
                                                                                 FFIcons.kproperty1unsaved,
-                                                                                color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                color: FlutterFlowTheme.of(context).primary,
                                                                                 size: 24.0,
                                                                               ),
                                                                             );
@@ -458,18 +454,18 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                                   .street!,
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyText1
+                                                                  .bodyMedium
                                                                   .override(
                                                                     fontFamily:
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family,
+                                                                            .bodyMediumFamily,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .normal,
                                                                     useGoogleFonts: GoogleFonts
                                                                             .asMap()
                                                                         .containsKey(
-                                                                            FlutterFlowTheme.of(context).bodyText1Family),
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                   ),
                                                             ),
                                                             Text(
@@ -490,11 +486,11 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyText1
+                                                                  .bodyMedium
                                                                   .override(
                                                                     fontFamily:
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family,
+                                                                            .bodyMediumFamily,
                                                                     color: Color(
                                                                         0xFF9CA3AF),
                                                                     fontWeight:
@@ -503,7 +499,7 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                                     useGoogleFonts: GoogleFonts
                                                                             .asMap()
                                                                         .containsKey(
-                                                                            FlutterFlowTheme.of(context).bodyText1Family),
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                   ),
                                                             ),
                                                           ],
@@ -560,7 +556,7 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                                       child:
                                                                           CircularProgressIndicator(
                                                                         color: FlutterFlowTheme.of(context)
-                                                                            .primaryColor,
+                                                                            .primary,
                                                                       ),
                                                                     ),
                                                                   );
@@ -572,14 +568,14 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                                   '${textCompanyServicesRecord.name},',
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1
+                                                                      .bodyMedium
                                                                       .override(
                                                                         fontFamily:
-                                                                            FlutterFlowTheme.of(context).bodyText1Family,
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                         useGoogleFonts:
-                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                       ),
                                                                 );
                                                               },
@@ -608,11 +604,11 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                                 'Время:',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1
+                                                                    .bodyMedium
                                                                     .override(
                                                                       fontFamily:
                                                                           FlutterFlowTheme.of(context)
-                                                                              .bodyText1Family,
+                                                                              .bodyMediumFamily,
                                                                       color: Color(
                                                                           0xFF9CA3AF),
                                                                       fontWeight:
@@ -621,7 +617,7 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                                       useGoogleFonts: GoogleFonts
                                                                               .asMap()
                                                                           .containsKey(
-                                                                              FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                     ),
                                                               ),
                                                               Padding(
@@ -641,14 +637,14 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1
+                                                                      .bodyMedium
                                                                       .override(
                                                                         fontFamily:
-                                                                            FlutterFlowTheme.of(context).bodyText1Family,
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                         fontWeight:
                                                                             FontWeight.w500,
                                                                         useGoogleFonts:
-                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                       ),
                                                                 ),
                                                               ),
@@ -665,11 +661,11 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                                 'Стоимость:',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1
+                                                                    .bodyMedium
                                                                     .override(
                                                                       fontFamily:
                                                                           FlutterFlowTheme.of(context)
-                                                                              .bodyText1Family,
+                                                                              .bodyMediumFamily,
                                                                       color: Color(
                                                                           0xFF9CA3AF),
                                                                       fontWeight:
@@ -678,7 +674,7 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                                       useGoogleFonts: GoogleFonts
                                                                               .asMap()
                                                                           .containsKey(
-                                                                              FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                     ),
                                                               ),
                                                               Padding(
@@ -697,14 +693,14 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1
+                                                                      .bodyMedium
                                                                       .override(
                                                                         fontFamily:
-                                                                            FlutterFlowTheme.of(context).bodyText1Family,
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                         fontWeight:
                                                                             FontWeight.w500,
                                                                         useGoogleFonts:
-                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                       ),
                                                                 ),
                                                               ),
@@ -741,11 +737,11 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                       textStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .subtitle2
+                                                              .titleSmall
                                                               .override(
                                                                 fontFamily: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .subtitle2Family,
+                                                                    .titleSmallFamily,
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryText,
@@ -754,14 +750,14 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .subtitle2Family),
+                                                                            .titleSmallFamily),
                                                               ),
                                                       elevation: 0.0,
                                                       borderSide: BorderSide(
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .primaryColor,
+                                                                .primary,
                                                         width: 1.0,
                                                       ),
                                                       borderRadius:
@@ -787,344 +783,400 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                   ),
                 if (_model.choiceChipsValue == 'История')
                   Expanded(
-                    child: FutureBuilder<List<BookingsRecord>>(
-                      future: (_model.firestoreRequestCompleter ??=
-                              Completer<List<BookingsRecord>>()
-                                ..complete(queryBookingsRecordOnce(
-                                  queryBuilder: (bookingsRecord) =>
-                                      bookingsRecord
-                                          .where('booked_user',
-                                              isEqualTo: currentUserReference)
-                                          .where('status',
-                                              isEqualTo: 'Закончено'),
-                                )))
-                          .future,
-                      builder: (context, snapshot) {
-                        // Customize what your widget looks like when it's loading.
-                        if (!snapshot.hasData) {
-                          return Center(
-                            child: SizedBox(
-                              width: 50.0,
-                              height: 50.0,
-                              child: CircularProgressIndicator(
-                                color:
-                                    FlutterFlowTheme.of(context).primaryColor,
-                              ),
+                    child: PagedListView<DocumentSnapshot<Object?>?,
+                        BookingsRecord>(
+                      pagingController: () {
+                        final Query<Object?> Function(Query<Object?>)
+                            queryBuilder = (bookingsRecord) => bookingsRecord
+                                .where('booked_user',
+                                    isEqualTo: currentUserReference)
+                                .where('status', isEqualTo: 'Закончено');
+                        if (_model.pagingController != null) {
+                          final query = queryBuilder(BookingsRecord.collection);
+                          if (query != _model.pagingQuery) {
+                            // The query has changed
+                            _model.pagingQuery = query;
+                            _model.streamSubscriptions
+                                .forEach((s) => s?.cancel());
+                            _model.streamSubscriptions.clear();
+                            _model.pagingController!.refresh();
+                          }
+                          return _model.pagingController!;
+                        }
+
+                        _model.pagingController =
+                            PagingController(firstPageKey: null);
+                        _model.pagingQuery =
+                            queryBuilder(BookingsRecord.collection);
+                        _model.pagingController!
+                            .addPageRequestListener((nextPageMarker) {
+                          queryBookingsRecordPage(
+                            queryBuilder: (bookingsRecord) => bookingsRecord
+                                .where('booked_user',
+                                    isEqualTo: currentUserReference)
+                                .where('status', isEqualTo: 'Закончено'),
+                            nextPageMarker: nextPageMarker,
+                            pageSize: 25,
+                            isStream: true,
+                          ).then((page) {
+                            _model.pagingController!.appendPage(
+                              page.data,
+                              page.nextPageMarker,
+                            );
+                            final streamSubscription =
+                                page.dataStream?.listen((data) {
+                              data.forEach((item) {
+                                final itemIndexes = _model
+                                    .pagingController!.itemList!
+                                    .asMap()
+                                    .map((k, v) => MapEntry(v.reference.id, k));
+                                final index = itemIndexes[item.reference.id];
+                                final items =
+                                    _model.pagingController!.itemList!;
+                                if (index != null) {
+                                  items.replaceRange(index, index + 1, [item]);
+                                  _model.pagingController!.itemList = {
+                                    for (var item in items) item.reference: item
+                                  }.values.toList();
+                                }
+                              });
+                              setState(() {});
+                            });
+                            _model.streamSubscriptions.add(streamSubscription);
+                          });
+                        });
+                        return _model.pagingController!;
+                      }(),
+                      padding: EdgeInsets.zero,
+                      reverse: false,
+                      scrollDirection: Axis.vertical,
+                      builderDelegate:
+                          PagedChildBuilderDelegate<BookingsRecord>(
+                        // Customize what your widget looks like when it's loading the first page.
+                        firstPageProgressIndicatorBuilder: (_) => Center(
+                          child: SizedBox(
+                            width: 50.0,
+                            height: 50.0,
+                            child: CircularProgressIndicator(
+                              color: FlutterFlowTheme.of(context).primary,
                             ),
-                          );
-                        }
-                        List<BookingsRecord> choiceHistoryBookingsRecordList =
-                            snapshot.data!;
-                        if (choiceHistoryBookingsRecordList.isEmpty) {
-                          return EmptyBookedHistoryWidget();
-                        }
-                        return SingleChildScrollView(
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: List.generate(
-                                choiceHistoryBookingsRecordList.length,
-                                (choiceHistoryIndex) {
-                              final choiceHistoryBookingsRecord =
-                                  choiceHistoryBookingsRecordList[
-                                      choiceHistoryIndex];
-                              return Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 12.0, 16.0, 0.0),
-                                child: InkWell(
-                                  onTap: () async {
-                                    context.goNamed(
-                                      'current_booking_record',
-                                      queryParams: {
-                                        'booking': serializeParam(
-                                          choiceHistoryBookingsRecord.reference,
-                                          ParamType.DocumentReference,
-                                        ),
-                                      }.withoutNulls,
-                                    );
-                                  },
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
-                                      borderRadius: BorderRadius.circular(8.0),
-                                      border: Border.all(
-                                        color: Color(0xFFD6D6D6),
-                                      ),
+                          ),
+                        ),
+                        noItemsFoundIndicatorBuilder: (_) =>
+                            EmptyBookedHistoryWidget(),
+                        itemBuilder: (context, _, choiceHistoryIndex) {
+                          final choiceHistoryBookingsRecord = _model
+                              .pagingController!.itemList![choiceHistoryIndex];
+                          return Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                16.0, 12.0, 16.0, 0.0),
+                            child: InkWell(
+                              onTap: () async {
+                                context.goNamed(
+                                  'current_booking_record',
+                                  queryParams: {
+                                    'booking': serializeParam(
+                                      choiceHistoryBookingsRecord.reference,
+                                      ParamType.DocumentReference,
                                     ),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          12.0, 12.0, 12.0, 12.0),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.stretch,
-                                        children: [
-                                          StreamBuilder<CompaniesRecord>(
-                                            stream: CompaniesRecord.getDocument(
-                                                choiceHistoryBookingsRecord
-                                                    .bookedCompany!),
-                                            builder: (context, snapshot) {
-                                              // Customize what your widget looks like when it's loading.
-                                              if (!snapshot.hasData) {
-                                                return Center(
-                                                  child: SizedBox(
-                                                    width: 50.0,
-                                                    height: 50.0,
-                                                    child:
-                                                        CircularProgressIndicator(
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primaryColor,
-                                                    ),
-                                                  ),
-                                                );
-                                              }
-                                              final columnCompaniesRecord =
-                                                  snapshot.data!;
-                                              return Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 8.0),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Container(
-                                                          width: 40.0,
-                                                          height: 40.0,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryBackground,
-                                                            image:
-                                                                DecorationImage(
-                                                              fit: BoxFit
-                                                                  .contain,
-                                                              image:
-                                                                  Image.network(
-                                                                valueOrDefault<
-                                                                    String>(
-                                                                  columnCompaniesRecord
-                                                                      .logo,
-                                                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/e4car-dch9vg/assets/mq76tomaqbk1/4car.png',
-                                                                ),
-                                                              ).image,
+                                  }.withoutNulls,
+                                );
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .primaryBackground,
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  border: Border.all(
+                                    color: Color(0xFFD6D6D6),
+                                  ),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 12.0, 12.0, 12.0),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.stretch,
+                                    children: [
+                                      StreamBuilder<CompaniesRecord>(
+                                        stream: CompaniesRecord.getDocument(
+                                            choiceHistoryBookingsRecord
+                                                .bookedCompany!),
+                                        builder: (context, snapshot) {
+                                          // Customize what your widget looks like when it's loading.
+                                          if (!snapshot.hasData) {
+                                            return Center(
+                                              child: SizedBox(
+                                                width: 50.0,
+                                                height: 50.0,
+                                                child:
+                                                    CircularProgressIndicator(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primary,
+                                                ),
+                                              ),
+                                            );
+                                          }
+                                          final columnCompaniesRecord =
+                                              snapshot.data!;
+                                          return Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 0.0, 8.0),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Container(
+                                                      width: 40.0,
+                                                      height: 40.0,
+                                                      decoration: BoxDecoration(
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .primaryBackground,
+                                                        image: DecorationImage(
+                                                          fit: BoxFit.contain,
+                                                          image: Image.network(
+                                                            valueOrDefault<
+                                                                String>(
+                                                              columnCompaniesRecord
+                                                                  .logo,
+                                                              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/e4car-dch9vg/assets/mq76tomaqbk1/4car.png',
                                                             ),
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        8.0),
-                                                          ),
+                                                          ).image,
                                                         ),
-                                                        Expanded(
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        14.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Column(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                      ),
+                                                    ),
+                                                    Expanded(
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    14.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        child: Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            Row(
                                                               mainAxisSize:
                                                                   MainAxisSize
                                                                       .max,
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .spaceBetween,
                                                               children: [
-                                                                Row(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  mainAxisAlignment:
-                                                                      MainAxisAlignment
-                                                                          .spaceBetween,
-                                                                  children: [
-                                                                    Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          6.0),
-                                                                      child:
-                                                                          Row(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        children: [
-                                                                          Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0.0,
-                                                                                0.0,
-                                                                                4.0,
-                                                                                0.0),
-                                                                            child:
-                                                                                Text(
-                                                                              columnCompaniesRecord.name!,
-                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
-                                                                                    fontSize: 16.0,
-                                                                                    fontWeight: FontWeight.w500,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
-                                                                                  ),
-                                                                            ),
-                                                                          ),
-                                                                          Container(
-                                                                            width:
-                                                                                6.0,
-                                                                            height:
-                                                                                6.0,
-                                                                            decoration:
-                                                                                BoxDecoration(
-                                                                              color: valueOrDefault<Color>(
-                                                                                functions.closedOpened(getCurrentTimestamp, columnCompaniesRecord.openTimeOrder!, columnCompaniesRecord.closedTimeOrder!) == true ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).red1,
-                                                                                Colors.white,
-                                                                              ),
-                                                                              shape: BoxShape.circle,
-                                                                            ),
-                                                                          ),
-                                                                        ],
-                                                                      ),
-                                                                    ),
-                                                                    StreamBuilder<
-                                                                        UserRecord>(
-                                                                      stream: UserRecord
-                                                                          .getDocument(
-                                                                              currentUserReference!),
-                                                                      builder:
-                                                                          (context,
-                                                                              snapshot) {
-                                                                        // Customize what your widget looks like when it's loading.
-                                                                        if (!snapshot
-                                                                            .hasData) {
-                                                                          return Center(
-                                                                            child:
-                                                                                SizedBox(
-                                                                              width: 50.0,
-                                                                              height: 50.0,
-                                                                              child: CircularProgressIndicator(
-                                                                                color: FlutterFlowTheme.of(context).primaryColor,
-                                                                              ),
-                                                                            ),
-                                                                          );
-                                                                        }
-                                                                        final toggleIconUserRecord =
-                                                                            snapshot.data!;
-                                                                        return ToggleIcon(
-                                                                          onPressed:
-                                                                              () async {
-                                                                            final favCompanyElement =
-                                                                                columnCompaniesRecord.reference;
-                                                                            final favCompanyUpdate = toggleIconUserRecord.favCompany!.toList().contains(favCompanyElement)
-                                                                                ? FieldValue.arrayRemove([
-                                                                                    favCompanyElement
-                                                                                  ])
-                                                                                : FieldValue.arrayUnion([
-                                                                                    favCompanyElement
-                                                                                  ]);
-                                                                            final userUpdateData =
-                                                                                {
-                                                                              'favCompany': favCompanyUpdate,
-                                                                            };
-                                                                            await toggleIconUserRecord.reference.update(userUpdateData);
-                                                                          },
-                                                                          value: toggleIconUserRecord
-                                                                              .favCompany!
-                                                                              .toList()
-                                                                              .contains(columnCompaniesRecord.reference),
-                                                                          onIcon:
-                                                                              Icon(
-                                                                            FFIcons.kicSaveee,
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).primaryColor,
-                                                                            size:
-                                                                                24.0,
-                                                                          ),
-                                                                          offIcon:
-                                                                              Icon(
-                                                                            FFIcons.kproperty1unsaved,
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).primaryColor,
-                                                                            size:
-                                                                                24.0,
-                                                                          ),
-                                                                        );
-                                                                      },
-                                                                    ),
-                                                                  ],
-                                                                ),
                                                                 Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,
-                                                                          4.0),
-                                                                  child:
-                                                                      RatingBarIndicator(
-                                                                    itemBuilder:
-                                                                        (context,
-                                                                                index) =>
-                                                                            Icon(
-                                                                      Icons
-                                                                          .star_rounded,
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primaryColor,
-                                                                    ),
-                                                                    direction: Axis
-                                                                        .horizontal,
-                                                                    rating: valueOrDefault<
-                                                                        double>(
-                                                                      functions.averageRating(columnCompaniesRecord
-                                                                          .rating!
-                                                                          .toList()),
-                                                                      0.0,
-                                                                    ),
-                                                                    unratedColor:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .starblue,
-                                                                    itemCount:
-                                                                        5,
-                                                                    itemSize:
-                                                                        14.0,
+                                                                          6.0),
+                                                                  child: Row(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    children: [
+                                                                      Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            4.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            Text(
+                                                                          columnCompaniesRecord
+                                                                              .name!,
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                fontSize: 16.0,
+                                                                                fontWeight: FontWeight.w500,
+                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                              ),
+                                                                        ),
+                                                                      ),
+                                                                      Container(
+                                                                        width:
+                                                                            6.0,
+                                                                        height:
+                                                                            6.0,
+                                                                        decoration:
+                                                                            BoxDecoration(
+                                                                          color:
+                                                                              valueOrDefault<Color>(
+                                                                            functions.closedOpened(getCurrentTimestamp, columnCompaniesRecord.openTimeOrder!, columnCompaniesRecord.closedTimeOrder!) == true
+                                                                                ? FlutterFlowTheme.of(context).primary
+                                                                                : FlutterFlowTheme.of(context).red1,
+                                                                            Colors.white,
+                                                                          ),
+                                                                          shape:
+                                                                              BoxShape.circle,
+                                                                        ),
+                                                                      ),
+                                                                    ],
                                                                   ),
+                                                                ),
+                                                                StreamBuilder<
+                                                                    UserRecord>(
+                                                                  stream: UserRecord
+                                                                      .getDocument(
+                                                                          currentUserReference!),
+                                                                  builder: (context,
+                                                                      snapshot) {
+                                                                    // Customize what your widget looks like when it's loading.
+                                                                    if (!snapshot
+                                                                        .hasData) {
+                                                                      return Center(
+                                                                        child:
+                                                                            SizedBox(
+                                                                          width:
+                                                                              50.0,
+                                                                          height:
+                                                                              50.0,
+                                                                          child:
+                                                                              CircularProgressIndicator(
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primary,
+                                                                          ),
+                                                                        ),
+                                                                      );
+                                                                    }
+                                                                    final toggleIconUserRecord =
+                                                                        snapshot
+                                                                            .data!;
+                                                                    return ToggleIcon(
+                                                                      onPressed:
+                                                                          () async {
+                                                                        final favCompanyElement =
+                                                                            columnCompaniesRecord.reference;
+                                                                        final favCompanyUpdate = toggleIconUserRecord.favCompany!.toList().contains(favCompanyElement)
+                                                                            ? FieldValue.arrayRemove([
+                                                                                favCompanyElement
+                                                                              ])
+                                                                            : FieldValue.arrayUnion([
+                                                                                favCompanyElement
+                                                                              ]);
+                                                                        final userUpdateData =
+                                                                            {
+                                                                          'favCompany':
+                                                                              favCompanyUpdate,
+                                                                        };
+                                                                        await toggleIconUserRecord
+                                                                            .reference
+                                                                            .update(userUpdateData);
+                                                                      },
+                                                                      value: toggleIconUserRecord
+                                                                          .favCompany!
+                                                                          .toList()
+                                                                          .contains(
+                                                                              columnCompaniesRecord.reference),
+                                                                      onIcon:
+                                                                          Icon(
+                                                                        FFIcons
+                                                                            .kicSaveee,
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primary,
+                                                                        size:
+                                                                            24.0,
+                                                                      ),
+                                                                      offIcon:
+                                                                          Icon(
+                                                                        FFIcons
+                                                                            .kproperty1unsaved,
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primary,
+                                                                        size:
+                                                                            24.0,
+                                                                      ),
+                                                                    );
+                                                                  },
                                                                 ),
                                                               ],
                                                             ),
-                                                          ),
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          4.0),
+                                                              child:
+                                                                  RatingBarIndicator(
+                                                                itemBuilder:
+                                                                    (context,
+                                                                            index) =>
+                                                                        Icon(
+                                                                  Icons
+                                                                      .star_rounded,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
+                                                                ),
+                                                                direction: Axis
+                                                                    .horizontal,
+                                                                rating:
+                                                                    valueOrDefault<
+                                                                        double>(
+                                                                  functions.averageRating(
+                                                                      columnCompaniesRecord
+                                                                          .rating!
+                                                                          .toList()),
+                                                                  0.0,
+                                                                ),
+                                                                unratedColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .starblue,
+                                                                itemCount: 5,
+                                                                itemSize: 14.0,
+                                                              ),
+                                                            ),
+                                                          ],
                                                         ),
-                                                      ],
+                                                      ),
                                                     ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 12.0),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceBetween,
-                                                      children: [
-                                                        Text(
-                                                          columnCompaniesRecord
-                                                              .street!,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyText1
+                                                  ],
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 0.0, 12.0),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Text(
+                                                      columnCompaniesRecord
+                                                          .street!,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1Family,
+                                                                    .bodyMediumFamily,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
@@ -1132,32 +1184,31 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
-                                                        ),
-                                                        Text(
-                                                          valueOrDefault<
-                                                              String>(
-                                                            '${formatNumber(
-                                                              functions.returnDistanceBetweenTwoPoints(
-                                                                  currentUserLocationValue,
-                                                                  columnCompaniesRecord
-                                                                      .location),
-                                                              formatType:
-                                                                  FormatType
-                                                                      .custom,
-                                                              format: '',
-                                                              locale: '',
-                                                            )}км',
-                                                            '----',
-                                                          ),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyText1
+                                                    ),
+                                                    Text(
+                                                      valueOrDefault<String>(
+                                                        '${formatNumber(
+                                                          functions.returnDistanceBetweenTwoPoints(
+                                                              currentUserLocationValue,
+                                                              columnCompaniesRecord
+                                                                  .location),
+                                                          formatType:
+                                                              FormatType.custom,
+                                                          format: '',
+                                                          locale: '',
+                                                        )}км',
+                                                        '----',
+                                                      ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1Family,
+                                                                    .bodyMediumFamily,
                                                                 color: Color(
                                                                     0xFF9CA3AF),
                                                                 fontWeight:
@@ -1167,74 +1218,72 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
-                                                        ),
-                                                      ],
                                                     ),
-                                                  ),
-                                                ],
-                                              );
-                                            },
-                                          ),
-                                          Divider(
-                                            thickness: 1.0,
-                                            color: Color(0xFFF2F2F2),
-                                          ),
-                                          Builder(
-                                            builder: (context) {
-                                              final services =
-                                                  choiceHistoryBookingsRecord
-                                                      .selectedCompanyServices!
-                                                      .toList()
-                                                      .take(2)
-                                                      .toList();
-                                              return Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                children: List.generate(
-                                                    services.length,
+                                                  ],
+                                                ),
+                                              ),
+                                            ],
+                                          );
+                                        },
+                                      ),
+                                      Divider(
+                                        thickness: 1.0,
+                                        color: Color(0xFFF2F2F2),
+                                      ),
+                                      Builder(
+                                        builder: (context) {
+                                          final services =
+                                              choiceHistoryBookingsRecord
+                                                  .selectedCompanyServices!
+                                                  .toList()
+                                                  .take(2)
+                                                  .toList();
+                                          return Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children:
+                                                List.generate(services.length,
                                                     (servicesIndex) {
-                                                  final servicesItem =
-                                                      services[servicesIndex];
-                                                  return Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 12.0,
-                                                                4.0, 16.0),
-                                                    child: StreamBuilder<
-                                                        CompanyServicesRecord>(
-                                                      stream:
-                                                          CompanyServicesRecord
-                                                              .getDocument(
-                                                                  servicesItem),
-                                                      builder:
-                                                          (context, snapshot) {
-                                                        // Customize what your widget looks like when it's loading.
-                                                        if (!snapshot.hasData) {
-                                                          return Center(
-                                                            child: SizedBox(
-                                                              width: 50.0,
-                                                              height: 50.0,
-                                                              child:
-                                                                  CircularProgressIndicator(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryColor,
-                                                              ),
-                                                            ),
-                                                          );
-                                                        }
-                                                        final textCompanyServicesRecord =
-                                                            snapshot.data!;
-                                                        return Text(
-                                                          '${textCompanyServicesRecord.name},',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyText1
+                                              final servicesItem =
+                                                  services[servicesIndex];
+                                              return Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 12.0, 4.0, 16.0),
+                                                child: StreamBuilder<
+                                                    CompanyServicesRecord>(
+                                                  stream: CompanyServicesRecord
+                                                      .getDocument(
+                                                          servicesItem),
+                                                  builder: (context, snapshot) {
+                                                    // Customize what your widget looks like when it's loading.
+                                                    if (!snapshot.hasData) {
+                                                      return Center(
+                                                        child: SizedBox(
+                                                          width: 50.0,
+                                                          height: 50.0,
+                                                          child:
+                                                              CircularProgressIndicator(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primary,
+                                                          ),
+                                                        ),
+                                                      );
+                                                    }
+                                                    final textCompanyServicesRecord =
+                                                        snapshot.data!;
+                                                    return Text(
+                                                      '${textCompanyServicesRecord.name},',
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1Family,
+                                                                    .bodyMediumFamily,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
@@ -1242,251 +1291,231 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
-                                                        );
-                                                      },
-                                                    ),
-                                                  );
-                                                }),
+                                                    );
+                                                  },
+                                                ),
                                               );
-                                            },
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 16.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Expanded(
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Text(
-                                                        'Время:',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyText1
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
+                                            }),
+                                          );
+                                        },
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 0.0, 16.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Expanded(
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Text(
+                                                    'Время:',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMediumFamily,
+                                                          color:
+                                                              Color(0xFF9CA3AF),
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1Family,
-                                                                  color: Color(
-                                                                      0xFF9CA3AF),
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyText1Family),
-                                                                ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    4.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: Text(
-                                                          valueOrDefault<
-                                                              String>(
-                                                            '${choiceHistoryBookingsRecord.duration?.toString()} мин',
-                                                            '0 мин',
-                                                          ),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyText1
-                                                              .override(
-                                                                fontFamily: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyText1Family,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
-                                                              ),
+                                                                      .bodyMediumFamily),
                                                         ),
-                                                      ),
-                                                    ],
                                                   ),
-                                                ),
-                                                Expanded(
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Text(
-                                                        'Стоимость:',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyText1
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyText1Family,
-                                                                  color: Color(
-                                                                      0xFF9CA3AF),
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyText1Family),
-                                                                ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(4.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Text(
+                                                      valueOrDefault<String>(
+                                                        '${choiceHistoryBookingsRecord.duration?.toString()} мин',
+                                                        '0 мин',
                                                       ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    4.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: Text(
-                                                          valueOrDefault<
-                                                              String>(
-                                                            '${choiceHistoryBookingsRecord.totalPrice?.toString()} тг',
-                                                            '0  тг',
-                                                          ),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyText1
-                                                              .override(
-                                                                fontFamily: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyText1Family,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
-                                                              ),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          FutureBuilder<CompaniesRecord>(
-                                            future: (_model
-                                                        .documentRequestCompleter ??=
-                                                    Completer<CompaniesRecord>()
-                                                      ..complete(CompaniesRecord
-                                                          .getDocumentOnce(
-                                                              choiceHistoryBookingsRecord
-                                                                  .bookedCompany!)))
-                                                .future,
-                                            builder: (context, snapshot) {
-                                              // Customize what your widget looks like when it's loading.
-                                              if (!snapshot.hasData) {
-                                                return Center(
-                                                  child: SizedBox(
-                                                    width: 50.0,
-                                                    height: 50.0,
-                                                    child:
-                                                        CircularProgressIndicator(
-                                                      color:
+                                                      style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .primaryColor,
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily),
+                                                              ),
                                                     ),
                                                   ),
+                                                ],
+                                              ),
+                                            ),
+                                            Expanded(
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Text(
+                                                    'Стоимость:',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMediumFamily,
+                                                          color:
+                                                              Color(0xFF9CA3AF),
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily),
+                                                        ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(4.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Text(
+                                                      valueOrDefault<String>(
+                                                        '${choiceHistoryBookingsRecord.totalPrice?.toString()} тг',
+                                                        '0  тг',
+                                                      ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily),
+                                                              ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      FutureBuilder<CompaniesRecord>(
+                                        future: CompaniesRecord.getDocumentOnce(
+                                            choiceHistoryBookingsRecord
+                                                .bookedCompany!),
+                                        builder: (context, snapshot) {
+                                          // Customize what your widget looks like when it's loading.
+                                          if (!snapshot.hasData) {
+                                            return Center(
+                                              child: SizedBox(
+                                                width: 50.0,
+                                                height: 50.0,
+                                                child:
+                                                    CircularProgressIndicator(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primary,
+                                                ),
+                                              ),
+                                            );
+                                          }
+                                          final buttonCompaniesRecord =
+                                              snapshot.data!;
+                                          return FFButtonWidget(
+                                            onPressed: () async {
+                                              if (valueOrDefault(
+                                                      currentUserDocument
+                                                          ?.carscount,
+                                                      0) <
+                                                  1) {
+                                                context.pushNamed(
+                                                  'edit_profile',
+                                                  queryParams: {
+                                                    'page': serializeParam(
+                                                      'carNull',
+                                                      ParamType.String,
+                                                    ),
+                                                  }.withoutNulls,
+                                                );
+                                              } else {
+                                                FFAppState().update(() {
+                                                  FFAppState().selectedCar =
+                                                      currentUserDocument!
+                                                          .firstCar;
+                                                  FFAppState()
+                                                      .selectedServices = [];
+                                                  FFAppState()
+                                                      .bookingSelectedServicesName = [];
+                                                });
+                                                FFAppState().update(() {
+                                                  FFAppState()
+                                                      .selectedTimeSlot = null;
+                                                  FFAppState().price = 0;
+                                                });
+                                                FFAppState().update(() {
+                                                  FFAppState().selectPush =
+                                                      1000;
+                                                });
+
+                                                context.pushNamed(
+                                                  'booking_page',
+                                                  queryParams: {
+                                                    'company': serializeParam(
+                                                      buttonCompaniesRecord,
+                                                      ParamType.Document,
+                                                    ),
+                                                  }.withoutNulls,
+                                                  extra: <String, dynamic>{
+                                                    'company':
+                                                        buttonCompaniesRecord,
+                                                  },
                                                 );
                                               }
-                                              final buttonCompaniesRecord =
-                                                  snapshot.data!;
-                                              return FFButtonWidget(
-                                                onPressed: () async {
-                                                  if (valueOrDefault(
-                                                          currentUserDocument
-                                                              ?.carscount,
-                                                          0) <
-                                                      1) {
-                                                    context.pushNamed(
-                                                      'edit_profile',
-                                                      queryParams: {
-                                                        'page': serializeParam(
-                                                          'carNull',
-                                                          ParamType.String,
-                                                        ),
-                                                      }.withoutNulls,
-                                                    );
-                                                  } else {
-                                                    FFAppState().update(() {
-                                                      FFAppState().selectedCar =
-                                                          currentUserDocument!
-                                                              .firstCar;
-                                                      FFAppState()
-                                                          .selectedServices = [];
-                                                      FFAppState()
-                                                          .bookingSelectedServicesName = [];
-                                                    });
-                                                    FFAppState().update(() {
-                                                      FFAppState()
-                                                              .selectedTimeSlot =
-                                                          null;
-                                                      FFAppState().price = 0;
-                                                    });
-                                                    FFAppState().update(() {
-                                                      FFAppState().selectPush =
-                                                          1000;
-                                                    });
-
-                                                    context.pushNamed(
-                                                      'booking_page',
-                                                      queryParams: {
-                                                        'company':
-                                                            serializeParam(
-                                                          buttonCompaniesRecord,
-                                                          ParamType.Document,
-                                                        ),
-                                                      }.withoutNulls,
-                                                      extra: <String, dynamic>{
-                                                        'company':
-                                                            buttonCompaniesRecord,
-                                                      },
-                                                    );
-                                                  }
-                                                },
-                                                text: 'Записаться снова',
-                                                options: FFButtonOptions(
-                                                  width: 130.0,
-                                                  height: 40.0,
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 0.0, 0.0),
-                                                  iconPadding:
-                                                      EdgeInsetsDirectional
-                                                          .fromSTEB(0.0, 0.0,
-                                                              0.0, 0.0),
-                                                  color: Colors.white,
-                                                  textStyle: FlutterFlowTheme
-                                                          .of(context)
-                                                      .subtitle2
+                                            },
+                                            text: 'Записаться снова',
+                                            options: FFButtonOptions(
+                                              width: 130.0,
+                                              height: 40.0,
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                              iconPadding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                              color: Colors.white,
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
                                                       .override(
                                                         fontFamily:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .subtitle2Family,
+                                                                .titleSmallFamily,
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -1497,32 +1526,29 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                                                             .containsKey(
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .subtitle2Family),
+                                                                    .titleSmallFamily),
                                                       ),
-                                                  elevation: 0.0,
-                                                  borderSide: BorderSide(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryColor,
-                                                    width: 1.0,
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
-                                                ),
-                                              );
-                                            },
-                                          ),
-                                        ],
+                                              elevation: 0.0,
+                                              borderSide: BorderSide(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                            ),
+                                          );
+                                        },
                                       ),
-                                    ),
+                                    ],
                                   ),
                                 ),
-                              );
-                            }),
-                          ),
-                        );
-                      },
+                              ),
+                            ),
+                          );
+                        },
+                      ),
                     ),
                   ),
               ],

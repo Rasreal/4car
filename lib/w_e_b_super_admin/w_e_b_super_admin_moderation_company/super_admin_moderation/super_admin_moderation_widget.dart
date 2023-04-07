@@ -46,12 +46,12 @@ class _SuperAdminModerationWidgetState
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+        body: SafeArea(
           child: Stack(
             children: [
               Column(
@@ -106,7 +106,7 @@ class _SuperAdminModerationWidgetState
                                           Text(
                                             'Назад',
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyText1
+                                                .bodyMedium
                                                 .override(
                                                   fontFamily: 'Inter',
                                                   fontWeight: FontWeight.w500,
@@ -115,7 +115,7 @@ class _SuperAdminModerationWidgetState
                                                       .containsKey(
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyText1Family),
+                                                              .bodyMediumFamily),
                                                 ),
                                           ),
                                         ],
@@ -128,14 +128,14 @@ class _SuperAdminModerationWidgetState
                                     child: Text(
                                       'Компании на модерации',
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyText1
+                                          .bodyMedium
                                           .override(
                                             fontFamily: 'Inter',
                                             fontSize: 24.0,
                                             useGoogleFonts: GoogleFonts.asMap()
                                                 .containsKey(
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText1Family),
+                                                        .bodyMediumFamily),
                                           ),
                                     ),
                                   ),
@@ -170,7 +170,7 @@ class _SuperAdminModerationWidgetState
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Inter',
@@ -184,7 +184,7 @@ class _SuperAdminModerationWidgetState
                                                                           .asMap()
                                                                       .containsKey(
                                                                           FlutterFlowTheme.of(context)
-                                                                              .bodyText1Family),
+                                                                              .bodyMediumFamily),
                                                                 ),
                                                       ),
                                                     ],
@@ -201,7 +201,7 @@ class _SuperAdminModerationWidgetState
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Inter',
@@ -215,7 +215,7 @@ class _SuperAdminModerationWidgetState
                                                                           .asMap()
                                                                       .containsKey(
                                                                           FlutterFlowTheme.of(context)
-                                                                              .bodyText1Family),
+                                                                              .bodyMediumFamily),
                                                                 ),
                                                       ),
                                                     ],
@@ -227,7 +227,7 @@ class _SuperAdminModerationWidgetState
                                                     'Автомойка',
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyText1
+                                                        .bodyMedium
                                                         .override(
                                                           fontFamily: 'Inter',
                                                           color: FlutterFlowTheme
@@ -240,7 +240,7 @@ class _SuperAdminModerationWidgetState
                                                               .containsKey(
                                                                   FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1Family),
+                                                                      .bodyMediumFamily),
                                                         ),
                                                   ),
                                                 ),
@@ -250,7 +250,7 @@ class _SuperAdminModerationWidgetState
                                                     'Город',
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyText1
+                                                        .bodyMedium
                                                         .override(
                                                           fontFamily: 'Inter',
                                                           color: FlutterFlowTheme
@@ -263,7 +263,7 @@ class _SuperAdminModerationWidgetState
                                                               .containsKey(
                                                                   FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1Family),
+                                                                      .bodyMediumFamily),
                                                         ),
                                                   ),
                                                 ),
@@ -273,7 +273,7 @@ class _SuperAdminModerationWidgetState
                                                     'Улица',
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyText1
+                                                        .bodyMedium
                                                         .override(
                                                           fontFamily: 'Inter',
                                                           color: FlutterFlowTheme
@@ -286,7 +286,7 @@ class _SuperAdminModerationWidgetState
                                                               .containsKey(
                                                                   FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1Family),
+                                                                      .bodyMediumFamily),
                                                         ),
                                                   ),
                                                 ),
@@ -301,7 +301,7 @@ class _SuperAdminModerationWidgetState
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Inter',
@@ -315,7 +315,7 @@ class _SuperAdminModerationWidgetState
                                                                           .asMap()
                                                                       .containsKey(
                                                                           FlutterFlowTheme.of(context)
-                                                                              .bodyText1Family),
+                                                                              .bodyMediumFamily),
                                                                 ),
                                                       ),
                                                       Padding(
@@ -343,7 +343,7 @@ class _SuperAdminModerationWidgetState
                                                     'Действие',
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyText1
+                                                        .bodyMedium
                                                         .override(
                                                           fontFamily: 'Inter',
                                                           color: FlutterFlowTheme
@@ -356,7 +356,7 @@ class _SuperAdminModerationWidgetState
                                                               .containsKey(
                                                                   FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1Family),
+                                                                      .bodyMediumFamily),
                                                         ),
                                                   ),
                                                 ),
@@ -387,7 +387,7 @@ class _SuperAdminModerationWidgetState
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .primaryColor,
+                                                              .primary,
                                                     ),
                                                   ),
                                                 );
@@ -434,7 +434,7 @@ class _SuperAdminModerationWidgetState
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1
+                                                                    .bodyMedium
                                                                     .override(
                                                                       fontFamily:
                                                                           'Roboto',
@@ -447,7 +447,7 @@ class _SuperAdminModerationWidgetState
                                                                       useGoogleFonts: GoogleFonts
                                                                               .asMap()
                                                                           .containsKey(
-                                                                              FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                     ),
                                                               ),
                                                             ),
@@ -496,7 +496,7 @@ class _SuperAdminModerationWidgetState
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1
+                                                                    .bodyMedium
                                                                     .override(
                                                                       fontFamily:
                                                                           'Roboto',
@@ -509,7 +509,7 @@ class _SuperAdminModerationWidgetState
                                                                       useGoogleFonts: GoogleFonts
                                                                               .asMap()
                                                                           .containsKey(
-                                                                              FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                     ),
                                                               ),
                                                             ),
@@ -520,7 +520,7 @@ class _SuperAdminModerationWidgetState
                                                                     .city!,
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1
+                                                                    .bodyMedium
                                                                     .override(
                                                                       fontFamily:
                                                                           'Roboto',
@@ -533,7 +533,7 @@ class _SuperAdminModerationWidgetState
                                                                       useGoogleFonts: GoogleFonts
                                                                               .asMap()
                                                                           .containsKey(
-                                                                              FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                     ),
                                                               ),
                                                             ),
@@ -544,7 +544,7 @@ class _SuperAdminModerationWidgetState
                                                                     .street!,
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1
+                                                                    .bodyMedium
                                                                     .override(
                                                                       fontFamily:
                                                                           'Roboto',
@@ -557,7 +557,7 @@ class _SuperAdminModerationWidgetState
                                                                       useGoogleFonts: GoogleFonts
                                                                               .asMap()
                                                                           .containsKey(
-                                                                              FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                     ),
                                                               ),
                                                             ),
@@ -574,7 +574,7 @@ class _SuperAdminModerationWidgetState
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1
+                                                                    .bodyMedium
                                                                     .override(
                                                                       fontFamily:
                                                                           'Roboto',
@@ -587,7 +587,7 @@ class _SuperAdminModerationWidgetState
                                                                       useGoogleFonts: GoogleFonts
                                                                               .asMap()
                                                                           .containsKey(
-                                                                              FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                     ),
                                                               ),
                                                             ),
@@ -614,16 +614,21 @@ class _SuperAdminModerationWidgetState
                                                                               true,
                                                                           backgroundColor:
                                                                               Color(0x67272727),
+                                                                          barrierColor:
+                                                                              Color(0x00000000),
                                                                           enableDrag:
                                                                               false,
                                                                           context:
                                                                               context,
                                                                           builder:
-                                                                              (context) {
-                                                                            return Padding(
-                                                                              padding: MediaQuery.of(context).viewInsets,
-                                                                              child: SuperAdminRejectModerationWidget(
-                                                                                company: listViewCompaniesRecord.reference,
+                                                                              (bottomSheetContext) {
+                                                                            return GestureDetector(
+                                                                              onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+                                                                              child: Padding(
+                                                                                padding: MediaQuery.of(bottomSheetContext).viewInsets,
+                                                                                child: SuperAdminRejectModerationWidget(
+                                                                                  company: listViewCompaniesRecord.reference,
+                                                                                ),
                                                                               ),
                                                                             );
                                                                           },
@@ -651,20 +656,20 @@ class _SuperAdminModerationWidgetState
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryBackground,
                                                                         textStyle: FlutterFlowTheme.of(context)
-                                                                            .subtitle2
+                                                                            .titleSmall
                                                                             .override(
                                                                               fontFamily: 'Inter',
-                                                                              color: FlutterFlowTheme.of(context).primaryColor,
+                                                                              color: FlutterFlowTheme.of(context).primary,
                                                                               fontSize: 14.0,
                                                                               fontWeight: FontWeight.normal,
-                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleSmallFamily),
                                                                             ),
                                                                         elevation:
                                                                             0.0,
                                                                         borderSide:
                                                                             BorderSide(
                                                                           color:
-                                                                              FlutterFlowTheme.of(context).primaryColor,
+                                                                              FlutterFlowTheme.of(context).primary,
                                                                           width:
                                                                               1.0,
                                                                         ),
@@ -722,10 +727,10 @@ class _SuperAdminModerationWidgetState
                                                                           0.0),
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .primaryColor,
+                                                                          .primary,
                                                                       textStyle: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .subtitle2
+                                                                          .titleSmall
                                                                           .override(
                                                                             fontFamily:
                                                                                 'Inter',
@@ -736,7 +741,7 @@ class _SuperAdminModerationWidgetState
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                             useGoogleFonts:
-                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleSmallFamily),
                                                                           ),
                                                                       elevation:
                                                                           0.0,

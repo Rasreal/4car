@@ -81,12 +81,12 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
               padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 22.0),
               child: Text(
                 'Обясните причину отмены',
-                style: FlutterFlowTheme.of(context).bodyText1.override(
-                      fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                      fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                       fontSize: 18.0,
                       fontWeight: FontWeight.w500,
                       useGoogleFonts: GoogleFonts.asMap().containsKey(
-                          FlutterFlowTheme.of(context).bodyText1Family),
+                          FlutterFlowTheme.of(context).bodyMediumFamily),
                     ),
               ),
             ),
@@ -114,7 +114,7 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
                               color: valueOrDefault<Color>(
                                 FFAppState().cancelBooking ==
                                         'Появились другие дела'
-                                    ? FlutterFlowTheme.of(context).primaryColor
+                                    ? FlutterFlowTheme.of(context).primary
                                     : FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                 FlutterFlowTheme.of(context).primaryBackground,
@@ -124,8 +124,7 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
                                 color: valueOrDefault<Color>(
                                   FFAppState().cancelBooking ==
                                           'Появились другие дела'
-                                      ? FlutterFlowTheme.of(context)
-                                          .primaryColor
+                                      ? FlutterFlowTheme.of(context).primary
                                       : FlutterFlowTheme.of(context)
                                           .primaryText,
                                   FlutterFlowTheme.of(context).primaryText,
@@ -147,7 +146,7 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
                                   16.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 'Появились другие дела',
-                                style: FlutterFlowTheme.of(context).bodyText1,
+                                style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                             ),
                           ),
@@ -186,7 +185,7 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
                               color: valueOrDefault<Color>(
                                 FFAppState().cancelBooking ==
                                         'Погодные условия не подходящие'
-                                    ? FlutterFlowTheme.of(context).primaryColor
+                                    ? FlutterFlowTheme.of(context).primary
                                     : FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                 FlutterFlowTheme.of(context).primaryBackground,
@@ -196,8 +195,7 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
                                 color: valueOrDefault<Color>(
                                   FFAppState().cancelBooking ==
                                           'Погодные условия не подходящие'
-                                      ? FlutterFlowTheme.of(context)
-                                          .primaryColor
+                                      ? FlutterFlowTheme.of(context).primary
                                       : FlutterFlowTheme.of(context)
                                           .primaryText,
                                   FlutterFlowTheme.of(context).primaryText,
@@ -219,7 +217,7 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
                                   16.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 'Погодные условия не подходящие',
-                                style: FlutterFlowTheme.of(context).bodyText1,
+                                style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                             ),
                           ),
@@ -256,7 +254,7 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
                             decoration: BoxDecoration(
                               color: valueOrDefault<Color>(
                                 FFAppState().cancelBooking == 'Не успеваю'
-                                    ? FlutterFlowTheme.of(context).primaryColor
+                                    ? FlutterFlowTheme.of(context).primary
                                     : FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                 FlutterFlowTheme.of(context).primaryBackground,
@@ -265,8 +263,7 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
                               border: Border.all(
                                 color: valueOrDefault<Color>(
                                   FFAppState().cancelBooking == 'Не успеваю'
-                                      ? FlutterFlowTheme.of(context)
-                                          .primaryColor
+                                      ? FlutterFlowTheme.of(context).primary
                                       : FlutterFlowTheme.of(context)
                                           .primaryText,
                                   FlutterFlowTheme.of(context).primaryText,
@@ -288,7 +285,7 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
                                   16.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 'Не успеваю',
-                                style: FlutterFlowTheme.of(context).bodyText1,
+                                style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                             ),
                           ),
@@ -325,7 +322,7 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
                             decoration: BoxDecoration(
                               color: valueOrDefault<Color>(
                                 FFAppState().cancelBooking == 'Другая причина'
-                                    ? FlutterFlowTheme.of(context).primaryColor
+                                    ? FlutterFlowTheme.of(context).primary
                                     : FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                 FlutterFlowTheme.of(context).primaryBackground,
@@ -334,8 +331,7 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
                               border: Border.all(
                                 color: valueOrDefault<Color>(
                                   FFAppState().cancelBooking == 'Другая причина'
-                                      ? FlutterFlowTheme.of(context)
-                                          .primaryColor
+                                      ? FlutterFlowTheme.of(context).primary
                                       : FlutterFlowTheme.of(context)
                                           .primaryText,
                                   FlutterFlowTheme.of(context).primaryText,
@@ -357,7 +353,7 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
                                   16.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 'Другая причина',
-                                style: FlutterFlowTheme.of(context).bodyText1,
+                                style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                             ),
                           ),
@@ -373,11 +369,11 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
             ),
             Text(
               'Напишите нам',
-              style: FlutterFlowTheme.of(context).bodyText1.override(
-                    fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                     fontWeight: FontWeight.w500,
                     useGoogleFonts: GoogleFonts.asMap().containsKey(
-                        FlutterFlowTheme.of(context).bodyText1Family),
+                        FlutterFlowTheme.of(context).bodyMediumFamily),
                   ),
             ),
             Form(
@@ -390,7 +386,7 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
                   obscureText: false,
                   decoration: InputDecoration(
                     hintText: 'Написать...',
-                    hintStyle: FlutterFlowTheme.of(context).bodyText2,
+                    hintStyle: FlutterFlowTheme.of(context).bodySmall,
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
                         color: FlutterFlowTheme.of(context).gray2,
@@ -400,7 +396,7 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: FlutterFlowTheme.of(context).primaryColor,
+                        color: FlutterFlowTheme.of(context).primary,
                         width: 1.0,
                       ),
                       borderRadius: BorderRadius.circular(8.0),
@@ -420,7 +416,7 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
                       borderRadius: BorderRadius.circular(8.0),
                     ),
                   ),
-                  style: FlutterFlowTheme.of(context).bodyText1,
+                  style: FlutterFlowTheme.of(context).bodyMedium,
                   maxLines: 3,
                   validator:
                       _model.textControllerValidator.asValidator(context),
@@ -487,16 +483,17 @@ class _BookingCancellationWidgetState extends State<BookingCancellationWidget> {
                       EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   color: FFAppState().cancelBooking != null &&
                           FFAppState().cancelBooking != ''
-                      ? FlutterFlowTheme.of(context).primaryColor
+                      ? FlutterFlowTheme.of(context).primary
                       : FlutterFlowTheme.of(context).starblue,
-                  textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                         fontFamily:
-                            FlutterFlowTheme.of(context).subtitle2Family,
+                            FlutterFlowTheme.of(context).titleSmallFamily,
                         color: Colors.white,
                         fontSize: 16.0,
                         useGoogleFonts: GoogleFonts.asMap().containsKey(
-                            FlutterFlowTheme.of(context).subtitle2Family),
+                            FlutterFlowTheme.of(context).titleSmallFamily),
                       ),
+                  elevation: 2.0,
                   borderSide: BorderSide(
                     color: Colors.transparent,
                     width: 1.0,

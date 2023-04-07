@@ -41,14 +41,18 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         await showModalBottomSheet(
           isScrollControlled: true,
           backgroundColor: Colors.transparent,
+          barrierColor: Color(0x00000000),
           context: context,
-          builder: (context) {
-            return Padding(
-              padding: MediaQuery.of(context).viewInsets,
-              child: Container(
-                height: MediaQuery.of(context).size.height * 0.7,
-                child: SucsessBookingReviewWidget(
-                  booking: currentUserDocument!.linkLastBooking,
+          builder: (bottomSheetContext) {
+            return GestureDetector(
+              onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+              child: Padding(
+                padding: MediaQuery.of(bottomSheetContext).viewInsets,
+                child: Container(
+                  height: MediaQuery.of(context).size.height * 0.7,
+                  child: SucsessBookingReviewWidget(
+                    booking: currentUserDocument!.linkLastBooking,
+                  ),
                 ),
               ),
             );
@@ -84,20 +88,20 @@ class _HomePageWidgetState extends State<HomePageWidget> {
             width: 50.0,
             height: 50.0,
             child: CircularProgressIndicator(
-              color: FlutterFlowTheme.of(context).primaryColor,
+              color: FlutterFlowTheme.of(context).primary,
             ),
           ),
         ),
       );
     }
 
-    return Scaffold(
-      key: scaffoldKey,
-      resizeToAvoidBottomInset: false,
-      backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        resizeToAvoidBottomInset: false,
+        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+        body: SafeArea(
           child: Stack(
             children: [
               Column(
@@ -135,7 +139,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         height: 50.0,
                                         child: CircularProgressIndicator(
                                           color: FlutterFlowTheme.of(context)
-                                              .primaryColor,
+                                              .primary,
                                         ),
                                       ),
                                     );
@@ -161,23 +165,30 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 isScrollControlled: true,
                                                 backgroundColor:
                                                     Colors.transparent,
+                                                barrierColor: Color(0x00000000),
                                                 context: context,
-                                                builder: (context) {
-                                                  return Padding(
-                                                    padding:
-                                                        MediaQuery.of(context)
-                                                            .viewInsets,
-                                                    child: Container(
-                                                      height:
-                                                          MediaQuery.of(context)
-                                                                  .size
-                                                                  .height *
-                                                              0.8,
-                                                      child:
-                                                          CarWashCompanyWidget(
-                                                        currentCompanyLink:
-                                                            googleMapCompaniesRecord
-                                                                .reference,
+                                                builder: (bottomSheetContext) {
+                                                  return GestureDetector(
+                                                    onTap: () =>
+                                                        FocusScope.of(context)
+                                                            .requestFocus(
+                                                                _unfocusNode),
+                                                    child: Padding(
+                                                      padding: MediaQuery.of(
+                                                              bottomSheetContext)
+                                                          .viewInsets,
+                                                      child: Container(
+                                                        height: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .height *
+                                                            0.8,
+                                                        child:
+                                                            CarWashCompanyWidget(
+                                                          currentCompanyLink:
+                                                              googleMapCompaniesRecord
+                                                                  .reference,
+                                                        ),
                                                       ),
                                                     ),
                                                   );
@@ -236,19 +247,19 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                   '99595959',
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyText1
+                                                      .bodyMedium
                                                       .override(
                                                         fontFamily:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1Family,
+                                                                .bodyMediumFamily,
                                                         fontSize: 30.0,
                                                         useGoogleFonts: GoogleFonts
                                                                 .asMap()
                                                             .containsKey(
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1Family),
+                                                                    .bodyMediumFamily),
                                                       ),
                                                 ),
                                                 Padding(
@@ -294,7 +305,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                     CircularProgressIndicator(
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .primaryColor,
+                                                                      .primary,
                                                                 ),
                                                               ),
                                                             );
@@ -332,18 +343,23 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                             true,
                                                                         backgroundColor:
                                                                             Colors.transparent,
+                                                                        barrierColor:
+                                                                            Color(0x00000000),
                                                                         context:
                                                                             context,
                                                                         builder:
-                                                                            (context) {
-                                                                          return Padding(
-                                                                            padding:
-                                                                                MediaQuery.of(context).viewInsets,
+                                                                            (bottomSheetContext) {
+                                                                          return GestureDetector(
+                                                                            onTap: () =>
+                                                                                FocusScope.of(context).requestFocus(_unfocusNode),
                                                                             child:
-                                                                                Container(
-                                                                              height: double.infinity,
-                                                                              child: CompanyTopStoriesBottomsheetWidget(
-                                                                                index: rowIndex,
+                                                                                Padding(
+                                                                              padding: MediaQuery.of(bottomSheetContext).viewInsets,
+                                                                              child: Container(
+                                                                                height: double.infinity,
+                                                                                child: CompanyTopStoriesBottomsheetWidget(
+                                                                                  index: rowIndex,
+                                                                                ),
                                                                               ),
                                                                             ),
                                                                           );
@@ -414,12 +430,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                                       rowPromotionRecord.title!,
                                                                                       textAlign: TextAlign.start,
                                                                                       maxLines: 2,
-                                                                                      style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                            fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                             color: Colors.white,
                                                                                             fontSize: 11.0,
                                                                                             fontWeight: FontWeight.w500,
-                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                           ),
                                                                                     ),
                                                                                   ),
@@ -480,7 +496,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                   CircularProgressIndicator(
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .primaryColor,
+                                                                    .primary,
                                                               ),
                                                             ),
                                                           );
@@ -510,21 +526,28 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                     backgroundColor:
                                                                         Colors
                                                                             .transparent,
+                                                                    barrierColor:
+                                                                        Color(
+                                                                            0x00000000),
                                                                     context:
                                                                         context,
                                                                     builder:
-                                                                        (context) {
-                                                                      return Padding(
-                                                                        padding:
-                                                                            MediaQuery.of(context).viewInsets,
+                                                                        (bottomSheetContext) {
+                                                                      return GestureDetector(
+                                                                        onTap: () =>
+                                                                            FocusScope.of(context).requestFocus(_unfocusNode),
                                                                         child:
-                                                                            Container(
-                                                                          height:
-                                                                              MediaQuery.of(context).size.height * 0.8,
+                                                                            Padding(
+                                                                          padding:
+                                                                              MediaQuery.of(bottomSheetContext).viewInsets,
                                                                           child:
-                                                                              CarWashCompanyWidget(
-                                                                            currentCompanyLink:
-                                                                                columnCompaniesRecord.reference,
+                                                                              Container(
+                                                                            height:
+                                                                                MediaQuery.of(context).size.height * 0.8,
+                                                                            child:
+                                                                                CarWashCompanyWidget(
+                                                                              currentCompanyLink: columnCompaniesRecord.reference,
+                                                                            ),
                                                                           ),
                                                                         ),
                                                                       );
@@ -584,16 +607,17 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       iconPadding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      color: FlutterFlowTheme.of(context).primaryColor,
+                      color: FlutterFlowTheme.of(context).primary,
                       textStyle: FlutterFlowTheme.of(context)
-                          .subtitle2
+                          .titleSmall
                           .override(
                             fontFamily:
-                                FlutterFlowTheme.of(context).subtitle2Family,
+                                FlutterFlowTheme.of(context).titleSmallFamily,
                             color: Colors.white,
                             useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                FlutterFlowTheme.of(context).subtitle2Family),
+                                FlutterFlowTheme.of(context).titleSmallFamily),
                           ),
+                      elevation: 2.0,
                       borderSide: BorderSide(
                         color: Colors.transparent,
                         width: 1.0,

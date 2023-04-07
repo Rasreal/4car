@@ -52,12 +52,12 @@ class _SuperAdminModeration2WidgetState
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+        body: SafeArea(
           child: Stack(
             children: [
               Column(
@@ -111,7 +111,7 @@ class _SuperAdminModeration2WidgetState
                                                       CircularProgressIndicator(
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .primaryColor,
+                                                        .primary,
                                                   ),
                                                 ),
                                               );
@@ -139,7 +139,7 @@ class _SuperAdminModeration2WidgetState
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Inter',
@@ -149,7 +149,7 @@ class _SuperAdminModeration2WidgetState
                                                                           .asMap()
                                                                       .containsKey(
                                                                           FlutterFlowTheme.of(context)
-                                                                              .bodyText1Family),
+                                                                              .bodyMediumFamily),
                                                                 ),
                                                       ),
                                                       InkWell(
@@ -188,7 +188,7 @@ class _SuperAdminModeration2WidgetState
                                                               'Отменить',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyText1
+                                                                  .bodyMedium
                                                                   .override(
                                                                     fontFamily:
                                                                         'Inter',
@@ -200,7 +200,7 @@ class _SuperAdminModeration2WidgetState
                                                                     useGoogleFonts: GoogleFonts
                                                                             .asMap()
                                                                         .containsKey(
-                                                                            FlutterFlowTheme.of(context).bodyText1Family),
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                   ),
                                                             ),
                                                           ],
@@ -314,11 +314,11 @@ class _SuperAdminModeration2WidgetState
                                                                                   columnCompaniesRecord.name,
                                                                                   'null',
                                                                                 ),
-                                                                                style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                       fontFamily: 'Inter',
                                                                                       fontSize: 18.0,
                                                                                       fontWeight: FontWeight.w500,
-                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                     ),
                                                                               ),
                                                                               Padding(
@@ -328,11 +328,11 @@ class _SuperAdminModeration2WidgetState
                                                                                     columnCompaniesRecord.street,
                                                                                     'null',
                                                                                   ),
-                                                                                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Inter',
                                                                                         color: FlutterFlowTheme.of(context).gray1,
                                                                                         fontWeight: FontWeight.normal,
-                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                       ),
                                                                                 ),
                                                                               ),
@@ -361,7 +361,7 @@ class _SuperAdminModeration2WidgetState
                                                                       'Процент',
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyText1
+                                                                          .bodyMedium
                                                                           .override(
                                                                             fontFamily:
                                                                                 'Inter',
@@ -370,7 +370,7 @@ class _SuperAdminModeration2WidgetState
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                             useGoogleFonts:
-                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                           ),
                                                                     ),
                                                                   ),
@@ -431,17 +431,17 @@ class _SuperAdminModeration2WidgetState
                                                                               height: 32.0,
                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                              color: FFAppState().superAdminSelectPercent == 3.0 ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).primaryBackground,
-                                                                              textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                                                                              color: FFAppState().superAdminSelectPercent == 3.0 ? FlutterFlowTheme.of(context).primary : FlutterFlowTheme.of(context).primaryBackground,
+                                                                              textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                     fontFamily: 'Inter',
-                                                                                    color: FFAppState().superAdminSelectPercent == 3.0 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primaryColor,
+                                                                                    color: FFAppState().superAdminSelectPercent == 3.0 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primary,
                                                                                     fontSize: 14.0,
                                                                                     fontWeight: FontWeight.normal,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleSmallFamily),
                                                                                   ),
                                                                               elevation: 0.0,
                                                                               borderSide: BorderSide(
-                                                                                color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                color: FlutterFlowTheme.of(context).primary,
                                                                                 width: 1.0,
                                                                               ),
                                                                               borderRadius: BorderRadius.circular(8.0),
@@ -476,17 +476,17 @@ class _SuperAdminModeration2WidgetState
                                                                               height: 32.0,
                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                              color: FFAppState().superAdminSelectPercent == 2.9 ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).primaryBackground,
-                                                                              textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                                                                              color: FFAppState().superAdminSelectPercent == 2.9 ? FlutterFlowTheme.of(context).primary : FlutterFlowTheme.of(context).primaryBackground,
+                                                                              textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                     fontFamily: 'Inter',
-                                                                                    color: FFAppState().superAdminSelectPercent == 2.9 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primaryColor,
+                                                                                    color: FFAppState().superAdminSelectPercent == 2.9 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primary,
                                                                                     fontSize: 14.0,
                                                                                     fontWeight: FontWeight.normal,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleSmallFamily),
                                                                                   ),
                                                                               elevation: 0.0,
                                                                               borderSide: BorderSide(
-                                                                                color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                color: FlutterFlowTheme.of(context).primary,
                                                                                 width: 1.0,
                                                                               ),
                                                                               borderRadius: BorderRadius.circular(8.0),
@@ -521,17 +521,17 @@ class _SuperAdminModeration2WidgetState
                                                                               height: 32.0,
                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                              color: FFAppState().superAdminSelectPercent == 2.8 ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).primaryBackground,
-                                                                              textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                                                                              color: FFAppState().superAdminSelectPercent == 2.8 ? FlutterFlowTheme.of(context).primary : FlutterFlowTheme.of(context).primaryBackground,
+                                                                              textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                     fontFamily: 'Inter',
-                                                                                    color: FFAppState().superAdminSelectPercent == 2.8 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primaryColor,
+                                                                                    color: FFAppState().superAdminSelectPercent == 2.8 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primary,
                                                                                     fontSize: 14.0,
                                                                                     fontWeight: FontWeight.normal,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleSmallFamily),
                                                                                   ),
                                                                               elevation: 0.0,
                                                                               borderSide: BorderSide(
-                                                                                color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                color: FlutterFlowTheme.of(context).primary,
                                                                                 width: 1.0,
                                                                               ),
                                                                               borderRadius: BorderRadius.circular(8.0),
@@ -566,17 +566,17 @@ class _SuperAdminModeration2WidgetState
                                                                               height: 32.0,
                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                              color: FFAppState().superAdminSelectPercent == 2.7 ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).primaryBackground,
-                                                                              textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                                                                              color: FFAppState().superAdminSelectPercent == 2.7 ? FlutterFlowTheme.of(context).primary : FlutterFlowTheme.of(context).primaryBackground,
+                                                                              textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                     fontFamily: 'Inter',
-                                                                                    color: FFAppState().superAdminSelectPercent == 2.7 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primaryColor,
+                                                                                    color: FFAppState().superAdminSelectPercent == 2.7 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primary,
                                                                                     fontSize: 14.0,
                                                                                     fontWeight: FontWeight.normal,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleSmallFamily),
                                                                                   ),
                                                                               elevation: 0.0,
                                                                               borderSide: BorderSide(
-                                                                                color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                color: FlutterFlowTheme.of(context).primary,
                                                                                 width: 1.0,
                                                                               ),
                                                                               borderRadius: BorderRadius.circular(8.0),
@@ -611,17 +611,17 @@ class _SuperAdminModeration2WidgetState
                                                                               height: 32.0,
                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                              color: FFAppState().superAdminSelectPercent == 2.6 ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).primaryBackground,
-                                                                              textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                                                                              color: FFAppState().superAdminSelectPercent == 2.6 ? FlutterFlowTheme.of(context).primary : FlutterFlowTheme.of(context).primaryBackground,
+                                                                              textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                     fontFamily: 'Inter',
-                                                                                    color: FFAppState().superAdminSelectPercent == 2.6 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primaryColor,
+                                                                                    color: FFAppState().superAdminSelectPercent == 2.6 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primary,
                                                                                     fontSize: 14.0,
                                                                                     fontWeight: FontWeight.normal,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleSmallFamily),
                                                                                   ),
                                                                               elevation: 0.0,
                                                                               borderSide: BorderSide(
-                                                                                color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                color: FlutterFlowTheme.of(context).primary,
                                                                                 width: 1.0,
                                                                               ),
                                                                               borderRadius: BorderRadius.circular(8.0),
@@ -656,17 +656,17 @@ class _SuperAdminModeration2WidgetState
                                                                               height: 32.0,
                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                              color: FFAppState().superAdminSelectPercent == 2.5 ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).primaryBackground,
-                                                                              textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                                                                              color: FFAppState().superAdminSelectPercent == 2.5 ? FlutterFlowTheme.of(context).primary : FlutterFlowTheme.of(context).primaryBackground,
+                                                                              textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                     fontFamily: 'Inter',
-                                                                                    color: FFAppState().superAdminSelectPercent == 2.5 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primaryColor,
+                                                                                    color: FFAppState().superAdminSelectPercent == 2.5 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primary,
                                                                                     fontSize: 14.0,
                                                                                     fontWeight: FontWeight.normal,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleSmallFamily),
                                                                                   ),
                                                                               elevation: 0.0,
                                                                               borderSide: BorderSide(
-                                                                                color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                color: FlutterFlowTheme.of(context).primary,
                                                                                 width: 1.0,
                                                                               ),
                                                                               borderRadius: BorderRadius.circular(8.0),
@@ -701,17 +701,17 @@ class _SuperAdminModeration2WidgetState
                                                                               height: 32.0,
                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                              color: FFAppState().superAdminSelectPercent == 2.4 ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).primaryBackground,
-                                                                              textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                                                                              color: FFAppState().superAdminSelectPercent == 2.4 ? FlutterFlowTheme.of(context).primary : FlutterFlowTheme.of(context).primaryBackground,
+                                                                              textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                     fontFamily: 'Inter',
-                                                                                    color: FFAppState().superAdminSelectPercent == 2.4 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primaryColor,
+                                                                                    color: FFAppState().superAdminSelectPercent == 2.4 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primary,
                                                                                     fontSize: 14.0,
                                                                                     fontWeight: FontWeight.normal,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleSmallFamily),
                                                                                   ),
                                                                               elevation: 0.0,
                                                                               borderSide: BorderSide(
-                                                                                color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                color: FlutterFlowTheme.of(context).primary,
                                                                                 width: 1.0,
                                                                               ),
                                                                               borderRadius: BorderRadius.circular(8.0),
@@ -746,17 +746,17 @@ class _SuperAdminModeration2WidgetState
                                                                               height: 32.0,
                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                              color: FFAppState().superAdminSelectPercent == 2.3 ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).primaryBackground,
-                                                                              textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                                                                              color: FFAppState().superAdminSelectPercent == 2.3 ? FlutterFlowTheme.of(context).primary : FlutterFlowTheme.of(context).primaryBackground,
+                                                                              textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                     fontFamily: 'Inter',
-                                                                                    color: FFAppState().superAdminSelectPercent == 2.3 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primaryColor,
+                                                                                    color: FFAppState().superAdminSelectPercent == 2.3 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primary,
                                                                                     fontSize: 14.0,
                                                                                     fontWeight: FontWeight.normal,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleSmallFamily),
                                                                                   ),
                                                                               elevation: 0.0,
                                                                               borderSide: BorderSide(
-                                                                                color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                color: FlutterFlowTheme.of(context).primary,
                                                                                 width: 1.0,
                                                                               ),
                                                                               borderRadius: BorderRadius.circular(8.0),
@@ -791,17 +791,17 @@ class _SuperAdminModeration2WidgetState
                                                                               height: 32.0,
                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                              color: FFAppState().superAdminSelectPercent == 2.2 ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).primaryBackground,
-                                                                              textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                                                                              color: FFAppState().superAdminSelectPercent == 2.2 ? FlutterFlowTheme.of(context).primary : FlutterFlowTheme.of(context).primaryBackground,
+                                                                              textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                     fontFamily: 'Inter',
-                                                                                    color: FFAppState().superAdminSelectPercent == 2.2 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primaryColor,
+                                                                                    color: FFAppState().superAdminSelectPercent == 2.2 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primary,
                                                                                     fontSize: 14.0,
                                                                                     fontWeight: FontWeight.normal,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleSmallFamily),
                                                                                   ),
                                                                               elevation: 0.0,
                                                                               borderSide: BorderSide(
-                                                                                color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                color: FlutterFlowTheme.of(context).primary,
                                                                                 width: 1.0,
                                                                               ),
                                                                               borderRadius: BorderRadius.circular(8.0),
@@ -836,17 +836,17 @@ class _SuperAdminModeration2WidgetState
                                                                               height: 32.0,
                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                              color: FFAppState().superAdminSelectPercent == 2.1 ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).primaryBackground,
-                                                                              textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                                                                              color: FFAppState().superAdminSelectPercent == 2.1 ? FlutterFlowTheme.of(context).primary : FlutterFlowTheme.of(context).primaryBackground,
+                                                                              textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                     fontFamily: 'Inter',
-                                                                                    color: FFAppState().superAdminSelectPercent == 2.1 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primaryColor,
+                                                                                    color: FFAppState().superAdminSelectPercent == 2.1 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primary,
                                                                                     fontSize: 14.0,
                                                                                     fontWeight: FontWeight.normal,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleSmallFamily),
                                                                                   ),
                                                                               elevation: 0.0,
                                                                               borderSide: BorderSide(
-                                                                                color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                color: FlutterFlowTheme.of(context).primary,
                                                                                 width: 1.0,
                                                                               ),
                                                                               borderRadius: BorderRadius.circular(8.0),
@@ -881,17 +881,17 @@ class _SuperAdminModeration2WidgetState
                                                                               height: 32.0,
                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                              color: FFAppState().superAdminSelectPercent == 2.0 ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).primaryBackground,
-                                                                              textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                                                                              color: FFAppState().superAdminSelectPercent == 2.0 ? FlutterFlowTheme.of(context).primary : FlutterFlowTheme.of(context).primaryBackground,
+                                                                              textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                     fontFamily: 'Inter',
-                                                                                    color: FFAppState().superAdminSelectPercent == 2.0 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primaryColor,
+                                                                                    color: FFAppState().superAdminSelectPercent == 2.0 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primary,
                                                                                     fontSize: 14.0,
                                                                                     fontWeight: FontWeight.normal,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleSmallFamily),
                                                                                   ),
                                                                               elevation: 0.0,
                                                                               borderSide: BorderSide(
-                                                                                color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                color: FlutterFlowTheme.of(context).primary,
                                                                                 width: 1.0,
                                                                               ),
                                                                               borderRadius: BorderRadius.circular(8.0),
@@ -926,17 +926,17 @@ class _SuperAdminModeration2WidgetState
                                                                               height: 32.0,
                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                              color: FFAppState().superAdminSelectPercent == 1.9 ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).primaryBackground,
-                                                                              textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                                                                              color: FFAppState().superAdminSelectPercent == 1.9 ? FlutterFlowTheme.of(context).primary : FlutterFlowTheme.of(context).primaryBackground,
+                                                                              textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                     fontFamily: 'Inter',
-                                                                                    color: FFAppState().superAdminSelectPercent == 1.9 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primaryColor,
+                                                                                    color: FFAppState().superAdminSelectPercent == 1.9 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primary,
                                                                                     fontSize: 14.0,
                                                                                     fontWeight: FontWeight.normal,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleSmallFamily),
                                                                                   ),
                                                                               elevation: 0.0,
                                                                               borderSide: BorderSide(
-                                                                                color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                color: FlutterFlowTheme.of(context).primary,
                                                                                 width: 1.0,
                                                                               ),
                                                                               borderRadius: BorderRadius.circular(8.0),
@@ -971,17 +971,17 @@ class _SuperAdminModeration2WidgetState
                                                                               height: 32.0,
                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                              color: FFAppState().superAdminSelectPercent == 1.8 ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).primaryBackground,
-                                                                              textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                                                                              color: FFAppState().superAdminSelectPercent == 1.8 ? FlutterFlowTheme.of(context).primary : FlutterFlowTheme.of(context).primaryBackground,
+                                                                              textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                     fontFamily: 'Inter',
-                                                                                    color: FFAppState().superAdminSelectPercent == 1.8 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primaryColor,
+                                                                                    color: FFAppState().superAdminSelectPercent == 1.8 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primary,
                                                                                     fontSize: 14.0,
                                                                                     fontWeight: FontWeight.normal,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleSmallFamily),
                                                                                   ),
                                                                               elevation: 0.0,
                                                                               borderSide: BorderSide(
-                                                                                color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                color: FlutterFlowTheme.of(context).primary,
                                                                                 width: 1.0,
                                                                               ),
                                                                               borderRadius: BorderRadius.circular(8.0),
@@ -1016,17 +1016,17 @@ class _SuperAdminModeration2WidgetState
                                                                               height: 32.0,
                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                              color: FFAppState().superAdminSelectPercent == 1.7 ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).primaryBackground,
-                                                                              textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                                                                              color: FFAppState().superAdminSelectPercent == 1.7 ? FlutterFlowTheme.of(context).primary : FlutterFlowTheme.of(context).primaryBackground,
+                                                                              textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                     fontFamily: 'Inter',
-                                                                                    color: FFAppState().superAdminSelectPercent == 1.7 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primaryColor,
+                                                                                    color: FFAppState().superAdminSelectPercent == 1.7 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primary,
                                                                                     fontSize: 14.0,
                                                                                     fontWeight: FontWeight.normal,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleSmallFamily),
                                                                                   ),
                                                                               elevation: 0.0,
                                                                               borderSide: BorderSide(
-                                                                                color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                color: FlutterFlowTheme.of(context).primary,
                                                                                 width: 1.0,
                                                                               ),
                                                                               borderRadius: BorderRadius.circular(8.0),
@@ -1061,17 +1061,17 @@ class _SuperAdminModeration2WidgetState
                                                                               height: 32.0,
                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                              color: FFAppState().superAdminSelectPercent == 1.6 ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).primaryBackground,
-                                                                              textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                                                                              color: FFAppState().superAdminSelectPercent == 1.6 ? FlutterFlowTheme.of(context).primary : FlutterFlowTheme.of(context).primaryBackground,
+                                                                              textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                     fontFamily: 'Inter',
-                                                                                    color: FFAppState().superAdminSelectPercent == 1.6 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primaryColor,
+                                                                                    color: FFAppState().superAdminSelectPercent == 1.6 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primary,
                                                                                     fontSize: 14.0,
                                                                                     fontWeight: FontWeight.normal,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleSmallFamily),
                                                                                   ),
                                                                               elevation: 0.0,
                                                                               borderSide: BorderSide(
-                                                                                color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                color: FlutterFlowTheme.of(context).primary,
                                                                                 width: 1.0,
                                                                               ),
                                                                               borderRadius: BorderRadius.circular(8.0),
@@ -1106,17 +1106,17 @@ class _SuperAdminModeration2WidgetState
                                                                               height: 32.0,
                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                              color: FFAppState().superAdminSelectPercent == 1.5 ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).primaryBackground,
-                                                                              textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                                                                              color: FFAppState().superAdminSelectPercent == 1.5 ? FlutterFlowTheme.of(context).primary : FlutterFlowTheme.of(context).primaryBackground,
+                                                                              textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                     fontFamily: 'Inter',
-                                                                                    color: FFAppState().superAdminSelectPercent == 1.5 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primaryColor,
+                                                                                    color: FFAppState().superAdminSelectPercent == 1.5 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primary,
                                                                                     fontSize: 14.0,
                                                                                     fontWeight: FontWeight.normal,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleSmallFamily),
                                                                                   ),
                                                                               elevation: 0.0,
                                                                               borderSide: BorderSide(
-                                                                                color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                color: FlutterFlowTheme.of(context).primary,
                                                                                 width: 1.0,
                                                                               ),
                                                                               borderRadius: BorderRadius.circular(8.0),
@@ -1151,17 +1151,17 @@ class _SuperAdminModeration2WidgetState
                                                                               height: 32.0,
                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                              color: FFAppState().superAdminSelectPercent == 1.4 ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).primaryBackground,
-                                                                              textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                                                                              color: FFAppState().superAdminSelectPercent == 1.4 ? FlutterFlowTheme.of(context).primary : FlutterFlowTheme.of(context).primaryBackground,
+                                                                              textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                     fontFamily: 'Inter',
-                                                                                    color: FFAppState().superAdminSelectPercent == 1.4 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primaryColor,
+                                                                                    color: FFAppState().superAdminSelectPercent == 1.4 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primary,
                                                                                     fontSize: 14.0,
                                                                                     fontWeight: FontWeight.normal,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleSmallFamily),
                                                                                   ),
                                                                               elevation: 0.0,
                                                                               borderSide: BorderSide(
-                                                                                color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                color: FlutterFlowTheme.of(context).primary,
                                                                                 width: 1.0,
                                                                               ),
                                                                               borderRadius: BorderRadius.circular(8.0),
@@ -1196,17 +1196,17 @@ class _SuperAdminModeration2WidgetState
                                                                               height: 32.0,
                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                              color: FFAppState().superAdminSelectPercent == 1.3 ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).primaryBackground,
-                                                                              textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                                                                              color: FFAppState().superAdminSelectPercent == 1.3 ? FlutterFlowTheme.of(context).primary : FlutterFlowTheme.of(context).primaryBackground,
+                                                                              textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                     fontFamily: 'Inter',
-                                                                                    color: FFAppState().superAdminSelectPercent == 1.3 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primaryColor,
+                                                                                    color: FFAppState().superAdminSelectPercent == 1.3 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primary,
                                                                                     fontSize: 14.0,
                                                                                     fontWeight: FontWeight.normal,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleSmallFamily),
                                                                                   ),
                                                                               elevation: 0.0,
                                                                               borderSide: BorderSide(
-                                                                                color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                color: FlutterFlowTheme.of(context).primary,
                                                                                 width: 1.0,
                                                                               ),
                                                                               borderRadius: BorderRadius.circular(8.0),
@@ -1241,17 +1241,17 @@ class _SuperAdminModeration2WidgetState
                                                                               height: 32.0,
                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                              color: FFAppState().superAdminSelectPercent == 1.2 ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).primaryBackground,
-                                                                              textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                                                                              color: FFAppState().superAdminSelectPercent == 1.2 ? FlutterFlowTheme.of(context).primary : FlutterFlowTheme.of(context).primaryBackground,
+                                                                              textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                     fontFamily: 'Inter',
-                                                                                    color: FFAppState().superAdminSelectPercent == 1.2 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primaryColor,
+                                                                                    color: FFAppState().superAdminSelectPercent == 1.2 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primary,
                                                                                     fontSize: 14.0,
                                                                                     fontWeight: FontWeight.normal,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleSmallFamily),
                                                                                   ),
                                                                               elevation: 0.0,
                                                                               borderSide: BorderSide(
-                                                                                color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                color: FlutterFlowTheme.of(context).primary,
                                                                                 width: 1.0,
                                                                               ),
                                                                               borderRadius: BorderRadius.circular(8.0),
@@ -1286,17 +1286,17 @@ class _SuperAdminModeration2WidgetState
                                                                               height: 32.0,
                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                              color: FFAppState().superAdminSelectPercent == 1.1 ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).primaryBackground,
-                                                                              textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                                                                              color: FFAppState().superAdminSelectPercent == 1.1 ? FlutterFlowTheme.of(context).primary : FlutterFlowTheme.of(context).primaryBackground,
+                                                                              textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                     fontFamily: 'Inter',
-                                                                                    color: FFAppState().superAdminSelectPercent == 1.1 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primaryColor,
+                                                                                    color: FFAppState().superAdminSelectPercent == 1.1 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primary,
                                                                                     fontSize: 14.0,
                                                                                     fontWeight: FontWeight.normal,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleSmallFamily),
                                                                                   ),
                                                                               elevation: 0.0,
                                                                               borderSide: BorderSide(
-                                                                                color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                color: FlutterFlowTheme.of(context).primary,
                                                                                 width: 1.0,
                                                                               ),
                                                                               borderRadius: BorderRadius.circular(8.0),
@@ -1331,17 +1331,17 @@ class _SuperAdminModeration2WidgetState
                                                                               height: 32.0,
                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                              color: FFAppState().superAdminSelectPercent == 1.0 ? FlutterFlowTheme.of(context).primaryColor : FlutterFlowTheme.of(context).primaryBackground,
-                                                                              textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                                                                              color: FFAppState().superAdminSelectPercent == 1.0 ? FlutterFlowTheme.of(context).primary : FlutterFlowTheme.of(context).primaryBackground,
+                                                                              textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                     fontFamily: 'Inter',
-                                                                                    color: FFAppState().superAdminSelectPercent == 1.0 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primaryColor,
+                                                                                    color: FFAppState().superAdminSelectPercent == 1.0 ? FlutterFlowTheme.of(context).primaryBackground : FlutterFlowTheme.of(context).primary,
                                                                                     fontSize: 14.0,
                                                                                     fontWeight: FontWeight.normal,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleSmallFamily),
                                                                                   ),
                                                                               elevation: 0.0,
                                                                               borderSide: BorderSide(
-                                                                                color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                color: FlutterFlowTheme.of(context).primary,
                                                                                 width: 1.0,
                                                                               ),
                                                                               borderRadius: BorderRadius.circular(8.0),
@@ -1399,12 +1399,12 @@ class _SuperAdminModeration2WidgetState
                                                                       Text(
                                                                         'Определите комиссию на операции.',
                                                                         style: FlutterFlowTheme.of(context)
-                                                                            .bodyText1
+                                                                            .bodyMedium
                                                                             .override(
                                                                               fontFamily: 'Inter',
                                                                               fontSize: 18.0,
                                                                               fontWeight: FontWeight.w500,
-                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                             ),
                                                                       ),
                                                                       Padding(
@@ -1417,11 +1417,11 @@ class _SuperAdminModeration2WidgetState
                                                                             Text(
                                                                           'Выберите процент который будет сниматься на каждой операции.',
                                                                           style: FlutterFlowTheme.of(context)
-                                                                              .bodyText1
+                                                                              .bodyMedium
                                                                               .override(
                                                                                 fontFamily: 'Inter',
                                                                                 fontWeight: FontWeight.normal,
-                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                               ),
                                                                         ),
                                                                       ),
@@ -1517,12 +1517,12 @@ class _SuperAdminModeration2WidgetState
                                                   'Основная информация',
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyText1
+                                                      .bodyMedium
                                                       .override(
                                                         fontFamily:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1Family,
+                                                                .bodyMediumFamily,
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -1534,7 +1534,7 @@ class _SuperAdminModeration2WidgetState
                                                             .containsKey(
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1Family),
+                                                                    .bodyMediumFamily),
                                                       ),
                                                 ),
                                               ),
@@ -1566,7 +1566,7 @@ class _SuperAdminModeration2WidgetState
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .primaryColor,
+                                                              .primary,
                                                       width: 1.0,
                                                     ),
                                                   ),
@@ -1579,14 +1579,14 @@ class _SuperAdminModeration2WidgetState
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1Family,
+                                                                    .bodyMediumFamily,
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .primaryColor,
+                                                                    .primary,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
@@ -1594,7 +1594,7 @@ class _SuperAdminModeration2WidgetState
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                     ),
                                                   ),
@@ -1607,15 +1607,15 @@ class _SuperAdminModeration2WidgetState
                                                     'Установка процента',
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyText1
+                                                        .bodyMedium
                                                         .override(
                                                           fontFamily:
                                                               FlutterFlowTheme.of(
                                                                       context)
-                                                                  .bodyText1Family,
+                                                                  .bodyMediumFamily,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .primaryColor,
+                                                              .primary,
                                                           fontWeight:
                                                               FontWeight.normal,
                                                           useGoogleFonts: GoogleFonts
@@ -1623,7 +1623,7 @@ class _SuperAdminModeration2WidgetState
                                                               .containsKey(
                                                                   FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1Family),
+                                                                      .bodyMediumFamily),
                                                         ),
                                                   ),
                                                 ),
@@ -1669,11 +1669,11 @@ class _SuperAdminModeration2WidgetState
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1Family,
+                                                                    .bodyMediumFamily,
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .text3,
@@ -1684,7 +1684,7 @@ class _SuperAdminModeration2WidgetState
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                     ),
                                                   ),
@@ -1697,12 +1697,12 @@ class _SuperAdminModeration2WidgetState
                                                     'Подтверждение',
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyText1
+                                                        .bodyMedium
                                                         .override(
                                                           fontFamily:
                                                               FlutterFlowTheme.of(
                                                                       context)
-                                                                  .bodyText1Family,
+                                                                  .bodyMediumFamily,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .text3,
@@ -1713,7 +1713,7 @@ class _SuperAdminModeration2WidgetState
                                                               .containsKey(
                                                                   FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1Family),
+                                                                      .bodyMediumFamily),
                                                         ),
                                                   ),
                                                 ),
@@ -1770,22 +1770,22 @@ class _SuperAdminModeration2WidgetState
                                                     .superAdminSelectPercent !=
                                                 null
                                             ? FlutterFlowTheme.of(context)
-                                                .primaryColor
+                                                .primary
                                             : FlutterFlowTheme.of(context)
                                                 .starblue,
                                         textStyle: FlutterFlowTheme.of(context)
-                                            .subtitle2
+                                            .titleSmall
                                             .override(
                                               fontFamily: 'Inter',
                                               color: Colors.white,
                                               fontSize: 14.0,
                                               fontWeight: FontWeight.normal,
-                                              useGoogleFonts:
-                                                  GoogleFonts.asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .subtitle2Family),
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleSmallFamily),
                                             ),
                                         elevation: 0.0,
                                         borderSide: BorderSide(
@@ -1842,14 +1842,14 @@ class _SuperAdminModeration2WidgetState
                                 Text(
                                   'Вы хотите отменить модерацию?',
                                   style: FlutterFlowTheme.of(context)
-                                      .bodyText1
+                                      .bodyMedium
                                       .override(
                                         fontFamily: 'Inter',
                                         fontWeight: FontWeight.w500,
                                         useGoogleFonts: GoogleFonts.asMap()
                                             .containsKey(
                                                 FlutterFlowTheme.of(context)
-                                                    .bodyText1Family),
+                                                    .bodyMediumFamily),
                                       ),
                                 ),
                                 Padding(
@@ -1889,12 +1889,12 @@ class _SuperAdminModeration2WidgetState
                                                       .primaryBackground,
                                               textStyle: FlutterFlowTheme.of(
                                                       context)
-                                                  .subtitle2
+                                                  .titleSmall
                                                   .override(
                                                     fontFamily: 'Inter',
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .primaryColor,
+                                                        .primary,
                                                     fontSize: 16.0,
                                                     fontWeight: FontWeight.w500,
                                                     useGoogleFonts: GoogleFonts
@@ -1902,13 +1902,13 @@ class _SuperAdminModeration2WidgetState
                                                         .containsKey(
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .subtitle2Family),
+                                                                .titleSmallFamily),
                                                   ),
                                               elevation: 0.0,
                                               borderSide: BorderSide(
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .primaryColor,
+                                                        .primary,
                                                 width: 1.0,
                                               ),
                                               borderRadius:
@@ -1939,10 +1939,10 @@ class _SuperAdminModeration2WidgetState
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
                                             color: FlutterFlowTheme.of(context)
-                                                .primaryColor,
+                                                .primary,
                                             textStyle:
                                                 FlutterFlowTheme.of(context)
-                                                    .subtitle2
+                                                    .titleSmall
                                                     .override(
                                                       fontFamily: 'Inter',
                                                       color: Colors.white,
@@ -1953,7 +1953,7 @@ class _SuperAdminModeration2WidgetState
                                                           .containsKey(
                                                               FlutterFlowTheme.of(
                                                                       context)
-                                                                  .subtitle2Family),
+                                                                  .titleSmallFamily),
                                                     ),
                                             elevation: 0.0,
                                             borderSide: BorderSide(

@@ -43,12 +43,12 @@ class _AdminSignInEmailWidgetState extends State<AdminSignInEmailWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+        body: SafeArea(
           child: Align(
             alignment: AlignmentDirectional(0.0, 0.0),
             child: Container(
@@ -72,16 +72,15 @@ class _AdminSignInEmailWidgetState extends State<AdminSignInEmailWidget> {
                         child: Text(
                           '4 Car',
                           style: FlutterFlowTheme.of(context)
-                              .bodyText1
+                              .bodyMedium
                               .override(
                                 fontFamily: FlutterFlowTheme.of(context)
-                                    .bodyText1Family,
-                                color:
-                                    FlutterFlowTheme.of(context).primaryColor,
+                                    .bodyMediumFamily,
+                                color: FlutterFlowTheme.of(context).primary,
                                 fontSize: 30.0,
                                 useGoogleFonts: GoogleFonts.asMap().containsKey(
                                     FlutterFlowTheme.of(context)
-                                        .bodyText1Family),
+                                        .bodyMediumFamily),
                               ),
                         ),
                       ),
@@ -91,11 +90,12 @@ class _AdminSignInEmailWidgetState extends State<AdminSignInEmailWidget> {
                           EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 24.0),
                       child: Text(
                         'Войти в личный кабинет',
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Inter',
                               fontSize: 22.0,
                               useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                  FlutterFlowTheme.of(context).bodyText1Family),
+                                  FlutterFlowTheme.of(context)
+                                      .bodyMediumFamily),
                             ),
                       ),
                     ),
@@ -110,14 +110,14 @@ class _AdminSignInEmailWidgetState extends State<AdminSignInEmailWidget> {
                           decoration: InputDecoration(
                             hintText: 'Email',
                             hintStyle: FlutterFlowTheme.of(context)
-                                .bodyText2
+                                .bodySmall
                                 .override(
                                   fontFamily: FlutterFlowTheme.of(context)
-                                      .bodyText2Family,
+                                      .bodySmallFamily,
                                   fontWeight: FontWeight.normal,
                                   useGoogleFonts: GoogleFonts.asMap()
                                       .containsKey(FlutterFlowTheme.of(context)
-                                          .bodyText2Family),
+                                          .bodySmallFamily),
                                 ),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -128,8 +128,7 @@ class _AdminSignInEmailWidgetState extends State<AdminSignInEmailWidget> {
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color:
-                                    FlutterFlowTheme.of(context).primaryColor,
+                                color: FlutterFlowTheme.of(context).primary,
                                 width: 1.0,
                               ),
                               borderRadius: BorderRadius.circular(8.0),
@@ -149,7 +148,7 @@ class _AdminSignInEmailWidgetState extends State<AdminSignInEmailWidget> {
                               borderRadius: BorderRadius.circular(8.0),
                             ),
                           ),
-                          style: FlutterFlowTheme.of(context).bodyText1,
+                          style: FlutterFlowTheme.of(context).bodyMedium,
                           validator: _model.emailTextControllerValidator
                               .asValidator(context),
                         ),
@@ -166,14 +165,14 @@ class _AdminSignInEmailWidgetState extends State<AdminSignInEmailWidget> {
                           decoration: InputDecoration(
                             hintText: 'Пароль',
                             hintStyle: FlutterFlowTheme.of(context)
-                                .bodyText2
+                                .bodySmall
                                 .override(
                                   fontFamily: FlutterFlowTheme.of(context)
-                                      .bodyText2Family,
+                                      .bodySmallFamily,
                                   fontWeight: FontWeight.normal,
                                   useGoogleFonts: GoogleFonts.asMap()
                                       .containsKey(FlutterFlowTheme.of(context)
-                                          .bodyText2Family),
+                                          .bodySmallFamily),
                                 ),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -184,8 +183,7 @@ class _AdminSignInEmailWidgetState extends State<AdminSignInEmailWidget> {
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color:
-                                    FlutterFlowTheme.of(context).primaryColor,
+                                color: FlutterFlowTheme.of(context).primary,
                                 width: 1.0,
                               ),
                               borderRadius: BorderRadius.circular(8.0),
@@ -219,7 +217,7 @@ class _AdminSignInEmailWidgetState extends State<AdminSignInEmailWidget> {
                               ),
                             ),
                           ),
-                          style: FlutterFlowTheme.of(context).bodyText1,
+                          style: FlutterFlowTheme.of(context).bodyMedium,
                           validator: _model.passwordTextControllerValidator
                               .asValidator(context),
                         ),
@@ -247,20 +245,19 @@ class _AdminSignInEmailWidgetState extends State<AdminSignInEmailWidget> {
                                 setState(
                                     () => _model.checkboxValue = newValue!);
                               },
-                              activeColor:
-                                  FlutterFlowTheme.of(context).primaryColor,
+                              activeColor: FlutterFlowTheme.of(context).primary,
                             ),
                           ),
                           Text(
                             'Запомнить меня',
                             style: FlutterFlowTheme.of(context)
-                                .bodyText1
+                                .bodyMedium
                                 .override(
                                   fontFamily: 'Inter',
                                   fontWeight: FontWeight.normal,
                                   useGoogleFonts: GoogleFonts.asMap()
                                       .containsKey(FlutterFlowTheme.of(context)
-                                          .bodyText1Family),
+                                          .bodyMediumFamily),
                                 ),
                           ),
                           Expanded(
@@ -282,7 +279,7 @@ class _AdminSignInEmailWidgetState extends State<AdminSignInEmailWidget> {
                                 child: Text(
                                   'Забыли пароль?',
                                   style: FlutterFlowTheme.of(context)
-                                      .bodyText1
+                                      .bodyMedium
                                       .override(
                                         fontFamily: 'Inter',
                                         color:
@@ -291,7 +288,7 @@ class _AdminSignInEmailWidgetState extends State<AdminSignInEmailWidget> {
                                         useGoogleFonts: GoogleFonts.asMap()
                                             .containsKey(
                                                 FlutterFlowTheme.of(context)
-                                                    .bodyText1Family),
+                                                    .bodyMediumFamily),
                                       ),
                                 ),
                               ),
@@ -326,16 +323,17 @@ class _AdminSignInEmailWidgetState extends State<AdminSignInEmailWidget> {
                               0.0, 0.0, 0.0, 0.0),
                           iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).primaryColor,
+                          color: FlutterFlowTheme.of(context).primary,
                           textStyle: FlutterFlowTheme.of(context)
-                              .subtitle2
+                              .titleSmall
                               .override(
                                 fontFamily: 'Inter',
                                 color: Colors.white,
                                 useGoogleFonts: GoogleFonts.asMap().containsKey(
                                     FlutterFlowTheme.of(context)
-                                        .subtitle2Family),
+                                        .titleSmallFamily),
                               ),
+                          elevation: 2.0,
                           borderSide: BorderSide(
                             color: Colors.transparent,
                             width: 1.0,
@@ -351,14 +349,14 @@ class _AdminSignInEmailWidgetState extends State<AdminSignInEmailWidget> {
                         Text(
                           'Хотите стать партнером? ',
                           style: FlutterFlowTheme.of(context)
-                              .bodyText1
+                              .bodyMedium
                               .override(
                                 fontFamily: 'Inter',
                                 color: FlutterFlowTheme.of(context).gray2,
                                 fontWeight: FontWeight.normal,
                                 useGoogleFonts: GoogleFonts.asMap().containsKey(
                                     FlutterFlowTheme.of(context)
-                                        .bodyText1Family),
+                                        .bodyMediumFamily),
                               ),
                         ),
                         InkWell(
@@ -368,15 +366,14 @@ class _AdminSignInEmailWidgetState extends State<AdminSignInEmailWidget> {
                           child: Text(
                             'Зарегистрироваться',
                             style: FlutterFlowTheme.of(context)
-                                .bodyText1
+                                .bodyMedium
                                 .override(
                                   fontFamily: 'Inter',
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryColor,
+                                  color: FlutterFlowTheme.of(context).primary,
                                   fontWeight: FontWeight.w500,
                                   useGoogleFonts: GoogleFonts.asMap()
                                       .containsKey(FlutterFlowTheme.of(context)
-                                          .bodyText1Family),
+                                          .bodyMediumFamily),
                                 ),
                           ),
                         ),

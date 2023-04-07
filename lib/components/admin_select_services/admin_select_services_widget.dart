@@ -92,13 +92,13 @@ class _AdminSelectServicesWidgetState extends State<AdminSelectServicesWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 22.0),
                   child: Text(
                     'Выберете услугу',
-                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily:
-                              FlutterFlowTheme.of(context).bodyText1Family,
+                              FlutterFlowTheme.of(context).bodyMediumFamily,
                           fontSize: 18.0,
                           fontWeight: FontWeight.w500,
                           useGoogleFonts: GoogleFonts.asMap().containsKey(
-                              FlutterFlowTheme.of(context).bodyText1Family),
+                              FlutterFlowTheme.of(context).bodyMediumFamily),
                         ),
                   ),
                 ),
@@ -117,7 +117,7 @@ class _AdminSelectServicesWidgetState extends State<AdminSelectServicesWidget> {
                           width: 50.0,
                           height: 50.0,
                           child: CircularProgressIndicator(
-                            color: FlutterFlowTheme.of(context).primaryColor,
+                            color: FlutterFlowTheme.of(context).primary,
                           ),
                         ),
                       );
@@ -190,7 +190,7 @@ class _AdminSelectServicesWidgetState extends State<AdminSelectServicesWidget> {
                                           height: 20.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
-                                                .primaryColor,
+                                                .primary,
                                             borderRadius:
                                                 BorderRadius.circular(4.0),
                                             shape: BoxShape.rectangle,
@@ -232,7 +232,7 @@ class _AdminSelectServicesWidgetState extends State<AdminSelectServicesWidget> {
                                           child: Text(
                                             listViewCompanyServicesRecord.name!,
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyText1,
+                                                .bodyMedium,
                                           ),
                                         ),
                                       ),
@@ -242,18 +242,18 @@ class _AdminSelectServicesWidgetState extends State<AdminSelectServicesWidget> {
                                         child: Text(
                                           '${listViewCompanyServicesRecord.price?.toString()} тг',
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1
+                                              .bodyMedium
                                               .override(
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText1Family,
+                                                        .bodyMediumFamily,
                                                 fontWeight: FontWeight.w500,
                                                 useGoogleFonts: GoogleFonts
                                                         .asMap()
                                                     .containsKey(
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .bodyText1Family),
+                                                            .bodyMediumFamily),
                                               ),
                                         ),
                                       ),
@@ -286,17 +286,18 @@ class _AdminSelectServicesWidgetState extends State<AdminSelectServicesWidget> {
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       iconPadding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      color: FlutterFlowTheme.of(context).primaryColor,
+                      color: FlutterFlowTheme.of(context).primary,
                       textStyle: FlutterFlowTheme.of(context)
-                          .subtitle2
+                          .titleSmall
                           .override(
                             fontFamily:
-                                FlutterFlowTheme.of(context).subtitle2Family,
+                                FlutterFlowTheme.of(context).titleSmallFamily,
                             color: Colors.white,
                             fontSize: 16.0,
                             useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                FlutterFlowTheme.of(context).subtitle2Family),
+                                FlutterFlowTheme.of(context).titleSmallFamily),
                           ),
+                      elevation: 2.0,
                       borderSide: BorderSide(
                         color: Colors.transparent,
                         width: 1.0,

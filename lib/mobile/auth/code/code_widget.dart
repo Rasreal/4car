@@ -89,12 +89,12 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      body: GestureDetector(
-        onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
-        child: Stack(
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        body: Stack(
           children: [
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
@@ -116,7 +116,7 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
                           buttonSize: 48.0,
                           icon: Icon(
                             Icons.chevron_left_outlined,
-                            color: FlutterFlowTheme.of(context).primaryColor,
+                            color: FlutterFlowTheme.of(context).primary,
                             size: 24.0,
                           ),
                           onPressed: () async {
@@ -130,12 +130,12 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
                     padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
                     child: Text(
                       'Введите код',
-                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily:
-                                FlutterFlowTheme.of(context).bodyText1Family,
+                                FlutterFlowTheme.of(context).bodyMediumFamily,
                             fontSize: 24.0,
                             useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                FlutterFlowTheme.of(context).bodyText1Family),
+                                FlutterFlowTheme.of(context).bodyMediumFamily),
                           ),
                     ),
                   ),
@@ -144,30 +144,30 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 30.0),
                     child: Text(
                       'Мы отправим на ваш номер сообщение с 6-ти значным кодом, введите его',
-                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily:
-                                FlutterFlowTheme.of(context).bodyText1Family,
+                                FlutterFlowTheme.of(context).bodyMediumFamily,
                             fontWeight: FontWeight.w500,
                             useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                FlutterFlowTheme.of(context).bodyText1Family),
+                                FlutterFlowTheme.of(context).bodyMediumFamily),
                           ),
                     ),
                   ),
                   PinCodeTextField(
                     appContext: context,
                     length: 6,
-                    textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily:
-                              FlutterFlowTheme.of(context).subtitle2Family,
+                              FlutterFlowTheme.of(context).titleSmallFamily,
                           color: FlutterFlowTheme.of(context).primaryText,
                           useGoogleFonts: GoogleFonts.asMap().containsKey(
-                              FlutterFlowTheme.of(context).subtitle2Family),
+                              FlutterFlowTheme.of(context).titleSmallFamily),
                         ),
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     enableActiveFill: false,
                     autoFocus: true,
                     showCursor: true,
-                    cursorColor: FlutterFlowTheme.of(context).primaryColor,
+                    cursorColor: FlutterFlowTheme.of(context).primary,
                     obscureText: false,
                     hintCharacter: '●',
                     pinTheme: PinTheme(
@@ -200,16 +200,16 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
                         Text(
                           'Не получили код?',
                           style: FlutterFlowTheme.of(context)
-                              .bodyText1
+                              .bodyMedium
                               .override(
                                 fontFamily: FlutterFlowTheme.of(context)
-                                    .bodyText1Family,
+                                    .bodyMediumFamily,
                                 color:
                                     FlutterFlowTheme.of(context).secondaryText,
                                 fontWeight: FontWeight.normal,
                                 useGoogleFonts: GoogleFonts.asMap().containsKey(
                                     FlutterFlowTheme.of(context)
-                                        .bodyText1Family),
+                                        .bodyMediumFamily),
                               ),
                         ),
                         Padding(
@@ -250,18 +250,17 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
                             child: Text(
                               ' Отправить код заново',
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText1
+                                  .bodyMedium
                                   .override(
                                     fontFamily: FlutterFlowTheme.of(context)
-                                        .bodyText1Family,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryColor,
+                                        .bodyMediumFamily,
+                                    color: FlutterFlowTheme.of(context).primary,
                                     fontSize: 12.0,
                                     fontWeight: FontWeight.w500,
                                     useGoogleFonts: GoogleFonts.asMap()
                                         .containsKey(
                                             FlutterFlowTheme.of(context)
-                                                .bodyText1Family),
+                                                .bodyMediumFamily),
                                   ),
                             ),
                           ),
@@ -309,19 +308,20 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
                       color: valueOrDefault<Color>(
                         _model.pinCodeController!.text != null &&
                                 _model.pinCodeController!.text != ''
-                            ? FlutterFlowTheme.of(context).primaryColor
+                            ? FlutterFlowTheme.of(context).primary
                             : FlutterFlowTheme.of(context).starblue,
                         FlutterFlowTheme.of(context).starblue,
                       ),
                       textStyle: FlutterFlowTheme.of(context)
-                          .subtitle2
+                          .titleSmall
                           .override(
                             fontFamily:
-                                FlutterFlowTheme.of(context).subtitle2Family,
+                                FlutterFlowTheme.of(context).titleSmallFamily,
                             color: Colors.white,
                             useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                FlutterFlowTheme.of(context).subtitle2Family),
+                                FlutterFlowTheme.of(context).titleSmallFamily),
                           ),
+                      elevation: 2.0,
                       borderSide: BorderSide(
                         color: Colors.transparent,
                         width: 1.0,
@@ -359,8 +359,7 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
                             borderColor: Colors.transparent,
                             borderRadius: 20.0,
                             buttonSize: 60.0,
-                            fillColor:
-                                FlutterFlowTheme.of(context).primaryColor,
+                            fillColor: FlutterFlowTheme.of(context).primary,
                             icon: Icon(
                               Icons.check,
                               color: Colors.white,
@@ -377,16 +376,16 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
                               'Добро пожаловать!',
                               textAlign: TextAlign.center,
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText1
+                                  .bodyMedium
                                   .override(
                                     fontFamily: FlutterFlowTheme.of(context)
-                                        .bodyText1Family,
+                                        .bodyMediumFamily,
                                     fontSize: 16.0,
                                     fontWeight: FontWeight.w500,
                                     useGoogleFonts: GoogleFonts.asMap()
                                         .containsKey(
                                             FlutterFlowTheme.of(context)
-                                                .bodyText1Family),
+                                                .bodyMediumFamily),
                                   ),
                             ),
                           ),

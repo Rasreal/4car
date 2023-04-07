@@ -56,19 +56,19 @@ class _SelectCityWidgetState extends State<SelectCityWidget> {
             width: 50.0,
             height: 50.0,
             child: CircularProgressIndicator(
-              color: FlutterFlowTheme.of(context).primaryColor,
+              color: FlutterFlowTheme.of(context).primary,
             ),
           ),
         ),
       );
     }
 
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        body: SafeArea(
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
             child: Column(
@@ -101,7 +101,7 @@ class _SelectCityWidgetState extends State<SelectCityWidget> {
                       buttonSize: 48.0,
                       icon: Icon(
                         FFIcons.kicBack,
-                        color: FlutterFlowTheme.of(context).primaryColor,
+                        color: FlutterFlowTheme.of(context).primary,
                         size: 24.0,
                       ),
                       onPressed: () async {
@@ -111,13 +111,13 @@ class _SelectCityWidgetState extends State<SelectCityWidget> {
                     Text(
                       'Выберите ваш город',
                       textAlign: TextAlign.center,
-                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily:
-                                FlutterFlowTheme.of(context).bodyText1Family,
+                                FlutterFlowTheme.of(context).bodyMediumFamily,
                             fontSize: 18.0,
                             fontWeight: FontWeight.w500,
                             useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                FlutterFlowTheme.of(context).bodyText1Family),
+                                FlutterFlowTheme.of(context).bodyMediumFamily),
                           ),
                     ),
                     FlutterFlowIconButton(
@@ -149,13 +149,13 @@ class _SelectCityWidgetState extends State<SelectCityWidget> {
                     decoration: InputDecoration(
                       hintText: 'Поиск',
                       hintStyle: FlutterFlowTheme.of(context)
-                          .bodyText2
+                          .bodySmall
                           .override(
                             fontFamily:
-                                FlutterFlowTheme.of(context).bodyText2Family,
+                                FlutterFlowTheme.of(context).bodySmallFamily,
                             color: Color(0xFFC4C4C4),
                             useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                FlutterFlowTheme.of(context).bodyText2Family),
+                                FlutterFlowTheme.of(context).bodySmallFamily),
                           ),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
@@ -191,7 +191,7 @@ class _SelectCityWidgetState extends State<SelectCityWidget> {
                         size: 24.0,
                       ),
                     ),
-                    style: FlutterFlowTheme.of(context).bodyText1,
+                    style: FlutterFlowTheme.of(context).bodyMedium,
                     validator:
                         _model.textControllerValidator.asValidator(context),
                   ),
@@ -211,7 +211,7 @@ class _SelectCityWidgetState extends State<SelectCityWidget> {
                             width: 50.0,
                             height: 50.0,
                             child: CircularProgressIndicator(
-                              color: FlutterFlowTheme.of(context).primaryColor,
+                              color: FlutterFlowTheme.of(context).primary,
                             ),
                           ),
                         );
@@ -254,7 +254,7 @@ class _SelectCityWidgetState extends State<SelectCityWidget> {
                                         Text(
                                           listViewCityesRecord.name!,
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1,
+                                              .bodyMedium,
                                         ),
                                         if (functions
                                                 .returnDistanceBetweenTwoPointsCopy(
@@ -271,7 +271,7 @@ class _SelectCityWidgetState extends State<SelectCityWidget> {
                                               FFIcons.kicNavigation,
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .primaryColor,
+                                                      .primary,
                                               size: 24.0,
                                             ),
                                           ),

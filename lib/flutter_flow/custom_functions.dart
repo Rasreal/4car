@@ -527,3 +527,18 @@ DateTime? futureDate(
 
   return result;
 }
+
+double focarProcent(
+  double procent,
+  int price,
+) {
+  return price * (procent / 100.0);
+}
+
+int daySum(String day) {
+  return int.parse(day.substring(0, day.indexOf('/')));
+}
+
+int price100(int price) {
+  return (price / 100).toInt();
+}

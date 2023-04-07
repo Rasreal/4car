@@ -103,19 +103,19 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
             width: 50.0,
             height: 50.0,
             child: CircularProgressIndicator(
-              color: FlutterFlowTheme.of(context).primaryColor,
+              color: FlutterFlowTheme.of(context).primary,
             ),
           ),
         ),
       );
     }
 
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        body: SafeArea(
           child: Stack(
             children: [
               SingleChildScrollView(
@@ -137,7 +137,7 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                             buttonSize: 48.0,
                             icon: Icon(
                               FFIcons.kicBack,
-                              color: FlutterFlowTheme.of(context).primaryColor,
+                              color: FlutterFlowTheme.of(context).primary,
                               size: 24.0,
                             ),
                             onPressed: () async {
@@ -156,15 +156,15 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                           Text(
                             'Новая запись',
                             style: FlutterFlowTheme.of(context)
-                                .bodyText1
+                                .bodyMedium
                                 .override(
                                   fontFamily: FlutterFlowTheme.of(context)
-                                      .bodyText1Family,
+                                      .bodyMediumFamily,
                                   fontSize: 18.0,
                                   fontWeight: FontWeight.w500,
                                   useGoogleFonts: GoogleFonts.asMap()
                                       .containsKey(FlutterFlowTheme.of(context)
-                                          .bodyText1Family),
+                                          .bodyMediumFamily),
                                 ),
                           ),
                           FlutterFlowIconButton(
@@ -257,11 +257,11 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                                           widget.company!.name!,
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1Family,
+                                                                    .bodyMediumFamily,
                                                                 fontSize: 16.0,
                                                                 fontWeight:
                                                                     FontWeight
@@ -270,7 +270,7 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                         ),
                                                       ),
@@ -297,7 +297,7 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                                                     true
                                                                 ? FlutterFlowTheme.of(
                                                                         context)
-                                                                    .primaryColor
+                                                                    .primary
                                                                 : FlutterFlowTheme.of(
                                                                         context)
                                                                     .red1,
@@ -322,7 +322,7 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .primaryColor,
+                                                              .primary,
                                                     ),
                                                     direction: Axis.horizontal,
                                                     rating:
@@ -358,7 +358,7 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .primaryColor,
+                                                                .primary,
                                                       ),
                                                     ),
                                                   );
@@ -401,14 +401,14 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                                     FFIcons.kicSaveee,
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .primaryColor,
+                                                        .primary,
                                                     size: 24.0,
                                                   ),
                                                   offIcon: Icon(
                                                     FFIcons.kproperty1unsaved,
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .primaryColor,
+                                                        .primary,
                                                     size: 24.0,
                                                   ),
                                                 );
@@ -425,12 +425,12 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                               widget.company!.street!,
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText1
+                                                      .bodyMedium
                                                       .override(
                                                         fontFamily:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1Family,
+                                                                .bodyMediumFamily,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                         useGoogleFonts: GoogleFonts
@@ -438,7 +438,7 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                                             .containsKey(
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1Family),
+                                                                    .bodyMediumFamily),
                                                       ),
                                             ),
                                             Text(
@@ -457,12 +457,12 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                               ),
                                               style: FlutterFlowTheme.of(
                                                       context)
-                                                  .bodyText1
+                                                  .bodyMedium
                                                   .override(
                                                     fontFamily:
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .bodyText1Family,
+                                                            .bodyMediumFamily,
                                                     color: Color(0xFF9CA3AF),
                                                     fontWeight: FontWeight.w500,
                                                     useGoogleFonts: GoogleFonts
@@ -470,7 +470,7 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                                         .containsKey(
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1Family),
+                                                                .bodyMediumFamily),
                                                   ),
                                             ),
                                           ],
@@ -486,7 +486,7 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 10.0, 0.0, 12.0),
                             child: FlutterFlowCalendar(
-                              color: FlutterFlowTheme.of(context).primaryColor,
+                              color: FlutterFlowTheme.of(context).primary,
                               weekFormat: true,
                               weekStartsMonday: true,
                               initialDate: getCurrentTimestamp,
@@ -512,15 +512,15 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                             child: Text(
                               'Выбрать время',
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText1
+                                  .bodyMedium
                                   .override(
                                     fontFamily: FlutterFlowTheme.of(context)
-                                        .bodyText1Family,
+                                        .bodyMediumFamily,
                                     fontWeight: FontWeight.w500,
                                     useGoogleFonts: GoogleFonts.asMap()
                                         .containsKey(
                                             FlutterFlowTheme.of(context)
-                                                .bodyText1Family),
+                                                .bodyMediumFamily),
                                   ),
                             ),
                           ),
@@ -541,7 +541,7 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                       height: 50.0,
                                       child: CircularProgressIndicator(
                                         color: FlutterFlowTheme.of(context)
-                                            .primaryColor,
+                                            .primary,
                                       ),
                                     ),
                                   );
@@ -623,7 +623,7 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                                       CircularProgressIndicator(
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .primaryColor,
+                                                        .primary,
                                                   ),
                                                 ),
                                               );
@@ -679,11 +679,11 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                                               TextAlign.center,
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1Family,
+                                                                    .bodyMediumFamily,
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .gray3,
@@ -691,7 +691,7 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                         ),
                                                       ),
@@ -732,7 +732,7 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                                                         .reference
                                                                 ? FlutterFlowTheme.of(
                                                                         context)
-                                                                    .primaryColor
+                                                                    .primary
                                                                 : FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryBackground,
@@ -747,7 +747,7 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                                           border: Border.all(
                                                             color: FlutterFlowTheme
                                                                     .of(context)
-                                                                .primaryColor,
+                                                                .primary,
                                                           ),
                                                         ),
                                                         child: Align(
@@ -765,11 +765,11 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                                                 .center,
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .bodyText1
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1Family,
+                                                                      .bodyMediumFamily,
                                                                   color:
                                                                       valueOrDefault<
                                                                           Color>(
@@ -779,7 +779,7 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                                                         ? FlutterFlowTheme.of(context)
                                                                             .primaryBackground
                                                                         : FlutterFlowTheme.of(context)
-                                                                            .primaryColor,
+                                                                            .primary,
                                                                     FlutterFlowTheme.of(
                                                                             context)
                                                                         .primaryBackground,
@@ -788,7 +788,7 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                                                           .asMap()
                                                                       .containsKey(
                                                                           FlutterFlowTheme.of(context)
-                                                                              .bodyText1Family),
+                                                                              .bodyMediumFamily),
                                                                 ),
                                                           ),
                                                         ),
@@ -820,15 +820,15 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                 child: Text(
                                   'Выбрать авто',
                                   style: FlutterFlowTheme.of(context)
-                                      .bodyText2
+                                      .bodySmall
                                       .override(
                                         fontFamily: FlutterFlowTheme.of(context)
-                                            .bodyText2Family,
+                                            .bodySmallFamily,
                                         fontWeight: FontWeight.w500,
                                         useGoogleFonts: GoogleFonts.asMap()
                                             .containsKey(
                                                 FlutterFlowTheme.of(context)
-                                                    .bodyText2Family),
+                                                    .bodySmallFamily),
                                       ),
                                 ),
                               ),
@@ -840,12 +840,18 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                     await showModalBottomSheet(
                                       isScrollControlled: true,
                                       backgroundColor: Colors.transparent,
+                                      barrierColor: Color(0x00000000),
                                       context: context,
-                                      builder: (context) {
-                                        return Padding(
-                                          padding:
-                                              MediaQuery.of(context).viewInsets,
-                                          child: SelectCarWidget(),
+                                      builder: (bottomSheetContext) {
+                                        return GestureDetector(
+                                          onTap: () => FocusScope.of(context)
+                                              .requestFocus(_unfocusNode),
+                                          child: Padding(
+                                            padding: MediaQuery.of(
+                                                    bottomSheetContext)
+                                                .viewInsets,
+                                            child: SelectCarWidget(),
+                                          ),
                                         );
                                       },
                                     ).then((value) => setState(() {}));
@@ -875,7 +881,7 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                               'Выберите авто',
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText1,
+                                                      .bodyMedium,
                                             ),
                                           if (FFAppState().selectedCar != null)
                                             Expanded(
@@ -896,7 +902,7 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                                             CircularProgressIndicator(
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .primaryColor,
+                                                              .primary,
                                                         ),
                                                       ),
                                                     );
@@ -907,7 +913,7 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                                     '${textMyCarsRecord.carBody}, ${textMyCarsRecord.carNum}',
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyText1,
+                                                        .bodyMedium,
                                                   );
                                                 },
                                               ),
@@ -936,15 +942,15 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                 child: Text(
                                   'Выбрать услугу',
                                   style: FlutterFlowTheme.of(context)
-                                      .bodyText2
+                                      .bodySmall
                                       .override(
                                         fontFamily: FlutterFlowTheme.of(context)
-                                            .bodyText2Family,
+                                            .bodySmallFamily,
                                         fontWeight: FontWeight.w500,
                                         useGoogleFonts: GoogleFonts.asMap()
                                             .containsKey(
                                                 FlutterFlowTheme.of(context)
-                                                    .bodyText2Family),
+                                                    .bodySmallFamily),
                                       ),
                                 ),
                               ),
@@ -956,13 +962,20 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                     await showModalBottomSheet(
                                       isScrollControlled: true,
                                       backgroundColor: Colors.transparent,
+                                      barrierColor: Color(0x00000000),
                                       context: context,
-                                      builder: (context) {
-                                        return Padding(
-                                          padding:
-                                              MediaQuery.of(context).viewInsets,
-                                          child: SelectServicesWidget(
-                                            company: widget.company!.reference,
+                                      builder: (bottomSheetContext) {
+                                        return GestureDetector(
+                                          onTap: () => FocusScope.of(context)
+                                              .requestFocus(_unfocusNode),
+                                          child: Padding(
+                                            padding: MediaQuery.of(
+                                                    bottomSheetContext)
+                                                .viewInsets,
+                                            child: SelectServicesWidget(
+                                              company:
+                                                  widget.company!.reference,
+                                            ),
                                           ),
                                         );
                                       },
@@ -996,7 +1009,7 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                               'Выбрать',
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText1,
+                                                      .bodyMedium,
                                             ),
                                           if (FFAppState()
                                                   .selectedServices
@@ -1022,7 +1035,7 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                                             CircularProgressIndicator(
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .primaryColor,
+                                                              .primary,
                                                         ),
                                                       ),
                                                     );
@@ -1057,7 +1070,7 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                                                           80),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyText1,
+                                                                  .bodyMedium,
                                                             ),
                                                           ],
                                                         ),
@@ -1091,15 +1104,15 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                 child: Text(
                                   'Напомнить',
                                   style: FlutterFlowTheme.of(context)
-                                      .bodyText2
+                                      .bodySmall
                                       .override(
                                         fontFamily: FlutterFlowTheme.of(context)
-                                            .bodyText2Family,
+                                            .bodySmallFamily,
                                         fontWeight: FontWeight.w500,
                                         useGoogleFonts: GoogleFonts.asMap()
                                             .containsKey(
                                                 FlutterFlowTheme.of(context)
-                                                    .bodyText2Family),
+                                                    .bodySmallFamily),
                                       ),
                                 ),
                               ),
@@ -1111,12 +1124,18 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                     await showModalBottomSheet(
                                       isScrollControlled: true,
                                       backgroundColor: Colors.transparent,
+                                      barrierColor: Color(0x00000000),
                                       context: context,
-                                      builder: (context) {
-                                        return Padding(
-                                          padding:
-                                              MediaQuery.of(context).viewInsets,
-                                          child: SelectNotificationWidget(),
+                                      builder: (bottomSheetContext) {
+                                        return GestureDetector(
+                                          onTap: () => FocusScope.of(context)
+                                              .requestFocus(_unfocusNode),
+                                          child: Padding(
+                                            padding: MediaQuery.of(
+                                                    bottomSheetContext)
+                                                .viewInsets,
+                                            child: SelectNotificationWidget(),
+                                          ),
                                         );
                                       },
                                     ).then((value) => setState(() {}));
@@ -1146,12 +1165,12 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                               'Не напоминать',
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText1
+                                                      .bodyMedium
                                                       .override(
                                                         fontFamily:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1Family,
+                                                                .bodyMediumFamily,
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -1161,7 +1180,7 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                                             .containsKey(
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1Family),
+                                                                    .bodyMediumFamily),
                                                       ),
                                             ),
                                           if (FFAppState().selectPush == 1)
@@ -1169,12 +1188,12 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                               'За 1 час до записи',
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText1
+                                                      .bodyMedium
                                                       .override(
                                                         fontFamily:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1Family,
+                                                                .bodyMediumFamily,
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -1184,7 +1203,7 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                                             .containsKey(
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1Family),
+                                                                    .bodyMediumFamily),
                                                       ),
                                             ),
                                           if (FFAppState().selectPush == 2)
@@ -1192,12 +1211,12 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                               'За 2 час до записи',
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText1
+                                                      .bodyMedium
                                                       .override(
                                                         fontFamily:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1Family,
+                                                                .bodyMediumFamily,
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -1207,7 +1226,7 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                                             .containsKey(
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1Family),
+                                                                    .bodyMediumFamily),
                                                       ),
                                             ),
                                           if (FFAppState().selectPush == 3)
@@ -1215,12 +1234,12 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                               'За 3 час до записи',
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText1
+                                                      .bodyMedium
                                                       .override(
                                                         fontFamily:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1Family,
+                                                                .bodyMediumFamily,
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -1230,7 +1249,7 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                                             .containsKey(
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1Family),
+                                                                    .bodyMediumFamily),
                                                       ),
                                             ),
                                           if (FFAppState().selectPush == 4)
@@ -1238,12 +1257,12 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                               'За 4 час до записи',
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText1
+                                                      .bodyMedium
                                                       .override(
                                                         fontFamily:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1Family,
+                                                                .bodyMediumFamily,
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -1253,7 +1272,7 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                                             .containsKey(
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1Family),
+                                                                    .bodyMediumFamily),
                                                       ),
                                             ),
                                           Icon(
@@ -1303,19 +1322,19 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                           '0',
                                         )}тг',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText1Family,
+                                                      .bodyMediumFamily,
                                               fontSize: 16.0,
                                               fontWeight: FontWeight.w500,
-                                              useGoogleFonts:
-                                                  GoogleFonts.asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyText1Family),
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily),
                                             ),
                                       ),
                                       Padding(
@@ -1324,11 +1343,11 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                         child: Text(
                                           'Оплата нужно произвести после мойки авто',
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1
+                                              .bodyMedium
                                               .override(
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText1Family,
+                                                        .bodyMediumFamily,
                                                 color: Color(0xFFCBCACA),
                                                 fontSize: 12.0,
                                                 useGoogleFonts: GoogleFonts
@@ -1336,7 +1355,7 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                                     .containsKey(
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .bodyText1Family),
+                                                            .bodyMediumFamily),
                                               ),
                                         ),
                                       ),
@@ -1364,7 +1383,7 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                         height: 50.0,
                                         child: CircularProgressIndicator(
                                           color: FlutterFlowTheme.of(context)
-                                              .primaryColor,
+                                              .primary,
                                         ),
                                       ),
                                     );
@@ -1394,7 +1413,7 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                                       CircularProgressIndicator(
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .primaryColor,
+                                                        .primary,
                                                   ),
                                                 ),
                                               );
@@ -1488,15 +1507,15 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                                             0.0, 0.0, 0.0, 0.0),
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .primaryColor,
+                                                        .primary,
                                                 textStyle:
                                                     FlutterFlowTheme.of(context)
-                                                        .subtitle2
+                                                        .titleSmall
                                                         .override(
                                                           fontFamily:
                                                               FlutterFlowTheme.of(
                                                                       context)
-                                                                  .subtitle2Family,
+                                                                  .titleSmallFamily,
                                                           color: Colors.white,
                                                           fontSize: 16.0,
                                                           useGoogleFonts: GoogleFonts
@@ -1504,7 +1523,7 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                                               .containsKey(
                                                                   FlutterFlowTheme.of(
                                                                           context)
-                                                                      .subtitle2Family),
+                                                                      .titleSmallFamily),
                                                         ),
                                                 elevation: 0.0,
                                                 borderSide: BorderSide(
@@ -1542,16 +1561,16 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                       0.0, 0.0, 0.0, 0.0),
                                   color: FlutterFlowTheme.of(context).starblue,
                                   textStyle: FlutterFlowTheme.of(context)
-                                      .subtitle2
+                                      .titleSmall
                                       .override(
                                         fontFamily: FlutterFlowTheme.of(context)
-                                            .subtitle2Family,
+                                            .titleSmallFamily,
                                         color: Colors.white,
                                         fontSize: 16.0,
                                         useGoogleFonts: GoogleFonts.asMap()
                                             .containsKey(
                                                 FlutterFlowTheme.of(context)
-                                                    .subtitle2Family),
+                                                    .titleSmallFamily),
                                       ),
                                   elevation: 0.0,
                                   borderSide: BorderSide(
@@ -1597,8 +1616,7 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                                 width: 48.0,
                                 height: 48.0,
                                 decoration: BoxDecoration(
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryColor,
+                                  color: FlutterFlowTheme.of(context).primary,
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
                                 child: Icon(
@@ -1612,16 +1630,16 @@ class _BookingPageCopyWidgetState extends State<BookingPageCopyWidget>
                               'Вы успешно\nзаписались!',
                               textAlign: TextAlign.center,
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText1
+                                  .bodyMedium
                                   .override(
                                     fontFamily: FlutterFlowTheme.of(context)
-                                        .bodyText1Family,
+                                        .bodyMediumFamily,
                                     fontSize: 15.0,
                                     fontWeight: FontWeight.w500,
                                     useGoogleFonts: GoogleFonts.asMap()
                                         .containsKey(
                                             FlutterFlowTheme.of(context)
-                                                .bodyText1Family),
+                                                .bodyMediumFamily),
                                   ),
                             ),
                           ],

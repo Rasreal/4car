@@ -5,7 +5,7 @@ import '/components/success/success_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/upload_media.dart';
+import '/flutter_flow/upload_data.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -84,14 +84,14 @@ class _AdminAddSalesWidgetState extends State<AdminAddSalesWidget> {
                           Text(
                             'Детали акции',
                             style: FlutterFlowTheme.of(context)
-                                .bodyText1
+                                .bodyMedium
                                 .override(
                                   fontFamily: FlutterFlowTheme.of(context)
-                                      .bodyText1Family,
+                                      .bodyMediumFamily,
                                   fontSize: 20.0,
                                   useGoogleFonts: GoogleFonts.asMap()
                                       .containsKey(FlutterFlowTheme.of(context)
-                                          .bodyText1Family),
+                                          .bodyMediumFamily),
                                 ),
                           ),
                           InkWell(
@@ -117,7 +117,7 @@ class _AdminAddSalesWidgetState extends State<AdminAddSalesWidget> {
                         if (selectedMedia != null &&
                             selectedMedia.every((m) =>
                                 validateFileFormat(m.storagePath, context))) {
-                          setState(() => _model.isMediaUploading = true);
+                          setState(() => _model.isDataUploading = true);
                           var selectedUploadedFiles = <FFUploadedFile>[];
                           var downloadUrls = <String>[];
                           try {
@@ -140,7 +140,7 @@ class _AdminAddSalesWidgetState extends State<AdminAddSalesWidget> {
                                 .map((u) => u!)
                                 .toList();
                           } finally {
-                            _model.isMediaUploading = false;
+                            _model.isDataUploading = false;
                           }
                           if (selectedUploadedFiles.length ==
                                   selectedMedia.length &&
@@ -178,15 +178,15 @@ class _AdminAddSalesWidgetState extends State<AdminAddSalesWidget> {
                         decoration: InputDecoration(
                           hintText: 'Название',
                           hintStyle: FlutterFlowTheme.of(context)
-                              .bodyText2
+                              .bodySmall
                               .override(
                                 fontFamily: FlutterFlowTheme.of(context)
-                                    .bodyText2Family,
+                                    .bodySmallFamily,
                                 fontSize: 16.0,
                                 fontWeight: FontWeight.normal,
                                 useGoogleFonts: GoogleFonts.asMap().containsKey(
                                     FlutterFlowTheme.of(context)
-                                        .bodyText2Family),
+                                        .bodySmallFamily),
                               ),
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
@@ -220,13 +220,14 @@ class _AdminAddSalesWidgetState extends State<AdminAddSalesWidget> {
                           fillColor:
                               FlutterFlowTheme.of(context).primaryBackground,
                         ),
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily:
-                                  FlutterFlowTheme.of(context).bodyText1Family,
+                                  FlutterFlowTheme.of(context).bodyMediumFamily,
                               fontSize: 16.0,
                               fontWeight: FontWeight.normal,
                               useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                  FlutterFlowTheme.of(context).bodyText1Family),
+                                  FlutterFlowTheme.of(context)
+                                      .bodyMediumFamily),
                             ),
                         validator: _model.textController1Validator
                             .asValidator(context),
@@ -241,15 +242,15 @@ class _AdminAddSalesWidgetState extends State<AdminAddSalesWidget> {
                         decoration: InputDecoration(
                           hintText: 'Текст',
                           hintStyle: FlutterFlowTheme.of(context)
-                              .bodyText2
+                              .bodySmall
                               .override(
                                 fontFamily: FlutterFlowTheme.of(context)
-                                    .bodyText2Family,
+                                    .bodySmallFamily,
                                 fontSize: 16.0,
                                 fontWeight: FontWeight.normal,
                                 useGoogleFonts: GoogleFonts.asMap().containsKey(
                                     FlutterFlowTheme.of(context)
-                                        .bodyText2Family),
+                                        .bodySmallFamily),
                               ),
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
@@ -283,13 +284,14 @@ class _AdminAddSalesWidgetState extends State<AdminAddSalesWidget> {
                           fillColor:
                               FlutterFlowTheme.of(context).primaryBackground,
                         ),
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily:
-                                  FlutterFlowTheme.of(context).bodyText1Family,
+                                  FlutterFlowTheme.of(context).bodyMediumFamily,
                               fontSize: 16.0,
                               fontWeight: FontWeight.normal,
                               useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                  FlutterFlowTheme.of(context).bodyText1Family),
+                                  FlutterFlowTheme.of(context)
+                                      .bodyMediumFamily),
                             ),
                         validator: _model.textController2Validator
                             .asValidator(context),
@@ -326,11 +328,13 @@ class _AdminAddSalesWidgetState extends State<AdminAddSalesWidget> {
                             await showModalBottomSheet(
                               isScrollControlled: true,
                               backgroundColor: Colors.transparent,
+                              barrierColor: Color(0x00000000),
                               enableDrag: false,
                               context: context,
-                              builder: (context) {
+                              builder: (bottomSheetContext) {
                                 return Padding(
-                                  padding: MediaQuery.of(context).viewInsets,
+                                  padding: MediaQuery.of(bottomSheetContext)
+                                      .viewInsets,
                                   child: SuccessWidget(
                                     message: 'Акция создана',
                                   ),
@@ -346,18 +350,18 @@ class _AdminAddSalesWidgetState extends State<AdminAddSalesWidget> {
                                 0.0, 0.0, 0.0, 0.0),
                             iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            color: FlutterFlowTheme.of(context).primaryColor,
+                            color: FlutterFlowTheme.of(context).primary,
                             textStyle: FlutterFlowTheme.of(context)
-                                .subtitle2
+                                .titleSmall
                                 .override(
                                   fontFamily: FlutterFlowTheme.of(context)
-                                      .subtitle2Family,
+                                      .titleSmallFamily,
                                   color: Colors.white,
                                   fontSize: 14.0,
                                   fontWeight: FontWeight.normal,
                                   useGoogleFonts: GoogleFonts.asMap()
                                       .containsKey(FlutterFlowTheme.of(context)
-                                          .subtitle2Family),
+                                          .titleSmallFamily),
                                 ),
                             elevation: 0.0,
                             borderSide: BorderSide(

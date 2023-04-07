@@ -70,7 +70,7 @@ class _SuccsesBookingWidgetState extends State<SuccsesBookingWidget> {
                   width: 45.0,
                   height: 45.0,
                   decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).primaryColor,
+                    color: FlutterFlowTheme.of(context).primary,
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                   child: Icon(
@@ -85,13 +85,13 @@ class _SuccsesBookingWidgetState extends State<SuccsesBookingWidget> {
                 child: Text(
                   'Вы успешно записались!',
                   textAlign: TextAlign.center,
-                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily:
-                            FlutterFlowTheme.of(context).bodyText1Family,
+                            FlutterFlowTheme.of(context).bodyMediumFamily,
                         fontSize: 16.0,
                         fontWeight: FontWeight.w500,
                         useGoogleFonts: GoogleFonts.asMap().containsKey(
-                            FlutterFlowTheme.of(context).bodyText1Family),
+                            FlutterFlowTheme.of(context).bodyMediumFamily),
                       ),
                 ),
               ),
@@ -112,15 +112,15 @@ class _SuccsesBookingWidgetState extends State<SuccsesBookingWidget> {
                             child: Text(
                               'Автомойка',
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText1
+                                  .bodyMedium
                                   .override(
                                     fontFamily: FlutterFlowTheme.of(context)
-                                        .bodyText1Family,
+                                        .bodyMediumFamily,
                                     color: FlutterFlowTheme.of(context).gray2,
                                     useGoogleFonts: GoogleFonts.asMap()
                                         .containsKey(
                                             FlutterFlowTheme.of(context)
-                                                .bodyText1Family),
+                                                .bodyMediumFamily),
                                   ),
                             ),
                           ),
@@ -130,15 +130,15 @@ class _SuccsesBookingWidgetState extends State<SuccsesBookingWidget> {
                             child: Text(
                               'Услуги',
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText1
+                                  .bodyMedium
                                   .override(
                                     fontFamily: FlutterFlowTheme.of(context)
-                                        .bodyText1Family,
+                                        .bodyMediumFamily,
                                     color: FlutterFlowTheme.of(context).gray2,
                                     useGoogleFonts: GoogleFonts.asMap()
                                         .containsKey(
                                             FlutterFlowTheme.of(context)
-                                                .bodyText1Family),
+                                                .bodyMediumFamily),
                                   ),
                             ),
                           ),
@@ -148,15 +148,15 @@ class _SuccsesBookingWidgetState extends State<SuccsesBookingWidget> {
                             child: Text(
                               'Время',
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText1
+                                  .bodyMedium
                                   .override(
                                     fontFamily: FlutterFlowTheme.of(context)
-                                        .bodyText1Family,
+                                        .bodyMediumFamily,
                                     color: FlutterFlowTheme.of(context).gray2,
                                     useGoogleFonts: GoogleFonts.asMap()
                                         .containsKey(
                                             FlutterFlowTheme.of(context)
-                                                .bodyText1Family),
+                                                .bodyMediumFamily),
                                   ),
                             ),
                           ),
@@ -166,15 +166,15 @@ class _SuccsesBookingWidgetState extends State<SuccsesBookingWidget> {
                             child: Text(
                               'Общая сумма',
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText1
+                                  .bodyMedium
                                   .override(
                                     fontFamily: FlutterFlowTheme.of(context)
-                                        .bodyText1Family,
+                                        .bodyMediumFamily,
                                     color: FlutterFlowTheme.of(context).gray2,
                                     useGoogleFonts: GoogleFonts.asMap()
                                         .containsKey(
                                             FlutterFlowTheme.of(context)
-                                                .bodyText1Family),
+                                                .bodyMediumFamily),
                                   ),
                             ),
                           ),
@@ -201,7 +201,7 @@ class _SuccsesBookingWidgetState extends State<SuccsesBookingWidget> {
                                       height: 50.0,
                                       child: CircularProgressIndicator(
                                         color: FlutterFlowTheme.of(context)
-                                            .primaryColor,
+                                            .primary,
                                       ),
                                     ),
                                   );
@@ -209,7 +209,8 @@ class _SuccsesBookingWidgetState extends State<SuccsesBookingWidget> {
                                 final textCompaniesRecord = snapshot.data!;
                                 return Text(
                                   textCompaniesRecord.name!,
-                                  style: FlutterFlowTheme.of(context).bodyText1,
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
                                 );
                               },
                             ),
@@ -219,7 +220,7 @@ class _SuccsesBookingWidgetState extends State<SuccsesBookingWidget> {
                                 0.0, 8.0, 0.0, 0.0),
                             child: Text(
                               'Комплексная мой...',
-                              style: FlutterFlowTheme.of(context).bodyText1,
+                              style: FlutterFlowTheme.of(context).bodyMedium,
                             ),
                           ),
                           Padding(
@@ -227,7 +228,7 @@ class _SuccsesBookingWidgetState extends State<SuccsesBookingWidget> {
                                 0.0, 8.0, 0.0, 0.0),
                             child: Text(
                               widget.booking!.timeName!,
-                              style: FlutterFlowTheme.of(context).bodyText1,
+                              style: FlutterFlowTheme.of(context).bodyMedium,
                             ),
                           ),
                           Padding(
@@ -235,7 +236,7 @@ class _SuccsesBookingWidgetState extends State<SuccsesBookingWidget> {
                                 0.0, 8.0, 0.0, 0.0),
                             child: Text(
                               '${widget.booking!.totalPrice?.toString()} тг',
-                              style: FlutterFlowTheme.of(context).bodyText1,
+                              style: FlutterFlowTheme.of(context).bodyMedium,
                             ),
                           ),
                         ],
@@ -293,15 +294,16 @@ class _SuccsesBookingWidgetState extends State<SuccsesBookingWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     iconPadding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: FlutterFlowTheme.of(context).primaryColor,
-                    textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                    color: FlutterFlowTheme.of(context).primary,
+                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily:
-                              FlutterFlowTheme.of(context).subtitle2Family,
+                              FlutterFlowTheme.of(context).titleSmallFamily,
                           color: Colors.white,
                           fontSize: 16.0,
                           useGoogleFonts: GoogleFonts.asMap().containsKey(
-                              FlutterFlowTheme.of(context).subtitle2Family),
+                              FlutterFlowTheme.of(context).titleSmallFamily),
                         ),
+                    elevation: 2.0,
                     borderSide: BorderSide(
                       color: Colors.transparent,
                       width: 1.0,
@@ -316,13 +318,13 @@ class _SuccsesBookingWidgetState extends State<SuccsesBookingWidget> {
                 },
                 child: Text(
                   'На главную',
-                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily:
-                            FlutterFlowTheme.of(context).bodyText1Family,
-                        color: FlutterFlowTheme.of(context).primaryColor,
+                            FlutterFlowTheme.of(context).bodyMediumFamily,
+                        color: FlutterFlowTheme.of(context).primary,
                         fontWeight: FontWeight.w500,
                         useGoogleFonts: GoogleFonts.asMap().containsKey(
-                            FlutterFlowTheme.of(context).bodyText1Family),
+                            FlutterFlowTheme.of(context).bodyMediumFamily),
                       ),
                 ),
               ),

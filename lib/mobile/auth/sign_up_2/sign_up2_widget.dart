@@ -85,12 +85,12 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      body: GestureDetector(
-        onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
-        child: Stack(
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        body: Stack(
           children: [
             Form(
               key: _model.formKey,
@@ -109,14 +109,14 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                         child: Text(
                           'Регистрация',
                           style: FlutterFlowTheme.of(context)
-                              .bodyText1
+                              .bodyMedium
                               .override(
                                 fontFamily: FlutterFlowTheme.of(context)
-                                    .bodyText1Family,
+                                    .bodyMediumFamily,
                                 fontSize: 24.0,
                                 useGoogleFonts: GoogleFonts.asMap().containsKey(
                                     FlutterFlowTheme.of(context)
-                                        .bodyText1Family),
+                                        .bodyMediumFamily),
                               ),
                         ),
                       ),
@@ -126,14 +126,14 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                         child: Text(
                           'Введите имя',
                           style: FlutterFlowTheme.of(context)
-                              .bodyText1
+                              .bodyMedium
                               .override(
                                 fontFamily: FlutterFlowTheme.of(context)
-                                    .bodyText1Family,
+                                    .bodyMediumFamily,
                                 fontWeight: FontWeight.w500,
                                 useGoogleFonts: GoogleFonts.asMap().containsKey(
                                     FlutterFlowTheme.of(context)
-                                        .bodyText1Family),
+                                        .bodyMediumFamily),
                               ),
                         ),
                       ),
@@ -146,14 +146,14 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                           decoration: InputDecoration(
                             hintText: 'Ввести',
                             hintStyle: FlutterFlowTheme.of(context)
-                                .bodyText2
+                                .bodySmall
                                 .override(
                                   fontFamily: FlutterFlowTheme.of(context)
-                                      .bodyText2Family,
+                                      .bodySmallFamily,
                                   fontSize: 14.0,
                                   useGoogleFonts: GoogleFonts.asMap()
                                       .containsKey(FlutterFlowTheme.of(context)
-                                          .bodyText2Family),
+                                          .bodySmallFamily),
                                 ),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -164,8 +164,7 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color:
-                                    FlutterFlowTheme.of(context).primaryColor,
+                                color: FlutterFlowTheme.of(context).primary,
                                 width: 1.0,
                               ),
                               borderRadius: BorderRadius.circular(8.0),
@@ -185,7 +184,7 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                               borderRadius: BorderRadius.circular(8.0),
                             ),
                           ),
-                          style: FlutterFlowTheme.of(context).bodyText1,
+                          style: FlutterFlowTheme.of(context).bodyMedium,
                           validator: _model.textControllerValidator
                               .asValidator(context),
                         ),
@@ -196,14 +195,14 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                         child: Text(
                           'Выберите город',
                           style: FlutterFlowTheme.of(context)
-                              .bodyText2
+                              .bodySmall
                               .override(
                                 fontFamily: FlutterFlowTheme.of(context)
-                                    .bodyText2Family,
+                                    .bodySmallFamily,
                                 fontWeight: FontWeight.w500,
                                 useGoogleFonts: GoogleFonts.asMap().containsKey(
                                     FlutterFlowTheme.of(context)
-                                        .bodyText2Family),
+                                        .bodySmallFamily),
                               ),
                         ),
                       ),
@@ -214,14 +213,22 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                           onTap: () async {
                             await showModalBottomSheet(
                               isScrollControlled: true,
+                              backgroundColor: Color(0x00000000),
+                              barrierColor: Color(0x00000000),
                               context: context,
-                              builder: (context) {
-                                return Padding(
-                                  padding: MediaQuery.of(context).viewInsets,
-                                  child: Container(
-                                    height: MediaQuery.of(context).size.height *
-                                        0.8,
-                                    child: AddCityWidget(),
+                              builder: (bottomSheetContext) {
+                                return GestureDetector(
+                                  onTap: () => FocusScope.of(context)
+                                      .requestFocus(_unfocusNode),
+                                  child: Padding(
+                                    padding: MediaQuery.of(bottomSheetContext)
+                                        .viewInsets,
+                                    child: Container(
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.8,
+                                      child: AddCityWidget(),
+                                    ),
                                   ),
                                 );
                               },
@@ -255,7 +262,7 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                                         'Выбрать',
                                       ),
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyText1,
+                                          .bodyMedium,
                                     ),
                                   ),
                                   Icon(
@@ -284,8 +291,7 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                                 width: 50.0,
                                 height: 50.0,
                                 child: CircularProgressIndicator(
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryColor,
+                                  color: FlutterFlowTheme.of(context).primary,
                                 ),
                               ),
                             );
@@ -313,18 +319,18 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                                         Text(
                                           'Автомобиль ${functions.indexIncrement(columnIndex).toString()}',
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText2
+                                              .bodySmall
                                               .override(
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText2Family,
+                                                        .bodySmallFamily,
                                                 fontWeight: FontWeight.w500,
                                                 useGoogleFonts: GoogleFonts
                                                         .asMap()
                                                     .containsKey(
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .bodyText2Family),
+                                                            .bodySmallFamily),
                                               ),
                                         ),
                                         InkWell(
@@ -350,12 +356,12 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                                           child: Text(
                                             'Удалить',
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyText2
+                                                .bodySmall
                                                 .override(
                                                   fontFamily:
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .bodyText2Family,
+                                                          .bodySmallFamily,
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .red1,
@@ -365,7 +371,7 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                                                       .containsKey(
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyText2Family),
+                                                              .bodySmallFamily),
                                                 ),
                                           ),
                                         ),
@@ -382,13 +388,21 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                                           });
                                           await showModalBottomSheet(
                                             isScrollControlled: true,
+                                            backgroundColor: Color(0x00000000),
+                                            barrierColor: Color(0x00000000),
                                             context: context,
-                                            builder: (context) {
-                                              return Padding(
-                                                padding: MediaQuery.of(context)
-                                                    .viewInsets,
-                                                child: EditCarWidget(
-                                                  myCar: columnMyCarsRecord,
+                                            builder: (bottomSheetContext) {
+                                              return GestureDetector(
+                                                onTap: () => FocusScope.of(
+                                                        context)
+                                                    .requestFocus(_unfocusNode),
+                                                child: Padding(
+                                                  padding: MediaQuery.of(
+                                                          bottomSheetContext)
+                                                      .viewInsets,
+                                                  child: EditCarWidget(
+                                                    myCar: columnMyCarsRecord,
+                                                  ),
                                                 ),
                                               );
                                             },
@@ -422,7 +436,7 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                                                   '${columnMyCarsRecord.carBody}, ${columnMyCarsRecord.carNum}',
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyText1,
+                                                      .bodyMedium,
                                                 ),
                                                 InkWell(
                                                   onTap: () async {
@@ -430,16 +444,25 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                                                       isScrollControlled: true,
                                                       backgroundColor:
                                                           Colors.transparent,
+                                                      barrierColor:
+                                                          Color(0x00000000),
                                                       context: context,
-                                                      builder: (context) {
-                                                        return Padding(
-                                                          padding:
-                                                              MediaQuery.of(
-                                                                      context)
-                                                                  .viewInsets,
-                                                          child: EditCarWidget(
-                                                            myCar:
-                                                                columnMyCarsRecord,
+                                                      builder:
+                                                          (bottomSheetContext) {
+                                                        return GestureDetector(
+                                                          onTap: () => FocusScope
+                                                                  .of(context)
+                                                              .requestFocus(
+                                                                  _unfocusNode),
+                                                          child: Padding(
+                                                            padding: MediaQuery.of(
+                                                                    bottomSheetContext)
+                                                                .viewInsets,
+                                                            child:
+                                                                EditCarWidget(
+                                                              myCar:
+                                                                  columnMyCarsRecord,
+                                                            ),
                                                           ),
                                                         );
                                                       },
@@ -450,7 +473,7 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                                                     FFIcons.kicEdit,
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .primaryColor,
+                                                        .primary,
                                                     size: 24.0,
                                                   ),
                                                 ),
@@ -477,15 +500,15 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                             builder: (context) => Text(
                               'Автомобиль 1',
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText2
+                                  .bodySmall
                                   .override(
                                     fontFamily: FlutterFlowTheme.of(context)
-                                        .bodyText2Family,
+                                        .bodySmallFamily,
                                     fontWeight: FontWeight.w500,
                                     useGoogleFonts: GoogleFonts.asMap()
                                         .containsKey(
                                             FlutterFlowTheme.of(context)
-                                                .bodyText2Family),
+                                                .bodySmallFamily),
                                   ),
                             ),
                           ),
@@ -500,15 +523,15 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                             builder: (context) => Text(
                               'Автомобиль 2',
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText2
+                                  .bodySmall
                                   .override(
                                     fontFamily: FlutterFlowTheme.of(context)
-                                        .bodyText2Family,
+                                        .bodySmallFamily,
                                     fontWeight: FontWeight.w500,
                                     useGoogleFonts: GoogleFonts.asMap()
                                         .containsKey(
                                             FlutterFlowTheme.of(context)
-                                                .bodyText2Family),
+                                                .bodySmallFamily),
                                   ),
                             ),
                           ),
@@ -523,15 +546,15 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                             builder: (context) => Text(
                               'Автомобиль 3',
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText2
+                                  .bodySmall
                                   .override(
                                     fontFamily: FlutterFlowTheme.of(context)
-                                        .bodyText2Family,
+                                        .bodySmallFamily,
                                     fontWeight: FontWeight.w500,
                                     useGoogleFonts: GoogleFonts.asMap()
                                         .containsKey(
                                             FlutterFlowTheme.of(context)
-                                                .bodyText2Family),
+                                                .bodySmallFamily),
                                   ),
                             ),
                           ),
@@ -550,12 +573,19 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                                 });
                                 await showModalBottomSheet(
                                   isScrollControlled: true,
+                                  backgroundColor: Color(0x00000000),
+                                  barrierColor: Color(0x00000000),
                                   context: context,
-                                  builder: (context) {
-                                    return Padding(
-                                      padding:
-                                          MediaQuery.of(context).viewInsets,
-                                      child: AddCarWidget(),
+                                  builder: (bottomSheetContext) {
+                                    return GestureDetector(
+                                      onTap: () => FocusScope.of(context)
+                                          .requestFocus(_unfocusNode),
+                                      child: Padding(
+                                        padding:
+                                            MediaQuery.of(bottomSheetContext)
+                                                .viewInsets,
+                                        child: AddCarWidget(),
+                                      ),
                                     );
                                   },
                                 ).then((value) => setState(() {}));
@@ -582,26 +612,26 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                                       Text(
                                         'Добавить авто',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText1Family,
+                                                      .bodyMediumFamily,
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .gray2,
-                                              useGoogleFonts:
-                                                  GoogleFonts.asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyText1Family),
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily),
                                             ),
                                       ),
                                       Icon(
                                         FFIcons.kicPlus,
                                         color: FlutterFlowTheme.of(context)
-                                            .primaryColor,
+                                            .primary,
                                         size: 24.0,
                                       ),
                                     ],
@@ -631,10 +661,10 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                                 Text(
                                   'Нажимая кнопку “Сохранить”, я сошлашаюсь',
                                   style: FlutterFlowTheme.of(context)
-                                      .bodyText1
+                                      .bodyMedium
                                       .override(
                                         fontFamily: FlutterFlowTheme.of(context)
-                                            .bodyText1Family,
+                                            .bodyMediumFamily,
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
                                         fontSize: 12.0,
@@ -642,7 +672,7 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                                         useGoogleFonts: GoogleFonts.asMap()
                                             .containsKey(
                                                 FlutterFlowTheme.of(context)
-                                                    .bodyText1Family),
+                                                    .bodyMediumFamily),
                                       ),
                                 ),
                                 Row(
@@ -651,29 +681,29 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                                     Text(
                                       'с условиями пользования ',
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyText1
+                                          .bodyMedium
                                           .override(
                                             fontFamily:
                                                 FlutterFlowTheme.of(context)
-                                                    .bodyText1Family,
+                                                    .bodyMediumFamily,
                                             color: FlutterFlowTheme.of(context)
-                                                .primaryColor,
+                                                .primary,
                                             fontSize: 12.0,
                                             fontWeight: FontWeight.normal,
                                             useGoogleFonts: GoogleFonts.asMap()
                                                 .containsKey(
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText1Family),
+                                                        .bodyMediumFamily),
                                           ),
                                     ),
                                     Text(
                                       'и',
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyText1
+                                          .bodyMedium
                                           .override(
                                             fontFamily:
                                                 FlutterFlowTheme.of(context)
-                                                    .bodyText1Family,
+                                                    .bodyMediumFamily,
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryText,
                                             fontSize: 12.0,
@@ -681,7 +711,7 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                                             useGoogleFonts: GoogleFonts.asMap()
                                                 .containsKey(
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText1Family),
+                                                        .bodyMediumFamily),
                                           ),
                                     ),
                                     Padding(
@@ -690,22 +720,22 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                                       child: Text(
                                         'политикой конфиденциальности',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText1Family,
+                                                      .bodyMediumFamily,
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .primaryColor,
+                                                      .primary,
                                               fontSize: 12.0,
                                               fontWeight: FontWeight.normal,
-                                              useGoogleFonts:
-                                                  GoogleFonts.asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyText1Family),
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily),
                                             ),
                                       ),
                                     ),
@@ -756,21 +786,22 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                                             EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
                                         color: FlutterFlowTheme.of(context)
-                                            .primaryColor,
+                                            .primary,
                                         textStyle: FlutterFlowTheme.of(context)
-                                            .subtitle2
+                                            .titleSmall
                                             .override(
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
-                                                      .subtitle2Family,
+                                                      .titleSmallFamily,
                                               color: Colors.white,
-                                              useGoogleFonts:
-                                                  GoogleFonts.asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .subtitle2Family),
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleSmallFamily),
                                             ),
+                                        elevation: 2.0,
                                         borderSide: BorderSide(
                                           color: Colors.transparent,
                                           width: 1.0,
@@ -806,19 +837,20 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                                               .starblue,
                                           textStyle: FlutterFlowTheme.of(
                                                   context)
-                                              .subtitle2
+                                              .titleSmall
                                               .override(
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
-                                                        .subtitle2Family,
+                                                        .titleSmallFamily,
                                                 color: Colors.white,
                                                 useGoogleFonts: GoogleFonts
                                                         .asMap()
                                                     .containsKey(
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .subtitle2Family),
+                                                            .titleSmallFamily),
                                               ),
+                                          elevation: 2.0,
                                           borderSide: BorderSide(
                                             color: Colors.transparent,
                                             width: 1.0,
@@ -863,7 +895,7 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                           borderColor: Colors.transparent,
                           borderRadius: 20.0,
                           buttonSize: 60.0,
-                          fillColor: FlutterFlowTheme.of(context).primaryColor,
+                          fillColor: FlutterFlowTheme.of(context).primary,
                           icon: Icon(
                             Icons.check,
                             color: Colors.white,
@@ -880,15 +912,15 @@ class _SignUp2WidgetState extends State<SignUp2Widget>
                             'Вы успешно зарегистрировались!',
                             textAlign: TextAlign.center,
                             style: FlutterFlowTheme.of(context)
-                                .bodyText1
+                                .bodyMedium
                                 .override(
                                   fontFamily: FlutterFlowTheme.of(context)
-                                      .bodyText1Family,
+                                      .bodyMediumFamily,
                                   fontSize: 16.0,
                                   fontWeight: FontWeight.w500,
                                   useGoogleFonts: GoogleFonts.asMap()
                                       .containsKey(FlutterFlowTheme.of(context)
-                                          .bodyText1Family),
+                                          .bodyMediumFamily),
                                 ),
                           ),
                         ),

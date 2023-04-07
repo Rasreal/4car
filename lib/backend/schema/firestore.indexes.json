@@ -15,6 +15,20 @@
       ]
     },
     {
+      "collectionGroup": "cityes",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "first",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "name",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
       "collectionGroup": "company_services",
       "queryScope": "COLLECTION",
       "fields": [

@@ -64,13 +64,13 @@ class _WEBFilterSelectCityWidgetState extends State<WEBFilterSelectCityWidget> {
                     child: Text(
                       'Выберите город',
                       textAlign: TextAlign.center,
-                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily:
-                                FlutterFlowTheme.of(context).bodyText1Family,
+                                FlutterFlowTheme.of(context).bodyMediumFamily,
                             fontSize: 24.0,
                             fontWeight: FontWeight.w500,
                             useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                FlutterFlowTheme.of(context).bodyText1Family),
+                                FlutterFlowTheme.of(context).bodyMediumFamily),
                           ),
                     ),
                   ),
@@ -106,8 +106,7 @@ class _WEBFilterSelectCityWidgetState extends State<WEBFilterSelectCityWidget> {
                               width: 16.0,
                               height: 16.0,
                               decoration: BoxDecoration(
-                                color:
-                                    FlutterFlowTheme.of(context).primaryColor,
+                                color: FlutterFlowTheme.of(context).primary,
                                 borderRadius: BorderRadius.circular(2.0),
                               ),
                               child: Icon(
@@ -135,17 +134,17 @@ class _WEBFilterSelectCityWidgetState extends State<WEBFilterSelectCityWidget> {
                         child: Text(
                           'Все',
                           style: FlutterFlowTheme.of(context)
-                              .bodyText1
+                              .bodyMedium
                               .override(
                                 fontFamily: FlutterFlowTheme.of(context)
-                                    .bodyText1Family,
+                                    .bodyMediumFamily,
                                 color: FFAppState().WEBfilterSelectCity == null
-                                    ? FlutterFlowTheme.of(context).primaryColor
+                                    ? FlutterFlowTheme.of(context).primary
                                     : FlutterFlowTheme.of(context).primaryText,
                                 fontWeight: FontWeight.normal,
                                 useGoogleFonts: GoogleFonts.asMap().containsKey(
                                     FlutterFlowTheme.of(context)
-                                        .bodyText1Family),
+                                        .bodyMediumFamily),
                               ),
                         ),
                       ),
@@ -154,7 +153,9 @@ class _WEBFilterSelectCityWidgetState extends State<WEBFilterSelectCityWidget> {
                 ),
               ),
               StreamBuilder<List<CityesRecord>>(
-                stream: queryCityesRecord(),
+                stream: queryCityesRecord(
+                  queryBuilder: (cityesRecord) => cityesRecord.orderBy('name'),
+                ),
                 builder: (context, snapshot) {
                   // Customize what your widget looks like when it's loading.
                   if (!snapshot.hasData) {
@@ -163,34 +164,32 @@ class _WEBFilterSelectCityWidgetState extends State<WEBFilterSelectCityWidget> {
                         width: 50.0,
                         height: 50.0,
                         child: CircularProgressIndicator(
-                          color: FlutterFlowTheme.of(context).primaryColor,
+                          color: FlutterFlowTheme.of(context).primary,
                         ),
                       ),
                     );
                   }
-                  List<CityesRecord> listViewCityesRecordList = snapshot.data!;
-                  return ListView.builder(
-                    padding: EdgeInsets.zero,
-                    shrinkWrap: true,
-                    scrollDirection: Axis.vertical,
-                    itemCount: listViewCityesRecordList.length,
-                    itemBuilder: (context, listViewIndex) {
-                      final listViewCityesRecord =
-                          listViewCityesRecordList[listViewIndex];
+                  List<CityesRecord> columnCityesRecordList = snapshot.data!;
+                  return Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: List.generate(columnCityesRecordList.length,
+                        (columnIndex) {
+                      final columnCityesRecord =
+                          columnCityesRecordList[columnIndex];
                       return Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                         child: InkWell(
                           onTap: () async {
                             if (FFAppState().WEBfilterSelectCity ==
-                                listViewCityesRecord.reference) {
+                                columnCityesRecord.reference) {
                               setState(() {
                                 FFAppState().WEBfilterSelectCity = null;
                               });
                             } else {
                               setState(() {
                                 FFAppState().WEBfilterSelectCity =
-                                    listViewCityesRecord.reference;
+                                    columnCityesRecord.reference;
                               });
                             }
                           },
@@ -200,13 +199,13 @@ class _WEBFilterSelectCityWidgetState extends State<WEBFilterSelectCityWidget> {
                               Stack(
                                 children: [
                                   if (FFAppState().WEBfilterSelectCity ==
-                                      listViewCityesRecord.reference)
+                                      columnCityesRecord.reference)
                                     Container(
                                       width: 16.0,
                                       height: 16.0,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
-                                            .primaryColor,
+                                            .primary,
                                         borderRadius:
                                             BorderRadius.circular(2.0),
                                       ),
@@ -217,7 +216,7 @@ class _WEBFilterSelectCityWidgetState extends State<WEBFilterSelectCityWidget> {
                                       ),
                                     ),
                                   if (FFAppState().WEBfilterSelectCity !=
-                                      listViewCityesRecord.reference)
+                                      columnCityesRecord.reference)
                                     Container(
                                       width: 16.0,
                                       height: 16.0,
@@ -235,24 +234,24 @@ class _WEBFilterSelectCityWidgetState extends State<WEBFilterSelectCityWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     8.0, 0.0, 0.0, 0.0),
                                 child: Text(
-                                  listViewCityesRecord.name!,
+                                  columnCityesRecord.name!,
                                   style: FlutterFlowTheme.of(context)
-                                      .bodyText1
+                                      .bodyMedium
                                       .override(
                                         fontFamily: FlutterFlowTheme.of(context)
-                                            .bodyText1Family,
-                                        color: FFAppState()
-                                                    .WEBfilterSelectCity ==
-                                                listViewCityesRecord.reference
-                                            ? FlutterFlowTheme.of(context)
-                                                .primaryColor
-                                            : FlutterFlowTheme.of(context)
-                                                .primaryText,
+                                            .bodyMediumFamily,
+                                        color:
+                                            FFAppState().WEBfilterSelectCity ==
+                                                    columnCityesRecord.reference
+                                                ? FlutterFlowTheme.of(context)
+                                                    .primary
+                                                : FlutterFlowTheme.of(context)
+                                                    .primaryText,
                                         fontWeight: FontWeight.normal,
                                         useGoogleFonts: GoogleFonts.asMap()
                                             .containsKey(
                                                 FlutterFlowTheme.of(context)
-                                                    .bodyText1Family),
+                                                    .bodyMediumFamily),
                                       ),
                                 ),
                               ),
@@ -260,7 +259,7 @@ class _WEBFilterSelectCityWidgetState extends State<WEBFilterSelectCityWidget> {
                           ),
                         ),
                       );
-                    },
+                    }),
                   );
                 },
               ),

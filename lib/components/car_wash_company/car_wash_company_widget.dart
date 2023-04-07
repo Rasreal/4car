@@ -66,7 +66,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
             width: 50.0,
             height: 50.0,
             child: CircularProgressIndicator(
-              color: FlutterFlowTheme.of(context).primaryColor,
+              color: FlutterFlowTheme.of(context).primary,
             ),
           ),
         ),
@@ -83,7 +83,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
               width: 50.0,
               height: 50.0,
               child: CircularProgressIndicator(
-                color: FlutterFlowTheme.of(context).primaryColor,
+                color: FlutterFlowTheme.of(context).primary,
               ),
             ),
           );
@@ -171,11 +171,11 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1Family,
+                                                                    .bodyMediumFamily,
                                                                 fontSize: 16.0,
                                                                 fontWeight:
                                                                     FontWeight
@@ -184,7 +184,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                     ),
                                                   ),
@@ -203,7 +203,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                 true
                                                             ? FlutterFlowTheme
                                                                     .of(context)
-                                                                .primaryColor
+                                                                .primary
                                                             : FlutterFlowTheme
                                                                     .of(context)
                                                                 .red1,
@@ -224,7 +224,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                   Icons.star_rounded,
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .primaryColor,
+                                                      .primary,
                                                 ),
                                                 direction: Axis.horizontal,
                                                 rating: valueOrDefault<double>(
@@ -257,7 +257,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                       CircularProgressIndicator(
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .primaryColor,
+                                                        .primary,
                                                   ),
                                                 ),
                                               );
@@ -299,14 +299,14 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                 FFIcons.kicSaveee,
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .primaryColor,
+                                                        .primary,
                                                 size: 24.0,
                                               ),
                                               offIcon: Icon(
                                                 FFIcons.kproperty1unsaved,
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .primaryColor,
+                                                        .primary,
                                                 size: 24.0,
                                               ),
                                             );
@@ -325,18 +325,18 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                             '-',
                                           ),
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1
+                                              .bodyMedium
                                               .override(
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText1Family,
+                                                        .bodyMediumFamily,
                                                 fontWeight: FontWeight.normal,
                                                 useGoogleFonts: GoogleFonts
                                                         .asMap()
                                                     .containsKey(
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .bodyText1Family),
+                                                            .bodyMediumFamily),
                                               ),
                                         ),
                                         Text(
@@ -354,11 +354,11 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                             '----',
                                           ),
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1
+                                              .bodyMedium
                                               .override(
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText1Family,
+                                                        .bodyMediumFamily,
                                                 color: Color(0xFF9CA3AF),
                                                 fontWeight: FontWeight.w500,
                                                 useGoogleFonts: GoogleFonts
@@ -366,7 +366,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                     .containsKey(
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .bodyText1Family),
+                                                            .bodyMediumFamily),
                                               ),
                                         ),
                                       ],
@@ -389,13 +389,13 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                               children: [
                                 TabBar(
                                   labelColor:
-                                      FlutterFlowTheme.of(context).primaryColor,
+                                      FlutterFlowTheme.of(context).primary,
                                   unselectedLabelColor:
                                       FlutterFlowTheme.of(context).primaryText,
                                   labelStyle:
-                                      FlutterFlowTheme.of(context).bodyText1,
+                                      FlutterFlowTheme.of(context).bodyMedium,
                                   indicatorColor:
-                                      FlutterFlowTheme.of(context).primaryColor,
+                                      FlutterFlowTheme.of(context).primary,
                                   tabs: [
                                     Tab(
                                       text: 'Инфо',
@@ -439,11 +439,11 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1Family,
+                                                                    .bodyMediumFamily,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w500,
@@ -451,7 +451,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                     ),
                                                   ),
@@ -468,11 +468,11 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                           'Еженедельно ',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1Family,
+                                                                    .bodyMediumFamily,
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .gray2,
@@ -480,7 +480,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                         ),
                                                         Text(
@@ -488,11 +488,11 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                               .openTime!,
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1Family,
+                                                                    .bodyMediumFamily,
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .gray2,
@@ -500,18 +500,18 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                         ),
                                                         Text(
                                                           ' - ',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1Family,
+                                                                    .bodyMediumFamily,
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .gray2,
@@ -519,7 +519,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                         ),
                                                         Text(
@@ -527,11 +527,11 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                               .closeTime!,
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1Family,
+                                                                    .bodyMediumFamily,
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .gray2,
@@ -539,7 +539,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                         ),
                                                       ],
@@ -574,11 +574,11 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1Family,
+                                                                    .bodyMediumFamily,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w500,
@@ -586,7 +586,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                     ),
                                                   ),
@@ -597,19 +597,18 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                 0.0, 12.0),
                                                     child: Text(
                                                       valueOrDefault<String>(
-                                                        functions.phoneNum(
-                                                            containerCompaniesRecord
-                                                                .phoneNum!),
+                                                        containerCompaniesRecord
+                                                            .phoneNum,
                                                         '-',
                                                       ),
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1Family,
+                                                                    .bodyMediumFamily,
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .gray2,
@@ -617,7 +616,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                     ),
                                                   ),
@@ -650,11 +649,11 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1Family,
+                                                                    .bodyMediumFamily,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w500,
@@ -662,7 +661,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                     ),
                                                   ),
@@ -684,11 +683,11 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1Family,
+                                                                    .bodyMediumFamily,
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .gray2,
@@ -696,7 +695,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                     ),
                                                   ),
@@ -729,11 +728,11 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1Family,
+                                                                    .bodyMediumFamily,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w500,
@@ -741,7 +740,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                     ),
                                                   ),
@@ -759,11 +758,11 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1Family,
+                                                                    .bodyMediumFamily,
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .gray2,
@@ -771,7 +770,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                     ),
                                                   ),
@@ -836,7 +835,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                               CircularProgressIndicator(
                                                             color: FlutterFlowTheme
                                                                     .of(context)
-                                                                .primaryColor,
+                                                                .primary,
                                                           ),
                                                         ),
                                                       );
@@ -873,14 +872,14 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                       .name!,
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1,
+                                                                      .bodyMedium,
                                                                 ),
                                                               ),
                                                               Text(
                                                                 'от ${listView1CompanyServicesRecord.price.toString()} тг',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1,
+                                                                    .bodyMedium,
                                                               ),
                                                             ],
                                                           ),
@@ -918,7 +917,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                       CircularProgressIndicator(
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .primaryColor,
+                                                        .primary,
                                                   ),
                                                 ),
                                               );
@@ -966,7 +965,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                     CircularProgressIndicator(
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .primaryColor,
+                                                                      .primary,
                                                                 ),
                                                               ),
                                                             );
@@ -1079,12 +1078,12 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                               FFLocalizations.of(context).languageCode,
                                                                         ),
                                                                         style: FlutterFlowTheme.of(context)
-                                                                            .bodyText1
+                                                                            .bodyMedium
                                                                             .override(
-                                                                              fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                              fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                               color: FlutterFlowTheme.of(context).gray2,
                                                                               fontSize: 12.0,
-                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                             ),
                                                                       ),
                                                                     ],
@@ -1100,7 +1099,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                       .star_rounded,
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .primaryColor,
+                                                                      .primary,
                                                                 ),
                                                                 direction: Axis
                                                                     .horizontal,
@@ -1129,7 +1128,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                               .comment!,
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bodyText1,
+                                                              .bodyMedium,
                                                         ),
                                                       ),
                                                       if (listViewCommentsRecord
@@ -1227,11 +1226,11 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                             ),
                                                                             Text(
                                                                               'Официальный ответ',
-                                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                     color: FlutterFlowTheme.of(context).gray2,
                                                                                     fontSize: 12.0,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                   ),
                                                                             ),
                                                                           ],
@@ -1255,7 +1254,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                             .start,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyText1,
+                                                                        .bodyMedium,
                                                                   ),
                                                                 ),
                                                               ],
@@ -1369,6 +1368,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                             return _model.pagingController!;
                                           }(),
                                           padding: EdgeInsets.zero,
+                                          reverse: false,
                                           scrollDirection: Axis.vertical,
                                           builderDelegate:
                                               PagedChildBuilderDelegate<
@@ -1383,7 +1383,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                     CircularProgressIndicator(
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .primaryColor,
+                                                      .primary,
                                                 ),
                                               ),
                                             ),
@@ -1403,13 +1403,15 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                       isScrollControlled: true,
                                                       backgroundColor:
                                                           Colors.transparent,
+                                                      barrierColor:
+                                                          Color(0x00000000),
                                                       context: context,
-                                                      builder: (context) {
+                                                      builder:
+                                                          (bottomSheetContext) {
                                                         return Padding(
-                                                          padding:
-                                                              MediaQuery.of(
-                                                                      context)
-                                                                  .viewInsets,
+                                                          padding: MediaQuery.of(
+                                                                  bottomSheetContext)
+                                                              .viewInsets,
                                                           child: Container(
                                                             height:
                                                                 double.infinity,
@@ -1492,11 +1494,11 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                   .title!,
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyText1
+                                                                  .bodyMedium
                                                                   .override(
                                                                     fontFamily:
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family,
+                                                                            .bodyMediumFamily,
                                                                     color: Colors
                                                                         .white,
                                                                     fontSize:
@@ -1507,7 +1509,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                     useGoogleFonts: GoogleFonts
                                                                             .asMap()
                                                                         .containsKey(
-                                                                            FlutterFlowTheme.of(context).bodyText1Family),
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                   ),
                                                             ),
                                                           ),
@@ -1595,19 +1597,19 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                       0.0, 0.0, 0.0, 0.0),
                                   iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryColor,
+                                  color: FlutterFlowTheme.of(context).primary,
                                   textStyle: FlutterFlowTheme.of(context)
-                                      .subtitle2
+                                      .titleSmall
                                       .override(
                                         fontFamily: FlutterFlowTheme.of(context)
-                                            .subtitle2Family,
+                                            .titleSmallFamily,
                                         color: Colors.white,
                                         useGoogleFonts: GoogleFonts.asMap()
                                             .containsKey(
                                                 FlutterFlowTheme.of(context)
-                                                    .subtitle2Family),
+                                                    .titleSmallFamily),
                                       ),
+                                  elevation: 2.0,
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
                                     width: 1.0,

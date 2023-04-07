@@ -9,8 +9,9 @@ import '/flutter_flow/flutter_flow_place_picker.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/place.dart';
-import '/flutter_flow/upload_media.dart';
+import '/flutter_flow/upload_data.dart';
 import 'dart:io';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -28,7 +29,7 @@ class AdminAddCompany1Model extends FlutterFlowModel {
   // State field(s) for company_name widget.
   TextEditingController? companyNameController;
   String? Function(BuildContext, String?)? companyNameControllerValidator;
-  bool isMediaUploading = false;
+  bool isDataUploading = false;
   FFUploadedFile uploadedLocalFile =
       FFUploadedFile(bytes: Uint8List.fromList([]));
   String uploadedFileUrl = '';
@@ -43,13 +44,48 @@ class AdminAddCompany1Model extends FlutterFlowModel {
   String? Function(BuildContext, String?)? addressControllerValidator;
   // State field(s) for PlacePicker widget.
   var placePickerValue = FFPlace();
+  // State field(s) for gis widget.
+  TextEditingController? gisController;
+  String? Function(BuildContext, String?)? gisControllerValidator;
+  String? _gisControllerValidator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Field is required';
+    }
+
+    return null;
+  }
+
+  // State field(s) for yandex widget.
+  TextEditingController? yandexController;
+  String? Function(BuildContext, String?)? yandexControllerValidator;
+  String? _yandexControllerValidator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Field is required';
+    }
+
+    return null;
+  }
+
+  // State field(s) for google widget.
+  TextEditingController? googleController;
+  String? Function(BuildContext, String?)? googleControllerValidator;
+  String? _googleControllerValidator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Field is required';
+    }
+
+    return null;
+  }
+
   // State field(s) for count_box widget.
   TextEditingController? countBoxController;
   String? Function(BuildContext, String?)? countBoxControllerValidator;
   // State field(s) for open widget.
   String? openValue;
+  FormFieldController<String>? openController;
   // State field(s) for close widget.
   String? closeValue;
+  FormFieldController<String>? closeController;
   // Model for adminAppBarInfo component.
   late AdminAppBarInfoModel adminAppBarInfoModel;
 
@@ -57,6 +93,9 @@ class AdminAddCompany1Model extends FlutterFlowModel {
 
   void initState(BuildContext context) {
     adminAppBarModel = createModel(context, () => AdminAppBarModel());
+    gisControllerValidator = _gisControllerValidator;
+    yandexControllerValidator = _yandexControllerValidator;
+    googleControllerValidator = _googleControllerValidator;
     adminAppBarInfoModel = createModel(context, () => AdminAppBarInfoModel());
   }
 
@@ -64,6 +103,9 @@ class AdminAddCompany1Model extends FlutterFlowModel {
     adminAppBarModel.dispose();
     companyNameController?.dispose();
     addressController?.dispose();
+    gisController?.dispose();
+    yandexController?.dispose();
+    googleController?.dispose();
     countBoxController?.dispose();
     adminAppBarInfoModel.dispose();
   }

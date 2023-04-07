@@ -40,12 +40,12 @@ class _AboutCompanyWidgetState extends State<AboutCompanyWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        body: SafeArea(
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(0.0, 14.0, 0.0, 0.0),
             child: SingleChildScrollView(
@@ -63,7 +63,7 @@ class _AboutCompanyWidgetState extends State<AboutCompanyWidget> {
                         buttonSize: 48.0,
                         icon: Icon(
                           FFIcons.kicBack,
-                          color: FlutterFlowTheme.of(context).primaryColor,
+                          color: FlutterFlowTheme.of(context).primary,
                           size: 24.0,
                         ),
                         onPressed: () async {
@@ -72,13 +72,14 @@ class _AboutCompanyWidgetState extends State<AboutCompanyWidget> {
                       ),
                       Text(
                         'О компании',
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily:
-                                  FlutterFlowTheme.of(context).bodyText1Family,
+                                  FlutterFlowTheme.of(context).bodyMediumFamily,
                               fontSize: 18.0,
                               fontWeight: FontWeight.w500,
                               useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                  FlutterFlowTheme.of(context).bodyText1Family),
+                                  FlutterFlowTheme.of(context)
+                                      .bodyMediumFamily),
                             ),
                       ),
                       FlutterFlowIconButton(
@@ -107,14 +108,14 @@ class _AboutCompanyWidgetState extends State<AboutCompanyWidget> {
                         Text(
                           'Forcar - запись в автомойки в несколько кликов БЕСПЛАТНО\n\nЭкономим ваше время\n- В приложении можно выбрать мойку, посмотреть какие есть услуги и удобства. Например, есть ли кофе и комната ожидания, сколько стоит мойка и где она расположена на карте\n\nЦеним качество\n- Читайте отзывы отзывы от людей, которые уже помыли свои машины.\nДобавили рейтинг, чтобы легче было выбирать хорошие мойки (плохие стараемся удалять)\n\nВыгодные предложения\n- Автомойки публикуют акции, скидки и специальные предложения.\nВыбирайте подходящие\n\nБесплатная запись\n- Чтобы записаться на мойку - не нужно платить. Это бесплатный казахстанский сервис.',
                           style: FlutterFlowTheme.of(context)
-                              .bodyText1
+                              .bodyMedium
                               .override(
                                 fontFamily: FlutterFlowTheme.of(context)
-                                    .bodyText1Family,
+                                    .bodyMediumFamily,
                                 fontWeight: FontWeight.normal,
                                 useGoogleFonts: GoogleFonts.asMap().containsKey(
                                     FlutterFlowTheme.of(context)
-                                        .bodyText1Family),
+                                        .bodyMediumFamily),
                               ),
                         ),
                         Padding(
@@ -129,8 +130,7 @@ class _AboutCompanyWidgetState extends State<AboutCompanyWidget> {
                                 children: [
                                   Icon(
                                     FFIcons.kicInsta,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryColor,
+                                    color: FlutterFlowTheme.of(context).primary,
                                     size: 24.0,
                                   ),
                                   Padding(
@@ -139,16 +139,16 @@ class _AboutCompanyWidgetState extends State<AboutCompanyWidget> {
                                     child: Text(
                                       'Instagram',
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyText1
+                                          .bodyMedium
                                           .override(
                                             fontFamily:
                                                 FlutterFlowTheme.of(context)
-                                                    .bodyText1Family,
+                                                    .bodyMediumFamily,
                                             fontWeight: FontWeight.w500,
                                             useGoogleFonts: GoogleFonts.asMap()
                                                 .containsKey(
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText1Family),
+                                                        .bodyMediumFamily),
                                           ),
                                     ),
                                   ),
@@ -162,8 +162,8 @@ class _AboutCompanyWidgetState extends State<AboutCompanyWidget> {
                                   children: [
                                     Icon(
                                       FFIcons.kicLinkedin,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryColor,
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
                                       size: 24.0,
                                     ),
                                     Padding(
@@ -172,18 +172,18 @@ class _AboutCompanyWidgetState extends State<AboutCompanyWidget> {
                                       child: Text(
                                         'LinkedIn',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText1Family,
+                                                      .bodyMediumFamily,
                                               fontWeight: FontWeight.w500,
-                                              useGoogleFonts:
-                                                  GoogleFonts.asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyText1Family),
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily),
                                             ),
                                       ),
                                     ),

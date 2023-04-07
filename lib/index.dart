@@ -87,3 +87,7 @@ export '/w_e_b_admin/w_e_b_main/manager_profile/manager_profile_widget.dart'
     show ManagerProfileWidget;
 export '/w_e_b_super_admin/w_e_b_super_admin/super_admin_users/super_admin_users_widget.dart'
     show SuperAdminUsersWidget;
+export '/admin_user_not_active/admin_user_not_active_widget.dart'
+    show AdminUserNotActiveWidget;
+export '/admin_edit_company_services/admin_edit_company_services_widget.dart'
+    show AdminEditCompanyServicesWidget;

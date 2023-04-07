@@ -9,6 +9,7 @@ import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/form_field_controller.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -22,6 +23,7 @@ class AdminMainModel extends FlutterFlowModel {
   late AdminAppBarModel adminAppBarModel;
   // State field(s) for DropDown_user widget.
   String? dropDownUserValue;
+  FormFieldController<String>? dropDownUserController;
   // Stores action output result for [Backend Call - Create Document] action in docNotExists widget.
   CompaniesRecord? addCompany;
   // Model for adminAppBarInfo component.

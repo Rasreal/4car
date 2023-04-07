@@ -49,12 +49,12 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        body: SafeArea(
           child: Stack(
             children: [
               Column(
@@ -95,7 +95,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                       height: 50.0,
                                       child: CircularProgressIndicator(
                                         color: FlutterFlowTheme.of(context)
-                                            .primaryColor,
+                                            .primary,
                                       ),
                                     ),
                                   );
@@ -132,7 +132,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                           child: Text(
                                             'Отчеты',
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyText1
+                                                .bodyMedium
                                                 .override(
                                                   fontFamily: 'Inter',
                                                   fontSize: 24.0,
@@ -141,7 +141,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                       .containsKey(
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyText1Family),
+                                                              .bodyMediumFamily),
                                                 ),
                                           ),
                                         ),
@@ -184,7 +184,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                           hintStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)
-                                                                  .bodyText2
+                                                                  .bodySmall
                                                                   .override(
                                                                     fontFamily:
                                                                         'Inter',
@@ -196,7 +196,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                     useGoogleFonts: GoogleFonts
                                                                             .asMap()
                                                                         .containsKey(
-                                                                            FlutterFlowTheme.of(context).bodyText2Family),
+                                                                            FlutterFlowTheme.of(context).bodySmallFamily),
                                                                   ),
                                                           enabledBorder:
                                                               InputBorder.none,
@@ -217,7 +217,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Inter',
@@ -230,7 +230,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                           .asMap()
                                                                       .containsKey(
                                                                           FlutterFlowTheme.of(context)
-                                                                              .bodyText1Family),
+                                                                              .bodyMediumFamily),
                                                                 ),
                                                         validator: _model
                                                             .textControllerValidator
@@ -260,15 +260,24 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                     isScrollControlled: true,
                                                     backgroundColor:
                                                         Colors.transparent,
+                                                    barrierColor:
+                                                        Color(0x00000000),
                                                     enableDrag: false,
                                                     context: context,
-                                                    builder: (context) {
-                                                      return Padding(
-                                                        padding: MediaQuery.of(
-                                                                context)
-                                                            .viewInsets,
-                                                        child:
-                                                            WEBFilterDateWidget(),
+                                                    builder:
+                                                        (bottomSheetContext) {
+                                                      return GestureDetector(
+                                                        onTap: () => FocusScope
+                                                                .of(context)
+                                                            .requestFocus(
+                                                                _unfocusNode),
+                                                        child: Padding(
+                                                          padding: MediaQuery.of(
+                                                                  bottomSheetContext)
+                                                              .viewInsets,
+                                                          child:
+                                                              WEBFilterDateWidget(),
+                                                        ),
                                                       );
                                                     },
                                                   ).then((value) =>
@@ -310,7 +319,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                             ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .bodyText1
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Inter',
@@ -323,7 +332,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                           .asMap()
                                                                       .containsKey(
                                                                           FlutterFlowTheme.of(context)
-                                                                              .bodyText1Family),
+                                                                              .bodyMediumFamily),
                                                                 ),
                                                           ),
                                                         ),
@@ -376,7 +385,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                               CircularProgressIndicator(
                                                             color: FlutterFlowTheme
                                                                     .of(context)
-                                                                .primaryColor,
+                                                                .primary,
                                                           ),
                                                         ),
                                                       );
@@ -418,11 +427,11 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .primaryColor,
+                                                                .primary,
                                                         textStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .subtitle2
+                                                                .titleSmall
                                                                 .override(
                                                                   fontFamily:
                                                                       'Inter',
@@ -437,7 +446,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                           .asMap()
                                                                       .containsKey(
                                                                           FlutterFlowTheme.of(context)
-                                                                              .subtitle2Family),
+                                                                              .titleSmallFamily),
                                                                 ),
                                                         elevation: 0.0,
                                                         borderSide: BorderSide(
@@ -536,7 +545,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                           )}',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Inter',
@@ -548,7 +557,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                         ),
                                                       ),
@@ -570,7 +579,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                 '№Записи',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1
+                                                                    .bodyMedium
                                                                     .override(
                                                                       fontFamily:
                                                                           'Inter',
@@ -583,7 +592,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                       useGoogleFonts: GoogleFonts
                                                                               .asMap()
                                                                           .containsKey(
-                                                                              FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                     ),
                                                               ),
                                                             ),
@@ -598,7 +607,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                     'Время',
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyText1
+                                                                        .bodyMedium
                                                                         .override(
                                                                           fontFamily:
                                                                               'Inter',
@@ -607,7 +616,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                           fontWeight:
                                                                               FontWeight.w500,
                                                                           useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                         ),
                                                                   ),
                                                                   Icon(
@@ -627,7 +636,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                 '№Бокса',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1
+                                                                    .bodyMedium
                                                                     .override(
                                                                       fontFamily:
                                                                           'Inter',
@@ -640,7 +649,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                       useGoogleFonts: GoogleFonts
                                                                               .asMap()
                                                                           .containsKey(
-                                                                              FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                     ),
                                                               ),
                                                             ),
@@ -650,7 +659,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                 'Автомобиль',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1
+                                                                    .bodyMedium
                                                                     .override(
                                                                       fontFamily:
                                                                           'Inter',
@@ -663,7 +672,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                       useGoogleFonts: GoogleFonts
                                                                               .asMap()
                                                                           .containsKey(
-                                                                              FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                     ),
                                                               ),
                                                             ),
@@ -673,7 +682,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                 'Услуги',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1
+                                                                    .bodyMedium
                                                                     .override(
                                                                       fontFamily:
                                                                           'Inter',
@@ -686,7 +695,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                       useGoogleFonts: GoogleFonts
                                                                               .asMap()
                                                                           .containsKey(
-                                                                              FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                     ),
                                                               ),
                                                             ),
@@ -696,7 +705,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                 'Стоимость',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1
+                                                                    .bodyMedium
                                                                     .override(
                                                                       fontFamily:
                                                                           'Inter',
@@ -709,7 +718,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                       useGoogleFonts: GoogleFonts
                                                                               .asMap()
                                                                           .containsKey(
-                                                                              FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                     ),
                                                               ),
                                                             ),
@@ -719,7 +728,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                 'Статус',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1
+                                                                    .bodyMedium
                                                                     .override(
                                                                       fontFamily:
                                                                           'Inter',
@@ -732,7 +741,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                       useGoogleFonts: GoogleFonts
                                                                               .asMap()
                                                                           .containsKey(
-                                                                              FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                     ),
                                                               ),
                                                             ),
@@ -782,7 +791,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                     CircularProgressIndicator(
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .primaryColor,
+                                                                      .primary,
                                                                 ),
                                                               ),
                                                             );
@@ -835,11 +844,11 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                               listViewBookingsRecord.id,
                                                                               'null',
                                                                             )}',
-                                                                            style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Inter',
                                                                                   color: FlutterFlowTheme.of(context).gray2,
                                                                                   fontWeight: FontWeight.normal,
-                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -858,11 +867,11 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                     listViewBookingsRecord.timeName,
                                                                                     'null',
                                                                                   ),
-                                                                                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Inter',
                                                                                         color: FlutterFlowTheme.of(context).primaryText,
                                                                                         fontWeight: FontWeight.normal,
-                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                       ),
                                                                                 ),
                                                                               ),
@@ -875,11 +884,11 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                   ),
                                                                                   'null',
                                                                                 ),
-                                                                                style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                       fontFamily: 'Inter',
                                                                                       color: FlutterFlowTheme.of(context).gray2,
                                                                                       fontWeight: FontWeight.normal,
-                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                     ),
                                                                               ),
                                                                             ],
@@ -894,11 +903,11 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                               listViewBookingsRecord.boxName,
                                                                               'null',
                                                                             )}',
-                                                                            style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Inter',
                                                                                   color: FlutterFlowTheme.of(context).primaryText,
                                                                                   fontWeight: FontWeight.normal,
-                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -914,11 +923,11 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                               listViewBookingsRecord.carName,
                                                                               'null',
                                                                             )}',
-                                                                            style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Inter',
                                                                                   color: FlutterFlowTheme.of(context).primaryText,
                                                                                   fontWeight: FontWeight.normal,
-                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -929,11 +938,11 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                               Text(
                                                                             functions.listStringToString(listViewBookingsRecord.selectedCompanyServicesName!.toList(),
                                                                                 12),
-                                                                            style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Inter',
                                                                                   color: FlutterFlowTheme.of(context).primaryText,
                                                                                   fontWeight: FontWeight.normal,
-                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -943,11 +952,11 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                           child:
                                                                               Text(
                                                                             '${listViewBookingsRecord.totalPrice?.toString()} тг',
-                                                                            style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Inter',
                                                                                   color: FlutterFlowTheme.of(context).primaryText,
                                                                                   fontWeight: FontWeight.normal,
-                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -987,7 +996,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                       return 'Забронировано';
                                                                                     }
                                                                                   }(),
-                                                                                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Inter',
                                                                                         color: () {
                                                                                           if (!listViewBookingsRecord.cancelled! && (listViewBookingsRecord.status == 'Закончено')) {
@@ -999,7 +1008,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                           }
                                                                                         }(),
                                                                                         fontWeight: FontWeight.normal,
-                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                       ),
                                                                                 ),
                                                                               ),
@@ -1057,7 +1066,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                             CircularProgressIndicator(
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .primaryColor,
+                                                              .primary,
                                                         ),
                                                       ),
                                                     );
@@ -1119,7 +1128,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                       child:
                                                                           CircularProgressIndicator(
                                                                         color: FlutterFlowTheme.of(context)
-                                                                            .primaryColor,
+                                                                            .primary,
                                                                       ),
                                                                     ),
                                                                   );
@@ -1177,7 +1186,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                     ),
                                                                                     child: Icon(
                                                                                       FFIcons.kicMoney,
-                                                                                      color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                      color: FlutterFlowTheme.of(context).primary,
                                                                                       size: 24.0,
                                                                                     ),
                                                                                   ),
@@ -1188,10 +1197,10 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                   children: [
                                                                                     Text(
                                                                                       'Оборот',
-                                                                                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Inter',
                                                                                             fontWeight: FontWeight.normal,
-                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                           ),
                                                                                     ),
                                                                                     Row(
@@ -1205,11 +1214,11 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                               functions.oborot(containerBookingsRecordList.toList()).toString(),
                                                                                               '0',
                                                                                             ),
-                                                                                            style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                   fontFamily: 'Inter',
                                                                                                   fontSize: 24.0,
                                                                                                   fontWeight: FontWeight.w500,
-                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                 ),
                                                                                           ),
                                                                                         ),
@@ -1220,11 +1229,11 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                               functions.oborotName(containerBookingsRecordList.toList()),
                                                                                               ' ₸',
                                                                                             ),
-                                                                                            style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                   fontFamily: 'Inter',
                                                                                                   fontSize: 16.0,
                                                                                                   fontWeight: FontWeight.w500,
-                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                 ),
                                                                                           ),
                                                                                         ),
@@ -1278,7 +1287,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                     ),
                                                                                     child: Icon(
                                                                                       FFIcons.kicMoney,
-                                                                                      color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                      color: FlutterFlowTheme.of(context).primary,
                                                                                       size: 24.0,
                                                                                     ),
                                                                                   ),
@@ -1289,10 +1298,10 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                   children: [
                                                                                     Text(
                                                                                       'Помытые машины',
-                                                                                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Inter',
                                                                                             fontWeight: FontWeight.normal,
-                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                           ),
                                                                                     ),
                                                                                     Row(
@@ -1306,11 +1315,11 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                               containerBookingsRecordList.length.toString(),
                                                                                               '0',
                                                                                             ),
-                                                                                            style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                   fontFamily: 'Inter',
                                                                                                   fontSize: 24.0,
                                                                                                   fontWeight: FontWeight.w500,
-                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                 ),
                                                                                           ),
                                                                                         ),
@@ -1318,11 +1327,11 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                           padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 2.0),
                                                                                           child: Text(
                                                                                             ' машин',
-                                                                                            style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                   fontFamily: 'Inter',
                                                                                                   fontSize: 14.0,
                                                                                                   fontWeight: FontWeight.w500,
-                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                 ),
                                                                                           ),
                                                                                         ),
@@ -1376,7 +1385,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                     ),
                                                                                     child: Icon(
                                                                                       FFIcons.kicMoney,
-                                                                                      color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                      color: FlutterFlowTheme.of(context).primary,
                                                                                       size: 24.0,
                                                                                     ),
                                                                                   ),
@@ -1387,10 +1396,10 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                   children: [
                                                                                     Text(
                                                                                       'Средний чек',
-                                                                                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Inter',
                                                                                             fontWeight: FontWeight.normal,
-                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                           ),
                                                                                     ),
                                                                                     Row(
@@ -1404,11 +1413,11 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                               functions.averageCheque(containerBookingsRecordList.toList()),
                                                                                               '0',
                                                                                             ),
-                                                                                            style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                   fontFamily: 'Inter',
                                                                                                   fontSize: 24.0,
                                                                                                   fontWeight: FontWeight.w500,
-                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                 ),
                                                                                           ),
                                                                                         ),
@@ -1419,11 +1428,11 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                               functions.averageChequeName(containerBookingsRecordList.toList()),
                                                                                               ' ₸',
                                                                                             ),
-                                                                                            style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                   fontFamily: 'Inter',
                                                                                                   fontSize: 16.0,
                                                                                                   fontWeight: FontWeight.w500,
-                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                 ),
                                                                                           ),
                                                                                         ),
@@ -1477,7 +1486,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                     ),
                                                                                     child: Icon(
                                                                                       FFIcons.kicMoney,
-                                                                                      color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                      color: FlutterFlowTheme.of(context).primary,
                                                                                       size: 24.0,
                                                                                     ),
                                                                                   ),
@@ -1488,10 +1497,10 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                   children: [
                                                                                     Text(
                                                                                       'К выплате 4Car',
-                                                                                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Inter',
                                                                                             fontWeight: FontWeight.normal,
-                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                           ),
                                                                                     ),
                                                                                     Row(
@@ -1505,11 +1514,11 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                               functions.oborotForCarPrecent(containerBookingsRecordList.toList()),
                                                                                               '0',
                                                                                             ),
-                                                                                            style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                   fontFamily: 'Inter',
                                                                                                   fontSize: 24.0,
                                                                                                   fontWeight: FontWeight.w500,
-                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                 ),
                                                                                           ),
                                                                                         ),
@@ -1520,11 +1529,11 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                               functions.oborotForCarPrecentName(containerBookingsRecordList.toList()),
                                                                                               ' ₸',
                                                                                             ),
-                                                                                            style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                   fontFamily: 'Inter',
                                                                                                   fontSize: 16.0,
                                                                                                   fontWeight: FontWeight.w500,
-                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                 ),
                                                                                           ),
                                                                                         ),
@@ -1603,7 +1612,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                 ),
                                                                                 child: Icon(
                                                                                   FFIcons.kicMoney,
-                                                                                  color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                  color: FlutterFlowTheme.of(context).primary,
                                                                                   size: 24.0,
                                                                                 ),
                                                                               ),
@@ -1614,10 +1623,10 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                               children: [
                                                                                 Text(
                                                                                   'Оборот',
-                                                                                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Inter',
                                                                                         fontWeight: FontWeight.normal,
-                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                       ),
                                                                                 ),
                                                                                 Row(
@@ -1628,11 +1637,11 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                       padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                                                                                       child: Text(
                                                                                         '0 ',
-                                                                                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                               fontFamily: 'Inter',
                                                                                               fontSize: 24.0,
                                                                                               fontWeight: FontWeight.w500,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                             ),
                                                                                       ),
                                                                                     ),
@@ -1640,11 +1649,11 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                       padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 2.0),
                                                                                       child: Text(
                                                                                         '₸',
-                                                                                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                               fontFamily: 'Inter',
                                                                                               fontSize: 16.0,
                                                                                               fontWeight: FontWeight.w500,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                             ),
                                                                                       ),
                                                                                     ),
@@ -1700,7 +1709,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                 ),
                                                                                 child: Icon(
                                                                                   FFIcons.kicMoney,
-                                                                                  color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                  color: FlutterFlowTheme.of(context).primary,
                                                                                   size: 24.0,
                                                                                 ),
                                                                               ),
@@ -1711,10 +1720,10 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                               children: [
                                                                                 Text(
                                                                                   'Помытые машины',
-                                                                                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Inter',
                                                                                         fontWeight: FontWeight.normal,
-                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                       ),
                                                                                 ),
                                                                                 Row(
@@ -1725,11 +1734,11 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                       padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                                                                                       child: Text(
                                                                                         '0 ',
-                                                                                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                               fontFamily: 'Inter',
                                                                                               fontSize: 24.0,
                                                                                               fontWeight: FontWeight.w500,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                             ),
                                                                                       ),
                                                                                     ),
@@ -1785,7 +1794,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                 ),
                                                                                 child: Icon(
                                                                                   FFIcons.kicMoney,
-                                                                                  color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                  color: FlutterFlowTheme.of(context).primary,
                                                                                   size: 24.0,
                                                                                 ),
                                                                               ),
@@ -1796,10 +1805,10 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                               children: [
                                                                                 Text(
                                                                                   'Средний чек',
-                                                                                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Inter',
                                                                                         fontWeight: FontWeight.normal,
-                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                       ),
                                                                                 ),
                                                                                 Row(
@@ -1810,11 +1819,11 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                       padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                                                                                       child: Text(
                                                                                         '0 ',
-                                                                                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                               fontFamily: 'Inter',
                                                                                               fontSize: 24.0,
                                                                                               fontWeight: FontWeight.w500,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                             ),
                                                                                       ),
                                                                                     ),
@@ -1822,11 +1831,11 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                       padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 2.0),
                                                                                       child: Text(
                                                                                         '₸',
-                                                                                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                               fontFamily: 'Inter',
                                                                                               fontSize: 16.0,
                                                                                               fontWeight: FontWeight.w500,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                             ),
                                                                                       ),
                                                                                     ),
@@ -1882,7 +1891,7 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                 ),
                                                                                 child: Icon(
                                                                                   FFIcons.kicMoney,
-                                                                                  color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                  color: FlutterFlowTheme.of(context).primary,
                                                                                   size: 24.0,
                                                                                 ),
                                                                               ),
@@ -1893,10 +1902,10 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                               children: [
                                                                                 Text(
                                                                                   'К выплате 4Car',
-                                                                                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Inter',
                                                                                         fontWeight: FontWeight.normal,
-                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                       ),
                                                                                 ),
                                                                                 Row(
@@ -1907,11 +1916,11 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                       padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                                                                                       child: Text(
                                                                                         '0 ',
-                                                                                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                               fontFamily: 'Inter',
                                                                                               fontSize: 24.0,
                                                                                               fontWeight: FontWeight.w500,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                             ),
                                                                                       ),
                                                                                     ),
@@ -1919,11 +1928,11 @@ class _AdminReportsWidgetState extends State<AdminReportsWidget> {
                                                                                       padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 2.0),
                                                                                       child: Text(
                                                                                         '₸',
-                                                                                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                               fontFamily: 'Inter',
                                                                                               fontSize: 16.0,
                                                                                               fontWeight: FontWeight.w500,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                             ),
                                                                                       ),
                                                                                     ),

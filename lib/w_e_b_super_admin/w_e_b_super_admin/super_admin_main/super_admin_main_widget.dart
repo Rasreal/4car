@@ -56,12 +56,12 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        body: SafeArea(
           child: Stack(
             children: [
               Column(
@@ -127,7 +127,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .primaryColor,
+                                                              .primary,
                                                     ),
                                                   ),
                                                 );
@@ -181,7 +181,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                     .kicModeration,
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .primaryColor,
+                                                                    .primary,
                                                                 size: 24.0,
                                                               ),
                                                             ),
@@ -205,7 +205,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                     'Компании на модерации',
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyText1
+                                                                        .bodyMedium
                                                                         .override(
                                                                           fontFamily:
                                                                               'Inter',
@@ -214,7 +214,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                           fontWeight:
                                                                               FontWeight.w500,
                                                                           useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                         ),
                                                                   ),
                                                                   Padding(
@@ -228,7 +228,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                       'Новые компании на модерации \nнаходятся тут.',
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyText1
+                                                                          .bodyMedium
                                                                           .override(
                                                                             fontFamily:
                                                                                 'Inter',
@@ -237,7 +237,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                             useGoogleFonts:
-                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                           ),
                                                                     ),
                                                                   ),
@@ -263,7 +263,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                             )} компании',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .bodyText1
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Open Sans',
@@ -279,7 +279,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                           .asMap()
                                                                       .containsKey(
                                                                           FlutterFlowTheme.of(context)
-                                                                              .bodyText1Family),
+                                                                              .bodyMediumFamily),
                                                                 ),
                                                           ),
                                                           if (containerModerationCompaniesRecordList
@@ -311,13 +311,13 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                 'Подробнее',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1
+                                                                    .bodyMedium
                                                                     .override(
                                                                       fontFamily:
                                                                           'Open Sans',
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .primaryColor,
+                                                                          .primary,
                                                                       fontSize:
                                                                           16.0,
                                                                       fontWeight:
@@ -326,7 +326,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                       useGoogleFonts: GoogleFonts
                                                                               .asMap()
                                                                           .containsKey(
-                                                                              FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                     ),
                                                               ),
                                                             ),
@@ -365,7 +365,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .primaryColor,
+                                                              .primary,
                                                     ),
                                                   ),
                                                 );
@@ -418,7 +418,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                     .kicCancelEnroll,
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .primaryColor,
+                                                                    .primary,
                                                                 size: 24.0,
                                                               ),
                                                             ),
@@ -442,7 +442,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                     'Отмененные записи',
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyText1
+                                                                        .bodyMedium
                                                                         .override(
                                                                           fontFamily:
                                                                               'Inter',
@@ -451,7 +451,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                           fontWeight:
                                                                               FontWeight.w500,
                                                                           useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                         ),
                                                                   ),
                                                                   Padding(
@@ -465,7 +465,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                       'Записи отмененные пользователями \nприложения.',
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyText1
+                                                                          .bodyMedium
                                                                           .override(
                                                                             fontFamily:
                                                                                 'Inter',
@@ -474,7 +474,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                             useGoogleFonts:
-                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                           ),
                                                                     ),
                                                                   ),
@@ -497,7 +497,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                               'Нет отмененных записей',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyText1
+                                                                  .bodyMedium
                                                                   .override(
                                                                     fontFamily:
                                                                         'Open Sans',
@@ -512,7 +512,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                     useGoogleFonts: GoogleFonts
                                                                             .asMap()
                                                                         .containsKey(
-                                                                            FlutterFlowTheme.of(context).bodyText1Family),
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                   ),
                                                             ),
                                                           if (containerCancelBookingCount !=
@@ -525,7 +525,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                               )}Отмененные записи',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyText1
+                                                                  .bodyMedium
                                                                   .override(
                                                                     fontFamily:
                                                                         'Open Sans',
@@ -540,7 +540,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                     useGoogleFonts: GoogleFonts
                                                                             .asMap()
                                                                         .containsKey(
-                                                                            FlutterFlowTheme.of(context).bodyText1Family),
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                   ),
                                                             ),
                                                           InkWell(
@@ -567,13 +567,13 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                               'Подробнее',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyText1
+                                                                  .bodyMedium
                                                                   .override(
                                                                     fontFamily:
                                                                         'Open Sans',
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .primaryColor,
+                                                                        .primary,
                                                                     fontSize:
                                                                         16.0,
                                                                     fontWeight:
@@ -582,7 +582,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                     useGoogleFonts: GoogleFonts
                                                                             .asMap()
                                                                         .containsKey(
-                                                                            FlutterFlowTheme.of(context).bodyText1Family),
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                   ),
                                                             ),
                                                           ),
@@ -618,7 +618,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .primaryColor,
+                                                              .primary,
                                                     ),
                                                   ),
                                                 );
@@ -670,7 +670,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                 FFIcons.kicFire,
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .primaryColor,
+                                                                    .primary,
                                                                 size: 24.0,
                                                               ),
                                                             ),
@@ -694,7 +694,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                     'Акции в топ',
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyText1
+                                                                        .bodyMedium
                                                                         .override(
                                                                           fontFamily:
                                                                               'Inter',
@@ -703,7 +703,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                           fontWeight:
                                                                               FontWeight.w500,
                                                                           useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                         ),
                                                                   ),
                                                                   Padding(
@@ -717,7 +717,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                       'Акции которые хотят продвинуть в топ.',
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyText1
+                                                                          .bodyMedium
                                                                           .override(
                                                                             fontFamily:
                                                                                 'Inter',
@@ -726,7 +726,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                             useGoogleFonts:
-                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                           ),
                                                                     ),
                                                                   ),
@@ -751,7 +751,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                             )} Акции',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .bodyText1
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Open Sans',
@@ -767,7 +767,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                           .asMap()
                                                                       .containsKey(
                                                                           FlutterFlowTheme.of(context)
-                                                                              .bodyText1Family),
+                                                                              .bodyMediumFamily),
                                                                 ),
                                                           ),
                                                           InkWell(
@@ -794,13 +794,13 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                               'Подробнее',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyText1
+                                                                  .bodyMedium
                                                                   .override(
                                                                     fontFamily:
                                                                         'Open Sans',
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .primaryColor,
+                                                                        .primary,
                                                                     fontSize:
                                                                         16.0,
                                                                     fontWeight:
@@ -809,7 +809,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                     useGoogleFonts: GoogleFonts
                                                                             .asMap()
                                                                         .containsKey(
-                                                                            FlutterFlowTheme.of(context).bodyText1Family),
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                   ),
                                                             ),
                                                           ),
@@ -841,7 +841,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                             child: CircularProgressIndicator(
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .primaryColor,
+                                                      .primary,
                                             ),
                                           ),
                                         );
@@ -903,7 +903,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                             FFIcons.kicHome,
                                                             color: FlutterFlowTheme
                                                                     .of(context)
-                                                                .primaryColor,
+                                                                .primary,
                                                             size: 24.0,
                                                           ),
                                                         ),
@@ -927,7 +927,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                 'Активные компании',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1
+                                                                    .bodyMedium
                                                                     .override(
                                                                       fontFamily:
                                                                           'Inter',
@@ -939,7 +939,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                       useGoogleFonts: GoogleFonts
                                                                               .asMap()
                                                                           .containsKey(
-                                                                              FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                     ),
                                                               ),
                                                               Row(
@@ -960,7 +960,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyText1
+                                                                        .bodyMedium
                                                                         .override(
                                                                           fontFamily:
                                                                               'Inter',
@@ -969,7 +969,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                           fontWeight:
                                                                               FontWeight.w500,
                                                                           useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                         ),
                                                                   ),
                                                                   Padding(
@@ -983,14 +983,14 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                       '/30',
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyText1
+                                                                          .bodyMedium
                                                                           .override(
                                                                             fontFamily:
                                                                                 'Inter',
                                                                             fontWeight:
                                                                                 FontWeight.w500,
                                                                             useGoogleFonts:
-                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                           ),
                                                                     ),
                                                                   ),
@@ -1018,7 +1018,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                             CircularProgressIndicator(
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .primaryColor,
+                                                              .primary,
                                                         ),
                                                       ),
                                                     );
@@ -1067,7 +1067,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                               FFIcons.kicMoney,
                                                               color: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .primaryColor,
+                                                                  .primary,
                                                               size: 24.0,
                                                             ),
                                                           ),
@@ -1091,7 +1091,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                   'Общий оборот',
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1
+                                                                      .bodyMedium
                                                                       .override(
                                                                         fontFamily:
                                                                             'Inter',
@@ -1100,7 +1100,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                         fontWeight:
                                                                             FontWeight.w500,
                                                                         useGoogleFonts:
-                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                       ),
                                                                 ),
                                                                 Row(
@@ -1118,7 +1118,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                           .toString(),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyText1
+                                                                          .bodyMedium
                                                                           .override(
                                                                             fontFamily:
                                                                                 'Inter',
@@ -1127,7 +1127,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                             fontWeight:
                                                                                 FontWeight.w500,
                                                                             useGoogleFonts:
-                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                           ),
                                                                     ),
                                                                     Padding(
@@ -1141,11 +1141,11 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                         functions
                                                                             .oborotName(containerCancelBookingBookingsRecordList.toList()),
                                                                         style: FlutterFlowTheme.of(context)
-                                                                            .bodyText1
+                                                                            .bodyMedium
                                                                             .override(
                                                                               fontFamily: 'Inter',
                                                                               fontWeight: FontWeight.w500,
-                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                             ),
                                                                       ),
                                                                     ),
@@ -1193,7 +1193,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                         child: Text(
                                           'Компании',
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1
+                                              .bodyMedium
                                               .override(
                                                 fontFamily: 'Inter',
                                                 fontSize: 24.0,
@@ -1202,7 +1202,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                     .containsKey(
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .bodyText1Family),
+                                                            .bodyMediumFamily),
                                               ),
                                         ),
                                       ),
@@ -1249,7 +1249,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                           hintStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)
-                                                                  .bodyText2
+                                                                  .bodySmall
                                                                   .override(
                                                                     fontFamily:
                                                                         'Inter',
@@ -1261,7 +1261,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                     useGoogleFonts: GoogleFonts
                                                                             .asMap()
                                                                         .containsKey(
-                                                                            FlutterFlowTheme.of(context).bodyText2Family),
+                                                                            FlutterFlowTheme.of(context).bodySmallFamily),
                                                                   ),
                                                           enabledBorder:
                                                               InputBorder.none,
@@ -1282,7 +1282,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Inter',
@@ -1295,7 +1295,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                           .asMap()
                                                                       .containsKey(
                                                                           FlutterFlowTheme.of(context)
-                                                                              .bodyText1Family),
+                                                                              .bodyMediumFamily),
                                                                 ),
                                                         validator: _model
                                                             .textControllerValidator
@@ -1330,7 +1330,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                               'Фильтр',
                                               style: FlutterFlowTheme.of(
                                                       context)
-                                                  .bodyText1
+                                                  .bodyMedium
                                                   .override(
                                                     fontFamily: 'Inter',
                                                     color: FlutterFlowTheme.of(
@@ -1342,7 +1342,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                         .containsKey(
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1Family),
+                                                                .bodyMediumFamily),
                                                   ),
                                             ),
                                           ),
@@ -1356,15 +1356,24 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                   isScrollControlled: true,
                                                   backgroundColor:
                                                       Colors.transparent,
+                                                  barrierColor:
+                                                      Color(0x00000000),
                                                   enableDrag: false,
                                                   context: context,
-                                                  builder: (context) {
-                                                    return Padding(
-                                                      padding:
-                                                          MediaQuery.of(context)
-                                                              .viewInsets,
-                                                      child:
-                                                          WEBFilterSelectCityWidget(),
+                                                  builder:
+                                                      (bottomSheetContext) {
+                                                    return GestureDetector(
+                                                      onTap: () =>
+                                                          FocusScope.of(context)
+                                                              .requestFocus(
+                                                                  _unfocusNode),
+                                                      child: Padding(
+                                                        padding: MediaQuery.of(
+                                                                bottomSheetContext)
+                                                            .viewInsets,
+                                                        child:
+                                                            WEBFilterSelectCityWidget(),
+                                                      ),
                                                     );
                                                   },
                                                 ).then(
@@ -1419,7 +1428,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                         CircularProgressIndicator(
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .primaryColor,
+                                                                          .primary,
                                                                     ),
                                                                   ),
                                                                 );
@@ -1432,7 +1441,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                     .name!,
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1
+                                                                    .bodyMedium
                                                                     .override(
                                                                       fontFamily:
                                                                           'Inter',
@@ -1445,7 +1454,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                       useGoogleFonts: GoogleFonts
                                                                               .asMap()
                                                                           .containsKey(
-                                                                              FlutterFlowTheme.of(context).bodyText1Family),
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                     ),
                                                               );
                                                             },
@@ -1459,7 +1468,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                             'По городу',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .bodyText1
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Inter',
@@ -1473,7 +1482,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                           .asMap()
                                                                       .containsKey(
                                                                           FlutterFlowTheme.of(context)
-                                                                              .bodyText1Family),
+                                                                              .bodyMediumFamily),
                                                                 ),
                                                           ),
                                                         ),
@@ -1502,15 +1511,24 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                   isScrollControlled: true,
                                                   backgroundColor:
                                                       Colors.transparent,
+                                                  barrierColor:
+                                                      Color(0x00000000),
                                                   enableDrag: false,
                                                   context: context,
-                                                  builder: (context) {
-                                                    return Padding(
-                                                      padding:
-                                                          MediaQuery.of(context)
-                                                              .viewInsets,
-                                                      child:
-                                                          WEBFilterCompanyStatusWidget(),
+                                                  builder:
+                                                      (bottomSheetContext) {
+                                                    return GestureDetector(
+                                                      onTap: () =>
+                                                          FocusScope.of(context)
+                                                              .requestFocus(
+                                                                  _unfocusNode),
+                                                      child: Padding(
+                                                        padding: MediaQuery.of(
+                                                                bottomSheetContext)
+                                                            .viewInsets,
+                                                        child:
+                                                            WEBFilterCompanyStatusWidget(),
+                                                      ),
                                                     );
                                                   },
                                                 ).then(
@@ -1550,7 +1568,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Inter',
@@ -1564,7 +1582,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                         ),
                                                       ),
@@ -1617,7 +1635,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                           '№Договора',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Inter',
@@ -1631,7 +1649,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                         ),
                                                       ),
@@ -1641,7 +1659,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                           'Название компании',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Inter',
@@ -1655,7 +1673,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                         ),
                                                       ),
@@ -1665,7 +1683,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                           'Город',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Inter',
@@ -1679,7 +1697,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                         ),
                                                       ),
@@ -1689,7 +1707,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                           'Адрес',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Inter',
@@ -1703,7 +1721,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                         ),
                                                       ),
@@ -1713,7 +1731,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                           'Кол. боксов',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Inter',
@@ -1727,7 +1745,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                         ),
                                                       ),
@@ -1737,7 +1755,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                           'Кол. операций',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Inter',
@@ -1751,7 +1769,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                         ),
                                                       ),
@@ -1761,7 +1779,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                           'Статус',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Inter',
@@ -1775,7 +1793,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                         ),
                                                       ),
@@ -1785,7 +1803,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                           'Действие',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Inter',
@@ -1799,7 +1817,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .bodyText1Family),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                         ),
                                                       ),
@@ -1890,7 +1908,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyText1
+                                                                          .bodyMedium
                                                                           .override(
                                                                             fontFamily:
                                                                                 'Inter',
@@ -1899,7 +1917,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                             useGoogleFonts:
-                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                           ),
                                                                     ),
                                                                   ),
@@ -1914,7 +1932,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyText1
+                                                                          .bodyMedium
                                                                           .override(
                                                                             fontFamily:
                                                                                 'Inter',
@@ -1923,7 +1941,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                             useGoogleFonts:
-                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                           ),
                                                                     ),
                                                                   ),
@@ -1938,7 +1956,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyText1
+                                                                          .bodyMedium
                                                                           .override(
                                                                             fontFamily:
                                                                                 'Inter',
@@ -1947,7 +1965,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                             useGoogleFonts:
-                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                           ),
                                                                     ),
                                                                   ),
@@ -1962,7 +1980,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyText1
+                                                                          .bodyMedium
                                                                           .override(
                                                                             fontFamily:
                                                                                 'Inter',
@@ -1971,7 +1989,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                             useGoogleFonts:
-                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                           ),
                                                                     ),
                                                                   ),
@@ -1987,7 +2005,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyText1
+                                                                          .bodyMedium
                                                                           .override(
                                                                             fontFamily:
                                                                                 'Inter',
@@ -1996,7 +2014,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                             useGoogleFonts:
-                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                           ),
                                                                     ),
                                                                   ),
@@ -2024,7 +2042,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                               width: 50.0,
                                                                               height: 50.0,
                                                                               child: CircularProgressIndicator(
-                                                                                color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                color: FlutterFlowTheme.of(context).primary,
                                                                               ),
                                                                             ),
                                                                           );
@@ -2038,12 +2056,12 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                             '0',
                                                                           ),
                                                                           style: FlutterFlowTheme.of(context)
-                                                                              .bodyText1
+                                                                              .bodyMedium
                                                                               .override(
                                                                                 fontFamily: 'Inter',
                                                                                 color: FlutterFlowTheme.of(context).primaryText,
                                                                                 fontWeight: FontWeight.normal,
-                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                               ),
                                                                         );
                                                                       },
@@ -2089,11 +2107,11 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                               listViewCompaniesRecord.status,
                                                                               'null',
                                                                             ),
-                                                                            style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Inter',
                                                                                   color: FlutterFlowTheme.of(context).primaryText,
                                                                                   fontWeight: FontWeight.normal,
-                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -2139,10 +2157,10 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                           .starblue,
                                                                       textStyle: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .subtitle2
+                                                                          .titleSmall
                                                                           .override(
                                                                             fontFamily:
-                                                                                FlutterFlowTheme.of(context).subtitle2Family,
+                                                                                FlutterFlowTheme.of(context).titleSmallFamily,
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).primaryText,
                                                                             fontSize:
@@ -2150,7 +2168,7 @@ class _SuperAdminMainWidgetState extends State<SuperAdminMainWidget> {
                                                                             fontWeight:
                                                                                 FontWeight.w500,
                                                                             useGoogleFonts:
-                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle2Family),
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleSmallFamily),
                                                                           ),
                                                                       elevation:
                                                                           0.0,

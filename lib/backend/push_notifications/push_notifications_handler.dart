@@ -192,20 +192,16 @@ final parametersBuilderMap =
       ),
   'admin_add_staff_2': (data) async => ParameterData(
         allParams: {
-          'email': getParameter<String>(data, 'email'),
-          'password': getParameter<String>(data, 'password'),
-          'password2': getParameter<String>(data, 'password2'),
           'companyDocument': await getDocumentParameter<CompanyDocumentRecord>(
               data, 'companyDocument', CompanyDocumentRecord.serializer),
+          'stuffRef': getParameter<DocumentReference>(data, 'stuffRef'),
         },
       ),
   'admin_add_staff_3': (data) async => ParameterData(
         allParams: {
-          'email': getParameter<String>(data, 'email'),
-          'password': getParameter<String>(data, 'password'),
-          'password1': getParameter<String>(data, 'password1'),
           'companyDocument': await getDocumentParameter<CompanyDocumentRecord>(
               data, 'companyDocument', CompanyDocumentRecord.serializer),
+          'stuffRef': getParameter<DocumentReference>(data, 'stuffRef'),
         },
       ),
   'admin_add_staff_1': (data) async => ParameterData(
@@ -256,6 +252,13 @@ final parametersBuilderMap =
   'super_admin_profile': ParameterData.none(),
   'manager_profile': ParameterData.none(),
   'super_admin_users': ParameterData.none(),
+  'admin_user_not_active': ParameterData.none(),
+  'admin_edit_company_services': (data) async => ParameterData(
+        allParams: {
+          'company': await getDocumentParameter<CompaniesRecord>(
+              data, 'company', CompaniesRecord.serializer),
+        },
+      ),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

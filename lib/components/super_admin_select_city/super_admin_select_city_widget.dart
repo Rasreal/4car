@@ -66,13 +66,14 @@ class _SuperAdminSelectCityWidgetState
                       child: Text(
                         'Выберите Ваш город',
                         textAlign: TextAlign.center,
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily:
-                                  FlutterFlowTheme.of(context).bodyText1Family,
+                                  FlutterFlowTheme.of(context).bodyMediumFamily,
                               fontSize: 24.0,
                               fontWeight: FontWeight.w500,
                               useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                  FlutterFlowTheme.of(context).bodyText1Family),
+                                  FlutterFlowTheme.of(context)
+                                      .bodyMediumFamily),
                             ),
                       ),
                     ),
@@ -100,7 +101,7 @@ class _SuperAdminSelectCityWidgetState
                             width: 50.0,
                             height: 50.0,
                             child: CircularProgressIndicator(
-                              color: FlutterFlowTheme.of(context).primaryColor,
+                              color: FlutterFlowTheme.of(context).primary,
                             ),
                           ),
                         );
@@ -131,22 +132,21 @@ class _SuperAdminSelectCityWidgetState
                               child: Text(
                                 listViewCityesRecord.name!,
                                 style: FlutterFlowTheme.of(context)
-                                    .bodyText1
+                                    .bodyMedium
                                     .override(
                                       fontFamily: FlutterFlowTheme.of(context)
-                                          .bodyText1Family,
-                                      color:
-                                          FFAppState().superAdminSelectedCity ==
-                                                  listViewCityesRecord.reference
-                                              ? FlutterFlowTheme.of(context)
-                                                  .primaryColor
-                                              : FlutterFlowTheme.of(context)
-                                                  .primaryText,
+                                          .bodyMediumFamily,
+                                      color: FFAppState()
+                                                  .superAdminSelectedCity ==
+                                              listViewCityesRecord.reference
+                                          ? FlutterFlowTheme.of(context).primary
+                                          : FlutterFlowTheme.of(context)
+                                              .primaryText,
                                       fontWeight: FontWeight.normal,
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText1Family),
+                                                  .bodyMediumFamily),
                                     ),
                               ),
                             ),
