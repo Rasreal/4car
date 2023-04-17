@@ -68,7 +68,7 @@ class _SucsessBookingReviewWidgetState
 
     return Container(
       width: double.infinity,
-      height: 540,
+      height: 600,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
         borderRadius: BorderRadius.only(

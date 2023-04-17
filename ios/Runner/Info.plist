@@ -22,6 +22,8 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleURLTypes</key>
+
+
 	<array>
         <dict>
             <key>CFBundleTypeRole</key>
@@ -72,13 +74,15 @@
 	<false/>
 
 	<key>NSLocationWhenInUseUsageDescription</key>
-    <string>In order to search nearby, this app requires access to your current location.</string>
-	<key>NSCameraUsageDescription</key>
-    <string>In order to take a picture or video, this app requires permission to access the camera.</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-    <string>In order to upload media, this app requires permission to access the photo library.</string>
-	<key>PermissionGroupNotification</key>
-    <string>give access to notifications</string>
+        <string>Для отображение ближайших моек в приложении требуется доступ к вашему текущему местоположению. </string>
+        <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+                <string>Для отображение ближайших моек в приложении требуется доступ к вашему текущему местоположению. </string>
+    	<key>NSCameraUsageDescription</key>
+        <string>Для снятия видео или фото машин и моек, требуется доступ к камере.</string>
+    	<key>NSPhotoLibraryUsageDescription</key>
+        <string>Для загрузки фото машин и моек, требуется доступ к галерее.</string>
+    	<key>PermissionGroupNotification</key>
+        <string>Разрешить получать уведомление от моек в дальнейшем</string>
     <key>UIBackgroundModes</key>
     <array>
         <string>fetch</string>

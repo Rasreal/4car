@@ -287,24 +287,34 @@ DateTime notifyTime(
   int bookingTime,
   int minusTime,
 ) {
-  String bookDateM = bookingDate.month.toString();
-  String bookTime = (bookingTime - minusTime).toString();
-  if (bookingTime < 10) {
-    bookTime = "0$bookTime";
-  }
-  if (bookingDate.month < 10) {
-    bookDateM = "0$bookDateM";
-  }
-  String bookDateD = bookingDate.day.toString();
-  if (bookingDate.day < 10) {
-    bookDateD = "0$bookDateD";
+
+  if(minusTime == 1000){
+    return DateTime(bookingDate.year-1, bookingDate.month, bookingDate.day, bookingTime, 0, 0, 0 , 0);
   }
 
-  String date = "${bookingDate.year}-$bookDateM-$bookDateD $bookTime:00:00";
+  
+  DateTime newNormDate = DateTime(bookingDate.year, bookingDate.month, bookingDate.day, bookingTime, 0, 0, 0 , 0);
+  DateTime updatedDate = newNormDate.subtract(Duration(minutes: minusTime));
+  // String bookDateM = bookingDate.month.toString();
+  // String bookTime = (bookingTime - minusTime).toString();
+  // if (bookingTime < 10) {
+  //   bookTime = "0$bookTime";
+  // }
+  // if (bookingDate.month < 10) {
+  //   bookDateM = "0$bookDateM";
+  // }
+  // String bookDateD = bookingDate.day.toString();
+  // if (bookingDate.day < 10) {
+  //   bookDateD = "0$bookDateD";
+  // }
+  //
+  // String date = "${bookingDate.year}-$bookDateM-$bookDateD $bookTime:00:00";
 
-  DateTime res = DateTime.parse(date);
+  //DateTime res = DateTime.parse(date);
 
-  return res;
+  //print(res);
+
+  return updatedDate;
   // Add your function code here!
 }
 
@@ -422,7 +432,6 @@ int durationToInt(String duration) {
   } // для n час
 
   if (duration.length == 6 && duration.contains('часа')) {
-    FFAppState().
     return int.parse(duration.substring(0, 1)) * 60;
   } // для n часа
 

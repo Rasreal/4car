@@ -12,7 +12,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 
-
 class CodeWidget extends StatefulWidget {
   const CodeWidget({
     Key? key,
@@ -26,9 +25,7 @@ class CodeWidget extends StatefulWidget {
 }
 
 class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
-
   TextEditingController? pinCodeController;
-
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final _unfocusNode = FocusNode();
 
@@ -60,7 +57,6 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
   void initState() {
     super.initState();
     pinCodeController = TextEditingController();
-
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       FFAppState().update(() {
@@ -80,7 +76,7 @@ class _CodeWidgetState extends State<CodeWidget> with TickerProviderStateMixin {
 
   @override
   void dispose() {
-
+    pinCodeController?.dispose();
     _unfocusNode.dispose();
     super.dispose();
   }

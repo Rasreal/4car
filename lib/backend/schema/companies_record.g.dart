@@ -1,5 +1,3 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
-
 part of 'companies_record.dart';
 
 // **************************************************************************
@@ -7,7 +5,7 @@ part of 'companies_record.dart';
 // **************************************************************************
 
 Serializer<CompaniesRecord> _$companiesRecordSerializer =
-    new _$CompaniesRecordSerializer();
+new _$CompaniesRecordSerializer();
 
 class _$CompaniesRecordSerializer
     implements StructuredSerializer<CompaniesRecord> {
@@ -34,7 +32,7 @@ class _$CompaniesRecordSerializer
         ..add('rating')
         ..add(serializers.serialize(value,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(double)])));
+            const FullType(BuiltList, const [const FullType(double)])));
     }
     value = object.location;
     if (value != null) {
@@ -202,7 +200,7 @@ class _$CompaniesRecordSerializer
         ..add('count_box_string')
         ..add(serializers.serialize(value,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(String)])));
+            const FullType(BuiltList, const [const FullType(String)])));
     }
     value = object.companyUsers;
     if (value != null) {
@@ -218,6 +216,20 @@ class _$CompaniesRecordSerializer
     if (value != null) {
       result
         ..add('num_dogovor')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.addressGoogleMap;
+    if (value != null) {
+      result
+        ..add('address_google_map')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.addressYandexMap;
+    if (value != null) {
+      result
+        ..add('address_yandex_map')
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
@@ -250,9 +262,9 @@ class _$CompaniesRecordSerializer
           break;
         case 'rating':
           result.rating.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(
-                      BuiltList, const [const FullType(double)]))!
-              as BuiltList<Object?>);
+              specifiedType: const FullType(
+                  BuiltList, const [const FullType(double)]))!
+          as BuiltList<Object?>);
           break;
         case 'location':
           result.location = serializers.deserialize(value,
@@ -354,9 +366,9 @@ class _$CompaniesRecordSerializer
           break;
         case 'count_box_string':
           result.countBoxString.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(
-                      BuiltList, const [const FullType(String)]))!
-              as BuiltList<Object?>);
+              specifiedType: const FullType(
+                  BuiltList, const [const FullType(String)]))!
+          as BuiltList<Object?>);
           break;
         case 'company_users':
           result.companyUsers.replace(serializers.deserialize(value,
@@ -367,6 +379,14 @@ class _$CompaniesRecordSerializer
           break;
         case 'num_dogovor':
           result.numDogovor = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'address_google_map':
+          result.addressGoogleMap = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'address_yandex_map':
+          result.addressYandexMap = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
         case 'Document__Reference__Field':
@@ -440,6 +460,10 @@ class _$CompaniesRecord extends CompaniesRecord {
   @override
   final String? numDogovor;
   @override
+  final String? addressGoogleMap;
+  @override
+  final String? addressYandexMap;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$CompaniesRecord([void Function(CompaniesRecordBuilder)? updates]) =>
@@ -447,34 +471,36 @@ class _$CompaniesRecord extends CompaniesRecord {
 
   _$CompaniesRecord._(
       {this.name,
-      this.rating,
-      this.location,
-      this.logo,
-      this.city,
-      this.street,
-      this.address2GIS,
-      this.adminCreatedBy,
-      this.conveniences,
-      this.countBox,
-      this.status,
-      this.tooName,
-      this.binIin,
-      this.iban,
-      this.fioAdmin,
-      this.dateDogovor,
-      this.dogovorPdf,
-      this.linkCity,
-      this.phoneNum,
-      this.openTime,
-      this.closeTime,
-      this.openTimeOrder,
-      this.closedTimeOrder,
-      this.companyDocument,
-      this.forCarPercent,
-      this.countBoxString,
-      this.companyUsers,
-      this.numDogovor,
-      this.ffRef})
+        this.rating,
+        this.location,
+        this.logo,
+        this.city,
+        this.street,
+        this.address2GIS,
+        this.adminCreatedBy,
+        this.conveniences,
+        this.countBox,
+        this.status,
+        this.tooName,
+        this.binIin,
+        this.iban,
+        this.fioAdmin,
+        this.dateDogovor,
+        this.dogovorPdf,
+        this.linkCity,
+        this.phoneNum,
+        this.openTime,
+        this.closeTime,
+        this.openTimeOrder,
+        this.closedTimeOrder,
+        this.companyDocument,
+        this.forCarPercent,
+        this.countBoxString,
+        this.companyUsers,
+        this.numDogovor,
+        this.addressGoogleMap,
+        this.addressYandexMap,
+        this.ffRef})
       : super._();
 
   @override
@@ -517,83 +543,83 @@ class _$CompaniesRecord extends CompaniesRecord {
         countBoxString == other.countBoxString &&
         companyUsers == other.companyUsers &&
         numDogovor == other.numDogovor &&
+        addressGoogleMap == other.addressGoogleMap &&
+        addressYandexMap == other.addressYandexMap &&
         ffRef == other.ffRef;
   }
 
   @override
   int get hashCode {
-    return $jf($jc(
-        $jc(
-            $jc(
-                $jc(
-                    $jc(
-                        $jc(
-                            $jc(
-                                $jc(
-                                    $jc(
-                                        $jc(
-                                            $jc(
-                                                $jc(
-                                                    $jc(
-                                                        $jc(
-                                                            $jc(
-                                                                $jc(
-                                                                    $jc(
-                                                                        $jc(
-                                                                            $jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc(0, name.hashCode), rating.hashCode), location.hashCode), logo.hashCode), city.hashCode), street.hashCode), address2GIS.hashCode), adminCreatedBy.hashCode), conveniences.hashCode), countBox.hashCode),
-                                                                                status.hashCode),
-                                                                            tooName.hashCode),
-                                                                        binIin.hashCode),
-                                                                    iban.hashCode),
-                                                                fioAdmin.hashCode),
-                                                            dateDogovor.hashCode),
-                                                        dogovorPdf.hashCode),
-                                                    linkCity.hashCode),
-                                                phoneNum.hashCode),
-                                            openTime.hashCode),
-                                        closeTime.hashCode),
-                                    openTimeOrder.hashCode),
-                                closedTimeOrder.hashCode),
-                            companyDocument.hashCode),
-                        forCarPercent.hashCode),
-                    countBoxString.hashCode),
-                companyUsers.hashCode),
-            numDogovor.hashCode),
-        ffRef.hashCode));
+    var _$hash = 0;
+    _$hash = $jc(_$hash, name.hashCode);
+    _$hash = $jc(_$hash, rating.hashCode);
+    _$hash = $jc(_$hash, location.hashCode);
+    _$hash = $jc(_$hash, logo.hashCode);
+    _$hash = $jc(_$hash, city.hashCode);
+    _$hash = $jc(_$hash, street.hashCode);
+    _$hash = $jc(_$hash, address2GIS.hashCode);
+    _$hash = $jc(_$hash, adminCreatedBy.hashCode);
+    _$hash = $jc(_$hash, conveniences.hashCode);
+    _$hash = $jc(_$hash, countBox.hashCode);
+    _$hash = $jc(_$hash, status.hashCode);
+    _$hash = $jc(_$hash, tooName.hashCode);
+    _$hash = $jc(_$hash, binIin.hashCode);
+    _$hash = $jc(_$hash, iban.hashCode);
+    _$hash = $jc(_$hash, fioAdmin.hashCode);
+    _$hash = $jc(_$hash, dateDogovor.hashCode);
+    _$hash = $jc(_$hash, dogovorPdf.hashCode);
+    _$hash = $jc(_$hash, linkCity.hashCode);
+    _$hash = $jc(_$hash, phoneNum.hashCode);
+    _$hash = $jc(_$hash, openTime.hashCode);
+    _$hash = $jc(_$hash, closeTime.hashCode);
+    _$hash = $jc(_$hash, openTimeOrder.hashCode);
+    _$hash = $jc(_$hash, closedTimeOrder.hashCode);
+    _$hash = $jc(_$hash, companyDocument.hashCode);
+    _$hash = $jc(_$hash, forCarPercent.hashCode);
+    _$hash = $jc(_$hash, countBoxString.hashCode);
+    _$hash = $jc(_$hash, companyUsers.hashCode);
+    _$hash = $jc(_$hash, numDogovor.hashCode);
+    _$hash = $jc(_$hash, addressGoogleMap.hashCode);
+    _$hash = $jc(_$hash, addressYandexMap.hashCode);
+    _$hash = $jc(_$hash, ffRef.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'CompaniesRecord')
-          ..add('name', name)
-          ..add('rating', rating)
-          ..add('location', location)
-          ..add('logo', logo)
-          ..add('city', city)
-          ..add('street', street)
-          ..add('address2GIS', address2GIS)
-          ..add('adminCreatedBy', adminCreatedBy)
-          ..add('conveniences', conveniences)
-          ..add('countBox', countBox)
-          ..add('status', status)
-          ..add('tooName', tooName)
-          ..add('binIin', binIin)
-          ..add('iban', iban)
-          ..add('fioAdmin', fioAdmin)
-          ..add('dateDogovor', dateDogovor)
-          ..add('dogovorPdf', dogovorPdf)
-          ..add('linkCity', linkCity)
-          ..add('phoneNum', phoneNum)
-          ..add('openTime', openTime)
-          ..add('closeTime', closeTime)
-          ..add('openTimeOrder', openTimeOrder)
-          ..add('closedTimeOrder', closedTimeOrder)
-          ..add('companyDocument', companyDocument)
-          ..add('forCarPercent', forCarPercent)
-          ..add('countBoxString', countBoxString)
-          ..add('companyUsers', companyUsers)
-          ..add('numDogovor', numDogovor)
-          ..add('ffRef', ffRef))
+      ..add('name', name)
+      ..add('rating', rating)
+      ..add('location', location)
+      ..add('logo', logo)
+      ..add('city', city)
+      ..add('street', street)
+      ..add('address2GIS', address2GIS)
+      ..add('adminCreatedBy', adminCreatedBy)
+      ..add('conveniences', conveniences)
+      ..add('countBox', countBox)
+      ..add('status', status)
+      ..add('tooName', tooName)
+      ..add('binIin', binIin)
+      ..add('iban', iban)
+      ..add('fioAdmin', fioAdmin)
+      ..add('dateDogovor', dateDogovor)
+      ..add('dogovorPdf', dogovorPdf)
+      ..add('linkCity', linkCity)
+      ..add('phoneNum', phoneNum)
+      ..add('openTime', openTime)
+      ..add('closeTime', closeTime)
+      ..add('openTimeOrder', openTimeOrder)
+      ..add('closedTimeOrder', closedTimeOrder)
+      ..add('companyDocument', companyDocument)
+      ..add('forCarPercent', forCarPercent)
+      ..add('countBoxString', countBoxString)
+      ..add('companyUsers', companyUsers)
+      ..add('numDogovor', numDogovor)
+      ..add('addressGoogleMap', addressGoogleMap)
+      ..add('addressYandexMap', addressYandexMap)
+      ..add('ffRef', ffRef))
         .toString();
   }
 }
@@ -725,6 +751,16 @@ class CompaniesRecordBuilder
   String? get numDogovor => _$this._numDogovor;
   set numDogovor(String? numDogovor) => _$this._numDogovor = numDogovor;
 
+  String? _addressGoogleMap;
+  String? get addressGoogleMap => _$this._addressGoogleMap;
+  set addressGoogleMap(String? addressGoogleMap) =>
+      _$this._addressGoogleMap = addressGoogleMap;
+
+  String? _addressYandexMap;
+  String? get addressYandexMap => _$this._addressYandexMap;
+  set addressYandexMap(String? addressYandexMap) =>
+      _$this._addressYandexMap = addressYandexMap;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -764,6 +800,8 @@ class CompaniesRecordBuilder
       _countBoxString = $v.countBoxString?.toBuilder();
       _companyUsers = $v.companyUsers?.toBuilder();
       _numDogovor = $v.numDogovor;
+      _addressGoogleMap = $v.addressGoogleMap;
+      _addressYandexMap = $v.addressYandexMap;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -817,6 +855,8 @@ class CompaniesRecordBuilder
               countBoxString: _countBoxString?.build(),
               companyUsers: _companyUsers?.build(),
               numDogovor: numDogovor,
+              addressGoogleMap: addressGoogleMap,
+              addressYandexMap: addressYandexMap,
               ffRef: ffRef);
     } catch (_) {
       late String _$failedField;
@@ -838,5 +878,3 @@ class CompaniesRecordBuilder
     return _$result;
   }
 }
-
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas

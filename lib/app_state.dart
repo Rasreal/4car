@@ -17,7 +17,7 @@ class FFAppState extends ChangeNotifier {
 
   Future initializePersistedState() async {
     prefs = await SharedPreferences.getInstance();
-    _selectPush = prefs.getInt('ff_selectPush') ?? _selectPush;
+   // _selectPush = prefs.getInt('ff_selectPush') ?? _selectPush;
     _signINcode = prefs.getBool('ff_signINcode') ?? _signINcode;
     _singUPcode = prefs.getBool('ff_singUPcode') ?? _singUPcode;
     _adminForCarServices =
@@ -99,12 +99,8 @@ class FFAppState extends ChangeNotifier {
     _price = _value;
   }
 
-  int _selectPush = 1000;
-  int get selectPush => _selectPush;
-  set selectPush(int _value) {
-    _selectPush = _value;
-    prefs.setInt('ff_selectPush', _value);
-  }
+  int selectPush = 1000;
+
 
   bool _signINcode = false;
   bool get signINcode => _signINcode;

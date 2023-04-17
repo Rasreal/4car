@@ -590,9 +590,8 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                         0, 0, 0, 12),
                                                     child: Text(
                                                       valueOrDefault<String>(
-                                                        functions.phoneNum(
                                                             containerCompaniesRecord
-                                                                .phoneNum!),
+                                                                .phoneNum!,
                                                         '-',
                                                       ),
                                                       style:
@@ -864,7 +863,7 @@ class _CarWashCompanyWidgetState extends State<CarWashCompanyWidget> {
                                                                     ),
                                                                   ),
                                                                   Text(
-                                                                    'от ${listView1CompanyServicesRecord.price.toString()} тг',
+                                                                    'от ${listView1CompanyServicesRecord.price!.toInt().toString()} тг',
                                                                     style: FlutterFlowTheme.of(
                                                                         context)
                                                                         .bodyText1,

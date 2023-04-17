@@ -71,7 +71,7 @@ class _SelectNotificationWidgetState extends State<SelectNotificationWidget> {
             ),
             InkWell(
               onTap: () async {
-                FFAppState().update(() {
+                setState(() {
                   FFAppState().selectPush = 30;
                 });
               },
@@ -136,7 +136,7 @@ class _SelectNotificationWidgetState extends State<SelectNotificationWidget> {
             ),
             InkWell(
               onTap: () async {
-                FFAppState().update(() {
+                setState(() {
                   FFAppState().selectPush = 60;
                 });
               },
@@ -201,7 +201,7 @@ class _SelectNotificationWidgetState extends State<SelectNotificationWidget> {
             ),
             InkWell(
               onTap: () async {
-                FFAppState().update(() {
+                setState(() {
                   FFAppState().selectPush = 120;
                 });
               },

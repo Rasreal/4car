@@ -44,6 +44,11 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
   TextEditingController? textController2;
   String? Function(BuildContext, String?)? textController2Validator;
 
+  bool isDataUploading = false;
+
+
+
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final _unfocusNode = FocusNode();
 
@@ -214,73 +219,52 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                         size: 16,
                                       ),
                                       onPressed: () async {
-                                        final selectedMedia =
-                                        await selectMediaWithSourceBottomSheet(
-                                          context: context,
-                                          allowPhoto: true,
-                                        );
-                                        if (selectedMedia != null &&
-                                            selectedMedia.every((m) =>
-                                                validateFileFormat(
-                                                    m.storagePath, context))) {
-                                          setState(() =>
-                                          isMediaUploading = true);
-                                          var selectedUploadedFiles =
-                                          <FFUploadedFile>[];
-                                          var downloadUrls = <String>[];
-                                          try {
-                                            showUploadMessage(
-                                              context,
-                                              'Uploading file...',
-                                              showLoading: true,
-                                            );
-                                            // selectedUploadedFiles =
-                                            //     selectedMedia
-                                            //         .map((m) => FFUploadedFile(
-                                            //       name: m.storagePath
-                                            //           .split('/')
-                                            //           .last,
-                                            //       bytes: m.bytes,
-                                            //       height: m.
-                                            //           ?.height,
-                                            //       width: m.dimensions
-                                            //           ?.width,
-                                            //     ))
-                                            //         .toList();
-
-                                            downloadUrls = (await Future.wait(
-                                              selectedMedia.map(
-                                                    (m) async => await uploadData(
-                                                    m.storagePath, m.bytes),
-                                              ),
-                                            ))
-                                                .where((u) => u != null)
-                                                .map((u) => u!)
-                                                .toList();
-                                          } finally {
-                                            ScaffoldMessenger.of(context)
-                                                .hideCurrentSnackBar();
-                                            isMediaUploading = false;
-                                          }
-                                          if (selectedUploadedFiles.length ==
-                                              selectedMedia.length &&
-                                              downloadUrls.length ==
-                                                  selectedMedia.length) {
-                                            setState(() {
-                                              uploadedLocalFile =
-                                                  selectedUploadedFiles.first;
-                                              uploadedFileUrl =
-                                                  downloadUrls.first;
-                                            });
-                                            showUploadMessage(
-                                                context, 'Success!');
-                                          } else {
-                                            setState(() {});
-                                            showUploadMessage(context,
-                                                'Failed to upload media');
-                                            return;
-                                          }
-                                        }
+    final selectedMedia = await selectMediaWithSourceBottomSheet(
+    context: context,
+    allowPhoto: true,
+    );
+    if (selectedMedia != null &&
+    selectedMedia
+        .every((m) => validateFileFormat(m.storagePath, context))) {
+    setState(() => isDataUploading = true);
+    var selectedUploadedFiles = <FFUploadedFile>[];
+    var downloadUrls = <String>[];
+    try {
+    showUploadMessage(
+    context,
+    'Uploading file...',
+    showLoading: true,
+    );
+    selectedUploadedFiles = selectedMedia
+        .map((m) => FFUploadedFile(
+    name: m.storagePath.split('/').last,
+    bytes: m.bytes,
+    ))
+        .toList();
+    downloadUrls = (await Future.wait(
+    selectedMedia.map(
+    (m) async => await uploadData(m.storagePath, m.bytes),
+    ),
+    ))
+        .where((u) => u != null)
+        .map((u) => u!)
+        .toList();
+    } finally {
+    ScaffoldMessenger.of(context).hideCurrentSnackBar();
+   isDataUploading = false;
+    }
+    if (selectedUploadedFiles.length == selectedMedia.length &&
+    downloadUrls.length == selectedMedia.length) {
+    setState(() {
+    uploadedLocalFile = selectedUploadedFiles.first;
+    uploadedFileUrl = downloadUrls.first;
+    });
+    showUploadMessage(context, 'Успешно!');
+    } else {
+    setState(() {});
+    showUploadMessage(context, 'Не удалось загрузить фото');
+    return;
+    }}
                                       },
                                     ),
                                   ),

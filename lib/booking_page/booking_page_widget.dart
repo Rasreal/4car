@@ -650,9 +650,11 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                                         isEqualTo:
                                                         wrapForcarTimesRecord
                                                             .timeOrder)
-                                                        .where('booked_date',
-                                                        isEqualTo: calendarSelectedDay
-                                                            ?.start)
+                                                        .where('booked_date_string',
+                                                        isEqualTo: dateTimeFormat(
+                                                          'd/M/y',
+                                                          calendarSelectedDay?.start,
+                                                        ))
                                                         .where('booked_company',
                                                         isEqualTo: widget
                                                             .company!.reference)
@@ -973,11 +975,17 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                               return Padding(
                                                 padding: MediaQuery.of(context)
                                                     .viewInsets,
-                                                child: SelectServicesWidget(
-                                                  company:
-                                                  widget.company!.reference,
-                                                  carBody: columnMyCarsRecord
-                                                      .carBody,
+                                                child: Container(
+                                                  height: MediaQuery.of(context)
+                                                      .size
+                                                      .height *
+                                                      0.8,
+                                                  child: SelectServicesWidget(
+                                                    company: widget
+                                                        .company!.reference,
+                                                    carBody: columnMyCarsRecord
+                                                        .carBody,
+                                                  ),
                                                 ),
                                               );
                                             },
@@ -1487,7 +1495,7 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                                           .fromSTEB(
                                                           0, 4, 0, 0),
                                                       child: Text(
-                                                        'Оплата нужно произвести после мойки авто',
+                                                        'Оплату нужно произвести после мойки авто',
                                                         style:
                                                         FlutterFlowTheme.of(
                                                             context)
@@ -1542,126 +1550,74 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                                     onPressed: () async {
                                                       FFAppState().update(() {
                                                         FFAppState().bookedTimes = functions
-                                                            .listSelectedTimesOrder(
-                                                            FFAppState()
-                                                                .selectedServicesDuration,
-                                                            columnForcarTimesRecord
-                                                                .timeOrder!)
+                                                            .listSelectedTimesOrder(FFAppState().selectedServicesDuration,
+                                                            columnForcarTimesRecord.timeOrder!)
                                                             .toList();
                                                       });
-
-                                                      final bookingsCreateData =
-                                                      {
+                                                      final bookingsCreateData = {
                                                         ...createBookingsRecordData(
-                                                          bookedUser:
-                                                          currentUserReference,
-                                                          bookedCompany: widget
-                                                              .company!
-                                                              .reference,
-                                                          timeName:
-                                                          columnForcarTimesRecord
-                                                              .timeName,
-                                                          timeOrder:
-                                                          columnForcarTimesRecord
-                                                              .timeOrder,
-                                                          status:
-                                                          'Забронировано',
-                                                          bookedDate: calendarSelectedDay
-                                                              ?.end,
-                                                          totalPrice:
-                                                          FFAppState()
-                                                              .price,
-                                                          id: valueOrDefault<
-                                                              String>(
-                                                            functions.idGenerator(
-                                                                valueOrDefault<
-                                                                    int>(
-                                                                  random_data
-                                                                      .randomInteger(
-                                                                      100000,
-                                                                      999000000),
-                                                                  0,
-                                                                )),
+                                                          bookedUser: currentUserReference,
+                                                          bookedCompany: widget.company!.reference,
+                                                          timeName: columnForcarTimesRecord.timeName,
+                                                          timeOrder: columnForcarTimesRecord.timeOrder,
+                                                          status: 'Забронировано',
+                                                          bookedDate: calendarSelectedDay?.end,
+                                                          totalPrice: FFAppState().price,
+                                                          id: valueOrDefault<String>(
+                                                            functions.idGenerator(valueOrDefault<int>(
+                                                              random_data.randomInteger(100000, 999000000),
+                                                              0,
+                                                            )),
                                                             '0',
                                                           ),
-                                                          carBody:
-                                                          columnMyCarsRecord
-                                                              .carBody,
-                                                          carName:
-                                                          columnMyCarsRecord
-                                                              .carNum,
-                                                          carOrder:
-                                                          columnMyCarsRecord
-                                                              .carOrder,
-                                                          bookedCompanyDocument:
-                                                          widget.company!
-                                                              .companyDocument,
-                                                          bookedDateString:
-                                                          dateTimeFormat(
+                                                          carBody: columnMyCarsRecord.carBody,
+                                                          carName: columnMyCarsRecord.carNum,
+                                                          carOrder: columnMyCarsRecord.carOrder,
+                                                          bookedCompanyDocument: widget.company!.companyDocument,
+                                                          bookedDateString: dateTimeFormat(
                                                             'd/M/y',
-                                                            calendarSelectedDay
-                                                                ?.start,
-                                                            locale: FFLocalizations
-                                                                .of(context)
-                                                                .languageCode,
+                                                            calendarSelectedDay?.start,
+                                                            locale: FFLocalizations.of(context).languageCode,
                                                           ),
                                                           createdByUser: true,
                                                           cancelled: false,
+                                                          notifyTimeName: functions.notifyTime(
+                                                              calendarSelectedDay!.end,
+                                                              columnForcarTimesRecord.timeOrder!,
+                                                              valueOrDefault<int>(
+                                                                FFAppState().selectPush,
+                                                                1000,
+                                                              )),
                                                         ),
-                                                        'selected_company_services':
-                                                        FFAppState()
-                                                            .selectedServices,
-                                                        'selected_times_order':
-                                                        FFAppState()
-                                                            .bookedTimes,
+                                                        'selected_company_services': FFAppState().selectedServices,
+                                                        'selected_times_order': FFAppState().bookedTimes,
                                                         'selected_company_services_name':
-                                                        FFAppState()
-                                                            .bookingSelectedServicesName,
+                                                        FFAppState().bookingSelectedServicesName,
                                                       };
-                                                      var bookingsRecordReference =
-                                                      BookingsRecord
-                                                          .collection
-                                                          .doc();
-                                                      await bookingsRecordReference
-                                                          .set(
-                                                          bookingsCreateData);
-                                                      booking = BookingsRecord
-                                                          .getDocumentFromData(
-                                                          bookingsCreateData,
-                                                          bookingsRecordReference);
-                                                      if (animationsMap[
-                                                      'containerOnActionTriggerAnimation'] !=
-                                                          null) {
-                                                        await animationsMap[
-                                                        'containerOnActionTriggerAnimation']!
+                                                      var bookingsRecordReference = BookingsRecord.collection.doc();
+                                                      await bookingsRecordReference.set(bookingsCreateData);
+                                                      booking = BookingsRecord.getDocumentFromData(
+                                                          bookingsCreateData, bookingsRecordReference);
+                                                      if (animationsMap['containerOnActionTriggerAnimation'] != null) {
+                                                        await animationsMap['containerOnActionTriggerAnimation']!
                                                             .controller
                                                             .forward(from: 0.0);
                                                       }
-
                                                       final companyNotificationsCreateData =
                                                       createCompanyNotificationsRecordData(
                                                         message:
                                                         'Новая запись: ${booking!.carBody}, ${booking!.carName}, ${booking!.timeName}',
-                                                        date:
-                                                        getCurrentTimestamp,
+                                                        date: getCurrentTimestamp,
                                                         opened: false,
                                                         bookingRef: booking!.reference,
                                                         type: 'new_booking',
                                                       );
-                                                      await CompanyNotificationsRecord
-                                                          .createDoc(widget
-                                                          .company!
-                                                          .reference)
-                                                          .set(
-                                                          companyNotificationsCreateData);
+                                                      await CompanyNotificationsRecord.createDoc(widget.company!.reference)
+                                                          .set(companyNotificationsCreateData);
                                                       FFAppState().update(() {
-                                                        FFAppState()
-                                                            .selectPush = 1000;
+                                                        FFAppState().selectPush = 1000;
                                                       });
-
-                                                      context
-                                                          .goNamed('My_notes');
-
+                                                      context.goNamed('My_notes');
                                                       setState(() {});
                                                     },
                                                     text: 'Записаться',

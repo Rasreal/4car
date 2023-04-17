@@ -1,13 +1,16 @@
-import '../auth/auth_util.dart';
-import '../backend/backend.dart';
-import '../components/car_wash_company_widget.dart';
-import '../components/company_card_widget.dart';
-import '../flutter_flow/flutter_flow_icon_button.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
+import '/auth/auth_util.dart';
+import '/backend/backend.dart';
+import '/components/car_wash_company_widget.dart';
+import '/components/company_card_widget.dart';
+
+import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+
+
 
 class FavoritesCarWashesWidget extends StatefulWidget {
   const FavoritesCarWashesWidget({Key? key}) : super(key: key);
@@ -18,8 +21,9 @@ class FavoritesCarWashesWidget extends StatefulWidget {
 }
 
 class _FavoritesCarWashesWidgetState extends State<FavoritesCarWashesWidget> {
-  final _unfocusNode = FocusNode();
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
@@ -30,6 +34,7 @@ class _FavoritesCarWashesWidgetState extends State<FavoritesCarWashesWidget> {
 
   @override
   void dispose() {
+
     _unfocusNode.dispose();
     super.dispose();
   }
@@ -70,13 +75,13 @@ class _FavoritesCarWashesWidgetState extends State<FavoritesCarWashesWidget> {
                     Text(
                       'Избранные',
                       style: FlutterFlowTheme.of(context).bodyText1.override(
-                            fontFamily:
-                                FlutterFlowTheme.of(context).bodyText1Family,
-                            fontSize: 18,
-                            fontWeight: FontWeight.w500,
-                            useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                FlutterFlowTheme.of(context).bodyText1Family),
-                          ),
+                        fontFamily:
+                        FlutterFlowTheme.of(context).bodyText1Family,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                        useGoogleFonts: GoogleFonts.asMap().containsKey(
+                            FlutterFlowTheme.of(context).bodyText1Family),
+                      ),
                     ),
                     FlutterFlowIconButton(
                       borderColor: Colors.transparent,
@@ -102,8 +107,8 @@ class _FavoritesCarWashesWidgetState extends State<FavoritesCarWashesWidget> {
                     builder: (context) => Builder(
                       builder: (context) {
                         final myFavs =
-                            (currentUserDocument?.favCompany?.toList() ?? [])
-                                .toList();
+                        (currentUserDocument?.favCompany?.toList() ?? [])
+                            .toList();
                         return ListView.builder(
                           padding: EdgeInsets.zero,
                           shrinkWrap: true,
@@ -111,57 +116,62 @@ class _FavoritesCarWashesWidgetState extends State<FavoritesCarWashesWidget> {
                           itemCount: myFavs.length,
                           itemBuilder: (context, myFavsIndex) {
                             final myFavsItem = myFavs[myFavsIndex];
-                            return Container(
-                              decoration: BoxDecoration(),
-                              child: StreamBuilder<CompaniesRecord>(
-                                stream: CompaniesRecord.getDocument(myFavsItem),
-                                builder: (context, snapshot) {
-                                  // Customize what your widget looks like when it's loading.
-                                  if (!snapshot.hasData) {
-                                    return Center(
-                                      child: SizedBox(
-                                        width: 50,
-                                        height: 50,
-                                        child: CircularProgressIndicator(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryColor,
-                                        ),
+                            return StreamBuilder<CompaniesRecord>(
+                              stream: CompaniesRecord.getDocument(myFavsItem),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 50,
+                                      height: 50,
+                                      child: CircularProgressIndicator(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryColor,
                                       ),
-                                    );
-                                  }
-                                  final companyCardCompaniesRecord =
-                                      snapshot.data!;
-                                  return InkWell(
-                                    onTap: () async {
-                                      await showModalBottomSheet(
-                                        isScrollControlled: true,
-                                        backgroundColor: Colors.transparent,
-                                        context: context,
-                                        builder: (context) {
-                                          return Padding(
-                                            padding: MediaQuery.of(context)
-                                                .viewInsets,
-                                            child: Container(
-                                              height: MediaQuery.of(context)
-                                                      .size
-                                                      .height *
-                                                  0.8,
-                                              child: CarWashCompanyWidget(
-                                                currentCompanyLink:
-                                                    companyCardCompaniesRecord
-                                                        .reference,
-                                              ),
-                                            ),
-                                          );
-                                        },
-                                      ).then((value) => setState(() {}));
-                                    },
-                                    child: CompanyCardWidget(
-                                      company: companyCardCompaniesRecord,
                                     ),
                                   );
-                                },
-                              ),
+                                }
+                                final containerCompaniesRecord = snapshot.data!;
+                                return Container(
+                                  decoration: BoxDecoration(),
+                                  child: Visibility(
+                                    visible: containerCompaniesRecord.status ==
+                                        'Активно',
+                                    child: InkWell(
+                                      onTap: () async {
+                                        await showModalBottomSheet(
+                                          isScrollControlled: true,
+                                          backgroundColor: Colors.transparent,
+                                          context: context,
+                                          builder: (context) {
+                                            return Padding(
+                                              padding: MediaQuery.of(context)
+                                                  .viewInsets,
+                                              child: Container(
+                                                height: MediaQuery.of(context)
+                                                    .size
+                                                    .height *
+                                                    0.8,
+                                                child: CarWashCompanyWidget(
+                                                  currentCompanyLink:
+                                                  containerCompaniesRecord
+                                                      .reference,
+                                                ),
+                                              ),
+                                            );
+                                          },
+                                        ).then((value) => setState(() {}));
+                                      },
+                                      child: CompanyCardWidget(
+                                        key: Key(
+                                            'Key3ua_${myFavsIndex}_of_${myFavs.length}'),
+                                        company: containerCompaniesRecord,
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              },
                             );
                           },
                         );

@@ -109,7 +109,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
             return Padding(
               padding: MediaQuery.of(context).viewInsets,
               child: Container(
-                height: MediaQuery.of(context).size.height * 0.7,
+                height: MediaQuery.of(context).size.height * 0.8,
                 child: SucsessBookingReviewWidget(
                   booking: currentUserDocument!.linkLastBooking,
                 ),
@@ -1801,8 +1801,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 'search_history':
                                                     FieldValue.delete(),
                                               };
-                                              await currentUserReference!
-                                                  .update(userUpdateData);
+                                              await currentUserReference!.update(userUpdateData);
+
+                                              setState(() {
+
+                                              });
                                             },
                                             child: Container(
                                               width: double.infinity,

@@ -74,7 +74,7 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
             return Padding(
               padding: MediaQuery.of(context).viewInsets,
               child: Container(
-                height: MediaQuery.of(context).size.height * 0.6,
+                height: MediaQuery.of(context).size.height * 0.8,
                 child: SucsessBookingReviewWidget(
                   booking: currentUserDocument!.linkLastBooking,
                 ),

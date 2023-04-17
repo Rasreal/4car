@@ -85,6 +85,12 @@ abstract class CompaniesRecord
   @BuiltValueField(wireName: 'num_dogovor')
   String? get numDogovor;
 
+  @BuiltValueField(wireName: 'address_google_map')
+  String? get addressGoogleMap;
+
+  @BuiltValueField(wireName: 'address_yandex_map')
+  String? get addressYandexMap;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -112,7 +118,9 @@ abstract class CompaniesRecord
     ..forCarPercent = 0.0
     ..countBoxString = ListBuilder()
     ..companyUsers = ListBuilder()
-    ..numDogovor = '';
+    ..numDogovor = ''
+    ..addressGoogleMap = ''
+    ..addressYandexMap = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('companies');
@@ -127,10 +135,10 @@ abstract class CompaniesRecord
 
   CompaniesRecord._();
   factory CompaniesRecord([void Function(CompaniesRecordBuilder) updates]) =
-      _$CompaniesRecord;
+  _$CompaniesRecord;
 
   static CompaniesRecord getDocumentFromData(
-          Map<String, dynamic> data, DocumentReference reference) =>
+      Map<String, dynamic> data, DocumentReference reference) =>
       serializers.deserializeWith(serializer,
           {...mapFromFirestore(data), kDocumentReferenceField: reference})!;
 }
@@ -161,11 +169,13 @@ Map<String, dynamic> createCompaniesRecordData({
   DocumentReference? companyDocument,
   double? forCarPercent,
   String? numDogovor,
+  String? addressGoogleMap,
+  String? addressYandexMap,
 }) {
   final firestoreData = serializers.toFirestore(
     CompaniesRecord.serializer,
     CompaniesRecord(
-      (c) => c
+          (c) => c
         ..name = name
         ..rating = null
         ..location = location
@@ -193,7 +203,9 @@ Map<String, dynamic> createCompaniesRecordData({
         ..forCarPercent = forCarPercent
         ..countBoxString = null
         ..companyUsers = null
-        ..numDogovor = numDogovor,
+        ..numDogovor = numDogovor
+        ..addressGoogleMap = addressGoogleMap
+        ..addressYandexMap = addressYandexMap,
     ),
   );
 

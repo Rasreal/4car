@@ -49,9 +49,9 @@ String dateTimeFormat(String format, DateTime? dateTime, {String? locale}) {
 }
 
 Future launchURL(String url) async {
-  var uri = Uri.parse(url).toString();
+  var uri = Uri.parse(url) as Uri;
   try {
-    await launch(uri);
+    await launchUrl(uri);
   } catch (e) {
     throw 'Could not launch $uri: $e';
   }
