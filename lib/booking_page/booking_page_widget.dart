@@ -1112,9 +1112,8 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                                                 color: () {
                                                                   if (existBookingsRecordList
                                                                           .length >=
-                                                                      widget
-                                                                          .company!
-                                                                          .countBox) {
+                                                                      containerWorkedDayBoxRecord!
+                                                                          .count) {
                                                                     return FlutterFlowTheme.of(
                                                                             context)
                                                                         .secondaryBackground;
@@ -1140,9 +1139,8 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                                                                   color: () {
                                                                     if (existBookingsRecordList
                                                                             .length >=
-                                                                        widget
-                                                                            .company!
-                                                                            .countBox) {
+                                                                        containerWorkedDayBoxRecord!
+                                                                            .count) {
                                                                       return FlutterFlowTheme.of(
                                                                               context)
                                                                           .gray3;
@@ -2321,64 +2319,68 @@ class _BookingPageWidgetState extends State<BookingPageWidget>
                   ],
                 ),
               ),
-              Container(
-                width: double.infinity,
-                height: double.infinity,
-                decoration: BoxDecoration(
-                  color: Color(0x64000000),
-                ),
-                child: Align(
-                  alignment: AlignmentDirectional(0.00, 0.00),
-                  child: Container(
-                    width: 192.0,
-                    height: 176.0,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                      borderRadius: BorderRadius.circular(20.0),
-                    ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 12.0),
-                          child: Container(
-                            width: 48.0,
-                            height: 48.0,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context).primary,
-                              borderRadius: BorderRadius.circular(10.0),
-                            ),
-                            child: Icon(
-                              FFIcons.kcheeek,
-                              color: Colors.white,
-                              size: 44.0,
+              if (responsiveVisibility(
+                context: context,
+                phone: false,
+              ))
+                Container(
+                  width: double.infinity,
+                  height: double.infinity,
+                  decoration: BoxDecoration(
+                    color: Color(0x64000000),
+                  ),
+                  child: Align(
+                    alignment: AlignmentDirectional(0.00, 0.00),
+                    child: Container(
+                      width: 192.0,
+                      height: 176.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        borderRadius: BorderRadius.circular(20.0),
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 12.0),
+                            child: Container(
+                              width: 48.0,
+                              height: 48.0,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context).primary,
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              child: Icon(
+                                FFIcons.kcheeek,
+                                color: Colors.white,
+                                size: 44.0,
+                              ),
                             ),
                           ),
-                        ),
-                        Text(
-                          'Вы успешно\nзаписались!',
-                          textAlign: TextAlign.center,
-                          style: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .bodyMediumFamily,
-                                fontSize: 15.0,
-                                fontWeight: FontWeight.w500,
-                                useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                    FlutterFlowTheme.of(context)
-                                        .bodyMediumFamily),
-                              ),
-                        ),
-                      ],
+                          Text(
+                            'Вы успешно\nзаписались!',
+                            textAlign: TextAlign.center,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .bodyMediumFamily,
+                                  fontSize: 15.0,
+                                  fontWeight: FontWeight.w500,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .bodyMediumFamily),
+                                ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
+                ).animateOnActionTrigger(
+                  animationsMap['containerOnActionTriggerAnimation']!,
                 ),
-              ).animateOnActionTrigger(
-                animationsMap['containerOnActionTriggerAnimation']!,
-              ),
             ],
           ),
         ),
