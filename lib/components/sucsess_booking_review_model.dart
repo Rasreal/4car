@@ -1,0 +1,50 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
+import '/components/car_wash_company_widget.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
+import 'sucsess_booking_review_widget.dart' show SucsessBookingReviewWidget;
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_debounce/easy_debounce.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+
+class SucsessBookingReviewModel
+    extends FlutterFlowModel<SucsessBookingReviewWidget> {
+  ///  State fields for stateful widgets in this component.
+
+  final formKey = GlobalKey<FormState>();
+  // State field(s) for RatingBar widget.
+  double? ratingBarValue2;
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode;
+  TextEditingController? textController;
+  String? Function(BuildContext, String?)? textControllerValidator;
+  String? _textControllerValidator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Заполните форму';
+    }
+
+    return null;
+  }
+
+  /// Initialization and disposal methods.
+
+  void initState(BuildContext context) {
+    textControllerValidator = _textControllerValidator;
+  }
+
+  void dispose() {
+    textFieldFocusNode?.dispose();
+    textController?.dispose();
+  }
+
+  /// Action blocks are added here.
+
+  /// Additional helper methods are added here.
+}

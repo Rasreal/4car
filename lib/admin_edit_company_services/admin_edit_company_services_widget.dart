@@ -1,10 +1,12 @@
 import '/backend/backend.dart';
-import '/components/admin_add_services/admin_add_services_widget.dart';
-import '/components/admin_app_bar/admin_app_bar_widget.dart';
-import '/components/admin_app_bar_info/admin_app_bar_info_widget.dart';
+import '/components/admin_add_services_widget.dart';
+import '/components/admin_app_bar_info_widget.dart';
+import '/components/admin_app_bar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'admin_edit_company_services_model.dart';
@@ -28,7 +30,6 @@ class _AdminEditCompanyServicesWidgetState
   late AdminEditCompanyServicesModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
@@ -42,20 +43,31 @@ class _AdminEditCompanyServicesWidgetState
   void dispose() {
     _model.dispose();
 
-    _unfocusNode.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         body: SafeArea(
+          top: true,
           child: Stack(
             children: [
               Column(
@@ -77,7 +89,7 @@ class _AdminEditCompanyServicesWidgetState
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: AlignmentDirectional(0.00, 0.00),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 120.0),
@@ -115,10 +127,15 @@ class _AdminEditCompanyServicesWidgetState
                                                         ),
                                               ),
                                               InkWell(
+                                                splashColor: Colors.transparent,
+                                                focusColor: Colors.transparent,
+                                                hoverColor: Colors.transparent,
+                                                highlightColor:
+                                                    Colors.transparent,
                                                 onTap: () async {
                                                   context.goNamed(
                                                     'admin_office',
-                                                    queryParams: {
+                                                    queryParameters: {
                                                       'success': serializeParam(
                                                         false,
                                                         ParamType.bool,
@@ -340,8 +357,8 @@ class _AdminEditCompanyServicesWidgetState
                                                                 bodyName:
                                                                     'Седан',
                                                                 companyDoc: widget
-                                                                    .company!
-                                                                    .reference,
+                                                                    .company
+                                                                    ?.reference,
                                                               ),
                                                             ),
                                                           ),
@@ -392,8 +409,8 @@ class _AdminEditCompanyServicesWidgetState
                                                                 bodyName:
                                                                     'Хэтчбэк',
                                                                 companyDoc: widget
-                                                                    .company!
-                                                                    .reference,
+                                                                    .company
+                                                                    ?.reference,
                                                               ),
                                                             ),
                                                           ),
@@ -444,8 +461,8 @@ class _AdminEditCompanyServicesWidgetState
                                                                 bodyName:
                                                                     'Универсал',
                                                                 companyDoc: widget
-                                                                    .company!
-                                                                    .reference,
+                                                                    .company
+                                                                    ?.reference,
                                                               ),
                                                             ),
                                                           ),
@@ -496,8 +513,8 @@ class _AdminEditCompanyServicesWidgetState
                                                                 bodyName:
                                                                     'Кроссовер',
                                                                 companyDoc: widget
-                                                                    .company!
-                                                                    .reference,
+                                                                    .company
+                                                                    ?.reference,
                                                               ),
                                                             ),
                                                           ),
@@ -548,8 +565,8 @@ class _AdminEditCompanyServicesWidgetState
                                                                 bodyName:
                                                                     'Джип',
                                                                 companyDoc: widget
-                                                                    .company!
-                                                                    .reference,
+                                                                    .company
+                                                                    ?.reference,
                                                               ),
                                                             ),
                                                           ),
@@ -600,8 +617,8 @@ class _AdminEditCompanyServicesWidgetState
                                                                 bodyName:
                                                                     'Пикап',
                                                                 companyDoc: widget
-                                                                    .company!
-                                                                    .reference,
+                                                                    .company
+                                                                    ?.reference,
                                                               ),
                                                             ),
                                                           ),
@@ -652,8 +669,8 @@ class _AdminEditCompanyServicesWidgetState
                                                                 bodyName:
                                                                     'Минивен',
                                                                 companyDoc: widget
-                                                                    .company!
-                                                                    .reference,
+                                                                    .company
+                                                                    ?.reference,
                                                               ),
                                                             ),
                                                           ),
@@ -704,8 +721,8 @@ class _AdminEditCompanyServicesWidgetState
                                                                 bodyName:
                                                                     'Микроавтобус',
                                                                 companyDoc: widget
-                                                                    .company!
-                                                                    .reference,
+                                                                    .company
+                                                                    ?.reference,
                                                               ),
                                                             ),
                                                           ),
@@ -783,7 +800,7 @@ class _AdminEditCompanyServicesWidgetState
                                                                     0.0,
                                                                     24.0),
                                                         child: Text(
-                                                          '1. Выберите кузов машины и добавьте услуги, которые вы предоставляете\n\n2. Напишите цену, которая соответствует услуге и кузову\n\nС каждой операции будет сниматься 1,5 %\n\nВведенная информация автоматически сохраняется',
+                                                          '1. Выберите кузов машины и добавьте услуги, которые вы предоставляете\n\n2. Напишите цену, которая соответствует услуге и кузову\n\nВведенная информация автоматически сохраняется',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium

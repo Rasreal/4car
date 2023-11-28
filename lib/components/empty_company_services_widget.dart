@@ -1,0 +1,121 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'empty_company_services_model.dart';
+export 'empty_company_services_model.dart';
+
+class EmptyCompanyServicesWidget extends StatefulWidget {
+  const EmptyCompanyServicesWidget({
+    Key? key,
+    this.company,
+    this.name,
+    this.carBody,
+  }) : super(key: key);
+
+  final DocumentReference? company;
+  final String? name;
+  final String? carBody;
+
+  @override
+  _EmptyCompanyServicesWidgetState createState() =>
+      _EmptyCompanyServicesWidgetState();
+}
+
+class _EmptyCompanyServicesWidgetState
+    extends State<EmptyCompanyServicesWidget> {
+  late EmptyCompanyServicesModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => EmptyCompanyServicesModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _model.maybeDispose();
+
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
+    return Padding(
+      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
+      child: Row(
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          Expanded(
+            child: InkWell(
+              splashColor: Colors.transparent,
+              focusColor: Colors.transparent,
+              hoverColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              onTap: () async {
+                await CompanyServicesRecord.createDoc(widget.company!)
+                    .set(createCompanyServicesRecordData(
+                  name: widget.name,
+                  carBody: widget.carBody,
+                ));
+              },
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Stack(
+                    children: [
+                      Container(
+                        width: 16.0,
+                        height: 16.0,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(2.0),
+                          border: Border.all(
+                            color: Color(0xFFB1B1B1),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 10.0, 0.0),
+                    child: Text(
+                      widget.name!,
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Inter',
+                            useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                FlutterFlowTheme.of(context).bodyMediumFamily),
+                          ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Container(
+            width: 90.0,
+            height: 40.0,
+            decoration: BoxDecoration(
+              color: Colors.white,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

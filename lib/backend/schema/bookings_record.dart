@@ -1,139 +1,229 @@
 import 'dart:async';
 
+import 'package:collection/collection.dart';
+
+import '/backend/schema/util/firestore_util.dart';
+import '/backend/schema/util/schema_util.dart';
+
 import 'index.dart';
-import 'serializers.dart';
-import 'package:built_value/built_value.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 
-part 'bookings_record.g.dart';
+class BookingsRecord extends FirestoreRecord {
+  BookingsRecord._(
+    DocumentReference reference,
+    Map<String, dynamic> data,
+  ) : super(reference, data) {
+    _initializeFields();
+  }
 
-abstract class BookingsRecord
-    implements Built<BookingsRecord, BookingsRecordBuilder> {
-  static Serializer<BookingsRecord> get serializer =>
-      _$bookingsRecordSerializer;
+  // "booked_user" field.
+  DocumentReference? _bookedUser;
+  DocumentReference? get bookedUser => _bookedUser;
+  bool hasBookedUser() => _bookedUser != null;
 
-  @BuiltValueField(wireName: 'booked_user')
-  DocumentReference? get bookedUser;
+  // "booked_company" field.
+  DocumentReference? _bookedCompany;
+  DocumentReference? get bookedCompany => _bookedCompany;
+  bool hasBookedCompany() => _bookedCompany != null;
 
-  @BuiltValueField(wireName: 'booked_company')
-  DocumentReference? get bookedCompany;
+  // "time_name" field.
+  String? _timeName;
+  String get timeName => _timeName ?? '';
+  bool hasTimeName() => _timeName != null;
 
-  @BuiltValueField(wireName: 'time_name')
-  String? get timeName;
+  // "time_order" field.
+  int? _timeOrder;
+  int get timeOrder => _timeOrder ?? 0;
+  bool hasTimeOrder() => _timeOrder != null;
 
-  @BuiltValueField(wireName: 'time_order')
-  int? get timeOrder;
+  // "status" field.
+  String? _status;
+  String get status => _status ?? '';
+  bool hasStatus() => _status != null;
 
-  String? get status;
+  // "booked_date" field.
+  DateTime? _bookedDate;
+  DateTime? get bookedDate => _bookedDate;
+  bool hasBookedDate() => _bookedDate != null;
 
-  @BuiltValueField(wireName: 'booked_date')
-  DateTime? get bookedDate;
+  // "selected_company_services" field.
+  List<DocumentReference>? _selectedCompanyServices;
+  List<DocumentReference> get selectedCompanyServices =>
+      _selectedCompanyServices ?? const [];
+  bool hasSelectedCompanyServices() => _selectedCompanyServices != null;
 
-  @BuiltValueField(wireName: 'selected_company_services')
-  BuiltList<DocumentReference>? get selectedCompanyServices;
+  // "car_body" field.
+  String? _carBody;
+  String get carBody => _carBody ?? '';
+  bool hasCarBody() => _carBody != null;
 
-  @BuiltValueField(wireName: 'car_body')
-  String? get carBody;
+  // "car_name" field.
+  String? _carName;
+  String get carName => _carName ?? '';
+  bool hasCarName() => _carName != null;
 
-  @BuiltValueField(wireName: 'car_name')
-  String? get carName;
+  // "car_order" field.
+  int? _carOrder;
+  int get carOrder => _carOrder ?? 0;
+  bool hasCarOrder() => _carOrder != null;
 
-  @BuiltValueField(wireName: 'car_order')
-  int? get carOrder;
+  // "cancel_why" field.
+  String? _cancelWhy;
+  String get cancelWhy => _cancelWhy ?? '';
+  bool hasCancelWhy() => _cancelWhy != null;
 
-  @BuiltValueField(wireName: 'cancel_why')
-  String? get cancelWhy;
+  // "cancel_comment" field.
+  String? _cancelComment;
+  String get cancelComment => _cancelComment ?? '';
+  bool hasCancelComment() => _cancelComment != null;
 
-  @BuiltValueField(wireName: 'cancel_comment')
-  String? get cancelComment;
+  // "cancel_time_date" field.
+  DateTime? _cancelTimeDate;
+  DateTime? get cancelTimeDate => _cancelTimeDate;
+  bool hasCancelTimeDate() => _cancelTimeDate != null;
 
-  @BuiltValueField(wireName: 'cancel_time_date')
-  DateTime? get cancelTimeDate;
+  // "ID" field.
+  String? _id;
+  String get id => _id ?? '';
+  bool hasId() => _id != null;
 
-  @BuiltValueField(wireName: 'ID')
-  String? get id;
+  // "duration" field.
+  double? _duration;
+  double get duration => _duration ?? 0.0;
+  bool hasDuration() => _duration != null;
 
-  double? get duration;
+  // "total_price" field.
+  int? _totalPrice;
+  int get totalPrice => _totalPrice ?? 0;
+  bool hasTotalPrice() => _totalPrice != null;
 
-  @BuiltValueField(wireName: 'total_price')
-  int? get totalPrice;
+  // "notify_time_name" field.
+  DateTime? _notifyTimeName;
+  DateTime? get notifyTimeName => _notifyTimeName;
+  bool hasNotifyTimeName() => _notifyTimeName != null;
 
-  @BuiltValueField(wireName: 'notify_time_name')
-  DateTime? get notifyTimeName;
+  // "selected_times_order" field.
+  List<int>? _selectedTimesOrder;
+  List<int> get selectedTimesOrder => _selectedTimesOrder ?? const [];
+  bool hasSelectedTimesOrder() => _selectedTimesOrder != null;
 
-  @BuiltValueField(wireName: 'selected_times_order')
-  BuiltList<int>? get selectedTimesOrder;
+  // "cancelled" field.
+  bool? _cancelled;
+  bool get cancelled => _cancelled ?? false;
+  bool hasCancelled() => _cancelled != null;
 
-  bool? get cancelled;
+  // "booked_company_document" field.
+  DocumentReference? _bookedCompanyDocument;
+  DocumentReference? get bookedCompanyDocument => _bookedCompanyDocument;
+  bool hasBookedCompanyDocument() => _bookedCompanyDocument != null;
 
-  @BuiltValueField(wireName: 'booked_company_document')
-  DocumentReference? get bookedCompanyDocument;
+  // "selected_company_services_name" field.
+  List<String>? _selectedCompanyServicesName;
+  List<String> get selectedCompanyServicesName =>
+      _selectedCompanyServicesName ?? const [];
+  bool hasSelectedCompanyServicesName() => _selectedCompanyServicesName != null;
 
-  @BuiltValueField(wireName: 'selected_company_services_name')
-  BuiltList<String>? get selectedCompanyServicesName;
+  // "booked_date_string" field.
+  String? _bookedDateString;
+  String get bookedDateString => _bookedDateString ?? '';
+  bool hasBookedDateString() => _bookedDateString != null;
 
-  @BuiltValueField(wireName: 'booked_date_string')
-  String? get bookedDateString;
+  // "boxName" field.
+  String? _boxName;
+  String get boxName => _boxName ?? '';
+  bool hasBoxName() => _boxName != null;
 
-  String? get boxName;
+  // "forCarPay" field.
+  double? _forCarPay;
+  double get forCarPay => _forCarPay ?? 0.0;
+  bool hasForCarPay() => _forCarPay != null;
 
-  double? get forCarPay;
+  // "createdByUser" field.
+  bool? _createdByUser;
+  bool get createdByUser => _createdByUser ?? false;
+  bool hasCreatedByUser() => _createdByUser != null;
 
-  bool? get createdByUser;
+  // "createdByAdmin" field.
+  bool? _createdByAdmin;
+  bool get createdByAdmin => _createdByAdmin ?? false;
+  bool hasCreatedByAdmin() => _createdByAdmin != null;
 
-  bool? get createdByAdmin;
+  // "createdAdminUserName" field.
+  String? _createdAdminUserName;
+  String get createdAdminUserName => _createdAdminUserName ?? '';
+  bool hasCreatedAdminUserName() => _createdAdminUserName != null;
 
-  String? get createdAdminUserName;
+  // "opened_super_admin" field.
+  bool? _openedSuperAdmin;
+  bool get openedSuperAdmin => _openedSuperAdmin ?? false;
+  bool hasOpenedSuperAdmin() => _openedSuperAdmin != null;
 
-  @BuiltValueField(wireName: 'opened_super_admin')
-  bool? get openedSuperAdmin;
-
-  @BuiltValueField(wireName: kDocumentReferenceField)
-  DocumentReference? get ffRef;
-  DocumentReference get reference => ffRef!;
-
-  static void _initializeBuilder(BookingsRecordBuilder builder) => builder
-    ..timeName = ''
-    ..timeOrder = 0
-    ..status = ''
-    ..selectedCompanyServices = ListBuilder()
-    ..carBody = ''
-    ..carName = ''
-    ..carOrder = 0
-    ..cancelWhy = ''
-    ..cancelComment = ''
-    ..id = ''
-    ..duration = 0.0
-    ..totalPrice = 0
-    ..selectedTimesOrder = ListBuilder()
-    ..cancelled = false
-    ..selectedCompanyServicesName = ListBuilder()
-    ..bookedDateString = ''
-    ..boxName = ''
-    ..forCarPay = 0.0
-    ..createdByUser = false
-    ..createdByAdmin = false
-    ..createdAdminUserName = ''
-    ..openedSuperAdmin = false;
+  void _initializeFields() {
+    _bookedUser = snapshotData['booked_user'] as DocumentReference?;
+    _bookedCompany = snapshotData['booked_company'] as DocumentReference?;
+    _timeName = snapshotData['time_name'] as String?;
+    _timeOrder = castToType<int>(snapshotData['time_order']);
+    _status = snapshotData['status'] as String?;
+    _bookedDate = snapshotData['booked_date'] as DateTime?;
+    _selectedCompanyServices =
+        getDataList(snapshotData['selected_company_services']);
+    _carBody = snapshotData['car_body'] as String?;
+    _carName = snapshotData['car_name'] as String?;
+    _carOrder = castToType<int>(snapshotData['car_order']);
+    _cancelWhy = snapshotData['cancel_why'] as String?;
+    _cancelComment = snapshotData['cancel_comment'] as String?;
+    _cancelTimeDate = snapshotData['cancel_time_date'] as DateTime?;
+    _id = snapshotData['ID'] as String?;
+    _duration = castToType<double>(snapshotData['duration']);
+    _totalPrice = castToType<int>(snapshotData['total_price']);
+    _notifyTimeName = snapshotData['notify_time_name'] as DateTime?;
+    _selectedTimesOrder = getDataList(snapshotData['selected_times_order']);
+    _cancelled = snapshotData['cancelled'] as bool?;
+    _bookedCompanyDocument =
+        snapshotData['booked_company_document'] as DocumentReference?;
+    _selectedCompanyServicesName =
+        getDataList(snapshotData['selected_company_services_name']);
+    _bookedDateString = snapshotData['booked_date_string'] as String?;
+    _boxName = snapshotData['boxName'] as String?;
+    _forCarPay = castToType<double>(snapshotData['forCarPay']);
+    _createdByUser = snapshotData['createdByUser'] as bool?;
+    _createdByAdmin = snapshotData['createdByAdmin'] as bool?;
+    _createdAdminUserName = snapshotData['createdAdminUserName'] as String?;
+    _openedSuperAdmin = snapshotData['opened_super_admin'] as bool?;
+  }
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('bookings');
 
-  static Stream<BookingsRecord> getDocument(DocumentReference ref) => ref
-      .snapshots()
-      .map((s) => serializers.deserializeWith(serializer, serializedData(s))!);
+  static Stream<BookingsRecord> getDocument(DocumentReference ref) =>
+      ref.snapshots().map((s) => BookingsRecord.fromSnapshot(s));
 
-  static Future<BookingsRecord> getDocumentOnce(DocumentReference ref) => ref
-      .get()
-      .then((s) => serializers.deserializeWith(serializer, serializedData(s))!);
+  static Future<BookingsRecord> getDocumentOnce(DocumentReference ref) =>
+      ref.get().then((s) => BookingsRecord.fromSnapshot(s));
 
-  BookingsRecord._();
-  factory BookingsRecord([void Function(BookingsRecordBuilder) updates]) =
-      _$BookingsRecord;
+  static BookingsRecord fromSnapshot(DocumentSnapshot snapshot) =>
+      BookingsRecord._(
+        snapshot.reference,
+        mapFromFirestore(snapshot.data() as Map<String, dynamic>),
+      );
 
   static BookingsRecord getDocumentFromData(
-          Map<String, dynamic> data, DocumentReference reference) =>
-      serializers.deserializeWith(serializer,
-          {...mapFromFirestore(data), kDocumentReferenceField: reference})!;
+    Map<String, dynamic> data,
+    DocumentReference reference,
+  ) =>
+      BookingsRecord._(reference, mapFromFirestore(data));
+
+  @override
+  String toString() =>
+      'BookingsRecord(reference: ${reference.path}, data: $snapshotData)';
+
+  @override
+  int get hashCode => reference.path.hashCode;
+
+  @override
+  bool operator ==(other) =>
+      other is BookingsRecord &&
+      reference.path.hashCode == other.reference.path.hashCode;
 }
 
 Map<String, dynamic> createBookingsRecordData({
@@ -163,40 +253,109 @@ Map<String, dynamic> createBookingsRecordData({
   String? createdAdminUserName,
   bool? openedSuperAdmin,
 }) {
-  final firestoreData = serializers.toFirestore(
-    BookingsRecord.serializer,
-    BookingsRecord(
-      (b) => b
-        ..bookedUser = bookedUser
-        ..bookedCompany = bookedCompany
-        ..timeName = timeName
-        ..timeOrder = timeOrder
-        ..status = status
-        ..bookedDate = bookedDate
-        ..selectedCompanyServices = null
-        ..carBody = carBody
-        ..carName = carName
-        ..carOrder = carOrder
-        ..cancelWhy = cancelWhy
-        ..cancelComment = cancelComment
-        ..cancelTimeDate = cancelTimeDate
-        ..id = id
-        ..duration = duration
-        ..totalPrice = totalPrice
-        ..notifyTimeName = notifyTimeName
-        ..selectedTimesOrder = null
-        ..cancelled = cancelled
-        ..bookedCompanyDocument = bookedCompanyDocument
-        ..selectedCompanyServicesName = null
-        ..bookedDateString = bookedDateString
-        ..boxName = boxName
-        ..forCarPay = forCarPay
-        ..createdByUser = createdByUser
-        ..createdByAdmin = createdByAdmin
-        ..createdAdminUserName = createdAdminUserName
-        ..openedSuperAdmin = openedSuperAdmin,
-    ),
+  final firestoreData = mapToFirestore(
+    <String, dynamic>{
+      'booked_user': bookedUser,
+      'booked_company': bookedCompany,
+      'time_name': timeName,
+      'time_order': timeOrder,
+      'status': status,
+      'booked_date': bookedDate,
+      'car_body': carBody,
+      'car_name': carName,
+      'car_order': carOrder,
+      'cancel_why': cancelWhy,
+      'cancel_comment': cancelComment,
+      'cancel_time_date': cancelTimeDate,
+      'ID': id,
+      'duration': duration,
+      'total_price': totalPrice,
+      'notify_time_name': notifyTimeName,
+      'cancelled': cancelled,
+      'booked_company_document': bookedCompanyDocument,
+      'booked_date_string': bookedDateString,
+      'boxName': boxName,
+      'forCarPay': forCarPay,
+      'createdByUser': createdByUser,
+      'createdByAdmin': createdByAdmin,
+      'createdAdminUserName': createdAdminUserName,
+      'opened_super_admin': openedSuperAdmin,
+    }.withoutNulls,
   );
 
   return firestoreData;
+}
+
+class BookingsRecordDocumentEquality implements Equality<BookingsRecord> {
+  const BookingsRecordDocumentEquality();
+
+  @override
+  bool equals(BookingsRecord? e1, BookingsRecord? e2) {
+    const listEquality = ListEquality();
+    return e1?.bookedUser == e2?.bookedUser &&
+        e1?.bookedCompany == e2?.bookedCompany &&
+        e1?.timeName == e2?.timeName &&
+        e1?.timeOrder == e2?.timeOrder &&
+        e1?.status == e2?.status &&
+        e1?.bookedDate == e2?.bookedDate &&
+        listEquality.equals(
+            e1?.selectedCompanyServices, e2?.selectedCompanyServices) &&
+        e1?.carBody == e2?.carBody &&
+        e1?.carName == e2?.carName &&
+        e1?.carOrder == e2?.carOrder &&
+        e1?.cancelWhy == e2?.cancelWhy &&
+        e1?.cancelComment == e2?.cancelComment &&
+        e1?.cancelTimeDate == e2?.cancelTimeDate &&
+        e1?.id == e2?.id &&
+        e1?.duration == e2?.duration &&
+        e1?.totalPrice == e2?.totalPrice &&
+        e1?.notifyTimeName == e2?.notifyTimeName &&
+        listEquality.equals(e1?.selectedTimesOrder, e2?.selectedTimesOrder) &&
+        e1?.cancelled == e2?.cancelled &&
+        e1?.bookedCompanyDocument == e2?.bookedCompanyDocument &&
+        listEquality.equals(
+            e1?.selectedCompanyServicesName, e2?.selectedCompanyServicesName) &&
+        e1?.bookedDateString == e2?.bookedDateString &&
+        e1?.boxName == e2?.boxName &&
+        e1?.forCarPay == e2?.forCarPay &&
+        e1?.createdByUser == e2?.createdByUser &&
+        e1?.createdByAdmin == e2?.createdByAdmin &&
+        e1?.createdAdminUserName == e2?.createdAdminUserName &&
+        e1?.openedSuperAdmin == e2?.openedSuperAdmin;
+  }
+
+  @override
+  int hash(BookingsRecord? e) => const ListEquality().hash([
+        e?.bookedUser,
+        e?.bookedCompany,
+        e?.timeName,
+        e?.timeOrder,
+        e?.status,
+        e?.bookedDate,
+        e?.selectedCompanyServices,
+        e?.carBody,
+        e?.carName,
+        e?.carOrder,
+        e?.cancelWhy,
+        e?.cancelComment,
+        e?.cancelTimeDate,
+        e?.id,
+        e?.duration,
+        e?.totalPrice,
+        e?.notifyTimeName,
+        e?.selectedTimesOrder,
+        e?.cancelled,
+        e?.bookedCompanyDocument,
+        e?.selectedCompanyServicesName,
+        e?.bookedDateString,
+        e?.boxName,
+        e?.forCarPay,
+        e?.createdByUser,
+        e?.createdByAdmin,
+        e?.createdAdminUserName,
+        e?.openedSuperAdmin
+      ]);
+
+  @override
+  bool isValidKey(Object? o) => o is BookingsRecord;
 }

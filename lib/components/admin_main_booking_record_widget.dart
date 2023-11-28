@@ -1,6 +1,6 @@
-import '/auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/admin_current_booking_record/admin_current_booking_record_widget.dart';
+import '/components/admin_current_booking_record_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -9,6 +9,7 @@ import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'admin_main_booking_record_model.dart';
@@ -64,10 +65,14 @@ class _AdminMainBookingRecordWidgetState
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        if (widget.bookings!.createdByAdmin ?? true)
+        if (widget.bookings?.createdByAdmin ?? true)
           Padding(
             padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
             child: InkWell(
+              splashColor: Colors.transparent,
+              focusColor: Colors.transparent,
+              hoverColor: Colors.transparent,
+              highlightColor: Colors.transparent,
               onTap: () async {
                 await showModalBottomSheet(
                   isScrollControlled: true,
@@ -75,22 +80,22 @@ class _AdminMainBookingRecordWidgetState
                   barrierColor: Color(0x00000000),
                   enableDrag: false,
                   context: context,
-                  builder: (bottomSheetContext) {
+                  builder: (context) {
                     return Padding(
-                      padding: MediaQuery.of(bottomSheetContext).viewInsets,
+                      padding: MediaQuery.viewInsetsOf(context),
                       child: AdminCurrentBookingRecordWidget(
-                        bookingRecord: widget.bookings!.reference,
+                        bookingRecord: widget.bookings?.reference,
                         company: widget.company,
                       ),
                     );
                   },
-                ).then((value) => setState(() {}));
+                ).then((value) => safeSetState(() {}));
               },
               child: Container(
                 width: 315.0,
                 height: 219.0,
                 decoration: BoxDecoration(
-                  color: widget.bookings!.selectedTimesOrder!.toList().first ==
+                  color: widget.bookings?.selectedTimesOrder?.first ==
                           widget.timeOrder
                       ? FlutterFlowTheme.of(context).primaryBackground
                       : FlutterFlowTheme.of(context).gray2,
@@ -207,7 +212,7 @@ class _AdminMainBookingRecordWidgetState
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 16.0),
                                     child: Text(
-                                      widget.bookings!.createdAdminUserName!,
+                                      widget.bookings!.createdAdminUserName,
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
@@ -231,7 +236,7 @@ class _AdminMainBookingRecordWidgetState
                                       functions
                                           .listStringToString(
                                               widget.bookings!
-                                                  .selectedCompanyServicesName!
+                                                  .selectedCompanyServicesName
                                                   .toList(),
                                               20)
                                           .maybeHandleOverflow(
@@ -255,7 +260,7 @@ class _AdminMainBookingRecordWidgetState
                                     ),
                                   ),
                                   Text(
-                                    '${widget.bookings!.totalPrice?.toString()} тг',
+                                    '${widget.bookings?.totalPrice?.toString()} тг',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -275,7 +280,7 @@ class _AdminMainBookingRecordWidgetState
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 16.0, 0.0, 0.0),
                                     child: Text(
-                                      '${widget.bookings!.timeName} - ${widget.bookings!.selectedTimesOrder!.toList().last.toString()}:00',
+                                      '${widget.bookings?.timeName} - ${widget.bookings?.selectedTimesOrder?.last?.toString()}:00',
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
@@ -302,17 +307,16 @@ class _AdminMainBookingRecordWidgetState
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          if (widget.bookings!.boxName == null ||
-                              widget.bookings!.boxName == '')
+                          if (widget.bookings?.boxName == null ||
+                              widget.bookings?.boxName == '')
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 16.0, 0.0),
                               child: FlutterFlowDropDown<String>(
-                                controller: _model.dropDownAdmin1Controller ??=
-                                    FormFieldController<String>(null),
-                                options: widget.company!.countBoxString!
-                                    .toList()
-                                    .toList(),
+                                controller:
+                                    _model.dropDownAdmin1ValueController ??=
+                                        FormFieldController<String>(null),
+                                options: widget.company!.countBoxString,
                                 onChanged: (val) => setState(
                                     () => _model.dropDownAdmin1Value = val),
                                 width: 128.0,
@@ -340,10 +344,11 @@ class _AdminMainBookingRecordWidgetState
                                     12.0, 4.0, 12.0, 4.0),
                                 hidesUnderline: true,
                                 isSearchable: false,
+                                isMultiSelect: false,
                               ),
                             ),
-                          if (widget.bookings!.boxName != null &&
-                              widget.bookings!.boxName != '')
+                          if (widget.bookings?.boxName != null &&
+                              widget.bookings?.boxName != '')
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 16.0, 0.0),
@@ -365,7 +370,7 @@ class _AdminMainBookingRecordWidgetState
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Text(
-                                        widget.bookings!.boxName!,
+                                        widget.bookings!.boxName,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -386,18 +391,17 @@ class _AdminMainBookingRecordWidgetState
                                 ),
                               ),
                             ),
-                          if ((widget.bookings!.selectedTimesOrder!
-                                      .toList()
-                                      .first ==
+                          if ((widget.bookings?.selectedTimesOrder?.first ==
                                   widget.timeOrder) &&
-                              (widget.bookings!.status != 'Завершено'))
+                              (widget.bookings?.status != 'Завершено'))
                             StreamBuilder<List<AnalyticsRecord>>(
                               stream: queryAnalyticsRecord(
-                                parent: widget.company!.reference,
+                                parent: widget.company?.reference,
                                 queryBuilder: (analyticsRecord) =>
-                                    analyticsRecord.where('dateStringDMY',
-                                        isEqualTo:
-                                            widget.bookings!.bookedDateString),
+                                    analyticsRecord.where(
+                                  'dateStringDMY',
+                                  isEqualTo: widget.bookings?.bookedDateString,
+                                ),
                                 singleRecord: true,
                               ),
                               builder: (context, snapshot) {
@@ -408,8 +412,10 @@ class _AdminMainBookingRecordWidgetState
                                       width: 50.0,
                                       height: 50.0,
                                       child: CircularProgressIndicator(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
+                                        valueColor:
+                                            AlwaysStoppedAnimation<Color>(
+                                          FlutterFlowTheme.of(context).primary,
+                                        ),
                                       ),
                                     ),
                                   );
@@ -432,62 +438,61 @@ class _AdminMainBookingRecordWidgetState
                                       if (containerAnalyticsRecord != null)
                                         FFButtonWidget(
                                           onPressed: () async {
-                                            if ((widget.bookings!.status ==
+                                            if ((widget.bookings?.status ==
                                                     'Забронировано') &&
                                                 (_model.dropDownAdmin1Value !=
                                                         null &&
                                                     _model.dropDownAdmin1Value !=
                                                         '')) {
-                                              final bookingsUpdateData1 =
-                                                  createBookingsRecordData(
+                                              await widget.bookings!.reference
+                                                  .update(
+                                                      createBookingsRecordData(
                                                 status: 'Начат',
                                                 boxName:
                                                     _model.dropDownAdmin1Value,
-                                              );
-                                              await widget.bookings!.reference
-                                                  .update(bookingsUpdateData1);
+                                              ));
                                             } else {
-                                              if (widget.bookings!.status ==
+                                              if (widget.bookings?.status ==
                                                   'Начат') {
-                                                final bookingsUpdateData2 =
-                                                    createBookingsRecordData(
+                                                await widget.bookings!.reference
+                                                    .update(
+                                                        createBookingsRecordData(
                                                   status: 'Закончено',
                                                   forCarPay:
                                                       functions.focarProcent(
                                                           widget.company!
-                                                              .forCarPercent!,
+                                                              .forCarPercent,
                                                           widget.bookings!
-                                                              .totalPrice!),
-                                                );
-                                                await widget.bookings!.reference
-                                                    .update(
-                                                        bookingsUpdateData2);
+                                                              .totalPrice),
+                                                ));
 
-                                                final analyticsUpdateData = {
-                                                  'price': FieldValue.increment(
-                                                      functions
-                                                          .price100(widget
-                                                              .bookings!
-                                                              .totalPrice!)
-                                                          .toDouble()),
-                                                };
                                                 await containerAnalyticsRecord!
                                                     .reference
-                                                    .update(
-                                                        analyticsUpdateData);
+                                                    .update({
+                                                  ...mapToFirestore(
+                                                    {
+                                                      'price': FieldValue
+                                                          .increment(functions
+                                                              .price100(widget
+                                                                  .bookings!
+                                                                  .totalPrice)
+                                                              .toDouble()),
+                                                    },
+                                                  ),
+                                                });
                                               }
                                             }
                                           },
                                           text: () {
-                                            if (widget.bookings!.status ==
+                                            if (widget.bookings?.status ==
                                                 'Забронировано') {
                                               return 'Начать';
                                             } else if (widget
-                                                    .bookings!.status ==
+                                                    .bookings?.status ==
                                                 'Начат') {
                                               return 'Закончить';
                                             } else if (widget
-                                                    .bookings!.status ==
+                                                    .bookings?.status ==
                                                 'Закончено') {
                                               return 'Завершено';
                                             } else {
@@ -512,7 +517,7 @@ class _AdminMainBookingRecordWidgetState
                                                         context)
                                                     .primary;
                                               } else if (widget
-                                                      .bookings!.status ==
+                                                      .bookings?.status ==
                                                   'Начат') {
                                                 return FlutterFlowTheme.of(
                                                         context)
@@ -552,42 +557,42 @@ class _AdminMainBookingRecordWidgetState
                                       if (!(containerAnalyticsRecord != null))
                                         FFButtonWidget(
                                           onPressed: () async {
-                                            if ((widget.bookings!.status ==
+                                            if ((widget.bookings?.status ==
                                                     'Забронировано') &&
                                                 (_model.dropDownAdmin1Value !=
                                                         null &&
                                                     _model.dropDownAdmin1Value !=
                                                         '')) {
-                                              final bookingsUpdateData1 =
-                                                  createBookingsRecordData(
+                                              await widget.bookings!.reference
+                                                  .update(
+                                                      createBookingsRecordData(
                                                 status: 'Начат',
                                                 boxName:
                                                     _model.dropDownAdmin1Value,
-                                              );
-                                              await widget.bookings!.reference
-                                                  .update(bookingsUpdateData1);
+                                              ));
                                             } else {
-                                              if (widget.bookings!.status ==
+                                              if (widget.bookings?.status ==
                                                   'Начат') {
-                                                final bookingsUpdateData2 =
-                                                    createBookingsRecordData(
+                                                await widget.bookings!.reference
+                                                    .update(
+                                                        createBookingsRecordData(
                                                   status: 'Закончено',
                                                   forCarPay:
                                                       functions.focarProcent(
                                                           widget.company!
-                                                              .forCarPercent!,
+                                                              .forCarPercent,
                                                           widget.bookings!
-                                                              .totalPrice!),
-                                                );
-                                                await widget.bookings!.reference
-                                                    .update(
-                                                        bookingsUpdateData2);
+                                                              .totalPrice),
+                                                ));
 
-                                                final analyticsCreateData =
-                                                    createAnalyticsRecordData(
+                                                await AnalyticsRecord.createDoc(
+                                                        widget
+                                                            .company!.reference)
+                                                    .set(
+                                                        createAnalyticsRecordData(
                                                   price: functions
-                                                      .price100(widget.bookings!
-                                                          .totalPrice!)
+                                                      .price100(widget
+                                                          .bookings!.totalPrice)
                                                       .toDouble(),
                                                   dateSum: functions
                                                       .daySum(dateTimeFormat(
@@ -598,29 +603,24 @@ class _AdminMainBookingRecordWidgetState
                                                             context)
                                                         .languageCode,
                                                   )),
-                                                  dateStringDMY: widget
-                                                      .bookings!
-                                                      .bookedDateString,
+                                                  dateStringDMY: widget.bookings
+                                                      ?.bookedDateString,
                                                   date: widget
-                                                      .bookings!.bookedDate,
-                                                );
-                                                await AnalyticsRecord.createDoc(
-                                                        widget
-                                                            .company!.reference)
-                                                    .set(analyticsCreateData);
+                                                      .bookings?.bookedDate,
+                                                ));
                                               }
                                             }
                                           },
                                           text: () {
-                                            if (widget.bookings!.status ==
+                                            if (widget.bookings?.status ==
                                                 'Забронировано') {
                                               return 'Начать';
                                             } else if (widget
-                                                    .bookings!.status ==
+                                                    .bookings?.status ==
                                                 'Начат') {
                                               return 'Закончить';
                                             } else if (widget
-                                                    .bookings!.status ==
+                                                    .bookings?.status ==
                                                 'Закончено') {
                                               return 'Завершено';
                                             } else {
@@ -645,7 +645,7 @@ class _AdminMainBookingRecordWidgetState
                                                         context)
                                                     .primary;
                                               } else if (widget
-                                                      .bookings!.status ==
+                                                      .bookings?.status ==
                                                   'Начат') {
                                                 return FlutterFlowTheme.of(
                                                         context)
@@ -695,7 +695,7 @@ class _AdminMainBookingRecordWidgetState
               ),
             ),
           ),
-        if (widget.bookings!.createdByUser ?? true)
+        if (widget.bookings?.createdByUser ?? true)
           Padding(
             padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
             child: FutureBuilder<UserRecord>(
@@ -708,13 +708,19 @@ class _AdminMainBookingRecordWidgetState
                       width: 50.0,
                       height: 50.0,
                       child: CircularProgressIndicator(
-                        color: FlutterFlowTheme.of(context).primary,
+                        valueColor: AlwaysStoppedAnimation<Color>(
+                          FlutterFlowTheme.of(context).primary,
+                        ),
                       ),
                     ),
                   );
                 }
                 final containerUserRecord = snapshot.data!;
                 return InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
                   onTap: () async {
                     await showModalBottomSheet(
                       isScrollControlled: true,
@@ -722,26 +728,25 @@ class _AdminMainBookingRecordWidgetState
                       barrierColor: Color(0x00000000),
                       enableDrag: false,
                       context: context,
-                      builder: (bottomSheetContext) {
+                      builder: (context) {
                         return Padding(
-                          padding: MediaQuery.of(bottomSheetContext).viewInsets,
+                          padding: MediaQuery.viewInsetsOf(context),
                           child: AdminCurrentBookingRecordWidget(
-                            bookingRecord: widget.bookings!.reference,
+                            bookingRecord: widget.bookings?.reference,
                             company: widget.company,
                           ),
                         );
                       },
-                    ).then((value) => setState(() {}));
+                    ).then((value) => safeSetState(() {}));
                   },
                   child: Container(
                     width: 315.0,
                     height: 219.0,
                     decoration: BoxDecoration(
-                      color:
-                          widget.bookings!.selectedTimesOrder!.toList().first ==
-                                  widget.timeOrder
-                              ? FlutterFlowTheme.of(context).primaryBackground
-                              : FlutterFlowTheme.of(context).gray2,
+                      color: widget.bookings?.selectedTimesOrder?.first ==
+                              widget.timeOrder
+                          ? FlutterFlowTheme.of(context).primaryBackground
+                          : FlutterFlowTheme.of(context).gray2,
                       borderRadius: BorderRadius.circular(8.0),
                       border: Border.all(
                         color: FlutterFlowTheme.of(context).gray2,
@@ -866,7 +871,7 @@ class _AdminMainBookingRecordWidgetState
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 16.0),
                                         child: Text(
-                                          '${widget.bookings!.carBody} ${widget.bookings!.carName}',
+                                          '${widget.bookings?.carBody} ${widget.bookings?.carName}',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -893,7 +898,7 @@ class _AdminMainBookingRecordWidgetState
                                           functions
                                               .listStringToString(
                                                   widget.bookings!
-                                                      .selectedCompanyServicesName!
+                                                      .selectedCompanyServicesName
                                                       .toList(),
                                                   20)
                                               .maybeHandleOverflow(
@@ -920,7 +925,7 @@ class _AdminMainBookingRecordWidgetState
                                         ),
                                       ),
                                       Text(
-                                        '${widget.bookings!.totalPrice?.toString()} тг',
+                                        '${widget.bookings?.totalPrice?.toString()} тг',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -943,7 +948,7 @@ class _AdminMainBookingRecordWidgetState
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 16.0, 0.0, 0.0),
                                         child: Text(
-                                          '${widget.bookings!.timeName} - ${widget.bookings!.selectedTimesOrder!.toList().last.toString()}:00',
+                                          '${widget.bookings?.timeName} - ${widget.bookings?.selectedTimesOrder?.last?.toString()}:00',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -972,18 +977,16 @@ class _AdminMainBookingRecordWidgetState
                           Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
-                              if (widget.bookings!.boxName == null ||
-                                  widget.bookings!.boxName == '')
+                              if (widget.bookings?.boxName == null ||
+                                  widget.bookings?.boxName == '')
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 16.0, 0.0),
                                   child: FlutterFlowDropDown<String>(
                                     controller:
-                                        _model.dropDownAdmin2Controller ??=
+                                        _model.dropDownAdmin2ValueController ??=
                                             FormFieldController<String>(null),
-                                    options: widget.company!.countBoxString!
-                                        .toList()
-                                        .toList(),
+                                    options: widget.company!.countBoxString,
                                     onChanged: (val) => setState(
                                         () => _model.dropDownAdmin2Value = val),
                                     width: 128.0,
@@ -1013,10 +1016,11 @@ class _AdminMainBookingRecordWidgetState
                                         12.0, 4.0, 12.0, 4.0),
                                     hidesUnderline: true,
                                     isSearchable: false,
+                                    isMultiSelect: false,
                                   ),
                                 ),
-                              if (widget.bookings!.boxName != null &&
-                                  widget.bookings!.boxName != '')
+                              if (widget.bookings?.boxName != null &&
+                                  widget.bookings?.boxName != '')
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 16.0, 0.0),
@@ -1039,7 +1043,7 @@ class _AdminMainBookingRecordWidgetState
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Text(
-                                            widget.bookings!.boxName!,
+                                            widget.bookings!.boxName,
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -1061,18 +1065,18 @@ class _AdminMainBookingRecordWidgetState
                                     ),
                                   ),
                                 ),
-                              if ((widget.bookings!.selectedTimesOrder!
-                                          .toList()
-                                          .first ==
+                              if ((widget.bookings?.selectedTimesOrder?.first ==
                                       widget.timeOrder) &&
-                                  (widget.bookings!.status != 'Завершено'))
+                                  (widget.bookings?.status != 'Завершено'))
                                 StreamBuilder<List<AnalyticsRecord>>(
                                   stream: queryAnalyticsRecord(
-                                    parent: widget.company!.reference,
+                                    parent: widget.company?.reference,
                                     queryBuilder: (analyticsRecord) =>
-                                        analyticsRecord.where('dateStringDMY',
-                                            isEqualTo: widget
-                                                .bookings!.bookedDateString),
+                                        analyticsRecord.where(
+                                      'dateStringDMY',
+                                      isEqualTo:
+                                          widget.bookings?.bookedDateString,
+                                    ),
                                     singleRecord: true,
                                   ),
                                   builder: (context, snapshot) {
@@ -1083,8 +1087,11 @@ class _AdminMainBookingRecordWidgetState
                                           width: 50.0,
                                           height: 50.0,
                                           child: CircularProgressIndicator(
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
+                                            valueColor:
+                                                AlwaysStoppedAnimation<Color>(
+                                              FlutterFlowTheme.of(context)
+                                                  .primary,
+                                            ),
                                           ),
                                         ),
                                       );
@@ -1107,109 +1114,104 @@ class _AdminMainBookingRecordWidgetState
                                           if (containerAnalyticsRecord != null)
                                             FFButtonWidget(
                                               onPressed: () async {
-                                                if ((widget.bookings!.status ==
+                                                if ((widget.bookings?.status ==
                                                         'Забронировано') &&
                                                     (_model.dropDownAdmin2Value !=
                                                             null &&
                                                         _model.dropDownAdmin2Value !=
                                                             '')) {
-                                                  final bookingsUpdateData1 =
-                                                      createBookingsRecordData(
-                                                    status: 'Начат',
-                                                    boxName: _model
-                                                        .dropDownAdmin2Value,
-                                                  );
                                                   await widget
                                                       .bookings!.reference
                                                       .update(
-                                                          bookingsUpdateData1);
+                                                          createBookingsRecordData(
+                                                    status: 'Начат',
+                                                    boxName: _model
+                                                        .dropDownAdmin2Value,
+                                                  ));
                                                 } else {
-                                                  if (widget.bookings!.status ==
+                                                  if (widget.bookings?.status ==
                                                       'Начат') {
-                                                    final bookingsUpdateData2 =
-                                                        createBookingsRecordData(
+                                                    await widget
+                                                        .bookings!.reference
+                                                        .update(
+                                                            createBookingsRecordData(
                                                       status: 'Закончено',
                                                       forCarPay: functions
                                                           .focarProcent(
                                                               widget.company!
-                                                                  .forCarPercent!,
+                                                                  .forCarPercent,
                                                               widget.bookings!
-                                                                  .totalPrice!),
-                                                    );
-                                                    await widget
-                                                        .bookings!.reference
-                                                        .update(
-                                                            bookingsUpdateData2);
+                                                                  .totalPrice),
+                                                    ));
 
-                                                    final analyticsUpdateData =
-                                                        {
-                                                      'price': FieldValue
-                                                          .increment(functions
-                                                              .price100(widget
-                                                                  .bookings!
-                                                                  .totalPrice!)
-                                                              .toDouble()),
-                                                    };
                                                     await containerAnalyticsRecord!
                                                         .reference
-                                                        .update(
-                                                            analyticsUpdateData);
+                                                        .update({
+                                                      ...mapToFirestore(
+                                                        {
+                                                          'price': FieldValue
+                                                              .increment(functions
+                                                                  .price100(widget
+                                                                      .bookings!
+                                                                      .totalPrice)
+                                                                  .toDouble()),
+                                                        },
+                                                      ),
+                                                    });
                                                     if (widget.bookings!
-                                                        .createdByUser!) {
+                                                        .createdByUser) {
                                                       if (containerUserRecord
-                                                          .bookingCompanies!
-                                                          .toList()
+                                                          .bookingCompanies
                                                           .contains(widget
-                                                              .company!
-                                                              .reference)) {
-                                                        final userUpdateData1 =
-                                                            createUserRecordData(
-                                                          lastBookingBoolean:
-                                                              true,
-                                                          linkLastBooking:
-                                                              widget.bookings!
-                                                                  .reference,
-                                                        );
+                                                              .company
+                                                              ?.reference)) {
                                                         await widget.bookings!
                                                             .bookedUser!
                                                             .update(
-                                                                userUpdateData1);
+                                                                createUserRecordData(
+                                                          lastBookingBoolean:
+                                                              true,
+                                                          linkLastBooking:
+                                                              widget.bookings
+                                                                  ?.reference,
+                                                        ));
                                                       } else {
-                                                        final userUpdateData2 =
-                                                            {
+                                                        await widget.bookings!
+                                                            .bookedUser!
+                                                            .update({
                                                           ...createUserRecordData(
                                                             lastBookingBoolean:
                                                                 true,
                                                             linkLastBooking:
-                                                                widget.bookings!
-                                                                    .reference,
+                                                                widget.bookings
+                                                                    ?.reference,
                                                           ),
-                                                          'bookingCompanies':
-                                                              FieldValue
-                                                                  .arrayUnion([
-                                                            widget.company!
-                                                                .reference
-                                                          ]),
-                                                        };
-                                                        await widget.bookings!
-                                                            .bookedUser!
-                                                            .update(
-                                                                userUpdateData2);
+                                                          ...mapToFirestore(
+                                                            {
+                                                              'bookingCompanies':
+                                                                  FieldValue
+                                                                      .arrayUnion([
+                                                                widget.company
+                                                                    ?.reference
+                                                              ]),
+                                                            },
+                                                          ),
+                                                        });
                                                       }
                                                     }
                                                   }
                                                 }
                                               },
                                               text: () {
-                                                if (widget.bookings!.status ==
+                                                if (widget.bookings?.status ==
                                                     'Забронировано') {
                                                   return 'Начать';
                                                 } else if (widget
-                                                        .bookings!.status ==
+                                                        .bookings?.status ==
                                                     'Начат') {
                                                   return 'Закончить';
                                                 } else if (widget
-                                                        .bookings!.status ==
+                                                        .bookings?.status ==
                                                     'Закончено') {
                                                   return 'Завершено';
                                                 } else {
@@ -1235,7 +1237,7 @@ class _AdminMainBookingRecordWidgetState
                                                             context)
                                                         .primary;
                                                   } else if (widget
-                                                          .bookings!.status ==
+                                                          .bookings?.status ==
                                                       'Начат') {
                                                     return FlutterFlowTheme.of(
                                                             context)
@@ -1276,46 +1278,46 @@ class _AdminMainBookingRecordWidgetState
                                               null))
                                             FFButtonWidget(
                                               onPressed: () async {
-                                                if ((widget.bookings!.status ==
+                                                if ((widget.bookings?.status ==
                                                         'Забронировано') &&
                                                     (_model.dropDownAdmin2Value !=
                                                             null &&
                                                         _model.dropDownAdmin2Value !=
                                                             '')) {
-                                                  final bookingsUpdateData1 =
-                                                      createBookingsRecordData(
-                                                    status: 'Начат',
-                                                    boxName: _model
-                                                        .dropDownAdmin2Value,
-                                                  );
                                                   await widget
                                                       .bookings!.reference
                                                       .update(
-                                                          bookingsUpdateData1);
+                                                          createBookingsRecordData(
+                                                    status: 'Начат',
+                                                    boxName: _model
+                                                        .dropDownAdmin2Value,
+                                                  ));
                                                 } else {
-                                                  if (widget.bookings!.status ==
+                                                  if (widget.bookings?.status ==
                                                       'Начат') {
-                                                    final bookingsUpdateData2 =
-                                                        createBookingsRecordData(
+                                                    await widget
+                                                        .bookings!.reference
+                                                        .update(
+                                                            createBookingsRecordData(
                                                       status: 'Закончено',
                                                       forCarPay: functions
                                                           .focarProcent(
                                                               widget.company!
-                                                                  .forCarPercent!,
+                                                                  .forCarPercent,
                                                               widget.bookings!
-                                                                  .totalPrice!),
-                                                    );
-                                                    await widget
-                                                        .bookings!.reference
-                                                        .update(
-                                                            bookingsUpdateData2);
+                                                                  .totalPrice),
+                                                    ));
 
-                                                    final analyticsCreateData =
-                                                        createAnalyticsRecordData(
+                                                    await AnalyticsRecord
+                                                            .createDoc(widget
+                                                                .company!
+                                                                .reference)
+                                                        .set(
+                                                            createAnalyticsRecordData(
                                                       price: functions
                                                           .price100(widget
                                                               .bookings!
-                                                              .totalPrice!)
+                                                              .totalPrice)
                                                           .toDouble(),
                                                       dateSum: functions.daySum(
                                                           dateTimeFormat(
@@ -1328,73 +1330,65 @@ class _AdminMainBookingRecordWidgetState
                                                                 .languageCode,
                                                       )),
                                                       dateStringDMY: widget
-                                                          .bookings!
-                                                          .bookedDateString,
+                                                          .bookings
+                                                          ?.bookedDateString,
                                                       date: widget
-                                                          .bookings!.bookedDate,
-                                                    );
-                                                    await AnalyticsRecord
-                                                            .createDoc(widget
-                                                                .company!
-                                                                .reference)
-                                                        .set(
-                                                            analyticsCreateData);
+                                                          .bookings?.bookedDate,
+                                                    ));
                                                     if (widget.bookings!
-                                                        .createdByUser!) {
+                                                        .createdByUser) {
                                                       if (containerUserRecord
-                                                          .bookingCompanies!
-                                                          .toList()
+                                                          .bookingCompanies
                                                           .contains(widget
-                                                              .company!
-                                                              .reference)) {
-                                                        final userUpdateData1 =
-                                                            createUserRecordData(
-                                                          lastBookingBoolean:
-                                                              true,
-                                                          linkLastBooking:
-                                                              widget.bookings!
-                                                                  .reference,
-                                                        );
+                                                              .company
+                                                              ?.reference)) {
                                                         await widget.bookings!
                                                             .bookedUser!
                                                             .update(
-                                                                userUpdateData1);
+                                                                createUserRecordData(
+                                                          lastBookingBoolean:
+                                                              true,
+                                                          linkLastBooking:
+                                                              widget.bookings
+                                                                  ?.reference,
+                                                        ));
                                                       } else {
-                                                        final userUpdateData2 =
-                                                            {
+                                                        await widget.bookings!
+                                                            .bookedUser!
+                                                            .update({
                                                           ...createUserRecordData(
                                                             lastBookingBoolean:
                                                                 true,
                                                             linkLastBooking:
-                                                                widget.bookings!
-                                                                    .reference,
+                                                                widget.bookings
+                                                                    ?.reference,
                                                           ),
-                                                          'bookingCompanies':
-                                                              FieldValue
-                                                                  .arrayUnion([
-                                                            widget.company!
-                                                                .reference
-                                                          ]),
-                                                        };
-                                                        await widget.bookings!
-                                                            .bookedUser!
-                                                            .update(
-                                                                userUpdateData2);
+                                                          ...mapToFirestore(
+                                                            {
+                                                              'bookingCompanies':
+                                                                  FieldValue
+                                                                      .arrayUnion([
+                                                                widget.company
+                                                                    ?.reference
+                                                              ]),
+                                                            },
+                                                          ),
+                                                        });
                                                       }
                                                     }
                                                   }
                                                 }
                                               },
                                               text: () {
-                                                if (widget.bookings!.status ==
+                                                if (widget.bookings?.status ==
                                                     'Забронировано') {
                                                   return 'Начать';
                                                 } else if (widget
-                                                        .bookings!.status ==
+                                                        .bookings?.status ==
                                                     'Начат') {
                                                   return 'Закончить';
                                                 } else if (widget
-                                                        .bookings!.status ==
+                                                        .bookings?.status ==
                                                     'Закончено') {
                                                   return 'Завершено';
                                                 } else {
@@ -1420,7 +1414,7 @@ class _AdminMainBookingRecordWidgetState
                                                             context)
                                                         .primary;
                                                   } else if (widget
-                                                          .bookings!.status ==
+                                                          .bookings?.status ==
                                                       'Начат') {
                                                     return FlutterFlowTheme.of(
                                                             context)

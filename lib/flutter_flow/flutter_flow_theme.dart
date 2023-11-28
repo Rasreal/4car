@@ -120,7 +120,7 @@ abstract class FlutterFlowTheme {
 }
 
 DeviceSize getDeviceSize(BuildContext context) {
-  final width = MediaQuery.of(context).size.width;
+  final width = MediaQuery.sizeOf(context).width;
   if (width < 479) {
     return DeviceSize.mobile;
   } else if (width < 991) {
@@ -289,9 +289,12 @@ class MobileTypography extends Typography {
         fontWeight: FontWeight.w500,
         fontSize: 11.0,
       );
-  String get bodyLargeFamily => '';
+  String get bodyLargeFamily => 'Inter';
   TextStyle get bodyLarge => GoogleFonts.getFont(
-        'Roboto',
+        'Inter',
+        color: theme.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 16.0,
       );
   String get bodyMediumFamily => 'Inter';
   TextStyle get bodyMedium => GoogleFonts.getFont(
@@ -398,9 +401,12 @@ class TabletTypography extends Typography {
         fontWeight: FontWeight.w500,
         fontSize: 11.0,
       );
-  String get bodyLargeFamily => '';
+  String get bodyLargeFamily => 'Inter';
   TextStyle get bodyLarge => GoogleFonts.getFont(
-        'Roboto',
+        'Inter',
+        color: theme.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 16.0,
       );
   String get bodyMediumFamily => 'Inter';
   TextStyle get bodyMedium => GoogleFonts.getFont(
@@ -507,9 +513,12 @@ class DesktopTypography extends Typography {
         fontWeight: FontWeight.w500,
         fontSize: 11.0,
       );
-  String get bodyLargeFamily => '';
+  String get bodyLargeFamily => 'Inter';
   TextStyle get bodyLarge => GoogleFonts.getFont(
-        'Roboto',
+        'Inter',
+        color: theme.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 16.0,
       );
   String get bodyMediumFamily => 'Inter';
   TextStyle get bodyMedium => GoogleFonts.getFont(

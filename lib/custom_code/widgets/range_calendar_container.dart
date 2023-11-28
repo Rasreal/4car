@@ -1,5 +1,6 @@
 // Automatic FlutterFlow imports
 import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'index.dart'; // Imports other custom widgets
@@ -134,17 +135,18 @@ class _RangeCalendarContainerState extends State<RangeCalendarContainer> {
                             onTap: () async {
                               setState(() {
                                 var now = new DateTime.now();
-
+                                DateTime now2 = new DateTime(now.year,
+                                    now.month, now.day, 23, 59, 59, 1000);
                                 var now_1w = now.subtract(Duration(days: 1));
                                 now_1w = DateTime(now_1w.year, now_1w.month,
                                     now_1w.day, 0, 0, 0, 1);
                                 rangeDatePickerValueWithDefaultValue = [
                                   now_1w,
-                                  now
+                                  now2
                                 ];
                                 FFAppState().webFilterDayName = 'Вчера';
                                 rangeForCancel.add(now_1w);
-                                rangeForCancel.add(now);
+                                rangeForCancel.add(now2);
                                 nameForCancel
                                     .add(FFAppState().webFilterDayName);
                               });
@@ -220,19 +222,21 @@ class _RangeCalendarContainerState extends State<RangeCalendarContainer> {
                             onTap: () async {
                               setState(() {
                                 var now = new DateTime.now();
+                                DateTime now2 = new DateTime(now.year,
+                                    now.month, now.day, 23, 59, 59, 1000);
 
                                 var now_1m = new DateTime(
                                     now.year, now.month - 1, now.day, 0, 0, 0);
                                 rangeDatePickerValueWithDefaultValue = [
                                   now_1m,
-                                  now
+                                  now2
                                 ];
                                 FFAppState().webFilterDayName =
                                     'Последние 30 дней';
                                 nameForCancel
                                     .add(FFAppState().webFilterDayName);
                                 rangeForCancel.add(now_1m);
-                                rangeForCancel.add(now);
+                                rangeForCancel.add(now2);
                               });
                             },
                             child: Text(
@@ -263,15 +267,17 @@ class _RangeCalendarContainerState extends State<RangeCalendarContainer> {
                             onTap: () async {
                               setState(() {
                                 var now = new DateTime.now();
-                                var now_1w = now.subtract(Duration(days: 7));
+                                DateTime now2 = new DateTime(now.year,
+                                    now.month, now.day, 23, 59, 59, 1000);
+
                                 var now_1m = new DateTime(
                                     now.year, now.month - 1, now.day);
                                 rangeDatePickerValueWithDefaultValue = [
                                   now_1m,
-                                  now
+                                  now2
                                 ];
                                 rangeForCancel.add(now_1m);
-                                rangeForCancel.add(now);
+                                rangeForCancel.add(now2);
                                 FFAppState().webFilterDayName =
                                     'Отчетный месяц';
                                 nameForCancel
@@ -306,15 +312,17 @@ class _RangeCalendarContainerState extends State<RangeCalendarContainer> {
                             onTap: () async {
                               setState(() {
                                 var now = new DateTime.now();
+                                DateTime now2 = new DateTime(now.year,
+                                    now.month, now.day, 23, 59, 59, 1000);
                                 var now_1w = now.subtract(Duration(days: 7));
                                 var now_1y = new DateTime(
-                                    now.year - 1, now.month, now.day);
+                                    now.year - 1, now.month, now.day, 0, 0, 0);
                                 rangeDatePickerValueWithDefaultValue = [
                                   now_1y,
-                                  now
+                                  now2
                                 ];
                                 rangeForCancel.add(now_1y);
-                                rangeForCancel.add(now);
+                                rangeForCancel.add(now2);
                                 FFAppState().webFilterDayName = 'Год';
                                 nameForCancel
                                     .add(FFAppState().webFilterDayName);
@@ -348,6 +356,8 @@ class _RangeCalendarContainerState extends State<RangeCalendarContainer> {
                             onTap: () async {
                               setState(() {
                                 var now = new DateTime.now();
+                                DateTime now2 = new DateTime(now.year,
+                                    now.month, now.day, 23, 59, 59, 1000);
                                 var now_1w = new DateTime(
                                     now.year - 30, now.month - 1, now.day);
                                 var now_1m = new DateTime(
@@ -355,10 +365,10 @@ class _RangeCalendarContainerState extends State<RangeCalendarContainer> {
                                 rangeDatePickerValueWithDefaultValue = [];
                                 FFAppState().webFilterDayName = 'За все время';
                                 rangeForCancel.add(now_1w);
-                                rangeForCancel.add(now);
+                                rangeForCancel.add(now2);
                                 rangeDatePickerValueWithDefaultValue = [
                                   now_1w,
-                                  now
+                                  now2
                                 ];
                                 nameForCancel
                                     .add(FFAppState().webFilterDayName);
@@ -631,25 +641,39 @@ class _RangeCalendarState extends State<RangeCalendar> {
             setState(() => rangeDatePickerValueWithDefaultValue = values);
             DateTime a = rangeDatePickerValueWithDefaultValue[0]!;
             DateTime bbb = rangeDatePickerValueWithDefaultValue[1]!;
+
             if (rangeDatePickerValueWithDefaultValue[1] == null &&
                 rangeDatePickerValueWithDefaultValue[0] != null) {
               if (a.isBefore(DateTime.now())) {
-                FFAppState().WEBFilterStartDate = a;
-                FFAppState().WEBFilterEndDate = DateTime.now();
+                DateTime now = DateTime.now();
+                DateTime a2 = new DateTime(a.year, a.month, a.day, 0, 0, 0, 0);
+                DateTime now2 = new DateTime(
+                    now.year, now.month, now.day, 23, 59, 59, 1110);
+                FFAppState().WEBFilterStartDate = a2;
+                FFAppState().WEBFilterEndDate = now2;
               } else {
-                FFAppState().WEBFilterStartDate = DateTime.now();
+                DateTime now = DateTime.now();
+                DateTime a2 =
+                    new DateTime(a.year, a.month, a.day + 1, 0, 0, 0, 0);
+                DateTime now2 = new DateTime(
+                    now.year, now.month, now.day - 1, 23, 59, 59, 1110);
+                FFAppState().WEBFilterStartDate = now2;
                 ;
-                FFAppState().WEBFilterEndDate = a;
+                FFAppState().WEBFilterEndDate = a2;
               }
             }
             if (a.isAfter(bbb) &&
                 (rangeDatePickerValueWithDefaultValue[1] != null &&
                     rangeDatePickerValueWithDefaultValue[0] != null)) {
-              FFAppState().WEBFilterEndDate = a;
-              FFAppState().WEBFilterStartDate = bbb;
+              FFAppState().WEBFilterEndDate =
+                  new DateTime(a.year, a.month, a.day + 1, 0, 0, 0, 1);
+              FFAppState().WEBFilterStartDate = new DateTime(
+                  bbb.year, bbb.month, bbb.day - 1, 23, 59, 59, 1110);
             } else {
-              FFAppState().WEBFilterEndDate = bbb;
-              FFAppState().WEBFilterStartDate = a;
+              FFAppState().WEBFilterEndDate =
+                  new DateTime(bbb.year, bbb.month, bbb.day + 1, 0, 0, 0, 1);
+              FFAppState().WEBFilterStartDate =
+                  new DateTime(a.year, a.month, a.day - 1, 23, 59, 59, 1110);
             }
             setState(() {});
           },

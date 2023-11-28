@@ -145,5 +145,17 @@ service cloud.firestore {
       allow write: if true;
       allow delete: if true;
     }
+
+    match /companies/{parent}/worked_day_box/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if false;
+    }
+
+    match /{path=**}/worked_day_box/{document} {
+      allow read: if true;
+    }
+
   }
 }

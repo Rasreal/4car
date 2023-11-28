@@ -139,5 +139,4 @@ class FFIcons {
       IconData(0xe900, fontFamily: _refreshFamily);
 
   // edit
-
 }

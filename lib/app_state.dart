@@ -1,29 +1,42 @@
 import 'package:flutter/material.dart';
-import 'backend/backend.dart';
+import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 
 class FFAppState extends ChangeNotifier {
-  static final FFAppState _instance = FFAppState._internal();
+  static FFAppState _instance = FFAppState._internal();
 
   factory FFAppState() {
     return _instance;
   }
 
-  FFAppState._internal() {
-    initializePersistedState();
+  FFAppState._internal();
+
+  static void reset() {
+    _instance = FFAppState._internal();
   }
 
   Future initializePersistedState() async {
     prefs = await SharedPreferences.getInstance();
-    _selectPush = prefs.getInt('ff_selectPush') ?? _selectPush;
-    _signINcode = prefs.getBool('ff_signINcode') ?? _signINcode;
-    _singUPcode = prefs.getBool('ff_singUPcode') ?? _singUPcode;
-    _adminForCarServices =
-        prefs.getStringList('ff_adminForCarServices') ?? _adminForCarServices;
-    _adminForCarServicesDuration =
-        prefs.getStringList('ff_adminForCarServicesDuration') ??
-            _adminForCarServicesDuration;
+    _safeInit(() {
+      _selectPush = prefs.getInt('ff_selectPush') ?? _selectPush;
+    });
+    _safeInit(() {
+      _signINcode = prefs.getBool('ff_signINcode') ?? _signINcode;
+    });
+    _safeInit(() {
+      _singUPcode = prefs.getBool('ff_singUPcode') ?? _singUPcode;
+    });
+    _safeInit(() {
+      _adminForCarServices =
+          prefs.getStringList('ff_adminForCarServices') ?? _adminForCarServices;
+    });
+    _safeInit(() {
+      _adminForCarServicesDuration =
+          prefs.getStringList('ff_adminForCarServicesDuration') ??
+              _adminForCarServicesDuration;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -69,6 +82,17 @@ class FFAppState extends ChangeNotifier {
     _selectedServices.removeAt(_index);
   }
 
+  void updateSelectedServicesAtIndex(
+    int _index,
+    DocumentReference Function(DocumentReference) updateFn,
+  ) {
+    _selectedServices[_index] = updateFn(_selectedServices[_index]);
+  }
+
+  void insertAtIndexInSelectedServices(int _index, DocumentReference _value) {
+    _selectedServices.insert(_index, _value);
+  }
+
   String _cancelBooking = '';
   String get cancelBooking => _cancelBooking;
   set cancelBooking(String _value) {
@@ -91,6 +115,17 @@ class FFAppState extends ChangeNotifier {
 
   void removeAtIndexFromCountryCodes(int _index) {
     _countryCodes.removeAt(_index);
+  }
+
+  void updateCountryCodesAtIndex(
+    int _index,
+    String Function(String) updateFn,
+  ) {
+    _countryCodes[_index] = updateFn(_countryCodes[_index]);
+  }
+
+  void insertAtIndexInCountryCodes(int _index, String _value) {
+    _countryCodes.insert(_index, _value);
   }
 
   String _adminSelectServicesBody = '';
@@ -174,6 +209,17 @@ class FFAppState extends ChangeNotifier {
     _bookedTimes.removeAt(_index);
   }
 
+  void updateBookedTimesAtIndex(
+    int _index,
+    int Function(int) updateFn,
+  ) {
+    _bookedTimes[_index] = updateFn(_bookedTimes[_index]);
+  }
+
+  void insertAtIndexInBookedTimes(int _index, int _value) {
+    _bookedTimes.insert(_index, _value);
+  }
+
   List<String> _adminForCarServices = [
     'Комплексная мойка',
     'Мойка кузова',
@@ -226,6 +272,19 @@ class FFAppState extends ChangeNotifier {
     prefs.setStringList('ff_adminForCarServices', _adminForCarServices);
   }
 
+  void updateAdminForCarServicesAtIndex(
+    int _index,
+    String Function(String) updateFn,
+  ) {
+    _adminForCarServices[_index] = updateFn(_adminForCarServices[_index]);
+    prefs.setStringList('ff_adminForCarServices', _adminForCarServices);
+  }
+
+  void insertAtIndexInAdminForCarServices(int _index, String _value) {
+    _adminForCarServices.insert(_index, _value);
+    prefs.setStringList('ff_adminForCarServices', _adminForCarServices);
+  }
+
   List<String> _adminForCarServicesDuration = [
     '0 мин',
     '15 мин',
@@ -273,6 +332,22 @@ class FFAppState extends ChangeNotifier {
         'ff_adminForCarServicesDuration', _adminForCarServicesDuration);
   }
 
+  void updateAdminForCarServicesDurationAtIndex(
+    int _index,
+    String Function(String) updateFn,
+  ) {
+    _adminForCarServicesDuration[_index] =
+        updateFn(_adminForCarServicesDuration[_index]);
+    prefs.setStringList(
+        'ff_adminForCarServicesDuration', _adminForCarServicesDuration);
+  }
+
+  void insertAtIndexInAdminForCarServicesDuration(int _index, String _value) {
+    _adminForCarServicesDuration.insert(_index, _value);
+    prefs.setStringList(
+        'ff_adminForCarServicesDuration', _adminForCarServicesDuration);
+  }
+
   double _superAdminSelectPercent = 0.0;
   double get superAdminSelectPercent => _superAdminSelectPercent;
   set superAdminSelectPercent(double _value) {
@@ -313,6 +388,18 @@ class FFAppState extends ChangeNotifier {
 
   void removeAtIndexFromBookingSelectedServicesName(int _index) {
     _bookingSelectedServicesName.removeAt(_index);
+  }
+
+  void updateBookingSelectedServicesNameAtIndex(
+    int _index,
+    String Function(String) updateFn,
+  ) {
+    _bookingSelectedServicesName[_index] =
+        updateFn(_bookingSelectedServicesName[_index]);
+  }
+
+  void insertAtIndexInBookingSelectedServicesName(int _index, String _value) {
+    _bookingSelectedServicesName.insert(_index, _value);
   }
 
   DocumentReference? _adminOfficeCurrentCompany;
@@ -454,6 +541,17 @@ class FFAppState extends ChangeNotifier {
     _webListNames.removeAt(_index);
   }
 
+  void updateWebListNamesAtIndex(
+    int _index,
+    String Function(String) updateFn,
+  ) {
+    _webListNames[_index] = updateFn(_webListNames[_index]);
+  }
+
+  void insertAtIndexInWebListNames(int _index, String _value) {
+    _webListNames.insert(_index, _value);
+  }
+
   bool _adminCreateStaff = false;
   bool get adminCreateStaff => _adminCreateStaff;
   set adminCreateStaff(bool _value) {
@@ -507,6 +605,18 @@ class FFAppState extends ChangeNotifier {
   set excOborotForCarPercentName(String _value) {
     _excOborotForCarPercentName = _value;
   }
+
+  String _webFilterCompany = '';
+  String get webFilterCompany => _webFilterCompany;
+  set webFilterCompany(String _value) {
+    _webFilterCompany = _value;
+  }
+
+  String _webFilterSecetedCompanyName = '';
+  String get webFilterSecetedCompanyName => _webFilterSecetedCompanyName;
+  set webFilterSecetedCompanyName(String _value) {
+    _webFilterSecetedCompanyName = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {
@@ -517,4 +627,16 @@ LatLng? _latLngFromString(String? val) {
   final lat = double.parse(split.first);
   final lng = double.parse(split.last);
   return LatLng(lat, lng);
+}
+
+void _safeInit(Function() initializeField) {
+  try {
+    initializeField();
+  } catch (_) {}
+}
+
+Future _safeInitAsync(Function() initializeField) async {
+  try {
+    await initializeField();
+  } catch (_) {}
 }

@@ -1,4 +1,4 @@
-import '/auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -7,6 +7,7 @@ import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'duration_model.dart';
@@ -55,16 +56,18 @@ class _DurationWidgetState extends State<DurationWidget> {
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 55.0, 0.0),
       child: FlutterFlowDropDown<String>(
-        controller: _model.dropDownController ??= FormFieldController<String>(
+        controller: _model.dropDownValueController ??=
+            FormFieldController<String>(
           _model.dropDownValue ??= valueOrDefault<String>(
-            widget.services!.durationName,
+            widget.services?.durationName,
             '0 мин',
           ),
         ),
-        options: FFAppState().adminForCarServicesDuration.toList(),
+        options: FFAppState().adminForCarServicesDuration,
         onChanged: (val) async {
           setState(() => _model.dropDownValue = val);
-          final companyServicesUpdateData = createCompanyServicesRecordData(
+          await widget.services!.reference
+              .update(createCompanyServicesRecordData(
             duration: valueOrDefault<int>(
               functions.durationToInt(valueOrDefault<String>(
                 _model.dropDownValue,
@@ -73,8 +76,7 @@ class _DurationWidgetState extends State<DurationWidget> {
               0,
             ),
             durationName: _model.dropDownValue,
-          );
-          await widget.services!.reference.update(companyServicesUpdateData);
+          ));
         },
         width: 124.0,
         height: 40.0,
@@ -94,6 +96,7 @@ class _DurationWidgetState extends State<DurationWidget> {
         margin: EdgeInsetsDirectional.fromSTEB(12.0, 4.0, 12.0, 4.0),
         hidesUnderline: true,
         isSearchable: false,
+        isMultiSelect: false,
       ),
     );
   }

@@ -1,16 +1,22 @@
 import '/backend/backend.dart';
-import '/components/admin_add_services/admin_add_services_widget.dart';
-import '/components/admin_app_bar/admin_app_bar_widget.dart';
-import '/components/admin_app_bar_info/admin_app_bar_info_widget.dart';
+import '/components/admin_add_services_widget.dart';
+import '/components/admin_app_bar_info_widget.dart';
+import '/components/admin_app_bar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'admin_edit_company_services_widget.dart'
+    show AdminEditCompanyServicesWidget;
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class AdminEditCompanyServicesModel extends FlutterFlowModel {
+class AdminEditCompanyServicesModel
+    extends FlutterFlowModel<AdminEditCompanyServicesWidget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // Model for adminAppBar component.
   late AdminAppBarModel adminAppBarModel;
   // Model for AdminAddServices component.
@@ -56,6 +62,7 @@ class AdminEditCompanyServicesModel extends FlutterFlowModel {
   }
 
   void dispose() {
+    unfocusNode.dispose();
     adminAppBarModel.dispose();
     adminAddServicesModel1.dispose();
     adminAddServicesModel2.dispose();
@@ -68,6 +75,7 @@ class AdminEditCompanyServicesModel extends FlutterFlowModel {
     adminAppBarInfoModel.dispose();
   }
 
-  /// Additional helper methods are added here.
+  /// Action blocks are added here.
 
+  /// Additional helper methods are added here.
 }

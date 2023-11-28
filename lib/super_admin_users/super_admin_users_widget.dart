@@ -1,0 +1,2240 @@
+import '/backend/backend.dart';
+import '/components/admin_app_bar_info_widget.dart';
+import '/components/admin_client_empty_client_widget.dart';
+import '/components/admin_client_empty_review_widget.dart';
+import '/components/admin_feedback_review_widget.dart';
+import '/components/super_admin_app_bar_widget.dart';
+import '/components/w_e_b_filter_car_body_widget.dart';
+import '/components/w_e_b_filter_date_widget.dart';
+import '/components/w_e_b_filter_review_status_widget.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
+import 'package:provider/provider.dart';
+import 'super_admin_users_model.dart';
+export 'super_admin_users_model.dart';
+
+class SuperAdminUsersWidget extends StatefulWidget {
+  const SuperAdminUsersWidget({Key? key}) : super(key: key);
+
+  @override
+  _SuperAdminUsersWidgetState createState() => _SuperAdminUsersWidgetState();
+}
+
+class _SuperAdminUsersWidgetState extends State<SuperAdminUsersWidget> {
+  late SuperAdminUsersModel _model;
+
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => SuperAdminUsersModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      setState(() {
+        FFAppState().adminClentsType = 'Клиенты';
+      });
+    });
+
+    _model.textController ??= TextEditingController();
+    _model.textFieldFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
+    context.watch<FFAppState>();
+
+    return GestureDetector(
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        body: SafeArea(
+          top: true,
+          child: Stack(
+            children: [
+              Column(
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  wrapWithModel(
+                    model: _model.superAdminAppBarModel,
+                    updateCallback: () => setState(() {}),
+                    child: SuperAdminAppBarWidget(
+                      page: 'Пользователи',
+                    ),
+                  ),
+                  Expanded(
+                    child: Container(
+                      width: double.infinity,
+                      height: 100.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                      ),
+                      child: SingleChildScrollView(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 40.0),
+                              child: Container(
+                                width: 1224.0,
+                                decoration: BoxDecoration(),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 32.0, 0.0, 24.0),
+                                      child: Text(
+                                        'Пользователи',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Inter',
+                                              fontSize: 24.0,
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily),
+                                            ),
+                                      ),
+                                    ),
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 24.0, 0.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              FFAppState().update(() {
+                                                FFAppState().adminClentsType =
+                                                    'Клиенты';
+                                              });
+                                            },
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 0.0, 17.0),
+                                                  child: Text(
+                                                    'Клиенты',
+                                                    style:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Inter',
+                                                              color: FFAppState()
+                                                                          .adminClentsType ==
+                                                                      'Клиенты'
+                                                                  ? FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary
+                                                                  : FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .webUnselectedColor,
+                                                              fontSize: 16.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .normal,
+                                                              useGoogleFonts: GoogleFonts
+                                                                      .asMap()
+                                                                  .containsKey(
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMediumFamily),
+                                                            ),
+                                                  ),
+                                                ),
+                                                Container(
+                                                  width: 68.0,
+                                                  height: 1.0,
+                                                  decoration: BoxDecoration(
+                                                    color: FFAppState()
+                                                                .adminClentsType ==
+                                                            'Клиенты'
+                                                        ? FlutterFlowTheme.of(
+                                                                context)
+                                                            .primary
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryBackground,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 24.0, 0.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              FFAppState().update(() {
+                                                FFAppState().adminClentsType =
+                                                    'Отзывы';
+                                              });
+                                            },
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 0.0, 17.0),
+                                                  child: Text(
+                                                    'Отзывы',
+                                                    style:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Inter',
+                                                              color: FFAppState()
+                                                                          .adminClentsType ==
+                                                                      'Отзывы'
+                                                                  ? FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary
+                                                                  : FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .webUnselectedColor,
+                                                              fontSize: 16.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .normal,
+                                                              useGoogleFonts: GoogleFonts
+                                                                      .asMap()
+                                                                  .containsKey(
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMediumFamily),
+                                                            ),
+                                                  ),
+                                                ),
+                                                Container(
+                                                  width: 62.0,
+                                                  height: 1.0,
+                                                  decoration: BoxDecoration(
+                                                    color: FFAppState()
+                                                                .adminClentsType ==
+                                                            'Отзывы'
+                                                        ? FlutterFlowTheme.of(
+                                                                context)
+                                                            .primary
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryBackground,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Container(
+                                      width: 1224.0,
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            24.0, 0.0, 24.0, 0.0),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 24.0, 0.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.min,
+                                                children: [
+                                                  Container(
+                                                    width: 392.0,
+                                                    height: 40.0,
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .primaryBackground,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              8.0),
+                                                      border: Border.all(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .gray2,
+                                                      ),
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  16.0,
+                                                                  0.0,
+                                                                  16.0,
+                                                                  0.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Expanded(
+                                                            child:
+                                                                TextFormField(
+                                                              controller: _model
+                                                                  .textController,
+                                                              focusNode: _model
+                                                                  .textFieldFocusNode,
+                                                              autofocus: true,
+                                                              obscureText:
+                                                                  false,
+                                                              decoration:
+                                                                  InputDecoration(
+                                                                isDense: true,
+                                                                hintText:
+                                                                    'Поиск',
+                                                                hintStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodySmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Inter',
+                                                                      color: Color(
+                                                                          0xFF8E8E8E),
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .normal,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              FlutterFlowTheme.of(context).bodySmallFamily),
+                                                                    ),
+                                                                enabledBorder:
+                                                                    InputBorder
+                                                                        .none,
+                                                                focusedBorder:
+                                                                    InputBorder
+                                                                        .none,
+                                                                errorBorder:
+                                                                    InputBorder
+                                                                        .none,
+                                                                focusedErrorBorder:
+                                                                    InputBorder
+                                                                        .none,
+                                                                contentPadding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            13.0,
+                                                                            0.0,
+                                                                            13.0),
+                                                              ),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Inter',
+                                                                    color: Color(
+                                                                        0xFF8E8E8E),
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .normal,
+                                                                    useGoogleFonts: GoogleFonts
+                                                                            .asMap()
+                                                                        .containsKey(
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                  ),
+                                                              validator: _model
+                                                                  .textControllerValidator
+                                                                  .asValidator(
+                                                                      context),
+                                                            ),
+                                                          ),
+                                                          Icon(
+                                                            FFIcons.kicSearch,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .gray2,
+                                                            size: 24.0,
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(24.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        await showModalBottomSheet(
+                                                          isScrollControlled:
+                                                              true,
+                                                          backgroundColor:
+                                                              Colors
+                                                                  .transparent,
+                                                          barrierColor:
+                                                              Color(0x00000000),
+                                                          enableDrag: false,
+                                                          context: context,
+                                                          builder: (context) {
+                                                            return GestureDetector(
+                                                              onTap: () => _model
+                                                                      .unfocusNode
+                                                                      .canRequestFocus
+                                                                  ? FocusScope.of(
+                                                                          context)
+                                                                      .requestFocus(
+                                                                          _model
+                                                                              .unfocusNode)
+                                                                  : FocusScope.of(
+                                                                          context)
+                                                                      .unfocus(),
+                                                              child: Padding(
+                                                                padding: MediaQuery
+                                                                    .viewInsetsOf(
+                                                                        context),
+                                                                child:
+                                                                    WEBFilterDateWidget(),
+                                                              ),
+                                                            );
+                                                          },
+                                                        ).then((value) =>
+                                                            safeSetState(
+                                                                () {}));
+                                                      },
+                                                      child: Container(
+                                                        width: 212.0,
+                                                        height: 40.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryBackground,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      8.0),
+                                                          border: Border.all(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .gray2,
+                                                          ),
+                                                        ),
+                                                        child: Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      16.0,
+                                                                      0.0,
+                                                                      16.0,
+                                                                      0.0),
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              Expanded(
+                                                                child: Text(
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                    FFAppState()
+                                                                        .webFilterDayName,
+                                                                    'За всё время',
+                                                                  ),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Inter',
+                                                                        color: Color(
+                                                                            0xFF8E8E8E),
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                        useGoogleFonts:
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                              Icon(
+                                                                FFIcons
+                                                                    .kicArrowsButtonDown,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .gray2,
+                                                                size: 24.0,
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(24.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        await showModalBottomSheet(
+                                                          isScrollControlled:
+                                                              true,
+                                                          backgroundColor:
+                                                              Colors
+                                                                  .transparent,
+                                                          barrierColor:
+                                                              Color(0x00000000),
+                                                          enableDrag: false,
+                                                          context: context,
+                                                          builder: (context) {
+                                                            return GestureDetector(
+                                                              onTap: () => _model
+                                                                      .unfocusNode
+                                                                      .canRequestFocus
+                                                                  ? FocusScope.of(
+                                                                          context)
+                                                                      .requestFocus(
+                                                                          _model
+                                                                              .unfocusNode)
+                                                                  : FocusScope.of(
+                                                                          context)
+                                                                      .unfocus(),
+                                                              child: Padding(
+                                                                padding: MediaQuery
+                                                                    .viewInsetsOf(
+                                                                        context),
+                                                                child:
+                                                                    WEBFilterCarBodyWidget(),
+                                                              ),
+                                                            );
+                                                          },
+                                                        ).then((value) =>
+                                                            safeSetState(
+                                                                () {}));
+                                                      },
+                                                      child: Container(
+                                                        width: 212.0,
+                                                        height: 40.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryBackground,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      8.0),
+                                                          border: Border.all(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .gray2,
+                                                          ),
+                                                        ),
+                                                        child: Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      16.0,
+                                                                      0.0,
+                                                                      16.0,
+                                                                      0.0),
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              Expanded(
+                                                                child: Text(
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                    FFAppState()
+                                                                        .WEBFilterCarBody,
+                                                                    'Все авто',
+                                                                  ),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Inter',
+                                                                        color: Color(
+                                                                            0xFF8E8E8E),
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                        useGoogleFonts:
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                              Icon(
+                                                                FFIcons
+                                                                    .kicArrowsButtonDown,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .gray2,
+                                                                size: 24.0,
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(24.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        await showModalBottomSheet(
+                                                          isScrollControlled:
+                                                              true,
+                                                          backgroundColor:
+                                                              Colors
+                                                                  .transparent,
+                                                          barrierColor:
+                                                              Color(0x00000000),
+                                                          enableDrag: false,
+                                                          context: context,
+                                                          builder: (context) {
+                                                            return GestureDetector(
+                                                              onTap: () => _model
+                                                                      .unfocusNode
+                                                                      .canRequestFocus
+                                                                  ? FocusScope.of(
+                                                                          context)
+                                                                      .requestFocus(
+                                                                          _model
+                                                                              .unfocusNode)
+                                                                  : FocusScope.of(
+                                                                          context)
+                                                                      .unfocus(),
+                                                              child: Padding(
+                                                                padding: MediaQuery
+                                                                    .viewInsetsOf(
+                                                                        context),
+                                                                child:
+                                                                    WEBFilterReviewStatusWidget(),
+                                                              ),
+                                                            );
+                                                          },
+                                                        ).then((value) =>
+                                                            safeSetState(
+                                                                () {}));
+                                                      },
+                                                      child: Container(
+                                                        width: 212.0,
+                                                        height: 40.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryBackground,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      8.0),
+                                                          border: Border.all(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .gray2,
+                                                          ),
+                                                        ),
+                                                        child: Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      16.0,
+                                                                      0.0,
+                                                                      16.0,
+                                                                      0.0),
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              Expanded(
+                                                                child: Text(
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                    FFAppState()
+                                                                        .WEBFilterReviewStatus,
+                                                                    'Все статусы',
+                                                                  ),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Inter',
+                                                                        color: Color(
+                                                                            0xFF8E8E8E),
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                        useGoogleFonts:
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                              Icon(
+                                                                FFIcons
+                                                                    .kicArrowsButtonDown,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .gray2,
+                                                                size: 24.0,
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            if (FFAppState().adminClentsType ==
+                                                'Отзывы')
+                                              Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 32.0,
+                                                                0.0, 16.0),
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Expanded(
+                                                          flex: 3,
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              Text(
+                                                                'Дата',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Inter',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .gray2,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w500,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                    ),
+                                                              ),
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            4.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                child: Icon(
+                                                                  Icons
+                                                                      .arrow_upward,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .gray2,
+                                                                  size: 12.0,
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        Expanded(
+                                                          flex: 4,
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              Text(
+                                                                'Автор',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Inter',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .gray2,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w500,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                    ),
+                                                              ),
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            4.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                child: Icon(
+                                                                  Icons
+                                                                      .arrow_upward,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .gray2,
+                                                                  size: 12.0,
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        Expanded(
+                                                          flex: 5,
+                                                          child: Text(
+                                                            'Автомобиль',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .gray2,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily),
+                                                                ),
+                                                          ),
+                                                        ),
+                                                        Expanded(
+                                                          flex: 5,
+                                                          child: Text(
+                                                            'Услуги',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .gray2,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily),
+                                                                ),
+                                                          ),
+                                                        ),
+                                                        Expanded(
+                                                          flex: 3,
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              Text(
+                                                                'Оценка',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Inter',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .gray2,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w500,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                    ),
+                                                              ),
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            4.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                child: Icon(
+                                                                  Icons
+                                                                      .arrow_upward,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .gray2,
+                                                                  size: 12.0,
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        Expanded(
+                                                          flex: 6,
+                                                          child: Text(
+                                                            'Комментарий',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .gray2,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily),
+                                                                ),
+                                                          ),
+                                                        ),
+                                                        Expanded(
+                                                          flex: 4,
+                                                          child: Text(
+                                                            'Статус',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .gray2,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily),
+                                                                ),
+                                                          ),
+                                                        ),
+                                                        Expanded(
+                                                          flex: 2,
+                                                          child: Text(
+                                                            'Действие',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .gray2,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily),
+                                                                ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Divider(
+                                                    height: 1.0,
+                                                    thickness: 1.0,
+                                                    color: Color(0xFFEEEEEE),
+                                                  ),
+                                                  StreamBuilder<
+                                                      List<CommentsRecord>>(
+                                                    stream: queryCommentsRecord(
+                                                      queryBuilder:
+                                                          (commentsRecord) =>
+                                                              commentsRecord
+                                                                  .where(
+                                                                    'booked_comment',
+                                                                    isEqualTo:
+                                                                        true,
+                                                                  )
+                                                                  .where(
+                                                                    'created_at',
+                                                                    isGreaterThanOrEqualTo:
+                                                                        FFAppState()
+                                                                            .WEBFilterStartDate,
+                                                                  )
+                                                                  .where(
+                                                                    'created_at',
+                                                                    isLessThanOrEqualTo:
+                                                                        FFAppState()
+                                                                            .WEBFilterEndDate,
+                                                                  )
+                                                                  .where(
+                                                                    'obrobotanFilter',
+                                                                    isEqualTo: FFAppState().WEBFilterReviewStatus !=
+                                                                            ''
+                                                                        ? FFAppState()
+                                                                            .WEBFilterReviewStatus
+                                                                        : null,
+                                                                  ),
+                                                    ),
+                                                    builder:
+                                                        (context, snapshot) {
+                                                      // Customize what your widget looks like when it's loading.
+                                                      if (!snapshot.hasData) {
+                                                        return Center(
+                                                          child: SizedBox(
+                                                            width: 50.0,
+                                                            height: 50.0,
+                                                            child:
+                                                                CircularProgressIndicator(
+                                                              valueColor:
+                                                                  AlwaysStoppedAnimation<
+                                                                      Color>(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primary,
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        );
+                                                      }
+                                                      List<CommentsRecord>
+                                                          listViewCommentsRecordList =
+                                                          snapshot.data!;
+                                                      if (listViewCommentsRecordList
+                                                          .isEmpty) {
+                                                        return AdminClientEmptyReviewWidget();
+                                                      }
+                                                      return ListView.builder(
+                                                        padding:
+                                                            EdgeInsets.zero,
+                                                        shrinkWrap: true,
+                                                        scrollDirection:
+                                                            Axis.vertical,
+                                                        itemCount:
+                                                            listViewCommentsRecordList
+                                                                .length,
+                                                        itemBuilder: (context,
+                                                            listViewIndex) {
+                                                          final listViewCommentsRecord =
+                                                              listViewCommentsRecordList[
+                                                                  listViewIndex];
+                                                          return FutureBuilder<
+                                                              BookingsRecord>(
+                                                            future: BookingsRecord
+                                                                .getDocumentOnce(
+                                                                    listViewCommentsRecord
+                                                                        .bookingDoc!),
+                                                            builder: (context,
+                                                                snapshot) {
+                                                              // Customize what your widget looks like when it's loading.
+                                                              if (!snapshot
+                                                                  .hasData) {
+                                                                return Center(
+                                                                  child:
+                                                                      SizedBox(
+                                                                    width: 50.0,
+                                                                    height:
+                                                                        50.0,
+                                                                    child:
+                                                                        CircularProgressIndicator(
+                                                                      valueColor:
+                                                                          AlwaysStoppedAnimation<
+                                                                              Color>(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .primary,
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                );
+                                                              }
+                                                              final columnBookingsRecord =
+                                                                  snapshot
+                                                                      .data!;
+                                                              return Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            16.0,
+                                                                            0.0,
+                                                                            16.0),
+                                                                    child: FutureBuilder<
+                                                                        CompaniesRecord>(
+                                                                      future: CompaniesRecord.getDocumentOnce(
+                                                                          columnBookingsRecord
+                                                                              .bookedCompany!),
+                                                                      builder:
+                                                                          (context,
+                                                                              snapshot) {
+                                                                        // Customize what your widget looks like when it's loading.
+                                                                        if (!snapshot
+                                                                            .hasData) {
+                                                                          return Center(
+                                                                            child:
+                                                                                SizedBox(
+                                                                              width: 50.0,
+                                                                              height: 50.0,
+                                                                              child: CircularProgressIndicator(
+                                                                                valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                  FlutterFlowTheme.of(context).primary,
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          );
+                                                                        }
+                                                                        final rowCompaniesRecord =
+                                                                            snapshot.data!;
+                                                                        return Row(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          children: [
+                                                                            Expanded(
+                                                                              flex: 3,
+                                                                              child: Column(
+                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                children: [
+                                                                                  Padding(
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
+                                                                                    child: Text(
+                                                                                      columnBookingsRecord.timeName,
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: 'Inter',
+                                                                                            color: FlutterFlowTheme.of(context).primaryText,
+                                                                                            fontWeight: FontWeight.normal,
+                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                          ),
+                                                                                    ),
+                                                                                  ),
+                                                                                  Text(
+                                                                                    dateTimeFormat(
+                                                                                      'd/M/y',
+                                                                                      columnBookingsRecord.bookedDate!,
+                                                                                      locale: FFLocalizations.of(context).languageCode,
+                                                                                    ),
+                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                          fontFamily: 'Inter',
+                                                                                          color: FlutterFlowTheme.of(context).gray2,
+                                                                                          fontWeight: FontWeight.normal,
+                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                        ),
+                                                                                  ),
+                                                                                ],
+                                                                              ),
+                                                                            ),
+                                                                            Expanded(
+                                                                              flex: 4,
+                                                                              child: FutureBuilder<UserRecord>(
+                                                                                future: UserRecord.getDocumentOnce(columnBookingsRecord.bookedUser!),
+                                                                                builder: (context, snapshot) {
+                                                                                  // Customize what your widget looks like when it's loading.
+                                                                                  if (!snapshot.hasData) {
+                                                                                    return Center(
+                                                                                      child: SizedBox(
+                                                                                        width: 50.0,
+                                                                                        height: 50.0,
+                                                                                        child: CircularProgressIndicator(
+                                                                                          valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                            FlutterFlowTheme.of(context).primary,
+                                                                                          ),
+                                                                                        ),
+                                                                                      ),
+                                                                                    );
+                                                                                  }
+                                                                                  final columnUserRecord = snapshot.data!;
+                                                                                  return Column(
+                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                    children: [
+                                                                                      Padding(
+                                                                                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
+                                                                                        child: Text(
+                                                                                          columnUserRecord.displayName,
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Inter',
+                                                                                                color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                fontWeight: FontWeight.normal,
+                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                              ),
+                                                                                        ),
+                                                                                      ),
+                                                                                      Text(
+                                                                                        columnUserRecord.phoneNumber,
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                              fontFamily: 'Inter',
+                                                                                              color: FlutterFlowTheme.of(context).gray2,
+                                                                                              fontWeight: FontWeight.normal,
+                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                            ),
+                                                                                      ),
+                                                                                    ],
+                                                                                  );
+                                                                                },
+                                                                              ),
+                                                                            ),
+                                                                            Expanded(
+                                                                              flex: 5,
+                                                                              child: Text(
+                                                                                '${columnBookingsRecord.carBody}, ${columnBookingsRecord.carName}',
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Roboto',
+                                                                                      color: FlutterFlowTheme.of(context).primaryText,
+                                                                                      fontWeight: FontWeight.normal,
+                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                    ),
+                                                                              ),
+                                                                            ),
+                                                                            Expanded(
+                                                                              flex: 5,
+                                                                              child: Text(
+                                                                                valueOrDefault<String>(
+                                                                                  functions.listStringToString(columnBookingsRecord.selectedCompanyServicesName.toList(), 20),
+                                                                                  '0',
+                                                                                ),
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Roboto',
+                                                                                      color: FlutterFlowTheme.of(context).primaryText,
+                                                                                      fontWeight: FontWeight.normal,
+                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                    ),
+                                                                              ),
+                                                                            ),
+                                                                            Expanded(
+                                                                              flex: 3,
+                                                                              child: Text(
+                                                                                valueOrDefault<String>(
+                                                                                  listViewCommentsRecord.rating.toString(),
+                                                                                  '0',
+                                                                                ),
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Roboto',
+                                                                                      color: FlutterFlowTheme.of(context).primaryText,
+                                                                                      fontWeight: FontWeight.normal,
+                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                    ),
+                                                                              ),
+                                                                            ),
+                                                                            Expanded(
+                                                                              flex: 6,
+                                                                              child: Text(
+                                                                                listViewCommentsRecord.comment.maybeHandleOverflow(
+                                                                                  maxChars: 25,
+                                                                                  replacement: '…',
+                                                                                ),
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Inter',
+                                                                                      color: FlutterFlowTheme.of(context).gray2,
+                                                                                      fontWeight: FontWeight.w500,
+                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                    ),
+                                                                              ),
+                                                                            ),
+                                                                            Expanded(
+                                                                              flex: 4,
+                                                                              child: Row(
+                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                children: [
+                                                                                  Container(
+                                                                                    width: 8.0,
+                                                                                    height: 8.0,
+                                                                                    decoration: BoxDecoration(
+                                                                                      color: () {
+                                                                                        if (listViewCommentsRecord.obtobotan) {
+                                                                                          return FlutterFlowTheme.of(context).green;
+                                                                                        } else if (!listViewCommentsRecord.obtobotan) {
+                                                                                          return FlutterFlowTheme.of(context).red1;
+                                                                                        } else {
+                                                                                          return FlutterFlowTheme.of(context).primaryText;
+                                                                                        }
+                                                                                      }(),
+                                                                                      shape: BoxShape.circle,
+                                                                                    ),
+                                                                                  ),
+                                                                                  Padding(
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                                                                    child: Text(
+                                                                                      () {
+                                                                                        if (listViewCommentsRecord.obtobotan) {
+                                                                                          return 'Оброботан';
+                                                                                        } else if (!listViewCommentsRecord.obtobotan) {
+                                                                                          return 'Не обработан';
+                                                                                        } else {
+                                                                                          return 'Null';
+                                                                                        }
+                                                                                      }()
+                                                                                          .maybeHandleOverflow(maxChars: 15),
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: 'Roboto',
+                                                                                            color: () {
+                                                                                              if (listViewCommentsRecord.obtobotan) {
+                                                                                                return FlutterFlowTheme.of(context).green;
+                                                                                              } else if (!listViewCommentsRecord.obtobotan) {
+                                                                                                return FlutterFlowTheme.of(context).red1;
+                                                                                              } else {
+                                                                                                return FlutterFlowTheme.of(context).primaryText;
+                                                                                              }
+                                                                                            }(),
+                                                                                            fontWeight: FontWeight.normal,
+                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                          ),
+                                                                                    ),
+                                                                                  ),
+                                                                                ],
+                                                                              ),
+                                                                            ),
+                                                                            Expanded(
+                                                                              flex: 2,
+                                                                              child: InkWell(
+                                                                                splashColor: Colors.transparent,
+                                                                                focusColor: Colors.transparent,
+                                                                                hoverColor: Colors.transparent,
+                                                                                highlightColor: Colors.transparent,
+                                                                                onTap: () async {
+                                                                                  FFAppState().update(() {
+                                                                                    FFAppState().adminClientsTypeReview = 'Детали операции';
+                                                                                  });
+                                                                                  await showModalBottomSheet(
+                                                                                    isScrollControlled: true,
+                                                                                    backgroundColor: Colors.transparent,
+                                                                                    barrierColor: Color(0x00000000),
+                                                                                    enableDrag: false,
+                                                                                    context: context,
+                                                                                    builder: (context) {
+                                                                                      return GestureDetector(
+                                                                                        onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                        child: Padding(
+                                                                                          padding: MediaQuery.viewInsetsOf(context),
+                                                                                          child: AdminFeedbackReviewWidget(
+                                                                                            booking: columnBookingsRecord,
+                                                                                          ),
+                                                                                        ),
+                                                                                      );
+                                                                                    },
+                                                                                  ).then((value) => safeSetState(() {}));
+                                                                                },
+                                                                                child: Icon(
+                                                                                  FFIcons.kicDots,
+                                                                                  color: Colors.black,
+                                                                                  size: 24.0,
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          ],
+                                                                        );
+                                                                      },
+                                                                    ),
+                                                                  ),
+                                                                  Divider(
+                                                                    height: 1.0,
+                                                                    thickness:
+                                                                        1.0,
+                                                                    color: Color(
+                                                                        0xFFEEEEEE),
+                                                                  ),
+                                                                ],
+                                                              );
+                                                            },
+                                                          );
+                                                        },
+                                                      );
+                                                    },
+                                                  ),
+                                                ],
+                                              ),
+                                            if (FFAppState().adminClentsType ==
+                                                'Клиенты')
+                                              Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 32.0,
+                                                                0.0, 16.0),
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Expanded(
+                                                          flex: 4,
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              Text(
+                                                                'Автор',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Inter',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .gray2,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w500,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                    ),
+                                                              ),
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            4.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                child: Icon(
+                                                                  Icons
+                                                                      .arrow_upward,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .gray2,
+                                                                  size: 12.0,
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        Expanded(
+                                                          flex: 5,
+                                                          child: Text(
+                                                            'Автомобиль',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .gray2,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily),
+                                                                ),
+                                                          ),
+                                                        ),
+                                                        Expanded(
+                                                          flex: 3,
+                                                          child: Text(
+                                                            'Первая мойка',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .gray2,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily),
+                                                                ),
+                                                          ),
+                                                        ),
+                                                        Expanded(
+                                                          flex: 4,
+                                                          child: Text(
+                                                            'Последняя мойка',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .gray2,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily),
+                                                                ),
+                                                          ),
+                                                        ),
+                                                        Expanded(
+                                                          flex: 3,
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              Text(
+                                                                'Всего моек',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Inter',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .gray2,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w500,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                    ),
+                                                              ),
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            4.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                child: Icon(
+                                                                  Icons
+                                                                      .arrow_upward,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .gray2,
+                                                                  size: 12.0,
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        Expanded(
+                                                          flex: 5,
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              Text(
+                                                                'Общая сумма',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Inter',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .gray2,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w500,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                    ),
+                                                              ),
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            4.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                child: Icon(
+                                                                  Icons
+                                                                      .arrow_upward,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .gray2,
+                                                                  size: 12.0,
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        Expanded(
+                                                          flex: 3,
+                                                          child: Text(
+                                                            'Действие',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .gray2,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily),
+                                                                ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Divider(
+                                                    height: 1.0,
+                                                    thickness: 1.0,
+                                                    color: Color(0xFFEEEEEE),
+                                                  ),
+                                                  PagedListView<
+                                                      DocumentSnapshot<
+                                                          Object?>?,
+                                                      UserRecord>(
+                                                    pagingController: _model
+                                                        .setListViewController2(
+                                                      UserRecord.collection
+                                                          .where(
+                                                        'firstCarBody',
+                                                        isEqualTo: FFAppState()
+                                                                    .WEBFilterCarBody !=
+                                                                ''
+                                                            ? FFAppState()
+                                                                .WEBFilterCarBody
+                                                            : null,
+                                                      ),
+                                                    ),
+                                                    padding: EdgeInsets.zero,
+                                                    shrinkWrap: true,
+                                                    reverse: false,
+                                                    scrollDirection:
+                                                        Axis.vertical,
+                                                    builderDelegate:
+                                                        PagedChildBuilderDelegate<
+                                                            UserRecord>(
+                                                      // Customize what your widget looks like when it's loading the first page.
+                                                      firstPageProgressIndicatorBuilder:
+                                                          (_) => Center(
+                                                        child: SizedBox(
+                                                          width: 50.0,
+                                                          height: 50.0,
+                                                          child:
+                                                              CircularProgressIndicator(
+                                                            valueColor:
+                                                                AlwaysStoppedAnimation<
+                                                                    Color>(
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .primary,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      // Customize what your widget looks like when it's loading another page.
+                                                      newPageProgressIndicatorBuilder:
+                                                          (_) => Center(
+                                                        child: SizedBox(
+                                                          width: 50.0,
+                                                          height: 50.0,
+                                                          child:
+                                                              CircularProgressIndicator(
+                                                            valueColor:
+                                                                AlwaysStoppedAnimation<
+                                                                    Color>(
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .primary,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      noItemsFoundIndicatorBuilder:
+                                                          (_) =>
+                                                              AdminClientEmptyClientWidget(),
+                                                      itemBuilder: (context, _,
+                                                          listViewIndex) {
+                                                        final listViewUserRecord =
+                                                            _model.listViewPagingController2!
+                                                                    .itemList![
+                                                                listViewIndex];
+                                                        return Visibility(
+                                                          visible: listViewUserRecord
+                                                                      .phoneNumber !=
+                                                                  null &&
+                                                              listViewUserRecord
+                                                                      .phoneNumber !=
+                                                                  '',
+                                                          child: Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              Padding(
+                                                                padding: EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        16.0,
+                                                                        0.0,
+                                                                        16.0),
+                                                                child: Row(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  children: [
+                                                                    Expanded(
+                                                                      flex: 4,
+                                                                      child:
+                                                                          Column(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        crossAxisAlignment:
+                                                                            CrossAxisAlignment.start,
+                                                                        children: [
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                0.0,
+                                                                                0.0,
+                                                                                4.0),
+                                                                            child:
+                                                                                Text(
+                                                                              valueOrDefault<String>(
+                                                                                listViewUserRecord.displayName,
+                                                                                'null',
+                                                                              ),
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Inter',
+                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                                    fontWeight: FontWeight.normal,
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                  ),
+                                                                            ),
+                                                                          ),
+                                                                          Text(
+                                                                            valueOrDefault<String>(
+                                                                              listViewUserRecord.phoneNumber,
+                                                                              'null',
+                                                                            ),
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: 'Inter',
+                                                                                  color: FlutterFlowTheme.of(context).gray2,
+                                                                                  fontWeight: FontWeight.normal,
+                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                ),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    ),
+                                                                    Expanded(
+                                                                      flex: 5,
+                                                                      child:
+                                                                          Text(
+                                                                        listViewUserRecord.firstCarBody != null &&
+                                                                                listViewUserRecord.firstCarBody != ''
+                                                                            ? '${valueOrDefault<String>(
+                                                                                listViewUserRecord.firstCarBody,
+                                                                                'null',
+                                                                              )}, ${valueOrDefault<String>(
+                                                                                listViewUserRecord.firstCarName,
+                                                                                'null',
+                                                                              )}'
+                                                                            : 'Не заполнено',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Roboto',
+                                                                              color: FlutterFlowTheme.of(context).primaryText,
+                                                                              fontWeight: FontWeight.normal,
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                            ),
+                                                                      ),
+                                                                    ),
+                                                                    Expanded(
+                                                                      flex: 3,
+                                                                      child:
+                                                                          Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            4.0),
+                                                                        child: StreamBuilder<
+                                                                            List<BookingsRecord>>(
+                                                                          stream:
+                                                                              queryBookingsRecord(
+                                                                            queryBuilder: (bookingsRecord) => bookingsRecord
+                                                                                .where(
+                                                                                  'booked_user',
+                                                                                  isEqualTo: listViewUserRecord.reference,
+                                                                                )
+                                                                                .orderBy('booked_date'),
+                                                                            singleRecord:
+                                                                                true,
+                                                                          ),
+                                                                          builder:
+                                                                              (context, snapshot) {
+                                                                            // Customize what your widget looks like when it's loading.
+                                                                            if (!snapshot.hasData) {
+                                                                              return Center(
+                                                                                child: SizedBox(
+                                                                                  width: 50.0,
+                                                                                  height: 50.0,
+                                                                                  child: CircularProgressIndicator(
+                                                                                    valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                      FlutterFlowTheme.of(context).primary,
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                              );
+                                                                            }
+                                                                            List<BookingsRecord>
+                                                                                textBookingsRecordList =
+                                                                                snapshot.data!;
+                                                                            // Return an empty Container when the item does not exist.
+                                                                            if (snapshot.data!.isEmpty) {
+                                                                              return Container();
+                                                                            }
+                                                                            final textBookingsRecord = textBookingsRecordList.isNotEmpty
+                                                                                ? textBookingsRecordList.first
+                                                                                : null;
+                                                                            return Text(
+                                                                              valueOrDefault<String>(
+                                                                                dateTimeFormat(
+                                                                                  'd/M/y',
+                                                                                  textBookingsRecord?.bookedDate,
+                                                                                  locale: FFLocalizations.of(context).languageCode,
+                                                                                ),
+                                                                                'null',
+                                                                              ),
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Inter',
+                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                                    fontWeight: FontWeight.normal,
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                  ),
+                                                                            );
+                                                                          },
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                    Expanded(
+                                                                      flex: 4,
+                                                                      child:
+                                                                          Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            4.0),
+                                                                        child: StreamBuilder<
+                                                                            List<BookingsRecord>>(
+                                                                          stream:
+                                                                              queryBookingsRecord(
+                                                                            queryBuilder: (bookingsRecord) => bookingsRecord
+                                                                                .where(
+                                                                                  'booked_user',
+                                                                                  isEqualTo: listViewUserRecord.reference,
+                                                                                )
+                                                                                .orderBy('booked_date', descending: true),
+                                                                            singleRecord:
+                                                                                true,
+                                                                          ),
+                                                                          builder:
+                                                                              (context, snapshot) {
+                                                                            // Customize what your widget looks like when it's loading.
+                                                                            if (!snapshot.hasData) {
+                                                                              return Center(
+                                                                                child: SizedBox(
+                                                                                  width: 50.0,
+                                                                                  height: 50.0,
+                                                                                  child: CircularProgressIndicator(
+                                                                                    valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                      FlutterFlowTheme.of(context).primary,
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                              );
+                                                                            }
+                                                                            List<BookingsRecord>
+                                                                                textBookingsRecordList =
+                                                                                snapshot.data!;
+                                                                            // Return an empty Container when the item does not exist.
+                                                                            if (snapshot.data!.isEmpty) {
+                                                                              return Container();
+                                                                            }
+                                                                            final textBookingsRecord = textBookingsRecordList.isNotEmpty
+                                                                                ? textBookingsRecordList.first
+                                                                                : null;
+                                                                            return Text(
+                                                                              valueOrDefault<String>(
+                                                                                dateTimeFormat(
+                                                                                  'd/M/y',
+                                                                                  textBookingsRecord?.bookedDate,
+                                                                                  locale: FFLocalizations.of(context).languageCode,
+                                                                                ),
+                                                                                'null',
+                                                                              ),
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Inter',
+                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                                    fontWeight: FontWeight.normal,
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                  ),
+                                                                            );
+                                                                          },
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                    Expanded(
+                                                                      flex: 3,
+                                                                      child: FutureBuilder<
+                                                                          int>(
+                                                                        future:
+                                                                            queryBookingsRecordCount(
+                                                                          queryBuilder: (bookingsRecord) => bookingsRecord
+                                                                              .where(
+                                                                                'booked_user',
+                                                                                isEqualTo: listViewUserRecord.reference,
+                                                                              )
+                                                                              .orderBy('booked_date'),
+                                                                        ),
+                                                                        builder:
+                                                                            (context,
+                                                                                snapshot) {
+                                                                          // Customize what your widget looks like when it's loading.
+                                                                          if (!snapshot
+                                                                              .hasData) {
+                                                                            return Center(
+                                                                              child: SizedBox(
+                                                                                width: 50.0,
+                                                                                height: 50.0,
+                                                                                child: CircularProgressIndicator(
+                                                                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                    FlutterFlowTheme.of(context).primary,
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            );
+                                                                          }
+                                                                          int textCount =
+                                                                              snapshot.data!;
+                                                                          return Text(
+                                                                            valueOrDefault<String>(
+                                                                              textCount.toString(),
+                                                                              '0',
+                                                                            ),
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: 'Roboto',
+                                                                                  color: FlutterFlowTheme.of(context).primaryText,
+                                                                                  fontWeight: FontWeight.normal,
+                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                ),
+                                                                          );
+                                                                        },
+                                                                      ),
+                                                                    ),
+                                                                    Expanded(
+                                                                      flex: 5,
+                                                                      child: StreamBuilder<
+                                                                          List<
+                                                                              BookingsRecord>>(
+                                                                        stream:
+                                                                            queryBookingsRecord(
+                                                                          queryBuilder: (bookingsRecord) =>
+                                                                              bookingsRecord.where(
+                                                                            'booked_user',
+                                                                            isEqualTo:
+                                                                                listViewUserRecord.reference,
+                                                                          ),
+                                                                        ),
+                                                                        builder:
+                                                                            (context,
+                                                                                snapshot) {
+                                                                          // Customize what your widget looks like when it's loading.
+                                                                          if (!snapshot
+                                                                              .hasData) {
+                                                                            return Center(
+                                                                              child: SizedBox(
+                                                                                width: 50.0,
+                                                                                height: 50.0,
+                                                                                child: CircularProgressIndicator(
+                                                                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                    FlutterFlowTheme.of(context).primary,
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            );
+                                                                          }
+                                                                          List<BookingsRecord>
+                                                                              containerBookingsRecordList =
+                                                                              snapshot.data!;
+                                                                          return Container(
+                                                                            decoration:
+                                                                                BoxDecoration(),
+                                                                            child:
+                                                                                Row(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              children: [
+                                                                                Text(
+                                                                                  valueOrDefault<String>(
+                                                                                    functions.oborot(containerBookingsRecordList.toList()).toString(),
+                                                                                    '0',
+                                                                                  ),
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                        fontFamily: 'Roboto',
+                                                                                        color: FlutterFlowTheme.of(context).primaryText,
+                                                                                        fontWeight: FontWeight.normal,
+                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                      ),
+                                                                                ),
+                                                                                Text(
+                                                                                  valueOrDefault<String>(
+                                                                                    functions.oborotName(containerBookingsRecordList.toList()),
+                                                                                    ' тг',
+                                                                                  ),
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                        fontFamily: 'Roboto',
+                                                                                        color: FlutterFlowTheme.of(context).primaryText,
+                                                                                        fontWeight: FontWeight.normal,
+                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                      ),
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                          );
+                                                                        },
+                                                                      ),
+                                                                    ),
+                                                                    Expanded(
+                                                                      flex: 3,
+                                                                      child:
+                                                                          InkWell(
+                                                                        splashColor:
+                                                                            Colors.transparent,
+                                                                        focusColor:
+                                                                            Colors.transparent,
+                                                                        hoverColor:
+                                                                            Colors.transparent,
+                                                                        highlightColor:
+                                                                            Colors.transparent,
+                                                                        onTap:
+                                                                            () async {
+                                                                          context
+                                                                              .pushNamed(
+                                                                            'super_admin_current_user',
+                                                                            queryParameters:
+                                                                                {
+                                                                              'currentUser': serializeParam(
+                                                                                listViewUserRecord,
+                                                                                ParamType.Document,
+                                                                              ),
+                                                                            }.withoutNulls,
+                                                                            extra: <String,
+                                                                                dynamic>{
+                                                                              'currentUser': listViewUserRecord,
+                                                                            },
+                                                                          );
+                                                                        },
+                                                                        child:
+                                                                            Row(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          children: [
+                                                                            Text(
+                                                                              'Подробнее',
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                    fontWeight: FontWeight.normal,
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                  ),
+                                                                            ),
+                                                                            Icon(
+                                                                              FFIcons.kicArrowsButtonLeft,
+                                                                              color: FlutterFlowTheme.of(context).primaryText,
+                                                                              size: 13.0,
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                              Divider(
+                                                                height: 1.0,
+                                                                thickness: 1.0,
+                                                                color: Color(
+                                                                    0xFFEEEEEE),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        );
+                                                      },
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Align(
+                alignment: AlignmentDirectional(0.00, -1.00),
+                child: wrapWithModel(
+                  model: _model.adminAppBarInfoModel,
+                  updateCallback: () => setState(() {}),
+                  child: AdminAppBarInfoWidget(),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

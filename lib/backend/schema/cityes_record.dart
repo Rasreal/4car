@@ -1,48 +1,73 @@
 import 'dart:async';
 
+import 'package:collection/collection.dart';
+
+import '/backend/schema/util/firestore_util.dart';
+import '/backend/schema/util/schema_util.dart';
+
 import 'index.dart';
-import 'serializers.dart';
-import 'package:built_value/built_value.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 
-part 'cityes_record.g.dart';
+class CityesRecord extends FirestoreRecord {
+  CityesRecord._(
+    DocumentReference reference,
+    Map<String, dynamic> data,
+  ) : super(reference, data) {
+    _initializeFields();
+  }
 
-abstract class CityesRecord
-    implements Built<CityesRecord, CityesRecordBuilder> {
-  static Serializer<CityesRecord> get serializer => _$cityesRecordSerializer;
+  // "name" field.
+  String? _name;
+  String get name => _name ?? '';
+  bool hasName() => _name != null;
 
-  String? get name;
+  // "location" field.
+  LatLng? _location;
+  LatLng? get location => _location;
+  bool hasLocation() => _location != null;
 
-  LatLng? get location;
+  // "first" field.
+  String? _first;
+  String get first => _first ?? '';
+  bool hasFirst() => _first != null;
 
-  String? get first;
-
-  @BuiltValueField(wireName: kDocumentReferenceField)
-  DocumentReference? get ffRef;
-  DocumentReference get reference => ffRef!;
-
-  static void _initializeBuilder(CityesRecordBuilder builder) => builder
-    ..name = ''
-    ..first = '';
+  void _initializeFields() {
+    _name = snapshotData['name'] as String?;
+    _location = snapshotData['location'] as LatLng?;
+    _first = snapshotData['first'] as String?;
+  }
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('cityes');
 
-  static Stream<CityesRecord> getDocument(DocumentReference ref) => ref
-      .snapshots()
-      .map((s) => serializers.deserializeWith(serializer, serializedData(s))!);
+  static Stream<CityesRecord> getDocument(DocumentReference ref) =>
+      ref.snapshots().map((s) => CityesRecord.fromSnapshot(s));
 
-  static Future<CityesRecord> getDocumentOnce(DocumentReference ref) => ref
-      .get()
-      .then((s) => serializers.deserializeWith(serializer, serializedData(s))!);
+  static Future<CityesRecord> getDocumentOnce(DocumentReference ref) =>
+      ref.get().then((s) => CityesRecord.fromSnapshot(s));
 
-  CityesRecord._();
-  factory CityesRecord([void Function(CityesRecordBuilder) updates]) =
-      _$CityesRecord;
+  static CityesRecord fromSnapshot(DocumentSnapshot snapshot) => CityesRecord._(
+        snapshot.reference,
+        mapFromFirestore(snapshot.data() as Map<String, dynamic>),
+      );
 
   static CityesRecord getDocumentFromData(
-          Map<String, dynamic> data, DocumentReference reference) =>
-      serializers.deserializeWith(serializer,
-          {...mapFromFirestore(data), kDocumentReferenceField: reference})!;
+    Map<String, dynamic> data,
+    DocumentReference reference,
+  ) =>
+      CityesRecord._(reference, mapFromFirestore(data));
+
+  @override
+  String toString() =>
+      'CityesRecord(reference: ${reference.path}, data: $snapshotData)';
+
+  @override
+  int get hashCode => reference.path.hashCode;
+
+  @override
+  bool operator ==(other) =>
+      other is CityesRecord &&
+      reference.path.hashCode == other.reference.path.hashCode;
 }
 
 Map<String, dynamic> createCityesRecordData({
@@ -50,15 +75,31 @@ Map<String, dynamic> createCityesRecordData({
   LatLng? location,
   String? first,
 }) {
-  final firestoreData = serializers.toFirestore(
-    CityesRecord.serializer,
-    CityesRecord(
-      (c) => c
-        ..name = name
-        ..location = location
-        ..first = first,
-    ),
+  final firestoreData = mapToFirestore(
+    <String, dynamic>{
+      'name': name,
+      'location': location,
+      'first': first,
+    }.withoutNulls,
   );
 
   return firestoreData;
+}
+
+class CityesRecordDocumentEquality implements Equality<CityesRecord> {
+  const CityesRecordDocumentEquality();
+
+  @override
+  bool equals(CityesRecord? e1, CityesRecord? e2) {
+    return e1?.name == e2?.name &&
+        e1?.location == e2?.location &&
+        e1?.first == e2?.first;
+  }
+
+  @override
+  int hash(CityesRecord? e) =>
+      const ListEquality().hash([e?.name, e?.location, e?.first]);
+
+  @override
+  bool isValidKey(Object? o) => o is CityesRecord;
 }

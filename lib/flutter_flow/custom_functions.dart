@@ -7,9 +7,11 @@ import 'package:intl/intl.dart';
 import 'package:timeago/timeago.dart' as timeago;
 import 'lat_lng.dart';
 import 'place.dart';
-import '../backend/backend.dart';
+import 'uploaded_file.dart';
+import '/backend/backend.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import '../../auth/auth_util.dart';
+import '/backend/schema/structs/index.dart';
+import '/auth/firebase_auth/auth_util.dart';
 
 String idGenerator(int randomNumber) {
   // Add your function code here!
@@ -49,15 +51,32 @@ String oborotForCarPrecent(List<BookingsRecord> bookingRecord) {
   for (int i = 0; i < bookingRecord.length; i++) {
     sum = sum + bookingRecord[i].forCarPay!;
   }
-  if (sum.toString().length > 6 && sum.toString().length < 10) {
-    return sum.toString().substring(0, sum.toString().length - 6);
-  } else if (sum.toString().length > 3 && sum.toString().length < 7) {
-    return sum.toString().substring(0, sum.toString().length - 3);
-  } else if (sum.toString().length > 9 && sum.toString().length < 13) {
-    return sum.toString().substring(0, sum.toString().length - 9);
-  } else {
-    return "0";
+
+  int three = 0;
+  int a = sum.toString().length - 1;
+  int div = 1;
+  if (a >= 3) {
+    three = a ~/ 3;
   }
+  if (three != 0) {
+    for (int i = 0; i < three * 3; i++) {
+      div *= 10;
+    }
+
+    return (sum / div).toStringAsFixed(1);
+  }
+
+  if (a >= 1 && a <= 2) {
+    return sum.toStringAsFixed(1);
+  }
+
+  for (int i = 0; i < a; i++) {
+    div *= 10;
+  }
+
+  double aa = sum / div;
+
+  return aa.toStringAsFixed(1);
 }
 
 String averageChequeName(List<BookingsRecord> bookingRecord) {
@@ -66,11 +85,19 @@ String averageChequeName(List<BookingsRecord> bookingRecord) {
     sum = sum + bookingRecord[i]!.totalPrice!;
   }
   sum = sum ~/ bookingRecord.length;
+  String oborotString = sum.toString();
 
   if (sum.toString().length > 6 && sum.toString().length < 10) {
     return " млн. ₸";
   } else if (sum.toString().length > 3 && sum.toString().length < 7) {
-    return " тыс. ₸";
+    String firstOborot = oborotString.substring(0, oborotString.length - 3);
+
+    /// 1 тыс т
+    if (firstOborot.length == 1 || firstOborot.length == 2) {
+      return " ₸";
+    } else {
+      return " тыс. ₸";
+    }
   } else if (sum.toString().length > 9 && sum.toString().length < 13) {
     return " млрд. ₸";
   } else {
@@ -88,10 +115,18 @@ String averageChequeForCompanyName(
   }
 
   sum = sum ~/ companyCount;
+  String oborotString = sum.toString();
   if (sum.toString().length > 6 && sum.toString().length < 10) {
     return " млн. ₸";
   } else if (sum.toString().length > 3 && sum.toString().length < 7) {
-    return " тыс. ₸";
+    String firstOborot = oborotString.substring(0, oborotString.length - 3);
+
+    /// 1 тыс т
+    if (firstOborot.length == 1) {
+      return "";
+    } else {
+      return " тыс. ₸";
+    }
   } else if (sum.toString().length > 9 && sum.toString().length < 13) {
     return " млрд. ₸";
   } else {
@@ -103,22 +138,37 @@ String averageChequeForCompany(
   List<BookingsRecord> bookingRecord,
   int companyCount,
 ) {
-  int sum = 0;
+  double sum = 0;
   for (int i = 0; i < bookingRecord.length; i++) {
     sum = sum + bookingRecord[i]!.totalPrice!;
   }
-
-  sum = sum ~/ companyCount;
-
-  if (sum.toString().length > 6 && sum.toString().length < 10) {
-    return sum.toString().substring(0, sum.toString().length - 6);
-  } else if (sum.toString().length > 3 && sum.toString().length < 7) {
-    return sum.toString().substring(0, sum.toString().length - 3);
-  } else if (sum.toString().length > 9 && sum.toString().length < 13) {
-    return sum.toString().substring(0, sum.toString().length - 9);
-  } else {
-    return "0";
+  int three = 0;
+  int a = sum.toString().length - 1;
+  int div = 1;
+  if (a >= 3) {
+    three = a ~/ 3;
   }
+  if (three != 0) {
+    for (int i = 0; i < three * 3; i++) {
+      div *= 10;
+    }
+
+    return (sum / div).toStringAsFixed(1);
+  }
+
+  if (a >= 1 && a <= 2) {
+    return sum.toString();
+  }
+
+  for (int i = 0; i < a; i++) {
+    div *= 10;
+  }
+
+  //FFAppState().excOborot = sum ~/ div;
+
+  //FFAppState().excOborot = sum ~/ div;
+
+  return (sum / div).toStringAsFixed(1);
 }
 
 double? returnDistanceBetweenTwoPoints(
@@ -288,15 +338,79 @@ String averageCheque(List<BookingsRecord> bookingRecord) {
     return "0";
   }
   sum = sum ~/ bookingRecord.length;
-  if (sum.toString().length > 6 && sum.toString().length < 10) {
-    return sum.toString().substring(0, sum.toString().length - 6);
-  } else if (sum.toString().length > 3 && sum.toString().length < 7) {
-    return sum.toString().substring(0, sum.toString().length - 3);
-  } else if (sum.toString().length > 9 && sum.toString().length < 13) {
-    return sum.toString().substring(0, sum.toString().length - 9);
+  String oborotString = sum.toString();
+
+  /// млн т
+
+  if (oborotString.length > 6 && oborotString.length < 10) {
+    String firstOborot = oborotString.substring(0, oborotString.length - 6);
+
+    /// 1 млн т
+    if (firstOborot.length == 1) {
+      return oborotString.substring(0, 1) + "." + oborotString.substring(1, 2);
+
+      /// 10 млн т
+    } else if (firstOborot.length == 2) {
+      return oborotString.substring(0, 2) + "." + oborotString.substring(2, 3);
+
+      /// 100 млн т
+    } else if (firstOborot.length == 3) {
+      return oborotString.substring(0, 3) + "." + oborotString.substring(3, 4);
+    } else {
+      return "0";
+    }
+
+    /// тыс т
+  }
+  if (oborotString.length > 3 && oborotString.length < 7) {
+    String firstOborot = oborotString.substring(0, oborotString.length - 3);
+
+    /// 1 тыс т
+    if (firstOborot.length == 1) {
+      return oborotString;
+
+      /// 10 тыс т
+    } else if (firstOborot.length == 2) {
+      return oborotString;
+
+      /// 100 тыс т
+    } else if (firstOborot.length == 3) {
+      return oborotString.substring(0, 3) + "." + oborotString.substring(3, 4);
+    } else {
+      return "0";
+    }
+
+    /// млрд т
+  }
+  if (oborotString.length > 9 && oborotString.length < 13) {
+    String firstOborot = oborotString.substring(0, oborotString.length - 9);
+
+    /// 1 млрд т
+    if (firstOborot.length == 1) {
+      return oborotString.substring(0, 1) + "." + oborotString.substring(1, 2);
+
+      /// 10 млн т
+    } else if (firstOborot.length == 2) {
+      return oborotString.substring(0, 2) + "." + oborotString.substring(2, 3);
+
+      /// 100 млн т
+    } else if (firstOborot.length == 3) {
+      return oborotString.substring(0, 3) + "." + oborotString.substring(3, 4);
+    } else {
+      return "0";
+    }
   } else {
     return "0";
   }
+}
+
+List<String> generateIntListString(int count) {
+  List<String> result = [];
+  for (int i = 1; i <= count; i++) {
+    result
+        .add(i.toString()); // Преобразовать число в строку и добавить в список
+  }
+  return result;
 }
 
 String oborotName(List<BookingsRecord> bookingRecord) {
@@ -305,11 +419,14 @@ String oborotName(List<BookingsRecord> bookingRecord) {
     sum = sum + bookingRecord[i]!.totalPrice!;
   }
 
-  if (sum.toString().length > 6 && sum.toString().length < 10) {
-    return " млн. ₸";
-  } else if (sum.toString().length > 3 && sum.toString().length < 7) {
+  if (sum.toString().length > 0 && sum.toString().length <= 3) {
+    return " ₸";
+  }
+  if (sum.toString().length > 3 && sum.toString().length <= 6) {
     return " тыс. ₸";
-  } else if (sum.toString().length > 9 && sum.toString().length < 13) {
+  } else if (sum.toString().length > 6 && sum.toString().length < 10) {
+    return " млн. ₸";
+  } else if (sum.toString().length >= 10 && sum.toString().length <= 12) {
     return " млрд. ₸";
   } else {
     return " ₸";
@@ -321,14 +438,17 @@ String oborotForCarPrecentName(List<BookingsRecord> bookingRecord) {
   for (int i = 0; i < bookingRecord.length; i++) {
     sum = sum + bookingRecord[i].forCarPay!;
   }
-  if (sum.toString().length > 6 && sum.toString().length < 10) {
+  String oborotString = sum.toString();
+  if (oborotString.length <= 3) {
+    return " ₸";
+  } else if (sum.toString().length > 6 && sum.toString().length < 10) {
     return "млн. ₸";
-  } else if (sum.toString().length > 3 && sum.toString().length < 7) {
+  } else if (sum.toString().length > 3 && sum.toString().length <= 6) {
     return "тыс. ₸";
-  } else if (sum.toString().length > 9 && sum.toString().length < 13) {
+  } else if (sum.toString().length >= 10 && sum.toString().length < 13) {
     return "млрд. ₸";
   } else {
-    return "₸";
+    return " ₸";
   }
 }
 
@@ -471,6 +591,8 @@ int oborot(List<BookingsRecord> bookingRecord) {
 
   //FFAppState().excOborot = sum ~/ div;
 
+  double aa = sum / div;
+
   return sum ~/ div;
 
   // if (sum.toString().length > 6 && sum.toString().length < 10) {
@@ -541,4 +663,238 @@ int daySum(String day) {
 
 int price100(int price) {
   return (price / 100).toInt();
+}
+
+String test(String erksh) {
+  /* 1  1
+  2  10
+  3  100
+  4  1 000
+  5  11 000  
+  6  111 0000
+  7  1 100 000
+  8  11 100 000
+  9  111 100 000
+  10 1 100 000 000
+  11 11 100 000 000
+  12 111 100 000 000 */
+
+  if (erksh.length >= 1 && erksh.length <= 3) {
+    return erksh;
+  }
+  if (erksh.length > 3 && erksh.length < 7) {
+    String erksh2 = erksh.substring(0, erksh.length - 3);
+    if (erksh2.length == 2) {
+      return erksh.substring(0, 2) + "," + erksh.substring(2, 3) + " тыс. ₸";
+    } else if (erksh2.length == 3) {
+      return erksh.substring(0, 3) + "," + erksh.substring(3, 4) + " тыс. ₸";
+    } else {
+      return erksh.substring(0, 1) + "," + erksh.substring(1, 2) + " тыс. ₸";
+    }
+  } else if (erksh.length > 6 && erksh.length < 10) {
+    String erksh2 = erksh.substring(0, erksh.length - 6);
+    if (erksh2.length == 2) {
+      return erksh.substring(0, 2) + "," + erksh.substring(2, 3) + " млн. ₸";
+    } else if (erksh2.length == 3) {
+      return erksh.substring(0, 3) + "," + erksh.substring(3, 4) + " млн. ₸";
+    } else {
+      return erksh.substring(0, 1) + "," + erksh.substring(1, 2) + " млн. ₸";
+    }
+  } else {
+    return "wawa";
+  }
+}
+
+String oborotString(List<BookingsRecord> bookingRecord) {
+  int sum = 0;
+  for (int i = 0; i < bookingRecord.length; i++) {
+    sum = sum + bookingRecord[i]!.totalPrice!;
+  }
+  int three = 0;
+  int a = sum.toString().length - 1;
+  int div = 1;
+  if (a >= 3) {
+    three = a ~/ 3;
+  }
+  if (three != 0) {
+    for (int i = 0; i < three * 3; i++) {
+      div *= 10;
+    }
+
+    return (sum / div).toStringAsFixed(1);
+  }
+
+  if (a >= 1 && a <= 2) {
+    return sum.toStringAsFixed(1);
+  }
+
+  for (int i = 0; i < a; i++) {
+    div *= 10;
+  }
+
+  //FFAppState().excOborot = sum ~/ div;
+
+  //FFAppState().excOborot = sum ~/ div;
+
+  double aa = sum / div;
+
+  return aa.toStringAsFixed(1);
+}
+
+String dohodNaGost(List<BookingsRecord> bookingRecord) {
+  int sum = 0;
+  for (int i = 0; i < bookingRecord.length; i++) {
+    sum = sum + bookingRecord[i]!.totalPrice!;
+  }
+  int three = 0;
+  int a = sum.toString().length - 1;
+  int div = 1;
+  if (a >= 3) {
+    three = a ~/ 3;
+  }
+  if (three != 0) {
+    for (int i = 0; i < three * 3; i++) {
+      div *= 10;
+    }
+
+    return ((sum / div) / bookingRecord.length).toStringAsFixed(1);
+  }
+
+  if (a >= 1 && a <= 2) {
+    return (sum / bookingRecord.length).toStringAsFixed(1);
+  }
+
+  for (int i = 0; i < a; i++) {
+    div *= 10;
+  }
+
+  return ((sum / div) / bookingRecord.length).toStringAsFixed(1);
+}
+
+String dohodNaGostName(List<BookingsRecord> bookingRecord) {
+  int a = 0;
+
+  int sum = 0;
+  for (int i = 0; i < bookingRecord.length; i++) {
+    sum = sum + bookingRecord[i]!.totalPrice!;
+  }
+  sum = sum ~/ bookingRecord.length;
+
+  if (sum.toString().length > 0 && sum.toString().length <= 3) {
+    return " ₸";
+  }
+  if (sum.toString().length > 3 && sum.toString().length <= 6) {
+    return " тыс. ₸";
+  } else if (sum.toString().length > 6 && sum.toString().length < 10) {
+    return " млн. ₸";
+  } else if (sum.toString().length >= 10 && sum.toString().length <= 12) {
+    return " млрд. ₸";
+  } else {
+    return " ₸";
+  }
+}
+
+String popularService(List<BookingsRecord> bookingRecord) {
+  List<String> moikaNames = [
+    "Комплексная мойка",
+    "Мойка кузова",
+    "Мойка салона",
+    "Обстрел кузова с пеной",
+    "Мойка днища",
+    "Нано мойка",
+    "Полировка салона",
+    "Полировка панели",
+    "Мойка поликов",
+    "Очернение шин",
+    "Мойка колес (за ед.)",
+    "Мойка дисков (за ед.)",
+    "Гидро-полиер кузова",
+    "Бесконтактная мойка",
+    "Мойка двигателя",
+    "Мойка багажника",
+    "Полировка кузова",
+    "Полная химчистка салона",
+    "Химчистка салона (пол)",
+    "Химчистка салона (потолок)",
+    "Химчистка салона (дверь)",
+    "Химчистка салона (сиденье)",
+    "Химчистка салона (задние сиденья)",
+    "Химчистка салона (багажник)",
+    "Химчистка салона (пластик)",
+    "Химчистка салона (разбор сидений)",
+    "Дезинфекция салона паром",
+    "Чистка детского кресла",
+    "Нанесение воска"
+  ];
+
+  // for (int i = 0; i < bookingRecord.length; i++) {
+  //   for (int j = 0; j < bookingRecord[i].selectedCompanyServicesName[j]; j++) {
+  //     if (moikaNames[0] == bookingRecord[i].selectedCompanyServicesName[j]) {
+  //       //a++;
+  //     } else if (moikaNames[1] ==
+  //         bookingRecord[i].selectedCompanyServicesName[j]) {
+  //      // b++;
+  //     } else if (moikaNames[2] ==
+  //         bookingRecord[i].selectedCompanyServicesName[j]) {
+  //      // c++;
+  //     } else if (moikaNames[3] ==
+  //         bookingRecord[i].selectedCompanyServicesName[j]) {
+  //      // d++;
+  //     } else if (moikaNames[4] ==
+  //         bookingRecord[i].selectedCompanyServicesName[j]) {
+  //      // e++;
+  //     } else if (moikaNames[5] ==
+  //         bookingRecord[i].selectedCompanyServicesName[j]) {
+  //      // f++;
+  //     } else if (moikaNames[6] ==
+  //         bookingRecord[i].selectedCompanyServicesName[j]) {
+  //       //g++;
+  //     } else if (moikaNames[7] ==
+  //         bookingRecord[i].selectedCompanyServicesName[j]) {
+  //      // h++;
+  //     }
+  //   }
+  // }
+
+  Map<String, int> serviceCounts = {};
+
+  // Loop through each booking record
+  for (int i = 0; i < bookingRecord.length; i++) {
+    List<String>? services = bookingRecord[i].selectedCompanyServicesName;
+
+    // for (int j = 0;
+    //     j < bookingRecord[i]!.selectedCompanyServicesName.length!;
+    //     j++) {
+    //   services.add(bookingRecord[i]!.selectedCompanyServicesName[j]!);
+    // }
+
+    // Loop through the services list for this booking record
+    for (int j = 0; j < services!.length; j++) {
+      String service = services[j]!;
+
+      if (serviceCounts.containsKey(service)) {
+        serviceCounts[service] = serviceCounts[service]! + 1;
+      } else {
+        serviceCounts[service] = 1;
+      }
+    }
+  }
+
+  // Find the service with the highest count
+  String mostCommonService =
+      serviceCounts.entries.reduce((a, b) => a.value > b.value ? a : b).key;
+
+  return mostCommonService;
+}
+
+List<int> generateIntList(int count) {
+  List<int> result = [];
+  for (int i = 1; i <= count; i++) {
+    result.add(i);
+  }
+  return result;
+}
+
+int stringToInt2(String input) {
+  return int.parse(input);
 }

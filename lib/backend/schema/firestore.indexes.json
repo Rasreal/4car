@@ -181,11 +181,11 @@
       "queryScope": "COLLECTION",
       "fields": [
         {
-          "fieldPath": "cancelled",
+          "fieldPath": "status",
           "order": "ASCENDING"
         },
         {
-          "fieldPath": "status",
+          "fieldPath": "booked_date",
           "order": "ASCENDING"
         }
       ]
@@ -205,15 +205,15 @@
       ]
     },
     {
-      "collectionGroup": "bookings",
+      "collectionGroup": "companies",
       "queryScope": "COLLECTION",
       "fields": [
         {
-          "fieldPath": "status",
+          "fieldPath": "ref",
           "order": "ASCENDING"
         },
         {
-          "fieldPath": "booked_date",
+          "fieldPath": "status",
           "order": "ASCENDING"
         }
       ]

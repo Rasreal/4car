@@ -3,17 +3,20 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:page_transition/page_transition.dart';
-import '../flutter_flow_theme.dart';
-import '../../backend/backend.dart';
+import 'package:provider/provider.dart';
+import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 
-import '../../auth/firebase_user_provider.dart';
-import '../../backend/push_notifications/push_notifications_handler.dart'
+import '/auth/base_auth_user_provider.dart';
+
+import '/backend/push_notifications/push_notifications_handler.dart'
     show PushNotificationsHandler;
-
-import '../../index.dart';
-import '../../main.dart';
-import '../lat_lng.dart';
-import '../place.dart';
+import '/index.dart';
+import '/main.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/lat_lng.dart';
+import '/flutter_flow/place.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 import 'serialization_util.dart';
 
 export 'package:go_router/go_router.dart';
@@ -22,8 +25,13 @@ export 'serialization_util.dart';
 const kTransitionInfoKey = '__transition_info__';
 
 class AppStateNotifier extends ChangeNotifier {
-  ForcarFirebaseUser? initialUser;
-  ForcarFirebaseUser? user;
+  AppStateNotifier._();
+
+  static AppStateNotifier? _instance;
+  static AppStateNotifier get instance => _instance ??= AppStateNotifier._();
+
+  BaseAuthUser? initialUser;
+  BaseAuthUser? user;
   bool showSplashImage = true;
   String? _redirectLocation;
 
@@ -48,11 +56,14 @@ class AppStateNotifier extends ChangeNotifier {
   /// to perform subsequent actions (such as navigation) afterwards.
   void updateNotifyOnAuthChange(bool notify) => notifyOnAuthChange = notify;
 
-  void update(ForcarFirebaseUser newUser) {
+  void update(BaseAuthUser newUser) {
+    final shouldUpdate =
+        user?.uid == null || newUser.uid == null || user?.uid != newUser.uid;
     initialUser ??= newUser;
     user = newUser;
     // Refresh the app on auth change unless explicitly marked otherwise.
-    if (notifyOnAuthChange) {
+    // No need to update unless the user has changed.
+    if (notifyOnAuthChange && shouldUpdate) {
       notifyListeners();
     }
     // Once again mark the notifier as needing to update on auth change
@@ -70,7 +81,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, _) => appStateNotifier.loggedIn
+      errorBuilder: (context, state) => appStateNotifier.loggedIn
           ? AdminMainWidget()
           : AdminSignInEmailWidget(),
       routes: [
@@ -109,20 +120,20 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'sign_up_code',
-              path: 'signUpCode',
-              builder: (context, params) => SignUpCodeWidget(),
-            ),
-            FFRoute(
               name: 'Sign_Up_2',
               path: 'signUp2',
               builder: (context, params) => SignUp2Widget(),
             ),
             FFRoute(
+              name: 'sign_up_code',
+              path: 'signUpCode',
+              builder: (context, params) => SignUpCodeWidget(),
+            ),
+            FFRoute(
               name: 'booking_page',
               path: 'bookingPage',
               asyncParams: {
-                'company': getDoc(['companies'], CompaniesRecord.serializer),
+                'company': getDoc(['companies'], CompaniesRecord.fromSnapshot),
               },
               builder: (context, params) => BookingPageWidget(
                 company: params.getParam('company', ParamType.Document),
@@ -234,7 +245,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'admin_add_company_3',
               path: 'adminAddCompany3',
               asyncParams: {
-                'docCompany': getDoc(['companies'], CompaniesRecord.serializer),
+                'docCompany':
+                    getDoc(['companies'], CompaniesRecord.fromSnapshot),
               },
               builder: (context, params) => AdminAddCompany3Widget(
                 docCompany: params.getParam('docCompany', ParamType.Document),
@@ -246,7 +258,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'admin_add_company_2',
               path: 'adminAddCompany2',
               asyncParams: {
-                'company': getDoc(['companies'], CompaniesRecord.serializer),
+                'company': getDoc(['companies'], CompaniesRecord.fromSnapshot),
               },
               builder: (context, params) => AdminAddCompany2Widget(
                 company: params.getParam('company', ParamType.Document),
@@ -256,7 +268,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'admin_add_company_4',
               path: 'adminAddCompany4',
               asyncParams: {
-                'docCompany': getDoc(['companies'], CompaniesRecord.serializer),
+                'docCompany':
+                    getDoc(['companies'], CompaniesRecord.fromSnapshot),
               },
               builder: (context, params) => AdminAddCompany4Widget(
                 company: params.getParam('company', ParamType.DocumentReference,
@@ -268,7 +281,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'admin_add_company_5',
               path: 'adminAddCompany5',
               asyncParams: {
-                'companyDoc': getDoc(['companies'], CompaniesRecord.serializer),
+                'companyDoc':
+                    getDoc(['companies'], CompaniesRecord.fromSnapshot),
               },
               builder: (context, params) => AdminAddCompany5Widget(
                 company: params.getParam('company', ParamType.DocumentReference,
@@ -281,7 +295,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               path: 'adminAddStaff2',
               asyncParams: {
                 'companyDocument': getDoc(['user', 'company_document'],
-                    CompanyDocumentRecord.serializer),
+                    CompanyDocumentRecord.fromSnapshot),
               },
               builder: (context, params) => AdminAddStaff2Widget(
                 companyDocument:
@@ -295,7 +309,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               path: 'adminAddStaff3',
               asyncParams: {
                 'companyDocument': getDoc(['user', 'company_document'],
-                    CompanyDocumentRecord.serializer),
+                    CompanyDocumentRecord.fromSnapshot),
               },
               builder: (context, params) => AdminAddStaff3Widget(
                 companyDocument:
@@ -309,7 +323,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               path: 'adminAddStaff1',
               asyncParams: {
                 'companyDocument': getDoc(['user', 'company_document'],
-                    CompanyDocumentRecord.serializer),
+                    CompanyDocumentRecord.fromSnapshot),
               },
               builder: (context, params) => AdminAddStaff1Widget(
                 companyDocument:
@@ -367,7 +381,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'super_admin_current_user',
               path: 'superAdminCurrentUser',
               asyncParams: {
-                'currentUser': getDoc(['user'], UserRecord.serializer),
+                'currentUser': getDoc(['user'], UserRecord.fromSnapshot),
               },
               builder: (context, params) => SuperAdminCurrentUserWidget(
                 currentUser: params.getParam('currentUser', ParamType.Document),
@@ -382,7 +396,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'booking_pageCopy',
               path: 'bookingPageCopy',
               asyncParams: {
-                'company': getDoc(['companies'], CompaniesRecord.serializer),
+                'company': getDoc(['companies'], CompaniesRecord.fromSnapshot),
               },
               builder: (context, params) => BookingPageCopyWidget(
                 company: params.getParam('company', ParamType.Document),
@@ -422,7 +436,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'admin_edit_company_services',
               path: 'adminEditCompanyServices',
               asyncParams: {
-                'company': getDoc(['companies'], CompaniesRecord.serializer),
+                'company': getDoc(['companies'], CompaniesRecord.fromSnapshot),
               },
               builder: (context, params) => AdminEditCompanyServicesWidget(
                 company: params.getParam('company', ParamType.Document),
@@ -431,7 +445,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
-      urlPathStrategy: UrlPathStrategy.path,
     );
 
 extension NavParamExtensions on Map<String, String?> {
@@ -446,8 +459,8 @@ extension NavigationExtensions on BuildContext {
   void goNamedAuth(
     String name,
     bool mounted, {
-    Map<String, String> params = const <String, String>{},
-    Map<String, String> queryParams = const <String, String>{},
+    Map<String, String> pathParameters = const <String, String>{},
+    Map<String, String> queryParameters = const <String, String>{},
     Object? extra,
     bool ignoreRedirect = false,
   }) =>
@@ -455,16 +468,16 @@ extension NavigationExtensions on BuildContext {
           ? null
           : goNamed(
               name,
-              params: params,
-              queryParams: queryParams,
+              pathParameters: pathParameters,
+              queryParameters: queryParameters,
               extra: extra,
             );
 
   void pushNamedAuth(
     String name,
     bool mounted, {
-    Map<String, String> params = const <String, String>{},
-    Map<String, String> queryParams = const <String, String>{},
+    Map<String, String> pathParameters = const <String, String>{},
+    Map<String, String> queryParameters = const <String, String>{},
     Object? extra,
     bool ignoreRedirect = false,
   }) =>
@@ -472,25 +485,24 @@ extension NavigationExtensions on BuildContext {
           ? null
           : pushNamed(
               name,
-              params: params,
-              queryParams: queryParams,
+              pathParameters: pathParameters,
+              queryParameters: queryParameters,
               extra: extra,
             );
 
   void safePop() {
     // If there is only one route on the stack, navigate to the initial
     // page instead of popping.
-    if (GoRouter.of(this).routerDelegate.matches.length <= 1) {
-      go('/');
-    } else {
+    if (canPop()) {
       pop();
+    } else {
+      go('/');
     }
   }
 }
 
 extension GoRouterExtensions on GoRouter {
-  AppStateNotifier get appState =>
-      (routerDelegate.refreshListenable as AppStateNotifier);
+  AppStateNotifier get appState => AppStateNotifier.instance;
   void prepareAuthEvent([bool ignoreRedirect = false]) =>
       appState.hasRedirect() && !ignoreRedirect
           ? null
@@ -499,16 +511,15 @@ extension GoRouterExtensions on GoRouter {
       !ignoreRedirect && appState.hasRedirect();
   void clearRedirectLocation() => appState.clearRedirectLocation();
   void setRedirectLocationIfUnset(String location) =>
-      (routerDelegate.refreshListenable as AppStateNotifier)
-          .updateNotifyOnAuthChange(false);
+      appState.updateNotifyOnAuthChange(false);
 }
 
 extension _GoRouterStateExtensions on GoRouterState {
   Map<String, dynamic> get extraMap =>
       extra != null ? extra as Map<String, dynamic> : {};
   Map<String, dynamic> get allParams => <String, dynamic>{}
-    ..addAll(params)
-    ..addAll(queryParams)
+    ..addAll(pathParameters)
+    ..addAll(queryParameters)
     ..addAll(extraMap);
   TransitionInfo get transitionInfo => extraMap.containsKey(kTransitionInfoKey)
       ? extraMap[kTransitionInfoKey] as TransitionInfo
@@ -564,7 +575,8 @@ class FFParameters {
       return param;
     }
     // Return serialized value.
-    return deserializeParam<T>(param, type, isList, collectionNamePath);
+    return deserializeParam<T>(param, type, isList,
+        collectionNamePath: collectionNamePath);
   }
 }
 
@@ -588,7 +600,7 @@ class FFRoute {
   GoRoute toRoute(AppStateNotifier appStateNotifier) => GoRoute(
         name: name,
         path: path,
-        redirect: (state) {
+        redirect: (context, state) {
           if (appStateNotifier.shouldRedirect) {
             final redirectLocation = appStateNotifier.getRedirectLocation();
             appStateNotifier.clearRedirectLocation();
@@ -653,4 +665,24 @@ class TransitionInfo {
   final Alignment? alignment;
 
   static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
+}
+
+class RootPageContext {
+  const RootPageContext(this.isRootPage, [this.errorRoute]);
+  final bool isRootPage;
+  final String? errorRoute;
+
+  static bool isInactiveRootPage(BuildContext context) {
+    final rootPageContext = context.read<RootPageContext?>();
+    final isRootPage = rootPageContext?.isRootPage ?? false;
+    final location = GoRouter.of(context).location;
+    return isRootPage &&
+        location != '/' &&
+        location != rootPageContext?.errorRoute;
+  }
+
+  static Widget wrap(Widget child, {String? errorRoute}) => Provider.value(
+        value: RootPageContext(true, errorRoute),
+        child: child,
+      );
 }

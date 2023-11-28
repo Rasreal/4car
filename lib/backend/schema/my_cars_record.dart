@@ -1,37 +1,49 @@
 import 'dart:async';
 
+import 'package:collection/collection.dart';
+
+import '/backend/schema/util/firestore_util.dart';
+import '/backend/schema/util/schema_util.dart';
+
 import 'index.dart';
-import 'serializers.dart';
-import 'package:built_value/built_value.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 
-part 'my_cars_record.g.dart';
+class MyCarsRecord extends FirestoreRecord {
+  MyCarsRecord._(
+    DocumentReference reference,
+    Map<String, dynamic> data,
+  ) : super(reference, data) {
+    _initializeFields();
+  }
 
-abstract class MyCarsRecord
-    implements Built<MyCarsRecord, MyCarsRecordBuilder> {
-  static Serializer<MyCarsRecord> get serializer => _$myCarsRecordSerializer;
+  // "car_num" field.
+  String? _carNum;
+  String get carNum => _carNum ?? '';
+  bool hasCarNum() => _carNum != null;
 
-  @BuiltValueField(wireName: 'car_num')
-  String? get carNum;
+  // "car_body" field.
+  String? _carBody;
+  String get carBody => _carBody ?? '';
+  bool hasCarBody() => _carBody != null;
 
-  @BuiltValueField(wireName: 'car_body')
-  String? get carBody;
+  // "car_order" field.
+  int? _carOrder;
+  int get carOrder => _carOrder ?? 0;
+  bool hasCarOrder() => _carOrder != null;
 
-  @BuiltValueField(wireName: 'car_order')
-  int? get carOrder;
-
-  @BuiltValueField(wireName: 'link_body')
-  DocumentReference? get linkBody;
-
-  @BuiltValueField(wireName: kDocumentReferenceField)
-  DocumentReference? get ffRef;
-  DocumentReference get reference => ffRef!;
+  // "link_body" field.
+  DocumentReference? _linkBody;
+  DocumentReference? get linkBody => _linkBody;
+  bool hasLinkBody() => _linkBody != null;
 
   DocumentReference get parentReference => reference.parent.parent!;
 
-  static void _initializeBuilder(MyCarsRecordBuilder builder) => builder
-    ..carNum = ''
-    ..carBody = ''
-    ..carOrder = 0;
+  void _initializeFields() {
+    _carNum = snapshotData['car_num'] as String?;
+    _carBody = snapshotData['car_body'] as String?;
+    _carOrder = castToType<int>(snapshotData['car_order']);
+    _linkBody = snapshotData['link_body'] as DocumentReference?;
+  }
 
   static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
       parent != null
@@ -41,22 +53,34 @@ abstract class MyCarsRecord
   static DocumentReference createDoc(DocumentReference parent) =>
       parent.collection('my_cars').doc();
 
-  static Stream<MyCarsRecord> getDocument(DocumentReference ref) => ref
-      .snapshots()
-      .map((s) => serializers.deserializeWith(serializer, serializedData(s))!);
+  static Stream<MyCarsRecord> getDocument(DocumentReference ref) =>
+      ref.snapshots().map((s) => MyCarsRecord.fromSnapshot(s));
 
-  static Future<MyCarsRecord> getDocumentOnce(DocumentReference ref) => ref
-      .get()
-      .then((s) => serializers.deserializeWith(serializer, serializedData(s))!);
+  static Future<MyCarsRecord> getDocumentOnce(DocumentReference ref) =>
+      ref.get().then((s) => MyCarsRecord.fromSnapshot(s));
 
-  MyCarsRecord._();
-  factory MyCarsRecord([void Function(MyCarsRecordBuilder) updates]) =
-      _$MyCarsRecord;
+  static MyCarsRecord fromSnapshot(DocumentSnapshot snapshot) => MyCarsRecord._(
+        snapshot.reference,
+        mapFromFirestore(snapshot.data() as Map<String, dynamic>),
+      );
 
   static MyCarsRecord getDocumentFromData(
-          Map<String, dynamic> data, DocumentReference reference) =>
-      serializers.deserializeWith(serializer,
-          {...mapFromFirestore(data), kDocumentReferenceField: reference})!;
+    Map<String, dynamic> data,
+    DocumentReference reference,
+  ) =>
+      MyCarsRecord._(reference, mapFromFirestore(data));
+
+  @override
+  String toString() =>
+      'MyCarsRecord(reference: ${reference.path}, data: $snapshotData)';
+
+  @override
+  int get hashCode => reference.path.hashCode;
+
+  @override
+  bool operator ==(other) =>
+      other is MyCarsRecord &&
+      reference.path.hashCode == other.reference.path.hashCode;
 }
 
 Map<String, dynamic> createMyCarsRecordData({
@@ -65,16 +89,33 @@ Map<String, dynamic> createMyCarsRecordData({
   int? carOrder,
   DocumentReference? linkBody,
 }) {
-  final firestoreData = serializers.toFirestore(
-    MyCarsRecord.serializer,
-    MyCarsRecord(
-      (m) => m
-        ..carNum = carNum
-        ..carBody = carBody
-        ..carOrder = carOrder
-        ..linkBody = linkBody,
-    ),
+  final firestoreData = mapToFirestore(
+    <String, dynamic>{
+      'car_num': carNum,
+      'car_body': carBody,
+      'car_order': carOrder,
+      'link_body': linkBody,
+    }.withoutNulls,
   );
 
   return firestoreData;
+}
+
+class MyCarsRecordDocumentEquality implements Equality<MyCarsRecord> {
+  const MyCarsRecordDocumentEquality();
+
+  @override
+  bool equals(MyCarsRecord? e1, MyCarsRecord? e2) {
+    return e1?.carNum == e2?.carNum &&
+        e1?.carBody == e2?.carBody &&
+        e1?.carOrder == e2?.carOrder &&
+        e1?.linkBody == e2?.linkBody;
+  }
+
+  @override
+  int hash(MyCarsRecord? e) => const ListEquality()
+      .hash([e?.carNum, e?.carBody, e?.carOrder, e?.linkBody]);
+
+  @override
+  bool isValidKey(Object? o) => o is MyCarsRecord;
 }

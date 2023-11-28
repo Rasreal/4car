@@ -1,0 +1,472 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'add_car_model.dart';
+export 'add_car_model.dart';
+
+class AddCarWidget extends StatefulWidget {
+  const AddCarWidget({Key? key}) : super(key: key);
+
+  @override
+  _AddCarWidgetState createState() => _AddCarWidgetState();
+}
+
+class _AddCarWidgetState extends State<AddCarWidget> {
+  late AddCarModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => AddCarModel());
+
+    _model.textController ??= TextEditingController();
+    _model.textFieldFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _model.maybeDispose();
+
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
+    return Container(
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: FlutterFlowTheme.of(context).secondaryBackground,
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(0.0),
+          bottomRight: Radius.circular(0.0),
+          topLeft: Radius.circular(30.0),
+          topRight: Radius.circular(30.0),
+        ),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Align(
+            alignment: AlignmentDirectional(0.00, 0.00),
+            child: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 16.0),
+              child: Container(
+                width: 40.0,
+                height: 4.0,
+                decoration: BoxDecoration(
+                  color: Color(0xFFD9D9D9),
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(
+                  'Введите данные машины',
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily:
+                            FlutterFlowTheme.of(context).bodyMediumFamily,
+                        color: FlutterFlowTheme.of(context).primaryText,
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.w500,
+                        useGoogleFonts: GoogleFonts.asMap().containsKey(
+                            FlutterFlowTheme.of(context).bodyMediumFamily),
+                      ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                  child: Text(
+                    'Кузов',
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily:
+                              FlutterFlowTheme.of(context).bodyMediumFamily,
+                          color: FlutterFlowTheme.of(context).primaryText,
+                          fontSize: 14.0,
+                          fontWeight: FontWeight.w500,
+                          useGoogleFonts: GoogleFonts.asMap().containsKey(
+                              FlutterFlowTheme.of(context).bodyMediumFamily),
+                        ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+            child: Container(
+              width: double.infinity,
+              height: 32.0,
+              decoration: BoxDecoration(
+                color: FlutterFlowTheme.of(context).secondaryBackground,
+              ),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                child: StreamBuilder<List<CarBodyRecord>>(
+                  stream: queryCarBodyRecord(),
+                  builder: (context, snapshot) {
+                    // Customize what your widget looks like when it's loading.
+                    if (!snapshot.hasData) {
+                      return Center(
+                        child: SizedBox(
+                          width: 50.0,
+                          height: 50.0,
+                          child: CircularProgressIndicator(
+                            valueColor: AlwaysStoppedAnimation<Color>(
+                              FlutterFlowTheme.of(context).primary,
+                            ),
+                          ),
+                        ),
+                      );
+                    }
+                    List<CarBodyRecord> listViewCarBodyRecordList =
+                        snapshot.data!;
+                    return ListView.builder(
+                      padding: EdgeInsets.zero,
+                      shrinkWrap: true,
+                      scrollDirection: Axis.horizontal,
+                      itemCount: listViewCarBodyRecordList.length,
+                      itemBuilder: (context, listViewIndex) {
+                        final listViewCarBodyRecord =
+                            listViewCarBodyRecordList[listViewIndex];
+                        return Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              8.0, 0.0, 0.0, 0.0),
+                          child: Stack(
+                            children: [
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  FFAppState().update(() {
+                                    FFAppState().addCarBody =
+                                        listViewCarBodyRecord.bodyName;
+                                  });
+                                },
+                                child: Container(
+                                  height: 32.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    borderRadius: BorderRadius.circular(8.0),
+                                    border: Border.all(
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                    ),
+                                  ),
+                                  child: Align(
+                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          12.0, 0.0, 12.0, 0.0),
+                                      child: Text(
+                                        listViewCarBodyRecord.bodyName,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              if (listViewCarBodyRecord.bodyName ==
+                                  FFAppState().addCarBody)
+                                Container(
+                                  height: 32.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    borderRadius: BorderRadius.circular(8.0),
+                                    border: Border.all(
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                    ),
+                                  ),
+                                  child: Align(
+                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          12.0, 0.0, 12.0, 0.0),
+                                      child: Text(
+                                        listViewCarBodyRecord.bodyName,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMediumFamily,
+                                              color: Colors.white,
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily),
+                                            ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                            ],
+                          ),
+                        );
+                      },
+                    );
+                  },
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(16.0, 24.0, 16.0, 0.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(
+                  'Введите номер машины',
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily:
+                            FlutterFlowTheme.of(context).bodyMediumFamily,
+                        color: FlutterFlowTheme.of(context).primaryText,
+                        fontSize: 14.0,
+                        fontWeight: FontWeight.w500,
+                        useGoogleFonts: GoogleFonts.asMap().containsKey(
+                            FlutterFlowTheme.of(context).bodyMediumFamily),
+                      ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                  child: Form(
+                    key: _model.formKey,
+                    autovalidateMode: AutovalidateMode.disabled,
+                    child: TextFormField(
+                      controller: _model.textController,
+                      focusNode: _model.textFieldFocusNode,
+                      obscureText: false,
+                      decoration: InputDecoration(
+                        hintText: '337REZ05',
+                        hintStyle: FlutterFlowTheme.of(context).bodySmall,
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).gray2,
+                            width: 1.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0x00000000),
+                            width: 1.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        errorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0x00000000),
+                            width: 1.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        focusedErrorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0x00000000),
+                            width: 1.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                      ),
+                      style: FlutterFlowTheme.of(context).bodyMedium,
+                      validator:
+                          _model.textControllerValidator.asValidator(context),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 60.0),
+                  child: Container(
+                    width: double.infinity,
+                    child: Stack(
+                      children: [
+                        FFButtonWidget(
+                          onPressed: () async {
+                            if (_model.formKey.currentState == null ||
+                                !_model.formKey.currentState!.validate()) {
+                              return;
+                            }
+                            if (valueOrDefault(
+                                        currentUserDocument?.carscount, 0)
+                                    .toString() ==
+                                '0') {
+                              var myCarsRecordReference1 =
+                                  MyCarsRecord.createDoc(currentUserReference!);
+                              await myCarsRecordReference1
+                                  .set(createMyCarsRecordData(
+                                carNum: _model.textController.text,
+                                carBody: FFAppState().addCarBody,
+                                carOrder: 1,
+                              ));
+                              _model.firstCar =
+                                  MyCarsRecord.getDocumentFromData(
+                                      createMyCarsRecordData(
+                                        carNum: _model.textController.text,
+                                        carBody: FFAppState().addCarBody,
+                                        carOrder: 1,
+                                      ),
+                                      myCarsRecordReference1);
+
+                              await currentUserReference!
+                                  .update(createUserRecordData(
+                                carscount: 1,
+                                firstCar: _model.firstCar?.reference,
+                                firstCarBody: FFAppState().addCarBody,
+                                firstCarName: _model.textController.text,
+                              ));
+                            } else {
+                              if (valueOrDefault(
+                                          currentUserDocument?.carscount, 0)
+                                      .toString() ==
+                                  '1') {
+                                await MyCarsRecord.createDoc(
+                                        currentUserReference!)
+                                    .set(createMyCarsRecordData(
+                                  carNum: _model.textController.text,
+                                  carBody: FFAppState().addCarBody,
+                                  carOrder: 2,
+                                ));
+
+                                await currentUserReference!
+                                    .update(createUserRecordData(
+                                  carscount: 2,
+                                ));
+                              } else {
+                                if (valueOrDefault(
+                                            currentUserDocument?.carscount, 0)
+                                        .toString() ==
+                                    '2') {
+                                  await MyCarsRecord.createDoc(
+                                          currentUserReference!)
+                                      .set(createMyCarsRecordData(
+                                    carNum: _model.textController.text,
+                                    carBody: FFAppState().addCarBody,
+                                    carOrder: 3,
+                                  ));
+
+                                  await currentUserReference!
+                                      .update(createUserRecordData(
+                                    carscount: 3,
+                                  ));
+                                }
+                              }
+                            }
+
+                            Navigator.pop(context);
+
+                            context.goNamed(
+                              'edit_profile',
+                              extra: <String, dynamic>{
+                                kTransitionInfoKey: TransitionInfo(
+                                  hasTransition: true,
+                                  transitionType: PageTransitionType.fade,
+                                  duration: Duration(milliseconds: 0),
+                                ),
+                              },
+                            );
+
+                            setState(() {});
+                          },
+                          text: 'Сохранить',
+                          options: FFButtonOptions(
+                            width: double.infinity,
+                            height: 48.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).primary,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .titleSmallFamily,
+                                  color: Colors.white,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .titleSmallFamily),
+                                ),
+                            elevation: 2.0,
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
+                              width: 0.0,
+                            ),
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                        ),
+                        if (FFAppState().addCarBody == null ||
+                            FFAppState().addCarBody == '')
+                          FFButtonWidget(
+                            onPressed: () {
+                              print('Button pressed ...');
+                            },
+                            text: 'Сохранить',
+                            options: FFButtonOptions(
+                              width: double.infinity,
+                              height: 48.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: FlutterFlowTheme.of(context).starblue,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .titleSmallFamily,
+                                    color: Colors.white,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey(
+                                            FlutterFlowTheme.of(context)
+                                                .titleSmallFamily),
+                                  ),
+                              elevation: 2.0,
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                          ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
