@@ -1084,6 +1084,7 @@ class _MyNotesWidgetState extends State<MyNotesWidget> {
                         pagingQuery = queryBuilder(BookingsRecord.collection);
                         pagingController!.addPageRequestListener((nextPageMarker) {
                           queryBookingsRecordPage(
+                            controller: pagingController!,
                             queryBuilder: (bookingsRecord) => bookingsRecord
                                 .where('booked_user', isEqualTo: currentUserReference)
                                 .where('status', isEqualTo: 'Закончено'),

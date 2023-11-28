@@ -1,26 +1,31 @@
 import 'dart:async';
 
+import 'package:collection/collection.dart';
+
+import '/backend/schema/util/firestore_util.dart';
+import '/backend/schema/util/schema_util.dart';
+
 import 'index.dart';
-import 'serializers.dart';
-import 'package:built_value/built_value.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 
-part 'notifications_record.g.dart';
+class NotificationsRecord extends FirestoreRecord {
+  NotificationsRecord._(
+      DocumentReference reference,
+      Map<String, dynamic> data,
+      ) : super(reference, data) {
+    _initializeFields();
+  }
 
-abstract class NotificationsRecord
-    implements Built<NotificationsRecord, NotificationsRecordBuilder> {
-  static Serializer<NotificationsRecord> get serializer =>
-      _$notificationsRecordSerializer;
-
-  String? get name;
-
-  @BuiltValueField(wireName: kDocumentReferenceField)
-  DocumentReference? get ffRef;
-  DocumentReference get reference => ffRef!;
+  // "name" field.
+  String? _name;
+  String get name => _name ?? '';
+  bool hasName() => _name != null;
 
   DocumentReference get parentReference => reference.parent.parent!;
 
-  static void _initializeBuilder(NotificationsRecordBuilder builder) =>
-      builder..name = '';
+  void _initializeFields() {
+    _name = snapshotData['name'] as String?;
+  }
 
   static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
       parent != null
@@ -30,34 +35,61 @@ abstract class NotificationsRecord
   static DocumentReference createDoc(DocumentReference parent) =>
       parent.collection('notifications').doc();
 
-  static Stream<NotificationsRecord> getDocument(DocumentReference ref) => ref
-      .snapshots()
-      .map((s) => serializers.deserializeWith(serializer, serializedData(s))!);
+  static Stream<NotificationsRecord> getDocument(DocumentReference ref) =>
+      ref.snapshots().map((s) => NotificationsRecord.fromSnapshot(s));
 
   static Future<NotificationsRecord> getDocumentOnce(DocumentReference ref) =>
-      ref.get().then(
-          (s) => serializers.deserializeWith(serializer, serializedData(s))!);
+      ref.get().then((s) => NotificationsRecord.fromSnapshot(s));
 
-  NotificationsRecord._();
-  factory NotificationsRecord(
-          [void Function(NotificationsRecordBuilder) updates]) =
-      _$NotificationsRecord;
+  static NotificationsRecord fromSnapshot(DocumentSnapshot snapshot) =>
+      NotificationsRecord._(
+        snapshot.reference,
+        mapFromFirestore(snapshot.data() as Map<String, dynamic>),
+      );
 
   static NotificationsRecord getDocumentFromData(
-          Map<String, dynamic> data, DocumentReference reference) =>
-      serializers.deserializeWith(serializer,
-          {...mapFromFirestore(data), kDocumentReferenceField: reference})!;
+      Map<String, dynamic> data,
+      DocumentReference reference,
+      ) =>
+      NotificationsRecord._(reference, mapFromFirestore(data));
+
+  @override
+  String toString() =>
+      'NotificationsRecord(reference: ${reference.path}, data: $snapshotData)';
+
+  @override
+  int get hashCode => reference.path.hashCode;
+
+  @override
+  bool operator ==(other) =>
+      other is NotificationsRecord &&
+          reference.path.hashCode == other.reference.path.hashCode;
 }
 
 Map<String, dynamic> createNotificationsRecordData({
   String? name,
 }) {
-  final firestoreData = serializers.toFirestore(
-    NotificationsRecord.serializer,
-    NotificationsRecord(
-      (n) => n..name = name,
-    ),
+  final firestoreData = mapToFirestore(
+    <String, dynamic>{
+      'name': name,
+    }.withoutNulls,
   );
 
   return firestoreData;
+}
+
+class NotificationsRecordDocumentEquality
+    implements Equality<NotificationsRecord> {
+  const NotificationsRecordDocumentEquality();
+
+  @override
+  bool equals(NotificationsRecord? e1, NotificationsRecord? e2) {
+    return e1?.name == e2?.name;
+  }
+
+  @override
+  int hash(NotificationsRecord? e) => const ListEquality().hash([e?.name]);
+
+  @override
+  bool isValidKey(Object? o) => o is NotificationsRecord;
 }

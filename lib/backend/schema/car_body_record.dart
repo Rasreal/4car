@@ -1,55 +1,87 @@
 import 'dart:async';
 
+import 'package:collection/collection.dart';
+
+import '/backend/schema/util/firestore_util.dart';
+import '/backend/schema/util/schema_util.dart';
+
 import 'index.dart';
-import 'serializers.dart';
-import 'package:built_value/built_value.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 
-part 'car_body_record.g.dart';
+class CarBodyRecord extends FirestoreRecord {
+  CarBodyRecord._(
+      DocumentReference reference,
+      Map<String, dynamic> data,
+      ) : super(reference, data) {
+    _initializeFields();
+  }
 
-abstract class CarBodyRecord
-    implements Built<CarBodyRecord, CarBodyRecordBuilder> {
-  static Serializer<CarBodyRecord> get serializer => _$carBodyRecordSerializer;
+  // "body_name" field.
+  String? _bodyName;
+  String get bodyName => _bodyName ?? '';
+  bool hasBodyName() => _bodyName != null;
 
-  @BuiltValueField(wireName: 'body_name')
-  String? get bodyName;
-
-  @BuiltValueField(wireName: kDocumentReferenceField)
-  DocumentReference? get ffRef;
-  DocumentReference get reference => ffRef!;
-
-  static void _initializeBuilder(CarBodyRecordBuilder builder) =>
-      builder..bodyName = '';
+  void _initializeFields() {
+    _bodyName = snapshotData['body_name'] as String?;
+  }
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('car_body');
 
-  static Stream<CarBodyRecord> getDocument(DocumentReference ref) => ref
-      .snapshots()
-      .map((s) => serializers.deserializeWith(serializer, serializedData(s))!);
+  static Stream<CarBodyRecord> getDocument(DocumentReference ref) =>
+      ref.snapshots().map((s) => CarBodyRecord.fromSnapshot(s));
 
-  static Future<CarBodyRecord> getDocumentOnce(DocumentReference ref) => ref
-      .get()
-      .then((s) => serializers.deserializeWith(serializer, serializedData(s))!);
+  static Future<CarBodyRecord> getDocumentOnce(DocumentReference ref) =>
+      ref.get().then((s) => CarBodyRecord.fromSnapshot(s));
 
-  CarBodyRecord._();
-  factory CarBodyRecord([void Function(CarBodyRecordBuilder) updates]) =
-      _$CarBodyRecord;
+  static CarBodyRecord fromSnapshot(DocumentSnapshot snapshot) =>
+      CarBodyRecord._(
+        snapshot.reference,
+        mapFromFirestore(snapshot.data() as Map<String, dynamic>),
+      );
 
   static CarBodyRecord getDocumentFromData(
-          Map<String, dynamic> data, DocumentReference reference) =>
-      serializers.deserializeWith(serializer,
-          {...mapFromFirestore(data), kDocumentReferenceField: reference})!;
+      Map<String, dynamic> data,
+      DocumentReference reference,
+      ) =>
+      CarBodyRecord._(reference, mapFromFirestore(data));
+
+  @override
+  String toString() =>
+      'CarBodyRecord(reference: ${reference.path}, data: $snapshotData)';
+
+  @override
+  int get hashCode => reference.path.hashCode;
+
+  @override
+  bool operator ==(other) =>
+      other is CarBodyRecord &&
+          reference.path.hashCode == other.reference.path.hashCode;
 }
 
 Map<String, dynamic> createCarBodyRecordData({
   String? bodyName,
 }) {
-  final firestoreData = serializers.toFirestore(
-    CarBodyRecord.serializer,
-    CarBodyRecord(
-      (c) => c..bodyName = bodyName,
-    ),
+  final firestoreData = mapToFirestore(
+    <String, dynamic>{
+      'body_name': bodyName,
+    }.withoutNulls,
   );
 
   return firestoreData;
+}
+
+class CarBodyRecordDocumentEquality implements Equality<CarBodyRecord> {
+  const CarBodyRecordDocumentEquality();
+
+  @override
+  bool equals(CarBodyRecord? e1, CarBodyRecord? e2) {
+    return e1?.bodyName == e2?.bodyName;
+  }
+
+  @override
+  int hash(CarBodyRecord? e) => const ListEquality().hash([e?.bodyName]);
+
+  @override
+  bool isValidKey(Object? o) => o is CarBodyRecord;
 }

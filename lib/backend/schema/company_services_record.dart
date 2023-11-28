@@ -1,41 +1,55 @@
 import 'dart:async';
 
+import 'package:collection/collection.dart';
+
+import '/backend/schema/util/firestore_util.dart';
+import '/backend/schema/util/schema_util.dart';
+
 import 'index.dart';
-import 'serializers.dart';
-import 'package:built_value/built_value.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 
-part 'company_services_record.g.dart';
+class CompanyServicesRecord extends FirestoreRecord {
+  CompanyServicesRecord._(
+      DocumentReference reference,
+      Map<String, dynamic> data,
+      ) : super(reference, data) {
+    _initializeFields();
+  }
 
-abstract class CompanyServicesRecord
-    implements Built<CompanyServicesRecord, CompanyServicesRecordBuilder> {
-  static Serializer<CompanyServicesRecord> get serializer =>
-      _$companyServicesRecordSerializer;
+  // "name" field.
+  String? _name;
+  String get name => _name ?? '';
+  bool hasName() => _name != null;
 
-  String? get name;
+  // "car_body" field.
+  String? _carBody;
+  String get carBody => _carBody ?? '';
+  bool hasCarBody() => _carBody != null;
 
-  @BuiltValueField(wireName: 'car_body')
-  String? get carBody;
+  // "price" field.
+  double? _price;
+  double get price => _price ?? 0.0;
+  bool hasPrice() => _price != null;
 
-  double? get price;
+  // "duration" field.
+  int? _duration;
+  int get duration => _duration ?? 0;
+  bool hasDuration() => _duration != null;
 
-  int? get duration;
-
-  @BuiltValueField(wireName: 'duration_name')
-  String? get durationName;
-
-  @BuiltValueField(wireName: kDocumentReferenceField)
-  DocumentReference? get ffRef;
-  DocumentReference get reference => ffRef!;
+  // "duration_name" field.
+  String? _durationName;
+  String get durationName => _durationName ?? '';
+  bool hasDurationName() => _durationName != null;
 
   DocumentReference get parentReference => reference.parent.parent!;
 
-  static void _initializeBuilder(CompanyServicesRecordBuilder builder) =>
-      builder
-        ..name = ''
-        ..carBody = ''
-        ..price = 0.0
-        ..duration = 0
-        ..durationName = '';
+  void _initializeFields() {
+    _name = snapshotData['name'] as String?;
+    _carBody = snapshotData['car_body'] as String?;
+    _price = castToType<double>(snapshotData['price']);
+    _duration = castToType<int>(snapshotData['duration']);
+    _durationName = snapshotData['duration_name'] as String?;
+  }
 
   static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
       parent != null
@@ -45,23 +59,35 @@ abstract class CompanyServicesRecord
   static DocumentReference createDoc(DocumentReference parent) =>
       parent.collection('company_services').doc();
 
-  static Stream<CompanyServicesRecord> getDocument(DocumentReference ref) => ref
-      .snapshots()
-      .map((s) => serializers.deserializeWith(serializer, serializedData(s))!);
+  static Stream<CompanyServicesRecord> getDocument(DocumentReference ref) =>
+      ref.snapshots().map((s) => CompanyServicesRecord.fromSnapshot(s));
 
   static Future<CompanyServicesRecord> getDocumentOnce(DocumentReference ref) =>
-      ref.get().then(
-          (s) => serializers.deserializeWith(serializer, serializedData(s))!);
+      ref.get().then((s) => CompanyServicesRecord.fromSnapshot(s));
 
-  CompanyServicesRecord._();
-  factory CompanyServicesRecord(
-          [void Function(CompanyServicesRecordBuilder) updates]) =
-      _$CompanyServicesRecord;
+  static CompanyServicesRecord fromSnapshot(DocumentSnapshot snapshot) =>
+      CompanyServicesRecord._(
+        snapshot.reference,
+        mapFromFirestore(snapshot.data() as Map<String, dynamic>),
+      );
 
   static CompanyServicesRecord getDocumentFromData(
-          Map<String, dynamic> data, DocumentReference reference) =>
-      serializers.deserializeWith(serializer,
-          {...mapFromFirestore(data), kDocumentReferenceField: reference})!;
+      Map<String, dynamic> data,
+      DocumentReference reference,
+      ) =>
+      CompanyServicesRecord._(reference, mapFromFirestore(data));
+
+  @override
+  String toString() =>
+      'CompanyServicesRecord(reference: ${reference.path}, data: $snapshotData)';
+
+  @override
+  int get hashCode => reference.path.hashCode;
+
+  @override
+  bool operator ==(other) =>
+      other is CompanyServicesRecord &&
+          reference.path.hashCode == other.reference.path.hashCode;
 }
 
 Map<String, dynamic> createCompanyServicesRecordData({
@@ -71,17 +97,36 @@ Map<String, dynamic> createCompanyServicesRecordData({
   int? duration,
   String? durationName,
 }) {
-  final firestoreData = serializers.toFirestore(
-    CompanyServicesRecord.serializer,
-    CompanyServicesRecord(
-      (c) => c
-        ..name = name
-        ..carBody = carBody
-        ..price = price
-        ..duration = duration
-        ..durationName = durationName,
-    ),
+  final firestoreData = mapToFirestore(
+    <String, dynamic>{
+      'name': name,
+      'car_body': carBody,
+      'price': price,
+      'duration': duration,
+      'duration_name': durationName,
+    }.withoutNulls,
   );
 
   return firestoreData;
+}
+
+class CompanyServicesRecordDocumentEquality
+    implements Equality<CompanyServicesRecord> {
+  const CompanyServicesRecordDocumentEquality();
+
+  @override
+  bool equals(CompanyServicesRecord? e1, CompanyServicesRecord? e2) {
+    return e1?.name == e2?.name &&
+        e1?.carBody == e2?.carBody &&
+        e1?.price == e2?.price &&
+        e1?.duration == e2?.duration &&
+        e1?.durationName == e2?.durationName;
+  }
+
+  @override
+  int hash(CompanyServicesRecord? e) => const ListEquality()
+      .hash([e?.name, e?.carBody, e?.price, e?.duration, e?.durationName]);
+
+  @override
+  bool isValidKey(Object? o) => o is CompanyServicesRecord;
 }

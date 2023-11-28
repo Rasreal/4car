@@ -1,146 +1,242 @@
 import 'dart:async';
 
+import 'package:collection/collection.dart';
+
+import '/backend/schema/util/firestore_util.dart';
+import '/backend/schema/util/schema_util.dart';
+
 import 'index.dart';
-import 'serializers.dart';
-import 'package:built_value/built_value.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 
-part 'companies_record.g.dart';
+class CompaniesRecord extends FirestoreRecord {
+  CompaniesRecord._(
+      DocumentReference reference,
+      Map<String, dynamic> data,
+      ) : super(reference, data) {
+    _initializeFields();
+  }
 
-abstract class CompaniesRecord
-    implements Built<CompaniesRecord, CompaniesRecordBuilder> {
-  static Serializer<CompaniesRecord> get serializer =>
-      _$companiesRecordSerializer;
+  // "name" field.
+  String? _name;
+  String get name => _name ?? '';
+  bool hasName() => _name != null;
 
-  String? get name;
+  // "rating" field.
+  List<double>? _rating;
+  List<double> get rating => _rating ?? const [];
+  bool hasRating() => _rating != null;
 
-  BuiltList<double>? get rating;
+  // "location" field.
+  LatLng? _location;
+  LatLng? get location => _location;
+  bool hasLocation() => _location != null;
 
-  LatLng? get location;
+  // "logo" field.
+  String? _logo;
+  String get logo => _logo ?? '';
+  bool hasLogo() => _logo != null;
 
-  String? get logo;
+  // "city" field.
+  String? _city;
+  String get city => _city ?? '';
+  bool hasCity() => _city != null;
 
-  String? get city;
+  // "street" field.
+  String? _street;
+  String get street => _street ?? '';
+  bool hasStreet() => _street != null;
 
-  String? get street;
+  // "address_2GIS" field.
+  String? _address2GIS;
+  String get address2GIS => _address2GIS ?? '';
+  bool hasAddress2GIS() => _address2GIS != null;
 
-  @BuiltValueField(wireName: 'address_2GIS')
-  String? get address2GIS;
+  // "admin_created_by" field.
+  DocumentReference? _adminCreatedBy;
+  DocumentReference? get adminCreatedBy => _adminCreatedBy;
+  bool hasAdminCreatedBy() => _adminCreatedBy != null;
 
-  @BuiltValueField(wireName: 'admin_created_by')
-  DocumentReference? get adminCreatedBy;
+  // "conveniences" field.
+  String? _conveniences;
+  String get conveniences => _conveniences ?? '';
+  bool hasConveniences() => _conveniences != null;
 
-  String? get conveniences;
+  // "count_box" field.
+  int? _countBox;
+  int get countBox => _countBox ?? 0;
+  bool hasCountBox() => _countBox != null;
 
-  @BuiltValueField(wireName: 'count_box')
-  int? get countBox;
+  // "status" field.
+  String? _status;
+  String get status => _status ?? '';
+  bool hasStatus() => _status != null;
 
-  String? get status;
+  // "too_name" field.
+  String? _tooName;
+  String get tooName => _tooName ?? '';
+  bool hasTooName() => _tooName != null;
 
-  @BuiltValueField(wireName: 'too_name')
-  String? get tooName;
+  // "bin_iin" field.
+  int? _binIin;
+  int get binIin => _binIin ?? 0;
+  bool hasBinIin() => _binIin != null;
 
-  @BuiltValueField(wireName: 'bin_iin')
-  int? get binIin;
+  // "iban" field.
+  String? _iban;
+  String get iban => _iban ?? '';
+  bool hasIban() => _iban != null;
 
-  String? get iban;
+  // "fio_admin" field.
+  String? _fioAdmin;
+  String get fioAdmin => _fioAdmin ?? '';
+  bool hasFioAdmin() => _fioAdmin != null;
 
-  @BuiltValueField(wireName: 'fio_admin')
-  String? get fioAdmin;
+  // "date_dogovor" field.
+  DateTime? _dateDogovor;
+  DateTime? get dateDogovor => _dateDogovor;
+  bool hasDateDogovor() => _dateDogovor != null;
 
-  @BuiltValueField(wireName: 'date_dogovor')
-  DateTime? get dateDogovor;
+  // "dogovor_pdf" field.
+  String? _dogovorPdf;
+  String get dogovorPdf => _dogovorPdf ?? '';
+  bool hasDogovorPdf() => _dogovorPdf != null;
 
-  @BuiltValueField(wireName: 'dogovor_pdf')
-  String? get dogovorPdf;
+  // "link_city" field.
+  DocumentReference? _linkCity;
+  DocumentReference? get linkCity => _linkCity;
+  bool hasLinkCity() => _linkCity != null;
 
-  @BuiltValueField(wireName: 'link_city')
-  DocumentReference? get linkCity;
+  // "phone_num" field.
+  String? _phoneNum;
+  String get phoneNum => _phoneNum ?? '';
+  bool hasPhoneNum() => _phoneNum != null;
 
-  @BuiltValueField(wireName: 'phone_num')
-  String? get phoneNum;
+  // "open_time" field.
+  String? _openTime;
+  String get openTime => _openTime ?? '';
+  bool hasOpenTime() => _openTime != null;
 
-  @BuiltValueField(wireName: 'open_time')
-  String? get openTime;
+  // "close_time" field.
+  String? _closeTime;
+  String get closeTime => _closeTime ?? '';
+  bool hasCloseTime() => _closeTime != null;
 
-  @BuiltValueField(wireName: 'close_time')
-  String? get closeTime;
+  // "open_time_order" field.
+  int? _openTimeOrder;
+  int get openTimeOrder => _openTimeOrder ?? 0;
+  bool hasOpenTimeOrder() => _openTimeOrder != null;
 
-  @BuiltValueField(wireName: 'open_time_order')
-  int? get openTimeOrder;
+  // "closed_time_order" field.
+  int? _closedTimeOrder;
+  int get closedTimeOrder => _closedTimeOrder ?? 0;
+  bool hasClosedTimeOrder() => _closedTimeOrder != null;
 
-  @BuiltValueField(wireName: 'closed_time_order')
-  int? get closedTimeOrder;
+  // "company_document" field.
+  DocumentReference? _companyDocument;
+  DocumentReference? get companyDocument => _companyDocument;
+  bool hasCompanyDocument() => _companyDocument != null;
 
-  @BuiltValueField(wireName: 'company_document')
-  DocumentReference? get companyDocument;
+  // "forCarPercent" field.
+  double? _forCarPercent;
+  double get forCarPercent => _forCarPercent ?? 0.0;
+  bool hasForCarPercent() => _forCarPercent != null;
 
-  double? get forCarPercent;
+  // "count_box_string" field.
+  List<String>? _countBoxString;
+  List<String> get countBoxString => _countBoxString ?? const [];
+  bool hasCountBoxString() => _countBoxString != null;
 
-  @BuiltValueField(wireName: 'count_box_string')
-  BuiltList<String>? get countBoxString;
+  // "company_users" field.
+  List<DocumentReference>? _companyUsers;
+  List<DocumentReference> get companyUsers => _companyUsers ?? const [];
+  bool hasCompanyUsers() => _companyUsers != null;
 
-  @BuiltValueField(wireName: 'company_users')
-  BuiltList<DocumentReference>? get companyUsers;
+  // "num_dogovor" field.
+  String? _numDogovor;
+  String get numDogovor => _numDogovor ?? '';
+  bool hasNumDogovor() => _numDogovor != null;
 
-  @BuiltValueField(wireName: 'num_dogovor')
-  String? get numDogovor;
+  // "address_google_map" field.
+  String? _addressGoogleMap;
+  String get addressGoogleMap => _addressGoogleMap ?? '';
+  bool hasAddressGoogleMap() => _addressGoogleMap != null;
 
-  @BuiltValueField(wireName: 'address_google_map')
-  String? get addressGoogleMap;
+  // "address_yandex_map" field.
+  String? _addressYandexMap;
+  String get addressYandexMap => _addressYandexMap ?? '';
+  bool hasAddressYandexMap() => _addressYandexMap != null;
 
-  @BuiltValueField(wireName: 'address_yandex_map')
-  String? get addressYandexMap;
+  // "ref" field.
+  String? _ref;
+  String get ref => _ref ?? '';
+  bool hasRef() => _ref != null;
 
-  @BuiltValueField(wireName: kDocumentReferenceField)
-  DocumentReference? get ffRef;
-  DocumentReference get reference => ffRef!;
-
-  static void _initializeBuilder(CompaniesRecordBuilder builder) => builder
-    ..name = ''
-    ..rating = ListBuilder()
-    ..logo = ''
-    ..city = ''
-    ..street = ''
-    ..address2GIS = ''
-    ..conveniences = ''
-    ..countBox = 0
-    ..status = ''
-    ..tooName = ''
-    ..binIin = 0
-    ..iban = ''
-    ..fioAdmin = ''
-    ..dogovorPdf = ''
-    ..phoneNum = ''
-    ..openTime = ''
-    ..closeTime = ''
-    ..openTimeOrder = 0
-    ..closedTimeOrder = 0
-    ..forCarPercent = 0.0
-    ..countBoxString = ListBuilder()
-    ..companyUsers = ListBuilder()
-    ..numDogovor = ''
-    ..addressGoogleMap = ''
-    ..addressYandexMap = '';
+  void _initializeFields() {
+    _name = snapshotData['name'] as String?;
+    _rating = getDataList(snapshotData['rating']);
+    _location = snapshotData['location'] as LatLng?;
+    _logo = snapshotData['logo'] as String?;
+    _city = snapshotData['city'] as String?;
+    _street = snapshotData['street'] as String?;
+    _address2GIS = snapshotData['address_2GIS'] as String?;
+    _adminCreatedBy = snapshotData['admin_created_by'] as DocumentReference?;
+    _conveniences = snapshotData['conveniences'] as String?;
+    _countBox = castToType<int>(snapshotData['count_box']);
+    _status = snapshotData['status'] as String?;
+    _tooName = snapshotData['too_name'] as String?;
+    _binIin = castToType<int>(snapshotData['bin_iin']);
+    _iban = snapshotData['iban'] as String?;
+    _fioAdmin = snapshotData['fio_admin'] as String?;
+    _dateDogovor = snapshotData['date_dogovor'] as DateTime?;
+    _dogovorPdf = snapshotData['dogovor_pdf'] as String?;
+    _linkCity = snapshotData['link_city'] as DocumentReference?;
+    _phoneNum = snapshotData['phone_num'] as String?;
+    _openTime = snapshotData['open_time'] as String?;
+    _closeTime = snapshotData['close_time'] as String?;
+    _openTimeOrder = castToType<int>(snapshotData['open_time_order']);
+    _closedTimeOrder = castToType<int>(snapshotData['closed_time_order']);
+    _companyDocument = snapshotData['company_document'] as DocumentReference?;
+    _forCarPercent = castToType<double>(snapshotData['forCarPercent']);
+    _countBoxString = getDataList(snapshotData['count_box_string']);
+    _companyUsers = getDataList(snapshotData['company_users']);
+    _numDogovor = snapshotData['num_dogovor'] as String?;
+    _addressGoogleMap = snapshotData['address_google_map'] as String?;
+    _addressYandexMap = snapshotData['address_yandex_map'] as String?;
+    _ref = snapshotData['ref'] as String?;
+  }
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('companies');
 
-  static Stream<CompaniesRecord> getDocument(DocumentReference ref) => ref
-      .snapshots()
-      .map((s) => serializers.deserializeWith(serializer, serializedData(s))!);
+  static Stream<CompaniesRecord> getDocument(DocumentReference ref) =>
+      ref.snapshots().map((s) => CompaniesRecord.fromSnapshot(s));
 
-  static Future<CompaniesRecord> getDocumentOnce(DocumentReference ref) => ref
-      .get()
-      .then((s) => serializers.deserializeWith(serializer, serializedData(s))!);
+  static Future<CompaniesRecord> getDocumentOnce(DocumentReference ref) =>
+      ref.get().then((s) => CompaniesRecord.fromSnapshot(s));
 
-  CompaniesRecord._();
-  factory CompaniesRecord([void Function(CompaniesRecordBuilder) updates]) =
-  _$CompaniesRecord;
+  static CompaniesRecord fromSnapshot(DocumentSnapshot snapshot) =>
+      CompaniesRecord._(
+        snapshot.reference,
+        mapFromFirestore(snapshot.data() as Map<String, dynamic>),
+      );
 
   static CompaniesRecord getDocumentFromData(
-      Map<String, dynamic> data, DocumentReference reference) =>
-      serializers.deserializeWith(serializer,
-          {...mapFromFirestore(data), kDocumentReferenceField: reference})!;
+      Map<String, dynamic> data,
+      DocumentReference reference,
+      ) =>
+      CompaniesRecord._(reference, mapFromFirestore(data));
+
+  @override
+  String toString() =>
+      'CompaniesRecord(reference: ${reference.path}, data: $snapshotData)';
+
+  @override
+  int get hashCode => reference.path.hashCode;
+
+  @override
+  bool operator ==(other) =>
+      other is CompaniesRecord &&
+          reference.path.hashCode == other.reference.path.hashCode;
 }
 
 Map<String, dynamic> createCompaniesRecordData({
@@ -171,43 +267,118 @@ Map<String, dynamic> createCompaniesRecordData({
   String? numDogovor,
   String? addressGoogleMap,
   String? addressYandexMap,
+  String? ref,
 }) {
-  final firestoreData = serializers.toFirestore(
-    CompaniesRecord.serializer,
-    CompaniesRecord(
-          (c) => c
-        ..name = name
-        ..rating = null
-        ..location = location
-        ..logo = logo
-        ..city = city
-        ..street = street
-        ..address2GIS = address2GIS
-        ..adminCreatedBy = adminCreatedBy
-        ..conveniences = conveniences
-        ..countBox = countBox
-        ..status = status
-        ..tooName = tooName
-        ..binIin = binIin
-        ..iban = iban
-        ..fioAdmin = fioAdmin
-        ..dateDogovor = dateDogovor
-        ..dogovorPdf = dogovorPdf
-        ..linkCity = linkCity
-        ..phoneNum = phoneNum
-        ..openTime = openTime
-        ..closeTime = closeTime
-        ..openTimeOrder = openTimeOrder
-        ..closedTimeOrder = closedTimeOrder
-        ..companyDocument = companyDocument
-        ..forCarPercent = forCarPercent
-        ..countBoxString = null
-        ..companyUsers = null
-        ..numDogovor = numDogovor
-        ..addressGoogleMap = addressGoogleMap
-        ..addressYandexMap = addressYandexMap,
-    ),
+  final firestoreData = mapToFirestore(
+    <String, dynamic>{
+      'name': name,
+      'location': location,
+      'logo': logo,
+      'city': city,
+      'street': street,
+      'address_2GIS': address2GIS,
+      'admin_created_by': adminCreatedBy,
+      'conveniences': conveniences,
+      'count_box': countBox,
+      'status': status,
+      'too_name': tooName,
+      'bin_iin': binIin,
+      'iban': iban,
+      'fio_admin': fioAdmin,
+      'date_dogovor': dateDogovor,
+      'dogovor_pdf': dogovorPdf,
+      'link_city': linkCity,
+      'phone_num': phoneNum,
+      'open_time': openTime,
+      'close_time': closeTime,
+      'open_time_order': openTimeOrder,
+      'closed_time_order': closedTimeOrder,
+      'company_document': companyDocument,
+      'forCarPercent': forCarPercent,
+      'num_dogovor': numDogovor,
+      'address_google_map': addressGoogleMap,
+      'address_yandex_map': addressYandexMap,
+      'ref': ref,
+    }.withoutNulls,
   );
 
   return firestoreData;
+}
+
+class CompaniesRecordDocumentEquality implements Equality<CompaniesRecord> {
+  const CompaniesRecordDocumentEquality();
+
+  @override
+  bool equals(CompaniesRecord? e1, CompaniesRecord? e2) {
+    const listEquality = ListEquality();
+    return e1?.name == e2?.name &&
+        listEquality.equals(e1?.rating, e2?.rating) &&
+        e1?.location == e2?.location &&
+        e1?.logo == e2?.logo &&
+        e1?.city == e2?.city &&
+        e1?.street == e2?.street &&
+        e1?.address2GIS == e2?.address2GIS &&
+        e1?.adminCreatedBy == e2?.adminCreatedBy &&
+        e1?.conveniences == e2?.conveniences &&
+        e1?.countBox == e2?.countBox &&
+        e1?.status == e2?.status &&
+        e1?.tooName == e2?.tooName &&
+        e1?.binIin == e2?.binIin &&
+        e1?.iban == e2?.iban &&
+        e1?.fioAdmin == e2?.fioAdmin &&
+        e1?.dateDogovor == e2?.dateDogovor &&
+        e1?.dogovorPdf == e2?.dogovorPdf &&
+        e1?.linkCity == e2?.linkCity &&
+        e1?.phoneNum == e2?.phoneNum &&
+        e1?.openTime == e2?.openTime &&
+        e1?.closeTime == e2?.closeTime &&
+        e1?.openTimeOrder == e2?.openTimeOrder &&
+        e1?.closedTimeOrder == e2?.closedTimeOrder &&
+        e1?.companyDocument == e2?.companyDocument &&
+        e1?.forCarPercent == e2?.forCarPercent &&
+        listEquality.equals(e1?.countBoxString, e2?.countBoxString) &&
+        listEquality.equals(e1?.companyUsers, e2?.companyUsers) &&
+        e1?.numDogovor == e2?.numDogovor &&
+        e1?.addressGoogleMap == e2?.addressGoogleMap &&
+        e1?.addressYandexMap == e2?.addressYandexMap &&
+        e1?.ref == e2?.ref;
+  }
+
+  @override
+  int hash(CompaniesRecord? e) => const ListEquality().hash([
+    e?.name,
+    e?.rating,
+    e?.location,
+    e?.logo,
+    e?.city,
+    e?.street,
+    e?.address2GIS,
+    e?.adminCreatedBy,
+    e?.conveniences,
+    e?.countBox,
+    e?.status,
+    e?.tooName,
+    e?.binIin,
+    e?.iban,
+    e?.fioAdmin,
+    e?.dateDogovor,
+    e?.dogovorPdf,
+    e?.linkCity,
+    e?.phoneNum,
+    e?.openTime,
+    e?.closeTime,
+    e?.openTimeOrder,
+    e?.closedTimeOrder,
+    e?.companyDocument,
+    e?.forCarPercent,
+    e?.countBoxString,
+    e?.companyUsers,
+    e?.numDogovor,
+    e?.addressGoogleMap,
+    e?.addressYandexMap,
+    e?.ref
+  ]);
+
+  @override
+  bool isValidKey(Object? o) => o is CompaniesRecord;
 }

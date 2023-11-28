@@ -120,7 +120,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'booking_page',
               path: 'bookingPage',
               asyncParams: {
-                'company': getDoc(['companies'], CompaniesRecord.serializer),
+                'company': getDoc(['companies'], CompaniesRecord.fromSnapshot),
+
               },
               builder: (context, params) => BookingPageWidget(
                 company: params.getParam('company', ParamType.Document),
@@ -182,7 +183,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'booking_pageCopy',
               path: 'bookingPageCopy',
               asyncParams: {
-                'company': getDoc(['companies'], CompaniesRecord.serializer),
+                'company': getDoc(['companies'], CompaniesRecord.fromSnapshot),
               },
               builder: (context, params) => BookingPageCopyWidget(
                 company: params.getParam('company', ParamType.Document),
@@ -318,7 +319,7 @@ class FFParameters {
       return param;
     }
     // Return serialized value.
-    return deserializeParam<T>(param, type, isList, collectionNamePath);
+    return deserializeParam<T>(param, type, isList, collectionNamePath: collectionNamePath);
   }
 }
 

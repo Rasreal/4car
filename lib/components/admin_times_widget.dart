@@ -132,6 +132,7 @@ class _AdminTimesWidgetState extends State<AdminTimesWidget> {
                             nextPageMarker: nextPageMarker,
                             pageSize: 25,
                             isStream: true,
+                            controller: _pagingController!,
                           ).then((page) {
                             _pagingController!.appendPage(
                               page.data,

@@ -1,114 +1,214 @@
 import 'dart:async';
 
+import 'package:collection/collection.dart';
+
+import '/backend/schema/util/firestore_util.dart';
+import '/backend/schema/util/schema_util.dart';
+
 import 'index.dart';
-import 'serializers.dart';
-import 'package:built_value/built_value.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 
-part 'user_record.g.dart';
+class UserRecord extends FirestoreRecord {
+  UserRecord._(
+      DocumentReference reference,
+      Map<String, dynamic> data,
+      ) : super(reference, data) {
+    _initializeFields();
+  }
 
-abstract class UserRecord implements Built<UserRecord, UserRecordBuilder> {
-  static Serializer<UserRecord> get serializer => _$userRecordSerializer;
+  // "email" field.
+  String? _email;
+  String get email => _email ?? '';
+  bool hasEmail() => _email != null;
 
-  String? get email;
+  // "display_name" field.
+  String? _displayName;
+  String get displayName => _displayName ?? '';
+  bool hasDisplayName() => _displayName != null;
 
-  @BuiltValueField(wireName: 'display_name')
-  String? get displayName;
+  // "photo_url" field.
+  String? _photoUrl;
+  String get photoUrl => _photoUrl ?? '';
+  bool hasPhotoUrl() => _photoUrl != null;
 
-  @BuiltValueField(wireName: 'photo_url')
-  String? get photoUrl;
+  // "uid" field.
+  String? _uid;
+  String get uid => _uid ?? '';
+  bool hasUid() => _uid != null;
 
-  String? get uid;
+  // "created_time" field.
+  DateTime? _createdTime;
+  DateTime? get createdTime => _createdTime;
+  bool hasCreatedTime() => _createdTime != null;
 
-  @BuiltValueField(wireName: 'created_time')
-  DateTime? get createdTime;
+  // "role" field.
+  String? _role;
+  String get role => _role ?? '';
+  bool hasRole() => _role != null;
 
-  String? get role;
+  // "permissions" field.
+  UserPermissionsStruct? _permissions;
+  UserPermissionsStruct get permissions =>
+      _permissions ?? UserPermissionsStruct();
+  bool hasPermissions() => _permissions != null;
 
-  UserPermissionsStruct get permissions;
+  // "favCompany" field.
+  List<DocumentReference>? _favCompany;
+  List<DocumentReference> get favCompany => _favCompany ?? const [];
+  bool hasFavCompany() => _favCompany != null;
 
-  BuiltList<DocumentReference>? get favCompany;
+  // "search_history" field.
+  List<DocumentReference>? _searchHistory;
+  List<DocumentReference> get searchHistory => _searchHistory ?? const [];
+  bool hasSearchHistory() => _searchHistory != null;
 
-  @BuiltValueField(wireName: 'search_history')
-  BuiltList<DocumentReference>? get searchHistory;
+  // "carscount" field.
+  int? _carscount;
+  int get carscount => _carscount ?? 0;
+  bool hasCarscount() => _carscount != null;
 
-  int? get carscount;
+  // "phone_number" field.
+  String? _phoneNumber;
+  String get phoneNumber => _phoneNumber ?? '';
+  bool hasPhoneNumber() => _phoneNumber != null;
 
-  @BuiltValueField(wireName: 'phone_number')
-  String? get phoneNumber;
+  // "text" field.
+  int? _text;
+  int get text => _text ?? 0;
+  bool hasText() => _text != null;
 
-  int? get text;
+  // "country" field.
+  DocumentReference? _country;
+  DocumentReference? get country => _country;
+  bool hasCountry() => _country != null;
 
-  DocumentReference? get country;
+  // "country_text" field.
+  String? _countryText;
+  String get countryText => _countryText ?? '';
+  bool hasCountryText() => _countryText != null;
 
-  @BuiltValueField(wireName: 'country_text')
-  String? get countryText;
+  // "link_last_booking" field.
+  DocumentReference? _linkLastBooking;
+  DocumentReference? get linkLastBooking => _linkLastBooking;
+  bool hasLinkLastBooking() => _linkLastBooking != null;
 
-  @BuiltValueField(wireName: 'link_last_booking')
-  DocumentReference? get linkLastBooking;
+  // "last_booking_boolean" field.
+  bool? _lastBookingBoolean;
+  bool get lastBookingBoolean => _lastBookingBoolean ?? false;
+  bool hasLastBookingBoolean() => _lastBookingBoolean != null;
 
-  @BuiltValueField(wireName: 'last_booking_boolean')
-  bool? get lastBookingBoolean;
+  // "merchan_document" field.
+  DocumentReference? _merchanDocument;
+  DocumentReference? get merchanDocument => _merchanDocument;
+  bool hasMerchanDocument() => _merchanDocument != null;
 
-  @BuiltValueField(wireName: 'merchan_document')
-  DocumentReference? get merchanDocument;
+  // "firstCar" field.
+  DocumentReference? _firstCar;
+  DocumentReference? get firstCar => _firstCar;
+  bool hasFirstCar() => _firstCar != null;
 
-  DocumentReference? get firstCar;
+  // "sign_up_date" field.
+  DateTime? _signUpDate;
+  DateTime? get signUpDate => _signUpDate;
+  bool hasSignUpDate() => _signUpDate != null;
 
-  @BuiltValueField(wireName: 'sign_up_date')
-  DateTime? get signUpDate;
+  // "bookingCompanies" field.
+  List<DocumentReference>? _bookingCompanies;
+  List<DocumentReference> get bookingCompanies => _bookingCompanies ?? const [];
+  bool hasBookingCompanies() => _bookingCompanies != null;
 
-  BuiltList<DocumentReference>? get bookingCompanies;
+  // "firstCarBody" field.
+  String? _firstCarBody;
+  String get firstCarBody => _firstCarBody ?? '';
+  bool hasFirstCarBody() => _firstCarBody != null;
 
-  String? get firstCarBody;
+  // "firstCarName" field.
+  String? _firstCarName;
+  String get firstCarName => _firstCarName ?? '';
+  bool hasFirstCarName() => _firstCarName != null;
 
-  String? get firstCarName;
+  // "admin_status" field.
+  String? _adminStatus;
+  String get adminStatus => _adminStatus ?? '';
+  bool hasAdminStatus() => _adminStatus != null;
 
-  @BuiltValueField(wireName: 'admin_status')
-  String? get adminStatus;
+  // "createdByAdminCompanyRef" field.
+  DocumentReference? _createdByAdminCompanyRef;
+  DocumentReference? get createdByAdminCompanyRef => _createdByAdminCompanyRef;
+  bool hasCreatedByAdminCompanyRef() => _createdByAdminCompanyRef != null;
 
-  DocumentReference? get createdByAdminCompanyRef;
+  // "StuffID" field.
+  String? _stuffID;
+  String get stuffID => _stuffID ?? '';
+  bool hasStuffID() => _stuffID != null;
 
-  @BuiltValueField(wireName: kDocumentReferenceField)
-  DocumentReference? get ffRef;
-  DocumentReference get reference => ffRef!;
+  // "Added_company" field.
+  bool? _addedCompany;
+  bool get addedCompany => _addedCompany ?? false;
+  bool hasAddedCompany() => _addedCompany != null;
 
-  static void _initializeBuilder(UserRecordBuilder builder) => builder
-    ..email = ''
-    ..displayName = ''
-    ..photoUrl = ''
-    ..uid = ''
-    ..role = ''
-    ..permissions = UserPermissionsStructBuilder()
-    ..favCompany = ListBuilder()
-    ..searchHistory = ListBuilder()
-    ..carscount = 0
-    ..phoneNumber = ''
-    ..text = 0
-    ..countryText = ''
-    ..lastBookingBoolean = false
-    ..bookingCompanies = ListBuilder()
-    ..firstCarBody = ''
-    ..firstCarName = ''
-    ..adminStatus = '';
+  void _initializeFields() {
+    _email = snapshotData['email'] as String?;
+    _displayName = snapshotData['display_name'] as String?;
+    _photoUrl = snapshotData['photo_url'] as String?;
+    _uid = snapshotData['uid'] as String?;
+    _createdTime = snapshotData['created_time'] as DateTime?;
+    _role = snapshotData['role'] as String?;
+    _permissions =
+        UserPermissionsStruct.maybeFromMap(snapshotData['permissions']);
+    _favCompany = getDataList(snapshotData['favCompany']);
+    _searchHistory = getDataList(snapshotData['search_history']);
+    _carscount = castToType<int>(snapshotData['carscount']);
+    _phoneNumber = snapshotData['phone_number'] as String?;
+    _text = castToType<int>(snapshotData['text']);
+    _country = snapshotData['country'] as DocumentReference?;
+    _countryText = snapshotData['country_text'] as String?;
+    _linkLastBooking = snapshotData['link_last_booking'] as DocumentReference?;
+    _lastBookingBoolean = snapshotData['last_booking_boolean'] as bool?;
+    _merchanDocument = snapshotData['merchan_document'] as DocumentReference?;
+    _firstCar = snapshotData['firstCar'] as DocumentReference?;
+    _signUpDate = snapshotData['sign_up_date'] as DateTime?;
+    _bookingCompanies = getDataList(snapshotData['bookingCompanies']);
+    _firstCarBody = snapshotData['firstCarBody'] as String?;
+    _firstCarName = snapshotData['firstCarName'] as String?;
+    _adminStatus = snapshotData['admin_status'] as String?;
+    _createdByAdminCompanyRef =
+    snapshotData['createdByAdminCompanyRef'] as DocumentReference?;
+    _stuffID = snapshotData['StuffID'] as String?;
+    _addedCompany = snapshotData['Added_company'] as bool?;
+  }
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('user');
 
-  static Stream<UserRecord> getDocument(DocumentReference ref) => ref
-      .snapshots()
-      .map((s) => serializers.deserializeWith(serializer, serializedData(s))!);
+  static Stream<UserRecord> getDocument(DocumentReference ref) =>
+      ref.snapshots().map((s) => UserRecord.fromSnapshot(s));
 
-  static Future<UserRecord> getDocumentOnce(DocumentReference ref) => ref
-      .get()
-      .then((s) => serializers.deserializeWith(serializer, serializedData(s))!);
+  static Future<UserRecord> getDocumentOnce(DocumentReference ref) =>
+      ref.get().then((s) => UserRecord.fromSnapshot(s));
 
-  UserRecord._();
-  factory UserRecord([void Function(UserRecordBuilder) updates]) = _$UserRecord;
+  static UserRecord fromSnapshot(DocumentSnapshot snapshot) => UserRecord._(
+    snapshot.reference,
+    mapFromFirestore(snapshot.data() as Map<String, dynamic>),
+  );
 
   static UserRecord getDocumentFromData(
-      Map<String, dynamic> data, DocumentReference reference) =>
-      serializers.deserializeWith(serializer,
-          {...mapFromFirestore(data), kDocumentReferenceField: reference})!;
+      Map<String, dynamic> data,
+      DocumentReference reference,
+      ) =>
+      UserRecord._(reference, mapFromFirestore(data));
+
+  @override
+  String toString() =>
+      'UserRecord(reference: ${reference.path}, data: $snapshotData)';
+
+  @override
+  int get hashCode => reference.path.hashCode;
+
+  @override
+  bool operator ==(other) =>
+      other is UserRecord &&
+          reference.path.hashCode == other.reference.path.hashCode;
 }
 
 Map<String, dynamic> createUserRecordData({
@@ -133,36 +233,35 @@ Map<String, dynamic> createUserRecordData({
   String? firstCarName,
   String? adminStatus,
   DocumentReference? createdByAdminCompanyRef,
+  String? stuffID,
+  bool? addedCompany,
 }) {
-  final firestoreData = serializers.toFirestore(
-    UserRecord.serializer,
-    UserRecord(
-          (u) => u
-        ..email = email
-        ..displayName = displayName
-        ..photoUrl = photoUrl
-        ..uid = uid
-        ..createdTime = createdTime
-        ..role = role
-        ..permissions = UserPermissionsStructBuilder()
-        ..favCompany = null
-        ..searchHistory = null
-        ..carscount = carscount
-        ..phoneNumber = phoneNumber
-        ..text = text
-        ..country = country
-        ..countryText = countryText
-        ..linkLastBooking = linkLastBooking
-        ..lastBookingBoolean = lastBookingBoolean
-        ..merchanDocument = merchanDocument
-        ..firstCar = firstCar
-        ..signUpDate = signUpDate
-        ..bookingCompanies = null
-        ..firstCarBody = firstCarBody
-        ..firstCarName = firstCarName
-        ..adminStatus = adminStatus
-        ..createdByAdminCompanyRef = createdByAdminCompanyRef,
-    ),
+  final firestoreData = mapToFirestore(
+    <String, dynamic>{
+      'email': email,
+      'display_name': displayName,
+      'photo_url': photoUrl,
+      'uid': uid,
+      'created_time': createdTime,
+      'role': role,
+      'permissions': UserPermissionsStruct().toMap(),
+      'carscount': carscount,
+      'phone_number': phoneNumber,
+      'text': text,
+      'country': country,
+      'country_text': countryText,
+      'link_last_booking': linkLastBooking,
+      'last_booking_boolean': lastBookingBoolean,
+      'merchan_document': merchanDocument,
+      'firstCar': firstCar,
+      'sign_up_date': signUpDate,
+      'firstCarBody': firstCarBody,
+      'firstCarName': firstCarName,
+      'admin_status': adminStatus,
+      'createdByAdminCompanyRef': createdByAdminCompanyRef,
+      'StuffID': stuffID,
+      'Added_company': addedCompany,
+    }.withoutNulls,
   );
 
   // Handle nested data for "permissions" field.
@@ -171,62 +270,70 @@ Map<String, dynamic> createUserRecordData({
   return firestoreData;
 }
 
-Map<String, dynamic> createUserRecordData2({
-  String? email,
-  String? displayName,
-  String? photoUrl,
-  String? uid,
-  DateTime? createdTime,
-  String? role,
-  UserPermissionsStruct? permissions,
-  int? carscount,
-  String? phoneNumber,
-  int? text,
-  DocumentReference? country,
-  String? countryText,
-  DocumentReference? linkLastBooking,
-  bool? lastBookingBoolean,
-  DocumentReference? merchanDocument,
-  DocumentReference? firstCar,
-  DateTime? signUpDate,
-  String? firstCarBody,
-  String? firstCarName,
-  String? adminStatus,
-  DocumentReference? createdByAdminCompanyRef,
-}) {
-  final firestoreData = serializers.toFirestore(
-    UserRecord.serializer,
-    UserRecord(
-          (u) => u
-        ..email = email
-        ..displayName = displayName
-        ..photoUrl = photoUrl
-        ..uid = uid
-        ..createdTime = createdTime
-        ..role = role
-        ..permissions = UserPermissionsStructBuilder()
-        ..favCompany = null
-        ..searchHistory = null
-        ..carscount = carscount
-        ..phoneNumber = phoneNumber
-        ..text = text
-        ..country = country
-        ..countryText = countryText
-        ..linkLastBooking = linkLastBooking
-        ..lastBookingBoolean = lastBookingBoolean
-        ..merchanDocument = merchanDocument
-        ..firstCar = firstCar
-        ..signUpDate = signUpDate
-        ..bookingCompanies = null
-        ..firstCarBody = firstCarBody
-        ..firstCarName = firstCarName
-        ..adminStatus = adminStatus
-        ..createdByAdminCompanyRef = createdByAdminCompanyRef,
-    ),
-  );
+class UserRecordDocumentEquality implements Equality<UserRecord> {
+  const UserRecordDocumentEquality();
 
-  // Handle nested data for "permissions" field.
-  addUserPermissionsStructData(firestoreData, permissions, 'permissions');
+  @override
+  bool equals(UserRecord? e1, UserRecord? e2) {
+    const listEquality = ListEquality();
+    return e1?.email == e2?.email &&
+        e1?.displayName == e2?.displayName &&
+        e1?.photoUrl == e2?.photoUrl &&
+        e1?.uid == e2?.uid &&
+        e1?.createdTime == e2?.createdTime &&
+        e1?.role == e2?.role &&
+        e1?.permissions == e2?.permissions &&
+        listEquality.equals(e1?.favCompany, e2?.favCompany) &&
+        listEquality.equals(e1?.searchHistory, e2?.searchHistory) &&
+        e1?.carscount == e2?.carscount &&
+        e1?.phoneNumber == e2?.phoneNumber &&
+        e1?.text == e2?.text &&
+        e1?.country == e2?.country &&
+        e1?.countryText == e2?.countryText &&
+        e1?.linkLastBooking == e2?.linkLastBooking &&
+        e1?.lastBookingBoolean == e2?.lastBookingBoolean &&
+        e1?.merchanDocument == e2?.merchanDocument &&
+        e1?.firstCar == e2?.firstCar &&
+        e1?.signUpDate == e2?.signUpDate &&
+        listEquality.equals(e1?.bookingCompanies, e2?.bookingCompanies) &&
+        e1?.firstCarBody == e2?.firstCarBody &&
+        e1?.firstCarName == e2?.firstCarName &&
+        e1?.adminStatus == e2?.adminStatus &&
+        e1?.createdByAdminCompanyRef == e2?.createdByAdminCompanyRef &&
+        e1?.stuffID == e2?.stuffID &&
+        e1?.addedCompany == e2?.addedCompany;
+  }
 
-  return firestoreData;
+  @override
+  int hash(UserRecord? e) => const ListEquality().hash([
+    e?.email,
+    e?.displayName,
+    e?.photoUrl,
+    e?.uid,
+    e?.createdTime,
+    e?.role,
+    e?.permissions,
+    e?.favCompany,
+    e?.searchHistory,
+    e?.carscount,
+    e?.phoneNumber,
+    e?.text,
+    e?.country,
+    e?.countryText,
+    e?.linkLastBooking,
+    e?.lastBookingBoolean,
+    e?.merchanDocument,
+    e?.firstCar,
+    e?.signUpDate,
+    e?.bookingCompanies,
+    e?.firstCarBody,
+    e?.firstCarName,
+    e?.adminStatus,
+    e?.createdByAdminCompanyRef,
+    e?.stuffID,
+    e?.addedCompany
+  ]);
+
+  @override
+  bool isValidKey(Object? o) => o is UserRecord;
 }

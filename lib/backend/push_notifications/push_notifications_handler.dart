@@ -118,7 +118,7 @@ final parametersBuilderMap =
   'booking_page': (data) async => ParameterData(
         allParams: {
           'company': await getDocumentParameter<CompaniesRecord>(
-              data, 'company', CompaniesRecord.serializer),
+              data, 'company', CompaniesRecord.fromSnapshot),
         },
       ),
   'My_notes': ParameterData.none(),
@@ -154,13 +154,13 @@ final parametersBuilderMap =
   'admin_add_company_2': (data) async => ParameterData(
         allParams: {
           'company': await getDocumentParameter<CompaniesRecord>(
-              data, 'company', CompaniesRecord.serializer),
+              data, 'company', CompaniesRecord.fromSnapshot),
         },
       ),
   'admin_add_company_3': (data) async => ParameterData(
         allParams: {
           'docCompany': await getDocumentParameter<CompaniesRecord>(
-              data, 'docCompany', CompaniesRecord.serializer),
+              data, 'docCompany', CompaniesRecord.fromSnapshot),
           'company': getParameter<DocumentReference>(data, 'company'),
         },
       ),
@@ -168,14 +168,14 @@ final parametersBuilderMap =
         allParams: {
           'company': getParameter<DocumentReference>(data, 'company'),
           'docCompany': await getDocumentParameter<CompaniesRecord>(
-              data, 'docCompany', CompaniesRecord.serializer),
+              data, 'docCompany', CompaniesRecord.fromSnapshot),
         },
       ),
   'admin_add_company_5': (data) async => ParameterData(
         allParams: {
           'company': getParameter<DocumentReference>(data, 'company'),
           'companyDoc': await getDocumentParameter<CompaniesRecord>(
-              data, 'companyDoc', CompaniesRecord.serializer),
+              data, 'companyDoc', CompaniesRecord.fromSnapshot),
         },
       ),
   'admin_add_staff_1': ParameterData.none(),
@@ -221,14 +221,14 @@ final parametersBuilderMap =
   'super_admin_current_user': (data) async => ParameterData(
         allParams: {
           'currentUser': await getDocumentParameter<UserRecord>(
-              data, 'currentUser', UserRecord.serializer),
+              data, 'currentUser', UserRecord.fromSnapshot),
         },
       ),
   'super_admin_sales_moderation': ParameterData.none(),
   'booking_pageCopy': (data) async => ParameterData(
         allParams: {
           'company': await getDocumentParameter<CompaniesRecord>(
-              data, 'company', CompaniesRecord.serializer),
+              data, 'company', CompaniesRecord.fromSnapshot),
         },
       ),
   'HomePageCopy': ParameterData.none(),
